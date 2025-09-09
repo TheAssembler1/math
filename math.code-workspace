@@ -1,0 +1,20 @@
+{
+    "folders": [
+		{
+			"path": "anderson_abstract_algebra"
+		},
+		{
+			"path": "calculus_spivak"
+		},
+		{
+			"path": "lang_basic_mathematics"
+		},
+		{
+			"path": "velleman_how_to_prove_it"
+		},
+		{
+			"path": "base_tex_proj"
+		}
+	],
+	"settings": {}
+}

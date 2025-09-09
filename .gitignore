@@ -1,0 +1,45 @@
+# LaTeX intermediate and build files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.lol
+*.nav
+*.snm
+*.synctex.gz
+*.xdv
+*.dvi
+*.ps
+*.pdf
+*.run.xml
+
+# LaTeX temporary directories
+_build/
+tmp/
+cache/
+latexmk/
+auto/
+
+# Backup files
+*~
+*.bak
+*.backup
+*.old
+*.swp
+*.swo
+
+# Editor specific
+.vscode/
+.idea/
+*.iml
+
+# MacOS files
+.DS_Store
+

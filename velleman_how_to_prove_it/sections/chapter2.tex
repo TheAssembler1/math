@@ -1,0 +1,934 @@
+\subsection{Quantifiers}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+Analyize the logical forms of the following statements: \\
+(a) Anyone who as forgiven at least one person is a saint. \\
+(b)  Nobody in the calculus class is smarter than everybody in the discrete
+math class. \\
+(c) Everyone likes Mary, except Mary herself. \\
+(d) Jane saw a police officer, and Roger saw one too. \\
+(e) Jane saw a police officer, and Roger saw him too. 
+\end{tcolorbox}
+
+\textbf{Solution 1 (a)} \\
+Let $P(x, y)$ mean ``$x$ has forgiven $y$''. \\
+Let $S(x)$ mean ``$x$ is a saint''. \\
+\begin{align*}
+    \forall{x}(\exists{y}P(x, y) \rightarrow S(x))
+\end{align*}
+\textbf{Solution 1 (b)} \\
+Let $S(x, y)$ mean ``$x$ is smarter than $y$''. \\
+Let $M(x)$ mean ``$x$ is in the calculus class''. \\ 
+Let $D(x)$ mean ``$x$ is in the discrete math class''. \\
+\begin{align*}
+    \forall{x}(M(x) \rightarrow (\exists{y}(D(y) \wedge S(y, x))))
+\end{align*}
+\textbf{Solution 1 (c)} \\
+Let $L(x)$ mean ``$x$ likes Mary''. \\
+Let $M(x)$ mean ``$x$ is Mary''. \\
+\begin{align*}
+    \forall{x}((\neg M(x) \rightarrow L(x)) \wedge (M(x) \rightarrow \neg L(x)))
+\end{align*}
+\textbf{Solution 1 (d)} \\
+Let $J(x)$ mean ``$x$ is Jane''. \\
+Let $R(x)$ mean ``$x$ is Roger''. \\
+Let $P(x)$ mean ``$x$ saw a police officer'' \\
+\begin{align*}
+    \forall{x}((J(x) \rightarrow P(x)) \wedge (R(x) \rightarrow P(x)))
+\end{align*}
+\textbf{Solution 1 (e)} \\
+Let $J(x)$ mean ``$x$ is Jane''. \\
+Let $R(x)$ mean ``$x$ is Roger''. \\
+Let $P(x, y)$ mean ``$x$ saw a police officer y'' \\
+\begin{align*}
+    \exists{y}(\forall{x}((J(x) \rightarrow P(x, y)) \wedge (R(x) \rightarrow P(x, y))))
+\end{align*}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+Analyze the logical forms of the following statements. The universe of discourse
+is $\mathbb{R}$. What are the free variables in each statement? \\
+(a) Every number that is larger than $x$ is larger than $y$ \\
+(b) For every number $a$, the equation $ax^2 + 4x - 2 = 0$ has at least one
+ solution iff $a >= -2$. \\
+(c) All solutions of the inequality $x^3 - 3x < 3$ are smaller than $10$. \\
+(d) If there is a number $x$ such that $x^2 + 5x = w$ and there is a number $y$
+such that $4 - y^2 = 2$ then $w$ is strictly between $-10$ and $10$.
+\end{tcolorbox}
+
+\textbf{Solution 3 (a)} \\
+\begin{align*}
+    \forall{t}((t > x) \rightarrow (t > y))
+\end{align*}
+Free variables are $x$ and $y$. \\
+\textbf{Solution 3 (b)} \\
+\begin{align*}
+    \forall{t}(\exists{x}(tx^2 +4x -2 = 0) \leftrightarrow t \ge -2)
+\end{align*}
+No free variables. \\
+\textbf{Solution 3 (c)} \\
+\begin{align*}
+    \forall{x}(x^3 - 3x < 3 \rightarrow x < 10)
+\end{align*}
+No free variables. \\
+\textbf{Solution 3 (d)} \\
+\begin{align*}
+    (\exists{x}(x^2 + 5x = w) \wedge \exists{y}(4 - y^2 = 2)) \rightarrow -10 < w < 10
+\end{align*}
+Free variable is $w$.
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+Translate the following statements into idiomatic mathematical English. \\
+(a) $\forall{x}[(P(x) \wedge \neg(x = 2)) \rightarrow O(x)]$, where $P(x)$ means ``x
+is a prime number'' and $O(x)$ means ``x is odd''. \\
+(b) $\exists{x}[P(x) \wedge \forall{y}(P(y) \rightarrow y \leq x)]$, where $P(x)$ means
+``x is a perfect number''.
+\end{tcolorbox}
+
+\textbf{Solution 5 (a)} \\
+For all $x$, if $x$ is a prime number and $x$ is not equal to $2$ then
+$x$ is odd. \\
+\textbf{Solution 5 (b)} \\
+There exists $x$ such that $x$ is a perfect number and
+for all $y$, if $y$ is a perfect number then $y$ is less than 
+or equal to $x$.
+
+\textbf{Solution 5 (a)}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+Are these statements true or false? The universe of discourse is $\mathbb{N}$. \\
+(a) $\forall{x}\exists{y}(2x - y = 0)$. \\
+(b) $\exists{y}\forall{x}(2x - y = 0)$. \\
+(c) $\forall{x}\exists{y}(x - 2y = 0)$. \\
+(d) $\forall{x}(x < 10 \rightarrow \forall{y}(y < x \rightarrow y < 9))$. \\
+(e) $\exists{y}\exists{z}(y + z = 100)$. \\
+(f) $\forall{x}\exists{y}(y > x \wedge \exists{z}(y + z = 100))$
+\end{tcolorbox}
+
+\textbf{Solution 8 (a)} \\
+True. \\
+\textbf{Solution 8 (b)} \\
+False. \\
+\textbf{Solution 8 (c)} \\
+False. \\
+\textbf{Solution 8 (d)} \\
+True. \\
+\textbf{Solution 8 (e)} \\
+True. \\
+\textbf{Solution 8 (f)} \\
+False.
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+Same excersize as $8$ but with $\mathbb{R}$ as the universe of discourse.
+\end{tcolorbox}
+
+\textbf{Solution 9 (a)} \\
+True. \\
+\textbf{Solution 9 (b)} \\
+False. \\
+\textbf{Solution 9 (c)} \\
+True. \\
+\textbf{Solution 9 (d)} \\
+False. \\
+\textbf{Solution 9 (e)} \\
+True. \\
+\textbf{Solution 9 (f)} \\
+True. 
+
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+Same excersize as $8$ but with $\mathbb{Z}$ as the universe of discourse.
+\end{tcolorbox}
+
+\textbf{Solution 9 (a)} \\
+True \\
+\textbf{Solution 9 (b)} \\
+False \\
+\textbf{Solution 9 (c)} \\
+False \\
+\textbf{Solution 9 (d)} \\
+True \\
+\textbf{Solution 9 (e)} \\
+True \\
+\textbf{Solution 9 (f)} \\
+True
+
+\subsection{Equivalences Involving Quantifiers}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Negate these statements and then reexpress the results as equivalent positive statements.
+    (See Example $2.2.1$.) \\
+    (a) Everyone who is majoring in math has a friend who needs helps with his or her homework. \\
+    (b) Everyone has a roomate who dislikes everyone. \\
+    (c) $A \cup B \subseteq C \setminus D$ \\
+    (d) $\exists{x}\forall{x}[y > x \rightarrow \exists{z}(z^2 + 5z = y)]$
+\end{tcolorbox}
+
+\textbf{Solution 1(a)} \\
+Let $M(x)$ mean ``$x$ is majoring in math''. \\
+Let $F(x, y)$ mean ``$x$ and $y$ are friends''. \\
+Let $H(x)$ mean ``$x$ needs help with his or her homework''. \\
+Original statement means $\forall{x}(M(x) \rightarrow \exists{y}(F(x, y) \wedge H(y)))$.
+\begin{align*}
+& \neg \forall{x}(M(x) \rightarrow \exists{y}(F(x, y) \wedge H(y))) && \\
+&\leftrightarrow    \exists{x} \neg (M(x) \rightarrow \exists{y}(F(x, y) \wedge H(y))) && \\
+&\leftrightarrow    \exists{x} \neg (\neg M(x) \vee \exists{y}(F(x, y) \wedge H(y))) && \\
+&\leftrightarrow    \exists{x} (M(x) \wedge \neg\exists{y}(F(x, y) \wedge H(y))) && \\
+&\leftrightarrow    \exists{x} (M(x) \wedge \forall{y}\neg(F(x, y) \wedge H(y))) && \\
+&\leftrightarrow    \exists{x} (M(x) \wedge \forall{y}(\neg F(x, y) \vee \neg H(y))) && \\
+&\leftrightarrow    \exists{x} (M(x) \wedge \forall{y}(F(x, y) \rightarrow \neg H(y)))
+\end{align*}
+There is a math student for which all the students friends do not need help with their homework. \\
+\textbf{Solution 1(b)} \\
+Let $R(x, y)$ mean ``$x$ and $y$ are roomates''. \\
+Let $D(x, y)$ mean ``$x$ dislikes $y$''. \\
+Original statement means $\forall{x}\exists{y}(R(x, y) \wedge \forall{z}D(y, z))$.
+\begin{align*}
+&    \neg \forall{x}\exists{y}(R(x, y) \wedge \forall{z}D(y, z)) && \\
+&    \leftrightarrow    \exists{x}\neg\exists{y}(R(x, y) \wedge \forall{z}D(y, z)) && \\
+&    \leftrightarrow    \exists{x}\forall{y}\neg(R(x, y) \wedge \forall{z}D(y, z)) && \\
+&    \leftrightarrow    \exists{x}\forall{y}(\neg R(x, y) \vee \neg\forall{z}D(y, z)) && \\
+&    \leftrightarrow    \exists{x}\forall{y}(\neg R(x, y) \vee \exists{z}\neg D(y, z))
+\end{align*}
+There exists a student for which everyone is not his roomate or 
+he has a roomate and that roomate likes someone. \\
+\textbf{Solution 1(c)} \\
+Original statement means $\forall{x}(x \in A \cup B \rightarrow C \setminus D)$.
+\begin{align*}
+&    \neg \forall{x}(x \in A \cup B \rightarrow x \in C \setminus D) && \\
+&    \leftrightarrow    \exists{x}\neg(\neg(x \in A \cup B) \vee x\ in C \setminus D) && \\
+&    \leftrightarrow    \exists{x}((x \in A \cup B) \wedge \neg(x \in C \setminus D)) && \\
+&    \leftrightarrow    \exists{x}((x \in A \cup B) \wedge \neg(x \in C \wedge x \not \in D)) && \\
+&    \leftrightarrow    \exists{x}((x \in A \cup B) \wedge (x \not \in C \vee x \in D))
+\end{align*}
+There exists $x$ in set $A$ or $B$ that is either not in $C$ or is in $D$. \\
+\textbf{Solution 1(d)} \\
+\begin{align*}
+&    \neg \exists{x}\forall{y}[y > x \rightarrow \exists{z}(z^2 + 5z = y)] && \\
+&    \leftrightarrow    \forall{x}\neg\forall{y}[y > x \rightarrow \exists{z}(z^2 + 5z = y)] && \\
+&    \leftrightarrow   \forall{x}\exists{y}\neg[y > x \rightarrow \exists{z}(z^2 + 5z = y)] && \\
+&    \leftrightarrow   \forall{x}\exists{y}\neg[\neg(y > x) \vee \exists{z}(z^2 + 5z = y)] && \\
+&    \leftrightarrow    \forall{x}\exists{y}[y > x \wedge \neg\exists{z}(z^2 + 5z = y)] && \\
+&    \leftrightarrow    \forall{x}\exists{y}[y > x \wedge \exists{z}\neg(z^2 + 5z = y)] && \\
+&    \leftrightarrow    \forall{x}\exists{y}[y > x \wedge \exists{z}(z^2 + 5z \not = y)] 
+\end{align*}
+For all $x$ there exists $y$ such that $y$ is greater than $x$ and 
+there is a number $z$ such that $z^2 + 5z$ is not equal to $y$.
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Negate these statements and then reexpress the results as equivalent positive statements.
+    (See Examples $2.2.1$.) \\
+    (a) There is someone in the freshman class who doesn't have a room-mate. \\
+    (b) Everyone likes someone, but no ones likes everyone. \\
+    (c) $\forall{a \in A} \exists{b \in B} (a \in C \leftrightarrow b \in C)$. \\
+    (d) $\forall{y > 0 \exists{x}}(ax^2 + bx + c = y)$.
+\end{tcolorbox}
+
+\textbf{Solution 2(a)} \\
+Let $F(x)$ mean ``$x$ is a freshman''. \\
+Let $R(x)$ mean ``$x$ has a room-mate''. \\
+Original statement means $\exists{x}(F(x) \wedge \neg R(x))$.
+\begin{align*}
+    & \neg \exists{x}(F(x) \wedge \neg R(x)) && \\
+    &\leftrightarrow \forall{x}\neg(F(x) \wedge \neg R(x)) && \\
+    &\leftrightarrow \forall{x}(\neg F(x) \vee R(x))
+\end{align*}
+For all people either they are not a freshmen or they have a roomate. \\
+\textbf{Solution 2(b)} \\
+Let $L(x, y)$ mean ``$x$ likes $y$''. \\
+Orignal statement means $\forall(x)(\exists{y}L(x, y) \wedge \exists{z} \neg L(x, z))$.
+\begin{align*}
+    & \neg \forall x(\exists{y}L(x, y) \wedge \exists{z} \neg L(x, z)) && \\
+    & \leftrightarrow \exists x\neg(\exists{y}L(x, y) \wedge \exists{z} \neg L(x, z)) && \\
+    & \leftrightarrow \exists x(\neg\exists{y}L(x, y) \vee \neg\exists{z} \neg L(x, z)) && \\
+    & \leftrightarrow \exists x(\forall{y}\neg L(x, y) \vee \forall{z} L(x, z))
+\end{align*}
+There is someone who either everyone dislikes or everyone likes. \\
+\textbf{Solution 2(c)} \\
+\begin{align*}
+    & \neg \forall{a \in A} \exists{b \in B} (a \in C \leftrightarrow b \in C) && \\
+    & \leftrightarrow \exists{a \in A} \neg \exists{b \in B} (a \in C \leftrightarrow b \in C) && \\
+    & \leftrightarrow \exists{a \in A} \forall{b \in B} \neg (a \in C \leftrightarrow b \in C) && \\
+    & \leftrightarrow \exists{a \in A} \forall{b \in B} 
+        \neg ((a \in C \rightarrow b \in C) \wedge (b \in C \rightarrow a \in C)) && \\
+    & \leftrightarrow \exists{a \in A} \forall{b \in B} 
+        (\neg(a \in C \rightarrow b \in C) \vee \neg(b \in C \rightarrow a \in C)) && \\
+    & \leftrightarrow \exists{a \in A} \forall{b \in B} 
+        (\neg(\neg(a \in C) \vee b \in C) \vee \neg(\neg(b \in C) \vee a \in C)) && \\
+    & \leftrightarrow \exists{a \in A} \forall{b \in B} 
+        ((a \in C) \wedge \neg(b \in C)) \vee ((b \in C) \wedge \neg(a \in C)) && \\
+    & \leftrightarrow \exists{a \in A} \forall{b \in B} 
+        (a \in C \wedge b \not \in C) \vee (b \in C \wedge a \not \in C) 
+\end{align*}
+There exists $a$ in set $A$ for which all $b$ in set $B$ either $a$ in set $C$ and $b$ is not
+in set $C$ or $a$ is not in $C$ and $b$ is in $C$. \\
+\textbf{Solution 2(d)} \\
+\begin{align*}
+    & \neg \forall{y > 0} \exists{x}(ax^2 + bx + c = y) && \\
+    & \leftrightarrow \exists{y > 0} \neg \exists{x}(ax^2 + bx + c = y) && \\
+    & \leftrightarrow \exists{y > 0} \forall{x}\neg(ax^2 + bx + c = y) && \\
+    & \leftrightarrow \exists{y > 0} \forall{x}(ax^2 + bx + c \not = y)
+\end{align*}
+There exists a number $y$ such that for all $x$, $ax^2 + bx + c$ is not equal to $y$.
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Are these statements true or false? The universe of discourse is $\mathbb{N}$. \\
+    (a) $\forall{x}(x < 7 \rightarrow \exists{a}\exists{b}\exists{c}(a^2 + b^2 + c^2 = x))$. \\
+    (b) $\exists{!x}(x^2 + 3 = 4x)$. \\
+    (c) $\exists{!x}(x^2 = 4x + 5)$. \\
+    (d) $\exists{x}\exists{y}(x^2 = 4x + 5 \wedge y^2 = 4y + 5)$.
+\end{tcolorbox}
+
+\textbf{Solution 3(a)} \\
+True. \\
+\textbf{Solution 3(b)} \\
+False. \\
+\textbf{Solution 3(c)} \\
+True. \\
+\textbf{Solution 3(d)} \\
+True
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Show that the second quantifier negation law, which says that $\neg\forall{x}P(x)$ is
+    equivalent to $\exists{x}\neg P(x)$, can be derived from the first, which says that
+    $\neg \exists{x}P(x)$ is equivalent to $\forall{x}\neg P(x)$. (Hint: Use the double 
+    negation law.)
+\end{tcolorbox}
+
+\begin{proof}
+\begin{align*}
+    \neg\forall{x}P(x) &\equiv \neg\forall{x}\neg(\neg P(x)) && \\
+    &\equiv \neg\neg\exists{x}(\neg P(x)) && \quad \text{first quantifier negation law} \\
+    &\equiv \exists{x}\neg P(x)
+\end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]   
+    Show that $\neg \exists{x} \in A P(x)$ is equivalent to $\forall{x} \in A \neg P(x)$.
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        \neg \exists{x} \in A P(x) &= \forall{x} \in A \neg P(x) && \quad \text{second quantifier negation law}
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Show that the existential quantifier distributes over disjunction. In other words, 
+    show that $\exists{x}(P(x) \vee Q(x))$ is equivalent to 
+    $\exists{x}P(x) \vee \exists{x}Q(x)$. (Hint: Use the fact, discussed in this section, that 
+    the universal quantifier distributes over conjunction.)
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        \exists{x}(P(x) \vee Q(x)) &\equiv \neg\neg \exists{x}(P(x) \vee Q(x)) && \\
+        &\equiv \neg \forall{x}\neg(P(x) \vee Q(x)) && \\
+        &\equiv \neg \forall{x}(\neg P(x) \wedge \neg Q(x)) && \\
+        &\equiv \neg (\forall{x}\neg P(x) \wedge \forall{x}\neg Q(x)) && \\
+        &\equiv (\neg \forall{x}\neg P(x) \vee \neg \forall{x}\neg Q(x)) && \\
+        &\equiv (\exists{x}\neg\neg P(x) \vee \exists{x}\neg\neg Q(x)) && \\
+        &\equiv \exists{x} P(x) \vee \exists{x} Q(x)
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Show that $\exists{x}(P(x) \rightarrow Q(x))$ is equivalent to 
+    $\forall{x}P(x) \rightarrow \exists{x}Q(x)$.
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        \exists{x}(P(x) \rightarrow Q(x)) &\equiv \exists{x}(\neg P(x) \vee Q(x)) && \\
+        &\equiv (\exists{x}\neg P(x) \vee \exists{x}Q(x)) && \quad \text{from prob. $6$} \\
+        &\equiv (\neg \forall{x} P(x) \vee \exists{x}Q(x)) && \\
+        &\equiv \forall{x} P(x) \rightarrow \exists{x}Q(x)
+    \end{align*}
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Show that $(\forall{x} \in AP(x)) \wedge (\forall{x} \in B P(x))$ is equivalent 
+    $\forall{x} \in (A \cup B)P(x)$. (Hint: Start by writing out the meanings of
+    the bounded quantifiers in terms of unbounded quantifiers.)
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        (\forall{x} \in AP(x)) \wedge (\forall{x} \in B P(x)) 
+            &\equiv \forall{x}(x \in A \rightarrow P(x)) \wedge \forall{x}(x \in B \rightarrow P(x))  && \\
+        &\equiv \forall{x}((x \in A \rightarrow P(x)) \wedge (x \in B \rightarrow P(x)))  && \\
+        &\equiv \forall{x}((\neg(x \in A) \vee P(x)) \wedge (\neg(x \in B) \vee P(x)))  && \\
+        &\equiv \forall{x}((\neg(x \in A) \wedge (\neg(x \in B)) \vee P(x)))  && \\
+        &\equiv \forall{x}(\neg(x \in A \vee x \in B) \vee P(x))  && \\
+        &\equiv \forall{x}(x \in A \vee x \in B \rightarrow P(x))  && \\
+        &\equiv \forall{x}(x \in A \vee B \rightarrow P(x))  && \\
+        &\equiv \forall{x}(x \in A \vee B)P(x)  && \\
+        &\equiv \forall{x} \in (A \cup B)P(x)
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Is $\forall{x}(P(x) \vee Q(x))$ equivalent to $\forall{x}P(x) \vee \forall{x} Q(x)$? 
+    Explain. (Hint: Try assigning meanings to $P(x)$ and $Q(x)$.)
+\end{tcolorbox}
+
+\textbf{Solution}
+No they are not equal. The first says that for every $x$, $P$ or $Q$ is true. In contrast
+the second statement means $P$ is true for all $x$ or $Q$ is true for all $x$. If we 
+let $P$ mean ``$x$ goes to the store'' and Q mean ``$x$ goes to the gym'' then the first
+statement means for each person they go to the store or they go to the gym. The second
+statement means all people go the store or all people go to the gym.
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    (a) Show that $\exists{x} \in A P(x) \vee \exists{x} \in B P(x)$ is equivalent to 
+    $\exists{x} \in (A \cup B) P(x)$. \\
+    (b) Is $\exists{x} \in A P(x) \wedge \exists{x} \in B P(x)$ equivalent to 
+    $\exists{x} \in (A \cap B) P(x)$? Explain.
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        \exists{x} \in A P(x) \vee \exists{x} \in B P(x) 
+            &\equiv \exists{x} (x \in A P(x) \vee x \in B P(x)) && \quad \text {prev prob} \\
+            &\equiv \exists{x} ((x \in A  \vee x \in B) \wedge P(x)) && \quad \text {} \\
+            &\equiv \exists{x} (x \in (A \cup B) \wedge P(x)) && \quad \text {} \\
+            &\equiv \exists{x}\in (A \cup B) P(x)
+    \end{align*}
+\end{proof}
+
+\textbf{Solution 10(b)}
+False. The first statement means that there exists $x$ in set $A$ for which $P(x)$ is true
+and there exists another $x$ possibly distinct from the former in set $B$ for which $P(x)$
+is true. The second statement says that there exists $x$ in the set $A$ and is also in the 
+set $B$ for which $P(x)$ is true.
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Show that the statements $A \subseteq B$ and $A \setminus B = \emptyset$ are equivalent
+    by writing each in logical symbols and then showing that the resulting formulas are 
+    equivalent.
+\end{tcolorbox}
+
+\begin{proof}
+    Lhs is equavalent to $\forall{x}(x \in A \rightarrow x \in B)$ \\
+    For the rhs: \\
+    \begin{align*}
+        \neg \exists{x}(x \in A \wedge x \not \in B)
+            &\equiv \forall{x} \neg(x \in A \wedge x \not \in B) && \\
+            &\equiv \forall{x} (x \not \in A \vee x \in B) && \\
+            &\equiv \forall{x} (x \in A \rightarrow x \in B) 
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Show that the statements $C \subseteq A \cup B$ and $C \setminus A \subseteq B$ are
+    equivalent writing each in logical symbols and then showing that the resulting formulas 
+    are equivalent.
+\end{tcolorbox}
+
+\begin{proof}
+    The lhs means $\forall{x}(x \in C \rightarrow x \in A \cup B)$. \\
+    For the rhs
+    \begin{align*}
+        \forall{x}(x \in C \setminus A \rightarrow x \in B) 
+            &\equiv \forall{x}(\neg(x \in C \setminus A) \rightarrow x \in B) && \\
+            &\equiv \forall{x}(\neg(x \in C \wedge x \not \in A) \vee x \in B) && \\
+            &\equiv \forall{x}((x \not \in C \vee x \in A) \vee x \in B) && \\
+            &\equiv \forall{x}(x \not \in C \vee (x \in A \vee x \in B)) && \\
+            &\equiv \forall{x}(\neg(x \in C) \vee (x \in A \cup B)) && \\
+            &\equiv \forall{x}(x \in C \rightarrow x \in A \cup B)
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    (a) Show that the statements $A \subseteq B$ and $A \cup B = B$ are equivalent by
+    writing each in logical symbols and then showing that the resulting formulas are 
+    equivalent. (Hint: You may find excersize $11$ from Section $1.5$ useful.)
+\end{tcolorbox}
+
+\begin{proof}
+    First note sec. $1$ prob. $11$ says $x \in P \vee x \in Q \leftrightarrow x \in Q \equiv x \in P \rightarrow x \in Q$. \\
+    The lhs means $\forall{x}(x \in A \rightarrow x \in B)$. \\
+    For the rhs
+    \begin{align*}
+        \forall{x}(x \in A \vee x \in B \leftrightarrow x \in B)
+            &\equiv \forall{x}(x \in A \rightarrow x \in B) \quad \text{from sec. $1$, prob. $11$} &&
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Show that the statements $A \cap B = \emptyset$ and $A \setminus B = A$ are equivalent.
+\end{tcolorbox}
+
+\begin{proof}
+    The lhs means $\neg \exists{x}(x \in A \wedge x \in B)$ \\
+    For the rhs
+    \begin{align*}
+        \forall{x}(x \in (A \setminus B) \leftrightarrow x \in A)
+            &\equiv \forall{x}((x \in (A \setminus B)) \rightarrow x \in A) 
+                \wedge (x \in A \rightarrow (x \in (A \setminus B))) && \\
+            &\equiv \forall{x}(\neg(x \in (A \setminus B)) \vee x \in A) 
+                \wedge (\neg(x \in A) \vee (x \in (A \setminus B))) && \\
+            &\equiv \forall{x}(\neg(x \in A \wedge x \not \in B) \vee x \in A) 
+                \wedge (\neg(x \in A) \vee (x \in (A \setminus B))) && \\
+             &\equiv \forall{x}(x \not \in A \vee x \in B \vee x \in A) 
+                \wedge (\neg(x \in A) \vee (x \in (A \setminus B))) && \\
+            &\equiv \forall{x}(\neg(x \in A) \vee (x \in (A \setminus B))) && \quad \text{tautology} \\
+            &\equiv \forall{x}(x \not \in A \vee (x \in (A \setminus B))) && \\
+            &\equiv \forall{x}(x \not \in A \vee  (x \in A \wedge x \not \in B)) && \\
+            &\equiv \forall{x}((x \not \in A \vee  x \in A) \wedge (x \not \in A \vee x \not \in B)) && \\
+            &\equiv \forall{x}(x \not \in A \vee x \not \in B) && \quad \text {tautology} \\
+            &\equiv \forall{x}\neg (x \in A \wedge x \in B) && \\
+            &\equiv \neg \exists{x}(x \in A \wedge x \in B) 
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Let $T(x, y)$ mean ``$x$ is a teacher of $y$'' What do the following statements mean?
+    Under what circumstances would each one be true? Are any of them equivalent to each
+    other? \\
+    (a) $\exists{!yT(x, y)}$. \\
+    (b) $\exists{x}\exists{!yT(x, y)}$. \\
+    (c) $\exists{!x}\exists{y}T(x, y)$. \\
+    (d) $\exists{y}\exists{!x}T(x, y)$. \\
+    (e) $\exists{!x}\exists{!y}T(x, y)$. \\
+    (f) $\exists{x}\exists{y}[T(x, y) 
+        \wedge \neg \exists{u}\exists{v}(T(u, v) \wedge (u \not = x \vee v \not = y))]$.
+\end{tcolorbox}
+
+\textbf{Solution 15 (a)} \\
+There is one student that $x$ is a teacher of. \\
+It is true when the teacher has only one student. \\
+\textbf{Solution 15 (b)} \\
+There is a teacher that has one student. \\
+It is true if any teacher has one student. \\
+\textbf{Solution 15 (c)} \\
+There is one teacher that has a student. \\
+It is true when there is a single teacher than has any students. \\
+\textbf{Solution 15 (d)} \\
+There is a student that has only one teacher. \\
+It is true if any student has one teacher. \\
+\textbf{Solution 15 (e)} \\
+There is one student that has one teacher. \\
+It is true if there is one student with one teacher. \\
+\textbf{Solution 15 (f)} \\
+There is a student and a teacher and there isn't another teacher with any other student
+other than the former. \\
+It is true if there is a student and a teacher and there isn't another teacher with any other student
+other than the former. 
+
+None are equivalent.
+
+\subsection{More Operations On Sets}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Analyze the logical forms of the following statements. You may use the symbols
+    $\in$, $\not \in$, $=$, $\not =$, $\wedge$, $\vee$, $\rightarrow$,
+    $\leftrightarrow$, and $\exists$ in your answers, but not
+    $\subseteq$, $\not \subseteq$,  $\mathcal{P}$, $\cap$, $\cup$,
+    $\setminus$, $\{$, $\}$, or $\neg$. (Thus you must write out the definitions of some
+    theory notation, and you must use equivalences to get rid of any occurences
+    of $\neg$). \\
+    (a) $\mathcal{F} \subseteq \mathcal{P}{(A)}$ \\
+    (b) $A \subseteq \{2n + 1 | n \in \mathbb{N}\}$ \\
+    (c) $\{n^2 + n + 1 | n \in \mathbb{N}\} \subseteq \{2n + 1 | n \in \mathbb{N}\}$ \\
+    (d) $\mathcal{P}(\bigcup_{i \in I} A_i) \not \subseteq \bigcup_{i \in I} \mathcal{P}(A_i)$
+\end{tcolorbox}
+
+\textbf{Solution 1 (a)} \\
+    \begin{align*}
+        \mathcal{F} \subseteq \mathcal{P}{(A)} 
+        &= \forall{x}(x \in \mathcal{F} \rightarrow x \in \mathcal{P}(A)) && \\
+        &= \forall{x}(x \in \mathcal{F} 
+            \rightarrow \forall{y}(y \in x \rightarrow y \in A))
+    \end{align*}
+\textbf{Solution 1 (b)} \\
+    \begin{align*}
+        A \subseteq \{2n + 1 | n \in \mathbb{N}\}
+            &= \forall{x}(x \in A \rightarrow x \in \{2n + 1 | n \in \mathbb{N}\}) && \\
+        &= \forall{x}(x \in A \rightarrow \exists{n}\in\mathbb{N}(x = 2n + 1))
+    \end{align*}
+\textbf{Solution 1 (c)} \\
+    \begin{align*}
+        \{n^2 + n + 1 | n \in \mathbb{N}\} \subseteq \{2n + 1 | n \in \mathbb{N}\}
+            &= \forall{x}(x \in \{n^2 + n + 1 | n \in \mathbb{N}\} 
+                \rightarrow x \in \{2n + 1 | n \in \mathbb{N}\}) && \\
+        &= \forall{x}(\exists{n}\in\mathbb{N}(x = n^2 + n + 1) 
+            \rightarrow \exists{n}\in\mathbb{N}(x = 2n + 1))
+    \end{align*}
+\textbf{Solution 1 (d)}
+    \begin{align*}
+        \mathcal{P}\left(\bigcup_{i \in I} A_i\right) \not \subseteq \bigcup_{i \in I} \mathcal{P}(A_i)
+            &=  \exists{x}\left(x \in \mathcal{P}\left(\bigcup_{i \in I} A_i\right) 
+                \wedge \neg\left(x \in \bigcup_{i \in I} \mathcal{P}(A_i)\right)\right) && \\
+                &= \exists{x} \left( 
+                    \forall{y} \left( y \in x \rightarrow y \in \mathcal{P}\left( \bigcup_{i \in I} A_i \right) \right)
+                    \wedge 
+                    \neg\left( x \in \bigcup_{i \in I} \mathcal{P}(A_i) \right)
+                  \right) && \\              
+            &=  \exists{x}\left((\forall{y}(y \in x \rightarrow \exists{i \in I}(y \in A_i)))
+                \wedge \neg\left(\exists{i \in I}(x \in \mathcal{P}(A_i))\right)\right) && \\
+            &=  \exists{x}\left((\forall{y}(y \in x \rightarrow \exists{i \in I}(y \in A_i)))
+                \wedge \neg\left(\exists{i \in I}(\forall{y}(y \in x \rightarrow y \in A_i))\right)\right) && \\
+            &=  \exists{x}\left((\forall{y}(y \in x \rightarrow \exists{i \in I}(y \in A_i)))
+                \wedge \left(\forall{i \in I}(\exists{y}(y \in x \wedge y \not \in A_i))\right)\right) 
+    \end{align*}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Analyze the logical forms of the following statements. You may use the symbols
+    $\in$, $\not \in$, $=$, $\not =$, $\wedge$, $\vee$, $\rightarrow$,
+    $\leftrightarrow$, and $\exists$ in your answers, but not
+    $\subseteq$, $\not \subseteq$,  $\mathcal{P}$, $\cap$, $\cup$,
+    $\setminus$, $\{$, $\}$, or $\neg$. (Thus you must write out the definitions of some
+    theory notation, and you must use equivalences to get rid of any occurences
+    of $\neg$). \\
+    (a) $x \in \bigcup \mathcal{F} \setminus \bigcup \mathcal{G}$ \\
+    (b) $\{x \in B | x \not \in C\} \in \mathcal{P}(A)$ \\
+    (c) $x \in \bigcap_{i \in I}(A_i \cup B_i)$ \\
+    (d) $x \in (\bigcap_{i \in I} A_i) \cup (\bigcap_{i \in I} B_i)$
+\end{tcolorbox}
+
+\textbf{Solution 2(a)} \\
+    \begin{align*}
+        x \in\bigcup\mathcal{F} \setminus\bigcup\mathcal{G}
+            &\equiv x \in \bigcup\mathcal{F} \wedge \neg\left(x \in \bigcup \mathcal{G}\right) && \\
+        &\equiv \exists{A}(A \in F \wedge x \in A) \wedge \neg(\exists{A}(A \in G \wedge x \in A)) && \\
+        &\equiv \exists{A}(A \in F \wedge x \in A) \wedge \forall{A}\neg(A \in G \wedge x \in A) && \\
+        &\equiv \exists{A}(A \in F \wedge x \in A) \wedge \forall{A}(A \not \in G \vee x \not \in A)
+    \end{align*}
+\textbf{Solution 2(b)} \\
+    \begin{align*}
+        \{x \in \mathcal{B} | x \not \in C\} \in \mathcal{P}(A)
+            &\equiv \forall{y}(y \in \{x \in \mathcal{B} | x \not \in C\} \rightarrow y \in A) && \\
+        &\equiv \forall{y}((y \in\mathcal{B} \wedge \not\in C) \rightarrow y \in A) &&
+    \end{align*}
+\textbf{Solution 2(c)} \\
+    \begin{align*}
+        x \in \bigcap_{i \in I}(A_i \cup B_i) 
+            &\equiv \forall{i \in I}(x \in (A_i \cup B_i)) && \\
+        &\equiv \forall{i \in I}(x \in A_i \vee x \in B_i) && \\
+    \end{align*}
+\textbf{Solution 2(d)} \\
+    \begin{align*}
+        x \in \left(\bigcap_{i \in I} A_i\right) \cup \left(\bigcap_{i \in I} B_i\right)
+            &\equiv x \in \left(\bigcap_{i \in I} A_i\right) \vee x \in \left(\bigcap_{i \in I} B_i\right) && \\
+        &\equiv \forall{i \in I}(x \in A_i) \vee \forall{i \in I}(x \in B_i) && \\
+    \end{align*}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    We've seen that $\mathcal{P}(\emptyset) = {\emptyset}$, and $\{\emptyset\} \not = \emptyset$.
+    What is $\mathcal{P}(\{\emptyset\})$?
+\end{tcolorbox}
+
+\textbf{Solution}
+$\mathcal{P}(\{\emptyset\}) \equiv \{\emptyset\text{, } \{\emptyset\}\}$
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $I = \{2, 3, 4, 5\}$, and for each $i \in I$ let $A_i = \{i, i + 1, i - 1, 2i\}$. \\
+    (a) List the elements of all the sets $A_i$, for each $i \in I$. \\
+    (b) Find $\bigcap_{i \in I} A_i$ and $\bigcup_{i \in I} A_i$.
+\end{tcolorbox}
+
+\textbf{Solution 6 (a)}
+    \begin{align*}
+        A_2 &= \{2\text{, }3\text{, }1\text{, }4\} && \\
+        A_3 &= \{3\text{, }4\text{, }2\text{, }6\} && \\
+        A_4 &= \{4\text{, }5\text{, }3\text{, }8\} && \\
+        A_5 &= \{5\text{, }6\text{, }4\text{, }10\} && \\
+    \end{align*}
+\textbf{Solution 6 (b)}
+    \begin{align*}
+        A_2 \cap A_3 &= \{2\text{, }3\text{, }4\} && \\
+        A_4 \cap A_5 &= \{4\text{, }5\} && \\
+        \bigcap_{i \in I} A_i &= \{2\text{, }3\text{, }4\} \cap \{4\text{, }5\} = \{4\}
+    \end{align*}
+    \begin{align*}
+        A_2 \cup A_3 &= \{1\text{, }2\text{, }3\text{, }4\text{, }6\} && \\
+        A_4 \cup A_5 &= \{3\text{, }4\text{, }5\text{, }6\text{, }8\text{, }10\} && \\
+        \bigcup_{i \in I} A_i &= \{1\text{, }2\text{, }3\text{, }4\text{, }6\} 
+            \cup \{3\text{, }4\text{, }5\text{, }6\text{, }8\text{, }10\}
+            = \{1\text{, }2\text{, }3\text{, }4\text{, }5\text{, }6\text{, }8\text{, }10\}
+    \end{align*}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $I = \{2, 3\}$, and for each $i \in I$ let $A_i = \{i, 2i\}$ and $B_i = \{i, i + 1\}$. \\
+    (a) List the elements of the sets $A_i$ and $B_i$ for $i \in I$. \\
+    (b) Find $\bigcap_{i \in I}(A_i \cup B_i)$ 
+        and $(\bigcap_{i \in I} A_i)\cup(\bigcap_{i \in I} B_i)$. \\
+    (c) In parts (c) and (d) of excersize $2$ you analyzed the statements
+        $x \in \bigcap_{i \in I}(A_i \cup B_i)$ and 
+        $x \in (\bigcap_{i \in I} A_i) \cup (\bigcap_{i \in I} B_i)$.
+        What can you conclude from your answer to part (b) about whether or not these statements
+        are equivalent?
+\end{tcolorbox}
+
+\textbf{Solution 8 (a)} \\
+$A_2 = \{2, 4\}$ and $A_3 = \{3, 6\}$ \\
+$B_2 = \{2, 3\}$ and $B_3 = \{3, 4\}$ \\
+\textbf{Solution 8 (b)} \\
+Let $i = 2$, then $A_2 \cup B_2 = \{2, 3, 4\}$ \\
+Let $i = 3$, then $A_3 \cup B_3 = \{3, 4, 6\}$ \\
+$$\bigcap_{i \in I}(A_i \cup B_i) = \{2, 3, 4\} \cap \{3, 4, 6\} = \{3, 4\}$$ \\
+$\bigcap_{i \in I}A_i = A_2 \cap A_3 = \{\}$ \\
+$\bigcap_{i \in I}B_i = B_2 \cap B_3 = \{3\}$ \\
+$$\left(\bigcap_{i \in I} A_i\right) \cup \left(\bigcap_{i \in I} B_i\right) = \{\} \cup \{3\} = \{3\}$$ \\
+\textbf{Solution 8 (c)} \\
+They are not equivalent.
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    (a) Analyze the logical forms of the statements $x \in \bigcup_{i \in I}(A_i \setminus B_i)$,
+    $x \in (\bigcup_{i \in I}A_i) \setminus (\bigcup_{i \in I} B_i)$, and
+    $x \in (\bigcup_{i \in I}A_i) \setminus (\bigcap_{i \in I} B_i)$. Do you think
+    that any of these statements are equivalent to each other? \\
+    (b) Let $I$, $A_i$, and $B_i$ be defined as in excersize $8$. Find $\bigcup_{i \in I}(A_i \setminus B_i)$,
+    $(\bigcup_{i \in I}A_i) \setminus (\bigcup_{i \in I}B_i)$, and
+    $(\bigcup_{i \in I}A_i) \setminus (\bigcap_{i \in I}B_i)$. Now do you think any of the statements 
+    in part (a) are equivalent?
+\end{tcolorbox}
+
+\textbf{Solution 9 (a)}
+\begin{align*}
+    x \in \left(\bigcup_{i \in I}(A_i \setminus B_i)\right)
+        &\equiv \exists{i \in I}(x \in (A_i \setminus B_i)) && \\
+        &\equiv \exists{i \in I}(x \in A_i \wedge x \not \in B_i)
+\end{align*}
+\begin{align*}
+    x\ in \left(\bigcup_{i \in I}A_i\right) \setminus \left(\bigcup_{i \in I} B_i\right)
+        &\equiv x \in \left(\bigcup_{i \in I}A_i\right) \wedge \neg\left(x \in \left(\bigcup_{i \in I} B_i\right)\right) && \\
+        &\equiv \exists{i \in I}(x \in A_i) \wedge \neg(\exists{i \in I}(x \in B_i)) && \\
+        &\equiv \exists{i \in I}(x \in A_i) \wedge \forall{i \in I}(x \not \in B_i) 
+\end{align*}
+\begin{align*}
+    x \in \left(\bigcup_{i \in I}A_i\right) \setminus \left(\bigcap_{i \in I} B_i\right) 
+        &\equiv x \in \left(\bigcup_{i \in I} A_i\right) \wedge \neg\left(x \in \left(\bigcap_{i \in I} B_i\right)\right) && \\
+        &\equiv \exists{i \in I}(x \in A_i) \wedge \neg\left(\forall{i \in I}(x \in B_i)\right) && \\
+        &\equiv \exists{i \in I}(x \in A_i) \wedge \left(\exists{i \in I}(x \not \in B_i)\right) && \\
+\end{align*}
+I do not think any of the statements are equivalent.
+
+\textbf{Solution 9 (b)}
+\text{From prob. 8} \\
+$I = \{2, 3\}$ \\
+$A_2 = \{2, 4\}$ and $A_3 = \{3, 6\}$ \\
+$B_2 = \{2, 3\}$ and $B_3 = \{3, 4\}$ \\
+\[\bigcup_{i \in I}(A_i \setminus B_i) = \{4\} \cup \{6\} = \{4, 6\}\]
+\[\left(\bigcup_{i \in I} A_i\right) \setminus \left(\bigcup_{i \in I} B_i\right)
+    = \{2, 3, 4, 6\} \setminus \{2, 3, 4\} = \{6\}\]
+\[\left(\bigcup_{i \in I} A_i\right) \setminus \left(\bigcap_{i \in I} B_i\right)
+    = \{2, 3, 4, 6\} \setminus \{3\} = \{2, 4, 6\}\]
+Still not equal.
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Give an example of an index set $I$ and indexed families of sets $\{A_I | i \in I\}$
+    and $\{B_i | i \in I\}$ such that 
+    $\bigcup_{i \in I}(A_i \cap B_i) \not = (\bigcup_{i \in I} A_i) \cup (\bigcup_{i \in I} B_i)$.
+\end{tcolorbox}
+
+\textbf{Solution 10}
+$I = \{1, 2\}$ \\
+$A_1 = \{1\}$ \\
+$A_2 = \{2\}$ \\
+$B_1 = \{1\}$ \\
+$B_2 = \emptyset$ \\
+\[\bigcup_{i \in I}(A_i \cap B_i) = \{1\} \cap \emptyset = \emptyset\]
+\[\left(U_{i \in I}A_i\right) = \{1, 2\}\]
+\[\left(U_{i \in I}B_i\right) = \{1\}\]
+\[\left(U_{i \in I}A_i\right) \cup \left(U_{i \in I}B_i\right) = \{1, 2\}\]
+\[\therefore \bigcup_{i \in I}(A_i \cap B_i) \not = \left(U_{i \in I}A_i\right) \cup \left(U_{i \in I}B_i\right)\]
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Show that for any sets $A$ and $B$, $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$,
+    by showing that the statements $x \in \mathcal{P}(A \cap B)$ and 
+    $x \in \mathcal{P}(A) \cap \mathcal{P}(B)$ are equivalent. (See Example 2.3.3)
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        x \in \mathcal{P}(A \cap B)
+            &\equiv \forall{y}(y \in x \rightarrow y \in A \cap B) && \\
+            &\equiv \forall{y}(y \in x \rightarrow (y \in A \wedge y \in B)) 
+    \end{align*}
+    \begin{align*}
+        x \in \mathcal{P}(A) \cap \mathcal{P}(B)
+            &\equiv \forall{y}(y \in x \rightarrow y \in A) \wedge \forall{y}(y \in x \rightarrow y \in B) && \\
+            &\equiv \forall{y}((\neg(y \in x) \vee y \in A) \wedge (\neg(y \in x) \vee y \in B)) && \\
+            &\equiv \forall{y}(\neg(y \in x) \vee (y \in A \wedge y \in B)) && \\
+            &\equiv \forall{y}(y \in x \rightarrow (y \in A \wedge y \in B)) && \\
+    \end{align*}
+    \[\therefore \mathcal{P}(A) \cap \mathcal{P}(B) = \mathcal{P}(A) \cap \mathcal{P}(B)\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Give examples of sets $A$ and $B$ for which 
+    $\mathcal{P}(A \cup B) \not = \mathcal{P}(A) \cup \mathcal{P}(B)$.
+\end{tcolorbox}
+
+\textbf{Solution 12}
+$A = \{1, 2\}$ \\
+$B = \{1, 3\}$ \\
+$A \cup B = \{1, 2, 3\}$
+\[\mathcal{P}(A \cup B) = \{\{1, 2, 3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1\}, \{2\}, \{3\}, \emptyset\}\]
+\[\mathcal{P}(A) = \{\{1, 2\}, \{1\}, \{2\}, \emptyset\}\]
+\[\mathcal{P}(B) = \{\{1, 3\}, \{1\}, \{3\}, \emptyset\}\]
+\[\mathcal{P}(A) \cup \mathcal{P}(B) = \{\{1, 2\}, \{1, 3\}, \{2\}, \{3\}, \{1\}, \emptyset\}\]
+\[\therefore \mathcal{P}(A \cup B) \not = \mathcal{P}(A) \cup \mathcal{P}(B)\]
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Verify the following identities by writing out (using logical symbols) what it means
+    for an object $x$ to be an element of each set and then using logical equivalences. \\
+    (a) $\bigcup_{i \in I}(A_i \cup B_i) = (\bigcup_{i \in I}A_i) \cup (\bigcup_{i \in I} B_i)$ \\
+    (b) $(\bigcap \mathcal{F}) \cap (\bigcap \mathcal{G}) = \bigcap(\mathcal{F} \cup \mathcal{G})$ \\
+    (c) $\bigcap_{i \in I}(A_i \setminus B_i) = (\bigcap_{i \in I} A_i) \setminus (\bigcup_{i \in I} B_i)$
+\end{tcolorbox}
+
+\textbf{Solution 13 (a)}
+\begin{align*}
+    x \in \bigcup_{i \in I}(A_i \cup B_i)
+        &\equiv \exists{i \in I}(x \in (A_i \vee B_i)) && \\
+        &\equiv \exists{i \in I}(x \in A_i \vee x \in B_i) && \\
+\end{align*}
+\begin{align*}
+    x \in \left(\bigcup_{i \in I}A_i\right) \cup \left(\bigcup_{i \in I} B_i\right)
+        &\equiv x \in \left(\bigcup_{i \in I}A_i\right) \vee x \in \left(\bigcup_{i \in I} B_i\right) && \\
+        &\equiv \exists{i \in I}(x \in A_i) \vee \exists{i \in I}(x \in B_i) && \\
+        &\equiv \exists{i \in I}(x \in A_i \vee x \in B_i) && \\
+\end{align*}
+\[\therefore \bigcup_{i \in I}(A_i \cup B_i) = \left(\bigcup_{i \in I}A_i\right) \cup \left(\bigcup_{i \in I} B_i\right)\]
+\textbf{Solution 13 (b)}
+\begin{align*}
+    x \in \left(\bigcap \mathcal{F}\right) \cap \left(\bigcap \mathcal{G}\right)
+        &\equiv x \in \left(\bigcap \mathcal{F}\right) \wedge x \in \left(\bigcap \mathcal{G}\right) && \\
+        &\equiv \forall{A \in F}(x \in A) \wedge \forall{A \in G}(x \in G) && \\
+        &\equiv \forall{A \in (F \cup G)}(x \in A) \quad \text{prob. $8$ prev. sec.}
+\end{align*}
+\begin{align*}
+    x \in \bigcap(\mathcal{F} \cup \mathcal{G})
+        &\equiv \forall{A} \in (F \cup G)(x \in A)
+\end{align*}
+\[\therefore \left(\bigcap \mathcal{F}\right) \cap \left(\bigcap \mathcal{G}\right) = \bigcap(\mathcal{F} \cup \mathcal{G})\]
+\textbf{Solution 13 (c)}
+\begin{align*}
+    x \in \bigcap_{i \in I}(A_i \setminus B_i)
+        &\equiv \forall{i \in I}(x \in (A_i \setminus B_i)) && \\
+        &\equiv \forall{i \in I}(x \in A_i \wedge x \not \in B_i)
+\end{align*}
+\begin{align*}
+    x \in \left(\bigcap_{i \in I} A_i\right) \setminus \left(\bigcup_{i \in I} B_i\right) 
+        &\equiv x \in \left(\bigcap_{i \in I} A_i\right) \wedge \neg(x \in \left(\bigcup_{i \in I} B_i\right)) && \\
+        &\equiv \forall{i \in I}(x \in A_i) \wedge \neg(\exists{i \in I}(x \in B_i)) && \\
+        &\equiv \forall{i \in I}(x \in A_i) \wedge \forall{i \in I}(x \not \in B_i) && \\
+        &\equiv \forall{i \in I}(x \in A_i \wedge x \not \in B_i) 
+\end{align*}
+\[\therefore \bigcap_{i \in I}(A_i \setminus B_i) = \left(\bigcap_{i \in I} A_i\right) \setminus \left(\bigcup_{i \in I} B_i\right)\]
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Sometimes each set in an indexed family of sets has two indices. For this problem,
+    use the following definitions: $I = \{1, 2\}$, $J = \{3, 4\}$. For each
+    $i \in I$ and $j \in J$, let $A_{i, j} = \{i, j, i + j\}$. Thus, for example,
+    $A_{2, 3} = \{2, 3, 5\}$. \\
+    (a) For each $j \in J$, let $B_j = \bigcup_{i \in I}A_{i, j} = A_{1, j} \cup A_{2, j}$. Find 
+        $B_3$ and $B_4$. \\
+    (b) Find $\bigcap_{j \in J} B_j$. (Note that, replacing $B_j$ with its definition, we could say that
+        $\bigcap_{j \in J}B_j = \bigcap_{j \in J}(\bigcup_{i \in I} A_{i, j})$.)  \\
+    (c) Find $\bigcup_{i \in I}(\bigcap_{j \in j} A_{i, j})$. (Hint: you may want to do this in two
+        steps, coresponding to parts (a) and (b).) Are $\bigcap_{j \in J}(\bigcup_{i \in I} A_{i, j})$
+        and $\bigcup_{i \in I}(\bigcap_{j \in J}) A_{i, j}$ equal? \\
+    (d) Analyze the logical forms of the statements $x \in \bigcap_{j \in J}(\bigcup_{i \in I} A_{i, j})$ and 
+        $x \in \bigcup_{i \in I}(\bigcap_{j \in J} A_{i, j})$. Are they equivalent?
+\end{tcolorbox}
+
+\textbf{Solution 14 (a)} \\
+$B_j = \bigcup_{i \in I} A_{i, j} = A_{1, j} \cup A_{2, j}$ \\
+$B_3 = A_{1, 3} \cup A_{2, 3}$ \\
+$A_{1, 3} = \{1, 3, 4\}$ and
+$A_{2, 3} = \{2, 3, 5\}$ \\
+$B_3 = \{1, 2, 3, 4, 5\}$ \\ \\
+$B_3 = A_{1, 4} \cup A_{2, 4}$ \\
+$A_{1, 4} = \{1, 4, 5\}$ and
+$A_{2, 4} = \{2, 4, 6\}$ \\
+$B_4 = \{1, 2, 4, 5, 6\}$
+
+\textbf{Solution 14 (b)} \\
+$\bigcap_{j \in J} B_j = \bigcap_{j \in J}(\bigcup_{i \in I} A_{i, j})$ \\
+$U_{i \in I} = A_{1, j} \cup A_{2, j}$ \\
+$\bigcap_{j \in J}(A_{1, j} \cup A_{2, j}) = (A_{1, 3} \cup A_{2, 3}) \cap (A_{1, 4} \cup A_{2, 4})$ \\
+$B_3 \cap B_4 = \{1, 2, 4, 5\}$
+
+\textbf{Solution 14 (c)} \\
+$\bigcup_{i \in I}(\bigcap_{j \in j} A_{i, j}) = \bigcup_{i \in I}(A_{i, 3} \cap A_{i, 4})$ \\
+$\bigcup_{i \in I}(A_{i, 3} \cap A_{i, 4}) = (A_{1, 3} \cap A_{1, 4}) \cup (A_{2, 3} \cap A_{2, 4})$ \\
+$(A_{1, 3} \cap A_{1, 4}) \cup (A_{2, 3} \cap A_{2, 4}) = \{1\} \cup \{2\} = \{1, 2\}$
+
+\textbf{Solution 14 (d)} \\
+\begin{align*}
+    x \in \bigcap_{j \in J}\left(\bigcup_{i \in I} A_{i, j}\right)
+        &\equiv \forall{j \in J}\left(x \in \left(\bigcup_{i \in I} A_{i, j}\right)\right) && \\
+        &\equiv \forall{j \in J}(\exists{i \in I}(x \in A_{i, j}))
+\end{align*}
+\begin{align*}
+    x \in \bigcup_{i \in I}\left(\bigcap_{j \in J} A_{i, j}\right)
+        &\equiv \exists{i \in I}\left(x \in \left(\bigcap_{j \in J} A_{i, j}\right)\right) && \\
+        &\equiv \exists{i \in I}(\forall{j \in J}(x \in A_{i, j}))
+\end{align*}
+\[\bigcap_{j \in J}\left(\bigcup_{i \in I} A_{i, j}\right) \not = \bigcup_{i \in I}\left(\bigcap_{j \in J} A_{i, j}\right)\]
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    (a) Show that if $\mathcal{F} = \emptyset$, then the statement $x \in \bigcup \mathcal{F}$ will be false
+        no matter what $x$ is. It follows that $\bigcup \emptyset = \emptyset$. \\
+    (b) Show that if $\mathcal{F} = \emptyset$, then the statement $x \in \bigcap\mathcal{F}$ will be true
+        no matter what $x$ is. In a context in which it is clear what the universe of discourse $U$ is,
+        we might therefore want to say that $\bigcap \emptyset = U$. However, this has the unfortunate 
+        consequence that the notation $\bigcap \emptyset$ will mean different things in different contexts.
+        Furthermore, when working with sets whose elements are sets, mathematicians  often do not use a 
+        universe of discourse  at all. (For more on this, see the next excersize). For these reasons, some
+        mathematicians consider the notation $\bigcap \emptyset$ to be meaningless. We will avoid this problem
+        in this book by using the notation $\bigcap \mathcal{F}$ only in contexts in which we can be sure 
+        that $\mathcal{F} \not = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose for contradiction $x \in \bigcup F$ is true when $F = \emptyset$.
+    Thus $\exists{A \in F}(x \in A)$, but for this to be true there must be at least
+    one set in $F$ but $F = \emptyset$. \\ 
+    $\therefore$ If $F = \emptyset$ then $x \in \bigcup F$ is always false.
+\end{proof}
+\begin{proof}
+    Suppose for contradiction $x \in \bigcap F$ is false when $F = \emptyset$.
+    Thus $\forall{A \in F}(x \in A)$, but for this to be false there must be a case in which $x$ 
+    is not in a set within $F$ but $F = \emptyset$. \\
+    $\therefore$ If $F = \emptyset$ then $x \in \bigcap F$ is always true.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    In Section $2.3$ we saw that a set can have other sets as elements. When discussing sets
+    whose elements are sets, it might seem most natural to consider the universe of discourse
+    to be the set of all sets. However, we will see in this problem, assuming there is such a
+    set leads to contradictions. \\ \\
+    Suppose $U$ were the set of all sets. Note that in particular $U$ is a set, so we should have 
+    $U \in U$. This is not yet a contradictions; although most sets are not elements of themselves,
+    perhaps some sets are elements of themselves, But it suggests that the sets in the universe 
+    $U$ could be split into two categories: the unusual sets that, like $U$ itself, are elements of
+    themselves, and the more typical sets that are not. Let $R$ be the set of sets in the second 
+    category. In other words, $R = \{A \in U | A \not \in A\}$. This means for that for any set 
+    $A$ in the universe of $U$, $A$ will be an element $R$ iff $A \not \in A$. In other words,
+    we have $\forall{A} \in U (A \in R \leftrightarrow A \not \in A)$. \\
+    (a) Show that applying this last fact to the set $R$ itself (in other words plugging in $R$ for $A$)
+        leads to a contradiction. This contradiction was discovered by Bertrand Russell ($1872$ - $1970$)
+        in $1901$, and is known as \emph{Russel's paradox}. \\
+    (b) Think some more about the paradox in part (a). What do you think it tells us about sets?
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose for contradiction $\forall{A} \in U (A \in R \leftrightarrow A \not \in A)$.
+    Then setting $R$ as $A$
+    \begin{align*}
+        R \in R \leftrightarrow R \not \in R
+            &\equiv (R \in R \rightarrow R \not \in R) \wedge (R \not \in R \rightarrow R \in R) && \\
+            &\equiv (R \not \in R \vee R \not \in R) \wedge (R \in R \vee R \in R) && \\
+            &\equiv (R \not \in R) \wedge (R \in R)
+    \end{align*}
+    Thus we arrive at a contradiction. $\therefore$ You cannot construct $R = \{A \in U | A \not \in A\}$.
+\end{proof}
+
+\textbf{Solution 16 (b)}
+With our current axioms not all\ set constuctions are valid. At the least not all self-referential
+set constructions are valid because as we have seen it may lead to a contradiction.
