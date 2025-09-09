@@ -17,7 +17,6 @@
 *.xdv
 *.dvi
 *.ps
-*.pdf
 *.run.xml
 
 # LaTeX temporary directories
