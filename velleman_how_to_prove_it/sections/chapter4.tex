@@ -804,7 +804,7 @@ The theorem is incorrect so it cannot be fixed.
 
 \begin{tcolorbox}[title=Problem 24, breakable]
     Let $R = \{(m, n) \in \mathbb{N} \times \mathbb{N} \mid |m - n| \le 1\}$,
-    which is a relation on $\mathbb{Z}$. This exersize will illustrate
+    which is a relation on $\mathbb{Z}$. This exercise will illustrate
     why, in part $1$ of Definition $4.3.2$, we define the phrase ``$R$ is 
     reflexive on $A$'', rather than simply ``$R$ is reflexive''.
     
@@ -1037,7 +1037,7 @@ also a total order.
 
 \begin{tcolorbox}[title=Problem 14, breakable]
     Suppose $R$ is a partial order on $A$, $B \subseteq A$, and $b \in B$.
-    Exersize $13$ shows that $R^{-1}$ is also a partial order on $A$.
+    exercise $13$ shows that $R^{-1}$ is also a partial order on $A$.
 
     (a) Prove that $b$ is the $R$-largest element of $B$ iff it is the $R^{-1}$-smallest
         element of $B$.
@@ -1121,22 +1121,28 @@ But $2$ is also not the R-smallest element since $(1, 2) \in R$ and $1 \not= 2$.
 \end{tcolorbox}
 
 \begin{proof}
-    Suppose $A$ is a set $\mathcal{F}\subseteq\mathcal{P}(A)$, and $\mathcal{F} \not= \emptyset$.
-    Clearly $\bigcup\mathcal{F}$ is an upper bound 
-        since for all $A \in \mathcal{F}$ if $x \in A$ then  $x \in \bigcup \mathcal{F}$.
-    It follows that $A \subseteq \bigcup \mathcal{F}$ showing that $\bigcup \mathcal{F}$ is an upper bound.
-    For contradiction, suppose $B \in \mathcal{F}$ and 
-        $B \not= \bigcup \mathcal{F}$ and $B$ is the \emph{l.u.b}.
-    Either $B \not \subseteq \bigcup \mathcal{F}$ of $\bigcup \mathcal{F} \not \subseteq b$.
+    Let $y$ be an arbitrary element in $A$ such that $A \in \mathcal{F}$.
+    For all $x \in B$ where $B \in \mathcal{F}$, $x \in \bigcup \mathcal{F}$.
+    Since $y \in A$ where $A \in \mathcal{F}$, $y \in \bigcup \mathcal{F}$. 
+    Thus $\bigcup \mathcal{F}$ is an upper bound.
+    Now, suppose there exists a smaller upper bound $\mathcal{G}$ such that $\mathcal{G} \subset \bigcup \mathcal{F}$.
+    Let $x$ be an element in $\bigcup \mathcal{F}$ that is not in $\mathcal{G}$. 
+    Then $x \in A$ for some $A \in \mathcal{F}$, but $x \notin \mathcal{G}$, so $A \not\subseteq \mathcal{G}$.
+    So $\mathcal{G}$ is not an upper bound.
+    Thus $\bigcup \mathcal{F}$ is the \emph{l.u.b}.
+\end{proof}
 
-    Suppose $B \not \subseteq \bigcup \mathcal{F}$. This would imply $B$ is not an upper 
-    bound which is a contradiction.
-
-    Suppose $\bigcup \mathcal{F} \not \subseteq B$. But for all 
-        for all $A \in \mathcal{F}$ if $x \in A$ then  $x \in \bigcup \mathcal{F}$.
-    Contradicting that $B \in \mathcal{F}$.
-
-    Therefore $\bigcup \mathcal{F}$ is the \emph{l.u.b}.
+\begin{proof}
+    Let $y$ be an arbitrary element in $A$ such that $A \in \mathcal{F}$.
+    For all $x \in \bigcap \mathcal{F}$, we have $x \in B$ for every $B \in \mathcal{F}$.
+    Thus $\bigcap \mathcal{F} \subseteq A$ for all $A \in \mathcal{F}$,
+        which shows that $\bigcap \mathcal{F}$ is a lower bound.
+    Now, suppose there exists a greater lower bound $\mathcal{G}$ such that 
+    $\bigcap \mathcal{F} \subset \mathcal{G}$.
+    Let $x$ be an element in $\mathcal{G}$ that is not in $\bigcap \mathcal{F}$.
+    Then $x \notin A$ for some $A \in \mathcal{F}$, so $\mathcal{G} \not\subseteq A$.
+    So $\mathcal{G}$ is not a lower bound.
+    Thus $\bigcap \mathcal{F}$ is the \emph{g.l.b}.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 24, breakable]
@@ -1147,17 +1153,47 @@ But $2$ is also not the R-smallest element since $(1, 2) \in R$ and $1 \not= 2$.
     (b) Show that if $T$ is symmetric relation on $A$ and $R \subseteq T$
         then $S \subseteq T$.
 
-    Note that this exersize shows that $S$ is the smallest element of the set 
+    Note that this exercise shows that $S$ is the smallest element of the set 
     $\mathcal{F} = \{T \subseteq A \times A \mid R \subseteq T \text{ and } T \textbf{ is symmetric}\}$;
     in other words, it is the smallest symmetric relation on $A$ that contains $R$ as a subset. This 
     relation $S$ is called the symmetric closure of $R$.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $x, y$ are arbitrary elements in $A$ and $(x, y) \in S$.
+    So $(x, y) \in R \cup R^{-1}$.
+    Thefore $(x, y) \in R$ or $(x, y) \in R^{-1}$.
+    Suppose $(x, y) \in R$ then $(y, x) \in R^{-1}$
+        and it follows that $(y, x) \in R \cup R^{-1} = S$.
+    Suppose $(x, y) \in R^{-1}$ then $(y, x) \in R$
+        and it follows that $(y, x) \in R \cup R^{-1} = S$.
+    Therefore $S$ is a symmetric relation on $A$.
+\end{proof}
+
+\begin{proof}
+    Let $(x, y)$ be an arbitrary element in $R$.
+    Cearly, $(x, y) \in R \cup R^{-1} = S$.
+    Therefore $R \subseteq S$.
+\end{proof}
+
+\begin{proof}
+    Suppose $(x, y)$ is an arbitrary pair of elements in $S$.
+    It follows that $(x, y) \in R \cup R^{-1}$.
+    So $(x, y) \in R$ or $(x, y) \in R^{-1}$.
+    Suppose $(x, y) \in R$.
+    Since $R \subseteq T$ then $(x, y) \in T$.
+    Suppose $(x, y) \in R^{-1}$ so $(y, x) \in R$.
+    Since $R \subseteq T$ then $(y, x) \in T$.
+    Since $T$ is symmetric it follows that $(x, y) \in T$.
+    Therefore $S \subseteq T$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 25, breakable]
     Suppose that $R$ is a relation on $A$. Let $\mathcal{F} = \{T \subseteq A \times A \mid R \subseteq T
     \text{ and } T \text{ is transitive}\}$.
 
-    (a) Show that $\mathcal{F} = \emptyset$.
+    (a) Show that $\mathcal{F} \not = \emptyset$.
 
     (b) Show that $\bigcap \mathcal{F}$ is a transitive relation on $A$ and $R \subseteq \bigcap \mathcal{F}$.
     
@@ -1165,30 +1201,119 @@ But $2$ is also not the R-smallest element since $(1, 2) \in R$ and $1 \not= 2$.
         as a subset. The relation $\bigcap \mathcal{F}$ is called the transitive closure of $R$.
 \end{tcolorbox}
 
+\begin{proof}
+    Since $A \times A$ is a relation on $A$, $R \subseteq A \times A$, and $A \times A$ is transitive
+        it follows that $A \times A \in \mathcal{F}$.
+    Therefore $\mathcal{F} \not = \emptyset$. 
+\end{proof}
+
+\begin{proof}
+    Suppose $(x, y)$ and $(y, z)$ are arbitrary elements in $\bigcap \mathcal{F}$.
+    For all $\mathcal{G} \in \mathcal{F}$, $(x, y) \in \mathcal{G}$ and $(y, z) \in \mathcal{G}$.
+    Since $\mathcal{G}$ is transitive then $(x, z) \in \mathcal{G}$.
+    Since $\mathcal{G}$ was arbitrary it follows that $(x, z) \in \bigcap \mathcal{F}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $(x, y)$ is an arbitrary element in $R$, 
+        and $\mathcal{G}$ is an arbitrary set in $\mathcal{F}$.
+    Since $R \subseteq \mathcal{G}$ it follows that $(x, y) \in \mathcal{G}$.
+    Since $\mathcal{G}$ was arbitrary, $(x, y) \in \bigcap \mathcal{F}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $(x, y)$ is an arbitrary element in $\bigcap \mathcal{F}$,
+        and $T$ is a transitive relation on $A$ such that $R \subseteq T$.
+    Now for all $\mathcal{G} \in \mathcal{F}$, $(x, y) \in \mathcal{G}$.
+    It then follows, since $T \in \mathcal{F}$ that $(x, y) \in T$.
+    Therefore $\bigcap \mathcal{F} \subseteq T$.
+    Showing that $\bigcap \mathcal{F}$ is the 
+        smallest transitive relation on $A$ that contains $R$ 
+        as a subset.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 26, breakable]
     Suppose $R_1$ and $R_2$ are relations on $A$, and let $R_1 \subseteq R_2$.
 
     (a) Let $S_1$ and $S_2$ be the symmetric closures of $R_1$ and $R_2$,
-        respectively. Prove that $S_1 \subseteq S_2$. (See exersize $24$ for the 
+        respectively. Prove that $S_1 \subseteq S_2$. (See exercise $24$ for the 
         definition of symmetric closure.)
 
     (b) Let $T_1$ and $T_2$ be the transitive closures of $R_1$ and $R_2$, respectively.
-        Prove that $T_1 \subseteq T_2$. (See exersize $25$ for the definition of transitive
+        Prove that $T_1 \subseteq T_2$. (See exercise $25$ for the definition of transitive
         closure.)
 \end{tcolorbox}
+
+\begin{proof}
+    Let $(x, y)$ be an arbitrary element in $S_1$.
+    So $(x, y) \in R_1 \cup R_1^{-1}$ therefore $(x, y) \in R_1$ or $(x, y) \in R_1^{-1}$.
+    Suppose $(x, y) \in R_1$. Since $R_1 \subseteq R_2$, $(x, y) \in R_2$.
+    Then $(x, y) \in R_2 \subseteq R_2 \cup R_2^{-1} = S_2$.
+    Suppose $(x, y) \in R_1^{-1}$ it follows that $(y, x) \in R_1$.
+    Since $R_1 \subseteq R_2$, $(y, x) \in R_2$ so $(x, y) \in R_2^{-1}$.
+    Then $(x, y) \in R_2 \cup R_2^{-1} = S_2$.
+    Therefore $S_1 \subseteq S_2$.
+\end{proof}
+
+\begin{proof}
+    Let $(x, y)$ be an arbitrary element in $T_1$.
+    Since $T_1$ is the smallest transitive closure of $R_1$
+        it follows that $(x, y) \in R_1$, or there exists $c$ such that $(x, c) \in R_1$ and $(c, y) \in R_1$.
+    Suppose $(x, y) \in R_1$.
+    Then, since $R_1 \subseteq R_2$, $(x, y) \in R_2$.
+    Since $T_2$ is the smallest transitive closure of $R_2$
+        it follows that $(x, y) \in R_2$.
+    Suppose there exists $c$ such that $(x, c) \in R_1$ and $(c, y) \in R_1$.
+    Then, since $R_1 \subseteq R_2$, $(x, c) \in R_2$ and $(c, y) \in R_2$.
+    Since $T_2$ is the smallest transitive closure of $R_2$
+        it follows that $(x, y) \in T_2$.
+    Therefore $T_1 \subseteq T_2$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 27, breakable]
     Suppose $R_1$ and $R_2$ are relations on $A$, and let $R = R_1 \cup R_2$.
 
     (a) Let $S_1$, $S_2$, and $S$ be symmetric closures of $R_1$, $R_2$, and $R$,
-        respectively. Prove that $S_1 \cup S_2 = S$. (See exersize $24$ for the definition
+        respectively. Prove that $S_1 \cup S_2 = S$. (See exercise $24$ for the definition
         of symmetric closure.)
 
     (b) Let $T_1$, $T_2$, and $T$ be the transitive closures of $R_1$, $R_2$, and $R$,
         respectively. Prove that $T_1 \cup T_2 \subseteq T$, and give an example to 
-        show that it may happen that $T_1 \cup T_2 \not= T$. (See exersize $25$ for 
+        show that it may happen that $T_1 \cup T_2 \not= T$. (See exercise $25$ for 
         the definition of transitive closure.)
 \end{tcolorbox}
+
+\begin{proof}
+    We first show $S_1 \cup S_2 \subseteq S$.
+    Suppose $(x, y)$ is an arbitrary pair of elements in $S_1 \cup S_2$.
+    So $(x, y) \in S_1$ or $(x, y) \in S_2$.
+
+    Suppose $(x, y) \in S_1$
+    So $(x, y) \in R_1 \cup R_1^{-1}$ and therefore $(x, y) \in R_1$ or $(x, y) \in R_1^{-1}$.
+    Suppose $(x, y) \in R_1$ then it follows, since $R = R_1 \cup R_2$,
+        $(x, y) \in R$
+    Then since $S = R \cup R^{-1}$ it follows that $(x, y) \in S$.
+    A similar argument shows that supposing $(x, y) \in R_1^{-1}$ then $(x, y) \in S$.
+    A similar argument shows that supposing $(x, y) \in S_2$ then $(x, y) \in S$.
+    Therefore $S_1 \cup S_2 \subseteq S$.
+
+    We now show $S \subseteq S_1 \cup S_2$.
+    Suppose $(x, y)$ is an arbitrary pair of elements in $S$.
+    So $(x, y) \in R$ or $(x, y) \in R^{-1}$.
+    Suppose $(x, y) \in R$.
+    Since $R = R_1 \cup R_2$ it follows that
+        $(x, y) \in R_1 \cup R_2$.
+    So $(x, y) \in R_1$ or $(x, y) \in R_2$.
+    Suppose $(x, y) \in R_1$ then $(x, y) \in R_1 \cup R_1^{-1} = S_1 \subseteq S_1 \cup S_2$.
+    A similar argument shows that supposing $(x, y) \in R_2$
+        then $(x, y) \in S_1 \cup S_2$.
+    A similar argument shows that supposing $(x, y) \in R^{-1}$
+        then $(x, y) \in S_1 \cup S_2$.
+    Therefore $S \subseteq S_1 \cup S_2$.
+
+    Since $S_1 \cup S_2 \subseteq S$ and $S \subseteq S_1 \cup S_2$ 
+        it follows that $S = S_1 \cup S_2$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 28, breakable]
     Suppose $A$ is a set.
@@ -1202,9 +1327,99 @@ But $2$ is also not the R-smallest element since $(1, 2) \in R$ and $1 \not= 2$.
         and $R \not= S$.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $A$ has at least two elements. Let $a, b \in A$
+    such that $a \not = b$. If $\neg aRb$ and $\neg bRa$ then we 
+    can construct a relation $S$ such that $S = R \cup \{(a, b)\}$ or $S = R \cup \{(b, a)\}$.
+    In either case $S \not\subseteq R$. So either $aRb$ or $bRa$.
+    Suppose $aRb$. Then we can construct a relation $S$ such that 
+    $S = (R \setminus \{(a, b)\}) \cup \{(b, a)\}$;
+        then $S \not\subseteq R$.
+    Suppose $bRa$. Then we can construct a relation $S$ such that 
+    $S = (R \setminus \{(b, a)\}) \cup \{(a, b)\}$;
+        then $S \not\subseteq R$.
+    Therefore there is no largest antisymmetric relation on $A$.
+\end{proof}
+
+\begin{proof}
+    Suppose $S$ is an antisymmetric relation on $A$ such that 
+        $R \subseteq S$ and $R \not = S$.
+    Let $(a, b)$ be a pair of elements such that $(a, b) \in S$
+        and $(a, b) \not \in R$.
+    Since $R$ is a total order and $(a,b) \notin R$, it follows that $a \not = b$
+        and $(b, a) \in R$.
+    Since $(a, b) \in S$ and $a \not = b$ it follows that $(b, a) \not \in S$.
+    Finally, $(b, a) \in R$ and $(b, a) \not \in S$ contradicts that $R \subseteq S$.
+    Thus $R$ is a maximal antisymmetric relation on $A$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 30, breakable]
     Suppose $R$ is a relation on $A$, and let $T$ be the transitive closure of $R$.
     Prove that if $R$ is symmetric, then so is $T$. (Hint: Assume that $R$ is symmetric.
     Prove that $R \subseteq T^{-1}$ and $T^{-1}$ is transitive. What can you conclude 
-    about $T$ and $T^{-1}$? See exersize $25$ for the definition of transitive closure.)
+    about $T$ and $T^{-1}$? See exercise $25$ for the definition of transitive closure.)
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $R$ is symmetric. Let $(x, y)$ be an arbitrary element in $R$.
+    Since $R$ is symmetric it follows that $(y, x) \in R$.
+    Then $(y, x) \in T$ so $(x, y) \in T^{-1}$.
+    Therefore $R \subseteq T^{-1}$.
+
+    Suppose $(x, y)$, $(y, z)$ are arbitrary pairs in $T^{-1}$.
+    It follows that $(y, x)$, $(z, y) \in T$.
+    Then, since $T$ is transitive $(z, x) \in T$ so $(x, z) \in T^{-1}$.
+    Therefore $T^{-1}$ is transitive and $T^{-1}$ is a transitive
+        closure on $T$.
+
+    Now, since $R \subseteq T^{-1}$ and $T^{-1}$ is transitive $T^{-1}$ is
+        a transitive closure on $R$.
+    Since $T$ is the minimum transitive closure 
+        on $R$ it follows that $T \subseteq T^{-1}$.
+    Similarly, since $T^{-1}$ is a minu transitive closure 
+        on $R$ it follows that $T^{-1} \subseteq T$.
+    Therefore $T = T^{-1}$.
+\end{proof}
+
+\subsection{Equivalence Relations}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Find all partitions of the set $A = \{1, 2, 3\}$
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+$\mathcal{F}$ is a partition of $A$ if it has the following properites:
+\begin{enumerate}
+    \item $\bigcup \mathcal{F} = A$.
+    \item $\mathcal{F}$ is pairwise disjoint.
+    \item $\forall{X \in \mathcal{F}}(X \not = \emptyset)$.
+\end{enumerate}
+
+Partitions of $A$:
+\begin{enumerate}
+    \item $\{\{1\}, \{2\}, \{3\}\}$
+    \item $\{\{1, 2\}, \{3\}\}$
+    \item $\{\{1\}, \{2, 3\}\}$
+    \item $\{\{1, 3\}, \{2\}\}$
+    \item $\{\{1, 2, 3\}\}$
+\end{enumerate}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Find all equivalence relations on the set $A = \{1, 2, 3\}$.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+$R$ is called an equivalence relation on $A$ if it is reflexive,
+    symmetric, and transitive.
+
+All equivalence relations on $A$:
+\begin{enumerate}
+    \item \{(1, 1), (2, 2), (3, 3)\}
+    \item \{(1, 1), (2, 2), (3, 3), (1, 2), (2, 1)\}
+    \item \{(1, 1), (2, 2), (3, 3), (2, 3), (3, 2)\}
+    \item \{(1, 1), (2, 2), (3, 3), (1, 3), (3, 1)\}
+    \item \{(1, 1), (2, 2), (3, 3), (1, 2), (2, 1), (1, 3), (3, 1), (2, 3), (3, 2)\}
+\end{enumerate}
