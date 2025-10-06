@@ -1,0 +1,634 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Prove the following: 
+
+    (i) If $ax = a$ for some number $a \not = 0$, then $x = 1$.
+
+    (ii) $x^2 - y^2 = (x - y)(x + y)$.
+
+    (iii) If $x^2 = y^2$, then $x = y$ or $x = -y$.
+
+    (iv) $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$.
+
+    (v) $x^n - y^n = (x - y)(x^{(n - 1)} + x^{(n - 2)}y + \cdots + xy^{(n - 2)} + y^{(n - 1)})$
+
+    (vi) $x^3 + y^3 = (x + y)(x^2 - xy + y^2)$. There is a particularly
+    easy way to do this (iv), and it will show you how to find a factorization
+    for $x^n + y^n$ whenever $n$ is odd.
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        ax &= a & & \\
+        \iff a^{-1} \cdot ax &= a^{-1} \cdot a && \\
+        \iff 1x &= 1 && \text{(P7)} \\
+        \iff x &= 1 && \text{(P6)}
+    \end{align*}
+\end{proof}
+\begin{proof}
+    \begin{align*}
+        x^2 - y^2 &= x^2 - xy + xy - y^2 && \text{(P2, P3)} \\
+                  &= x(x - y) + y(x - y) && \text{(P9)} \\
+                  &= (x - y)(x + y) && \text{(P9)}
+    \end{align*}
+\end{proof}
+\begin{proof}
+    \begin{align*}
+        x^2 &= y^2  && \\
+        \iff x^2 - y^2 &= y^2 - y^2 && \\
+        \iff x^2 - y^2 &= 0 && \text{(P3)} \\
+        \iff (x - y)(x + y) &= 0 && \text{(1 ii)}
+    \end{align*}
+    It then follows that either $x = y$ or $x = -y$.
+\end{proof}
+\begin{proof}
+    \begin{align*}
+        x^3 - y^3 &= x^3 - x^2y + x^2y - xy^2 + xy^2 - y^3 && \text{(P2, P3)} \\
+                  &= x^2(x - y) + xy(x - y) + y^2(x - y) && \text{(P9)} \\
+                  &= (x - y)(x^2 + xy + y^2) && \text{(P9)}
+    \end{align*}
+\end{proof}
+\begin{proof}
+    \begin{align*}
+        &(x - y)(x^{(n - 1)} + x^{(n - 2)}y + \cdots + xy^{(n - 2)} + y^{(n - 1)}) && \\
+            = &x^{(n - 1)}(x - y) + x^{(n - 2)}y(x - y) + \cdots + xy^{(n - 2)}(x - y) + y^{(n - 1)}(x - y) && \text{(P9)} \\
+            = &x^{(n - 1)} \cdot x - x^{(n - 1)} \cdot y + x^{(n - 2)}y \cdot x - x^{(n - 2)}y \cdot y + &&  \\
+               &\cdots + xy^{(n - 2)} \cdot x - xy^{(n - 2)} \cdot y + y^{(n - 1)} \cdot x - y^{(n - 1)} \cdot y && \text{(P9)} \\
+            = &x^n - x^{n - 1}y + x^{n - 1}y - x^{n - 2}y^2 + 
+              \cdots + x^2y^{n - 2} - xy^{n - 1} + xy^{n - 1} - y^n && \\
+            = & x^n - y^n && \text{(P3)}
+    \end{align*}
+\end{proof}
+\begin{proof}
+    \begin{align*}
+        x^3 + y^3 &= x^3 - {(-y)}^3 && \text{} \\
+                  &= (x - (-y))(x^2 + x(-y) + {(-y)}^2)  && \text{(1 iv)} \\
+                  &= (x + y)(x^2 - xy + y^2)  && \text{}
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove the following:
+
+    (i) $\frac{a}{b} = \frac{ac}{bc}$, if $b$, $c \not = 0$.
+
+    (ii) $\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}$, if $b$, $d \not = 0$.
+
+    (iii) ${(ab)}^{-1} = a^{-1}b^{-1}$, if $a$, $b \not = 0$. (To do this 
+    you must remember the defining property of ${(ab)}^{-1}$.)
+
+    (iv) $\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{db}$, if $b$, $d \not = 0$.
+
+    (v) $\frac{a}{b} \div \frac{c}{d} = \frac{ad}{bc}$, if $b$, $c$, $d \not = 0$.
+
+    (vi) If $b$, $d \not = 0$, then $\frac{a}{b} = \frac{c}{d}$ if and only if 
+    $ad = bc$. Also determine when $\frac{a}{b} = \frac{b}{a}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $b,c \not = 0$. Then:
+    \begin{align*}
+        &\frac{a}{b} = \frac{ac}{bc} \\
+        \iff& ab^{-1} = ac(bc)^{-1} && \\
+        \iff& ab^{-1}(bc) = ac(bc)^{-1}bc &&\quad \text{} \\
+        \iff& ab^{-1}(bc) = ac \cdot 1 &&\quad \text{P7} \\
+        \iff& ab^{-1}(bc) = ac &&\quad \text{P6} \\
+        \iff& a(b^{-1}b)c = ac &&\quad \text{P5} \\
+        \iff& a \cdot 1 \cdot c = ac &&\quad \text{P7} \\
+        \iff& ac = ac &&\quad \text{P6} 
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Suppose $b, d \not = 0$. Then:
+    \begin{align*}
+        &\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \\
+        \iff& ab^{-1} + cd^{-1} = (ad + bc)(bd)^{-1} && \\
+        \iff& (bd)(ab^{-1} + cd^{-1}) = (ad + bc)(bd)^{-1}(bd) && \\
+        \iff& ab^{-1}(bd) + cd^{-1}(bd) = (ad + bc)(bd)^{-1}(bd) && \quad \text{P9} \\
+        \iff& ab^{-1}(bd) + cd^{-1}(bd) = (ad + bc) \cdot 1 && \quad \text{P7} \\
+        \iff& ab^{-1}(bd) + cd^{-1}(bd) = (ad + bc) && \quad \text{P6} \\
+        \iff& a(b^{-1}b)d + cd^{-1}(bd) = (ad + bc) && \quad \text{P5} \\
+        \iff& a(b^{-1}b)d + cd^{-1}(db) = (ad + bc) && \quad \text{P8} \\
+        \iff& a(b^{-1}b)d + c(d^{-1}d)b = (ad + bc) && \quad \text{P5} \\
+        \iff& a \cdot 1 \cdot d + c \cdot 1 \cdot b = (ad + bc) && \quad \text{P7} \\
+        \iff& ad + cb = (ad + bc) && \quad \text{P6} \\
+        \iff& ad + bc = ad + bc && \quad \text{P8} 
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Suppose $a, b \not = 0$. Then:
+    \begin{align*}
+        &(ab)^{-1} = a^{-1}b^{-1} &&\quad \text{} \\
+            \iff & (ab)(ab)^{-1} = (ab)a^{-1}b^{-1} &&\quad \text{} \\
+            \iff & 1 = a(ba^{-1})b^{-1} &&\quad \text{P5} \\
+            \iff & 1 = a(a^{-1}b)b^{-1} &&\quad \text{P4} \\
+            \iff & 1 = (a \cdot a^{-1})b \cdot b^{-1} &&\quad \text{P5} \\
+            \iff & 1 = 1 \cdot b \cdot b^{-1} &&\quad \text{P7} \\
+            \iff & 1 = 1 \cdot 1 &&\quad \text{P7} \\
+            \iff & 1 = 1 &&\quad \text{P6}
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Suppose $b, d \not = 0$. Then:
+    \begin{align*}
+        &\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{db} &&\quad \text{} \\
+            \iff & ab^{-1} \cdot cd^{-1} = ac(db)^{-1} &&\quad \text{} \\
+            \iff & ab^{-1} \cdot cd^{-1} = ac(bd)^{-1} &&\quad \text{P8} \\
+            \iff & acb^{-1}d^{-1} = ac(bd)^{-1} &&\quad \text{P8} \\
+            \iff & acb^{-1}d^{-1}(bd) = ac(bd)^{-1}(bd) &&\quad \text{} \\
+            \iff & acb^{-1}d^{-1}(bd) = ac \cdot 1 &&\quad \text{P7} \\
+            \iff & acb^{-1}d^{-1}(bd) = ac &&\quad \text{P6} \\
+            \iff & acb^{-1}d^{-1}(db) = ac &&\quad \text{P8} \\
+            \iff & acb^{-1}(d^{-1}d)b = ac &&\quad \text{P5} \\
+            \iff & acb^{-1} \cdot 1 \cdot b = ac &&\quad \text{P7} \\
+            \iff & acb^{-1}b = ac &&\quad \text{P6} \\
+            \iff & ac \cdot 1 = ac &&\quad \text{P7} \\
+            \iff & ac = ac &&\quad \text{P6} 
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Suppose $b, c, d \not = 0$. Then:
+    \begin{align*}
+        &\frac{a}{b} \div \frac{c}{d} = \frac{ad}{bc} &&\quad \text{} \\
+        \iff&\frac{a}{b}\left(\frac{c}{d}\right)^{-1} = \frac{ad}{bc} &&\quad \text{} \\
+        \iff&\frac{a}{b}\left(\frac{c}{d}\right)^{-1} = \frac{a}{b} \cdot \frac{d}{c} &&\quad \text{Part (iv)} \\
+        \iff&\frac{a}{b}\left(\frac{c}{d}\right)^{-1} \cdot \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c} \cdot \frac{c}{d} &&\quad \text{} \\
+        \iff&\frac{a}{b} \cdot 1 = \frac{a}{b} \cdot \frac{d}{c} \cdot \frac{c}{d} &&\quad \text{P7} \\
+        \iff&\frac{a}{b} = \frac{a}{b} \cdot \frac{d}{c} \cdot \frac{c}{d} &&\quad \text{P6} \\
+        \iff&\frac{a}{b} = \frac{a}{b} \cdot \frac{dc}{cd} &&\quad \text{Part (iv)} \\
+        \iff&\frac{a}{b} = \frac{a}{b} \cdot \frac{dc}{dc} &&\quad \text{P8} \\
+        \iff&\frac{a}{b} = \frac{a}{b} \cdot dc(dc)^{-1} &&\quad \text{} \\
+        \iff&\frac{a}{b} = \frac{a}{b} \cdot 1 &&\quad \text{P7} \\
+        \iff&\frac{a}{b} = \frac{a}{b} &&\quad \text{P6} 
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Suppose $b, d \not = 0$. Then:
+    \begin{align*}
+        &\frac{a}{b} = \frac{c}{d} &&\quad \text{} \\
+        &\iff ab^{-1} = cd^{-1} &&\quad \text{} \\
+        &\iff ab^{-1}d = cd^{-1}d &&\quad \text{} \\
+        &\iff ab^{-1}d = c \cdot 1&&\quad \text{P7} \\
+        &\iff ab^{-1}d = c &&\quad \text{P6} \\
+        &\iff adb^{-1} = c &&\quad \text{P8} \\
+        &\iff adb^{-1}b = cb &&\quad \text{} \\
+        &\iff ad \cdot 1 = cb &&\quad \text{P7} \\
+        &\iff ad = cb &&\quad \text{P7} \\
+        &\iff ad = bc &&\quad \text{P5} 
+    \end{align*}
+    Suppose $b, a \not = 0$ and  $\frac{a}{b} = \frac{b}{a}$. Then:
+    \begin{align*}
+        &\frac{a}{b} = \frac{b}{a} &&\quad \text{} \\
+        \iff& a^2 = b^2 &&\quad \text{By previous answer} \\
+        \iff& |a| = |b| &&\quad \text{} 
+    \end{align*}
+    Therefore $\frac{a}{b} = \frac{b}{a}$ iff $|a| = |b|$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove the following:
+
+    (i) If $a < b$ and $c < d$, then $a + c < b + d$.
+
+    (ii) If $a < b$, then $-b < -a$.
+
+    (iii) If $a < b$ and $c > d$, then $a - c < b - d$.
+
+    (iv) If $a < b$ and $c > 0$, then $ac < bc$.
+
+    (v) If $a < b$ and $c < 0$, then $ac > bc$.
+
+    (vi) If $a > 1$, then $a^2 > a$.
+
+    (vii) If $0 < a < 1$, then $a^2 < a$.
+
+    (viii) If $0 \le a < b$ and $0 \le c < d$, then $ac < bd$.
+
+    (ix) If $0 \le a < b$, then $a^2 < b^2$. (Use (viii).)
+
+    (x) If $a$, $b \ge 0$ and $a^2 < b^2$, then $a < b$. (Use (ix) backwards.)
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a < b$ and $c < d$.
+    Then $b - a$ is in $P$ and $d - c$ is in P.
+    Therefore $(b - a) + (d - c)$ is in P.
+    It follows that $(b - a) + (d - c) > 0$ and therefore $a + c < b + d$.
+\end{proof}
+
+\begin{proof}
+    Suppose $a < b$.
+    Clearly $b - a$ is in P.
+    It follows that $-(-b - (-a))$ is in P.
+    Now $-b - (-a) < 0$ so $-b < -a$.
+\end{proof}
+
+\begin{proof}
+    Since $d < c$ by (ii) $-c < -d$.
+    Since $-c < -d$ and $a < b$ by (i)
+        $a + (-c) < b + (-d)$ therefore $a - c < b - d$.
+\end{proof}
+
+\begin{proof}
+    Suppose $a < b$ and $c > 0$.
+    Since $a < b$ it follows $b - a$ is in P.
+    Since $b - a$ and $c$ are in P it follows that $c(b - a)$ is in P.
+    Then $c(b - a) = bc - ac$ is in P so $ac < bc$.
+\end{proof}
+
+\begin{proof}
+    Suppose $a < b$ and $c < 0$ it follows that $-c > 0$.
+    Then by (iv) $a(-c) < b(-c)$ so $-ac < -bc$.
+    Then by (ii) it follows that $ac > bc$.
+\end{proof}
+
+\begin{proof}
+    Suppose $a > 1$. It follows that $a - 1 > 0$.
+    Since $a > 1$ and $1 > 0$ it follows that $a > 0$.
+    Since $0 < a - 1$ and $a > 0$ it follows that $0(a) < (a - 1)a$
+        so $0 < a^2 - a$ and therefore $a^2 > a$.
+\end{proof}
+
+\begin{proof}
+    Suppose $0 < a < 1$. It follows that $a - 1 < 0$.
+    Since $a - 1 < 0$ and $a > 0$ it follows by (iv)
+        that $a(a - 1) < 0(a)$.
+    Therefore $a^2 - a < 0$ and $a^2 < a$.
+\end{proof}
+
+\begin{proof}
+    Suppose $0 \le a < b$ and $0 \le c < d$.
+    If $a = 0$ or $c = 0$ then $ac = 0$. Now since 
+        $b > 0$ and $d > 0$ it follows that  $bd > 0$ so $0 = ac < bd$. 
+    Suppose $a > 0$ and $c > 0$.
+    Since $a < b$ and $d > 0$ it follows that $ad < bd$.
+    Since $c < d$ and $a > 0$ it follows that $ac < ad$.
+    Then $ac < ad < bd$ so $ac < bd$.
+\end{proof}
+
+\begin{proof}
+    Suppose $0 \le a < b$.
+    By part (viii) it follows that $a \cdot a < b \cdot b$
+        so $a^2 < b^2$.
+\end{proof}
+
+\begin{proof}
+    Suppose $a$, $b \ge 0$ and $a^2 < b^2$.
+    Since $a^2 < b^2$ by (ix) it follows that $0 \le a < b$
+        so $a < b$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Prove that if $0 < a < b$, then 
+    \[a < \sqrt{ab} < \frac{a + b}{2} < b\]
+    Notice that the inequality $\sqrt{ab} \le (a + b) / 2$ holds 
+    for all $a$, $b \ge 0$. A generalization of this fact occurs in 
+    Problem $2-22$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $0 < a < b$.
+    Now let $x^2 = a$ and $y^2 = b$.
+    By Problem $5$ part (ix) since $x^2 < y^2$, $x < y$ so $\sqrt{a} < \sqrt{b}$.
+    It then follows that $\sqrt{a} - \sqrt{b} < 0$.
+    Since $\sqrt{a} > 0$ it follows that $\sqrt{a}(\sqrt{a} - \sqrt{b}) < 0$.
+    Then $\sqrt{a}(\sqrt{a} - \sqrt{b}) < 0 \iff a - \sqrt{ab} < 0$ so $a < \sqrt{ab}$.
+    Since $\sqrt{b} > 0$ it follows that $\sqrt{b}(\sqrt{a} - \sqrt{b}) < 0$.
+    Then $\sqrt{b}(\sqrt{a} - \sqrt{b}) < 0 \iff \sqrt{ab} - b < 0$ so $\sqrt{ab} < b$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Prove the folowing:
+
+    (i) $|xy| = |x| \cdot |y|$
+
+    (ii) $|\frac{1}{x}| = \frac{1}{|x|}$, if $x \not = 0$. (The best way to do this 
+    is to remember what ${|x|}^{-1}$ is.)
+
+    (iii) $\frac{|x|}{|y|} = |\frac{x}{y}|$, if $y \not = 0$.
+
+    (iv) $|x - y| \le |x| + |y|$. (Give a very short proof.)
+
+    (v) $|x| - |y| \le |x - y|$. (A very short proof is possible, if you write things 
+    in the right way.)
+
+    (vi) $|(|x| - |y|)| \le |x - y|$. (Why does this follow immediately from (v)?)
+
+    (vii) $|x + y + z| \le |x| + |y| + |z|$. Indicate when equality holds, and prove 
+    your statement.
+\end{tcolorbox}
+
+\begin{proof}
+    There are four cases to consider:
+        \begin{enumerate}
+            \item $x \le 0$ and $y \le 0$
+            \item $x \le 0$ and $y \ge 0$
+            \item $x \ge 0$ and $y \le 0$
+            \item $x \ge 0$ and $y \ge 0$
+        \end{enumerate}
+    Suppose $x \le 0$ and $y \le 0$. Then $xy \ge 0$ so $|xy| = xy$.
+    Now $|x| = -x$ and $|y| = -y$ so $|x| \cdot |y| = (-x)(-y) = xy = |xy|$.
+
+    Suppose $x \le 0$ and $y \ge 0$. Then $xy \le 0$ so $|xy| = -xy$.
+    Now $|x| = -x$ and $|y| = y$ so $|x| \cdot |y| = -xy = |xy|$.
+
+    Suppose $x \ge 0$ and $y \le 0$. Then $xy \le 0$ so $|xy| = -xy$.
+    Now $|x| = x$ and $|y| = -y$ so $|x| \cdot |y| = -xy = |xy|$.
+
+    Suppose $x \ge 0$ and $y \ge 0$. Then $xy \ge 0$ so $|xy| = xy$.
+    Now $|x| = x$ and $|y| = y$ so $|x| \cdot |y| = xy = |xy|$.
+
+    Since these cases were exhaustive $|x||y| = |xy|$.
+\end{proof}
+
+\begin{proof}
+    Suppose $x \not = 0$.
+    So $|\frac{1}{x}||x| = |\frac{x}{x}| \quad \text{part (i)} = 1 = \frac{|x|}{|x|} = \frac{1}{|x|} \cdot |x|$.
+    Then dividing by $|x| \not = 0$ it follows that $|\frac{1}{x}| = \frac{1}{|x|}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $y \not = 0$.
+    So $|\frac{x}{y}||y| = |\frac{xy}{y}| \quad \text{part (i)} = |x| = \frac{|x||y|}{|y|}$.
+    Then dividing by $|y| \not = 0$ it follows that $|\frac{x}{y}| = \frac{|x|}{|y|}$.
+\end{proof}
+
+\begin{proof}
+    So $|x - y| = |x + (-y)| \le |x| + |-y| \quad \text{triangle inequality} = |x| + |y|$.
+\end{proof}
+
+\begin{proof}
+    So $|x| = |x + y - y| = |(x - y) + y| \le |x - y| + |y| \quad \text{triangle inequality} = |x + y| + |y|$.
+    Then subtracting $|y|$ on both sides gives $|x| - |y| \le |x - y|$.
+\end{proof}
+
+\begin{proof}
+    So $|(|x| - |y|)| \le ||x - y|| \quad \text{part (v)} = |x - y|$.
+\end{proof}
+
+\begin{proof}
+    So
+    \begin{align*}
+        |x + y + z| &\le |(x + y) + z| && \\
+        &\le |x + y| + |z| && \text{triangle inequality} \\
+        &\le |x| + |y| + |z| && \text{triangle inequality}.
+    \end{align*}
+    Now let us discover when $|x + y + z| = |x| + |y| + |z|$.
+    Equality occurs when $|x + y| = |x| + |y|$ and 
+        $|x + y + z| = |x + y| + |z|$.
+    Clearly $|x + y| = |x| + |y|$ when $x$, $y$ are both non-positive or non-negative.
+    We can take $|x + y| + |z| = |x| + |y| + |z|$ subtract 
+        $|z|$ from both sides and get $|x + y| = |x| + |y|$ 
+        which we already showed requires that $|x|$ and $|y|$ 
+        both be non-positive or non-negative.
+    Now $|x + y| + |z| = |x| + |y| + |z|$ requires 
+        $x + y$ and $z$ to be both non-positive or non-negative.
+    If $x$ and $y$ have the same sign then $x + y$ also has this sign.
+    Thus, $|x + y + z|= |x| + |y| + |z|$ 
+        if $x$, $y$, $z$ are all non-positive or non-negative.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    The maximum of two numbers $x$ and $y$ is denoted by 
+    $max(x, y)$. Thus $max(-1, 3) = max(3, 3) = 3$
+    and $max(-1, -4) = max(-4, -1) = -1$.
+    The minimum of $x$ and $y$ is denoted by $min(x, y)$. Prove that
+    \[max(x, y) = \frac{x + y + |y - x|}{2}\]
+    \[min(x, y) = \frac{x + y - |y - x|}{2}\]
+    Derive a formula for $max(x, y, z)$ and $min(x, y, z)$, using, for example
+    \[max(x, y, z) = max(x, max(y, z))\]
+\end{tcolorbox}
+
+\begin{proof}
+    Lets analyze $\frac{x + y}{2} + \frac{|y - x|}{2}$.
+    Now if $y - x > 0$ then $y \ge x$ and $|y - x| = y - x$.
+    Then $\frac{x + y}{2} + \frac{y - x}{2}
+        =\frac{x + y + y - x}{2} = \frac{2y}{2} = y$
+        as expected.
+    If $y - x < 0$ then $x > y$ and $|y - x| = -(y - x)$.
+    Then $\frac{x + y}{2} + \frac{-(y - x)}{2}
+        =\frac{x + y - y + x}{2} = \frac{2x}{2} = x$
+        as expected.
+    The $min$ equation simply negates $|y - x|$
+        and following similarly to our $max$ 
+        computation would result in 
+        $y$ if $y < x$ and $x$ if $x \le y$.
+\end{proof}
+
+\textbf{Formula for $max(x, y, z)$:} \begin{align*}
+    &max(x, y, z) = max(max(x, y), z) \\
+    = &max\left(\frac{x + y + |y - x|}{2}, z\right) \\
+    = &\frac{(x + y + |y - x|) + z + |z - (x + y + |y - x|)|}{2}
+\end{align*}
+
+\textbf{Formula for $min(x, y, z)$:} \begin{align*}
+    &min(x, y, z) = min(min(x, y), z) \\
+    = &min\left(\frac{x + y - |y - x|}{2}, z\right) \\
+    = &\frac{(x + y - |y - x|) + z - |z - (x + y - |y - x|)|}{2}
+\end{align*}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    (a) Prove that $|a| = |-a|$. (The trick is not to become confused by too many cases.
+    First prove the statement $a \ge 0$. Why is it then obvious for $a \le 0$?)
+
+    (b) Prove that $-b \le a \le b$ if and only if $|a| \le b$. In particular,
+    it follows that $-|a| \le a \le |a|$.
+
+    (c) Use this fact to give a new proof that $|a + b| \le |a| + |b|$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a \ge 0$ so $-a \le 0$. So $|a| = a$ and $|-a| = -(-a)$.
+    Then $|-a| = -(-a) = a = |a|$.
+    Suppose $a < 0$ so $-a > 0$. So $|a| = -a$ and $|-a| = -a$.
+    Then $|a| = -a = |-a|$.
+\end{proof}
+
+\begin{proof}
+    Suppose $-b \le a \le b$.
+    Suppose $a \ge 0$ then $|a| = a$.
+    So $-b \le a \le b \iff -b \le |a| \le b$.
+    Suppose $a < 0$ then $|a| = -a$
+    So $-b \le a \le b \iff b \ge -a \ge -b \iff b \ge |a| \ge -b$.
+    Therefore $|a| \le b$.
+
+    Supose $|a| \le b$.
+    Suppose $a \ge 0$ then $|a| \le b \iff a \le b$.
+    Suppose $a < 0$ then $|a| \le b \iff -a \le b \iff -b \le a$.
+    Since $-b \le a$ and $a \le b$ then $-b \le a \le b$.
+
+    Letting $b = a$ gives us $-|a| \le a \le |a|$.
+\end{proof}
+
+\begin{proof}
+    Trivially $-|a| \le a \le |a|$
+        and $-|b| \le b \le |b|$.
+    Taking the sum of these gives $-|a| + (-|b|) \le a + b \le |a| + |b|
+                                   \iff -(|a| + |b|) \le a + b \le |a| + |b|$.
+    Then by part (ii) we get $|a + b| \le |a| + |b|$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    (a) Show that 
+    \[(x + y)^2 = x^2 + y^2 \quad \text{only when $x = 0$ or $y = 0$}\]
+    \[(x + y)^3 = x^3 + y^3 \quad \text{only when $x = 0$ or $y = 0$ or $x = -y$}\]
+
+    (b) Using the fact that 
+    \[x^2 + 2xy + y^2 = (x + y)^2 \ge 0\]
+    show that $4x^2 + 6xy + 4y^2 > 0$ unless $x$ and $y$ are both $0$.
+
+    (c) Use part (b) to find out when $(x + y)^4 = x^4 + y^4$.
+
+    (d) Find out when $(x + y)^5 = x^5 + y^5$. Hint: From the assumption 
+    $(x + y)^5 = x^5 + y^5$ you should be able to derive the equation 
+    $x^3 + 2x^2 + 2xy^2 + y^3 = 0$, if $xy \not = 0$. This implies 
+    that $(x + y)^3 = x^2y + xy^2 = xy(x + y)$.
+
+    You should now be able to make a good guess as to when $(x + y)^n = x^n + y^n$;
+    the proof is contained in Problem $11-57$.
+\end{tcolorbox}
+
+\begin{proof}
+    First $(x + y)^2 = x^2 + 2xy + y^2$.
+    Then $x^2 + 2xy + y^2 = x^2 + y^2 \iff 2xy = 0 \iff xy = 0$.
+    Therefore $x = 0$ or $y = 0$.
+
+    Now $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$.
+    Then $x^3 + 3x^2y + 3xy^2 + y^3 = x^3 + y^3 
+          \iff 3x^2y + 3xy^2 = 0
+          \iff 3xy(x + y) = 0$.
+    So either $3xy = 0$ in which case $x = 0$ or $y = 0$,
+        or $x + y = 0$ in which case $x = -y$.
+\end{proof}
+
+\begin{proof}
+    Now $4x^2 + 2xy + 4y^2 = 4(x^2 + 2xy + y^2) - 6xy = 4(x + y)^2 - 6xy$.
+    Then $(x + y)^2 \ge 0 \iff x^2 + 2xy + y^2 \ge 0 \iff x^2 + y^2 \ge -2xy$.
+    Similarly $(x - y)^2 \ge 0 \iff x^2 - 2xy + y^2 \ge 0 \iff x^2 + y^2 \ge 2xy$.
+    Now since $x^2 + y^2 \ge -2xy$ it follows that $-(x^2 + y^2) \le 2xy$.
+    Since $-(x^2 + y^2) \le 2xy$ and $x^2 + y^2 \ge 2xy$,
+        it follows that $-(x^2 + y^2) \le 2xy \le x^2 + y^2$.
+        and therefore $|2xy| \le x^2 + y^2 \iff 2|xy| \le x^2 + y^2$.
+    Now expanding, $4(x + y)^2 - 6xy > 0 
+                    \iff 4(x^2 + 2xy + y^2) - 6xy > 0
+                    \iff 4x^2 + 8xy + 4y^2 - 6xy > 0
+                    \iff 4x^2 + 4y^2 + 2xy > 0$.
+    Now since $-(x^2 + y^2) \le 2xy \le x^2 + y^2$
+        it follows that $4x^2 + 4y^2 + 2xy > 4x^2 + 4y^2 - (x^2 + y^2)
+                        \iff 4(x^2 + y^2) - (x^2 + y^2) > 0
+                        \iff 3(x^2 + y^2) > 0$.
+    Which is clearly true if $x, y \not = 0$, since $x^2 \ge 0$ and $y^2 \ge 0$
+        therefore $3(x^2 + y^2) > 0$.
+    Therefore $4x^2 + 2xy + 4y^2 > 0$ if $x$, $y$ are not both zero.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    (a) Suppose that $b^2 - 4c \ge 0$. Show that the numbers 
+    \[\frac{-b + \sqrt{b^2 - 4c}}{2}, \quad \frac{-b - \sqrt{b^2 - 4c}}{2}\]
+    both satisfy the equation $x^2 + bx + c = 0$.
+
+    (b) Suppose that $b^2 - 4c < 0$. Show that there are not numbers $x$ satisfying
+    $x^2 + bx + c = 0$; in fact, $x^2 + bx + c > 0$ for all $x$. Hint: Complete
+    the square.
+
+    (c) Use this fact to give another proof that if $x$ and $y$ are not both $0$, then
+    $x^2 + xy + y^2 > 0$.
+
+    (d) For which numbers $\alpha$ is it true that $x^2 + \alpha x y + y^2 > 0$ whenever 
+    $x$ and $y$ are not both $0$?
+
+    (e) Find the smallest possible value of $x^2 + bx + c$ and of $ax^2 + bx + c$,
+    for $a > 0$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    The fact that $a^2 \ge 0$ for all numbers $a$, elementary as it may seem,
+    is nevertheless a fundamental idea upon which most important inequalities
+    are ultimately based. The great-granddaddy of all inequalities is the 
+    \emph{Schwarz inequality}:
+    \[x_1 y_1 \le \sqrt{x_1^2 + x_2^2} \sqrt{y_1^2 + y_2^2}\]
+    (A more general form occurs in Problem $2-21$.) The three proofs of the 
+    Schwarz inequality outlined below have one thing in common - their 
+    reliance on the fact that $a^2 \ge 0$ for all $a$.
+
+    (a) Prove taht if $x_1 = \lambda y_1$ and $x_2 = \lambda y_2$ for some 
+    number $\lambda$, then equality holds in the Schwarz inequality.
+    Prove the same thing if $y_1 = y_2 = 0$.
+    Now suppose that $y_1$ and $y_2$ are not both $0$, and that there is no 
+    $\lambda$ such that $x_1 = \lambda y_1$ and $x_2 = \lambda y_2$ Then 
+    \begin{align*}
+        0 &< (\lambda y_1 - x_1)^2 + (\lambda y_2 - x_2)^2 \\
+        &=\lambda^2(y_1^2 + y_2^2) - 2 \lambda (x_1 y_1  + x_2 y_2) + (x_1^2 + x_2^2)
+    \end{align*}
+    Using Problem $18$, complete the proof of the Schwarz inequality.
+
+    (b) Prove the Schwarz inequality by using $2xy \le x^2 + y^2$ (how is 
+    this derived) with
+    \[x = \frac{x_i}{\sqrt{x_1^2 + x_2^2}}, \quad y = \frac{y_i}{\sqrt{y_1^2 + y_2^2}}\]
+    first show for $i = 1$ then for $i = 2$. \\
+
+    (c) Prove the Scwarz inequality by first proving that 
+    \[(x_1^2 + x_2^2)(y_1^2 + y_2^2) = (x_1 y_1 + x_2 y_2)^2 + (x_1 y_2 - x_2 y_1)^2\]
+
+    (d) Deduce, from each of these three proofs, that equality holds only when 
+    $y_1 = y_2 = 0$ or when there is a number $\lambda$ such that $x_1 = \lambda y_1$ and 
+    $x_2 = \lambda y_2$. \\
+
+    In our later work, three facts about inequalities will be crucial. Although proofs 
+    will be supplied at the appropriate poijnt in the text, a personal assault on these 
+    problems is infinitely more enlightening than a persual of a completely worked-out 
+    proof. The statements of these propositions involve some weird numbers, but their 
+    basic message is very simple: if $x$ is close enough to $x_0$, and $y$ is close enough
+    to $y_0$ then $x + y$ will be close to $x_0 + y_0$, and $xy$ will be closer 
+    to $x_0 y_0$, and $\frac{1}{y}$ will be close to $\frac{1}{y_0}$. The symbol
+    "$\epsilon$" which apperas in these propositions is the fith letter of the Greek 
+    alphabet ("epsilon"), and could just as well be replaced by a less intimidating 
+    Roman letter; however, tradition has made the use of the $\epsilon$ almost sacrosanet
+    in the contexts to which these theorems apply.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+    Prove that if 
+    \[|x - x_0| < \frac{\epsilon}{2} \text{ and } |y - y_0| < \frac{\epsilon}{2}\]
+    then 
+    \[|(x + y) - (x_0 + y_0)| < \epsilon\]
+    \[|(x - y) - (x_0 - y_0)| < \epsilon\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+    Prove that if 
+    \[|x - x_0| < min\left(\frac{\epsilon}{2(|y_0| + 1)}, 1\right) \text{ and } |y - y_0| < \frac{\epsilon}{2(|x_0| + 1)}\]
+    then $|xy - x_0y_0| < \epsilon$
+    
+    (The notion "min" was defined in Problem $13$, but the formula provided by that problem 
+    is irrevelant at the moment; the first inequality in the hypothesis just means that 
+    \[|x - x_0| < \frac{\epsilon}{2(|y_0| + 1)} \text{ and } |x - x_0| < 1 \text{;}\]
+    at one point in the argument you will need the first inequality, and at another point
+    you will need the second. One more word of advice: since the hypotheses only provide information
+    about $x - x_0$ and $y - y_0$, it is almost a forgone conclusion taht the proof will depend
+    up writing $xy - x_0y_0$ in a way that involves $x - x_0$ and $y - y_0$.)
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+    Prove that if $y_0 \not = 0$ and 
+    \[|y - y_0| < min\left(\frac{|y_0|}{2}, \frac{\epsilon{|y_0|^2}}{2}\right)\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+    Replace the question marks in the following statement by expressions 
+    involving $\epsilon$, $x_0$, and $y_0$ so that the conclusion will be 
+    true:
+
+    If $y_0 \not = 0$ and 
+    \[|y - y_0| < ? \text{ and } |x - x_0| < ?\]
+    then $y \not = 0$ and 
+    \[\frac{x}{y} - \frac{x_0}{y_0} < \epsilon\]
+    This problem is trivial in the sense that its solution follows from 
+    Problem $21$ and $22$ with almost now work at all (notice that $\frac{x}{y} = x \cdot \frac{1}{y}$).
+    The crucial point is not to become confused; decide which of the two problems should be used first,
+    and don't panic if your answer looks unlikely.
+\end{tcolorbox}

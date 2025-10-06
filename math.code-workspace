@@ -1,19 +1,22 @@
 {
     "folders": [
 		{
-			"path": "anderson_abstract_algebra"
+			"path": "anderson"
 		},
 		{
-			"path": "calculus_spivak"
+			"path": "spivak"
 		},
 		{
-			"path": "lang_basic_mathematics"
+			"path": "lang"
 		},
 		{
-			"path": "velleman_how_to_prove_it"
+			"path": "velleman"
 		},
 		{
-			"path": "probability_blitzein"
+			"path": "blitzein"
+		},
+		{
+			"path": "hinman"	
 		},
 		{
 			"path": "base_tex_proj"
