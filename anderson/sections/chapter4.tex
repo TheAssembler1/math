@@ -1,0 +1,88 @@
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Divide the polynomial $x^2 - 3x + 2$ by the polynomial $2x + 1$,
+    to obtain a quotient and remainder as garunteed by the Division 
+    Theorem $4.2$. Note that although $x^2 - 3x + 2$ and $2x + 1$ are 
+    elements of $\mathbb{Z}[x]$, the quotient and remainder are not.
+    Argue that this means that there is not Division Theorem for $\mathbb{Z}[x]$.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+When $x^2 - 3x + 2$ is divided by $2x + 1$,
+the quotient is $\frac{1}{2}x - \frac{7}{4}$ and the remainder is $\frac{15}{4}$.
+To verify:
+\begin{align*}
+(2x + 1)\left(\frac{1}{2}x - \frac{7}{4}\right) + \frac{15}{4} 
+&= x^2 - \frac{7}{2}x + \frac{1}{2}x - \frac{7}{4} + \frac{15}{4} \\
+&= x^2 - 3x + 2
+\end{align*}
+Clearly, in this example the remainder is not in $\mathbb{Z}[x]$.
+Therefore, the Division Theorem does not hold in $\mathbb{Z}[x]$.
+Moreover, the quotient and remainder are unique as guaranteed by the Division Theorem in $\mathbb{Q}[x]$.
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    By Corollary $4.4$ we know that a third-degree polynomial in $\mathbb{Q}[x]$
+    has at most three roots. Give four examples of third-degree polynomials in 
+    $\mathbb{Q}[x]$ that have $0$, $1$, $2$, and $3$ roots, respectively; justify
+    your assertions. (Recall that here a root must be a rational number!)
+\end{tcolorbox}
+
+\begin{enumerate}
+     \item $0$ roots: $x^3 - 2 = 0$. $x$ would have to satisfy $x^3 = 2$.
+           Clearly no integer cubed equals $2$ (so $n=1$ is impossible).
+           Suppose there exists a rational number in lowest terms $x = \frac{m}{n}$ with $|n| > 1$.
+           Then $(\frac{m}{n})^3 = 2 \iff m^3 = 2 n^3$.
+           But this implies $n^3 \mid m^3$, so $n \mid m$, which contradicts that
+           $\gcd(m,n)=1$. Thus there is no rational root.
+     \item $1$ root:  $(x - 0)(x - 0)(x - 0) = 0$. Justification is obvious by root theorem.
+     \item $2$ roots: $(x - 1)(x - 1)(x - 2) = 0$. Justification is obvious by root theorem.
+     \item $3$ roots: $(x - 1)(x - 2)(x - 3) = 0$. Justification is obvious by root theorem.
+\end{enumerate}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Your example in the previous excersize of a third-degree polynomial with 
+    exactly $2$ roots had one repeated root; that is, a root $a$ where $(x - a)^2$
+    is a factor of the polynomial. (Roots may have multiplicity greater than two 
+    of course.) Why can't a third-degree polynomial in $\mathbb{Q}[x]$ have 
+    exactly $2$ roots where neither is a multiple root.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Suppose that $f \in \mathbb{Q}[x]$, $q \in \mathbb{Q}$,
+    and $deg(f) > 0$. Use the Root Theorem $4.3$ to prove that
+    the equation $f(x) = q$ has at most finitely many solutions.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Prove that Theorem $4.7$: the GCD identity for $\mathbb{Q}[x]$.
+    Use Euclid's Algorithm $4.5$, and the relationship we know 
+    between the $\gcd$ produced by the algorithm and an arbitrary $\gcd$ (Theorem $4.6$).
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    One can also prove the GCD identity for $\mathbb{Q}[x]$ with an argument 
+    similar to the existential proof of the GCD identity for integers,
+    found in Section $2.3$. Try this approach.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    We say that $p \in \mathbb{Q}[x]$ has a multiplicative inverse 
+    if there exists $q \in \mathbb{Q}[x]$ such that $pq = 1$.
+    Prove that $p \in \mathbb{Q}[x]$ has a multiplicative inverse 
+    if and only if $deg(p) = 0$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Suppose that $g \in \mathbb{Q}[x]$, and $g$ divides all elements 
+    of $\mathbb[Q][x]$. Prove that $g$ is a non-zero constant polynomial.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Find two different polynomials in $\mathbb{Z}_3[x]$ that are equal 
+    as functions from $\mathbb{Z}_3 = \mathbb{Z}_3$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Find a non-zero polynomial in $\mathbb{Z}_4[x]$ for which $f(a) = 0$,
+    for all $a \in \mathbb{Z}_4$.
+\end{tcolorbox}

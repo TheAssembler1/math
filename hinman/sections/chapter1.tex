@@ -1,1 +1,64 @@
 \subsection{The Propositional Language}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Give a precise definition of the set of sentences using infix
+    notation and prove unique readability for your definition.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\textbf{Definition of infix sentences:}
+\begin{enumerate}
+    \item $S_0 :=$ the set of $L$-atomic sentences.
+    \item For each $n \in \omega$,
+          \begin{align*}
+            S_{n + 1} :=\text{ }&S_n \cup \{\neg \phi : \phi \in S_0\} 
+                              \cup \{(\neg \phi) : \phi \in S_n \sim S_0\} \\
+                         &\cup \{(\phi) \bullet (\psi): \phi, \psi \in S_n \sim S_0, \bullet \in \{\wedge, \vee, \rightarrow, \leftrightarrow\}\} \\
+                         &\cup \{(\phi) \bullet \psi: \phi \in S_n \sim S_0, \psi \in S_0, \bullet \in \{\wedge, \vee, \rightarrow, \leftrightarrow\}\} \\
+                         &\cup \{\phi \bullet (\psi): \phi \in S_0, \psi \in S_n \sim S_0, \bullet \in \{\wedge, \vee, \rightarrow, \leftrightarrow\}\} \\
+                         &\cup \{\phi \bullet \psi: \phi, \psi \in S_0, \bullet \in \{\wedge, \vee, \rightarrow, \leftrightarrow\}\}
+          \end{align*}
+    \item Let $S_f := \bigcup_{n \in \omega} S_n$.
+\end{enumerate}
+
+\newpage
+\begin{definition}[Parenthesization of binary connectives]\label{def:parenth}
+Let $\phi$ and $\psi$ be sentences, and let $\bullet$ be any binary connective. Then the four possible parenthesizations of $\phi \bullet \psi$ are:
+\begin{enumerate}
+    \item $(\phi) \bullet (\psi)$
+    \item $(\phi) \bullet \psi$
+    \item $\phi \bullet (\psi)$
+    \item $\phi \bullet \psi$
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Unique readability for propositional sentences]
+    For any sentence $\theta \in S_f$, exactly one of the following holds:
+    \begin{enumerate}
+        \item $\theta$ is atomic;
+        \item for some sentence $\phi$, $\theta = \neg \phi$;
+        \item $\theta$ is a \textbf{conjunction} $\phi \wedge \psi$ for some sentences $\phi$ and $\psi$, with one of the four parenthesizations from Definition~\ref{def:parenth};
+        \item $\theta$ is a \textbf{disjunction} $\phi \vee \psi$ for some sentences $\phi$ and $\psi$, with one of the four parenthesizations from Definition~\ref{def:parenth};
+        \item $\theta$ is an \textbf{implication} $\phi \rightarrow \psi$ for some sentences $\phi$ and $\psi$, with one of the four parenthesizations from Definition~\ref{def:parenth};
+        \item $\theta$ is a \textbf{bi-implication} $\phi \leftrightarrow \psi$ for some sentences $\phi$ and $\psi$, with one of the four parenthesizations from Definition~\ref{def:parenth}.
+    \end{enumerate}
+\end{proposition}
+
+\textbf{Proof of unique readability:}
+\begin{proof}
+    
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    For any expression $\phi  = s_0 \ldots s_k$, a \textbf{proper initial segment}
+    of $\phi$ is any sequence of symbols $s_0 \ldots s_l$ with $l < k$.
+    Prove that no proper initial segment of a sentence is a sentence,
+        and show that this can be used as an alternative to ($4$) as 
+        a technical lemma for the proof of Proposition $1.1.5$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Give a careful proof of Proposition $1.1.9$, and show how Theorem $1.1.7$
+        is an application of it.
+\end{tcolorbox}

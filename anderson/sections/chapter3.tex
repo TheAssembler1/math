@@ -1,0 +1,155 @@
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Determine the elements of $\mathbb{Z}_{15}$ that have multiplicative inverses.
+    Give an example of an equation of the form $[a]X = [b]$ ($[a] \not = 0$)
+    that has no solution in $\mathbb{Z}_{15}$.
+\end{tcolorbox}
+
+\textbf{Solution}
+
+\begin{center}
+\begin{tabular}{c | *{15}{c@{\hskip 2pt}}}
+ & $[0]$ & $[1]$ & $[2]$ & $[3]$ & $[4]$ & $[5]$ & $[6]$ & $[7]$ & $[8]$ & $[9]$ & $[10]$ & $[11]$ & $[12]$ & $[13]$ & $[14]$ \\
+\hline
+$[0]$  & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+$[1]$  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+$[2]$  & 0 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 1 & 3 & 5 & 7 & 9 & 11 & 13 \\
+$[3]$  & 0 & 3 & 6 & 9 & 12 & 0 & 3 & 6 & 9 & 12 & 0 & 3 & 6 & 9 & 12 \\
+$[4]$  & 0 & 4 & 8 & 12 & 1 & 5 & 9 & 13 & 2 & 6 & 10 & 14 & 3 & 7 & 11 \\
+$[5]$  & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 \\
+$[6]$  & 0 & 6 & 12 & 3 & 9 & 0 & 6 & 12 & 3 & 9 & 0 & 6 & 12 & 3 & 9 \\
+$[7]$  & 0 & 7 & 14 & 6 & 13 & 5 & 12 & 4 & 11 & 3 & 10 & 2 & 9 & 1 & 8 \\
+$[8]$  & 0 & 8 & 1 & 9 & 2 & 10 & 3 & 11 & 4 & 12 & 5 & 13 & 6 & 14 & 7 \\
+$[9]$  & 0 & 9 & 3 & 12 & 6 & 0 & 9 & 3 & 12 & 6 & 0 & 9 & 3 & 12 & 6 \\
+$[10]$ & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 \\
+$[11]$ & 0 & 11 & 7 & 3 & 14 & 10 & 6 & 2 & 13 & 9 & 5 & 1 & 12 & 8 & 4 \\
+$[12]$ & 0 & 12 & 9 & 6 & 3 & 0 & 12 & 9 & 6 & 3 & 0 & 12 & 9 & 6 & 3 \\
+$[13]$ & 0 & 13 & 11 & 9 & 7 & 5 & 3 & 1 & 14 & 12 & 10 & 8 & 6 & 4 & 2 \\
+$[14]$ & 0 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 \\
+\end{tabular}
+\end{center}
+
+Elements with multiplicative inverses are $[1]$,$[2]$,$[4]$,$[7]$,$[8]$,$[11]$,$[13]$, and $[14]$.
+
+Example of an equation of the form $[a]X = [b]$ ($[a] \not = 0$)
+    that has no solution.
+\[[3]X = [5]\]
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Find an example in $\mathbb{Z}_6$ where $[a][b] = [a][c]$, but $[b] \not = [c]$.
+    How is this related to the existence of  multiplicative inverses in $\mathbb{Z}_6$?
+\end{tcolorbox}
+
+Example where $[a][b] = [a][c]$, but $[b] \not = [c]$:
+\[[2][2] = [2][5] = [4]\]
+
+You cannot assume that if  $[a][b] = [a][c]$ then $[b] = [c]$.
+This is only true if $[a]$ has a multiplicative inverse.
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    If $\gcd(a, b) = 1$ then the GCD identity $2.4$ garuntees that there exists 
+    integers $u$ and $v$ such that $1 = au + mv$. Show that in this case, 
+    $[u]_m$ is the multiplicate inverse of $[a]_m$ in $\mathbb{Z}_m$.
+\end{tcolorbox}
+
+\begin{proof}
+    By Theorem $3.2$ if $x - y = km$ for some integer $k$ then $x$,$y$ are in the same residue (mod $m$).
+    Now $1 = au + mv \iff au = -mv + 1$.
+    Then $x - y = (-mv + 1) - 1 = (-v)m$.
+    Thus ${[au]}_m = {[1]}_m$ and therefore $[a]_m \cdot [u]_m = [1]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Now use essentially the reverse of the argument from Excersize $5$
+    to show that if $[a]$ has a multiplicative inverse in $\mathbb{Z}_m$,
+    then $\gcd(a, m) = 1$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $[a]_m$ has a multiplicative inverse $[b]_m$ in $\mathbb{Z}_m$.
+    Then $[a] \cdot [b] = [ab] = [1]$.
+    By Theorem $3.2$, $ab - 1 = km$.
+    But $ab - km = 1$ so $ab + m(-k) = 1$.
+    Therefore $\gcd(a, m) = 1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    According to what you have shown in Excersize $5$ and $6$, which 
+    elements of $\mathbb{Z}_{24}$ have multiplicative inverses?
+    What are the inverses for each of those elements? (The answer is somewhat suprising.)
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+The following have multiplicate inverses in $\mathbb{Z}_{24}$.
+
+\begin{enumerate}
+    \item $[1]_{24}$
+    \item $[5]_{24}$
+    \item $[7]_{24}$
+    \item $[11]_{24}$
+    \item $[13]_{24}$
+    \item $[17]_{24}$
+    \item $[19]_{24}$
+    \item $[23]_{24}$
+\end{enumerate}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Prove that the multiplication on $\mathbb{Z}_m$ as defined in the text 
+    is well defined, as claimed in Section $3.2$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider $[a]$ and $[b]$.
+    Let $x, y$ be elements in $[a]$ and $b, c$ be elements in $[b]$.
+    We need to show $[xb] = [yc]$.
+    But $x,y \in [a]$ implies $x - y = k_1 m$ for some integer $k_1$.
+    Also $b, c \in [b]$ implies $b - c = k_2 m$ for some integer $k_2$.
+    Then:
+    \begin{align*}
+        &xb - yc  \\
+        =&(k_1 m + y)(k_2 m + c) - yc  \\
+        =&k_1 k_2 m^2 + k_1 mc + k_2 my + yc - yc  \\
+        =&k_1 k_2 m^2 + k_1 mc + k_2 my  \\
+        =&m(k_1 k_2 m + k_1 c + k_2 y)
+    \end{align*}
+    Showing that $[xb]=[yc]$
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Prove that if all non-zero $\mathbb{Z}_m$ have multiplicative inverses,
+    then multiplicative cancellation holds: that is, if $[a][b] = [a][c]$, 
+    then $[b] = [c]$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose all non-zero $\mathbb{Z}_m$ have multiplicative inverses.
+    Let $[t]$ be the multiplicative inverse of $[a]$.
+    Then $[a][b] = [a][c] \iff [t][a][b] = [t][a][c] \iff [b] = [c]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    In the integers, the equation $x^2 = a$ has a solution only when $a$
+    is a positive perfect square or zero. For which $[a]$ does the equation 
+    $[X]^2 = [a]$ have a solution in $\mathbb{Z}_7$?
+    What about in $\mathbb{Z}_8$?
+    What about in $\mathbb{Z}_9$?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+Elements with square roots in $\mathbb{Z}_7$: 
+\[[0], [1], [2], [4]\]
+Elements with square roots in $\mathbb{Z}_8$: 
+\[[0], [1], [4]\]
+Elements with square roots in $\mathbb{Z}_9$: 
+\[[0], [1], [4], [7]\]
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Explain what $a \equiv b (mod\ 1)$ means.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+It means when elements in $[a]$ and $[b]$ are divided by $1$ the remainder is equivalent.
+Of course this is true for any $a$ and $b$ since $\frac{a}{1} = a$ and $\frac{b}{1} = b$.
+So $[a] = [b] = \mathbb{Z}$.

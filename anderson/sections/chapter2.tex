@@ -1,0 +1,334 @@
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove that the set of all linear combinations of $a$ and $b$
+    are precisely the multiple of $\gcd(a, b)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $a, b$ be integers such that $a \not = 0$ or $b \not = 0$.
+    We know $ax + by = \gcd(a, b)$ for some $x, y \in \mathbb{Z}$.
+    Let $t$ be an arbitrary integer.
+    Then $t(ax + by) = t(\gcd(a, b))$.
+    It follows that $a(tx) + b(ty) = t(\gcd(a, b))$
+    Showing that any integer multiple $t$ of the $\gcd(a, b)$
+    is equivalent to some linear combination of $a, b$.
+
+    Let $a$, $b$, $x$, and $y$ be arbitrary integers.
+    Let $d = \gcd(a, b)$. It follows that $d \mid a$ and $d \mid b$.
+    Then $a = dt$ for some $t \in \mathbb{Z}$ and $b = df$ for some $f \in \mathbb{Z}$.
+    Then:
+    \begin{align*}
+        ax + by = dtx  + dfy = d(tx + fy)
+    \end{align*}
+    So any linear combination of $a$ and $b$ is a multiple of the $\gcd(a, b)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Two numbers are said to be relatively prime if their $\gcd$ is $1$.
+    Prove $a, b$ relatively prime if and only if every integer can be written
+    as a linear combination of $a$ and $b$.
+\end{tcolorbox}
+
+\begin{proof}
+    $\rightarrow$ Suppose $a, b \in \mathbb{Z}$ are relatively prime.
+    Let $d \in \mathbb{Z}$. Since $a, b$ are relatively prime $\gcd(a, b) = ax + by = 1$ where $x, y \in \mathbb{Z}$.
+    Then $d(\gcd(a, b)) = d(ax + by) = a(dx) + b(dy) = d(1) = d$.
+
+    $\leftarrow$ Suppose every integer can be written as a linear combination of $a$ and $b$.
+    In particular $1 = ax + by$ for some $x, y \in \mathbb{Z}$.
+    Then $\gcd(a, b) = 1 = ax + by$ so $a$ and $b$ are relatively prime.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove Theorem $2.6$. That is, use induction to prove that if the 
+    prime $p$ divides $a_1 a_2 \cdots a_n$, then $p$ divides $a_i$ for some $i$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $p$ is prime.
+
+    Base case: If $p \mid a_1 a_2$ by definition of being prime $p \mid a_1$ or $p \mid a_2$.
+
+    Assume the Theorem holds for $n - 1$ so if $p \mid a_1 a_2 \cdots a_{n - 1}$ then $p \mid a_i$
+    for some $i$. Now suppose $p \mid a_1 a_2 \cdots a_{n - 1} a_n$. Let $c = a_1 a_2 \cdots a_{n - 1}$,
+    then $p \mid c \cdot a_n$. By definition of being prime $p \mid c$ by the induction hypothesis or $p \mid a_n$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Suppose that $a$ and $b$ are positive integers.
+    If $a + b$ is prime, prove that $\gcd(a, b) = 1$.
+\end{tcolorbox}
+
+\begin{proof}
+    We've already proved $n$ is prime iff $n$ is irreducible.
+    Suppose $a + b$ is prime and for contradiction $\gcd(a, b) = x > 1$.
+    Since $a + b$ is prime it has no factors other than itself and $1$.
+    Since $\gcd(a, b) = x > 1$ then $x \mid a $ and $x \mid b$.
+    Furthermore, $a = tx$ and $b = yx$ for some $t, y \in \mathbb{Z}$.
+    Then $a + b = tx + yx = x(t + y)$ a contradiction since $a + b$ is prime.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    (a) A natural number greater than $1$ that is not prime 
+    is called composite. Show that for any $n$, there is a run 
+    of $n$ consecutive composite numbers. Hint: Think Factorial.
+    
+    (b) Therefore, there is a string of $5$ consecutive composite numbers 
+        starting where?
+\end{tcolorbox}
+
+\begin{proof}
+    Let $T = \{2, 3, \ldots, n + 1\}$ and let $i$ be an element in $T$.
+    Now let 
+    \[
+        d = i + (n+1)!.
+    \]
+    First notice $2 \le i \le n + 1$. Then:
+    \begin{align*}
+        ((i + 1) + (n+1)!) - (i + (n+1)!) = 1
+    \end{align*}
+    Showing consecutive values of $i$ produce consecutive values of $d$. 
+    Since $2 \le i \le n+1$, we have $i \mid (n+1)!$.
+    Then:
+    \begin{align*}
+        d &= i + (n+1)! \\
+          &= i \left( 1 + \frac{(n+1)!}{i} \right)
+    \end{align*}
+    Clearly $d$ is a composite number since it has been factored into $2$ integers greater than 1.
+    Thus, the $n$ values of $d$ produce a sequence of $n$ consecutive composite numbers.
+\end{proof}
+
+\textbf{Solution (b):}
+
+\[722 = 2 \cdot 361, 723 = 3 \cdot 241, 724 = 2 \cdot 362, 725 = 5 \cdot 145, 726 = 2 \cdot 363\]
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Notice that $\gcd(30, 50) = 5\gcd(6, 10) = 5 \cdot 2$. In fact, this is 
+    always true; prove that if $a > 0$, then $\gcd(ab, ac) = a \cdot \gcd(b, c)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $p = \gcd(ab, ac) = abx + acy$. Since $a \mid p$ there exists $r$ such that $p = ar$.
+    So $ar = abx + acy$ and dividing by $a$ gives $r = bx + cy$. 
+    Since $a > 0$
+        and $ar = \gcd (ab,ac) > 0$ it follows that $r > 0$. 
+    Thus $r$ is a positive linear combination of $b$ and $c$.
+    Suppose, for contradiction, there exists $d$ that is a positive linear combination of $b$ and $c$, and $d < r$.
+    So $d = bu + cv$ for some integers $u, v$.
+    Since $a > 0$ it follows that $ad > 0$.
+    But then $ad = abu + acv$ and $ad < ar = p$ contrdicting the minimality of $p$.
+    Therefore $r = \gcd(b, c)$.
+    It follows that $\gcd(ab, ac) = ar =  a \cdot \gcd(b, c)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Suppose two integers $a$ and $b$ have been factored into primes as follows:
+    \[a = p_1^{n_1} p_2^{n_2} \cdots p_r^{n_r}\]
+    and 
+     \[b = p_1^{m_1} p_2^{m_2} \cdots p_r^{m_r}\]
+    where the $p_i$'s are primes, and the exponents $m_i$ and $n_i$ are non-negative 
+    integers. It is the case that 
+    \[\gcd(a, b) = p_1^{s_1} p_2^{s_2} \cdots p_r^{s_r}\]
+    where $s_i$ is the smaller of $n_i$ and $m_i$. Show this with $a = 360 = 2^3 \cdot 3^2 \cdot 5$
+    and $b = 2^2 3^2 5^2$. Now prove this fact in general.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+Let 
+\[
+a = 360 = 2^3 \cdot 3^2 \cdot 5^1, \quad
+b = 2^2 \cdot 3^2 \cdot 5^2.
+\]
+\textbf{Exponents of each prime factor:}
+\[
+\begin{array}{c|c|c}
+\text{Prime } p_i & \text{Exponent in } a \ (n_i) & \text{Exponent in } b \ (m_i) \\
+\hline
+2 & 3 & 2 \\
+3 & 2 & 2 \\
+5 & 1 & 2
+\end{array}
+\]
+\textbf{Minimum exponent for each prime:}
+\[
+s_i = \min(n_i, m_i)
+\]
+\[
+\begin{array}{c|c}
+\text{Prime } p_i & s_i = \min(n_i, m_i) \\
+\hline
+2 & 2 \\
+3 & 2 \\
+5 & 1
+\end{array}
+\]
+\textbf{Multiply the primes raised to the minimum exponents:}
+\[
+\gcd(a,b) = 2^2 \cdot 3^2 \cdot 5^1 = 4 \cdot 9 \cdot 5 = 180.
+\]
+The gcd of $360$ and $900$ is $180$.
+
+\begin{proof}
+    Let $a = \prod_{i=1}^r p_i^{n_i}$ and $b = \prod_{i=1}^r p_i^{m_i}$.
+    For each prime $p_i$, define $s_i = \min(n_i, m_i)$ and let $c_i = p_i^{s_i}$. 
+
+    First note that the $\gcd$ will have the common prime factors of $a$ and $b$.
+    A prime not common to both would not divide both.
+
+    Let $f_i = p_i^{s_i + 1}$ for the $i$th prime number appearing in $a$ and $b$. 
+    Then $f_i > p_i^{m_i}$ or $f_i > p_i^{n_i}$ so $f_i \nmid p_i^{m_i}$ or $f_i \nmid p_i^{n_i}$.
+    So $c_i$ is the largest power of $p_i$ dividing the $i$th prime of both numbers.
+
+    Since the primes are independent, the greatest common divisor of $a$ and $b$ is 
+        $\gcd(a,b) = \prod_{i=1}^r c_i = \prod_{i=1}^r p_i^{s_i}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    The \textbf{least common multiple} of natural numbers $a$ and $b$
+    is the smallest positive common multiple of $a$ and $b$. That is,
+    if $m$ is the least common mulitple of $a$ and $b$, then $a \mid m$
+    and $b \mid m$, and if $a \mid n$ and $b \mid n$ then $n \ge m$.
+    We will write $lcm(a, b)$ for the least common mulitple of $a$ and $b$.
+    Can you find a formula for the lcm of the type given for the gcd in 
+    the previous excersize.
+\end{tcolorbox}
+
+\textbf{Solution}
+
+Suppose two integers $a$ and $b$ have been factored into primes as follows:
+\[a = p_1^{n_1} p_2^{n_2} \cdots p_r^{n_r}\]
+and 
+\[b = p_1^{m_1} p_2^{m_2} \cdots p_r^{m_r}\]
+where the $p_i$'s are primes, and the exponents $m_i$ and $n_i$ are non-negative 
+integers. It is the case that 
+\[lcm(a, b) = p_1^{s_1} p_2^{s_2} \cdots p_r^{s_r}\]
+where $s_i$ is the larger of $n_i$ and $m_i$.
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Show that if $\gcd(a, b) = 1$, then $lcm(a, b) = ab$.
+
+    In general, show that:
+    \[lcm(a, b) = \frac{ab}{\gcd(a, b)}\]
+\end{tcolorbox}
+
+\begin{proof}
+    We prove the general case first.
+
+    Let $a = \prod_{i=1}^r p_i^{n_i}$ and $b = \prod_{i=1}^r p_i^{m_i}$.
+    So 
+    \[
+        ab = \prod_{i=1}^r p_i^{n_i+m_i}.
+    \]
+    Now inspecting the $i$th prime in $ab$ we get $p_i^{n_i + m_i}$.
+    Then looking at the $\operatorname{\gcd}$'s $i$th prime we get $p_i^{\min\{n_i, m_i\}}$.
+    Suppose wlog that $n_i \geq m_i$.
+    Then 
+    \[
+        \frac{p_i^{n_i + m_i}}{p_i^{\min\{n_i, m_i\}}} 
+        = \frac{p_i^{n_i + m_i}}{p_i^{m_i}}
+        = p_i^{n_i + m_i - m_i}
+        = p_i^{n_i}
+        = p_i^{\max\{n_i, m_i\}}.
+    \]
+    This is the $i$th prime factor of the $lcm$.
+\end{proof}
+
+\begin{proof}
+    Suppose that for each prime $p_i$, $p_i$ divides $a$ or $b$ but not both.  
+    Then for the $i$th prime factor $p_i$, either $n_i = 0$ or $m_i = 0$. 
+    Then:
+    \[
+        \frac{p_i^{n_i + m_i}}{p_i^{\min\{n_i, m_i\}}} 
+        = \frac{p_i^{n_i + m_i}}{p_i^0}
+        = p_i^{n_i + m_i - 0}
+        = p_i^{n_i + m_i}
+        = p_i^{\max\{n_i, m_i\}}.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Prove that if $m$ is a common multiple of both $a$ and $b$, then 
+    $lcm(a, b) \mid m$.
+\end{tcolorbox}
+
+\begin{proof}
+Suppose $m$ is a common multiple of both $a$ and $b$.
+Then there exist integers $l$ and $f$ such that $m = la$ and $m = fb$.
+Let the $i$th prime factor of $a, b, l, f$ be 
+    $p_i^{n_i}$, $p_i^{m_i}$, $p_i^{t_i}$, $p_i^{s_i}$ respectively.
+Then the $i$th prime factor of $m$ is
+\[
+m = la = p_i^{n_i+t_i}, \quad
+m = fb = p_i^{m_i+s_i}.
+\]
+Let the $i$th prime factor of $\mathrm{lcm}(a,b)$ be $p_i^{\max\{n_i,m_i\}}$.
+Then, in either case, we have
+\[
+n_i+t_i = m_i+s_i \ge \max\{n_i,m_i\}.
+\]
+So each $p_i^{\max\{n_i,m_i\}}$ divides the corresponding prime factor of $m$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    (a) Show that in Euclid's Algorithm, the remainders are at least halved
+    after two steps. That is $r_{i + 2} < 1/2 r_i$. \\
+
+    (b) Use part a to find the maximum number of steps required for Euclid's
+    algorithm. (Figure this in terms of the maximum of $a$ and $b$).
+\end{tcolorbox}
+
+\begin{proof}
+    Theorem $2.3$ shows that the remainders form a strictly decreasing sequence of integers.
+    Three steps of the algorithm are shown below.
+    \begin{align*}
+        \text{step $1$: }b_{n - 2} &= a_{n - 2} \cdot q_{n - 2} + r_{n - 2} \\
+        \text{step $2$: }b_{n - 1} &= a_{n - 1} \cdot q_{n - 1} + r_{n - 1} \\
+        \text{step $3$: }b_{n} &= a_{n} \cdot q_{n} + r_{n}
+    \end{align*}
+    Now for the $i$th iteration $b_i = a_{i - 1}$ and $a_i = r_{i - 1}$. Then:
+    \begin{align*}
+        \text{step $1$: }b_{n - 2} &= a_{n - 2} \cdot q_{n - 2} + r_{n - 2} \\
+        \text{step $2$: }a_{n - 2} &= r_{n - 2} \cdot q_{n - 1} + r_{n - 1} \\
+        \text{step $3$: }r_{n - 2} &= r_{n - 1} \cdot q_{n} + r_{n}
+    \end{align*}
+    Notice, in step $3$, a larger $q_n$ implies a smaller $r_n$.
+    So in the worst case $q_n = 1$. So $r_{n - 2} = r_{n - 1} + r_{n} \iff r_n = r_{n - 2} - r_{n - 1}$.
+    Now since $r_n < r_{n - 1}$ then $r_{n - 2} - r_{n - 1} < r_{n - 1} \iff r_{n - 2} < 2r_{n - 1}$.
+    So $\frac{1}{2} r_{n - 2} < r_{n - 1}$. 
+    Now since $r_n < r_{n - 2} - r_{n - 1}$ then $r_n < r_{n - 2} - \frac{1}{2} r_{n - 2} = \frac{1}{2} r_{n - 2}$.
+\end{proof}
+
+\textbf{Solution 18 (b):}
+
+Let $c = \max\{a, b\}$.
+From part (a), we know that after every two steps, the remainder is at most half of the remainder two steps before: 
+\[
+r_{i+2} < \frac{1}{2} r_i
+\]
+
+Let \(k\) be the number of ``two-step pairs'' needed for the remainder to drop below 1. Then
+\[
+\frac{c}{2^k} < 1 \implies 2^k > c \implies k > \log_2 c
+\]
+
+Since each \(k\) corresponds to two iterations, the maximum number of iterations of Euclid's algorithm is
+\[
+\text{max steps} \le 2k \le 2 \log_2 c
+\]
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    Recall from Excersize $1.13$ the definition of the binomial coefficient 
+    $\binom{n}{k}$. Suppose that $p$ is a positive prime integer, and $k$ is 
+    an integer with $1 \le k \le p - 1$. Prove that $p$ divides binomial    
+    coefficient $\binom{p}{k}$.
+\end{tcolorbox}
+
+\begin{proof}
+By Exercise $1.13$, we know that $\binom{p}{k} \in \mathbb{Z}$.  
+Using the factorial definition:
+\[
+\binom{p}{k} = \frac{p!}{k!(p-k)!} = \frac{p \cdot (p-1)!}{k \cdot (k-1)! (p-k)!} = \frac{p}{k} \binom{p-1}{k-1}.
+\]
+Since $p$ is prime and $1 \le k \le p-1$, we have $\gcd(p,k)=1$, 
+so $k$ divides $\binom{p-1}{k-1}$. Therefore, $p$ divides $\binom{p}{k}$.
+\end{proof}
