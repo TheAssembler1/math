@@ -700,38 +700,32 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
     Let $T$ be the translation mapping $O$ to $O'$.
     Let $G$ be the rotation with respect to $O'$
         of $S'$ such that $(G \circ T)(A) = A'$.
+    Because $G$ is a rotation about the center $O'$, it must also send 
+        the point on the opposite end of that diagonal, namely $(G\circ T)(C)$, to $C'$, 
+        and $(G\circ T)(D)$ to $D'$.
     If $(G \circ T)(B) \neq B'$, then perform  
         a reflection $R$ across the line connecting $(G \circ T)(A)$ and $(G \circ T)(C)$.
     Otherwise, let $R = I$ such that $I$ is the identity mapping.
     Let $F = R \circ G \circ T$.
+
     Thus $F(A) = A', F(B) = B', F(C) = C', F(D) = D'$, 
         and therefore $F(S) \subseteq S'$.
     Since $F$ is an isometry, it preserves distances and lines, so 
     every point of $S$ maps to points of $S'$ and vice versa, thus $F(S) = S'$.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     Prove that any two lines are congruent.
 \end{tcolorbox}
 
+
 \begin{proof}
-    By Section 6.4, given points $P, Q$ and $P', Q'$ with $d(P,Q) = d(P',Q')$,
-    there exists an isometry $F$ such that $F(P) = P'$ and $F(Q) = Q'$.
+    Let $L$ and $L'$ be two lines. Pick points $P, Q \in L$ and $P', Q' \in L'$.  
+    Using Section $6.4$ Problem $2$, since $d(P,Q) = d(P',Q')$, there exists an isometry $F$ such that $F(P) = P'$ and $F(Q) = Q'$.  
 
-    Now let $O$ be a point on the line segment $\overline{PQ}$. 
-    Then $d(P,O) + d(O,Q) = d(P,Q)$.
-
-    Since $F$ is an isometry, distances are preserved:
-    \[
-        d(F(P), F(O)) + d(F(O), F(Q)) = d(F(P), F(Q)) = d(P,Q) = d(P,O)+d(O,Q).
-    \]
-
-    Thus $F(O)$ lies on the line segment $\overline{P'Q'}$ in the same relative position.
-
-    Since $F$ is an isometry, it has an inverse $F^{-1}$. 
-    Let $O'$ be any point on the segment $\overline{P'Q'}$. 
-    Then $F^{-1}(O')$ lies on $\overline{PQ}$, so applying $F$ gives $F(F^{-1}(O')) = O'$.
-    Therefore, every point of $\overline{P'Q'}$ is the image of some point on $\overline{PQ}$.
+    Since $F$ preserves distances and maps two points on $L$ to two points on $L'$, it maps the entire line $L$ onto $L'$.  
+    Therefore, the lines $L$ and $L'$ are congruent.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 5, breakable]
@@ -760,7 +754,6 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
     Thus $d(A, B) = d(A, C) = d(B, C)$.
 \end{proof}
 
-
 \begin{proof}
     Let $A, B, C$ be the vertices of a triangle with all angles $60$\textdegree.
     Consider the perpendicular bisector $L$ of side $\overline{AB}$.
@@ -781,6 +774,7 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
     \]
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 6, breakable]
     Prove Theorem $9$.
     At first you are not allowed to use Theorem $10$.
@@ -800,7 +794,30 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
 \end{tcolorbox}
 
 \begin{proof}
-    
+    Let $T$ be the translation such that $T(Q) = Q'$.
+    Let $G$ be the ration such that $(G \circ T)(P) = P'$.
+    Finally, if $(G \circ T)(M) \not = M'$ apply a reflection on the line $\overline{P'Q'}$
+    Let $F = G \circ T$.
+
+    Thus, $G(Q) = Q'$, $G(P) = P'$, and $G(M) = M'$.
+
+    Now let $O$ be any point on the segment $\overline{PQ}$.
+    It follows that $d(P, Q) = d(F(P), F(Q)) = d(P, O) + d(Q, O) = d(F(P), F(O)) + d(F(Q), F(O))$.
+    Then since $d(F(P), F(Q)) = d(F(P), F(O)) + d(F(Q), F(O))$, $F(O)$ lies on the segment $\overline{P'Q'}$.
+
+    Now let $K$ be any point on the segment $\overline{P'Q'}$.
+    Since $F$ is an isometry, it has an inverse; let $U = F^{-1}(K)$.
+    Then $d(P, Q) = d(F^{-1}(P'), F^{-1}(Q')) = d(P, U) + d(U, Q)$ so $U$ lies on the segment $\overline{PQ}$.
+    It follow that  $F(U) = F(F^{-1}(K)) = K$.
+
+    Simlar arguments apply to $\overline{QM}$ and $\overline{PM}$.
+    Thus the triangles are congruent.
+\end{proof}
+
+\begin{proof}
+    Since the legs have the same length, by the Pythagorean Theorem their hypotenuses are of equal length.
+    Thus the lengths of the sides of the triangles are equal.
+    One can then easily apply Theorem $10$ to show the triangles are congruent.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
@@ -812,15 +829,76 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
         Prove that the triangles are congruent.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $\triangle PQM$ and $\triangle P'Q'M'$ have a corresponding angle of the same measure, say $\angle PQM = \angle P'Q'M'$, 
+    and let the adjacent sides satisfy $d(P,Q) = d(P',Q') \quad \text{and} \quad d(Q,M) = d(Q',M')$.
+
+    Draw the altitude from $Q$ to the side $\overline{PM}$ in $\triangle PQM$, and let $H$ be the foot of this perpendicular.  
+    Similarly, draw the altitude from $Q'$ to $\overline{P'M'}$ in $\triangle P'Q'M'$, and let $H'$ be the foot.
+
+    Now consider the right triangles $\triangle QPH$ and $\triangle QMH$ in the first triangle, 
+        and $\triangle Q'P'H'$ and $\triangle Q'M'H'$ in the second.  
+    By construction and the given distances, 
+        the corresponding legs of these right triangles are equal 
+        $d(Q,P) = d(Q',P'), \quad d(Q,H) = d(Q',H'), \quad d(Q,M) = d(Q',M'), \quad d(Q,H) = d(Q',H')$
+
+    By Theorem 10, triangles with all three sides equal are congruent, so 
+    \[
+    \triangle QPH \cong \triangle Q'P'H' \quad \text{and} \quad \triangle QMH \cong \triangle Q'M'H'.
+    \]
+
+    Since both pairs of right triangles are congruent, all points $P, Q, M$ correspond to $P', Q', M'$, and therefore
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 8, breakable]
     Prove that two rectangles having corresponding sides 
         of equal lengths are congruent.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $ABCD$ and $A'B'C'D'$ be the corners encountered cyclicly of two rectangles such that 
+        $d(A,B) = d(A',B')$ and $d(B,C) = d(B',C')$.
+
+    Let $T$ be the translation such that $T(A) = A'$.
+    Let $G$ be the rotation about $A'$ such that $(G \circ T)(C)$ lies on the line through $A'$ and $C'$.
+    If necessary, let $R$ be a reflection across the line $\overline{A'C'}$ to match $B$ and $B'$.
+    Otherwise, let $R = I$ where $I$ is the identity mapping.
+    
+    % F should be the composition of those isometries.
+    Thus $F = R \circ G \circ T$.
+
+    Draw the diagonal $\overline{AC}$ in both rectangles. 
+    This divides each rectangle into two right triangles: 
+        $\triangle ABC$ and $\triangle ADC$ in the first rectangle, 
+        and $\triangle A'B'C'$ and $\triangle A'D'C'$ in the second.
+
+    Now let $O$ be any point on the segment $\overline{AC}$ of the first rectangle.
+    It follows that $d(A,C) = d(A,O) + d(O,C) = d(A',F(O)) + d(F(O),C')$. 
+    Then, by the Pythagorean Theorem, $F(O)$ lies on the segment $\overline{A'C'}$.
+
+    Now let $K$ be any point on the segment $\overline{A'C'}$.  
+    Since $F$ is an isometry, it has an inverse; let $U = F^{-1}(K)$.  
+    Then $d(A,C) = d(F^{-1}(A'), F^{-1}(C')) = d(A,U) + d(U,C)$
+        so $U$ lies on the segment $\overline{AC}$.  
+    By definition of $U$, $F(U) = F(F^{-1}(K)) = K$.
+
+    Hence the corresponding right triangles along the diagonals are congruent, 
+        and therefore the rectangles $ABCD$ and $A'B'C'D'$ are congruent.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 9, breakable]
     Give a definition of the region bounded by a square in terms of line 
         segments. Same thing for a rectangle.
 \end{tcolorbox}
+
+\begin{definition}
+    Let $S$ be a square with distinct parallel line segments $\overline{AB}$ and $\overline{CD}$.
+    We can define the area of $S$ to be all points on all line segments formed by 
+        points $X, Y$ where $X$ lies on $\overline{AB}$ and $Y$ lies on $\overline{CD}$.
+    The area for a rectangle can be defined in precisely the same way
+        with exception to letting $S$ be a rectangle.
+\end{definition}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
     Let $\triangle PQM$ and $\triangle P'Q'M'$ be triangles whose corresponding
