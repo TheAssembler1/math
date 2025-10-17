@@ -1,26 +1,50 @@
-{
-    "folders": [
-		{
-			"path": "anderson"
-		},
-		{
-			"path": "spivak"
-		},
-		{
-			"path": "lang"
-		},
-		{
-			"path": "velleman"
-		},
-		{
-			"path": "blitzein"
-		},
-		{
-			"path": "hinman"	
-		},
-		{
-			"path": "base_tex_proj"
-		}
-	],
-	"settings": {}
-}
+Hi Olivia I reinstalled DLIO and ran it again.
+
+Here are all the commands I ran.
+
+From a login node:
+```
+module load conda
+conda create -n dlio_env_py11 python=3.11 -y
+conda activate dlio_env_py11
+conda install pip -y
+# Use MPI compiler
+export CC=mpicc
+export CXX=mpic++
+# Not installing these gives warnings may be optional idk
+pip install python-dateutil cffi packaging pillow
+# 1. Downgrade NumPy to match TensorFlow
+pip install numpy==1.24.4 --force-reinstall --no-cache-dir
+# 2. Install TensorFlow compatible with NumPy
+pip install tensorflow==2.13.0 --force-reinstall --no-cache-dir
+# 3. Install mpi4py from source
+export MPICC=mpicc
+pip install --force-reinstall --no-cache-dir --no-binary=mpi4py mpi4py
+# 4. Install dlio_benchmark from source
+pip install . --no-deps --force-reinstall --no-cache-dir
+```
+
+I do get this error when running: 
+`pip install python-dateutil cffi packaging pillow`
+Error message:
+```
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+pandas 1.5.1 requires numpy>=1.21.0; python_version >= "3.10", which is not installed.
+darshan 3.4.4.0 requires numpy, which is not installed.
+matplotlib 3.8.3 requires numpy<2,>=1.21, which is not installed.
+seaborn 0.13.2 requires numpy!=1.24.0,>=1.20, which is not installed.
+```
+
+But I don't think this matters... hopefully :)
+
+Then from a compute node:
+```
+module load conda
+conda activate dlio_env_py11
+# generate training data
+srun -n 8 dlio_benchmark workload=unet3d ++workload.workflow.generate_data=True ++workload.workflow.train=False
+# train the model
+srun -n 8 dlio_benchmark workload=unet3d ++workload.workflow.generate_data=False ++workload.workflow.train=True ++workload.workflow.evaluation=True
+```
+
+Let me know if there are issues with this.

@@ -1,0 +1,156 @@
+\subsection{Coordinate Systems}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $(x, y)$ be the coordinates of a point
+    in the second quadrant.
+    Is $x$ positive or negative?
+    Is $y$ positive or negative?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+The $x$ is negative.
+The $y$ is positive.
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $(x, y)$ be the coordinates of a point in the 
+    third quadrant. Is $x$ positive or negative.
+    Is $y$ positive or negative.
+\end{tcolorbox}
+
+The $x$ is negative.
+The $y$ is negative.
+
+\subsection{Distance Between Points}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Prove that if $d(P, Q) = 0$, then $P = Q$. Thus we have now 
+    proved two of the basic properties of distance.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $P \ne Q$. Let $(x_1, x_2) = P$ and $(y_1, y_2) = Q$.
+    Either $x_1 \ne y_1$ or $x_2 \ne y_2$.
+
+    Suppose $x_1 \ne y_1$. It follows that $x_1 - y_1 \ne 0$
+    and therefore, since $(x_2 - y_2)^2 \ge 0$, $\sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2} \ne 0$.
+    Thus $d(P, Q) \ne 0$.
+
+    Suppose $x_2 \ne y_2$. It follows similarly that $d(P, Q) \ne 0$.
+
+    Therefore, if $d(P, Q) = 0$, then $P = Q$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Let $A = (a_1, a_2)$ and $B = (b_1, b_2)$.
+    Let $r$ be a positive number.
+    Write down the formula for $d(A, B)$.
+    Define the \textbf{dilation} $r A$ be 
+    \[r A = (r a_1, r a_2)\]
+    For instance, if $A = (-3, 5)$ and $r = 7$,
+    then $r A = (-21, 35)$. Prove in general that 
+    \[d(r A, r B) = r \cdot d(A, B)\]
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\[d(A, B) = \sqrt{(a_1 - b_1)^2 + (a_2 - b_2)^2}\]
+
+\begin{proof}
+    \begin{align*}
+        d(rA, rB) &= \sqrt{(r a_1 - r b_1)^2 + (r a_2 - r b_2)^2} \\
+                  &= \sqrt{(r^2 a_1^2 - r^2 a_1 b_1 - r^2 a_1 b_1 + r^2 b_1^2) + (r^2 a_2^2 - r^2 a_2 b_2 - r^2 a_2 b_2 + r^2 b_2^2)} \\
+                  &= \sqrt{r^2 (a_1^2 - 2 a_1 b_1 + b_1^2 +  a_2^2 - 2 a_2 b_2 + b_2^2)} \\
+                  &= r \sqrt{(a_1 - b_1)^2 + (a_2 - b_2)^2} \\
+                  &= r d(A, B)
+    \end{align*}
+    Therefore, $d(rA, rB) = r d(A, B)$.
+\end{proof}
+
+\subsection{Equations of a Circle}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    (a) Write down the equation for a sphere of radius $1$ centered
+        at the origin in $3-$space, in terms of coordinates $(x, y, z)$.
+
+    (b) Same question for a sphere of radius $3$.
+
+    (c) Same question for a sphere of radius $r$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[x^2 + y^2 + z^2 = 1\]
+\textbf{Solution (b):}
+\[x^2 + y^2 + z^2 = 9\]
+\textbf{Solution (c):}
+\[x^2 + y^2 + z^2 = r^2\]
+
+\subsection{Rational Points on a Circle}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove that if $s$, $t$ are real numbers such that $0 \le s < t$, then 
+    \[\frac{1 - s^2}{1 + s^2} > \frac{1 - t^2}{1 + t^2}\]
+    [Hint: Prove appropriate inequalities for the numerators and denominators,
+    before taking the quotient.] This proves that different values for $t > 0$
+    already give different values for $x$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $s, t$ are real numbers such that $0 \le s < t$.
+
+    Since $s < t$ it follows that $s^2 < t^2$ and $s^2 - t^2 < 0$.
+    Then 
+    \begin{align*}
+        (1 - s^2) - (1 - t^2) 
+            &= 1 - s^2 - 1 + t^2 \\
+            &= -s^2 + t^2 \\
+            &= -(s^2 - t^2)
+    \end{align*}
+    Since $s^2 - t^2 < 0$, it follows that $-(s^2 - t^2) > 0$.
+    Thus $1 - s^2 > 1 - t^2$.
+
+    Also
+    \begin{align*}
+        (1 + s^2) - (1 + t^2) 
+            &= 1 + s^2 - 1 - t^2 \\
+            &= s^2 - t^2 < 0
+    \end{align*}
+    Thus $1 + s^2 < 1 + t^2$.
+    
+    Since $1 - s^2 > 1 - t^2$ and $1 + s^2 < 1 + t^2$ 
+        it follows that $(1 - s^2)(1 + t^2) > (1 - t^2)(1 + s^2)$.
+    Therefore $\frac{1 - s^2}{1 + s^2} > \frac{1 - t^2}{1 + t^2}$
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    When $t$ becomes very large positive, what happens to 
+    \[\frac{1 - t^2}{1 + t^2}\]
+    When $t$ becomes very large negative, what happens to 
+    \[\frac{1 - t^2}{1 + t^2}\]
+    Substitute large values of $t$, like $10,000$ or $-10,000$, to get 
+    a feeling for what happens.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+Let $t = 10000$ then
+\[\frac{1 - t^2}{1 + t^2} = \frac{1 - (10000)^2}{1 + (10000)^2} = -0.9999998\]
+As $t$ becomes very large positive $\frac{1 - t^2}{1 + t^2}$ approaches $-1$.
+
+At $t = -10000$ it also approaches $-1$ since $t$ is squared it doesn't make a difference.
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Analyze what happens to 
+    \[\frac{2t}{1 + t^2}\]
+    when $t \le 0$ and when $t$ becomes very large negative.
+    Next analyze what happens when $t \ge 0$ and $t$ becomes 
+    very large positive.
+\end{tcolorbox}
+
+Let $t = -10000$ then
+\[\frac{2t}{1 + t^2} = \frac{2(-10000)}{1 + (-10000)^2} = −0.0002\]
+As $t$ becomes very large negative $\frac{2t}{1 + t^2}$ approaches $0$.
+
+Let $t = 10000$ then
+\[\frac{2t}{1 + t^2} = \frac{2(10000)}{1 + (10000)^2} = 0.0002\]
+As $t$ becomes very large positive $\frac{2t}{1 + t^2}$ approaches $0$.

@@ -1255,18 +1255,15 @@ But $2$ is also not the R-smallest element since $(1, 2) \in R$ and $1 \not= 2$.
 \end{proof}
 
 \begin{proof}
-    Let $(x, y)$ be an arbitrary element in $T_1$.
-    Since $T_1$ is the smallest transitive closure of $R_1$
-        it follows that $(x, y) \in R_1$, or there exists $c$ such that $(x, c) \in R_1$ and $(c, y) \in R_1$.
-    Suppose $(x, y) \in R_1$.
-    Then, since $R_1 \subseteq R_2$, $(x, y) \in R_2$.
-    Since $T_2$ is the smallest transitive closure of $R_2$
-        it follows that $(x, y) \in R_2$.
-    Suppose there exists $c$ such that $(x, c) \in R_1$ and $(c, y) \in R_1$.
-    Then, since $R_1 \subseteq R_2$, $(x, c) \in R_2$ and $(c, y) \in R_2$.
-    Since $T_2$ is the smallest transitive closure of $R_2$
-        it follows that $(x, y) \in T_2$.
-    Therefore $T_1 \subseteq T_2$.
+    Suppose $(x, y)$ is an arbitrary element in $R_1$.
+    Since $R_1 \subseteq R_2$ it follows that $(x, y) \in R_2$.
+    Thus $(x, y) \in T_2$ and $R_1 \subseteq T_2$.
+    Suppose $(x, y), (y, z)$ are arbitrary pairs in $R_1$.
+    Since $R_1 \subseteq R_2$ it follows that $(x, y), (y, z) \in R_2$.
+    Thus $(x, y), (y, z), (x, z) \in T_2$.
+    So $T_2$ is a transitive relation containing $R_1$.
+    Since $T_1$ is the minimal transitive relation containing $R_1$,
+        it follows that $T_1 \subseteq T_2$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 27, breakable]
@@ -1314,6 +1311,33 @@ But $2$ is also not the R-smallest element since $(1, 2) \in R$ and $1 \not= 2$.
         it follows that $S = S_1 \cup S_2$.
 \end{proof}
 
+\begin{proof}
+    Let $(x, y)$ be an arbitrary pair in $T_1 \cup T_2$.
+    Either $(x, y) \in T_1$ or $(x, y) \in T_2$.
+
+    Suppose $(x, y) \in R_1$.
+    Since $R = R_1 \cup R_2$ it follows that $(x, y) \in R$.
+    Then since $R \subseteq T$ it follows that $(x, y) \in T$.
+    Thus $R_1 \subseteq T$.
+
+    Suppose $(x, y), (y, z) \in R_1$.
+    Since $R = R_1 \cup R_2$ it follows that $(x, y), (y, z) \in R$.
+    Then since $T$ is the transitive closure of $R$, it follows that $(x, z) \in T$.
+    Thus $T$ is a transitive relation containing $R_1$.
+    Since $T_1$ is the transitive closure of $R_1$ it follows that $T_1 \subseteq T$.
+    Clearly $T_1 \cup T_2 \subseteq T$.
+
+    A similar argument shows that supposing $(x, y) \in R_2$
+    then $T_1 \cup T_2 \subseteq T$.
+
+    Therefore $T_1 \cup T_2 \subseteq T$.
+\end{proof}
+
+\textbf{Solution:}
+\[R_1 = \{(3, 4)\}, R_2 = \{(4, 5)\}, R = \{(3, 4), (4, 5)\}\]
+\[T_1 = \{(3, 4)\}, T_2 = \{(4, 5)\}, T_1 \cup T_2 = \{(3, 4), (4, 5)\}, T = \{(3, 4), (4, 5), (3, 5)\}\]
+Clearly $T_1 \cup T_2 \ne T$.
+
 \begin{tcolorbox}[title=Problem 28, breakable]
     Suppose $A$ is a set.
 
@@ -1327,8 +1351,9 @@ But $2$ is also not the R-smallest element since $(1, 2) \in R$ and $1 \not= 2$.
 \end{tcolorbox}
 
 \begin{proof}
-    Suppose $A$ has at least two elements. Let $a, b \in A$
-    such that $a \not = b$. If $\neg aRb$ and $\neg bRa$ then we 
+    Suppose $A$ has at least two elements. 
+    Let $R$ be an arbitrary antisymmetric relation on $A$.
+    Let $a, b \in A$ such that $a \not = b$. If $\neg aRb$ and $\neg bRa$ then we 
     can construct a relation $S$ such that $S = R \cup \{(a, b)\}$ or $S = R \cup \{(b, a)\}$.
     In either case $S \not\subseteq R$. So either $aRb$ or $bRa$.
     Suppose $aRb$. Then we can construct a relation $S$ such that 
@@ -1365,19 +1390,19 @@ But $2$ is also not the R-smallest element since $(1, 2) \in R$ and $1 \not= 2$.
     Then $(y, x) \in T$ so $(x, y) \in T^{-1}$.
     Therefore $R \subseteq T^{-1}$.
 
-    Suppose $(x, y)$, $(y, z)$ are arbitrary pairs in $T^{-1}$.
-    It follows that $(y, x)$, $(z, y) \in T$.
-    Then, since $T$ is transitive $(z, x) \in T$ so $(x, z) \in T^{-1}$.
-    Therefore $T^{-1}$ is transitive and $T^{-1}$ is a transitive
-        closure on $T$.
+    Suppose $(x, y), (y, z)$ are arbitrary pairs in $T^{-1}$.
+    It follows that $(y, x), (z, y) \in T$.
+    Then, since $T$ is transitive, $(z, x) \in T$ so $(x, z) \in T^{-1}$.
+    Therefore $T^{-1}$ is transitive and contains $R$.
 
-    Now, since $R \subseteq T^{-1}$ and $T^{-1}$ is transitive $T^{-1}$ is
-        a transitive closure on $R$.
-    Since $T$ is the minimum transitive closure 
-        on $R$ it follows that $T \subseteq T^{-1}$.
-    Similarly, since $T^{-1}$ is a minu transitive closure 
-        on $R$ it follows that $T^{-1} \subseteq T$.
-    Therefore $T = T^{-1}$.
+    Now, since $R \subseteq T^{-1}$ and $T^{-1}$ is transitive, 
+    $T$, being the minimal transitive closure of $R$, thus $T \subseteq T^{-1}$.
+
+    Let $U$ be any transitive relation containing $R$.
+    Then $U^{-1}$ is transitive and contains $R$, so by minimality of $T$, $T \subseteq U^{-1}$.
+    Taking inverses gives $T^{-1} \subseteq U$.
+    Since $U$ was arbitrary, $T^{-1}$ is minimal.
+    Thus $T^{-1} = T$, showing that $T$ is symmetric.
 \end{proof}
 
 \subsection{Equivalence Relations}
@@ -1421,3 +1446,325 @@ All equivalence relations on $A$:
     \item \{(1, 1), (2, 2), (3, 3), (1, 3), (3, 1)\}
     \item \{(1, 1), (2, 2), (3, 3), (1, 2), (2, 1), (1, 3), (3, 1), (2, 3), (3, 2)\}
 \end{enumerate}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $T$ be the set of all triangles, and let 
+        $S = \{(s, t) \in T \times T \mid \text{the triangles $s$ and $t$ are similar}\}$.
+    (Recall that two triangles are similar if the angles of one triangle are equal to 
+        corresponding angles of the other.) Verify that $S$ is an equivalent relation.
+\end{tcolorbox}
+
+\begin{proof}
+    We need to show $S$ is reflexive, symmetric, and transitive.
+    Clearly a triangle is similar to itself so $S$ is reflexive.
+    Also, given two triangles $A, B$ if $A$ is similar to $B$ then $B$ is similar to $A$
+        thus $S$ is symmetric.
+    Finally, given three triangles $A, B, C$ if $A$ is similar to $B$ and $B$ is similar to 
+        $C$ then $A$ is similar to $C$ thus $S$ is transitive.
+    Therefore $S$ is an equivalence relation on $T$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Complete the proof of Lemma $4.5.7$.
+
+    We'll prove that $R$ is reflexive and leave the rest for you 
+        to do in excersize $8$.
+\end{tcolorbox}
+
+\begin{lemma}
+    Suppose $A$ is a set and $\mathcal{F}$ is a partition of $A$.
+    Let $R = \bigcup_{X \in \mathcal{F}}(X \times X)$.
+    Then $R$ is an equivalence relation on $A$.
+    We will call $R$ the equivalence relation determined by $\mathcal{F}$.
+\end{lemma}
+
+\begin{proof}
+    We must show that $R$ is symmetric and transitive.
+
+    To show that $R$ is symmetric, let $(x, y)$ be 
+        an arbitrary element of $R$.
+    By the definition of $R$, $(x, y) \in \bigcup_{X \in \mathcal{F}} (X \times X)$.
+    So there exists a set $X \in \mathcal{F}$ such that $(x, y) \in X \times X$.
+    Since $x, y \in X$ it follows that $(y, x) \in X \times X$ 
+        and therefore $(y, x) \in \bigcup_{X \in \mathcal{F}} (X \times X) = R$.
+    Thus $R$ is symmetric.
+
+    To show that $R$ is transitive, let $(x, y), (y, z)$ be 
+        arbitrary elements of $R$.
+    By the definition of $R$, $(x, y), (y, z) \in \bigcup_{X \in \mathcal{F}} (X \times X)$.
+    So there exists sets $X, Y \in \mathcal{F}$ such that $(x, y) \in X \times X$ and $(y, z) \in Y \times Y$.
+    Since $y \in X$ and $y \in Y$ it follows that $X = Y$ since $\mathcal{F}$ is a partition of $A$.
+    Since $X = Y$ it follows that $(x, y) \in X \times X$ and $(y, z) \in X \times X$.
+    Therefore $(x, z) \in X \times X$ and $(x, z) \in \bigcup_{X \in \mathcal{F}} (X \times X) = R$.
+    Thus $R$ is transitive.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Let $\equiv_m$ be the ``congruence modulo $m$'' relation defined in the text,
+        for a postive integer $m$.
+
+    (a) Complete the proof of Theorem $4.5.10$ by showing that $\equiv_m$ is 
+        reflexive and symmetric.
+    
+    (b) Find all the equivalence classes for $\equiv_2$ and $\equiv_3$.
+        How many equivalence classes are there in each case?
+        In general how many equivalence classes do you think there are 
+        for $\equiv_m$.
+\end{tcolorbox}
+
+\begin{proof}
+    We need to show that $\equiv_m$ is reflexive and symmetric.
+
+    Let $x$ be an arbitrary integer.
+    To show that $\equiv_m$ is reflexive notice $x - x = km$ when $k = 0$. 
+    Therefore $x \equiv_m x$. Thus $\equiv_m$ is reflexive.
+
+    We now show that $\equiv_m$ is symmetric.
+    Let $x, y$ be arbitrary integers such that $x \equiv_m y$.
+    Then $m \mid x - y $ so $x - y = km$ for some integer $k$.
+    Multiplying both sides by $-1$ shows that $y - x = (-k)m$.
+    Therefore $y \equiv_m x$. Thus $\equiv_m$ is symmetric.
+\end{proof}
+
+\textbf{Solution (b):}
+
+Two equivalent classes for $\equiv_2$:
+\[
+[0]_2 = \{\ldots, -4, -2, 0, 2, 4, \ldots\}, \quad
+[1]_2 = \{\ldots, -3, -1, 1, 3, 5, \ldots\}.
+\]
+
+Three equivalent classes for $\equiv_3$:
+\[
+[0]_3 = \{\ldots, -6, -3, 0, 3, 6, \ldots\},
+\]
+\[
+[1]_3 = \{\ldots, -5, -2, 1, 4, 7, \ldots\},
+\]
+\[
+[2]_3 = \{\ldots, -4, -1, 2, 5, 8, \ldots\}.
+\]
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Prove that for every integer $n$, either $n^2 \equiv 0 \pmod{4}$
+        or $n^2 \equiv 1 \pmod{4}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $n$ is an arbitrary integer.
+    Either $n$ is even or $n$ is odd.
+
+    If $n$ is even, it can be expressed as $2k$ where $k$ is an integer.
+    Now $n^2 = 4k^2$, so $4 \mid n^2$.
+    Thus $n^2 \equiv 0 \pmod{4}$.
+
+    If $n$ is odd, it can be expressed as $2k + 1$ where $k$ is an integer.
+    Now $n^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1$.
+Since $4 \mid 4(k^2 + k)$, we have $n^2 \equiv 1 \pmod{4}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Suppose $m$ is a positive integer. 
+    Prove that for all integers $a, a', b$ and $b'$,
+    if $a' \equiv a \pmod{m}$ and $b' \equiv b \pmod{m}$
+    then $a' + b' = a + b \pmod{m}$ and $a'b' = ab \pmod{m}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Since $a' \equiv a \pmod{m}$ and $b' \equiv b \pmod{m}$,
+    it follows that $a' - a = km$ and $b' - b = jm$ for some integers $k,j$.
+    Then
+    \begin{align*}
+        (a' + b') - (a + b) 
+            &= km + jm \\ 
+            &= (k + j)m
+    \end{align*}
+    Thus $a' + b' \equiv a + b \pmod{m}$.
+\end{proof}
+
+\begin{proof}
+    Since $a' \equiv a \pmod{m}$ and $b' \equiv b \pmod{m}$,
+    it follows that $a' = a + km$ and $b' = b + jm$ for some integers $k,j$.
+    Then 
+    \begin{align*}
+        a'b' - ab
+            &= (a + km)(b + jm) - ab \\
+            &= ab + a jm + b km + k j m^2 - ab \\
+            &= m (a j + b k + k j m)
+    \end{align*}
+    Thus $a'b' \equiv ab \pmod{m}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Suppose that $R$ is an equivalence relation on $A$
+    and $B \subseteq A$. Let $S = R \cap (B \times B)$.
+
+    (a) Prove that $S$ is an equivalence relation on $B$.
+
+    (b) Prove that for all $x \in B$, $[x]_S = [x]_R \cap B$.
+\end{tcolorbox}
+
+\begin{proof}
+    We must show $S$ is reflexive, symmetric, and transitive.
+
+    Let $x$ be an arbitrary element in $B$.
+    Since $x \in B$ it follows that $(x, x) \in B \times B$.
+    We know $B \subseteq A$ so $x \in A$.
+    Since $R$ is an equivalence relation on $A$ it follows that $(x, x) \in R$.
+    Since $(x, x) \in R$ and $(x, x) \in B \times B$ 
+        it follows that $(x, x) \in R \cap B \times B$.
+    Thus $S$ is reflexive.
+
+    Let $(x, y)$ be an arbitrary pair in $S$.
+    It follows that $(x, y) \in R$ and $(x, y) \in B \times B$.
+    Since $R$ is symmetric it follows that $(y, x) \in R$.
+    Since $(x, y) \in B \times B$ it follows that $(y, x) \in B \times B$.
+    Since $(y, x) \in R$ and $(y, x) \in B \times B$ 
+        it follows that $(y, x) \in R \cap B \times B$.
+    Thus $S$ is symmetric.
+
+    Let $(x, y), (y, z)$ be arbitrary pairs in $S$.
+    It follows that $(x, y), (y, z) \in R$ and $(x, y), (y, z) \in B \times B$.
+    Since $(x, y), (y, z) \in R$ it follows that $(x, z) \in R$.
+    Since $(x, y), (y, z) \in B \times B$ it follows that $(x, z) \in B \times B$.
+    Since $(x, z) \in R$ and $(x, z) \in B \times B$ 
+        it follows that $(x, z) \in R \cap B \times B$.
+    Thus $S$ is transitive.
+
+    Since $S$ is reflexive, symmetric, and transitive, it 
+        is an equivalence relation on $B$.
+\end{proof}
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $B$.
+
+    We first show $[x]_S \subseteq [x]_R \cap B$.
+    Let $y$ be an arbitrary element in $[x]_S$.
+    It follows that $(y, x) \in S$.
+    Thus $(y, x) \in R$ and $(y, x) \in B \times B$.
+    It follows that $y \in [x]_R$ and $y \in B$.
+    Therefore $y \in [x]_R \cap B$.
+
+    We now show $[x]_R \cap B \subseteq [x]_S$.
+    Let $y$ be an arbitrary element in $[x]_R \cap B$.
+    It follows that $y \in [x]_R$ and $y \in B$.
+    Since $x \in B$ it follows that $(y, x) \in B \times B$.
+    Since $y \in [x]_R$ it follows that $(y, x) \in R$.
+    Since $(y, x) \in R$ and $(y, x) \in B \times B$
+        it follows that $(y, x) \in S$.
+    Thus $y \in [x]_S$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 24, breakable]
+    Supose $R$ and $S$ are relations on a set $A$, and $S$
+    is an equivalence relation.
+    We will say that $R$ is compatible with $S$ if for all $x, y, x',$ and 
+    $y'$ in $A$, if $xSx'$ and $ySy'$ then $xRy$ iff $x'Ry'$.
+
+    (a) Prove that if $R$ is compatible with $S$,
+        then there is a unique relation $T$ on $A / S$
+        such that for all $x$ and $y$ in $A$, $[x]_S T[y]_S$ iff $xRy$.
+
+    (b) Suppose $T$ is a relation on $A / S$ and for all $x$
+        and $y$ in $A$, $[x]_S T [y]_S$ iff $xRy$.
+        Prove that $R$ is compatible with $S$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $R$ is compatible with $S$.
+
+    We first show existence.
+    Let $T = \{([x]_S, [y]_S) \mid x, y \in A \text{ and } (x, y) \in R\}$.
+    Let $X, Y$ be two arbitrary sets in $A / S$.
+    Let $x, x'$ be arbitrary elements in $X$
+        and $y, y'$ be arbitrary elements in $Y$.
+    We know $(x, x') \in S$ and $(y, y') \in S$.
+    Since $R$ is compatible with $S$ it follows that 
+        $(x, y) \in R$ iff $(x', y') \in R$.
+    Therefore $([x]_S, [y]_S) \in T$ iff $([x']_S, [y']_S) \in T$.
+
+    We now show uniqueness.
+    Suppose there are two relations $P$ and $Q$ on $A / S$
+    such that for all $x, y \in A$,
+    $[x]_S P [y]_S \iff xRy$ and $[x]_S Q [y]_S \iff xRy$.
+    Let $x, y$ be arbitrary elements in $A$
+        such that $([x]_S, [y]_S) \in P$.
+    It then follows that $(x, y) \in R$.
+    Thus $([x]_S, [y]_S) \in Q$ therefore $P \subseteq Q$. 
+    A similar argument shows $Q \subseteq P$.
+\end{proof}
+
+\begin{proof}
+    Let $x, x', y, y'$ be arbitrary elements in $A$.
+    We need to show if $xSx'$ and $ySy'$ then $xRy$ iff $x'Ry'$.
+    Suppose $xSx'$ and $ySy'$.
+    It follows that $([x]_S, [y]_S) \in T$ iff $xRy$
+        and $([x']_S, [y']_S) \in T$ iff $x'Ry'$.
+    Therefore $xRy$ iff $x'Ry'$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 25, breakable]
+    Suppose $R$ is a relation on $A$ and $R$ is reflexive and transitive.
+    (Such a relation is called a \emph{preorder} on $A$.) Let $S = R \cap R^{-1}$.
+
+    (a) Prove that $S$ is an equivalence relation on $A$.
+
+    (b) Prove that there is a unique relation $T$ on $A \setminus S$ such that 
+        for all $x$ and $y$ in $A$, $[x]_S T[y]_S$ iff $xRy$. (Hint: Use excersize $24$.)
+
+    (c) Prove that $T$ is a partial order on $A \setminus S$, where $T$ is the relation 
+        from part (b).
+\end{tcolorbox}
+
+\begin{proof}
+    We must show $S$ is reflexive, symmetric, and transitive.
+
+    Let $x$ be an arbitrary element in $A$.
+    Since $R$ is reflexive $(x, x) \in R$.
+    It follows that $(x, x) \in R^{-1}$.
+    Since $(x, x) \in R$ and $(x, x) \in R^{-1}$
+        it follows that $(x, x) \in S$.
+    Thus $S$ is reflexive.
+
+    Let $(x, y)$ be an arbitrary element in $S$.
+    It follows that $(x, y) \in R$ and $(x, y) \in R^{-1}$.
+    Then $(y, x) \in R^{-1}$ and $(y, x) \in R$.
+    Thus $(y, x) \in S$ therefore $S$ is symmetric.
+
+    Let $(x, y), (y, z)$ be arbitrary elements in $S$.
+    It follows that $(x, y), (y, z) \in R$ and $(x, y), (y, z) \in R^{-1}$.
+    Then $(y, x), (z, y) \in R$.
+    Since $R$ is transitive it follows that $(x, z), (z, x) \in R$.
+    Therefore $(x, z) \in R^{-1}$.
+    Since $(x, z) \in R$ and $(x, z) \in R^{-1}$
+        it follows that $(x, z) \in S$.
+    Thus $S$ is transitive.
+
+    Since $S$ is reflexive, symmetric, and transitive it is 
+        an equivalence relation on $A$.
+\end{proof}
+
+\begin{proof}
+    Follows directly from $24$.
+\end{proof}
+
+\begin{proof}
+    We must show $T$ is reflexive, transitive, and antisymmetric.
+
+    Let $[x]_S$ be an arbitrary element in $A / S$.
+    Clearly $x \in [x]_S$ and since $R$ is reflexive, $xRx$.
+    Thus $([x]_S, [x]_S) \in T$.
+    Therefore $T$ is reflexive.
+
+    Let $([x]_S, [y]_S), ([y]_S, [z]_S) \in T$.
+    It follows that $xRy$ and $yRz$.
+    Since $R$ is transitive, $xRz$.
+    Thus $([x]_S, [z]_S) \in T$.
+    Therefore $T$ is transitive.
+
+    Let $([x]_S, [y]_S), ([y]_S, [x]_S) \in T$.
+    Then $xRy$ and $yRx$, which implies $(x,y) \in S$.
+    Thus $[x]_S = [y]_S$.
+    Therefore $T$ is antisymmetric.
+\end{proof}

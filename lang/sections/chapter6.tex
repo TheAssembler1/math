@@ -637,7 +637,6 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
 
 \subsection{Congruences}
 
-\newpage
 \begin{tcolorbox}[title=Problem 1, breakable]
     Prove that two discs of the same radius are congruent.
 \end{tcolorbox}
@@ -830,24 +829,19 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
 \end{tcolorbox}
 
 \begin{proof}
-    Let $\triangle PQM$ and $\triangle P'Q'M'$ have a corresponding angle of the same measure, say $\angle PQM = \angle P'Q'M'$, 
-    and let the adjacent sides satisfy $d(P,Q) = d(P',Q') \quad \text{and} \quad d(Q,M) = d(Q',M')$.
+    Using Section $6.4$ Problem $2$, since $d(P,Q) = d(P',Q')$, 
+        there exists an isometry $T$ such that $T(P) = P'$ and $T(Q) = Q'$.
+    From the figure, if $T(M) \ne M'$ then perform a reflection $R$ through the line $\overline{P'Q'}$.
+    Otherwise, let $R = I$ where $I$ is the identity mapping.
+    Let $F = R \circ T$.
 
-    Draw the altitude from $Q$ to the side $\overline{PM}$ in $\triangle PQM$, and let $H$ be the foot of this perpendicular.  
-    Similarly, draw the altitude from $Q'$ to $\overline{P'M'}$ in $\triangle P'Q'M'$, and let $H'$ be the foot.
+    If $R \ne I$, then reflecting about the line $\overline{P'Q'}$     
+        ensures $F(M)$ points in the same direction as $M'$.
+    Since $F$ is an isometry, it preserves distances, so $d(Q',F(M)) = d(Q,M) = d(Q',M')$.
 
-    Now consider the right triangles $\triangle QPH$ and $\triangle QMH$ in the first triangle, 
-        and $\triangle Q'P'H'$ and $\triangle Q'M'H'$ in the second.  
-    By construction and the given distances, 
-        the corresponding legs of these right triangles are equal 
-        $d(Q,P) = d(Q',P'), \quad d(Q,H) = d(Q',H'), \quad d(Q,M) = d(Q',M'), \quad d(Q,H) = d(Q',H')$
-
-    By Theorem 10, triangles with all three sides equal are congruent, so 
-    \[
-    \triangle QPH \cong \triangle Q'P'H' \quad \text{and} \quad \triangle QMH \cong \triangle Q'M'H'.
-    \]
-
-    Since both pairs of right triangles are congruent, all points $P, Q, M$ correspond to $P', Q', M'$, and therefore
+    It follows that $F(P) = P', F(Q) = Q', F(M) = M'$.
+    Thus the triangle's sides are the same length and applying Theorem $10$ shows 
+        they are congruent.
 \end{proof}
 
 
@@ -908,6 +902,25 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
     Prove that the triangles are congruent.
 \end{tcolorbox}
 
+\begin{proof}
+    Using Section~$6.4$ Problem~$2$, since $d(P,Q) = d(P',Q')$, 
+    there exists an isometry $T$ such that $T(P) = P'$ and $T(Q) = Q'$.
+    From the figure, if $T(M) \ne M'$, then perform a reflection $R$ through the line $\overline{P'Q'}$.
+    Otherwise, let $R = I$, where $I$ is the identity mapping.
+    Let $F = R \circ T$.
+
+    If $R \ne I$, then reflecting about the line $\overline{P'Q'}$
+    ensures $F(M)$ lies on the same side of $\overline{P'Q'}$ as $M'$.
+    Hence $F(P) = P'$ and $F(Q) = Q'$.
+    Since corresponding angles are equal, the ray from $F(P)$ through $F(M)$
+    coincides with the ray from $P'$ through $M'$, and the ray from $F(Q)$ through $F(M)$
+    coincides with the ray from $Q'$ through $M'$.
+    Therefore $F(M) = M'$, and $F$ maps all vertices of $\triangle PQM$
+    to the corresponding vertices of $\triangle P'Q'M'$.
+
+    Thus the triangles are congruent.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 12, breakable]
     Let $\triangle PQM$ be a triangle. 
     Let $L_1, L_2, L_3$ be the three lines which bisect 
@@ -917,3 +930,38 @@ VG^2 & VG^2 & V & VG & G^2 & G & I
     [Hint: From $O$, draw the perpendicular segments to the corresponding sides. 
      Prove that their lengths are equal.]
 \end{tcolorbox}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/last.png}
+\end{figure}
+
+\begin{proof}
+    Let $A$, $B$, and $C$ be the feet of the perpendiculars from $O$ to the sides 
+        $\overline{PM}$, $\overline{PQ}$, and $\overline{MQ}$ respectively.
+
+    We first show that $\angle AOP$ and $\angle BOP$
+        are equivalent.
+    The sum of the angles of $\triangle AOP$ and $\triangle BOP$ can 
+        be expressed as $90 + \angle APO + \angle AOP$
+        and $90 + \angle BPO + \angle BOP$, respectively.
+    These sums must both equal $180$, so
+        \[
+            90 + \angle APO + \angle AOP = 90 + \angle BPO + \angle BOP.
+        \]
+    But $\angle APO = \angle BPO$, since $L_1$ bisects $\angle P$.
+    Therefore, $\angle AOP = \angle BOP$.
+
+    Thus  $\triangle AOP$ is a reflection of $\triangle BOP$ across $L_1$.
+    Therefore their corresponding sides are equal,
+        so the perpendicular distances from $O$ to $\overline{PM}$ and $\overline{PQ}$ are equal,
+        and thus $OA = OB$.
+
+    By the same reasoning, since $O$ also lies on $L_2$, which bisects $\angle Q$,
+    the right triangles $\triangle OBQ$ and $\triangle OCQ$ are reflections across $L_2$,
+    giving $OB = OC$.
+
+    Therefore $OA = OB = OC$.
+    A point equidistant from all three sides of a triangle lies on the bisector of the remaining angle.
+    Hence, $O$ lies on $L_3$.
+\end{proof}
