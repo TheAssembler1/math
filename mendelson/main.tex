@@ -1,0 +1,188 @@
+% Compile with XeLaTeX or LuaLaTeX
+\documentclass[10pt]{article}  % Spivak uses ~10pt
+
+% -----------------------------
+% Fonts
+% -----------------------------
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\usepackage{unicode-math}
+\setmathfont{Libertinus Math}
+
+% -----------------------------
+% Page layout
+% -----------------------------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[parfill]{parskip}
+
+% -----------------------------
+% Theorems and QED
+% -----------------------------
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+% QED symbol like Spivak (tall gray rectangle)
+\renewcommand{\qedsymbol}{\textcolor{black}{\rule{1ex}{2.2ex}}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{axiom}{Axiom}
+\newtheorem{definition}{Definition}
+
+% -----------------------------
+% Misc packages
+% -----------------------------
+\usepackage{graphicx, subfig}
+\usepackage{booktabs, array}
+\usepackage{paralist, verbatim}
+\usepackage{xcolor, pagecolor}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape}
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage[titles,subfigure]{tocloft}
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape}
+\usepackage{changepage, comment}
+% Define a light gray
+\definecolor{lightgraypaper}{RGB}{240,240,240}
+% Set the page background
+\pagecolor{lightgraypaper}
+\color{black} % keep text black
+
+\title{Calculus by Elliott Mendelson}
+\author{Noah Lewis}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+% ===============================
+% 30-Week Calc 1 & Calc 2 Review Schedule
+% ===============================
+
+\section{Functions}
+\input{sections/chapter6.tex}
+% Week 1: Review domain, range, composition, and inverse functions. Make sure you understand function behavior and graphs.
+
+\section{Limits}
+\input{sections/chapter7.tex}
+% Week 2: Focus on limit laws, one-sided limits, and indeterminate forms. Practice evaluating limits algebraically and with L'Hôpital's Rule.
+
+\section{Continuity}
+\input{sections/chapter8.tex}
+% Week 3: Understand continuity and discontinuities. Connect with limits. Know Intermediate Value Theorem applications.
+
+\section{The Derivative}
+\input{sections/chapter9.tex}
+% Week 4: Focus on definition of derivative, basic rules, and interpreting derivatives as rates of change and slopes.
+
+\section{Rules for Differentiating Functions}
+\input{sections/chapter10.tex}
+% Week 5: Product, quotient, chain rule. Drill multiple examples to build speed.
+
+\section{Implicit Differentiation}
+\input{sections/chapter11.tex}
+% Week 6: Learn to differentiate equations not solved for y. Practice solving for dy/dx in complex examples.
+
+\section{Tangent and Normal Lines}
+\input{sections/chapter12.tex}
+% Week 7: Connect derivatives to geometric interpretation. Practice tangent lines and normals.
+
+\section{Increasing/Decreasing and Mean Value Theorem}
+\input{sections/chapter13.tex}
+% Week 8: Focus on identifying intervals of increase/decrease, concavity, and applying MVT.
+
+\section{Maximum and Minimum Values}
+\input{sections/chapter14.tex}
+% Week 9: Practice finding local and global extrema. Connect with derivative tests.
+
+\section{Curve Sketching, Concavity, Symmetry}
+\input{sections/chapter15.tex}
+% Week 10: Combine derivative info to sketch curves. Focus on interpreting concavity and inflection points.
+
+\section{Differentiation of Trigonometric Functions}
+\input{sections/chapter17.tex}
+% Week 11: Review derivatives of sin, cos, tan, etc. Practice chain rule with trig functions.
+
+\section{Inverse Trigonometric Functions}
+\input{sections/chapter18.tex}
+% Week 12: Learn derivatives of arcsin, arccos, arctan, etc. Connect to implicit differentiation.
+
+\section{Related Rates}
+\input{sections/chapter20.tex}
+% Week 13: Focus on translating word problems into derivative equations. Practice multiple real-world scenarios.
+
+\section{Differentials and Newton's Method}
+\input{sections/chapter21.tex}
+% Week 14: Understand differentials, linear approximations, and Newton-Raphson root-finding.
+
+\section{Antiderivatives}
+\input{sections/chapter22.tex}
+% Week 15: Review basic antiderivatives, power rule, and substitution.
+
+\section{Definite Integral and Area Under a Curve}
+\input{sections/chapter23.tex}
+% Week 16: Connect Riemann sums to definite integrals. Practice area computations.
+
+\section{Fundamental Theorem of Calculus}
+\input{sections/chapter24.tex}
+% Week 17: Understand both parts of the theorem and applications to evaluating integrals.
+
+\section{Applications: Area and Arc Length}
+\input{sections/chapter29.tex}
+% Week 18: Solve area between curves and arc length problems.
+
+\section{Applications: Volume}
+\input{sections/chapter30.tex}
+% Week 19: Focus on disk, washer, and shell methods. Practice multiple setup problems.
+
+\section{Techniques of Integration I: Integration by Parts}
+\input{sections/chapter31.tex}
+% Week 20: Practice by parts on polynomial × trig/exponential functions.
+
+\section{Techniques of Integration II: Trig Integrands / Trig Substitutions}
+\input{sections/chapter32.tex}
+% Week 21: Focus on trig integrals and substitutions. Recognize patterns quickly.
+
+\section{Techniques of Integration III: Partial Fractions}
+\input{sections/chapter33.tex}
+% Week 22: Practice decomposing rational functions and integrating. Very common in Calc 3 review.
+
+\section{Improper Integrals}
+\input{sections/chapter35.tex}
+% Week 23: Understand convergence/divergence and setup of improper integrals.
+
+\section{Parametric Representation of Curves}
+\input{sections/chapter37.tex}
+% Week 24: Review derivatives of parametric equations and tangent lines.
+
+\section{Plane Vectors}
+\input{sections/chapter39.tex}
+% Week 25: Intro to vectors in 2D. Useful for moving into 3D vectors in Calc 3.
+
+\section{Polar Coordinates}
+\input{sections/chapter41.tex}
+% Week 26: Practice plotting, derivatives, and areas in polar coordinates.
+
+\section{Sequences}
+\input{sections/chapter42.tex}
+% Week 27: Understand limits of sequences and convergence intuition.
+
+\section{Series}
+\input{sections/chapter43.tex}
+% Week 28: Practice convergence tests (integral, comparison, ratio, alternating). Do multiple examples.
+
+\section{Power Series}
+\input{sections/chapter46.tex}
+% Week 29: Focus on representing functions as series and finding interval of convergence.
+
+\section{Taylor and Maclaurin Series}
+\input{sections/chapter47.tex}
+% Week 30: Practice expansions of common functions (e^x, sin x, cos x, ln(1+x)). Connect derivatives to series coefficients.
+
+\end{document}

@@ -1,0 +1,203 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    If $f(x) = x^2 - 4x + 6$. Find 
+
+    (a) $f(0)$.
+
+    (b) $f(3)$.
+
+    (c) $f(-2)$.
+
+    Show that $f(\frac{1}{2}) \ne f(\frac{7}{2})$ 
+        and $f(2 - h) = f(2 + h)$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[f(0) = 0^2 - 4(0) + 6 = 6\]
+\textbf{Solution (a):}
+\[f(3) = 3^2 - 4(3) + 6 = 9 - 12 + 6 = 3\]
+\textbf{Solution (a):}
+\[f(-2) = (-2)^2 - 4(-2) + 6 = 18\]
+
+\textbf{Solution:}
+\[f(\frac{1}{2}) 
+    = (\frac{1}{2})^2 + 4(\frac{1}{2}) + 6 
+    = \frac{1}{4} + 2 + 6
+    = \frac{1}{4} + 8
+    = \frac{33}{4}\]
+\[f(\frac{7}{2}) 
+    = (\frac{7}{2})^2 + 4(\frac{7}{2}) + 6
+    = \frac{49}{4} + (2 * 7) + 6
+    = \frac{49}{4} + 14 + 6
+    = \frac{49}{4} + 20
+    = \frac{129}{4}\]
+Clearly $f(\frac{1}{2}) \ne f(\frac{7}{2})$.
+
+\textbf{Solution:}
+\[f(2 - h) 
+    = (2 - h)^2 - 4(2 - h) + 6
+    = 4 - 4h + h^2 - 8 + 4h + 6
+    = h^2 + 2\]
+\[f(2 = h)
+    = (2 + h)^2 - 4(2 + h) + 6
+    = 4 + 4h + h^2 - 8 - 4h + 6
+    = h^2 + 2\]
+Thus $f(2 - h) = f(2 + h)$.
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Determine the domain of each of the following functions:
+
+    (a) $y = x^2 + 4$.
+
+    (b) $y = \sqrt{x^2 + 4}$.
+
+    (c) $y = \sqrt{x^2 - 4}$.
+
+    (d) $y = \frac{x}{x + 3}$.
+
+    (e) $y = \frac{2x}{(x - 2)(x + 1)}$.
+
+    (f) $y = \frac{1}{\sqrt{9 - x^2}}$.
+
+    (g) $y = \frac{x^2 - 1}{x^2 + 1}$.
+
+    (h) $y = \sqrt{\frac{x}{2 - x}}$
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[x \in \mathbb{R}\]
+
+\textbf{Solution (b):}
+\[x \in \mathbb{R}\]
+
+\textbf{Solution (c):}
+\[x \in \mathbb{R} \setminus \{-2, 2\}\]
+
+\textbf{Solution (d):}
+\[x \in \mathbb{R} \setminus \{-3\}\]
+
+\textbf{Solution (e):}
+\[x \in \mathbb{R} \setminus \{2, -1\}\]
+
+\textbf{Solution (f):}
+\[x \in \mathbb{R} \setminus \{-3, 3\}\]
+
+\textbf{Solution (g):}
+\[x \in \mathbb{R}\]
+
+\textbf{Solution (h):}
+\[x \in \mathbb{R} \setminus \{x \mid x < 0 \text{ or } x \ge 2\}\]
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    Compute $\frac{f(a + h) - f(a)}{h}$
+        in the following cases:
+
+    (a) $f(x) = \frac{1}{x - 2}$.
+
+    (b) $f(x) = \sqrt{x - 4}$ when $a \ne 2$ and $a + h \ge 4$.
+
+    (c) $f(x) = \frac{x}{x + 1}$ when $a \ne -1$ and $a + h \ne -1$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\begin{align*}
+    \frac{f(a + h) - f(a)}{h} 
+        &= \frac{\frac{1}{(a + h) - 2} - \frac{1}{a - 2}}{h} \\
+        &= \frac{\frac{a - 2}{a + h - 2} - \frac{a + h - 2}{(a + h - 2)(a - 2)}}{h} \\
+        &= \frac{\frac{-h}{(a + h - 2)(a - 2)}}{h} \\
+        &= \frac{-h}{h(a + h - 2)(a - 2)} \\
+        &= \frac{-1}{(a + h - 2)(a - 2)}
+\end{align*}
+\textbf{Solution (b):}
+\begin{align*}
+    \frac{f(a + h) - f(a)}{h} 
+        &= \frac{\sqrt{a + h - 4} - \sqrt{a - 4}}{h} \\
+        &= \frac{\sqrt{a + h - 4} - \sqrt{a - 4}}{h} \cdot \frac{\sqrt{a + h - 4} + \sqrt{a - 4}}{\sqrt{a + h - 4} + \sqrt{a - 4}} \\
+        &= \frac{a + h - (a - 4)}{h(\sqrt{a + h - 4} + \sqrt{a - 4})} \\
+        &= \frac{1}{\sqrt{a + h - 4} + \sqrt{a - 4}}
+    \end{align*}
+\textbf{Solution (c):}
+\begin{align*}
+    \frac{f(a + h) - f(a)}{h} 
+        &= \frac{\frac{a + h}{a + h + 1} - \frac{a}{a + 1}}{h} \\
+        &= \frac{\frac{(a + h)(a + 1)}{(a + h + 1)(a + 1)} - \frac{a(a + h + 1)}{(a + 1)(a + h + 1)}}{h} \\
+        &= \frac{\frac{a^2 + a + ah + h - (a^2 + ah + a)}{(a + h + 1)(a + 1)}}{h} \\
+        &= \frac{\frac{h}{(a + h + 1)(a + 1)}}{h} \\
+        &= \frac{1}{(a + h + 1)(a + 1)}
+\end{align*}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+    Evaluate the expression $\frac{f(x + h) - f(x)}{h}$
+        for the following functions $f$:
+
+    (a) $f(x) = 2x - x^2$.
+
+    (b) $f(x) = \sqrt{x - 4}$ when $a \ne 2$ and $a + h \ge 4$.
+
+    (c) $f(x) = \frac{x}{x + 1}$ when $a \ne -1$ and $a + h \ne -1$.
+
+    (d) $f(x) = \frac{x}{x + 1}$ when $a \ne -1$ and $a + h \ne -1$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\begin{align*}
+    \frac{f(x + h) - f(x)}{h} 
+        &= \frac{3(x + h) - (x + h)^2 - (3x - x^2)}{h} \\
+        &= \frac{3x + 3h - (x^2 + 2xh + h^2) - (3x - x^2)}{h} \\
+        &= \frac{3x  + 3h - x^2 - 2xh - h^2 - 3x  + x^2}{h} \\
+        &= \frac{2h - 2xh - h^2}{h} \\
+        &= \frac{h(3 - 2x - h)}{h} \\
+        &= 3 - 2x - h
+\end{align*}
+\textbf{Solution (b):}
+\begin{align*}
+    \frac{f(x + h) - f(x)}{h} 
+        &= \frac{\sqrt{2(x + h)} - \sqrt{2x}}{h} \\
+        &= \frac{\sqrt{2(x + h)} - \sqrt{2x}}{h} \cdot \frac{\sqrt{2(x + h)} + \sqrt{2x}}{\sqrt{2(x + h)} + \sqrt{2x}} \\
+        &= \frac{2(x + h) - 2x}{h(\sqrt{2(x + h)} + \sqrt{2x})} \\
+        &= \frac{2x + 2h - 2x}{h(\sqrt{2(x + h)} + \sqrt{2x})} \\
+        &= \frac{2h}{h(\sqrt{2(x + h)} + \sqrt{2x})} \\
+        &= \frac{2}{(\sqrt{2(x + h)} + \sqrt{2x})} 
+\end{align*}
+\textbf{Solution (c):}
+\begin{align*}
+    \frac{f(x + h) - f(x)}{h} 
+        &= \frac{(3(x + h) - 5) - (3x - 5)}{h} \\
+        &= \frac{(3x + 3h - 5) - (3x - 5)}{h} \\
+        &= \frac{3h}{h} \\
+        &= 3
+\end{align*}
+\textbf{Solution (d):}
+\begin{align*}
+    \frac{f(x + h) - f(x)}{h} 
+        &= \frac{((x + h)^3 - 2) - (x^3 - 2)}{h} \\
+        &= \frac{(x^3 + 3x^2 h + 3x h^2 + h^3 - 2) - (x^3  - 2)}{h} \\
+        &= \frac{h(3x^2 + 3xh + h^2)}{h} \\
+        &= 3x^2 + 3xh + h^2
+\end{align*}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+    Find a formula for the function $f$ whose graph consists of all points
+        satisfying each of the following equations.
+    (In plain language, solve each equation for $y$.)
+
+    (a) $x^5 y + 4x - 2 = 0$.
+
+    (b) $x = \frac{2 + y}{2 - y}$.
+
+    (c) $4x^2 - 4xy + y^2 = 0$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+Suppose $x \ne = 0$ then
+\[x^5 y + 4x - 2 = 0 \iff y = \frac{-4x + 2}{x^5}\]
+Thus 
+\[f(x) = \frac{-4x + 2}{x^5}\]
+\textbf{Solution (b):}
+Suppose $y \ne 2$ then 
+\[x = \frac{2 + y}{2 - y} \iff x(2 - y) - 2 + y = 0 \iff 2x - xy - 2 - y = 0 \iff 2x -2 = xy + y \iff 2x - 2 = x(y + 1) \iff \frac{2x - 2}{x + 1} = y\]
+Thus 
+\[f(x) = \frac{2x - 2}{x + 1}\]
+\textbf{Solution (c):}
+\[4x^2 - 4xy + y^2 = 0 \iff y^2 - 4xy + 4x^2 = 0 \iff (y - 2x)(y - 2x) = 0\]
+Thus
+\[f(x) = 2x\]

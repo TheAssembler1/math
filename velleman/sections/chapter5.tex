@@ -175,7 +175,6 @@ Yes.
     Thus $g$ is a function from $A'$ to $B$ and $f \subseteq g$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 11, breakable]\
     Suppose $A$ is a set. 
     Show that $i_A$ is the only relation on $A$ that 
@@ -262,7 +261,6 @@ Yes.
 \textbf{Solution (b):}
 \[R = \{(1, 2), (1, 3)\}, S = \{(2, 4), (3, 4)\}, S \circ R = \{(1, 4)\}\]
 
-\newpage
 \begin{tcolorbox}[title=Problem 17, breakable]
     Suppose $A$ is a nonempty set and $f : A \rightarrow A$.
 
@@ -328,9 +326,58 @@ Yes.
 \begin{proof}
     Let $a = 500$ and $c = 1$.
     Then $|f(x)| \le c|g(x)| \iff |7x + 3| \le 1|x^2|$.
-    Now since $x \ge a \ge 500$ 
-        it follows that $7x + 3 $
+    With $x \ge a = 500$ we have $7x + 3 \le x^2$.
+    At the point $x = 500$, we have $7(500) + 3 = 3503 \le 500^2 = 250000$.
+    To show that $|f(x)| \le c|g(x)|$ for all $x > a$, we can look at the derivatives:
+        $f'(x) = 7$ and $g'(x) = 2x$, and for $x > 500$, $g'(x) > f'(x)$, so $g(x)$ grows faster than $f(x)$.
     Thus $f \in O(g)$.
+\end{proof}
+
+\begin{proof}
+    Suppose $g \in O(f)$ then it follows that 
+        there exists $c \in \mathbb{R}^+$ and $a \in \mathbb{Z}^+$
+        such that for all $x > a$, $|g(x)| \le c|f(x)|$.
+    Now plugging in gives $|x^2| \le c|7x + 3|$.
+    Since $x^2$ grows faster than $7x + 3$, for any fixed $c$
+        there exists $x > a$ such that $x^2 > c(7x + 3)$,
+        which is a contradiction.
+    Therefore, $g \notin O(f)$.
+\end{proof}
+
+\begin{proof}
+    We must show $S$ is reflexive and transitive on $\mathcal{F}$.
+    Suppose $f$ is an arbitrary element in $\mathcal{F}$.
+    Clearly if we let $a = 1, c = 1$ then $|f(x)| \le |f(x)|$
+        thus $(f, f) \in S$.
+
+    Suppose $(f, g), (g, t)$ are arbitrary pairs in $S$.
+    Now there exists $a_1 \in \mathbb{Z}^+$ and $c_1 \in \mathbb{R}^+$
+        such that for all $x > a_1$,
+        $|f(x)| \le c_1 |g(x)|$.
+    Similarly there exists $a_2 \in \mathbb{Z}^+$ and $c_2 \in \mathbb{R}^+$
+        such that for all $x > a_2$,
+        $|g(x)| \le c_2 |t(x)|$.
+    Let $a = \max(a_1, a_2)$. Then for all $x > a$,
+        $|f(x)| \le c_1 |g(x)| \le c_1 c_2 |t(x)|$.
+    Thus $(f, t) \in S$.
+\end{proof}
+
+\begin{proof}
+    Since $f_1 \in O(g)$ and $f_2 \in O(g)$ it follows 
+        there exists $c_1, c_2 \in \mathbb{R}^+$ and $a_1, a_2 \in \mathbb{Z}^+$
+        such that for all $x > a_1$ and $x > a_2$,
+        $|f_1(x)| \le c_1 |g(x)|$ and $|f_2(x)| \le c_2 |g(x)|$.
+    Then since $|f_1(x)| \le c_1 |g(x)|$ it follows that 
+        $|s f_1(x)| \le |s| c_1 |g(x)|$.
+    Similarly $|t f_2(x)| \le |t| c_2 |g(x)|$.
+    Taking sums gives 
+        $|s f_1(x)| + |t f_2(x)| \le (|s| c_1 + |t| c_2)|g(x)|$.
+    By the triangle inequality 
+        $|s f_1(x) + t f_2(x)| \le |s f_1(x)| + |t f_2(x)|$.
+    Let $a = \max(a_1, a_2)$. Then for all $x > a$
+        it follows that $|s f_1(x) + t f_2(x)| \le (|s| c_1 + |t| c_2)|g(x)|$.
+    Let $c = |s| c_1 + |t| c_2$. Then $|f(x)| \le c |g(x)|$ for all $x > a$,
+    and therefore $f \in O(g)$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 21, breakable]
@@ -345,6 +392,29 @@ Yes.
         Prove that $f$ is compatible with $R$.
 \end{tcolorbox}
 
+\begin{proof}
+    First note that since $R$ is an equivalence relation, 
+        for all $x \in A$ there exists $y$ such that $xRy$.
+    This follows since $R$ is reflexive, so $xRx$.
+    Define a function $h : A / R \rightarrow B$ by setting 
+        $h([x]_R) = f(x)$ for each $x \in A$.
+
+    Suppose $x, y \in A$ such that $[x]_R = [y]_R$.
+    Then $xRy$ and it follows since $f$ is compatible with $R$ that $f(x) = f(y)$.
+
+    Uniqueness of $h$ follows because such a function must satisfy 
+        $h([x]_R) = f(x)$ for all $x \in A$.
+\end{proof}
+
+\begin{proof}
+    Let $x, y$ be arbitrary elements in $A$
+        such that $(x, y) \in R$.
+    Since $(x, y) \in R$ it follows that 
+        $f(x) = h([x]_R) = h([y]_R) = f(y)$.
+    Thus $f(x) = f(y)$.
+    Therefore $f$ is compatible with $R$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 22, breakable]
     Let $R = \{(x, y) \in \mathbb{N} \times \mathbb{N} \mid x \equiv y \pmod{5}\}$.
     Note that by Theorem $4.5.10$ and excersize $14$ in Section $4.5$, $R$ is an 
@@ -357,31 +427,675 @@ Yes.
         such that for every natural number $x, h([x]_r) = [2^x]_R$.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $x, y \in \mathbb{N}$ such that $[x]_R = [y]_R$.
+    Then $x = 5k_1 + r$ and $y = 5k_2 + r$ for some $k_1, k_2 \in \mathbb{Z}$.
+    Now $x^2 = 25k_1^2 + 10k_1 r + r^2$ and $y^2 = 25k_2^2 + 10k_2 r + r^2$.
+    Taking differences gives $x^2 - y^2 = 25(k_1^2 - k_2^2) + 10r(k_1 - k_2)$.
+    It follows that $x^2 - y^2$ is divisible by $5$, so $[x^2]_R = [y^2]_R$.
+    From problem $21$, let $A = \mathbb{N}$ and $R' = R$,
+        where $R'$ refers to $R$ from the previous problem.
+    Then this follows immediately.
+\end{proof}
+
+\begin{proof}
+    For contradiction, suppose there exists a function $h : \mathbb{N} / R \rightarrow \mathbb{N} / R$
+    such that for every natural number $x, h([x]_R) = [2^x]_R$.
+    Let $x, y \in \mathbb{N}$ such that $x \ne y$ and $y \in [x]_R$.
+    It follows that $h([x]_R) = h([y]_R)$, so $[2^x]_R = [2^y]_R$.
+    Now let $x = 1$ and $y = 6$. Then $y \in [x]_R$ because $6 \equiv 1 \pmod{5}$.
+    But $2^1 = 2 \equiv 2 \pmod{5}$ and $2^6 = 64 \equiv 4 \pmod{5}$, 
+    so $[2^1]_R \ne [2^6]_R$. This is a contradiction.
+\end{proof}
+
 \subsection{One-to-One and Onto}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    Which of the functions in exercize $1$ of Section $5.1$
+        are one-to-one? Which are onto?
+
+    (a) Let $A = \{1, 2, 3\}, B = \{4\}$, and 
+        $f = \{(1, 4), (2, 4), (3, 4)\}$.
+        Is $f$ a function from $A$ to $B$?
+
+    (b) Let $A = \{1\}, B = \{2, 3, 4\}$ and
+        $f = \{(1, 2), (1, 3), (1, 4)\}$.
+        Is $f$ a function from $A$ to $B$.
+
+    (c) Let $C$ be the set of all cars registered
+        in your state, and let $S$ be the set of all
+        finite sequences of letters and digits.
+        Let $L = \{(c, s) \in C \times S \mid 
+            \text{the license plate number of the car $c$ is $s$}\}$.
+        Is $L$ a function from $C$ to $S$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\begin{center}
+    One-to-one: No, Onto: Yes.
+\end{center}
+\textbf{Solution (b):}
+\begin{center}
+    Was not a function.
+\end{center}
+\textbf{Solution (c):}
+\begin{center}
+    One-to-one: Yes, Onto: No (Some license plates haven't been assigned to vehicles.)
+\end{center}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Which of the functions in exercize $2$ of Section $5.1$
+        are one-to-one? Which are onto?
+
+    (a) Let $f$ be the relation represented by the graph in Figure $5.3$.
+        Is $f$ a function from $A$ to $B$.
+
+    (b) Let $W$ be the set of all words of English, and let $A$ be the set 
+        of all letters of the alphabet. 
+        Let 
+        \[f = \{(w, a) \in W \times A \mid \text{the letter $a$ occurs in the word $w$}\}\]
+        and let 
+        \[g = \{(w, a) \in W \times A \mid \text{the letter $a$ is the first letter of the word $w$}\}\]
+        Is $f$ a function from $W$ to $A$?
+        How about $g$?
+
+    (c) John, Mary, Susan, and Fred go out to dinner and sit at a round table.
+        Let 
+        \[P = \{\text{John, Mary, Susan, Fred}\}\]
+        and let 
+        \[R = \{(p, q) \in P \times P \mid \text{the person $p$ is sitting immediately to the right of person $q$}\}\]
+        Is $R$ a function from $P$ to $P$.
+\end{tcolorbox}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/func.png}
+\end{figure}
+
+\textbf{Solution (a):}
+\begin{center}
+    Was not a function.
+\end{center}
+\textbf{Solution (b):}
+\begin{center}
+    $f$ was not a function.
+    $g$ One-to-one: no, Onto: yes.
+\end{center}
+\textbf{Solution (c):}
+\begin{center}
+    One-to-one: yes, Onto: yes.
+\end{center}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Which of the functions in exercize $3$ of Section $5.1$
+        are one-to-one? Which are onto?
+
+    (a) Let $A = \{a, b, c\}, B = \{a, b\}$, and $f = \{(a, b), (b, b), (c, a)\}$.
+
+    (b) Let $f : \mathbb{R} \rightarrow \mathbb{R}$ be the function defined by the
+        formula $f(x) = x^2 - 2x$.
+
+    (c) Let $f = \{(x, n) \in \mathbb{R} \times \mathbb{Z} \mid n \le x < n + 1\}$. 
+        Then $f : \mathbb{R} \rightarrow \mathbb{Z}$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\begin{center}
+    One-to-one: no, Onto: yes.
+\end{center}
+\textbf{Solution (b):}
+\begin{center}
+    One-to-one: no, Onto: no.
+\end{center}
+\textbf{Solution (c):}
+\begin{center}
+    One-to-one: no, Onto: yes.
+\end{center}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Which of the functions in exercize $4$ of Section $5.1$
+        are one-to-one? Which are onto?
+
+    (a) Let $N$ be the set of all countries and $C$ the set of all 
+        cities. Let $H : N \rightarrow C$ be the function defined by the rule 
+        that for every country $n$, $H(n) =$ the capital of the country $n$.
+
+    (b) Let $A = \{1, 2, 3\}$ and $B = \mathcal{P}(A)$.
+        Let $F : B \rightarrow B$ be the function defined by the 
+            formula $F(X) = A \setminus X$.
+
+    (c) Let $f : \mathcal{R} \rightarrow \mathcal{R}$ be the function 
+        defined by the formula $f(x) = (x + 1, x - 1)$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\begin{center}
+    One-to-one: no, Onto: yes.
+\end{center}
+\textbf{Solution (b):}
+\begin{center}
+    One-to-one: yes, Onto: yes.
+\end{center}
+\textbf{Solution (c):}
+\begin{center}
+    One-to-one: yes, Onto: no.
+\end{center}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Suppose $a$ and $b$ are real numbers and $a \ne 0$. 
+    Define $f : \mathbb{R} \rightarrow \mathbb{R}$ by the 
+        formula $f(x) = ax + b$.
+    Show that $f$ is one-to-one and onto.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x_1, x_2$ be arbitrary numbers in $\mathbb{R}$.
+    Then 
+    \begin{align*}
+        f(x_1) &= f(x_2) \\
+        \iff a(x_1) + b &= a(x_2) + b \\
+        \iff a(x_1) &= a(x_2) \\
+        \iff x_1 &= x_2 \quad \text{Note: $a \ne 0$}
+    \end{align*}
+    Thus $f$ is one-to-one.
+\end{proof}
+
+\begin{proof}
+    Let $y$ be an arbitrary number in $\mathbb{R}$.
+    Let $x = \frac{y - b}{a}$ which is defined since $a \ne 0$.
+    Then 
+    \begin{align*}
+        f\left(\frac{y - b}{a}\right)
+            &= a\left(\frac{y - b}{a}\right) + b \\
+            &= y - b + b \\
+            &= y
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $A = \mathcal{P}(\mathbb{R})$. 
+    Define $f : \mathbb{R} \rightarrow A$
+        by the formula $f(x) = \{y \in \mathbb{R} \mid y^2 < x\}$.
     
+    (a) Find $f(2)$.
+
+    (b) Is $f$ one-to-one? Is it onto?
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[f(2) = \{x \mid -\sqrt{2} < x < \sqrt{2}\}\]
+
+\textbf{Solution (b):}
+\begin{center}
+    One-to-one: no, Onto: no.
+\end{center}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Suppose $f : A \rightarrow B$ and $g : B \rightarrow C$.
+
+    (a) Prove that if $g \circ f$ is onto then $g$ is onto.
+
+    (b) Prove that if $g \circ f$ is one-to-one then $f$ is one-to-one.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $g \circ f$ is onto.
+    Let $y$ be an arbitrary element in $C$.
+    Since $g \circ f$ is onto it follows that 
+        there exists $x$ such that $(g \circ f)(x) = y$.
+    Then there exists $c$ such that 
+        $f(x) = c$ and $g(c) = y$.
+    Thus $g$ is onto.
+\end{proof}
+
+\begin{proof}
+    Suppose $x_1, x_2$ are arbitrary elements in $A$
+        such that $f(x_1) = f(x_2)$.
+    Then applying $g$ to both sides gives 
+        $(g \circ f)(x_1) = (g \circ f)(x_2)$. 
+    Then since $g \circ f$ is one-to-one it follows that 
+        $x_1 = x_2$.
+    Thus $f$ is one-to-one.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Suppose $f : A \rightarrow B$ and $g : B \rightarrow C$.
+
+    (a) Prove that if $f$ is onto and $g$ is not one-to-one,
+        then $g \circ f$ is not one-to-one.
+
+    (b) Prove that if $f$ is not onto and $g$ is one-to-one, 
+        then $g \circ f$ is not onto.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f$ is onto and $g$ is not one-to-one.
+    Since $g$ is not one-to-one there exist 
+        $x_1, x_2 \in B$ such that $x_1 \ne x_2$ and $g(x_1) = g(x_2)$.
+    Now since $f$ is onto there exist $c_1, c_2 \in A$
+        such that $f(c_1) = x_1$ and $f(c_2) = x_2$.
+    If $c_1 = c_2$, then $x_1 = f(c_1) = f(c_2) = x_2$, a contradiction.
+    Thus $c_1 \ne c_2$.
+    Then $(g \circ f)(c_1) = g(f(c_1)) = g(x_1) = g(x_2) = g(f(c_2)) = (g \circ f)(c_2)$.
+    Thus $g \circ f$ is not one-to-one.
+\end{proof}
+
+\begin{proof}
+    Since $f$ is not onto there exists $y \in B$
+        such that for all $x \in A$, $f(x) \ne y$.
+    Let $c = g(y) \in C$.
+    Now if for some $x \in A$, $(g \circ f)(x) = g(y)$,
+        then since $g$ is one-to-one, $f(x) = y$, a contradiction.
+    Thus $g \circ f$ is not onto.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Suppose $f : A \rightarrow B$ and $C \subseteq A$.
+    In exercize $7$ of Section $5.1$ we defined 
+        $f | C$ (the restriction of $f$ to $C$),
+        and you showed that $f | C : C \rightarrow B$
+
+    (a) Prove that if $f$ is one-to-one, then so is $f | C$.
+
+    (b) Prove that if $f | C$ is onto, then so is $f$.
+
+    (c) Give examples to show that the converses of parts (a)
+        and (b) are not always true.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f$ is one-to-one.
+    Let $x_1, x_2$ be two arbitrary elements in $C$ such that $(f | C)(x_1) = (f | C)(x_2)$.
+    It follows that $(x_1, (f | C)(x_1)) \in f$ and $(x_2, (f | C)(x_2)) \in f$.
+    Then since $f$ is one-to-one it follows that $x_1 = x_2$.
+\end{proof}
+
+\begin{proof}
+    Suppose $f | C$ is onto.
+    Let $y$ be an arbitrary element in $B$.
+    Since $f | C$ is onto there exists $x \in C$ such that $(f | C)(x) = y$.
+    It follows that $(x, y) \in f$ thus $f(x) = y$.
+    Therefore $f$ is onto.
+\end{proof}
+
+\textbf{Solution:}
+
+Counter example: If $f | C$ is one-to-one then $f$ is one-to-one.
+\[A = \{1, 2\}, B = \{1, 2\}, C = \{1\}, f = \{(1, 1), (2, 1)\}, f | C = \{(1, 1)\}\]
+Counter example: If $f$ is onto then $f | C$ is onto.
+\[A = \{1, 2\}, B = \{1, 2\}, C = \{1\}, f = \{(1, 1), (2, 2)\}, f | C = \{(1, 1)\}\]
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Suppose $f : A \rightarrow B$, and there is some $b \in B$
+        such that $\forall{x} \in A (f(x) = b)$.
+        (Thus, $f$ is a constant function.)
+
+    (a) Prove that if $A$ has more than one element then $f$ is 
+        not one-to-one.
+
+    (b) Prove that if $B$ has more than one element then $f$ is 
+        not onto.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose that $A$ has more than one element.
+    Since $A$ has more than one element there exists $x_1, x_2 \in A$
+        such that $x_1 \ne x_2$ and $f(x_1) = b$ and $f(x_2) = b$.
+    Thus $f$ is not one-to-one.
+\end{proof}
+
+\begin{proof}
+    Suppose that $B$ has more than one element.
+    Then there exists $y \in B$ such that $y \ne b$.
+    Since $f(x) = b$ for all $x \in A$, there does not exist $x \in A$ such that $f(x) = y$.
+    Therefore, $f$ is not onto.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Suppose $f : A \rightarrow C$, $g : B \rightarrow C$,
+        and $A$ and $B$ are disjoint. In excersize 
+        $12(a)$ of Section $5.1$ you proved that 
+        $f \cup g : A \cup B \rightarrow C$.
+    Now suppose that $f$ and $g$ are both one-to-one.
+    Prove that $f \cup g$ is one-to-one iff $Ran(f)$ and $Ran(g)$
+        are disjoint.
+\end{tcolorbox}
+
+\begin{proof}
+    ($\rightarrow$) Suppose $f \cup g$ is one-to-one.
+    For contradiction, suppose $Ran(f) \cap Ran(g) \ne \emptyset$.
+    Let $y$ be an element in $Ran(f) \cap Ran(g)$.
+    It follows there exists $x_1 \in A$ and $x_2 \in B$
+        such that $f(x_1) = y$ and $g(x_2) = y$.
+    Since $A$ and $B$ are disjoint, $x_1 \ne x_2$,
+    contradicting that $f \cup g$ is one-to-one.
+    Thus $Ran(f)$ and $Ran(g)$ are disjoint.
+
+    ($\leftarrow$) Suppose $Ran(f)$ and $Ran(g)$ are disjoint.
+    Suppose $x_1, x_2 \in A \cup B$ such that $(f \cup g)(x_1) = (f \cup g)(x_2)$.
+    Since $A$ and $B$ are disjoint, either $x_1, x_2 \in A$ or $x_1, x_2 \in B$.
+    Suppose w.l.o.g.  $x_1 \in A$ and $x_2 \in B$ but
+    then $(f \cup g)(x_1) \in Ran(f)$ and $(f \cup g)(x_2) \in Ran(g)$,
+        which are disjoint.
+    Suppose w.l.o.g. $x_1, x_2 \in A$. Since $f$ is one-to-one, it follows that 
+        $x_1 = x_2$.
+    Thus $f \cup g$ is one-to-one.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Suppose $R$ is a relation from $A$ to $B$, $S$ is a relation 
+        from $B$ to $C$, $Ran(R) = Dom(S) = B$,
+        and $S \circ R : A \rightarrow C$.
+    In exercize $13(a)$ of Section $5.1$ you proved that 
+        $S : B \rightarrow C$.
+    Now prove that if $S$ is one-to-one then $R : A \rightarrow B$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $S$ is one-to-one.
+    Let $x$ be an arbitrary element in $A$.
+    Since $S \circ R$ is a function, there exists $y \in C$
+        such that $(S \circ R)(x) = y$.
+    It follows that there exists $c \in B$ such that 
+        $R(x) = c$ and $S(c) = y$.
+    Thus $R$ maps each element in $A$ to some element in $B$.
+
+    Suppose there exists $x \in A$ and $y_1, y_2 \in B$
+        such that $y_1 \ne y_2$ and $(x, y_1), (x, y_2) \in R$.
+    Since $Ran(R) = Dom(S)$, there exist $z_1, z_2 \in C$
+        such that $(y_1, z_1) \in S$ and $(y_2, z_2) \in S$.
+    Then $(x, z_1), (x, z_2) \in (S \circ R)$.
+    Since $S$ is one-to-one and $y_1 \ne y_2$, it follows that $z_1 \ne z_2$,
+        contradicting that $S \circ R$ is a function.
+    Thus for every $x \in A$ there exists a single $y \in B$
+        such that $(x, y) \in R$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    Suppose $R$ is an equivalence relation on $A$,
+        and let $g : A \rightarrow A / R$ be defined 
+        by the formula $g(x) = [x]_R$, as in exersize $20(b)$
+        in Section $5.1$.
+
+    (a) Show that $g$ is onto.
+
+    (b) Show that $g$ is one-to-one iff $R = i_A$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $T$ be an arbitrary element in $A / R$.
+    Since $T$ is not empty, there exists $x$ such that $T = [x]_R$.
+    It follows that $g(x) = [x]_R = T$.
+    Thus $g$ is onto.
+\end{proof}
+
+\begin{proof}
+    ($\rightarrow$) Suppose $g$ is one-to-one.
+    Let $x$ be an arbitrary element in $A$.
+    Since $R$ is reflexive, $(x, x) \in R$,
+        thus $x \in [x]_R$.
+    Since $g$ is one-to-one, no other element in $A$
+        maps to $[x]_R$.
+    It follows that each equivalence class contains exactly one element,
+        so $R = i_A$.
+
+    ($\leftarrow$) Suppose $R = i_A$.
+    Let $x_1, x_2$ be arbitrary elements in $A$ such that $g(x_1) = g(x_2)$.
+    Then $[x_1]_R = [x_2]_R$.
+    Since each equivalence class contains exactly one element, it follows that $x_1 = x_2$.
+    Therefore, $g$ is one-to-one.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    Suppose $f : A \rightarrow B$, $R$ is an equivalence relation on $A$,
+        and $f$ is compatible with $R$. (See exersize $21$ of Section $5.1$
+        for the definition of \emph{compatible}.)
+    In exercize $21(a)$ of Section $5.1$ you proved that there is a unique 
+        function $h : A / R \rightarrow B$ such that for all $x \in A$,
+        $h([x]_R) = f(x)$. Now prove that $h$ is one-to-one iff
+        $\forall{x} \in A \forall{y} \in A (f(x) = f(y) \rightarrow xRy)$.
+\end{tcolorbox}
+
+\begin{proof}
+    ($\rightarrow$) Suppose $h$ is one-to-one.
+    Let $x, y$ be arbitrary elements in $A$.
+    Furthermore, suppose $f(x) = f(y)$.
+    It follows that $h([x]_R) = h([y]_R)$.
+    Then, since $h$ is one-to-one, $[x]_R = [y]_R$.
+    It follows that $(x, y) \in R$.
+
+    ($\leftarrow$) Suppose $\forall x, y \in A, (f(x) = f(y) \rightarrow xRy)$.
+    Let $x_1, x_2$ be arbitrary elements in $A$
+        such that $h([x_1]_R) = h([x_2]_R)$.
+    Thus $f(x_1) = f(x_2)$, and it follows that $(x_1, x_2) \in R$.
+    Therefore $[x_1]_R = [x_2]_R$.
+    It follows that $h$ is one-to-one.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+    Suppose $A, B$, and $C$ are sets and $f : A \rightarrow B$.
+
+    (a) Prove that if $f$ is onto, $g : B \rightarrow C$, 
+        $h : B \rightarrow C$, and $g \circ f = h \circ f$,
+        then $g = h$.
+
+    (b) Suppose that $C$ has at least two elements,
+        and for all functions $g$ and $h$ from $B$ to $C$,
+        if $g \circ f = h \circ f$ then $g = h$.
+        Prove that $f$ is onto.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f$ is onto, $g : B \rightarrow C$, 
+        $h : B \rightarrow C$, and $g \circ f = h \circ f$.
+    Let $b$ be an arbitrary element in $B$.
+    Since $f$ is onto, there exists $a \in A$ such that $f(a) = b$.
+    Now, since $g \circ f = h \circ f$, it follows that
+        $(g \circ f)(a) = (h \circ f)(a)$.
+    Thus $g(f(a)) = h(f(a))$, and hence $g(b) = h(b)$.
+    Since $b$ was arbitrary, $g = h$.
+\end{proof}
+
+\begin{proof}
+    For contradiction suppose $f$ is not onto.
+    There exists $y \in B$ such that for all $x \in A$,
+        $f(x) \ne y$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+     Suppose $A, B$, and $C$ are sets and $f : A \rightarrow C$.
+
+     (a) Prove that if $f$ is one-to-one, $g : A \rightarrow B$,
+         $h : A \rightarrow B$, and $f \circ g = f \circ h$, then $g = h$.
+
+    (b) Suppose that $A \ne \emptyset$, and for all functions $g$ and $h$
+        from $A$ to $B$, if $f \circ g = f \circ h$ then $g = h$.
+        Prove that $f$ is one-to-one.
+\end{tcolorbox}
+
+\newpage
+\begin{tcolorbox}[title=Problem 22, breakable]
+    Let $\mathcal{F} = \{f \mid f : \mathbb{R} \rightarrow \mathbb{R}\}$,
+        and define a relation $R$ on $\mathcal{F}$ as follows:
+    \[R = \{(f, g) \in \mathcal{F} \times \mathcal{F} \mid \exists{h} \in \mathcal{F}(f = h \circ g)\}\]
+
+    (a) Let $f, g$, and $h$ be the functions from $\mathbb{R}$ to $\mathbb{R}$ defined by the 
+        formulas $f(x) = x^2 + 1$, $g(x) = x^3 + 1$, and $h(x) = x^4 + 1$. Prove that $hRf$,
+        but it is not the case $gRf$.
+
+    (b) Prove that $R$ is a preorder. (See exercize $25$ of Section $4.5$ for the
+        definition of \emph{preorder}.)
+
+    (c) Prove that for all $f \in \mathcal{F}$, $f R i_{\mathbb{R}}$.
+
+    (d) Prove that for all $f \in \mathcal{F}$, $i_{\mathbb{R}} R f$ iff $f$ is one-to-one.
+        (Hint for right-to-left direction: Suppose $f$ is one-to-one. Let $A = Ran(f)$, and 
+         let $h = f^{-1} \cup ((\mathbb{R} \setminus A) \times \{0\}))$. Now prove that 
+         $h : \mathbb{R} \rightarrow \mathbb{R}$ and $i_{\mathbb{R}} = h \circ f$.
+
+    (e) Suppose $g \in \mathcal{F}$ is a constant function; in other words, there is some 
+        real number $c$ such that $\forall{x} \in \mathbb{R}(g(x) = c)$. Prove that for all 
+        $f \in \mathcal{F}$, $g R f$. (Hint: See exercize $17$ of Section $5.1$.)
+
+    (f) Suppose that $g \in \mathcal{F}$ is a constant function.
+        Prove that for all $f \in \mathcal{F}$, $f R g$ iff $f$ is a constant function.
+
+    (g) As in exercize $25$ of Section $4.5$, if we let $S = R \cap R^{-1}$, then $S$ 
+        is an equivalence relation on $\mathcal{F}$. Also, there is a unique relation 
+        $T$ on $\mathcal{F} / S$ such that for all $f$ and $g$ in $\mathcal{F}$,
+        $[f]_S T [g]_S$ iff $f R g$, and $T$ is a partial order on $\mathcal{F} / S$.
+        Prove that the set of all one-to-one functions from $\mathbb{R}$ to $\mathbb{R}$
+        is the largest element of $\mathcal{F} / S$ in the partial order $T$, and the set 
+        of all constant functions from $\mathbb{R}$ to $\mathbb{R}$ is the smallest element.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+
+\begin{proof}
+    Let $l(x) = x^2 - 2x + 2$. Then 
+    \begin{align*}
+    (l \circ f)(x) 
+        &= l(f(x)) \\
+        &= (x^2 + 1)^2 - 2(x^2 + 1) + 2 \\
+        &= x^4 + 2x^2 + 1 - 2x^2 - 2 + 2 \\
+        &= x^4 + 1 \\
+        &= h
+    \end{align*}
+    Thus $h = l \circ f$, which shows that $(h, f) \in R$.
+\end{proof}
+
+\begin{proof}
+    For contradiction, suppose $(g, f) \in R$.  
+    There exists a function $h$ such that $g = h \circ f$. Then
+    \[
+    x^3 + 1 = h(x^2 + 1) \text{ for all } x \in \mathbb{R}.
+    \]  
+    Suppose $t_1, t_2 \in \mathbb{R}$ with $t_1 = -t_2 \ne 0$.  
+    Then $f(t_1) = t_1^2 + 1 = f(t_2)$, but $g(t_1) \ne g(t_2)$.  
+    Thus $g \ne h \circ f$ for any function $h$.
+\end{proof}
+
+\textbf{Solution (b):}
+
+\begin{proof}
+    We must show $R$ is reflexive and transitive.
+    Suppose $f \in \mathcal{F}$.
+    Let $h : \mathbb{R} \rightarrow \mathbb{R}$ be defined be the formula $h(y) = y$.
+    Suppose $x$ is an arbitrary real number.
+    Then $(h \circ f)(x) = h(f(x)) = f(x)$.
+    Thus $(f, f) \in R$.
+    It follows that $R$ is reflexive.
+    Suppose $(f, g), (g, l)$ are arbitrary elements in $R$.
+    It follows that there exists $h_1, h_2$ such that 
+        $f = h_1 \circ g$ and $g = h_2 \circ l$.
+    Then $f = h_1 \circ g = (h_1 \circ h_2) \circ l$.
+    Thus $(f, l) \in R$.
+    It follows that $R$ is transitive.
+    Therefore $R$ is a partial order.
+\end{proof}
+
+\textbf{Solution (c):}
+
+\begin{proof}
+    Let $f$ be an arbitrary element in $\mathcal{F}$.
+    Furthermore, let $x$ be an arbitrary real number.
+    Then $(i_{\mathcal{R}} \circ f)(x) = i_{\mathcal{R}}(f(x)) = f(x)$.
+    Thus $(f, i_{\mathcal{R}}) \in R$.
+\end{proof}
+
+\textbf{Solution (d):}
+
+\begin{proof}
+    ($\rightarrow$) Let $f$ be an arbitrary element in $\mathcal{F}$.
+    Suppose $(i_{\mathcal{R}}, f) \in R$.
+    There exists $h$ such that $i_{\mathcal{R}} = h \circ f$.
+    Let $x_1, x_2$ be arbitrary real numbers such that 
+        $f(x_1) = f(x_2)$.
+    Applying $h$ to both sides gives 
+        $(h \circ f)(x_1) = (h \circ f)(x_2)$.
+    Then $x_1 = (h \circ f)(x_1) = (h \circ f)(x_2) = x_2$.
+    Thus $f$ is one-to-one.
+
+    ($\leftarrow$) Suppose $f$ is one-to-one.
+    Let $A = Ran(f)$.
+    Furthermore, let $h = f^{-1} \cup ((\mathcal{R} \setminus A) \times \{0\})$.
+    Let $x$ be an arbitrary real number.
+    Now $A \cup (\mathbb{R} \setminus A) = \mathbb{R}$.
+    It follows that $x \in A$ or $x \in \mathbb{R} \setminus A$
+        and $x \notin A \cap (\mathbb{R} \setminus A) = \emptyset$.
+    Suppose $x \in A$ then it follows that there exists $y \in \mathbb{R}$
+        such that $(x, y) \in f^{-1}$.
+    Since $f$ is one-to-one there exists exactly one $y$
+        such that $(x, y) \in f^{-1}$.
+    Suppose $x \in (A \setminus \mathbb{R})$ then let $y = 0$
+        thus $(x, y) \in ((R \setminus A) \times \{0\})$.
+    Thus $h$ is a function that maps elements from $A$ to $\mathbb{R}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+    Let $f : \mathbb{N} \rightarrow \mathbb{N}$ be defined by the formula $f(n) = n$.
+    Note that we could also say that $f : \mathbb{N} \rightarrow \mathbb{Z}$.
+    This exersize will illustrate why,
+        in Definition $5.2.1$, we defined the phrase ``$f$ maps onto $B$,''
+        rather than simply ``$f$ is onto.''
+
+    (a) Does $f$ map onto $\mathbb{N}$.
+
+    (b) Does $f$ map onto $\mathbb{Z}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Yes. Let $y$ be an arbitrary natural number. Then let $x = y$.
+    Clearly $f(x) = x = y$. Thus $f$ maps onto $\mathbb{N}$.
+\end{proof}
+
+\begin{proof}
+    No. Suppose $f$ maps onto $\mathbb{Z}$.
+    Let $y$ be an arbitrary integer such that $y < 0$.
+    Since $f$ is onto, exists a natural number $x$ such that $f(x) = y$.
+    Then $x = y$, but $y < 0$, contradicting
+    that $x$ is a natural number. Thus $f$ does not map onto $\mathbb{Z}$.
+\end{proof}
+
+\subsection{Inverses of Functions}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $R$ be the function defined in exercise $2(c)$ of Section $5.1$.
+    In exercise $2$ of Section $5.2$, you showed that $R$ is one-to-one
+    and onto, so $R^{-1} : P \rightarrow P$. If $p \in P$,
+    what is $R^{-1}(p)$?
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
+    Let $F$ be the function defined in exercise $4(b)$ of Section $5.1$.
+    In exercise $4$ of Section $5.2$, you showed that $F$ is one-to-one 
+    and onto, so $F^{-1} : B \rightarrow B$. If $X \in B$,
+    what is $F^{-1}(X)$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
-\end{tcolorbox}
-
-\begin{tcolorbox}[title=Problem 4, breakable]
-\end{tcolorbox}
-
-\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $f : \mathbb{R} \rightarrow \mathbb{R}$ be defined by the formula 
+    \[f(x) = \frac{2x + 5}{3}\]
+    Show that $f$ is one-to-one and onto, and fine a formula for $f^{-1}(x)$.
+    (You may want to imitate the method used in the example after Theorem $5.3.2$,)
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
@@ -393,23 +1107,8 @@ Yes.
 \begin{tcolorbox}[title=Problem 15, breakable]
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{tcolorbox}[title=Problem 17, breakable]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 18, breakable]
-\end{tcolorbox}
-
-\begin{tcolorbox}[title=Problem 19, breakable]
-\end{tcolorbox}
-
-\begin{tcolorbox}[title=Problem 20, breakable]
-\end{tcolorbox}
-
-\begin{tcolorbox}[title=Problem 21, breakable]
-\end{tcolorbox}
-
-\begin{tcolorbox}[title=Problem 22, breakable]
-\end{tcolorbox}
-
-\begin{tcolorbox}[title=Problem 23, breakable]
 \end{tcolorbox}
