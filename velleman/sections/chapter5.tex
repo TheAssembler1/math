@@ -900,13 +900,20 @@ Counter example: If $f$ is onto then $f | C$ is onto.
 \end{proof}
 
 \begin{proof}
-    For contradiction suppose $f$ is not onto.
+    For contradiction, suppose $f$ is not onto.
     There exists $y \in B$ such that for all $x \in A$,
         $f(x) \ne y$.
+    Let $y_1, y_2 \in C$ with $y_1 \ne y_2$.
+    For all $x \in B$ let 
+        $g(x) = y_1$, $h(x) = y_2$ if $x = y$; otherwise $g(x) = h(x) = y_1$.
+    Clearly $g \ne h$.
+    However, $g \circ f = h \circ f$ since for all $x \in A$
+        $f(x) \ne y$, which is a contradiction.
+    Thus $f$ is onto.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 21, breakable]
-     Suppose $A, B$, and $C$ are sets and $f : A \rightarrow C$.
+     Suppose $A, B$, and $C$ are sets and $f : B \rightarrow C$.
 
      (a) Prove that if $f$ is one-to-one, $g : A \rightarrow B$,
          $h : A \rightarrow B$, and $f \circ g = f \circ h$, then $g = h$.
@@ -916,7 +923,29 @@ Counter example: If $f$ is onto then $f | C$ is onto.
         Prove that $f$ is one-to-one.
 \end{tcolorbox}
 
-\newpage
+\begin{proof}
+    Suppose $f$ is one-to-one, $g : A \rightarrow B$,
+         $h : A \rightarrow B$, and $f \circ g = f \circ h$.
+    Let $x$ be an arbitrary element in $A$.
+    There exists $y_1, y_2$ such that $h(x) = y_1$ 
+        and $g(x) = y_2$.
+    Since $f \circ g = f \circ h$ it 
+        follows that $f(y_1) = f(y_2)$.
+    Then since $f$ is one-to-one it follows that $y_1 = y_2$.
+    Therefore $g = h$. 
+\end{proof}
+
+\begin{proof}
+    For contradiction, suppose $f$ is not one-to-one.
+    There exist $x_1, x_2 \in B$ such that $f(x_1) = f(x_2)$
+        and $x_1 \ne x_2$.
+    For all $x \in A$ let $g(x) = x_1$ and $h(x) = x_2$.
+    Clearly $g \ne h$.
+    However, for all $x \in A$, $(f \circ g)(x) = (f \circ h)(x)$,
+        which is a contradiction.
+    Thus $f$ is one-to-one.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 22, breakable]
     Let $\mathcal{F} = \{f \mid f : \mathbb{R} \rightarrow \mathbb{R}\}$,
         and define a relation $R$ on $\mathcal{F}$ as follows:
@@ -994,7 +1023,7 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     Then $f = h_1 \circ g = (h_1 \circ h_2) \circ l$.
     Thus $(f, l) \in R$.
     It follows that $R$ is transitive.
-    Therefore $R$ is a partial order.
+    Therefore $R$ is a  preorder.
 \end{proof}
 
 \textbf{Solution (c):}
@@ -1002,16 +1031,16 @@ Counter example: If $f$ is onto then $f | C$ is onto.
 \begin{proof}
     Let $f$ be an arbitrary element in $\mathcal{F}$.
     Furthermore, let $x$ be an arbitrary real number.
-    Then $(i_{\mathcal{R}} \circ f)(x) = i_{\mathcal{R}}(f(x)) = f(x)$.
-    Thus $(f, i_{\mathcal{R}}) \in R$.
+    Then $(i_{\mathbb{R}} \circ f)(x) = i_{\mathbb{R}}(f(x)) = f(x)$.
+    Thus $(f, i_{\mathbb{R}}) \in R$.
 \end{proof}
 
 \textbf{Solution (d):}
 
 \begin{proof}
     ($\rightarrow$) Let $f$ be an arbitrary element in $\mathcal{F}$.
-    Suppose $(i_{\mathcal{R}}, f) \in R$.
-    There exists $h$ such that $i_{\mathcal{R}} = h \circ f$.
+    Suppose $(i_{\mathbb{R}}, f) \in R$.
+    There exists $h$ such that $i_{\mathbb{R}} = h \circ f$.
     Let $x_1, x_2$ be arbitrary real numbers such that 
         $f(x_1) = f(x_2)$.
     Applying $h$ to both sides gives 
@@ -1020,19 +1049,73 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     Thus $f$ is one-to-one.
 
     ($\leftarrow$) Suppose $f$ is one-to-one.
-    Let $A = Ran(f)$.
-    Furthermore, let $h = f^{-1} \cup ((\mathcal{R} \setminus A) \times \{0\})$.
-    Let $x$ be an arbitrary real number.
-    Now $A \cup (\mathbb{R} \setminus A) = \mathbb{R}$.
-    It follows that $x \in A$ or $x \in \mathbb{R} \setminus A$
-        and $x \notin A \cap (\mathbb{R} \setminus A) = \emptyset$.
-    Suppose $x \in A$ then it follows that there exists $y \in \mathbb{R}$
-        such that $(x, y) \in f^{-1}$.
-    Since $f$ is one-to-one there exists exactly one $y$
-        such that $(x, y) \in f^{-1}$.
-    Suppose $x \in (A \setminus \mathbb{R})$ then let $y = 0$
-        thus $(x, y) \in ((R \setminus A) \times \{0\})$.
-    Thus $h$ is a function that maps elements from $A$ to $\mathbb{R}$.
+    Let $A = \mathrm{Ran}(f)$.
+    Define 
+    \[
+        h = f^{-1} \cup ((\mathbb{R} \setminus A) \times \{0\}).
+    \]
+    Then for each $x \in \mathbb{R}$, either $x \in A$ or $x \in \mathbb{R} \setminus A$.
+    If $x \in A$, then $h(x) = f^{-1}(x)$.
+    If $x \in \mathbb{R} \setminus A$, then $h(x) = 0$.
+    Thus $h$ is a function from $\mathbb{R}$ to $\mathbb{R}$.
+    Furthermore, for all $x \in \mathbb{R}$,
+    \[
+        (h \circ f)(x) = h(f(x)) = f^{-1}(f(x)) = x.
+    \]
+    Thus $i_{\mathbb{R}} = h \circ f$, so $(i_{\mathbb{R}}, f) \in R$.
+\end{proof}
+
+\textbf{Solution (e):}
+
+\begin{proof}
+    Let $h$ be an arbitrary function in $\mathcal{F}$.
+    By Section $5.1$ Problem $17(a)$,
+        $g \circ h = g$
+    Thus $(g, h) \in R$.
+\end{proof}
+
+\textbf{Solution (f):}
+
+\begin{proof}
+    Let $f$ be an arbitrary element in $\mathcal{F}$.
+
+    ($\rightarrow$) Suppose $(f, g) \in R$.
+    Then there exists $h$ such that $f = h \circ g$.
+    Since $g$ is a constant function, there exists $y \in \mathbb{R}$ such that $g(x) = y$ for all $x \in \mathbb{R}$.
+    Then for all $x \in \mathbb{R}$,
+        $f(x) = (h \circ g)(x) = h(g(x)) = h(y)$,
+    which shows that $f$ is constant.
+
+    ($\leftarrow$) Suppose $f$ is a constant function.
+    Let $c$ be a real number such that $f(x) = c$ for all $x \in \mathbb{R}$.
+    Furthermore, let $h$ be a function
+        from $\mathbb{R}$ to $\mathbb{R}$ such that $h(y) = c$ for all $y \in \mathbb{R}$.
+    Then for all $x \in \mathbb{R}$,
+        $(h \circ g)(x) = h(g(x)) = c = f(x)$.
+    Thus $f = h \circ g$, so $(f, g) \in R$.
+\end{proof}
+
+\textbf{Solution (g):}
+
+\begin{proof}
+    Let $f$ be an arbitrary one-to-one function in $\mathcal{F}$.
+    Let $g$ be an arbitrary function in $\mathcal{F}$.
+    Since $f$ is one-to-one, $f^{-1}$ exists on $\mathrm{Ran}(f)$.
+    Let $h$ be a function such that 
+    \[
+        h = g \circ f^{-1} \;\; \cup \;\; ((\mathbb{R} \setminus \mathrm{Ran}(f)) \times \{0\}).
+    \]
+    Then for all $x \in \mathbb{R}$, $(h \circ f)(x) = h(f(x)) = g(x)$.
+    Thus $(g, f) \in R$.
+\end{proof}
+
+
+\begin{proof}
+    Let $f$ be an arbitrary constant function in $\mathcal{F}$.
+    Let $g$ be an arbitrary function in $\mathcal{F}$.
+    From part (f) it follows that there exists $h$ 
+        such that $f = h \circ g$.
+    Thus $(f, g) \in R$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 23, breakable]
@@ -1084,31 +1167,96 @@ Counter example: If $f$ is onto then $f | C$ is onto.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
+    (a) Prove the second half of Theorem $5.3.2$ by imitating the proof of the first half.
+
+    (b) Give and alternative proof of the second half of Theorem $5.1.2$ by appying the 
+        first half to $f^{-1}$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
+    Prove part $2$ of Theorem $5.3.3$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
+    Use the following strategy to give an alternative proof  of Theorem $5.3.5$:
+    
+    Let $(b, a)$ be an arbitrary element of $B \times A$.
+    Assume $(b, a) \in g$ and prove $(b, a) \in f^{-1}$.
+    Then assume $(b, a) \in f^{-1}$ and prove $(b, a) \in g$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
+    Suppose $f : A \rightarrow B$ and $g : B \rightarrow A$.
+
+    (a) Prove that if $f$ is one-to-one and $f \circ g = i_B$, then $g = f^{-1}$.
+
+    (b) Prove that if $f$ is onto and $g \circ f = i_A$, then $g = f^{-1}$.
+
+    (c) Prove that if $f \circ g = i_B$ but $g \circ f \ne i_A$, then $f$ is onto 
+        but one-to-one, and $g$ is one-to-one but not onto.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
+    Suppose $f : A \rightarrow B$ and $f$ is one-to-one.
+    Prove that there is some set $B' \subseteq B$ 
+        such that $f^{-1} : B' \rightarrow A$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
+    Suppose $f : A \rightarrow B$ and $f$ is onto.
+    Let $R = \{(x, y) \in A \times A \mid f(x) = f(y)\}$.
+    By exercise $20(a)$ of Section $5.1$, $R$ is an equivalence
+        relation on $A$.
+
+    (a) Prove that there is a function $h : A / R \rightarrow B$ such that 
+        for all $x \in A$, $h([x]_R) = f(x)$.
+        (Hint: See exercise $21$ of Section $5.1.$)
+
+    (b) Prove that $h$ is one-to-one and onto. (Hint: See exercise $19$ of 
+        Section $5.2.$)
+
+    (c) It follows from part (b) that $h^{-1} : B \rightarrow A / R$.
+        Prove that for all $b \in B$, $h^{-1}(b) = \{x \in A \mid f(x) = b\}$.
+
+    (d) Suppose $g : B \rightarrow A$. Prove that $f \circ g = i_B$
+        iff $\forall{b} \in B(g(b) \in h^{-1}(b))$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
+    Suppose $f : A \rightarrow B$, $g : B \rightarrow A$, and $f \circ g = i_B$.
+    Let $A' = Ran(g) \subseteq A$.
+
+    (a) Prove that for all $x \in A'$, $(g \circ f)(x) = x$.
+
+    (b) Prove that $f | A'$ is a one-to-one, onto function from $A'$ to $B$
+        and $g = (f | A')^{-1}$. (See exercise $7$ of Section $5.1$ for the 
+        meaning of the notation here.)
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 15, breakable]
+    Let $B = \{x \in \mathbb{R} \mid x \ge 0\}$.
+    Let $f : \mathbb{R} \rightarrow B$ and $g : B \rightarrow \mathbb{R}$
+    be defined by the formulas $f(x) = x^2$ and $g(x) = \sqrt{x}$.
+    As we saw in part $2$ of Example $5.3.6$, $g \ne f^{-1}$.
+    Show that $g = (f | B)^{-1}$.
+    (Hint: See exercise $14$.)
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
+    Suppose $A$ is a set, and let $\mathcal{F} = \{f \mid f : A \rightarrow A\}$
+    and $\mathcal{P} = \{f \in \mathcal{F} \mid f \text{ is one-to-one and onto}\}$.
+    Define a relation $R$ on $\mathcal{F}$ as follows:
+    \[R = \{(f, g) \in \mathcal{F} \times \mathcal{F} \mid \exists{h} \in \mathcal{P}(f = h^{-1} \circ g \circ h)\}\]
+    (a) Prove that $R$ is an equivalence relation.
+
+    (b) Prove that if $f R g$ then $(f \circ f) R (g \circ g)$.
+
+    (c) For any $f \in \mathcal{F}$ and $a \in A$, if $f(a) = a$ then we say that $a$
+        is a \emph{fixed point} of $f$. Prove that if $f$ has a fixed point and $f R g$,
+        then $g$ also has a fixed point.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 18, breakable]
+    Suppose $f : A \rightarrow C$, $g : B \rightarrow C$, and $g$ is one-to-one and onto.
+    Prove that there is a function $h : A \rightarrow B$ such that $g \circ h = f$.
 \end{tcolorbox}
