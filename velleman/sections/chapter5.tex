@@ -581,7 +581,6 @@ Yes.
     One-to-one: yes, Onto: no.
 \end{center}
 
-\newpage
 \begin{tcolorbox}[title=Problem 6, breakable]
     Suppose $a$ and $b$ are real numbers and $a \ne 0$. 
     Define $f : \mathbb{R} \rightarrow \mathbb{R}$ by the 
@@ -659,7 +658,6 @@ Yes.
     Thus $f$ is one-to-one.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 11, breakable]
     Suppose $f : A \rightarrow B$ and $g : B \rightarrow C$.
 
@@ -1149,33 +1147,107 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     Let $R$ be the function defined in exercise $2(c)$ of Section $5.1$.
     In exercise $2$ of Section $5.2$, you showed that $R$ is one-to-one
     and onto, so $R^{-1} : P \rightarrow P$. If $p \in P$,
-    what is $R^{-1}(p)$?
+        what is $R^{-1}(p)$?
+
+    Problem $2(c)$
+
+    John, Mary, Susan, and Fred go out to dinner and sit at a round table.
+    Let 
+    \[P = \{\text{John, Mary, Susan, Fred}\}\]
+    and let 
+    \[R = \{(p, q) \in P \times P \mid \text{the person $p$ is sitting immediately to the right of person $q$}\}\]
+    Is $R$ a function from $P$ to $P$.
 \end{tcolorbox}
+
+\textbf{Solution:}
+\[R^{-1}(p) = \text{The person sitting immediately to the left of person $p$}\]
 
 \begin{tcolorbox}[title=Problem 2, breakable]
     Let $F$ be the function defined in exercise $4(b)$ of Section $5.1$.
     In exercise $4$ of Section $5.2$, you showed that $F$ is one-to-one 
     and onto, so $F^{-1} : B \rightarrow B$. If $X \in B$,
     what is $F^{-1}(X)$.
+
+    Problem $4(b)$
+
+    Let $A = \{1, 2, 3\}$ and $B = \mathcal{P}(A)$.
+    Let $F : B \rightarrow B$ be the function defined by the 
+        formula $F(X) = A \setminus X$.
 \end{tcolorbox}
+
+\textbf{Solution}
+\[F^{-1}(X) = A \setminus X\]
 
 \begin{tcolorbox}[title=Problem 3, breakable]
     Let $f : \mathbb{R} \rightarrow \mathbb{R}$ be defined by the formula 
     \[f(x) = \frac{2x + 5}{3}\]
-    Show that $f$ is one-to-one and onto, and fine a formula for $f^{-1}(x)$.
+    Show that $f$ is one-to-one and onto, and find a formula for $f^{-1}(x)$.
     (You may want to imitate the method used in the example after Theorem $5.3.2$,)
 \end{tcolorbox}
+
+\begin{proof}
+    Define
+    \[g(x) = \frac{3x - 5}{2}\]
+    Then 
+    \[(f \circ g)(x) = f(g(x)) = f(\frac{3x - 5}{2}) = \frac{2\left(\frac{3x - 5}{2}\right) + 5}{3} = \frac{3x}{3} = x\]
+    Also 
+    \[(g \circ f)(x) = g(f(x)) = g(\frac{2x + 5}{3}) = \frac{3\left(\frac{2x + 5}{3}\right) - 5}{2} = \frac{2x}{2} = x\]
+    By Theorem $5.3.5$ it follows that $g = f^{-1}$.
+    Futhermore, by Theorem $5.3.4$ it follows that $f$ is one-to-one and onto.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
     (a) Prove the second half of Theorem $5.3.2$ by imitating the proof of the first half.
 
-    (b) Give and alternative proof of the second half of Theorem $5.1.2$ by appying the 
+    (b) Give an alternative proof of the second half of Theorem $5.3.2$ by appying the 
         first half to $f^{-1}$.
 \end{tcolorbox}
+
+\begin{theorem}[$5.3.2$]
+    Suppose $f$ is a function from $A$ to $B$, and suppose that $f^{-1}$
+        is a function from $B$ to $A$. Then $f^{-1} \circ f = i_A$ and $f \circ f^{-1} = i_B$.
+\end{theorem}
+
+\begin{proof}
+    Let $b$ be an arbitrary element in $B$.
+    Let $a = f^{-1}(b) \in A$.
+    Then $(b, a) \in f^{-1}$ and therefore $(a, b) \in f$
+    Thus,
+    \[(f \circ f^{-1})(b) = f(f^{-1}(b)) = f(a) = b = i_B(b)\]
+    Since $b$ was arbitrary, it follows that $\forall{b \in B}((f \circ f^{-1})(b) = i_B(b))$,
+        so $f \circ f^{-1} = i_B$. 
+\end{proof}
+
+\begin{proof}
+    Let $b$ be an arbitrary element in $B$.
+    Let $a = f^{-1}(b) \in A$.
+    Then composing with $f^{-1} \circ f$ 
+        gives 
+    \[((f^{-1} \circ f) \circ f^{-1})(b) = (f^{-1} \circ f)(a)
+                \implies ((f^{-1} \circ f) \circ f^{-1})(b) = a\]
+    Applying $f$ gives 
+    \[(f \circ (f^{-1} \circ f) \circ f^{-1})(b) = f(a)
+        \implies (f \circ (f^{-1} \circ f) \circ f^{-1})(b) = b = i_B\]
+    Then 
+    \[(f \circ (f^{-1} \circ f) \circ f^{-1})(b) = (f \circ i_A \circ f^{-1})(b) = (f \circ f^{-1})(b)\]
+    Thus $f \circ f^{-1} = i_B$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
     Prove part $2$ of Theorem $5.3.3$.
 \end{tcolorbox}
+
+\begin{theorem}[Part $2$, $5.3.3$]
+    If there is a function $g : B \rightarrow A$ such that $f \circ g = i_B$
+        then $f$ is onto.
+\end{theorem}
+
+\begin{proof}
+    Let $b$ be an arbitrary element in $B$.
+    There exists $a \in A$ such that $g(b) = a$.
+    Composing with $f$ gives $(f \circ g)(b) = f(a) = i_B(b) = b$.
+    Thus $f$ is onto.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
     Use the following strategy to give an alternative proof  of Theorem $5.3.5$:
@@ -1184,6 +1256,27 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     Assume $(b, a) \in g$ and prove $(b, a) \in f^{-1}$.
     Then assume $(b, a) \in f^{-1}$ and prove $(b, a) \in g$.
 \end{tcolorbox}
+
+\begin{theorem}
+    Suppose $f : A \rightarrow B$, $g : B \rightarrow A$, $g \circ f = i_A$,
+        and $f \circ g = i_B$. Then $g = f^{-1}$.
+\end{theorem}
+
+\begin{proof}
+    Let $(b, a)$ be an arbitrary element of $B \times A$.
+    Assume $(b, a) \in g$ and therefore $g(b) = a$.
+    Applying $f$ shows 
+    \[(f \circ g)(b) = f(a) = i_B(b) = b\]
+    Thus $(a, b) \in f$ and it follows that $(b, a) \in f^{-1}$.
+    Therefore $g \subseteq f^{-1}$.
+    Now, assume $(b, a) \in f^{-1}$ and therefore $(a, b) \in f$.
+    It follows that $f(a) = b$.
+    Applying $g$ shows 
+    \[(g \circ f)(a) = g(b) = i_A(a) = a\]
+    Thus $(b, a) \in g$.
+    Therefore $f^{-1} \subseteq g$.
+    Thus $g = f^{-1}$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
     Suppose $f : A \rightarrow B$ and $g : B \rightarrow A$.
@@ -1196,11 +1289,34 @@ Counter example: If $f$ is onto then $f | C$ is onto.
         but one-to-one, and $g$ is one-to-one but not onto.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $f$ is one-to-one and $f \circ g = i_B$.
+    Suppose $(b, a) \in B \times A$ such that $(b, a) \in g$
+        and therefore $g(b) = a$.
+    Then 
+    \[(f \circ g)(b) = f(a) = i_B(b) = b\]
+    Thus $(a, b) \in f$ and it follows that $(b, a) \in f^{-1}$.
+    Therefore $g \subseteq f^{-1}$.
+    Suppose $(b, a) \in B \times A$ such that $(b, a) \in f^{-1}$.
+    It follows that $(a, b) \in f$ and therefore $f(a) = b$.
+    Then 
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 12, breakable]
     Suppose $f : A \rightarrow B$ and $f$ is one-to-one.
     Prove that there is some set $B' \subseteq B$ 
         such that $f^{-1} : B' \rightarrow A$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $B' = Ran(f) \subseteq B$.
+    Since $f$ is one-to-one, for each $y \in Ran(f)$ there exists a unique $x \in A$
+        such that $f(x) = y$.
+    Let 
+    \[
+        f^{-1} : B' \rightarrow A, \quad f^{-1}(y) = x \text{ such that } f(x) = y
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
     Suppose $f : A \rightarrow B$ and $f$ is onto.
@@ -1233,6 +1349,24 @@ Counter example: If $f$ is onto then $f | C$ is onto.
         meaning of the notation here.)
 \end{tcolorbox}
 
+\begin{proof}
+    Let $x$ be an arbitrary element in $Ran(g) = A' \subseteq A$.
+    There exists $y$ such that $g(y) = x$.
+    Then applying $g \circ $f:
+    \begin{align*}
+        (g \circ f \circ g)(y) &= (g \circ f)(x) \\
+        \iff (g \circ i_B)(y) &= (g \circ f)(x) \\
+        \iff g(y) &= (g \circ f)(x)
+    \end{align*}
+    Since $g(y) = x$ it follows that $(g \circ f)(x) = x$.
+\end{proof}
+
+\begin{proof}
+    For all $b \in B$, $(f \circ g)(b) = i_B(b)$.
+    By part (a), for all $a \in A'$, $(g \circ f)(a) = i_A(a)$.
+    It follows that $g = (f | A')^{-1}$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 15, breakable]
     Let $B = \{x \in \mathbb{R} \mid x \ge 0\}$.
     Let $f : \mathbb{R} \rightarrow B$ and $g : B \rightarrow \mathbb{R}$
@@ -1241,6 +1375,13 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     Show that $g = (f | B)^{-1}$.
     (Hint: See exercise $14$.)
 \end{tcolorbox}
+
+\begin{proof}
+    Let $x$ be positive real number such  that $x \ge 0$.
+    Note that $(f \circ g)(x) = f(\sqrt{x}) = (\sqrt{x})^2 = x$.
+    Since $B = Ran(g)$ it follows immediately from exercise $14$
+        that $g = (f | B)^{-1}$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
     Suppose $A$ is a set, and let $\mathcal{F} = \{f \mid f : A \rightarrow A\}$
@@ -1256,7 +1397,23 @@ Counter example: If $f$ is onto then $f | C$ is onto.
         then $g$ also has a fixed point.
 \end{tcolorbox}
 
+\begin{proof}
+    We must show $R$ is reflexive, transitive, 
+        and symmetric.
+    Let $f$ be an arbitrary element in $\mathcal{F}$.
+    Let $h = f$ then $h^{-1} \circ f \circ h = f^{-1} \circ f \circ f = i_B \circ f = f$
+    Thus $(f, f) \in R$ and therefore $R$ is reflexive.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 18, breakable]
     Suppose $f : A \rightarrow C$, $g : B \rightarrow C$, and $g$ is one-to-one and onto.
     Prove that there is a function $h : A \rightarrow B$ such that $g \circ h = f$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let 
+    \[
+        h : A \rightarrow B, \quad h(a) = b \text{ such that } g(b) = f(a).
+    \]
+    Such $b$ exists because $g$ is onto, and is unique because $g$ is one-to-one.
+\end{proof}

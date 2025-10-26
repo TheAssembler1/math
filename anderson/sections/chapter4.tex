@@ -40,12 +40,23 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
 \end{enumerate}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
-    Your example in the previous excersize of a third-degree polynomial with 
+    Your example in the previous exercise of a third-degree polynomial with 
     exactly $2$ roots had one repeated root; that is, a root $a$ where $(x - a)^2$
     is a factor of the polynomial. (Roots may have multiplicity greater than two 
     of course.) Why can't a third-degree polynomial in $\mathbb{Q}[x]$ have 
     exactly $2$ roots where neither is a multiple root.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $f$ be a degree $3$ polynomial with two roots, $a, b$
+        such that $a \ne b$.
+    We can express $f$ in the form 
+    \[f = (x - a)(x - b)l\]
+    where $l = (x - c)$ is another linear factor.
+    If $c \ne a$ and $c \ne b$, then $f$ has three distinct roots $a, b, c$,
+        contradicting that $f$ has only two roots.
+    Therefore, $c = a$ or $c = b$, meaning one of the roots is repeated.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
     Suppose that $f \in \mathbb{Q}[x]$, $q \in \mathbb{Q}$,
@@ -53,11 +64,41 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
     the equation $f(x) = q$ has at most finitely many solutions.
 \end{tcolorbox}
 
+\begin{proof}
+    Solving $f(x) = q$ is equivalent to solving $l = f - q = 0$.
+    Now $\deg(l) = \deg(f)$ since $\deg(f) > \deg(q)$.
+    By the Root Theorem, every root divides $l$,
+        reducing its degree by $1$.
+    Since $\deg(l)$ is finite, the number of roots is 
+        finite.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 8, breakable]
-    Prove that Theorem $4.7$: the GCD identity for $\mathbb{Q}[x]$.
+    Prove Theorem $4.7$: the GCD identity for $\mathbb{Q}[x]$.
     Use Euclid's Algorithm $4.5$, and the relationship we know 
     between the $\gcd$ produced by the algorithm and an arbitrary $\gcd$ (Theorem $4.6$).
 \end{tcolorbox}
+
+\begin{theorem}[GCD Identity $4.7$]
+    If $d$ is a $gcd$  of polynomials $f$ and $g$,
+        then there exists polynomials $a$ and $b$
+        so that $d = af + bg$.
+\end{theorem}
+
+\begin{proof}
+    Let $f, g \in \mathbb{Q}[x]$.
+    By $4.5$, there exists a last nonzero remainder 
+        $r_{n-1}$ such that $r_{n-2} = q_{n-1} r_{n-1}$ and $r_{n-1} \ne 0$.
+    This remainder $r_{n-1}$ is the $\gcd(f, g)$.
+    From the division steps in the algorithm, each remainder can be expressed 
+        as a linear combination of $f$ and $g$.
+    Thus there exist polynomials $a, b \in \mathbb{Q}[x]$ such that 
+        $r_{n-1} = af + bg$.
+    By Theorem $4.6$, any other $\gcd$ of $f$ and $g$ differs from $r_{n-1}$ 
+        by a nonzero rational constant.
+    Therefore, every $\gcd$ of $f$ and $g$ in $\mathbb{Q}[x]$ can be expressed 
+        as a linear combination of $f$ and $g$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
     One can also prove the GCD identity for $\mathbb{Q}[x]$ with an argument 
@@ -65,24 +106,107 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
     found in Section $2.3$. Try this approach.
 \end{tcolorbox}
 
+\begin{proof}
+    Consider the set of all linear combinations of the polynomials $f, g$:
+    \[
+    S = \{ f a + g b : a, b \in \mathbb{Q}[x] \}
+    \]
+    We must show the $\gcd(f, g)$ belongs to this set.
+    By the Well-ordering Principle, $S$ contains an element $d$
+    which has the smallest positive degree.
+    Since $d \in S$:
+    \[
+    d = f a_0 + g b_0
+    \]
+    For some $a_0, b_0 \in \mathbb{Q}[x]$.
+    Applying the Division Theorem to $d, f$
+    we get $f = d q + r$.
+    We now show $r = 0$.
+    But:
+    \[
+    r = f - d q = f - (f a_0 + g b_0) q = f (1 - q a_0) + g(-q b_0)
+    \]
+    So $r \in S$. Because $\deg(r) < \deg(d)$, and $d$ has the smallest degree 
+    of $S$, we must have $r = 0$.
+    A similar argument shows $d \mid g$.
+
+    Now suppose $c$ divides both $f$ and $g$.
+    Then $f = n c$ and $g = m c$ for some $n, m \in \mathbb{Q}[x]$.
+    Then any linear combination of $f$ and $g$ is also a multiple of $c$:
+    \[
+    f a + g b = n c a + m c b = c (n a + m b)
+    \]
+    So $c \mid d$.
+    Thus $d$ is the $\gcd$ of $f$ and $g$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 10, breakable]
     We say that $p \in \mathbb{Q}[x]$ has a multiplicative inverse 
     if there exists $q \in \mathbb{Q}[x]$ such that $pq = 1$.
     Prove that $p \in \mathbb{Q}[x]$ has a multiplicative inverse 
-    if and only if $deg(p) = 0$.
+    if and only if $\deg(p) = 0$.
 \end{tcolorbox}
+
+\begin{proof}
+    ($\rightarrow$) Suppose $p \in \mathbb{Q}[x]$ has a multiplicative inverse.
+    Let $q$ be the multiplicative inverse of $p$ such that $p q = 1$.
+    Clearly $q \ne 0$.
+    If $\deg(p) > 0$ then $\deg(pq) > 0$, but $\deg(pq) = \deg(1) = 0$.
+    Thus $\deg(p) = 0$.
+
+    ($\leftarrow$) Suppose $\deg(p) = 0$. It follows that $p \in \mathbb{Q}$.
+    Then let $a, b \in \mathbb{Z}$ such that $p = \frac{a}{b}$.
+    We know $a \ne 0$ since $\deg(p) \ne -\infty$.
+    Let $q = \frac{b}{a}$, then $p q = \frac{a}{b} \cdot \frac{b}{a} = 1$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
     Suppose that $g \in \mathbb{Q}[x]$, and $g$ divides all elements 
     of $\mathbb[Q][x]$. Prove that $g$ is a non-zero constant polynomial.
 \end{tcolorbox}
 
+\begin{proof}
+    Clearly $g \ne 0$ since division by $0$ is undefined.  
+    Suppose, for contradiction, that $g$ is non-constant. That is, $\deg(g) > 0$.  
+    Consider $f \in \mathbb{Q}[x]$ such that $f \ne 0$ and $\deg(f) < \deg(g)$.
+    Since $g \mid f$, there exists $c \in \mathbb{Q}[x]$ such that 
+        $f = c \cdot g$.
+    But $\deg(f) < \deg(g)$ and $\deg(f) = \deg(c) + \deg(g) \ge \deg(g)$,
+        a contradiction.  
+    Thus $g$ is a non-zero constant polynomial.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 12, breakable]
     Find two different polynomials in $\mathbb{Z}_3[x]$ that are equal 
     as functions from $\mathbb{Z}_3 = \mathbb{Z}_3$.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $f(x) = x^3$ and $g(x) = x$.
+    Clearly as polynomials $f \ne g$.
+    Now check each $a \in \mathbb{Z}_3$:
+    \[
+    0^3 \equiv 0, \quad 1^3 \equiv 1, \quad 2^3 \equiv 2 \pmod{3}.
+    \]
+    Thus $f(a) \equiv g(a) \pmod{3}$ for all $a \in \mathbb{Z}_3$, so $f$ and $g$ are equal as functions.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 13, breakable]
     Find a non-zero polynomial in $\mathbb{Z}_4[x]$ for which $f(a) = 0$,
     for all $a \in \mathbb{Z}_4$.
 \end{tcolorbox}
+
+
+\begin{proof}
+    Let $f(x) = 2x^2 + 2x^4 \in \mathbb{Z}_4[x]$.  
+    Now check each element in $\mathbb{Z}_4 = \{0,1,2,3\}$:
+    \[
+    \begin{aligned}
+    f(0) &= 2 \cdot 0^2 + 2 \cdot 0^4 = 0, \\
+    f(1) &= 2 \cdot 1^2 + 2 \cdot 1^4 = 2 + 2 = 4 \equiv 0 \pmod{4}, \\
+    f(2) &= 2 \cdot 2^2 + 2 \cdot 2^4 = 8 + 32 = 40 \equiv 0 \pmod{4}, \\
+    f(3) &= 2 \cdot 3^2 + 2 \cdot 3^4 = 18 + 162 = 180 \equiv 0 \pmod{4}.
+    \end{aligned}
+    \]
+    Therefore $f(a) = 0$ for all $a \in \mathbb{Z}_4$, but $f(x)$ is not the zero polynomial.
+\end{proof}

@@ -1,0 +1,235 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Prove Theorem $5.1$: A polynomial in $\mathbb{Q}[x]$
+    of degree greater than zero is either irreducible
+    or the product of irreducibles.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f$ be a polynomial with degree greater than $0$.
+    We proceed by induction on the degree of $f$.
+
+    (\textbf{Base Case}) A polynomial of degree one is irreducible.
+
+    (\textbf{Induction Step}) 
+    Suppose the theorem holds for all polynomials of degree $m < n$.
+    If $f$ of degree $n$ is irreducible, we are done.
+    Suppose $f$ is not irreducible; then $f = l \cdot g$ where $l, g \in \mathbb{Q}[x]$ 
+    and $\deg(l), \deg(g) < \deg(f)$.
+    By the induction hypothesis, $l$ and $g$ can be expressed as a product of irreducible polynomials.
+    Therefore, $f$ can also be expressed as a product of irreducibles.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove Theorem $5.2$: A polynomial in $\mathbb{Q}[x]$
+    is irreducible if and only if it is prime.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f$ be an arbitrary polynomial in $\mathbb{Q}[x]$.
+
+    ($\rightarrow$) Suppose $f$ is irreducible and $f \mid l g$.
+    Furthermore, suppose $f$ does not divide $l$.
+    We must show that $f \mid g$.
+    Suppose that $d$ is a common divisor of $f$ and $l$.
+    Then, because $f$ is irreducible, $d$ must 
+        be equal to $f$ or a unit.
+    Because $f$ does not divide $l$, it must be that    
+        $\gcd(f, l) = 1$.
+    So by the GCD identity there exist $x, y \in \mathbb{Q}[x]$
+        such that $1 = l x + f y$. 
+    Multiplying both sides by $g$ gives
+        \[ g = l g x + f g y. \]
+    Since $f$ divides both terms on the right-hand side,
+        it follows that $f \mid g$, as required.
+
+    ($\leftarrow$) Suppose $f$ is prime.
+    Furthermore, suppose $f$ has been factored as $f = l g$.
+    Then $f \mid l g$, and so, without loss of generality,
+        $f \mid l$.
+    Thus, $l = f x$, and so $f = f x g$. 
+    Cancelling $f$ gives $1 = x g$, and so both $x$ and $g$
+        must be degree $0$ polynomials.
+    This shows that the factorization $f = l g$
+        is trivial, as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove Corollary $5.3$: If an irreducible polynomial
+    in $\mathbb{Q}[x]$ divides a product $f_1 f_2 f_3 \ldots f_n$,
+    then it divides one of $f_i$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f$ be an irreducible polynomial in $\mathbb{Q}[x]$.
+    Furthermore, suppose $f \mid f_1 f_2 f_3 \ldots f_n$.
+    We proceed by induction on $n$.
+
+    (\textbf{Base Case})  
+    If $f \mid f_1 f_2$, then by the definition of being prime, 
+    $f \mid f_1$ or $f \mid f_2$.
+
+    (\textbf{Induction Step})  
+    Assume the statement holds for $n - 1$; that is, 
+    if $f \mid f_1 f_2 \cdots f_{n-1}$, then $f \mid f_i$ for some $i < n$.  
+    Now suppose $f \mid f_1 f_2 \cdots f_{n-1} f_n$.  
+    Let $c = f_1 f_2 \cdots f_{n-1}$, so $f \mid c f_n$.  
+    By the definition of being prime, $f \mid c$ or $f \mid f_n$.  
+    By the induction hypothesis, if $f \mid c$, then $f \mid f_i$ for some $i < n$.  
+    Thus, in either case, $f$ divides one of the $f_i$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Use Gauss's Lemma to determine which of the following 
+    are irreducible in $Q[x]$:
+    \[4x^3 + x - 2, 3x^3 - 6x^2 + x - 2, x^3 + x^2 + x - 1\]
+\end{tcolorbox}
+
+\begin{proof}
+    If $f(x) = 4x^3 + x - 2$ can be factored then one of 
+        the factors is of the form $(ax + b)$
+        where $a, b \in \mathbb{Z}$.
+    The only possible factors are 
+        $(4x \pm 1)$, $(4x \pm 2)$, $(2x \pm 2)$, $(2x \pm 1)$, $(x \pm 2)$, $(x \pm 1)$.
+    This implies roots of $\pm \frac{1}{4}$, $\pm \frac{1}{2}$, $\pm 2$, $\pm 1$.
+    By inspection this is not the case.
+    Since $f$ is irreducible in $\mathbb{Z}[x]$ by Gauss's Lemma $f$ is irreducible in $Q[x]$.
+\end{proof}
+
+\begin{proof}
+    Let $f(x) =  3x^3 - 6x^2 + x - 2$.
+    By inspection $x = 2$ is a root thus by the Root Theorem 
+        $f$ is not irreducible in $\mathbb{Q}[x]$.
+\end{proof}
+
+\begin{proof}
+    If $f(x) =  x^3 + x^2 + x - 1$ can be factored then one of 
+        the factors is of the form $ax + b$.
+    The only possible factor is $(x \pm 1)$.
+    By inspection this is not the case.
+    Since $f$ is irreducible in $\mathbb{Z}[x]$ by Gauss's Lemma $f$ is irreducible in $Q[x]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Prove the Rational Root Theorem $5.6$.
+\end{tcolorbox}
+
+\begin{theorem}[Ration Root Theorem $5.6$]
+    Suppose that $f = a_0 + a_1 x + \cdots + a_n x^n$
+    is a polynomial in $\mathbb{Z}[x]$, and $\frac{p}{q}$ is 
+    a rational root; that is, $p$ and $q$ are integers, $q \ne 0$,
+    and $f\left(\frac{p}{q}\right) = 0$. We may as well assume also that 
+    $gcd(p, q) = 1$. Then $q$ divides the integer $a_n$, and 
+    $p$ divides $a_0$.
+\end{theorem}
+
+\begin{proof}
+    We first show $q \mid a_n$.
+    Plugging in $\frac{p}{q}$ shows 
+    \[f\left(\frac{p}{q}\right) = a_0 + a_1 \frac{p}{q} + \cdots + a_n \left(\frac{p}{q}\right)^n = 0.\]
+    Then multiplying through by $q^n$ shows 
+    \[a_0 q^n + a_1 p q^{n - 1} + a_2 p^2 q^{n-2} + \cdots + a_n p^n = 0\]
+    Solving for $a_n p^n$ shows 
+    \[a_n p^n = - a_0 q^n - a_1 p q^{n - 1} - a_2 p^2 q^{n-2} - \cdots - a_{n - 1} p^{n-1} q\]
+    Then factoring out $q$ shows 
+    \[a_n p^n = -q(a_0 q^{n-1} + a_1 p q^{n - 2} + \cdots + a_{n - 1} p^{n-2})\]
+    Since $\gcd(p, q) = 1$, it follows that $q \not \mid p^n$.
+    Thus $q \mid a_n$.
+    We now show $p \mid a_0$.
+    In the previous part it was shown that 
+    \[a_0 q^n + a_1 p q^{n - 1} + a_2 p^2 q^{n-2} + \cdots + a_n p^n = 0\]
+    Solving for $a_0 q^n$ shows 
+    \[a_0 q^n = -(a_1 p q^{n - 1} + a_2 p^2 q^{n-2} + \cdots + a_n p^n)\]
+    We can then factor out $p$ so 
+    \[a_0 q^n = -p(a_1 q^{n - 1} + a_2 p q^{n-2} + \cdots + a_n p^{n - 1})\]
+    Since $\gcd(p, q) = 1$, it follows that $p \not \mid q^n$.
+    Thus $p \mid a_0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Use the Rational Root Theorem $5.6$ to factor 
+    \[2x^3 - 17x^2 - 10x + 9\]
+\end{tcolorbox}
+
+\textbf{Solution:}=
+Let $x = 9$ then by inspection this is a root.
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Use the Rational Root Theorem $5.6$ (applied to $x^3 - 2$)
+    to argue that $\sqrt[3]{2}$ is irrational.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Suppose that $\alpha$ is a real number (which might 
+    not be rational), and suppose that it is a root of a 
+    polynomial $p \in \mathbb{Q}[x]$; that is,
+    $p(\alpha) = 0$. Suppose further that $p$ is irreducible
+    in $\mathbb{Q}[x]$. POrve that $p$ has a minimal degree in the 
+    set 
+    \[\{f \in \mathbb{Q}[x] : f(\alpha) = 0 \text{ and } f \ne 0\}\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Construct polynomials of arbitrarily large degree,
+        which are irreducible in $\mathbb{Q}[x]$.
+\end{tcolorbox}
+
+\textbf{Solution}
+\[\{f \mid f = x^n + 2, n = 2k, k \in \mathbb{Z+}\}\]
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    (a) Prove that the equation $a^2 = 2$ has no ration solutions;
+        that is, prove that $\sqrt{2}$ is irrational. (This part is a 
+        repeat of exercise $2.14$.)
+
+    (b) Generalize part $a$,k by proving that $a^n = 2$ has no rational 
+        solutions, for all positive integers $n \ge 2$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Let $f \in \mathbb{Z}[x]$ and $n$ an integer.
+    Let $g$ be the polynomial defined by $g(x) = f(x + n)$.
+    Prove that $f$ is irreducible in $\mathbb{Z}[x]$ if and 
+    only if $g$ is irreducible in $\mathbb{Z}[x]$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    (a) Apply Eisenstein's criterion $5.7$ to check that the 
+        following polynomials are irreducible
+        \[5x^3 - 6x^2 + 2x - 14 \text{ and } 4x^5 + 5x^3 - 15x + 20\]
+
+    (b) Make the substition $x = y + 1$ to the polynomial $x^5 + 5x + 4$
+        that appears in Example $5.1$l. Show that the resulting polynomial
+        is irreducible.
+
+    (c) Use the same technique as in part b to find a substitution 
+        $x = y + m$ so you can conclude the polynomial
+        \[x^4 + 6x^3 + 12x^2 + 10x + 5\]
+        is irreducible.
+
+    (d) Show that this technique works in general: Prove that if 
+        $f(x) \in \mathbb{Z}[x]$, then $f(x)$ is irreducible if 
+        and only if $f(y + m)$ is.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Prove Theorem $5.7$ (Eisenstein's criterion).
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    Let $p$ be a positive prime integer. Then the polynomial
+    \[\phi_p = \frac{x^p - 1}{x - 1}\]
+    is called a \textbf{cyclotomic polynomial}.
+
+    (a) Write out, in the usual form for a polynomial, the cyclotomic
+        polynomials for the first three primes.
+
+    (b) Prove that all cyclotomic polynomials $\phi_p$ are irreducible
+        over $\mathbb{Z}[x]$, using Eisenstein's criterion $5.7$ 
+        and Exercise $15d$ for $m = 1$.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[p = 2, \frac{x^2 - 1}{x - 1} = \frac{(x - 1)(x + 1)}{x - 1} = x + 1\]
+\[p = 3, \frac{x^3 - 1}{x - 1} = \frac{(x - 1)(x^2 + x + 1)}{x - 1} = x^2 + x + 1\]
+\[p = 5, \frac{x^5 - 1}{x - 1} = \frac{(x - 1)(x^4 + x^3 + x^2 + x + 1)}{x - 1} = x^4 + x^3 + x^2 + x + 1\]
