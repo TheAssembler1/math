@@ -1278,6 +1278,7 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     Thus $g = f^{-1}$.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 11, breakable]
     Suppose $f : A \rightarrow B$ and $g : B \rightarrow A$.
 
@@ -1286,20 +1287,39 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     (b) Prove that if $f$ is onto and $g \circ f = i_A$, then $g = f^{-1}$.
 
     (c) Prove that if $f \circ g = i_B$ but $g \circ f \ne i_A$, then $f$ is onto 
-        but one-to-one, and $g$ is one-to-one but not onto.
+        but not one-to-one, and $g$ is one-to-one but not onto.
 \end{tcolorbox}
 
 \begin{proof}
     Suppose $f$ is one-to-one and $f \circ g = i_B$.
-    Suppose $(b, a) \in B \times A$ such that $(b, a) \in g$
-        and therefore $g(b) = a$.
+    Let $b$ be an arbitrary element in $B$, and let $a = g(b) \in A$.
+    Then
+    \[
+    (g \circ f)(a) = g(f(a)) = g(f(g(b))) = g((f \circ g)(b)) = g(i_B(b)) = g(b) = a.
+    \]
+    It then follows that $g = f^{-1}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $f$ is onto and $g \circ f = i_A$.
+    Let $a$ be an arbitrary element in $A$, and 
+        let $b = f(a) \in B$.
     Then 
-    \[(f \circ g)(b) = f(a) = i_B(b) = b\]
-    Thus $(a, b) \in f$ and it follows that $(b, a) \in f^{-1}$.
-    Therefore $g \subseteq f^{-1}$.
-    Suppose $(b, a) \in B \times A$ such that $(b, a) \in f^{-1}$.
-    It follows that $(a, b) \in f$ and therefore $f(a) = b$.
-    Then 
+    \[(f \circ g)(b) = f(g(b)) = f(g(f(a))) = f((g \circ f)(a)) = f(i_A(a)) = f(a) = b\]
+    It then follows that $g = f^{-1}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $f \circ g = i_B$ but $g \circ f \ne i_A$.  
+    Then $f$ is onto and $g$ is one-to-one.  
+
+    For contradiction, suppose $f$ is one-to-one.  
+    Then by part (a), $g = f^{-1}$, contradicting $g \circ f \ne i_A$.  
+    Hence $f$ is not one-to-one.  
+
+    For contradiction, suppose $g$ is onto.  
+    Then by part (b), $g = f^{-1}$, contradicting $g \circ f \ne i_A$.  
+    Hence $g$ is not onto.  
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
@@ -1337,6 +1357,61 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     (d) Suppose $g : B \rightarrow A$. Prove that $f \circ g = i_B$
         iff $\forall{b} \in B(g(b) \in h^{-1}(b))$.
 \end{tcolorbox}
+
+\begin{proof}
+    Since for all $x, y \in A \times A$
+        if $(x, y) \in R$ then $f(x) = f(y)$
+        it follows that $R$ is compatible with $f$.
+    Then from Section $5.1$ Problem $21(a)$
+        it follows that there is a unique function $h : A / R \rightarrow B$ such that 
+        for all $x \in A$, $h([x]_R) = f(x)$.
+\end{proof}
+
+\begin{proof}
+    Since for all $x, y \in A \times A$
+        if $(x, y) \in R$ then $f(x) = f(y)$,
+        it follows immediately from Section $5.2$ 
+        problem $19$ that $h$ is one-to-one.
+    Let $b$ be an arbitrary element in $B$.
+    Since $f$ is onto, there exists $a \in A$
+        such that $f(a) = b$.
+    It follows that $h([a]_R) = f(a) = b$.
+    Thus $h$ is onto.
+\end{proof}
+
+\begin{proof}
+    Let $b$ be an arbitrary element in $B$.
+
+    Let $A = h^{-1}(b)$, so $A \in A / R$ and $h(A) = b$.
+    By the definition of $h$, there exists $x \in A$ such that $h(A) = f(x) = b$.
+    Let $y$ be an arbitrary element in $A$.
+    Since $(x, y) \in R$, it follows that $f(y) = f(x) = b$.
+    Thus $y \in \{x \in A \mid f(x) = b\}$.
+    Therefore $h^{-1}(b) = A \subseteq \{x \in A \mid f(x) = b\}$.
+
+    Let $x$ be an arbitrary element in $\{x \in A \mid f(x) = b\}$.
+    It follows that $f(x) = b$.
+    There exists $X \in A / R$ such that $x \in X$.
+    Then $h(X) = f(x) = b$.
+    Thus $X = h^{-1}(b)$ and it follows that $x \in  h^{-1}(b)$.
+    Therefore $\{x \in A \mid f(x) = b\} \subseteq h^{-1}(b)$.
+\end{proof}
+
+\begin{proof}
+    ($\rightarrow$) Suppose $f \circ g = i_B$.
+    Let $b$ be an arbitrary element in $B$.
+    Let $a = g(b) \in A$.
+    Applying $f$ shows 
+    \[(f \circ g)(b) = f(a) = i_B(b) = b.\]
+    Thus $f(a) = b$, so $g(b) \in \{x \in A \mid f(x) = b\} = h^{-1}(b)$.
+    Therefore $\forall b \in B,\ g(b) \in h^{-1}(b)$.
+
+    ($\leftarrow$) Suppose $\forall b \in B,\ g(b) \in h^{-1}(b)$.
+    Let $b$ be an arbitrary element in $B$.
+    It follows that $g(b) \in h^{-1}(b) = \{x \in A \mid f(x) = b\}$.
+    Thus $f(g(b)) = b$.
+    Therefore $(f \circ g)(b) = b$, and since $b$ was arbitrary, $f \circ g = i_B$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
     Suppose $f : A \rightarrow B$, $g : B \rightarrow A$, and $f \circ g = i_B$.
@@ -1400,9 +1475,60 @@ Counter example: If $f$ is onto then $f | C$ is onto.
 \begin{proof}
     We must show $R$ is reflexive, transitive, 
         and symmetric.
+
     Let $f$ be an arbitrary element in $\mathcal{F}$.
-    Let $h = f$ then $h^{-1} \circ f \circ h = f^{-1} \circ f \circ f = i_B \circ f = f$
+    Let $h = i_A$ then 
+    \[h^{-1} \circ f \circ h = i_A \circ f \circ i_A = f\]
     Thus $(f, f) \in R$ and therefore $R$ is reflexive.
+
+    Let $(f, g), (g, l)$ be arbitrary elements in $R$.
+    There exists $h_1, h_2 \in \mathcal{P}$ such that 
+    \[f = h_1^{-1} \circ g \circ h_1 \text{ and } g = h_2^{-1} \circ l \circ h_2\]
+    It follows that 
+    \[f = h_1^{-1} \circ h_2^{-1} \circ l \circ h_2 \circ h_1\]
+    Therefore 
+    \[f = (h_1^{-1} \circ h_2^{-1}) \circ l \circ (h_2 \circ h_1) \iff f = (h_1 \circ h_2)^{-1} \circ l \circ  (h_2 \circ h_1)\]
+    Thus $(f, l) \in R$ and therefore $R$ is transitive.
+
+    Let $(f, g)$ be an arbitrary element in $R$.
+    There exists $h \in \mathcal{P}$ such that 
+    \[f = h^{-1} \circ g \circ h\]
+    Applying $h$ shows 
+    \[h \circ f = h \circ h^{-1} \circ g \circ h = i_A \circ g \circ h = g \circ h\]
+    Let $a_1$ be an arbitrary element in $A$.
+    There exists $a_2$ such that $h^{-1}(a_1) = a_2$.
+    It follows that $a_1 = h(a_2)$.
+    Then appying $h \circ f$ shows
+    \[(h \circ f \circ h^{-1})(a_1) = (h \circ f)(a_2) = (g \circ h)(a_2) = g(h(a_2)) = g(a_1)\]
+    Thus $g = h \circ f \circ h^{-1}$
+    It follows that $(g, f) \in R$ and therefore $R$ is symmetric.
+\end{proof}
+
+\begin{proof}
+    Let $(f, g)$ be an arbitrary element in $R$.
+    It follows that there exists $h \in \mathcal{P}$
+        such that $f = h^{-1} \circ g \circ h$.
+    \[f \circ f = h^{-1} \circ g \circ h \circ h^{-1} \circ g \circ h\]
+    Then since $h \circ h^{-1} = i_A$ it follows that 
+    \[f \circ f = h^{-1} \circ g  \circ g \circ h\]
+    Thus $(f \circ f, g \circ g) \in R$.
+\end{proof}
+
+\begin{proof}
+    Suppose $f \in \mathcal{F}$ has a fixed point $a \in A$
+        such that $f(a) = a$.
+    Furthermore suppose there exists $g \in \mathcal{F}$
+        such that $(f, g) \in R$.
+    It follows that there exists $h \in \mathcal{P}$ 
+        such that $f = h^{-1} \circ g \circ h$.
+    Then 
+    \[f(a) = (h^{-1} \circ g \circ h)(a) =  a\]
+    Then applying $h$ shows
+    \[(h \circ f)(a) = (g \circ h)(a) =  h(a)\]
+    Now there exists $b \in A$ such that $h(a) = b$.
+    Therefore
+    \[(g \circ h)(a) =  h(a) \iff g(b) = b\]
+    Thus $g$ has a fixed point.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 18, breakable]

@@ -78,7 +78,6 @@
     Thus, in either case, $f$ divides one of the $f_i$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     Use Gauss's Lemma to determine which of the following 
     are irreducible in $Q[x]$:
@@ -151,23 +150,95 @@
     \[2x^3 - 17x^2 - 10x + 9\]
 \end{tcolorbox}
 
-\textbf{Solution:}=
-Let $x = 9$ then by inspection this is a root.
+\textbf{Solution:}
+
+Using the Root Theorem we find the following possible roots
+\[\text{Candidates = } \{\pm \frac{9}{1},\pm \frac{9}{2},\pm \frac{3}{1},\pm \frac{3}{2},\pm \frac{1}{1},\pm \frac{1}{2}\}\]
+Inspection shows that $9$ and $\frac{1}{2}$ are roots.
+Dividing $2x^3 - 17x^2 - 10x + 9$ by $(x - 9)(x - \frac{1}{2})$ gives us $(2x + 2)$. Thus 
+\[2x^3 - 17x^2 - 10x + 9 = (x - 9)(x - \frac{1}{2})(2x + 2)\]
 
 \begin{tcolorbox}[title=Problem 9, breakable]
     Use the Rational Root Theorem $5.6$ (applied to $x^3 - 2$)
     to argue that $\sqrt[3]{2}$ is irrational.
 \end{tcolorbox}
 
+\begin{proof}
+    For contradiction, suppose $\sqrt[3]{2}$ is a rational root 
+        for $x^3 - 2$.
+    Since $\sqrt[3]{2}$ is rational it can be expressed as $\frac{a}{b}$
+        where $a, b \in \mathbb{Z}$ and $\gcd(a, b) = 1$.
+    By the Rational Root Theorem $5.6$
+        it follows that $a \mid -2$ and $b \mid 1$.
+    There exists $k_1, k_2 \in \mathbb{Z}$ such that 
+        $-2 = a k_1$ and $1 = b k_2$.
+    Then 
+    \[\sqrt[3]{2} = \frac{\frac{-2}{k_1}}{\frac{1}{k_2}} = \frac{-2 k_2}{k_1}\]
+    It follows that $2 = \frac{-8 k_2^3}{k_1^3}$. Multiplying by $k_1^3$
+    and dividing by $2$ shows that $k_1$ is even.
+    Rewriting $k_1 = 2 k_3$ where $k_3 \in \mathbb{Z}$  
+        we get 
+        \[2 = \frac{-8 k_2^3}{(2k_3)^3} 
+            \iff 2 (2 k_3)^3 = -8 k_2^3
+            \iff 16 k_3^3 = -8 k_2^3.\]
+    Dividing by $8$ shows that $k_2$ is even, contradicting 
+        that $\gcd(a, b) = 1$.
+\end{proof}
+
+\begin{proof}
+    For contradiction, suppose $\sqrt[3]{2}$ is a rational root 
+    of $x^3 - 2$. Then we can write $\sqrt[3]{2} = \frac{a}{b}$, 
+    where $a, b \in \mathbb{Z}$, $\gcd(a, b) = 1$.  
+    By the Rational Root Theorem $5.6$ any rational root $\frac{a}{b}$ 
+        must satisfy $a \mid -2$ and $b \mid 1$.  
+    Thus the only possible rational roots are 
+    \[
+        \pm 1, \quad \pm 2.
+    \]  
+    Inspection shows that no combination works.
+    Thus  $\sqrt[3]{2}$ is irrational.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 10, breakable]
     Suppose that $\alpha$ is a real number (which might 
     not be rational), and suppose that it is a root of a 
     polynomial $p \in \mathbb{Q}[x]$; that is,
     $p(\alpha) = 0$. Suppose further that $p$ is irreducible
-    in $\mathbb{Q}[x]$. POrve that $p$ has a minimal degree in the 
+    in $\mathbb{Q}[x]$. Prove that $p$ has a minimal degree in the 
     set 
-    \[\{f \in \mathbb{Q}[x] : f(\alpha) = 0 \text{ and } f \ne 0\}\]
+    \[\mathcal{F} = \{f \in \mathbb{Q}[x] : f(\alpha) = 0 \text{ and } f \ne 0\}\]
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose there exists $g \in \mathbb{Q}[x]$
+        such that $\deg(g) < \deg(p)$.
+    By the Division Theorem there exists $q, r \in \mathbb{Q}[x]$
+        such that $p = g q + r$ and $\deg(r) < \deg(g)$.
+    Then 
+    \[0 = p(\alpha) = g(\alpha)q(\alpha) + r(\alpha) = 0 + r(\alpha) = r(\alpha),\]
+    thus $r(\alpha) = 0$. 
+
+    Either $\deg(r) = 0$ or $\deg(r) > 0$.
+    Suppose $\deg(r) = 0$, then since $r(\alpha) = 0$, $r$ is the zero polynomial.
+    Since $\deg(p) = \deg(g) + \deg(q)$ and $\deg(g) < \deg(p)$,
+        it follows that $\deg(q) > 0$.
+    Thus $p$ has been factored into two polynomials with degree 
+        greater than $0$, contradicting the irreducibility of $p$.
+
+    Now, suppose $\deg(r) > 0$. We can repeatedly apply the Division Theorem
+        to form a sequence of decreasing remainders by their degrees.
+
+    For example, continuing where we left off, we divide $p$ by $r$
+        and by the Division Theorem obtain $r_1, q_1 \in \mathbb{Q}[x]$
+        such that 
+    \[p = rq_1 + r_1.\]
+    Then $\deg(r_1) < \deg(r) < \deg(g)$.
+
+    If at any point a remainder $r$ is a scalar, it must be the 
+        zero polynomial and we contradict the irreducibility of $p$.
+    On the other hand, if the sequence never ends, then we contradict the finiteness of
+        the degree of $p$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
     Construct polynomials of arbitrarily large degree,
@@ -175,7 +246,10 @@ Let $x = 9$ then by inspection this is a root.
 \end{tcolorbox}
 
 \textbf{Solution}
-\[\{f \mid f = x^n + 2, n = 2k, k \in \mathbb{Z+}\}\]
+\[\mathcal{F} = \{f \mid f = x^n - 2\}\]
+By Eisenstein's Cirterion all $f \in \mathcal{F}$
+    are irreducible in $\mathbb{Z}[x]$.
+By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
 
 \begin{tcolorbox}[title=Problem 13, breakable]
     (a) Prove that the equation $a^2 = 2$ has no ration solutions;
@@ -186,12 +260,45 @@ Let $x = 9$ then by inspection this is a root.
         solutions, for all positive integers $n \ge 2$.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $p = 2$ and apply Eisenstein's Criterion to $a^2 - 2 = 0$.
+    Clearly $2$ is prime, $2 \mid -2$, $2 \nmid 1$, and $2^2 \nmid -2$.
+    Thus there is no rational root.
+\end{proof}
+
+\begin{proof}
+    Same logic as before.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 14, breakable]
     Let $f \in \mathbb{Z}[x]$ and $n$ an integer.
     Let $g$ be the polynomial defined by $g(x) = f(x + n)$.
     Prove that $f$ is irreducible in $\mathbb{Z}[x]$ if and 
     only if $g$ is irreducible in $\mathbb{Z}[x]$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $y = x - n$, so that $f(x + n) = g(y) = g(x - n)$.
+
+    ($\rightarrow$) Suppose $f$ is irreducible in $\mathbb{Z}[x]$.
+    For contradiction suppose $g$ is reducible: $g = p l$ where $p, l \in \mathbb{Z}[x]$.
+    Then
+    \[
+        f(x) = g(x - n) = p(x - n) l(x - n),
+    \]
+    contradicting the irreducibility of $f$.
+    Thus $g$ is irreducible in $\mathbb{Z}[x]$.
+
+    ($\leftarrow$) Suppose $g$ is irreducible in $\mathbb{Z}[x]$.
+    For contradiction suppose $f$ is reducible: $f = p l$ where $p, l \in \mathbb{Z}[x]$.
+    Then
+    \[
+        g(x) = f(x + n) = p(x + n) l(x + n),
+    \]
+    contradicting the irreducibility of $g$.
+    Thus $f$ is irreducible in $\mathbb{Z}[x]$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 15, breakable]
     (a) Apply Eisenstein's criterion $5.7$ to check that the 
@@ -216,6 +323,51 @@ Let $x = 9$ then by inspection this is a root.
     Prove Theorem $5.7$ (Eisenstein's criterion).
 \end{tcolorbox}
 
+\begin{theorem}[Eisenstein's Criterion]
+    Suppose that $f \in \mathbb{Z}[x]$,
+        and 
+    \[f = a_0 + a_1 x + a_2 x^2 + \cdots +  a_n x^n\]
+    Let $p$ be a prime integer, and suppose that
+    \begin{enumerate}
+        \item $p$ divides $a_k$, for $0 \le k < n$,
+        \item $p$ does not divide $a_n$, and 
+        \item $p^2$ does not divide $a_0$
+    \end{enumerate}
+    Then $f$ is irreducible in $\mathbb{Z}[x]$.
+\end{theorem}
+
+\begin{proof}
+    Suppose for contradiction that $f$ is reducible. Then there exist 
+    polynomials $g, l \in \mathbb{Z}[x]$ such that 
+    $f = g l$:
+    \[
+    f = a_0 + a_1 x + a_2 x^2 + \cdots +  a_n x^n = g l.
+    \]
+    Now $p$ either divides the constant term of $g$ or $l$;
+    otherwise it would not divide the constant term of $f$.  
+    Furthermore, if $p$ divides the constant term of both, then   
+    $p^2$ would divide the constant term of $f$, which is impossible.  
+    Suppose w.l.o.g. that $p$ divides the constant term of $g$ 
+    and $p$ does not divide the constant term of $l$.  
+    The constant term of $l$ cannot be zero; otherwise the constant term of $f$ would be zero.
+
+    Now consider the first coefficient $b_j$ of $g$ with $j>0$ that is 
+    not divisible by $p$. This term exists since coefficientof 
+    largest degree term of $g$ is not divisible by $p$.
+    Let $c$ be the constant term of $l$, so $p \nmid c$. 
+    Then the product $b_j c$ contributes to the coefficient $a_j$ of $f$. 
+    Since $p \nmid b_j$ and $p \nmid c$, it follows that $p \nmid b_j c$. 
+
+    Any other contributions to $a_j$ come from products of terms of $g$ and $l$ 
+        where at least one factor is divisible by $p$, so those terms are divisible by $p$. 
+    Thus the coefficient $a_j$ of $f$ is
+    \[
+    a_j = b_j c + (\text{terms divisible by } p),
+    \]
+    which is not divisible by $p$, contradicting the assumption that $p$ divides $a_k$ for all $0 \le k < n$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 17, breakable]
     Let $p$ be a positive prime integer. Then the polynomial
     \[\phi_p = \frac{x^p - 1}{x - 1}\]
@@ -233,3 +385,11 @@ Let $x = 9$ then by inspection this is a root.
 \[p = 2, \frac{x^2 - 1}{x - 1} = \frac{(x - 1)(x + 1)}{x - 1} = x + 1\]
 \[p = 3, \frac{x^3 - 1}{x - 1} = \frac{(x - 1)(x^2 + x + 1)}{x - 1} = x^2 + x + 1\]
 \[p = 5, \frac{x^5 - 1}{x - 1} = \frac{(x - 1)(x^4 + x^3 + x^2 + x + 1)}{x - 1} = x^4 + x^3 + x^2 + x + 1\]
+
+Plugging in $x + 1$.
+\[p = 2,\quad (x + 1) + 1 = x + 2\]
+\[p = 3,\quad (x + 1)^2 + (x + 1) + 1 = x^2 + 3x + 3\]
+\[p = 5,\quad (x + 1)^4 + (x + 1)^3 + (x + 1)^2 + (x + 1) + 1 = x^4 + 5x^3 + 10x^2 + 10x + 5\]
+\[p = 7,\quad (x + 1)^6 + (x + 1)^5 + (x + 1)^4 + (x + 1)^3 + (x + 1)^2 + (x + 1) + 1 = x^6 + 7x^5 + 21x^4 + 35x^3 + 35x^2 + 21x + 7\]
+
+
