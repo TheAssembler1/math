@@ -1,0 +1,364 @@
+\subsection{Proof by Mathematical Induction}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Prove that for all $n \in \mathbb{N}$,
+        $0 + 1 + 2 + \cdots + n = \frac{n(n + 1)}{2}$
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) 
+    \[\frac{1(1 + 1)}{2} = \frac{2}{2} = 1\]
+    (\textbf{Induction Step}) Suppose $0 + 1 + 2 + \cdots + n = \frac{n(n + 1)}{2}$.
+    Then 
+    \begin{align*}
+        0 + 1 + 2 + \cdots + n + (n + 1) 
+            &= \frac{n(n + 1)}{2} + (n + 1) \\
+            &= \frac{n(n + 1)}{2} + \frac{2n}{2} + \frac{2}{2} \\
+            &= \frac{n(n + 1) + 2n + 2}{2} \\
+            &= \frac{n(n + 1) + 2(n + 1)}{2} \\
+            &= \frac{(n + 2)(n + 1)}{2} \\
+            &= \frac{(n + 1)((n + 1) + 1)}{2}
+    \end{align*}
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Find a formula for $1 + 3 + 5 + \cdots + (2n - 1)$,
+        for $n \ge 1$, and prove your formula is correct.
+    (Hint: First try some particular values of $n$ and 
+           look for a pattern.)
+\end{tcolorbox}
+\[1 + 3 + 5 + \cdots + (2n - 1) = n^2\]
+\begin{proof}
+    (\textbf{Base Case})
+    \[n^2 = 1^2 = 1\]
+    (\textbf{Induction Step})
+    Suppose $1 + 3 + 5 + \cdots + (2n - 1) = n^2$
+    Then 
+    \begin{align*}
+        1 + 3 + 5 + \cdots + (2n - 1) + 2n + 1 
+            &= n^2 + 2n + 1 \\
+            &= (n + 1)^2
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    (a) Prove that for all $n \in \mathbb{N}$, $2 \mid (n^2 + n)$.
+
+    (b) Prove that for all $n \in \mathbb{N}$, $6 \mid (n^3 - n)$.
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) 
+    \[n^2 + n = 1^2 + 1 = 2\]
+    Clearly $2 \mid 2$.
+
+    (\textbf{Induction Step})
+    Suppose $n \in \mathbb{N}$, $2 \mid (n^2 + n)$.
+    Let $k$ be the integer such that $2k = n^2 + n$.
+    Then
+    \begin{align*}
+        (n + 1)^2 + (n + 1) &= n^2 + 2n + 1 + n + 1 \\
+        &= n^2 + n + 2n + 2 \\
+        &= 2k + 2n + 2 \\
+        &= 2(k + n + 1)
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    (\textbf{Base Case})
+    \[1^3 - 1 = 0\]
+    Clearly $6 \mid 0$.
+
+    (\textbf{Induction Step})
+    Suppose $6 \mid (n^3 - n)$.
+    Let $k$ be the integer such that $6k = n^3 - n$.
+    It follows that $6k + n = n^3$.
+    Then 
+    \begin{align*}
+        (n + 1)^3 - (n + 1) &= n^3 + 3n^2 + 3n + 1 - n - 1 \\
+        &= n^3 - n + 3n^2 + 3n \\
+        &= 6k + 3(n^2 + n)
+    \end{align*}
+    Now, $n^2 + n = n(n + 1)$ which is the product of two consecutive 
+        natural numbers. One of which is even thus $n^2 + n$ is even.
+    Let $j$ be the integer such that $2j = n^2 + n$.
+    Then $6k + 3(n^2 + n) = 6k + 3(2j) = 6k + 6j = 6(k + j)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Prove that for all integers $a$ and $b$ and all $n \in \mathbb{N}$,
+        $(a - b) \mid (a^n - b^n)$.
+    (Hint: Let $a$ and $b$ be arbitrary integers and then prove by induction 
+        that $\forall{n} \in \mathbb{N}[(a - b) \mid (a^n - b^n)])$.
+    For the induction step, you must relate $a^{n + 1} - b^{n + 1}$
+        to $a^n - b^n$. 
+    You might find it useful to start by completing the following equation:
+    $a^{n + 1} - b^{n + 1} = a(a^n - b^n) + ?$.
+    The $?$ equals $b^n(a - b)$.
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) 
+    \[a^n - b^n = a^1 - b^1 = a - b\]
+    Clearly $(a - b) \mid (a - b)$
+    (\textbf{Induction Step}) Suppose for all integers $a$ and $b$ and all $n \in \mathbb{N}$,
+        $(a - b) \mid (a^n - b^n)$.
+        Let $k$ be the integer such that $k(a - b) = a^n - b^n$.
+    Then 
+    \begin{align*}
+        a^{n + 1} - b^{n + 1} &= a(a^n - b^n) + b^n(a - b) \\
+        &= a k(a - b) + b^n(a - b) \\
+        &= (a - b)(ak + b^n)
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Prove that for all $n \ge 10$, $2^n > n^3$.
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case})
+    \[2^{10} > 10^3 \iff 1024 > 1000\]
+    (\textbf{Induction Step}) Suppose for some fixed $n \ge 10$, $2^n > n^3$.
+    Then $2^{n + 1} = 2 \cdot 2^n > 2n^3$.
+    Now $(n + 1)^3 = n^3 + 3n^2 + 3n + 1$ and we need to show 
+        $2n^3 > n^3 + 3n^2 + 3n + 1$ which is equivalent to 
+        $n^3 > 3n^2 + 3n + 1$ for all $n \ge 10$.
+    We can transform the problem into
+    \[n^3 - 3n^2 - 3n - 1 > 0 \quad \text{for } n \ge 10\]
+    Then $n^3 - 3n^2 - 3n - 1 > 10^3 - 3(10^2) - 3(10) - 1 = 669 > 0$.
+    Since \(f(n) = n^3 - 3n^2 - 3n - 1\) has derivative 
+    \(f'(n) = 3n^2 - 6n - 3 = 3(n^2 - 2n - 1) > 0\) for \(n \ge 3\), \(f\) is increasing, 
+    so \(f(n) \ge f(10) = 669 > 0\) for all \(n \ge 10\).
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    (a) Prove that for all $n \in \mathbb{N}$, either $n$ 
+        is even or $n$ is odd, but not both.
+
+    (b) Prove that, as claimed in Section $3.4$, every integer 
+        is either even or odd, but not both. (Hint: 
+        To prove that a negative integer $n$ is even or odd,
+        but not both, apply part (a) to $-n$.)
+\end{tcolorbox}
+
+\begin{proof}
+    For contradiction, suppose $n$ is even and odd.
+    Let $k_1, k_2$ be the integers such that $n = 2k_1$ and $n = 2 k_2 + 1$.
+    Then 
+    \[
+        2k_1 = 2k_2 + 1 \iff 2(k_1 - k_2) = 1
+    \]
+    There is clearly no integer solution to $2x = 1$, so $n$ is not both even and odd.
+
+    (\textbf{Base Case}) If $n = 1$, it is clearly odd since $1 = 2(0) + 1$,
+        and if $n = 2$, then it is clearly even since $2 = 2(1)$.
+    
+    (\textbf{Induction Step}) Suppose $n$ is even or odd but not both.
+    Now consider $n + 1$. Either $n$ is even or odd. 
+    Suppose $n$ is even; let $k_1$ be the integer such that $2k_1 = n$.
+    Then $2k_1 + 1$, thus $n + 1$ is odd.
+    Suppose $n$ is odd; let $k_1$ be the integer such that $2k_1 + 1 = n$.
+    Then $2k_1 + 2 = 2(k_1 + 1)$, thus $n + 1$ is even.
+\end{proof}
+
+\begin{proof}
+    The case where $n \ge 0$ is clear.
+    Now suppose $n < 0$.
+    Let $b$ be the positive number such that $-b = n$.
+    From part (a) $b$ is either even or odd, but not both.
+    Thus either there exists $k_1$ such that $2 k_1 = b$,
+        in which case $- 2 k_1 = n$ is even,
+    or there exists $k_2$ such that $2 k_2 + 1 = b$,
+        in which case $- (2 k_2 + 1) = n$ is odd.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    (a) What's wrong with the following proof that every $n \in \mathbb{N}$,
+        $1 \cdot 3^0 + 3 \cdot 3^1 + 5 \cdot 3^2 + \cdots + (2n + 1)3^n = n 3^{n + 1}$?
+    \begin{proof}
+        We use mathematical induction. Let $n$ be an arbitrary natural number,
+        and suppose $1 \cdot 3^0 + 3 \cdot 3^1 + 5 \cdot 3^2 + \cdots + (2n + 1)3^n = n 3^{n + 1}$.
+        Then 
+        \begin{align*}
+            1 \cdot 3^0 + 3 \cdot 3^1 + 5 \cdot 3^2 + \cdots + (2n + 1)3^n + (2n + 3)3^{n + 1}
+            &= n 3^{n + 1} + (2n + 3) 3^{n + 1} \\
+            &= (3n + 3) 3^{n + 1} \\
+            &= (n + 1)3^{n + 2}
+        \end{align*}
+        as required.
+    \end{proof} 
+    (b) Find a formula for $1 \cdot 3^0 + 3 \cdot 3^1 + 5 \cdot 3^2 + \cdots + (2n + 1)3^n = n 3^{n + 1}$, and 
+        prove that your forumla is correct.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+It never establishes the base case (which fails).
+The formula shows the power of $3$ should be $1$ more than the coefficient.
+But on the l.h.s. the power has $1$ fewer than the coefficient.
+The formula should be 
+\[1 \cdot 3^0 + 3 \cdot 3^1 + 5 \cdot 3^2 + \cdots + (2n + 1)3^n = 3^n \cdot (n - 1) + 1\]
+
+\begin{proof}
+    (\textbf{Base Case}) 
+    \[
+    3^n \cdot (n - 1) + 1 = 3^1 \cdot (1 - 1) + 1 = 0 + 1 = 1
+    \]
+
+    (\textbf{Induction Step})  
+    Suppose 
+    \[
+    1 \cdot 3^0 + 3 \cdot 3^1 + 5 \cdot 3^2 + \cdots + (2n - 1)3^{n-1} = 3^n \cdot (n - 1) + 1.
+    \]  
+    Then 
+    \begin{align*}
+        1 \cdot 3^0 + 3 \cdot 3^1 + 5 \cdot 3^2 + \cdots + (2n - 1)3^{n-1} + (2n + 1)3^n 
+        &= 3^n \cdot (n - 1) + 1 + (2n + 1)3^n \\
+        &= 3^n(n - 1 + 2n + 1) + 1 \\
+        &= 3^n (3n) + 1 \\
+        &= 3^{n+1} \cdot n + 1 
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    Suppose $a$ is a real number and $a < 0$. Prove that for all $n \in \mathbb{N}$,
+    if $n$ is even then $a^n > 0$, and if $n$ is odd then $a^n < 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) First consider $n = 1$. Let $a = -b$ where $b > 0$.
+    Then $a^1 = (-b)^{1} = -b$ which is negative.
+    Now consider $n = 2$. Again, let $a = -b$ where $b > 0$.
+    Then $a^2 = a \cdot a = -b \cdot -b = (-1 \cdot -1) b^2 = 1 b^2 = b^2$ which is positive.
+
+    (\textbf{Induction Step}) Suppose the relationship holds up to some $n \in \mathbb{N}$.
+    Consider $a^{n + 1} = a^n \cdot a$.
+    Suppose $n$ is even by the hypothesis $a^n$ is positive thus $a^n \cdot a$ is negative.
+    Thefore $a^{n + 1}$ is negative.
+    Similarly, suppose $n$ is odd by the hypothesis $a^n$ is negative thus $a^n \cdot a$ is positive.
+    Thefore $a^{n + 1}$ is positive.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+    Suppose $a$ and $b$ are real numbers and $0 < a < b$.
+
+    (a) Prove that for all $n \ge 1$, $0 < a^n < b^n$. (Notice that this 
+        generalizes Example $3.1.2.$)
+
+    (b) Prove that for all $n \ge 2$, $0 < \sqrt[n]{a} < \sqrt[n]{b}$.
+
+    (c) Prove that for all $n \ge 1$, $a b^n + b a^n < a^{n + 1} + b^{n + 1}$.
+
+    (d) Prove that for all $n \ge 2$.
+    \[\left(\frac{a + b}{2}\right)^n < \frac{a^n + b^n}{2}\]
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) $n = 1$ is clear and $n = 2$ was shown 
+        by Example $3.1.2$.
+    
+    (\textbf{Induction Step}) Suppose the relationship holds up to some $n \in \mathbb{N}$.
+    Consider the $n + 1$ case
+    \[0 < a^{n + 1} < b^{n + 1} \iff a^{n + 1} - b^{n + 1} < 0 \iff a(a^n - b^n) + b^n(a - b) < 0\]
+    By the hypothesis $a^n - b^n < 0$ and $a > 0$ thus $a(a^n - b^n) < 0$.
+    Also $b^n > 0$ and since $a < b$ it follows that $a - b < 0$
+        thus $b^n(a - b) < 0$.
+    The sum of two numbers $< 0$ is clearly $< 0$ thus the relationship holds for $n + 1$.
+\end{proof}
+
+\begin{proof}
+    Suppose $0 < a < b$.
+    Note $a = a^{1} = a^{\frac{n}{n}} = \left(a^{\frac{1}{n}}\right)^n$.
+    Similarly $b = \left(b^{\frac{1}{n}}\right)^n$.
+    Then 
+    \begin{align*}
+        a < b
+        \iff &{\left(a^{\frac{1}{n}}\right)}^{n} < {\left(b^{\frac{1}{n}}\right)}^{n} \\
+        \iff &a^{\frac{1}{n}} < b^{\frac{1}{n}} \quad \text{Part (a)}
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Consider
+    \begin{align*}
+        (a b^n + b a^n) - (a^{n + 1} + b^{n + 1})
+        &= (a b^n - a^{n + 1}) + (b a^n - b^{n + 1}) \\
+        &= a(b^n - a^n) + b(a^n - b^n)
+    \end{align*}
+    Now let $t = b^n - a^n > 0$ by part (a).
+    Clearly $-t = a^n - b^n$.
+    Thus $a(b^n - a^n) + b(a^n - b^n) = at - bt = t(a - b)$.
+    Then since $t > 0$ and $(a - b) < 0$
+        it follows that $t(a - b) < 0$.
+    Thus $(a b^n + b a^n) - (a^{n + 1} + b^{n + 1}) < 0$
+        and it follows that $a b^n + b a^n < a^{n + 1} + b^{n + 1}$.
+\end{proof}
+
+\newpage 
+\begin{proof}
+    ($\textbf{Base Case}$) Let $n = 2$ then consider 
+    \begin{align*}
+        \left(\frac{a + b}{2}\right)^n - \frac{a^n + b^n}{2}
+        &= \frac{(a + b)^n}{2^n} - \frac{a^n + b^n}{2} \\
+        &= \frac{(a + b)^2}{2^2} - \frac{a^2 + b^2}{2} \\
+        &= \frac{(a + b)^2}{4} - \frac{2a^2 + 2b^2}{4} \\
+        &= \frac{a^2 + 2ab + b^2}{4} - \frac{2 a^2 + 2b^2}{4} \\
+        &= \frac{a^2 + 2ab + b^2 - (2 a^2 + 2b^2)}{4} \\
+        &= \frac{-a^2 - b^2 + 2ab}{4} \\
+        &= \frac{(ab + ab) - (a^2 + b^2)}{4} < 0 \quad \text{Apply part (c) to numerator}
+    \end{align*}
+    It follows that $\left(\frac{a + b}{2}\right)^n < \frac{a^n + b^n}{2}$.
+    Thus the relationship holds for $n = 2$.
+
+    (\textbf{Induction Step})  
+    Suppose the inequality holds for some $n \ge 2$.
+    Multiplying both sides by $\frac{a+b}{2} > 0$ shows
+    \[
+    \left(\frac{a+b}{2}\right)^{n+1} < \frac{a^n+b^n}{2} \cdot \frac{a+b}{2} = \frac{(a^n+b^n)(a+b)}{4}
+    \]
+    Then
+    \[
+    \frac{(a^n+b^n)(a+b)}{4} = \frac{a^{n+1} + b a^n + a b^n + b^{n+1}}{4}
+    \]
+    By part (c), $a b^n + b a^n < a^{n+1} + b^{n+1}$, so
+    \[
+    a^{n+1} + b a^n + a b^n + b^{n+1} < 2(a^{n+1} + b^{n+1})
+    \]
+    Then dividing both sides by $4$ shows
+    \[
+    \frac{a^{n+1} + b a^n + a b^n + b^{n+1}}{4} < \frac{a^{n+1} + b^{n+1}}{2}
+    \]
+    It follows that 
+    \[\left(\frac{a+b}{2}\right)^{n+1} < \frac{a^{n+1} + b^{n+1}}{2}\]
+\end{proof}
+
+\subsection{More Examples}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
