@@ -1293,20 +1293,24 @@ Counter example: If $f$ is onto then $f | C$ is onto.
 \begin{proof}
     Suppose $f$ is one-to-one and $f \circ g = i_B$.
     Let $b$ be an arbitrary element in $B$, and let $a = g(b) \in A$.
-    Then
+    Then 
     \[
-    (g \circ f)(a) = g(f(a)) = g(f(g(b))) = g((f \circ g)(b)) = g(i_B(b)) = g(b) = a.
+        f(a) = f(g(b)) = (f \circ g)(b) = i_B(b) = b.
     \]
-    It then follows that $g = f^{-1}$.
+    Since $f$ is one-to-one, this $a$ is the unique element such that $f(a)=b$.  
+    Thus $g(b) = a = f^{-1}(b)$.
+    Therefore $g = f^{-1}$.
 \end{proof}
 
 \begin{proof}
     Suppose $f$ is onto and $g \circ f = i_A$.
-    Let $a$ be an arbitrary element in $A$, and 
-        let $b = f(a) \in B$.
-    Then 
-    \[(f \circ g)(b) = f(g(b)) = f(g(f(a))) = f((g \circ f)(a)) = f(i_A(a)) = f(a) = b\]
-    It then follows that $g = f^{-1}$.
+    Let $a$ be an arbitrary element in $A$, and let $b = f(a) \in B$.
+    Then
+    \[
+        g(b) = g(f(a)) = (g \circ f)(a) = i_A(a) = a.
+    \]
+    Thus $g(b) = a$. Since $b = f(a)$, it follows that $g(b) = f^{-1}(b)$.
+    Therefore $g = f^{-1}$.
 \end{proof}
 
 \begin{proof}
@@ -1628,47 +1632,412 @@ Thus the closure is $\{-1, 0, 1, 2\}$.
     (Hint: See exercise of $12$ of Section $4.3$.)
 \end{tcolorbox}
 
+\textbf{Solution:}
+
+The set of all reflexive operations: Yes.
+
+The set of all symmetric operations: Yes.
+
+The set of all transitive operations: Yes.
+
+These all follow immediately from $12$ of Section $4.3$.
+
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Suppose $f : A \rightarrow A$. Is $\emptyset$ closed under $f$.
 \end{tcolorbox}
+
+\textbf{Solution:}
+
+Yes.
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    Suppose $f : A \rightarrow A$.
+
+    (a) Prove that if $Ran(f) \subseteq C \subseteq A$ then $C$ is closed under $f$.
+
+    (b) Prove that for every set $B \subseteq A$, the closure of $B$ under $f$ is 
+        a subset of $B \cup Ran(f)$.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $Ran(f) \subseteq C \subseteq A$. 
+    Let $c$ be an arbitrary element in $C$.
+    Then $f(c) \in Ran(f) \subseteq C$.
+    Therefore $C$ is closed under $f$.
+\end{proof}
+
+\begin{proof}
+    Let $C$ be the closure of $B$ under $f$. 
+    Then $C$ is the smallest set containing $B$ that is closed under $f$.
+    Every element $c \in C$ is either 
+    \begin{enumerate}
+        \item an element of $B$
+        \item an element obtained by applying $f$ to some element of $A$
+    \end{enumerate}
+    Thus $c \in B \cup Ran(f)$.
+    It follows that $C \subseteq B \cup Ran(f)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
+    Suppose $f : A \rightarrow A$ and $C_1$ and $C_2$
+    are subsets of $A$ that are closed under $f$.
+
+    (a) Prove that $C_1 \cup C_2$ is closed under $f$.
+
+    (b) Must $C_1 \cap C_2$ be closed under $f$? Justify your answer.
+
+    (c) Must $C_1 \setminus C_2$ be closed under $f$? Justify your answer.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
-\end{tcolorbox}
+\begin{proof}
+    Let $x$ be an arbitrary element in $C_1 \cup C_2$.
+    Either $x \in C_1$ or $x \in C_2$.
+    Suppose $x \in C_1$.
+    Since $C_1$ is closed under $f$ 
+        it follows that $f(x) \in C_1$.
+    Clearly $f(x) \in C_1 \cup C_2$.
+    Suppose $x \in C_2$.
+    Since $C_2$ is closed under $f$ 
+        it follows that $f(x) \in C_2$.
+    Clearly $f(x) \in C_1 \cup C_2$.
+    Therefore $C_1 \cup C_2$ is closed under $f$.
+\end{proof}
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $C_1 \cap C_2$.
+    It follows that $x \in C_1$ and $x \in C_2$.
+    Since $C_1$ is closed under $f$, $f(x) \in C_1$.
+    Since $C_2$ is closed under $f$, $f(x) \in C_2$.
+    Therefore $C_1 \cap C_2$ is closed under $f$.
+\end{proof}
+
+\textbf{Solution (c):}
+
+Let $A = \{1,2\}$, $C_1 = \{1,2\}$, $C_2 = \{2\}$, and define $f : A \to A$ by $f(x) = 2$ for all $x \in A$.  
+Then $C_1 \setminus C_2 = \{1\}$, but $f(1) = 2 \notin C_1 \setminus C_2$.  
+Therefore $C_1 \setminus C_2$ is not closed under $f$.
 
 \begin{tcolorbox}[title=Problem 11, breakable]
+    Prove Theorem $5.4.9$
 \end{tcolorbox}
+
+\begin{theorem}
+    Suppose that $f : A \times A \rightarrow A$ and $B \subseteq A$.
+    Then $B$ has a closure under $f$.
+\end{theorem}
+
+\begin{proof}
+    Let $\mathcal{F} = \{C \subseteq A \mid B \subseteq C \text{ and } C \text{ is closed under } f\}$.
+    Clearly $A \in \mathcal{F}$ and therefore $\mathcal{F} \ne \emptyset$.
+    Thus, we can let $C = \bigcap \mathcal{F}$.
+    By exercise $9$ of Section $3.3$, $C \subseteq A$.
+    We will show that $C$ is the closure of $B$ under $f$
+        by proving the three properties of Definition $5.4.8$.
+    
+    To prove the first property, suppose $x \in B$.
+    Let $D$ be an arbitrary element in $\mathcal{F}$.
+    Then by the definition of $\mathcal{F}$,
+        $B \subseteq D$, so $x \in D$.
+    Since $D$ was arbitrary,
+        $\forall{D} \in \mathcal{F}(x \in D)$,
+    so $x \in \bigcap \mathcal{F} = C$.
+    Thus, $B \subseteq C$.
+
+    Next, suppose $x, y \in C$ and again let $D$ be an 
+        arbitrary element of $\mathcal{F}$.
+    Then since $x, y \in C = \bigcap \mathcal{F}$, $x, y \in D$.
+    But since $D \in \mathcal{F}$, $D$ is closed under $f$,
+        so $f(x, y) \in D$.
+    Since $D$ was arbitrary, we can conclude that 
+        $\forall{D} \in \mathcal{F}(f(x, y) \in D)$,
+        so $f(x, y) \in \bigcap \mathcal{F} = C$.
+    Thus, we have shown that $C$ is closed under $f$,
+        which is the second property of Definition $5.4.8$.
+
+    Finally, to prove the third property,
+        suppose $B \subseteq D \subseteq A$
+        and $D$ is closed under $f$.
+    Then $D \in \mathcal{F}$, and applying 
+        exercise $9$ of Section $3.3$ again we 
+        can conclude that $C = \bigcap \mathcal{F} \subseteq D$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
+    If $\mathcal{F}$ is a set of functions from $A$ to $A$ and $C \subseteq A$,
+        then we will say that $C$ is closed under $\mathcal{F}$
+        if $\forall{f} \in \mathcal{F}\forall{x} \in C(f(x) \in C)$.
+    In other words $C$ is closed under $\mathcal{F}$ iff
+        for all $f \in \mathcal{F}$, $C$ is closed under $f$.
+    If $B \subseteq A$, the closure of $B$ under $\mathcal{F}$
+        is the smallest set $C \subseteq A$ such that $B \subseteq C$
+        and $C$ is closed under $\mathcal{F}$.
+    (You are asked to prove in the next exercise that the closure always exist.)
+
+    (a) Let $f$ and $g$ be functions from $\mathbb{R}$ to $\mathbb{R}$ defined 
+        by the formulas $f(x) = x + 1$ and $g(x) = x - 1$. Find the closure 
+        of $\{0\}$ under $\{f, g\}$.
+
+    (b) For each natural number $n$, let $f_n : \mathcal{P}(\mathbb{N}) \rightarrow \mathcal{P}(\mathbb{N})$
+        be defined by the formula $f_n(X) = X \cup \{n\}$, and let $\mathcal{F} = \{f_n \mid n \in \mathbb{N}\}$.
+        Find the closure of $\{\emptyset\}$ under $\mathcal{F}$.
 \end{tcolorbox}
+
+\textbf{Solution (a):}
+
+The closure is $\mathbb{Z}$.
+
+\textbf{Solution (b):}
+
+The closure is $\{X \mid X \subset \mathbb{N} \wedge X \text{ is finite}\}$.
 
 \begin{tcolorbox}[title=Problem 13, breakable]
+    Suppose $\mathcal{F}$ is a set of functions from $A$ to $A$ and $B \subseteq A$.
+    See the previous exercise for the definition of the closure of $B$ under $\mathcal{F}$.
+
+    (a) Prove that $B$ has a closure under $\mathcal{F}$.
+    For each $f \in \mathcal{F}$ let $C_f$ be the closure
+    of $B$ under $f$, and let $C$ be the closure of $B$ under $F$.
+
+    (b) Prove that $\bigcup_{f \in \mathcal{F}} C_f \subseteq C$.
+
+    (c) Must $\bigcup_{f \in \mathcal{F}} C_f$ be closed under $\mathcal{F}$.
+        Justify your answer with either a proof or counterexample.
+
+    (d) Must $\bigcup_{f \in \mathcal{F}} C_f$? Justify your answer 
+        with either a proof or counterexample.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{tcolorbox}[title=Problem 14, breakable]    
+    Let $f : \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ be defined 
+        by the formula $f(x, y) = x - y$. What is the closure of $\mathbb{N}$
+        under $f$.
 \end{tcolorbox}
+
+\textbf{Solution:}
+\[\mathbb{Z}\]
 
 \begin{tcolorbox}[title=Problem 15, breakable]
+    Let $f : \mathbb{R}^+ \times \mathbb{R}^+ \rightarrow \mathbb{R}^+$
+    be defined by the formula $f(x, y) = x / y$.
+    What is the closure of $\mathbb{Z}^+$ under $f$.
 \end{tcolorbox}
+
+\textbf{Solution:}
+\[\mathbb{Q}^+\]
 
 \begin{tcolorbox}[title=Problem 16, breakable]
+    As in part $2$ of Example $5.4.7$, let $\mathcal{I} = \{X \in \mathcal{P}(\mathbb{N}) \mid X \text{ is infinite}\}$.
+
+    (a) Prove that for ever set $X \subseteq \mathbb{N}$ there are sets $Y, Z \in \mathcal{I}$  
+        such that $Y \cap Z = X$.
+
+    (b) What is the closure of $\mathcal{I}$ under the binary operation $\cap$.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $X$ be an arbitrary element in $\mathcal{P}(\mathbb{N})$.
+    Define
+    \[E = \{x \mid x = 2k, k \in \mathbb{N}\}, \quad O = \{x \mid x = 2k + 1, k \in \mathbb{N}\}\]
+    and 
+    \[Y = E \cup X, \quad Z = O \cup X\]
+    Now clearly $Y$ and $Z$ are infinite subsets of $\mathbb{N}$.
+    Let $x$ be an arbitrary element in $Y \cap Z$.
+    It follows that $x \in E \cup X$ and $x \in O \cup X$.
+    Since $E \cap O = \emptyset$, we must have $x \in X$.
+    Therefore $Y \cap Z \subseteq X$.
+    Let $x$ be an arbitrary element in $X$.
+    It follows that $x \in E \cup X = Y$ and $x \in O \cup X = Z$.
+    Therefore $X \subseteq Y \cap Z$.
+    Since $Y \cap Z \subseteq X$ and $X \subseteq Y \cap Z$,
+    it follows that $Y \cap Z = X$.
+\end{proof}
+
+\textbf{Solution (b):}
+\[\mathcal{P}(\mathbb{N})\]
+
+\newpage
 \begin{tcolorbox}[title=Problem 17, breakable]
+    Let $\mathcal{F}=  \{f \mid f : \mathbb{R} \rightarrow \mathbb{R}\}$.
+    Then for any $f, g \in \mathcal{F}$, $f \circ g \in \mathcal{F}$,
+    so $\circ$ is a binary operation on $\mathcal{F}$. Are the following 
+    sets closed under $\circ$?
+
+    (a) $\{f \in \mathcal{F} \mid $f$ \text{ is one-to-one}\}$. (Hint: See Theorem $5.2.5.$)
+
+    (b) $\{f \in \mathcal{F} \mid $f$ \text{ is onto}\}$.
+
+    (c) $\{f \in \mathcal{F} \mid $f$ \text{ is strictly increasing}\}$.
+        (A function $f : \mathbb{R} \rightarrow \mathbb{R}$ is \emph{strictly
+        increasing} if $\forall{x} \in \mathbb{R} \forall{y} \in \mathbb{R} (x < y \rightarrow f(x) < f(y))$.)
+
+    (d) $\{f \in \mathcal{F} \mid $f$ \text{ is strictly decreasing}\}$.
+        (A function $f : \mathbb{R} \rightarrow \mathbb{R}$ is \emph{strictly
+        decreasing} if $\forall{x} \in \mathbb{R} \forall{y} \in \mathbb{R} (x < y \rightarrow f(x) > f(y))$.)
 \end{tcolorbox}
 
+\textbf{Solution (a):}
+\begin{center}
+    Yes by Theorem $5.2.5.$ part $1$.
+\end{center}
+\textbf{Solution (b):}
+\begin{center}
+    Yes by Theorem $5.2.5.$ part $2$.
+\end{center}
+\textbf{Solution (c):}
+Yes. Suppose $x, y \in \mathbb{R}$ and $x < y$.
+Let $f, g \in \mathcal{F}$ such that $f,g$ are \emph{strictly increasing}.
+Now $g(x) <  g(y)$ and composing with $f$ shows 
+\[(f \circ g)(x) < (f \circ g)(y)\]
+
+\textbf{Solution (d):}
+No. Suppose $x, y \in \mathbb{R}$ and $x < y$.
+Let $f, g \in \mathcal{F}$ such that $f,g$ are \emph{strictly decreasing}.
+Now $g(x) > g(y)$ and composing with $f$ shows 
+\[(f \circ g)(x) < (f \circ g)(y)\]
+
+\newpage
 \begin{tcolorbox}[title=Problem 18, breakable]
+    Let $\mathcal{F} = \{f \mid f : \mathbb{R} \rightarrow \mathbb{R}\}$.
+    If $f, g \in \mathcal{F}$, then we define
+    the function $f + g : \mathbb{R} \rightarrow \mathbb{R}$
+    by the formula $(f + g)(x) = f(x) + g(x)$.
+    Note that $+$ is a binary operation on $\mathcal{F}$.
+    Are the following sets closed under $+$?
+
+    (a) $\{f \in \mathcal{F} \mid $f$ \text{ is one-to-one}\}$.
+
+    (b) $\{f \in \mathcal{F} \mid $f$ \text{ is onto}\}$.
+
+    (c) $\{f \in \mathcal{F} \mid $f$ \text{ is is strictly increasing}\}$.
+        (See the previous exercise for the definition of strictly increasing.)
+
+    (d) $\{f \in \mathcal{F} \mid $f$ \text{ is is strictly decreasing}\}$.
+        (See the previous exercise for the definition of strictly decreasing.)
 \end{tcolorbox}
+
+\textbf{Solution (a):}
+No. Let $f, g \in \mathcal{F}$ be defined as 
+\[f(x) = x, \quad g(x) = -x\]
+Now $f, g$ are clearly one-to-one. 
+Let $x, y$ be an arbitrary real numbers such that $x \ne y$ then 
+\[(f + g)(x) = x - x = 0 = y - y = (f + g)(y)\]
+Therefore $(f + g)$ is not one-to-one.
+
+\textbf{Solution (b):}
+No. Let $f, g \in \mathcal{F}$ be defined as 
+\[f(x) = x, \quad g(x) = -x\]
+Now $f, g$ are clearly onto. 
+Let $x$ be an arbitrary real number.
+\[(f + g)(x) = x - x = 0\]
+Therefore $(f + g)$ is a constant function and is not onto.
+
+\textbf{Solution (c):}
+Yes. Let $f, g \in \mathcal{F}$.
+Let $x, y$ be arbitrary real numbers such that $x < y$.
+Now $f(x) < f(y)$ and $g(x) < g(y)$.
+Consider $(g(y) + f(y)) - (g(x) + f(x))$.
+Now $g(y) - g(x) > 0$ and $f(y) - f(x) > 0$
+    thus $(g(y) + f(y)) - (g(x) + f(x)) > 0$, so
+    $(g + f)(y) > (g + f)(x)$.
+
+\textbf{Solution (d):}
+Yes. Let $f, g \in \mathcal{F}$.
+Let $x, y$ be arbitrary real numbers such that $x < y$.
+Now $f(x) > f(y)$ and $g(x) > g(y)$.
+Consider $(g(y) + f(y)) - (g(x) + f(x))$.
+Now $g(y) - g(x) < 0$ and $f(y) - f(x) < 0$
+    thus $(g(y) + f(y)) - (g(x) + f(x)) < 0$, so
+    $(g + f)(y) < (g + f)(x)$.
 
 \begin{tcolorbox}[title=Problem 19, breakable]
+    For any set $A$, the set of all relations is $\mathcal{P}(A \times A)$,
+        and $\circ$ is a binary operation on $\mathcal{P}(A \times A)$.
+    Is the set of reflexive relations on $A$ closed under $\circ$?
+    What about the set of symmetric relations and the set of transitive relations.
 \end{tcolorbox}
+
+Reflexive: Yes. Let $R_1, R_2$ be arbitrary reflexive relations on $A$.
+Let $x$ be an arbitrary element in $A$. It follows that $(x, x) \in R_1$
+and $(x, x) \in R_2$ thus $(x, x) \in R_2 \circ R_1$.
+
+Symmetric: No. Counterexample 
+\[A = \{1, 2, 3\}, R_1 = \{(1, 2), (2, 1)\}, R_2 = \{(2, 3), (3, 2)\}, R_2 \circ R_1 = \{(1, 3)\}\]
+Clearly $(3, 1) \notin R_2 \circ R_1$ so it is not symmetric.
+
+Transitive: No. Counterexample
+\[A = \{1, 2, 3\}, R_1 = \{(1, 2), (2, 3), (1, 3)\}, R_2 = \{(2, 3), (3, 1), (2, 1)\}, R_2 \circ R_1 = \{(1, 3), (1, 1), (2, 1)\}\]
+Clearly $(2, 1), (1, 3) \in R_2 \circ R_1$ but $(2, 3) \notin R_2 \circ R_1$ so it is not transitive.
 
 \begin{tcolorbox}[title=Problem 20, breakable]
+    Division is not a binary operation on $\mathbb{R}$, because you can't divide by $0$.
+    But we can fix this problem. We begin by adding a new element to $\mathbb{R}$.
+    We will call the new element ``Nan'' (for ``Not a Number''). Let $\bar{\mathbb{R}} = \mathbb{R} \cup \{\text{NaN}\}$,
+    and define $f : \bar{\mathbb{R}} \times \bar{\mathbb{R}} \rightarrow \bar{\mathbb{R}}$ as follows:
+    \[
+        f(x, y) = 
+            \begin{cases}
+            x/y & \text{if } x, y \in \mathbb{R} \text{ and } y \ne 0,\\
+            \text{NaN}  & \text{otherwise}.
+        \end{cases}
+    \]
+    (a) $\mathbb{R}$.
+
+    (b) $\mathbb{R}^+$.
+
+    (c) $\mathbb{R}^-$.
+
+    (d) $\mathbb{Q}$.
+
+    (e) $\mathbb{Q} \cup \{\text{NaN}\}$.
+
+    This notation means that if $x, y \in \mathbb{R}$ and $y \ne 0$
+    then $f(x, y) = x/y$, and otherwise $f(x, y) = \text{NaN}$.
+    Thus, for example, $f(3, 7) = 3/7$, $f(3, 0) = \text{NaN}$,
+    and $f(\text{NaN}, 7) = \text{NaN}$. Which of the following sets 
+    are closed under $f$.
 \end{tcolorbox}
 
+\textbf{Solution (a):}
+\begin{center}
+    No.
+\end{center}
+\textbf{Solution (b):}
+\begin{center}
+    Yes.
+\end{center}
+\textbf{Solution (c):}
+\begin{center}
+    No.
+\end{center}
+\textbf{Solution (d):}
+\begin{center}
+    No.
+\end{center}
+\textbf{Solution (e):}
+\begin{center}
+    Yes.
+\end{center}
+
 \begin{tcolorbox}[title=Problem 21, breakable]
+    If $\mathcal{F}$ is a set of functions from $A \times A$ to $A$
+        and $C \subseteq A$, then we will say that $C$ is closed 
+        under $\mathcal{F}$ iff for all $f \in \mathcal{F}$, $C$ 
+        is closed under $f$.
+    If $B \subseteq A$, then the \emph{closure} of $B$ under $\mathcal{F}$
+        is the smallest set $C \subseteq A$ such that $B \subseteq C$
+        and $C$ is closed under $\mathcal{F}$, if there is such a smallest set.
+    (Compare tehse definitions to the definitions in exercise $12$.)
+
+    (a) Prove that the closure of $B$ under $\mathcal{F}$ exists.
+
+    (b) Let $f : \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$
+        and $g : \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$
+        be defined by the formulas $f(x, y) = x + y$ and $g(x, y) = xy$.
+        Prove that the closure of $\mathbb{Q} \cup \{\sqrt{2}\}$
+        under $\{f, g\}$ is the set $\{a + b\sqrt{2} \mid a, b \in \mathbb{Q}\}$.
+        (This set is called $\mathbb{Q}$ \emph{with $\sqrt{2}$ adjoined}, and is 
+        denoted $\mathbb{Q}(\sqrt{2})$.)
+
+    (c) With $f$ and $g$ defined as in part (b), what is the closure of $\mathbb{Q} \cup \{\sqrt[3](2)\}$
+        under $\{f, g\}$?
 \end{tcolorbox}

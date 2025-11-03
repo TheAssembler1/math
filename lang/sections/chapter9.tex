@@ -103,16 +103,37 @@
 \begin{proof}
     Let $P = (p_1, p_2), Q = (q_1, q_2), A = (a_1, a_2)$.
     Now $d(P, Q) = \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2}$.
-    Then $d(T_A(P), T_A(Q)) 
-        = \sqrt{((p_1 + a_1)^2 - (q_1 + a_1)^2) + ((p_2 + a_2) - (q_2 + a_2))^2}
-        = \sqrt{(p_1^2 + 2 p_1 a_1 + a_1^2 - q_1^2 - 2 q_1 a_1 - a_1^2) + ()} $.
+    Then
+    \begin{align*}
+        d(T_A(P), T_A(Q))^2 
+        &= ((p_1 + a_1) - (q_1 + a_1))^2 + ((p_2 + a_2) - (q_2 + a_2))^2 \\
+        &= (p_1 - q_1)^2 + (p_2 - q_2)^2.
+    \end{align*}
+    Taking the square root of both sides gives
+    \[
+        d(T_A(P), T_A(Q)) = \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2} = d(P, Q).
+    \]
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 12, breakable]
     Let $D(r, A)$ denote the disc of radius $r$ centered at $A$.
     Show that $D(r, A)$ is the translation of $A$ of the disc $D(r, O)$
     of radius $r$ centered at $O$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $X$ be a point in the disc of radius $r$ centered at $O$.
+    This means that $|X| < r$.
+    The translation of $X$ by $A$ which is $X + A$, satisfies the condition 
+        $|X + A - A| < r$. Thus we see that $X + A$ is at distance $<r$ from $A$,
+        and hence lies in the disc of radius $r$ centered at $A$.
+    Conversely, given a point $Y$ in this disc, so that $|Y - A| < r$,
+        let $X = Y - A$. Then $Y = X + A$ is the translation of $X$ by $A$,
+        and $|X| < r$. Therefore every point in the disc of radius $r$, centered at $A$,
+        is the image $T_A$ of a point in the disc of radius $r$ centered at $O$.
+    This proves our theorem
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
     Let $S(r, P)$ denote the circle of radius $r$ centered at $P$.
@@ -123,6 +144,16 @@
     (b) Show that the reflection of the disc $D(r, P)$ through $O$ is a disc.
         What is the center of this reflected disc?
 \end{tcolorbox}
+
+\begin{proof}
+    Let $(x, y) = P$. The center of the reflected circle is $(-x, -y)$.
+    Let $(a, b) = X$ be a point lying on the circle $S(r, P)$.
+    The reflection through the point $O$ is equivalent 
+        to a translation of $(-a, -b)$.
+    
+
+    Let $(x, y) = P$. The center of the reflected disc is $(-x, -y)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
     Let $P, Q$ be points. Write $P = Q + A$, where $A = P - Q$. Define 

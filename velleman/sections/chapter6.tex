@@ -336,26 +336,278 @@ The formula should be
 
 \subsection{More Examples}
 
+\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
+    (a) Suppose $R$ is a relation on $A$, 
+        and $\forall{x} \in A \forall{y} \in A (x R y \vee y R x)$.
+        (Note this implies $R$ is reflexive.) Prove that for every 
+        finite, nonempty set $B \subseteq A$ there is some $x \in B$
+        such that $\forall{y} \in B ((x, y) \in R \circ R)$.
+        (Hint: Imitate Example $6.2.1$)
+
+    (b) Consider a tournament in which each contestant plays every every other 
+        contestant exactly once, and one of them wins. We'll say that a 
+        contestant $x$ is \emph{excellent} if, for every other contestant $y$,
+        either $x$ beats $y$ or there is a third contestant $z$ such that
+        $x$ beats $z$ and $z$ beats $y$.
+        Prove that there is at least one excellent contestant.
 \end{tcolorbox}
+
+\begin{proof}
+    We will show by induction that for ever natural number $n \ge 1$,
+        for every set $B \subseteq A$ with $n$ elements
+        there is some element $x \in B$ such that
+        for all $y \in B$, $(x, y) \in R \circ R$.
+
+    (\textbf{Base Case}) 
+    Suppose $n = 1$ and $B \subseteq A$ where $B$ has $1$ element.
+    Then let $B = \{b\}$ for some $b \in A$.
+    Since $R$ is reflexive it follows that $(b, b) \in R$. 
+    Clearly $(b, b) \in R \circ R$.
+
+    (\textbf{Induction Step})
+    Suppose $n \ge 1$ and $B \subseteq A$ where $B$ has more than $1$ element.
+    Let $b$ be any element in $B$, and let $B' = B \setminus \{b\}$.
+    By our hypothesis there exists $x \in B'$ such that 
+        for all $y \in B'$, $(x, y) \in R \circ R$.
+    It follows that there exists $c$ such that 
+        $(x, c) \in R$ and $(c, y) \in R$.
+    Now either $(c, b) \in R$ or $(b, c) \in R$.
+
+    Suppose $(c, b) \in R$.
+    Since $(x, c) \in R$ and $(c, b) \in R$
+        it follows that $(x, b) \in R \circ R$.
+
+    Suppose $(b, c) \in R$.
+    For every $y \in B'$, there exists some $c$ such that $(x, c) \in R$ and $(c, y) \in R$.
+    Since $(b, c) \in R$, it follows that $(b, y) \in R \circ R$ for each $y \in B'$.
+    Also, because $R$ is reflexive, $(b,b) \in R \circ R$.
+    Thus $b$ is the element in $B$ such that for all $y \in B$, $(b,y) \in R \circ R$.
+\end{proof}
+
+\begin{proof}
+    (\textbf{Base Case}) Suppose there is $1$ contestant.
+    Clearly this single contestant is excellent.
+
+    (\textbf{Inductive Hypothesis}) 
+    Suppose that for $n$ contestants there
+        is one who is excellent.
+    Now consider a tournament between $n + 1$ contestants.
+    By our hypothesis there was an excellent contestant from the first $n$ contestants
+        who we will label $a$.
+    Let the $n + 1$ contestant be $b$, who plays against $a$.
+    Either $a$ beats $b$ or $b$ beats $a$.
+    If $a$ beats $b$, then $a$ remains excellent.
+    If $b$ beats $a$, then $b$ can reach $y$ by a chain through $a$, who is excellent.
+    Thus $b$ is excellent.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    Prove that if $n \ge 1$ and $a_1, a_2, \ldots, a_n$
+    are any real numbers, then $|a_1, a_2, \ldots, a_n|
+        \le |a_1| + |a_2| + \cdots  + |a_n|$.
+    (Note that this generalizes the triangle inequality;
+        see exercise $13(c)$ of Section $3.5$)
 \end{tcolorbox}
 
+\begin{proof}
+    For $n = 1$, trivially $|x_1| \le |x_1|$.
+    For $n = 2$, $|x_1 + x_2| \le |x_1| + |x_2|$ by the triangle inequality.
+    Now assume the formula holds for $k = n - 1$, thus:
+    \begin{align*}
+        |x_1 + x_2 + \cdots + x_{n - 1}| \le |x_1| + |x_2| + \cdots |x_{n - 1}|
+    \end{align*}
+    Thus:
+    \begin{align*}
+         & |x_1 + x_2 + \cdots + x_{n - 1} + x_n|        &  &                                  \\
+         & \le  |(x_1 + x_2 + \cdots + x_{n - 1}) + x_n| &  &                                  \\
+         & \le  |x_1 + x_2 + \cdots + x_{n - 1}| + |x_n| &  & \quad \text{triangle inequality} \\
+         & \le  |x_1| + |x_2| + \cdots + |x_n|           &  & 
+    \end{align*}
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 8, breakable]
+    If $n \ge 2$ and $a_1, a_2, \ldots, a_n$ is a list
+        of positive real numbers, then the number 
+        $(a_1 + a_2 + \cdots + a_n) / n$ is called 
+        the \emph{arithmetic mean} of the numbers 
+        $a_1, a_2, \ldots, a_n$, and the number 
+        $\sqrt[n]{a_1 a_2 \ldots a_n}$ is called 
+        their \emph{geometric mean}. 
+    In this exercise you will prove the \emph{arithmetic mean-geometric mean inequality},
+    which says that the arithmetic mean is always at least as large as the geometric mean.
+
+    (a) Prove that the arithmetic mean-geometric mean inequality holds for lists 
+        of numbers of length $2$. In other words, prove that for all positive real 
+        real numbers $a$ and $b$,$(a + b)/2 \ge \sqrt{ab}$.
+
+    (b) Prove that the arithmetic mean-geometric mean inequality holds for
+        any list of numbers whose length is a power of $2$.
+        In other words, prove that for all $n \ge 1$,
+        if $a_1, a_2, \ldots, a_{2^n}$ is a list of positive
+        real numbers, then 
+        \[\frac{a_1 + a_2 + \cdots + a_{2^n}}{2^n} \ge \sqrt[2^n]{a_1 a_2 \ldots a_{2^n}}\]
+
+    (c) Suppose that $n_0 \ge 2$ and the arithmetic mean-geometric mean 
+        inequality fails for some list of length $n_0$. In other words,
+        there are positive real number $a_1, a_2, \ldots, a_n$ such that 
+        \[\frac{a_1 + a_2 + \cdots + a_n}{2^n} < \sqrt[2^n]{a_1 a_2 \ldots a_n}\]
+        Prove that for all $n \ge n_0$, the arithmetic mean-geometric mean 
+        inequality fails for some list of length $n$.
+
+    (d) Prove that the arithmetic mean-geometric mean inequality always 
+        holds.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $a$ and $b$ are two positive real numbers.
+    Then
+    \begin{align*}
+    \frac{a + b}{2} - \sqrt{ab} 
+        &= \frac{a + b}{2} - \frac{2\sqrt{ab}}{2} 
+        = \frac{a + b - 2\sqrt{ab}}{2} \\
+        &= \frac{a + b - 2\sqrt{ab}}{2} \cdot \frac{a + b + 2\sqrt{ab}}{a + b + 2\sqrt{ab}} 
+        = \frac{(a + b)^2 - (2\sqrt{ab})^2}{2(a + b + 2\sqrt{ab})} \\
+        &= \frac{a^2 + 2ab + b^2 - 4ab}{2(a + b + 2\sqrt{ab})} 
+        = \frac{a^2 - 2ab + b^2}{2(a + b + 2\sqrt{ab})} 
+        = \frac{(a - b)^2}{2(a + b + 2\sqrt{ab})}
+    \end{align*}
+    Consider the numerator $(a - b)^2$.
+    If $a \ge b$ then $(a - b)^2 \ge 0$.
+    Similarly, if $a < b$ then $(a - b)^2 > 0$.
+    It follows that the numerator is $\ge 0$ thus $\frac{a + b}{2} \ge \sqrt{ab}$.
+\end{proof}
+
+\newpage
+\begin{proof}
+    (\textbf{Base Case}) Let $a_1, a_2$ be positive real numbers.
+    By part(a) it follows that
+    \[(a + b)/2 \ge \sqrt{ab}\]
+
+    (\textbf{Induction Step}) Suppose for some $n \ge 1$ that
+    \[
+    \frac{a_1 + a_2 + \cdots + a_{2^n}}{2^n} \ge \sqrt[2^n]{a_1 a_2 \cdots a_{2^n}}.
+    \]
+    Now consider $2^{n+1}$ positive real numbers $a_1,\dots,a_{2^{n+1}}$ and group them into
+    $2^n$ pairs:
+    \[
+    (a_1,a_2),\,(a_3,a_4),\dots,(a_{2^{n+1}-1},a_{2^{n+1}}).
+    \]
+    For each pair define
+    \[
+    m_k = \frac{a_{2k-1} + a_{2k}}{2} \qquad (k=1,\dots,2^n).
+    \]
+    By the $n=1$ case we have $m_k \ge \sqrt{a_{2k-1} a_{2k}}$ for each $k$. Therefore
+    \[
+    m_1 m_2 \cdots m_{2^n} \ge \sqrt{a_1 a_2 \cdots a_{2^{n+1}}}.
+    \]
+    Applying the induction hypothesis to the numbers $m_1,\dots,m_{2^n}$ we get
+    \[
+    \frac{m_1 + \cdots + m_{2^n}}{2^n} \ge \sqrt[2^n]{m_1 m_2 \cdots m_{2^n}}
+    \ge \sqrt[2^{n+1}]{a_1 a_2 \cdots a_{2^{n+1}}}.
+    \]
+    But
+    \[
+    \frac{m_1 + \cdots + m_{2^n}}{2^n}
+    = \frac{a_1 + a_2 + \cdots + a_{2^{n+1}}}{2^{n+1}}.
+    \]
+    This completes the induction.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
 \end{tcolorbox}
 
+\newpage
 \begin{tcolorbox}[title=Problem 11, breakable]
+    Prove that for every set $A$, if $A$ has $n$ elements 
+        then $\mathcal{P}(A)$ has $2^n$ elements.
 \end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) Consider a set $S$ with $1$ element $a$.
+    Then there are two subsets of $S$, namely $\{a\}$ and the $\emptyset$.
+    Thus the number of elements in $\mathcal{P}(S)$ is $2$.
+    Then $2^n = 2^1 = 2$ so the formula holds for $n = 1$.
+
+    (\textbf{Induction Step}) Suppose the formula holds for 
+        sets with $n$ elements.
+    Now consider a set $S$ with $n + 1$ elements.
+    Let $a$ be an arbitrary element in $S$
+        and let $S' = S \setminus \{a\}$.
+    By our hypothesis the number of subsets of $S'$ is $2^n$.
+    Now consider the union of $S'$ and $\{a\}$.
+    The union of each subset of $S'$ with $\{a\}$
+        gives a new subset of $S$.
+    There are $2^n$ additional subsets of $S$,
+        one for each subset of $S'$.
+    Then summing the subsets of $\mathcal{P}(S')$
+        with the additional subsets when 
+        considering $S' \cup \{a\}$ shows
+    \[2^n + 2^n = 2 \cdot 2^n = 2^{n + 1}\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
+    If $A$ is a set, let $\mathcal{P}_2(A)$
+    be the set of all subsets of $A$ that have exactly
+    two elements. Prove that for every set $A$,
+    if $A$ has $n$ elements then $\mathcal{P}_2(A)$
+    has $n(n - 1) / 2$ elements.
+    (Hint: See the solution for exercise $11$.)
 \end{tcolorbox}
 
+\begin{proof}
+    (\textbf{Base Case}) Suppose $A$ is a set with $1$ element.
+    There is clearly no subsets of $A$ with $2$ elements.
+    Then $n(n - 1)/2 = 1(1 - 1)/2 = 0/2 = 0$.
+    Thus the formula holds fore $n = 1$.
+
+    (\textbf{Induction Step}) Suppose the formula holds for sets 
+        with $n$ elements.
+    Now consider a set $A$ with $n + 1$ elements.
+    Let $a$ be an arbitrary element in $A$
+        and let $A' = A \setminus \{a\}$.
+    By our hypothesis the number of subsets of $A'$
+        with $2$ elements is $n(n - 1)/2$.
+    Now consider the union of $A'$ and $\{a\}$.
+    Each subset of $A'$ containng a single element 
+        can be unioned with $\{a\}$ to create 
+        a $2$ element subset of $A$.
+    Thus there are an additional $n$ subsets.
+    Then summing the subsets of $\mathcal{P}(A')$
+        with $2$ elements with the additional subsets with $2$ elements when 
+        considering $A' \cup \{a\}$ shows
+    \[n(n - 1)/2 + n = \frac{n(n - 1)}{2} + \frac{2n}{2} = \frac{n^2 + n}{2} = \frac{n(n + 1)}{2}\]
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 16, breakable]
+    Prove that for every finite set $A$ and every function
+    $f : A \rightarrow A$, if $f$ is one-to-one 
+    then $f$ is onto. (Hint: Use induction on the number 
+    of elements in $A$ with $n$ elements, and suppose that 
+    $A$ has $n + 1$ elements and $f : A \rightarrow A$.
+    Suppose $f$ is one-to-one but not onto. Then there is some 
+    $a \in A$ such that $a \notin Ran(f)$.
+    Let $A' = A \setminus \{a\}$ and $f'= f \cap (A' \times A')$.
+    Show that $f' : A' \rightarrow A'$, $f'$ is one-to-one,
+    and $f'$ is not onto, which contradicts the inductive 
+    hypothesis.)
 \end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) Supose $A$ is a set with a single element.
+    Let $f : A \rightarrow A$ be an arbitrary one-to-one function.
+    Futhermore, let $a$ be an arbitrary element in $a$.
+    It follows that there exists $b \in A$ such that $f(a) = b$.
+    But since $A$ has a single element, $a = b$ must be this element 
+        and therefore $f$ is clearly onto.
+
+    (\textbf{Induction Step}) Suppose the theorem holds for sets with $n + 1$ elements.
+    Suppose $A$ is a set with $n + 1$ elements and $f : A \rightarrow A$.
+    For contradiction, suppose $f$ is one-to-one but not onto. 
+    Then there is some $a \in A$ such that $a \notin Ran(f)$.
+    Let $A' = A \setminus \{a\}$ and $f'= f \cap (A' \times A')$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
 \end{tcolorbox}
