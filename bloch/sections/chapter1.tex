@@ -1,0 +1,107 @@
+\subsection{Axioms for the Natural Numbers}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Fill in the missing details in the proof of Theorem $1.2.6$.
+\end{tcolorbox}
+
+\begin{proof}
+    We must show the uniquness of the binary operation $\cdot : \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$
+    that satisfies the following two properties for all $n, m \in \mathbb{N}$.
+    \begin{enumerate}[label=\textbf{\alph*.}]
+        \item $n \cdot 1 = n$.
+        \item $n \cdot s(m) = (n \cdot m) + n$.
+    \end{enumerate}
+    Suppose there are two binary operations $\cdot$ and $\times$
+        on $\mathbb{N}$ that satisfy the two properties for all $n, m \in \mathbb{N}$.
+    Let 
+    \[G = \{x \in \mathbb{N} \mid n \cdot x = n \times x \text{ for all } n \in \mathbb{N}\}\]
+    We will prove that $G = \mathbb{N}$, which will imply that $\cdot$ and $\times$ are 
+        the same binary operation.
+    It is clear that $G \subseteq \mathbb{N}$.
+    By Part (a) applied to each of $\cdot$ and $\times$ we see that 
+        $n \cdot 1 = n = n \times 1$ for all $n \in \mathbb{N}$
+        and hence $1 \in G$.
+    Now let $q \in G$. Let $n \in \mathbb{N}$.
+    Then $n \cdot q = n \times q$ by hypothesis on $q$.
+    It then follows from Part (b) that $n \cdot s(q) = (n \cdot q) + n = (n \times q) + n = n \times s(q)$.
+    Hence $s(q) \in G$.
+    By Part (c) of the Peano Postulates we conclude that $G = \mathbb{N}$.
+\end{proof}
+
+\begin{proof}
+    We must show the two properties hold.
+    Now, $n \cdot 1 = g_n(1) = n$, which is Part (a),
+    and $n \cdot s(m) 
+        = g_n(s(m)) 
+        = (g_n \circ s)(m) 
+        = (h_n \circ g_n)(m)
+        = g_n(m) + n
+        = (n \cdot m) + n$, which is Part (b).
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove Theorem $1.2.7$ ($2$) ($3$) ($4$) ($7$) ($8$) ($9$) ($10$) ($11$) ($13$).
+\end{tcolorbox}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $(a + b) + c = a + (b + c)$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $1 + a = s(a) = a + 1$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $a + b = b + a$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $a \cdot 1 = a = 1 \cdot a$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $(a + b)c = ac + bc$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $ab = ba$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $c(a + b) = ca + cb$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $(ab)c = a(bc)$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $ab = 1$ if and only if $a = 1 = b$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}

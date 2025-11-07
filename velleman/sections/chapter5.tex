@@ -1278,7 +1278,6 @@ Counter example: If $f$ is onto then $f | C$ is onto.
     Thus $g = f^{-1}$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 11, breakable]
     Suppose $f : A \rightarrow B$ and $g : B \rightarrow A$.
 
@@ -1803,9 +1802,57 @@ The closure is $\{X \mid X \subset \mathbb{N} \wedge X \text{ is finite}\}$.
     (c) Must $\bigcup_{f \in \mathcal{F}} C_f$ be closed under $\mathcal{F}$.
         Justify your answer with either a proof or counterexample.
 
-    (d) Must $\bigcup_{f \in \mathcal{F}} C_f$? Justify your answer 
+    (d) Must $\bigcup_{f \in \mathcal{F}} C_f = C$? Justify your answer 
         with either a proof or counterexample.
 \end{tcolorbox}
+
+\begin{proof}
+    Let 
+    \[\mathcal{I} = \{C \mid B \subseteq C, C \subseteq A, C \text{ is closed under $\mathcal{F}$}\}\]
+    Note that $A \in \mathcal{I}$, since $B \subseteq A$ and $A$ is closed under $\mathcal{F}$. 
+    Thus $\mathcal{I} \ne \emptyset$.
+    Now, let $C = \bigcap {\mathcal{I}}$
+        and by exercise $9$ of Section $3.3$, $C \subseteq A$.
+
+    Suppose $x \in B$. Let $D$ be an arbitrary element in $\mathcal{I}$.
+    Then by the definition of $\mathcal{I}$, $B \subseteq D$, so $x \in D$.
+    Since $D$ was arbitrary this shows that $\forall{D \in \mathcal{I}}(x \in D)$
+        thus $x \in \bigcap {\mathcal{I}} = C$. Thus $B \subseteq C$. 
+
+    Next, suppose $x \in C$.
+    Let $f \in \mathcal{F}$ be arbitrary and again let $D$ be an arbitrary element of $\mathcal{I}$.
+    Since $x \in C = \bigcap\mathcal{I}$, $x \in D$, and since $D$ is closed under $\mathcal{F}$,
+       it follows that $f(x) \in D$.
+    Since this holds for every $D \in \mathcal{I}$ we conclude that $f(x) \in C$.
+    Thus $C$ is closed under $\mathcal{F}$.
+
+    Suppose $B \subseteq D \subseteq A$ and $D$ is closed under $\mathcal{F}$.
+    Then $D \in \mathcal{I}$ and by applying exercise $9$ of Section $3.3$
+        again we can conclude that $C = \bigcap \mathcal{I} \subseteq D$.
+\end{proof}
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $\bigcup_{f \in \mathcal{F}} C_f$.
+    There exists $f \in \mathcal{F}$ such that $C_f$ is the closure of $B$ under $f$
+        and $x \in C_f$.
+    Since for all $f \in \mathcal{F}$, $C$ is closed under $f$
+        it follows that $C_f \subseteq C$.
+    Thus $x \in C$.
+    Therefore $\bigcup_{f \in \mathcal{F}} C_f \subseteq C$.
+\end{proof}
+
+\textbf{Solution (c):}
+\[A = \{0,1,2\}, \quad B = \{0\}, \quad \mathcal{F} = \{f,g\}\] 
+\[f = \{(0,1), (1,1), (2,2)\}, \quad g = \{(0,0), (1,2), (2,2)\}\]
+\[C_f = \{0,1\}, C_g = \{0\}\]
+\[\bigcup_{h \in \mathcal{F}} C_h = C_f \cup C_g = \{0,1\}\]
+\[g(1) = 2 \notin \{0,1\}\]
+
+\begin{proof}
+    Clearly not since the closure exists by part (a) and 
+        is not necesarily equivalent to $\bigcup_{h \in \mathcal{F}} C_h$
+        by part (c).
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 14, breakable]    
     Let $f : \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ be defined 
@@ -1855,7 +1902,6 @@ The closure is $\{X \mid X \subset \mathbb{N} \wedge X \text{ is finite}\}$.
 \textbf{Solution (b):}
 \[\mathcal{P}(\mathbb{N})\]
 
-\newpage
 \begin{tcolorbox}[title=Problem 17, breakable]
     Let $\mathcal{F}=  \{f \mid f : \mathbb{R} \rightarrow \mathbb{R}\}$.
     Then for any $f, g \in \mathcal{F}$, $f \circ g \in \mathcal{F}$,
@@ -1895,7 +1941,6 @@ Let $f, g \in \mathcal{F}$ such that $f,g$ are \emph{strictly decreasing}.
 Now $g(x) > g(y)$ and composing with $f$ shows 
 \[(f \circ g)(x) < (f \circ g)(y)\]
 
-\newpage
 \begin{tcolorbox}[title=Problem 18, breakable]
     Let $\mathcal{F} = \{f \mid f : \mathbb{R} \rightarrow \mathbb{R}\}$.
     If $f, g \in \mathcal{F}$, then we define
@@ -2026,7 +2071,7 @@ Clearly $(2, 1), (1, 3) \in R_2 \circ R_1$ but $(2, 3) \notin R_2 \circ R_1$ so 
     If $B \subseteq A$, then the \emph{closure} of $B$ under $\mathcal{F}$
         is the smallest set $C \subseteq A$ such that $B \subseteq C$
         and $C$ is closed under $\mathcal{F}$, if there is such a smallest set.
-    (Compare tehse definitions to the definitions in exercise $12$.)
+    (Compare these definitions to the definitions in exercise $12$.)
 
     (a) Prove that the closure of $B$ under $\mathcal{F}$ exists.
 
@@ -2038,6 +2083,326 @@ Clearly $(2, 1), (1, 3) \in R_2 \circ R_1$ but $(2, 3) \notin R_2 \circ R_1$ so 
         (This set is called $\mathbb{Q}$ \emph{with $\sqrt{2}$ adjoined}, and is 
         denoted $\mathbb{Q}(\sqrt{2})$.)
 
-    (c) With $f$ and $g$ defined as in part (b), what is the closure of $\mathbb{Q} \cup \{\sqrt[3](2)\}$
+    (c) With $f$ and $g$ defined as in part (b), what is the closure of $\mathbb{Q} \cup \{\sqrt[3]{2}\}$
         under $\{f, g\}$?
 \end{tcolorbox}
+
+\begin{proof}
+    Let 
+    \[\mathcal{I} = \{C \mid B \subseteq C, C \subseteq A, C \text{ is closed under $\mathcal{F}$}\}\]
+    Note that $A \in \mathcal{I}$, since $B \subseteq A$ and $A$ is closed under $\mathcal{F}$. 
+    Thus $\mathcal{I} \ne \emptyset$.
+    Now, let $C = \bigcap {\mathcal{I}}$
+        and by exercise $9$ of Section $3.3$, $C \subseteq A$.
+
+    Suppose $x, y \in B$. Let $D$ be an arbitrary element in $\mathcal{I}$.
+    Then by the definition of $\mathcal{I}$, $B \subseteq D$, so $x \in D$ and $y \in D$.
+    Since $D$ was arbitrary, we have $x, y \in \bigcap {\mathcal{I}} = C$. 
+    Thus $B \subseteq C$. 
+
+    Next, suppose $x, y \in C$.
+    Let $f \in \mathcal{F}$ be arbitrary and again let $D$ be an arbitrary element of $\mathcal{I}$.
+    Since $x, y \in C = \bigcap\mathcal{I}$, $x, y \in D$, and since $D$ is closed under $\mathcal{F}$,
+       it follows that $f(x, y) \in D$.
+    Since this holds for every $D \in \mathcal{I}$ we conclude that $f(x, y) \in C$.
+    Thus $C$ is closed under $\mathcal{F}$.
+
+    Suppose $B \subseteq D \subseteq A$ and $D$ is closed under $\mathcal{F}$.
+    Then $D \in \mathcal{I}$ and by applying exercise $9$ of Section $3.3$
+        again we can conclude that $C = \bigcap \mathcal{I} \subseteq D$.
+\end{proof}
+
+\begin{proof}
+    Let $x, y$ be arbitrary elements in $\mathbb{Q}(\sqrt{2})$.
+    So $x = a_1 + b_1\sqrt{2}$ and $y = a_2 + b_2\sqrt{2}$
+        where $a_1, a_2, b_1, b_2 \in \mathbb{Q}$.
+    Then \[f(x, y) 
+        = (a_1 + b_1\sqrt{2}) + (a_2 + b_2\sqrt{2}) 
+        = (a_1 + a_2) + (b_1 + b_2)\sqrt{2}.\]
+    Since $\mathbb{Q}$ is closed under addition, 
+        $a_1 + a_2 \in \mathbb{Q}$ and $b_1 + b_2 \in \mathbb{Q}$.
+        It follows that $f(x, y) \in \mathbb{Q}(\sqrt{2})$.
+    Also 
+    \begin{align*}
+        g(x, y)
+        &= (a_1 + b_1\sqrt{2})(a_2 + b_2\sqrt{2}) \\
+        &= a_1 a_2 + a_1 b_2\sqrt{2} + a_2 b_1\sqrt{2} + 2 b_1 b_2 \\
+        &= (a_1 a_2 + 2 b_1 b_2) + (a_1 b_2 + a_2 b_1)\sqrt{2}.
+    \end{align*}
+    Since $\mathbb{Q}$ is closed under multiplication, 
+        it follows that $g(x, y) \in \mathbb{Q}(\sqrt{2})$.
+    Thus $\mathbb{Q}(\sqrt{2})$ is closed under $\{f, g\}$.
+
+    Since $\mathbb{Q}(\sqrt{2})$ 
+        is closed under $\{f,g\}$, and any closed set containing 
+        $\mathbb{Q}(\sqrt{2})$ must contain all such $a+b\sqrt{2}$, 
+        it follows that $\mathbb{Q}(\sqrt{2})$ is the closure.
+\end{proof}
+
+\textbf{Solution (c):}
+\[\{a + b \sqrt[3]{2} + c(\sqrt[3]{2})^2 \mid a, b, c \in \mathbb{Q}\}\]
+
+\subsection{Images and Inverse Images: A Research Project}
+
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Suppose $f : A \rightarrow B$ and $W$ and $X$ are subsets of $A$.
+
+    (a) Will it always be true that $f(W \cup X) = f(W) \cup f(X)$?
+
+    (b) Will it always be true that $f(W \setminus X) = f(W) \setminus f(X)$?
+
+    (c) Will it always be true that $W \subseteq X \iff f(W) \subseteq f(X)$?
+\end{tcolorbox}
+
+
+\begin{proof}
+    Let $y$ be an arbitrary element in $f(W \cup X)$.
+    There exists $x \in W \cup X$ such that $f(x) = y$.
+    Either $x \in W$ or $x \in X$.
+    Suppose $x \in W$ then $y \in f(W)$ and clearly $y \in f(W) \cup f(X)$.
+    Suppose $x \in X$ then $y \in f(X)$ and clearly $y \in f(W) \cup f(X)$.
+    Thus $f(W \cup X) \subseteq f(W) \cup f(X)$.
+
+    Let $y$ be an arbitrary element in $f(W) \cup f(X)$.
+    Either $y \in f(W)$ or $y \in f(X)$.
+    Suppose $y \in f(W)$.
+    It follows there exists $x \in W$ such that $f(x) = y$
+        and $x \in X \cup W$.
+    Thus $y \in f(X \cup W)$.
+    Suppose $y \in f(X)$.
+    It follows there exists $x \in X$ such that $f(x) = y$
+        and $x \in X \cup W$.
+    Therefore $y \in f(X \cup W)$.
+    Thus $f(W) \cup f(X) \subseteq f(W \cup X)$.
+
+    Since $f(W \cup X) \subseteq f(W) \cup f(X)$
+        and $f(W) \cup f(X) \subseteq f(W \cup X)$
+        it follows that $f(W \cup X) = f(W) \cup f(X)$.
+\end{proof}
+
+\textbf{Solution (b):}
+\[A = \{1, 2\}, B = \{3\}, X = \{1, 2\}, W = \{1\}, f = \{(1, 3), (2, 3)\}\]
+So 
+\[f(X \setminus W) = f(\{2\}) = \{3\}\]
+\[f(X) \setminus f(W) = \{3\} \setminus \{3\} = \emptyset\]
+
+\textbf{Solution (c):}
+\[A = \{1, 2\}, B = \{3\}, W = \{1\}, X = \{2\}, f = \{(1, 3), (2, 3)\}\]
+\[f(W) = \{3\}, \quad f(X) = \{3\}, f(W) \subseteq f(X)\]
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Suppose $f : A \rightarrow B$ and $Y$ and $Z$ are subsets of $B$.
+    
+    (a) Will it always be true that $f^{-1}(Y \cap Z) = f^{-1}(Y) \cap f^{-1}(Z)$?
+
+    (b) Will it always be true that $f^{-1}(Y \cup Z) = f^{-1}(Y) \cup f^{-1}(Z)$?
+
+    (c) Will it always be true that $f^{-1}(Y \setminus Z) = f^{-1}(Y) \setminus f^{-1}(Z)$?
+
+    (d) Will it always be true that $Y \subseteq Z \iff f^{-1}(Y) \subseteq f^{-1}(Z)$?
+\end{tcolorbox}
+
+\begin{proof}
+    If $Y$ or $Z$ is the emptyset.
+    Note that $f^{-1}(Y) \cap f^{-1}(Z) = \emptyset$
+        if $f^{-1}(Y) = \emptyset$ or $f^{-1}(Z) = \emptyset$.
+    Then
+    \[f^{-1}(Y \cap Z) = f^{-1}(\emptyset) = \emptyset = f^{-1}(Y) \cap f^{-1}(Z)\]
+    
+    Now, suppose $Y$ and $Z$ are not the emptyset.
+    Let $x$ be an arbitrary element in $f^{-1}(Y \cap Z)$.
+    There exists $y \in Y \cap Z$ such that $f(x) = y$.
+    It follows that $y \in Y$ and $y \in Z$.
+    Since $y \in Y$ it follows that $x \in f^{-1}(Y)$.
+    Since $y \in Z$ it follows that $x \in f^{-1}(Z)$.
+    Thus $f^{-1}(Y \cap Z) \subseteq f^{-1}(Y) \cap f^{-1}(Z)$.
+
+    Let $x$ be an arbitrary element in $f^{-1}(Y) \cap f^{-1}(Z)$.
+    It follows that $x \in f^{-1}(Y)$ and $x \in f^{-1}(Z)$.
+    There exists $y_1 \in Y$ and $y_2 \in Z$ such that 
+        $f(x) = y_1$ and $f(x) = y_2$.
+    Since $f$ is a function it follows that $y_1 = y_2$.
+    Let $y = y_1 = y_2$.
+    Thus $y \in Y$ and $y \in Z$ and it follows that 
+        $y \in Y \cap Z$.
+    It then follows that $x \in f^{-1}(Y \cap Z)$.
+    Thus $f^{-1}(Y) \cap f^{-1}(Z) \subseteq f^{-1}(Y \cap Z)$.
+
+    Therefore $f^{-1}(Y \cap Z) = f^{-1}(Y) \cap f^{-1}(Z)$.
+\end{proof}
+
+\begin{proof}
+    If $Y = \emptyset$ or $Z = \emptyset$ it is clear 
+        that $f^{-1}(Y \cup Z) = f^{-1}(Y) \cup f^{-1}(Z)$.
+
+    Suppose $Y$ and $Z$ are not emptysets.
+    Let $x$ be an arbitrary element in $f^{-1}(Y \cup Z)$.
+    There exists $y \in Y \cup Z$ such that $f(x) = y$.
+    Either $y \in Y$ or $y \in Z$.
+    Suppose $y \in Y$ then $x \in f^{-1}(Y)$
+        and certainly $x \in f^{-1}(Y) \cup f^{-1}(Z)$.
+    Suppose $y \in Z$ then $x \in f^{-1}(Z)$
+        and certainly $x \in f^{-1}(Y) \cup f^{-1}(Z)$.
+    Thus $f^{-1}(Y \cup Z) \subseteq f^{-1}(Y) \cup f^{-1}(Z)$.
+
+    Let $x$ be an arbitrary element in $f^{-1}(Y) \cup f^{-1}(Z)$.
+    Either $x \in f^{-1}(Y)$ or $x \in f^{-1}(Z)$.
+    Suppose $x \in f^{-1}(Y)$.
+    There exists $y \in Y$ such that $f(x) = y$.
+    Certainly $y \in Y \cup Z$ so $x \in f^{-1}(Y \cup Z)$.
+    Suppose $x \in f^{-1}(Z)$.
+    There exists $y \in Z$ such that $f(x) = y$.
+    Certainly $y \in Y \cup Z$ so $x \in f^{-1}(Y \cup Z)$.
+    Thus $f^{-1}(Y) \cup f^{-1}(Z) \subseteq f^{-1}(Y \cup Z)$.
+
+    Therefore $f^{-1}(Y \cup Z) = f^{-1}(Y) \cup f^{-1}(Z)$.
+\end{proof}
+
+\begin{proof}
+    If $Y = \emptyset$ or $Z = \emptyset$ it is clear 
+        that $f^{-1}(Y \setminus Z) = f^{-1}(Y) \setminus f^{-1}(Z)$.
+
+    Suppose $Y$ and $Z$ are not emptysets.
+    Let $x$ be an arbitrary element in $f^{-1}(Y \setminus Z)$.
+    It follows that there exists $y \in Y \setminus Z$
+        such that $f(x) = y$.
+    Then $y \in Y$ and $y \notin Z$.
+    Thus $x \in f^{-1}(Y)$.
+    Since $f$ is a function and $y \notin Z$ it follows that $x \notin f^{-1}(Z)$.
+    Thus $x \in f^{-1}(Y) \setminus f^{-1}(Z)$.
+    Thus $f^{-1}(Y \setminus Z) \subseteq f^{-1}(Y) \setminus f^{-1}(Z)$
+
+    Let $x$ be an arbitrary element in $f^{-1}(Y) \setminus f^{-1}(Z)$.
+    It follows that $x \in f^{-1}(Y)$ and $x \notin f^{-1}(Z)$.
+    There exists $y \in Y$ such that $f(x) = y$.
+    Now $y \notin Z$ since $x \notin f^{-1}(Z)$.
+    Since $y \in Y$ and $y \notin Z$ it follows that $y \in Y \setminus Z$.
+    Thus $x \in f^{-1}(Y \setminus Z)$.
+    Thus $f^{-1}(Y) \setminus f^{-1}(Z) \subseteq f^{-1}(Y \setminus Z)$.
+\end{proof}
+
+\textbf{Solution (c):}
+\[A = \{1, 2\}, \quad B = \{a, b, c\}, \quad Y = \{a, c\}, \quad Z = \{a, b\}, \quad f = \{(1, a), (2, b)\}\]
+\[f^{-1}(Y) = \{1\}, \quad f^{-1}(Z) = \{1, 2\}, \quad f^{-1}(Y) \subseteq f^{-1}(Z)\]
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Suppose $f : A \rightarrow B$ and $X \subseteq A$.
+    Will it always be true that $f^{-1}(f(X)) = X$?
+\end{tcolorbox}
+
+\textbf{Solution:}
+\[A = \{1, 5\}, B = \{2\}, X = \{1\} f = \{(1, 2), (5, 2)\}\]
+\[f(X) = \{2\}, f^{-1}(\{2\}) = \{1, 5\}\]
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Suppose $f : A \rightarrow B$ and $Y \subseteq B$.
+    Will it always be true that $f(f^{-1}(Y)) = Y$?
+\end{tcolorbox}
+
+Counterexample:
+\[A = \{1\}, B = \{1, 2\}, f = \{a, 1\}, Y = \{1, 2\}\]
+\[(f \circ f^{-1})(Y) 
+    = (f \circ f^{-1})(\{1, 2\})
+    = f(\{a\})
+    = \{1\}\]
+
+\begin{tcolorbox}[title=Problem 5, breakable]S
+    Suppose $f : A \rightarrow A$ and $C \subseteq A$.
+    Prove that the following statements are equivalent:
+
+    (a) $C$ is closed under $f$
+
+    (b) $f(C) \subseteq C$.
+
+    (c) $C \subseteq f^{-1}(C)$.
+\end{tcolorbox}
+
+\begin{proof}
+    We prove $(a) \implies (b) \implies (c) \implies (a)$.
+
+    Suppose $C$ is closed under $f$.
+    Let $c$ be an arbitrary element in $C$.
+    Since $C$ is closed under $f$
+        it follows that $f(c) \in C$.
+    Thus $f(C) \subseteq C$.
+
+    Suppose $f(C) \subseteq C$.
+    Let $c$ be an arbitrary element in $C$.
+    Since $f(C) \subseteq C$ it follows that $f(c) \in C$.
+    Thus $c \in f^{-1}(C)$.
+    Therefore $C \subseteq f^{-1}(C)$.
+
+    Suppose $C \subseteq f^{-1}(C)$.
+    Let $c$ be an arbitrary element in $C$.
+    Then $c \in f^{-1}(C)$.
+    It follows that $f(c) \in C$.
+    Therefore $C$ is closed under $f$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Suppose $f : A \rightarrow B$ and $g : B \rightarrow C$.
+    Can you prove any interesting theorems about images and inverse 
+    images of sets under $g \circ f$?
+\end{tcolorbox}
+
+\begin{theorem}
+Let $X \subseteq A$ and $Y \subseteq C$. Then
+\[(g \circ f)(X) = g(f(X)).\]
+\[(g \circ f)^{-1}(Y) = f^{-1}(g^{-1}(Y)).\]
+\end{theorem}
+
+\begin{proof}
+    Let $y \in (g \circ f)(X)$. 
+    There exists $x \in X$ 
+        such that $(g \circ f)(x) = y = g(f(x)) = y$.  
+    Thus $f(x) \in f(X)$ and $y = g(f(x)) \in g(f(X))$. 
+    Therefore $(g \circ f)(X) \subseteq g(f(X))$.  
+
+    Let $y \in g(f(X))$. 
+    Then there exists $b \in f(X)$ 
+        such that $g(b) = y$. 
+    Since $b \in f(X)$, there exists $x \in X$ with $f(x) = b$. 
+    Then $(g \circ f)(x) = g(f(x)) = g(b) = y$.  
+    Thus $y \in (g \circ f)(X)$
+        and it follows that $(g \circ f)(X) = g(f(X))$.
+
+    Let $x \in (g \circ f)^{-1}(Y)$. Then $(g \circ f)(x) = g(f(x)) \in Y$, 
+    It follows that $f(x) \in g^{-1}(Y)$.
+    Thus $x \in f^{-1}(g^{-1}(Y))$. 
+    Therefore, $(g \circ f)^{-1}(Y) \subseteq f^{-1}(g^{-1}(Y))$.  
+
+    If $x \in f^{-1}(g^{-1}(Y))$, then $f(x) \in g^{-1}(Y)$, 
+        so $g(f(x)) \in Y$.
+    It follows that $x \in (g \circ f)^{-1}(Y)$.  
+    Thus, $(g \circ f)^{-1}(Y) = f^{-1}(g^{-1}(Y))$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Suppose $f : A \rightarrow B$, $f$ is one-to-one 
+    and onto, and $Y \subseteq B$. Show that the inverse 
+    image of $Y$ under $f$ and the image of $Y$ under $f^{-1}$  
+    are equal. (Hint: First write out the definitions of 
+    the two sets carefully!)
+\end{tcolorbox}
+
+\begin{proof}
+    We must show that the inverse image of $Y$ under $f$, which is
+    \[
+        f^{-1}(Y) = \{ a \in A \mid f(a) \in Y \},
+    \]
+    is equal to the set
+    \[
+        \{ a \in A \mid \exists b \in Y \text{ such that } f(a) = b \}.
+    \]
+    Let $a$ be an arbitrary element in $\{ a \in A \mid f(a) \in Y \}$. 
+    Then by definition $f(a) \in Y$, 
+        there exists $b \in Y$ with $f(a) = b$. 
+    Thus $a \in \{ a \in A \mid \exists b \in Y \text{ such that } f(a) = b \}$.
+
+    Let $a$ be an arbitrary element in 
+        $\{ a \in A \mid \exists b \in Y \text{ such that } f(a) = b \}$. 
+    There exists $b \in Y$ such that $f(a) = b$, so $f(a) \in Y$. 
+    Thus $a \in \{ a \in A \mid f(a) \in Y \}$.
+\end{proof}

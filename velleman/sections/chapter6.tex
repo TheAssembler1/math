@@ -21,7 +21,6 @@
     \end{align*}
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     Find a formula for $1 + 3 + 5 + \cdots + (2n - 1)$,
         for $n \ge 1$, and prove your formula is correct.
@@ -296,7 +295,6 @@ The formula should be
         and it follows that $a b^n + b a^n < a^{n + 1} + b^{n + 1}$.
 \end{proof}
 
-\newpage 
 \begin{proof}
     ($\textbf{Base Case}$) Let $n = 2$ then consider 
     \begin{align*}
@@ -336,7 +334,6 @@ The formula should be
 
 \subsection{More Examples}
 
-\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     (a) Suppose $R$ is a relation on $A$, 
         and $\forall{x} \in A \forall{y} \in A (x R y \vee y R x)$.
@@ -450,8 +447,8 @@ The formula should be
 
     (c) Suppose that $n_0 \ge 2$ and the arithmetic mean-geometric mean 
         inequality fails for some list of length $n_0$. In other words,
-        there are positive real number $a_1, a_2, \ldots, a_n$ such that 
-        \[\frac{a_1 + a_2 + \cdots + a_n}{2^n} < \sqrt[2^n]{a_1 a_2 \ldots a_n}\]
+        there are positive real number $a_1, a_2, \ldots, a_{n0}$ such that 
+        \[\frac{a_1 + a_2 + \cdots + a_{n_0}}{n_0} < \sqrt[n_0]{a_1 a_2 \ldots a_{n_0}}\]
         Prove that for all $n \ge n_0$, the arithmetic mean-geometric mean 
         inequality fails for some list of length $n$.
 
@@ -478,46 +475,45 @@ The formula should be
     It follows that the numerator is $\ge 0$ thus $\frac{a + b}{2} \ge \sqrt{ab}$.
 \end{proof}
 
-\newpage
 \begin{proof}
-    (\textbf{Base Case}) Let $a_1, a_2$ be positive real numbers.
-    By part(a) it follows that
-    \[(a + b)/2 \ge \sqrt{ab}\]
+    (\textbf{Base Case:}) If $n = 1$ then $A$ has length $2$
+        and by part (a) the inequality holds.
 
-    (\textbf{Induction Step}) Suppose for some $n \ge 1$ that
-    \[
-    \frac{a_1 + a_2 + \cdots + a_{2^n}}{2^n} \ge \sqrt[2^n]{a_1 a_2 \cdots a_{2^n}}.
-    \]
-    Now consider $2^{n+1}$ positive real numbers $a_1,\dots,a_{2^{n+1}}$ and group them into
-    $2^n$ pairs:
-    \[
-    (a_1,a_2),\,(a_3,a_4),\dots,(a_{2^{n+1}-1},a_{2^{n+1}}).
-    \]
-    For each pair define
-    \[
-    m_k = \frac{a_{2k-1} + a_{2k}}{2} \qquad (k=1,\dots,2^n).
-    \]
-    By the $n=1$ case we have $m_k \ge \sqrt{a_{2k-1} a_{2k}}$ for each $k$. Therefore
-    \[
-    m_1 m_2 \cdots m_{2^n} \ge \sqrt{a_1 a_2 \cdots a_{2^{n+1}}}.
-    \]
-    Applying the induction hypothesis to the numbers $m_1,\dots,m_{2^n}$ we get
-    \[
-    \frac{m_1 + \cdots + m_{2^n}}{2^n} \ge \sqrt[2^n]{m_1 m_2 \cdots m_{2^n}}
-    \ge \sqrt[2^{n+1}]{a_1 a_2 \cdots a_{2^{n+1}}}.
-    \]
-    But
-    \[
-    \frac{m_1 + \cdots + m_{2^n}}{2^n}
-    = \frac{a_1 + a_2 + \cdots + a_{2^{n+1}}}{2^{n+1}}.
-    \]
-    This completes the induction.
+    (\textbf{Induction Step:}) Suppose the inequality holds for 
+    lists of length $2^n$ where $n \in \mathbb{N}$.
+    Let 
+    \[a_1, a_2, \ldots, a_{2^n}, b_1, b_2, \ldots, b_{2^n}\]
+    be a list of $2^{n+1}$ elements. Define
+    \[A = a_1 + \cdots + a_{2^n}, \quad A' = a_1 a_2 \cdots a_{2^n}, \quad
+        B = b_1 + \cdots + b_{2^n}, \quad B' = b_1 b_2 \cdots b_{2^n}\]
+
+    By the induction hypothesis,
+    \[\frac{A}{2^n} \ge \sqrt[2^n]{A'} \quad \text{and} \quad
+        \frac{B}{2^n} \ge \sqrt[2^n]{B'}\]
+    It follows that 
+    \[A \ge 2^n \cdot \sqrt[2^n]{A'} \quad \text{and} \quad B \ge 2^n \cdot \sqrt[2^n]{B'}.\]
+
+    Applying part (a) to $A$ and $B$,
+    \[\frac{A + B}{2} \ge \sqrt{A B} \ge \sqrt{2^n \cdot \sqrt[2^n]{A'} \cdot 2^n \cdot \sqrt[2^n]{B'}}
+        = 2^n \cdot \sqrt[2^{n+1}]{A' B'}\]
+
+    Dividing both sides by $2^n$ gives
+    \[\frac{A + B}{2^{n+1}} \ge \sqrt[2^{n+1}]{A' B'},\]
+    which is equivalent to
+    \[\frac{a_1 + \cdots + a_{2^n} + b_1 + \cdots + b_{2^n}}{2^{n+1}}
+        \ge \sqrt[2^{n+1}]{a_1 \cdots a_{2^n} b_1 \cdots b_{2^n}}\]
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
+    Prove that if $n \ge 2$ and $a_1, a_2, \ldots, a_n$
+        is a list of positive real numbers,
+        then 
+    \[\frac{n}{\frac{1}{a_1}} + \frac{1}{a_2} + \cdots + \frac{1}{a_n} \le \sqrt[n]{a_1 a_2 \cdots a_n}\]
+    (Hint: Apply exercise $8$. The number on the left side of the 
+    inequality above is called the \emph{harmonic mean} of the 
+    numbers $a_1, a_2, \ldots a_n$.)
 \end{tcolorbox}
 
-\newpage
 \begin{tcolorbox}[title=Problem 11, breakable]
     Prove that for every set $A$, if $A$ has $n$ elements 
         then $\mathcal{P}(A)$ has $2^n$ elements.
@@ -579,7 +575,6 @@ The formula should be
     \[n(n - 1)/2 + n = \frac{n(n - 1)}{2} + \frac{2n}{2} = \frac{n^2 + n}{2} = \frac{n(n + 1)}{2}\]
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 16, breakable]
     Prove that for every finite set $A$ and every function
     $f : A \rightarrow A$, if $f$ is one-to-one 
@@ -595,22 +590,174 @@ The formula should be
 \end{tcolorbox}
 
 \begin{proof}
-    (\textbf{Base Case}) Supose $A$ is a set with a single element.
+    (\textbf{Base Case}) Suppose $A$ is a set with a single element.
     Let $f : A \rightarrow A$ be an arbitrary one-to-one function.
-    Futhermore, let $a$ be an arbitrary element in $a$.
+    Futhermore, let $a$ be an arbitrary element in $A$.
     It follows that there exists $b \in A$ such that $f(a) = b$.
     But since $A$ has a single element, $a = b$ must be this element 
         and therefore $f$ is clearly onto.
 
-    (\textbf{Induction Step}) Suppose the theorem holds for sets with $n + 1$ elements.
+    (\textbf{Induction Step}) Suppose the theorem holds for sets with $n$ elements.
     Suppose $A$ is a set with $n + 1$ elements and $f : A \rightarrow A$.
-    For contradiction, suppose $f$ is one-to-one but not onto. 
-    Then there is some $a \in A$ such that $a \notin Ran(f)$.
-    Let $A' = A \setminus \{a\}$ and $f'= f \cap (A' \times A')$.
+    Suppose $f$ is one-to-one but not onto.
+    There exists some $a' \in A$ such that $a' \notin Ran(f)$.
+    Let $A' = A \setminus \{a'\}$ and $f' = f \cap (A' \times A')$.
+
+    Let $a$ be an arbitrary element in $A'$. Since $A' \subseteq A$
+        it follows that $a \in A$.
+    It follows that there exists $b \in A$ such that $(a, b) \in f$.
+    Since $b \in Ran(f)$ it follows that $b \ne a'$ thus $b \in A'$.
+    Since $(a, b) \in f$ and $(a, b) \in A' \times A'$
+        it follows that $(a, b) \in f \cap (A' \times A')$.
+    Thus $f'$ maps each element in $A'$ to an element in $A'$.
+    Now suppose $(a, b), (a, b') \in f'$.
+    Then $(a, b), (a, b') \in f$ and since $f$ is a function $b = b'$.
+    Thus $f'$ maps each element in $A'$ to exactly one element in $A'$.
+    Thus $f' : A' \rightarrow A'$.
+
+    Now suppose $(a, c), (b, c) \in f'$.
+    Then $(a, c), (b, c) \in f$ and since $f$ is one-to-one $a = b$.
+    Thus $f'$ is one-to-one.
+
+    Suppose $f'$ is onto.
+    Since $f'$ is one-to-one it maps each of the $n$ elements in $A'$
+        to a single unique element in $A'$.
+    Thus $f'$ maps the $n$ elements of $A'$ to $n$ distinct elements in $A'$.
+    Now consider the element $a'$ which was removed from $A$ to construct $A'$.
+    Since $f'$ already maps to all of $A'$, $f' \subseteq f$, and $f$ is one-to-one,
+        $a'$ cannot be mapped to any element of $A'$ under $f$.
+    Thus $f$ cannot be onto $A$, contradicting our assumption that $f$ is not onto.
+    It follows that $f'$ is not onto which contradicts our induction hypothesis.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
+    What's wrong with the following proof that if $A \subseteq \mathbb{N}$
+        and $0 \in A$ then $A = \mathbb{N}$.
+    \begin{proof}
+        We will prove by induction that $\forall n \in \mathbb{N}(n \in A)$.
+
+        Base Case: If $n = 0$, then $n \in A$ by assumption.
+
+        Induction Step: Let $n \in \mathbb{N}$ be arbitrary,
+            and suppose $n \in A$.
+        Since $n$ was arbitrary, it follows that every 
+            natural number is an element of $A$,
+            and therefore in particular $n + 1 \in A$.
+    \end{proof}
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+Base case doesn't establish $A = \mathbb{N}$.
+Induction step says $n$ is an arbitrary element of $A$
+    then claims $n + 1 \in A$ because $n$ is arbitrary.
+That doesn't logically follow.
+
+\newpage
+\begin{tcolorbox}[title=Problem 18, breakable]
+    Suppose $f : \mathbb{R} \rightarrow \mathbb{R}$.
+    What's wrong with the following proof that for 
+        every finite, nonempty set $A \subseteq \mathbb{R}$
+        there is a real number $c$ such that 
+        $\forall{x \in A}(f(x) = c)$?
+    \begin{proof}
+        We will prove by induction that for every $n \ge 1$, if $A$
+        is any subset of $\mathbb{R}$ with $n$ elements then 
+        $\exists{c \in \mathbb{R}}\forall{x \in A}(f(x) = c)$.
+
+        Base Case: $n = 1$. Suppose $A \subseteq R$ and $A$ has one element.
+        Then $A = \{a\}$, for some $a \in \mathbb{R}$.
+        Let $c = f(a)$. Then clearly $\forall{x \in A}(f(x) = c)$.
+
+        Induction Step: Suppose $n \ge 1$, and for all $A \subseteq \mathbb{R}$,
+        if $A$ has $n$ elements then $\exists{c \in \mathbb{R}}\forall{x \in \mathbb{A}}(f(x) = c)$.
+        Now supppose $A \subseteq \mathbb{R}$ and $A$ has $n + 1$ elements.
+        Let $a_1$ be any element of $A$, and let $A_1 = A \setminus \{a_1\}$.
+        Then $A_1$ has $n$ elements, so by the inductive hypothesis there 
+            is some $c_1 \in \mathbb{R}$ such that $\forall{x \in A_1}(f(x) = c_1)$.
+        If we can show that $f(a_1) = c_1$ then we will be done,
+            since then it will follow that $\forall{x \in A}(f(x) = c_1)$.
+
+        Let $a_2$ be an element of $A$ that is different from $a_1$,
+            and let $A_2 = A \setminus \{a_2\}$.
+        Applying the inductive hypothesis again, we can choose 
+        a number $c_2 \in \mathbb{R}$ such that 
+        $\forall{x \in A_2}(f(x) = c_2)$. 
+        Notice since $a_1 \ne a_2$, $a_2 \in A_2$,
+            so $f(a_2) = c_2$.
+        Now let $a_3$ be an element in $A$ that is different 
+        from both $a_1$ and $a_2$. 
+        Then $a_3 \in A_1$ and $a_3 \in A_2$,
+            so $f(a_3) = c_1$ and $f(a_3) = c_2$.
+        Therefore $c_1 = c_2$, so $f(a_1) = c_1$
+            as required.
+    \end{proof}
+\end{tcolorbox}
+
+\textbf{Solution:}
+If $A$ has $n > 1$ elements then $A$ may have $2$ elements.
+In this case there is no way to choose $a_3$ as the proof suggests.
+
+\subsection{Recursion}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Suppose $r$ is a real number and $r \ne 1$.
+    Prove that for all $n \in \mathbb{N}$,
+    \[\sum_{i = 0}^{n} r_i = \frac{r^{n + 1} - 1}{r - 1}\]
+    (Note that this exercise generalizes Example $6.1.1$
+    and exercise $7$ of Section $6.1$)
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Prove that for all $n \ge 1$,
+    \[\sum_{i = 1}^n \frac{1}{i^2} \le 2 - \frac{1}{n}\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    (a) Suppose $a_0, a_1, a_2, \ldots$ and $b_0, b_1, b_2, \ldots, b_n$
+        are two sequences of real numbers. Prove that 
+        \[\sum_{i = 0}^n(a_i + b_i) = \sum_{i = 0}^n a_i + \sum_{i = 0}^n b_i\]
+
+    (b) Suppose $c$ is a real number fand $a_0, a_1, \ldots, a_n$
+        is a sequence of real numbers. Prove that 
+        \[c \cdot \sum_{i = 0}^n a_i = \sum_{i = 0}^{n} (c \cdot a_i)\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    The \emph{harmonic numbers} are numbers $H_n$ for $n \ge 1$ defined by 
+    the formula 
+    \[H_n = \sum_{i = 1}^n \frac{1}{i}\]
+    (a) Prove that for all natural numbers $n$ and $m$,
+        if $n \ge m \ge 1$ then $H_n - H_m \ge (n - m)/n$
+        (Hint: Let $m$ be an arbitrary natural number with $m \ge 1$
+        and then proceed by induction on $n$, with $n = m$ as the 
+        base case of induction.)
+
+    (b) Prove that for all $n \ge 0$, $H_{2^n} \ge 1 + n/2$.
+
+    (c) (For those who have studied calculus.) Show that $\lim_{n \rightarrow \infty} H_n = \infty$,
+        so $\sum_{i = 1}^{\infty} (1/i)$ diverges.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    (a) Prove that for all $n \in \mathbb{N}$, $2^n > n$.
+
+    (b) Prove that for all $n \ge 9$, $n! \ge (2^n)^2$.
+
+    (c) Prove that for all $n \in \mathbb{N}$, $n! \le 2^{(2^n)^2}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
 \end{tcolorbox}
