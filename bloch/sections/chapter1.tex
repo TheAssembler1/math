@@ -18,25 +18,25 @@
     We will prove that $G = \mathbb{N}$, which will imply that $\cdot$ and $\times$ are 
         the same binary operation.
     It is clear that $G \subseteq \mathbb{N}$.
-    By Part (a) applied to each of $\cdot$ and $\times$ we see that 
+    By part (a) applied to each of $\cdot$ and $\times$ we see that 
         $n \cdot 1 = n = n \times 1$ for all $n \in \mathbb{N}$
         and hence $1 \in G$.
     Now let $q \in G$. Let $n \in \mathbb{N}$.
     Then $n \cdot q = n \times q$ by hypothesis on $q$.
-    It then follows from Part (b) that $n \cdot s(q) = (n \cdot q) + n = (n \times q) + n = n \times s(q)$.
+    It then follows from part (b) that $n \cdot s(q) = (n \cdot q) + n = (n \times q) + n = n \times s(q)$.
     Hence $s(q) \in G$.
-    By Part (c) of the Peano Postulates we conclude that $G = \mathbb{N}$.
+    By part (c) of the Peano Postulates we conclude that $G = \mathbb{N}$.
 \end{proof}
 
 \begin{proof}
     We must show the two properties hold.
-    Now, $n \cdot 1 = g_n(1) = n$, which is Part (a),
+    Now, $n \cdot 1 = g_n(1) = n$, which is part (a),
     and $n \cdot s(m) 
         = g_n(s(m)) 
         = (g_n \circ s)(m) 
         = (h_n \circ g_n)(m)
         = g_n(m) + n
-        = (n \cdot m) + n$, which is Part (b).
+        = (n \cdot m) + n$, which is part (b).
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
@@ -46,21 +46,71 @@
 \begin{proof}
     Let $a, b, c \in \mathbb{N}$.
     We must show $(a + b) + c = a + (b + c)$.
+    Consider the set 
+    \[G = \{z \in \mathbb{N} \mid \text{if } x,y \in \mathbb{N} \text{ then } (x + y) + z = x + (y + z)\}\]
+    We will show $G = \mathbb{N}$.
+    Clearly $G \subseteq \mathbb{N}$.
+    We first show $1 \in G$.
+    Suppose $z \in G$.
+    Consider 
+    \[(x + y) + 1 = s(x + y) = x + s(y) = x + (y + 1)\]
+    Thus $1 \in G$.
+    Futher let $x, y, z \in \mathbb{N}$, and consider 
+    \[(x + y) + s(z) = s((x + y) + z)\]
+    By our hypothesis on $z$, $(x + y) + z = x + (y + z)$ so
+    \[s((x + y) + z) = s(x + (y + z)) = x + s(y + z) = x + (y + s(z))\]
+    So $s(z) \in G$. Thus $G = \mathbb{N}$ by part (c) of the Peano Postulates.
 \end{proof}
 
 \begin{proof}
-    Let $a, b, c \in \mathbb{N}$.
+    Let $a \in \mathbb{N}$.
     We must show $1 + a = s(a) = a + 1$.
+    Let $x \in \mathbb{N}$.
+    Suppose $x = 1$. Then 
+    \[1 + x = 1 + 1 = s(1) = x + 1\]
+    Suppose $x > 1$.
+    By Lemma $1.2.3$ there exists $y \in \mathbb{N}$ such that $s(y) = x$.
+    First note $y + (1 + 1) = (y + 1) + 1$ by Theorem $1.2.7$ part ($2$).
+    Then
+    \[1 + s(y) = 1 + (y + 1) = s(y + 1) = y + s(1) = y + (1 + 1) = (y + 1) + 1 = s(y) + 1\]
+    Thus $1 + x = x + 1$.
 \end{proof}
 
 \begin{proof}
-    Let $a, b, c \in \mathbb{N}$.
+    Let $a, b \in \mathbb{N}$.
     We must show $a + b = b + a$.
+    Consider the set 
+    \[G = \{x \in \mathbb{N} \mid \text{if } y \in \mathbb{N} \text{ then } x + y = y + x\}\]
+    We will show $G = \mathbb{N}$.
+    Clearly $G \subseteq \mathbb{N}$.
+    We first show $1 \in G$.
+    Let $x \in \mathbb{N}$.
+    By Theorem $1.2.7$ part ($3$), $1 + x = x + 1$.
+    Thus $1 \in G$.
+    Now suppose $x \in G$.
+    Let $y \in \mathbb{N}$.
+    First note by Theorem $1.2.7$ part ($2$), $1 + (x + y) = (1 + x) + y$.
+    Consider
+    \[y + s(x) = s(y + x) = s(x + y) \text{ hypothesis on $x$} = 1 + (x + y) = (1 + x) + y = s(x) + y\]
+    So $s(x) \in G$. Thus $G = \mathbb{N}$ by part (c) of the Peano Postulates.
 \end{proof}
 
 \begin{proof}
-    Let $a, b, c \in \mathbb{N}$.
+    Let $x, y \in \mathbb{N}$.
+    We must show $a \cdot 1  = 1 \cdot a$.
+\end{proof}
+
+\begin{proof}
+    STILL NEED TO DO THIS!!!
+    Let $a \in \mathbb{N}$.
     We must show $a \cdot 1 = a = 1 \cdot a$.
+    Consider the set 
+    \[G = \{x \in \mathbb{N} \mid x \cdot 1 = x = 1 \cdot x\}\]
+    We will show $G = \mathbb{N}$.
+    Clearly $G \subseteq \mathbb{N}$.
+    We first show $1 \in G$.
+    Consider $x \cdot 1 = 1 \cdot 1 = x \cdot 1 = x$ by Theorem $1.2.6$ part (a).
+    Suppose $x \in \mathbb{N}$ and assume $x \in G$.
 \end{proof}
 
 \begin{proof}
@@ -89,19 +139,271 @@
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Let $a, b \in \mathbb{N}$.
+    Suppose $a < b$. 
+    Prove that there is a unique $p \in \mathbb{N}$
+        such that $a + p = b$
 \end{tcolorbox}
+
+\begin{proof}
+    We first prove uniqueness.
+    Let $a, b \in \mathbb{N}$ such that $a < b$.
+    Suppose $x, y \in \mathbb{N}$
+        such that $a + x = b$ and $a + y = b$.
+    Then $a + x = a + y$.
+    By Theorem $1.2.7$ part ($4$),
+        $x + a = y + a$.
+    Then by Theorem $1.2.7$ part ($1$), $x = y$.
+
+    We now prove existence.
+    Since $a < b$ it follows that $a + 1 < b$ by Theorem $1.2.9$ part ($11$).
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Prove Theorem $1.2.9$ ($1$) ($3$) ($4$) ($5$) ($11$).
 \end{tcolorbox}
+
+\begin{proof}
+    Let $a \in \mathbb{N}$.
+    We must show $a \le a$, and $a \not < a$, and $a < a + 1$.
+
+    To show $a \le a$ consider $a = a$ thus $a \le a$.
+    To show $a \not < a$, first, suppose $a < a$.
+    By definition of $<$, there exists $p \in \mathbb{N}$ such that $a + p = a$
+        contradicting Theorem $1.2.7$ part ($6$).
+    To show $a < a + 1$ consider $s(a) = a + 1 = a + 1$ thus $a < a + 1$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show if $a < b$ and $b < c$, then $a < c$;
+        if $a \le b$ and $b < c$, then $a < c$;
+        if $a < b$ and $b \le c$, then $a < c$;
+        if $a \le b$ and $b \le c$, then $a \le c$.
+
+    \textcircled{1} 
+    Suppose $a < b$ and $b < c$.
+    By definition of $<$, there exists $p_1, p_2 \in \mathbb{N}$
+        such that $a + p_1 = b$ and $b + p_2 = c$.
+    Then $b + p_2 = (a + p_1) + p_2 = c$.
+    By definition of $<$, $a < c$.
+
+    \textcircled{2}
+    Suppose $a \le b$ and $b < c$.
+    By definition of $\le$,
+        either $a = b$ or $a < b$.
+    Suppose $a < b$. By \textcircled{1}, $a < c$.
+    Suppose $a = b$.
+    By definition of $<$, there exists $p \in \mathbb{N}$
+        such that $b + p = c$.
+    Then $b + p = a + p = c$.
+    By definition of $<$, $a < c$.
+
+    \textcircled{3}
+    Suppose $a < b$ and $b \le c$.
+    By definition of $\le$,
+        either $b = c$ or $b < c$.
+    Suppose $b < c$. By \textcircled{1}, $a < c$.
+    Suppose $b = c$.
+    By definition of $<$, there exists $p \in \mathbb{N}$
+        such that $a + p = b$.
+    Then $b = a + p = c$ thus, by definition of $<$, $a < c$.
+
+    Suppose $a \le b$ and $b \le c$.
+    There are four cases:
+    \begin{enumerate}
+        \item Suppose $a < b$ and $b < c$. By \textcircled{1}, $a < c$.
+        \item Suppose $a \le b$ and $b < c$. By \textcircled{2}, $a < c$.
+        \item Suppose $a < b$ and $b \le c$. By \textcircled{3}, $a < c$.
+        \item Suppose $a \le b$ and $b \le c$. 
+              There are four cases:
+              \begin{enumerate}
+                \item Suppose $a = b$ and $b < c$.
+                      By definition of $<$, there exists $p \in \mathbb{N}$
+                      such that $b + p = c$.
+                      Then $b + p = a + p = c$ so $a < c$.
+                \item Suppose $a < b$ and $b < c$. 
+                      By \textcircled{1}, $a < c$.
+                \item Suppose $a = b$ and $b = c$. 
+                      Clearly $a = b = c$ thus $a = c$.
+                \item Suppose $a < b$ and $b = c$. 
+                    By definition of $<$, there exists $p \in \mathbb{N}$
+                        such that $a + p = b$.
+                      Then $a + p = b = c$ so $a < c$.
+              \end{enumerate}
+    \end{enumerate}
+    Thus either $a < c$ or $a = c$ thus, by definition of $\le$, $a \le c$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show if $a < b$ if and only if $a + c < b + c$.
+    
+    Suppose $a < b$. By definition of $<$, 
+        there exists $p \in \mathbb{N}$ such that $a + p = b$.
+    By Theorem $1.2.7$ part ($1$), $(a + p) + c = b + c$.
+    By Theorem $1.2.7$ part ($2$), $a + (p + c) = b + c$.
+    By Theorem $1.2.7$ part ($4$), $a + (c + p) = b + c$.
+    By Theorem $1.2.7$ part ($2$), $(a + c) + p = b + c$.
+    Thus by definition of $<$, $a + c < b + c$.
+
+    Suppose $a + c < b + c$. There exists $p \in \mathbb{N}$
+        such that $(a + c) + p = b + c$.
+    By Theorem $1.2.7$ part ($4$), $p + (a + c) = b + c$.
+    By Theorem $1.2.7$ part ($2$), $(p + a) + c = b + c$.
+    By Theorem $1.2.7$ part ($1$), $p + a = b$ so,
+        by Theorem $1.2.7$ part ($4$),  $a + p = b$.
+    Thus by definition of $<$, $a < b$.
+\end{proof}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{N}$.
+    We must show $a < b$ if and only if $ac < bc$.
+    
+    Suppose $a < b$.
+    Now suppose $ac > bc$.
+    By definition of $<$, there exists $p_1, p_2 \in \mathbb{N}$
+        such that $a + p_1 = b$ and $bc + p_2 = ac$.
+    Then, by Theorem $1.2.8$ part ($8$), $(a + p_1)c + p_2 = ac + p_1 c  + p_2 = ac$.
+    By definition of $<$, $ac < ac$ contradicting
+        Theorem $1.2.9$ part ($1$).
+
+    Suppose $ac < bc$.
+    Now suppose $a > b$. 
+    By definition of $<$, there exists $p$ such that $b + p = a$.
+    Then, by Theorem $1.2.8$ part ($8$), $(b + p)c = bc$.
+    So $bc + pc = bc$.
+    From this we deduce that $bc < bc$ contradicting 
+        Theorem $1.2.9$ part ($1$).
+\end{proof}
+
+\begin{proof}
+    Let $a, b \in \mathbb{N}$.
+    We must show $a < b$ if and only if $a + 1 \le b$.
+
+    Suppose $a < b$.
+    Now suppose $a + 1 > b$.
+    By definition of $<$, there exists $p_1, p_2 \in \mathbb{N}$ 
+        such that $b + p_1 = a + 1$ and $a + p_2 = b$.
+    Then $b + p_1 = (a + p_2) + p_1 = a + 1$.
+    By Theorem $1.2.7$ part ($4$), $p_1 + (a + p_2) = 1 + a$.
+    By Theorem $1.2.7$ part ($4$), $p_1 + (p_2 + a) = 1 + a$.
+    By Theorem $1.2.7$ part ($2$), $(p_1 + p_2) + a = 1 + a$.
+    By Theorem $1.2.7$ part ($1$), $p_1 + p_2 = 1$
+        contradicting Theorem $1.2.7$ part ($5$).
+
+    Suppose $a + 1 \le b$.
+    By definition of $\le$, either $a + 1 = b$ or $a + 1 < b$.
+
+    Suppose $a + 1 < b$.
+    Now suppose $a > b$.
+    By definition of $<$, there exists $p_1, p_2 \in \mathbb{N}$ 
+        such that $(a + 1) + p_1 = b$ and $b + p_2 = a$.
+    Then $(a + 1) + p_1 = ((b + p_2) + 1) + p_1 = b$.
+    By definition of $<$, $b < b$ contradicting
+        Theorem $1.2.9$ part ($1$).
+
+    Suppose $a + 1 = b$.
+    Now suppose $a > b$.
+    By definition of $<$, there exists $p \in \mathbb{N}$ 
+        such that $b + p = a$.
+    Then $a + 1 = b + p + 1 = b$.
+    By definition of $<$, $b < b$ contradicting
+        Theorem $1.2.8$ part ($6$).
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Let $a, b \in \mathbb{N}$. 
+    Prove that if $a + a = b + b$, then $a = b$.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $a + a = b + b$.
+    First, by Theorem $1.2.6$ part (a),
+         $a + a = a \cdot 1 + a \cdot 1$.
+    Then, by Theorem $1.2.7$ part ($10$),
+        $a \cdot 1 + a \cdot 1 = a(1 + 1) = a\cdot 2$.
+    Similarly $b + b = b\cdot 2$.
+    Then, by Theorem $1.2.7$ part ($12$),
+        since $a\cdot 2 = b\cdot 2$, $a = b$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    Let $b \in \mathbb{N}$. Prove that 
+    \[\{n \in \mathbb{N} \mid 1 \le n \le b\} \cup \{n \in \mathbb{N} \mid b + 1 \le n\} = \mathbb{N}\]
+    \[\{n \in \mathbb{N} \mid 1 \le n \le b\} \cap \{n \in \mathbb{N} \mid b + 1 \le n\} = \emptyset\]
 \end{tcolorbox}
+
+\begin{proof}
+    Let $A = \{n \in \mathbb{N} \mid 1 \le n \le b\}$ and $B = \{n \in \mathbb{N} \mid b + 1 \le n\}$.
+    It is clear that $A \subseteq \mathbb{N}$ and $B \subseteq \mathbb{N}$.
+    Thus $A \cup B \subseteq \mathbb{N}$.
+    Now let $x$ be an arbitrary element in $\mathbb{N}$.
+    By Theorem $1.2.9$ part ($6$), either $x < b$, $x = b$, or $x > b$.
+    Suppose $x < b$. Then $x \in A$, so $x \in A \cup B$.
+    Suppose $x = b$. Then $x \in A$, so $x \in A \cup B$.
+    Suppose $x > b$. Then $x \in B$, so $x \in A \cup B$.
+    Therefore $\mathbb{N} \subseteq A \cup B$.
+    It follows that $A \cup B = \mathbb{N}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $\{n \in \mathbb{N} \mid 1 \le n \le b\} \cap \{n \in \mathbb{N} \mid b + 1 \le n\} \ne \emptyset$.
+    Let $x \in \{n \in \mathbb{N} \mid 1 \le n \le b\} \cap \{n \in \mathbb{N} \mid b + 1 \le n\}$.
+    Then $1 \le x \le b$ and $b + 1 \le x$.
+    By Theorem $1.2.9$ part ($3$), $b + 1 \le x \le b$
+        contradicting Theorem $1.2.9$ part ($9$).
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Let $A \subseteq N$ be a set.
+    The set $A$ is \textbf{closed} if $a \in A$ implies $a + 1 \in A$.
+    Suppose $A$ is closed.
+    \begin{enumerate}
+        \item Prove that if $a \in A$ and $n \in \mathbb{N}$, then $a + n \in A$.
+        \item Prove that if $a \in A$, then $\{x \in \mathbb{N} \mid x \ge a\} \subseteq A$.
+    \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    If $A = \emptyset$ then clearly the implication vacuously holds.
+    Suppose $A \ne \emptyset$.
+    Consider the set
+    \[G = \{x \in \mathbb{N} \mid a + x \in A\}.\]
+    We will show $G = \mathbb{N}$, proving our implication.
+    Now, since $a \in A$ and $A$ is closed, $a + 1 \in A$, thus $1 \in G$.
+    Suppose $x \in \mathbb{N}$ and $x \in G$.
+    Then consider $a + s(x) = a + (x + 1)$.
+    By Theorem $1.2.7$ part ($2$), $a + (x + 1) = (a + x) + 1$.
+    By our hypothesis, $a + x \in A$.
+    But since $A$ is closed, $(a + x) + 1 \in A$.
+    Thus $s(x) \in G$.
+    By the part (c) of the Peano Postulates, we conclude that $G = \mathbb{N}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $a \in A$. Let $x \in \mathbb{N}$ such that $x \ge a$.
+    Either $x = a$ or $a < x$.
+    Suppose $x = a$, then trivially $x = a \in A$.
+    Suppose $a < x$.
+    By definition of $<$, there exists $p \in \mathbb{N}$ 
+        such that $a + p = x$.
+    By the previous proof, $a + p = x \in A$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 8, breakable]
+    Suppose that the set $\mathbb{N}$ together with the element 
+        $1 \in mathbb{N}$ and the function $s : \mathbb{N} \rightarrow \mathbb{N}$,
+        and the set $\mathbb{N}'$ together with the element $1' \in \mathbb{N}$
+        and the function $s' : \mathbb{N}' \rightarrow \mathbb{N}'$, both satisfy 
+        the Peano Postulates. Prove that there is a bijective function 
+        $f : \mathbb{N} \rightarrow \mathbb{N}'$ such that $f(1) = 1'$
+        and $f \circ s = s' \circ f$. The existence of such a bijective function 
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Extra Problem, breakable]
+    Show the Peano axioms are independent. 
+    That is, for any two Peano axioms, 
+        find a structure that satisfies them but not the third. 
+    You may assume the regular math of $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$.
 \end{tcolorbox}
