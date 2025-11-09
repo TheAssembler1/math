@@ -39,6 +39,7 @@
         = (n \cdot m) + n$, which is part (b).
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 2, breakable]
     Prove Theorem $1.2.7$ ($2$) ($3$) ($4$) ($7$) ($8$) ($9$) ($10$) ($11$) ($13$).
 \end{tcolorbox}
@@ -65,15 +66,19 @@
 \begin{proof}
     Let $a \in \mathbb{N}$.
     We must show $1 + a = s(a) = a + 1$.
-    Let $x \in \mathbb{N}$.
-    Suppose $x = 1$. Then 
-    \[1 + x = 1 + 1 = s(1) = x + 1\]
-    Suppose $x > 1$.
-    By Lemma $1.2.3$ there exists $y \in \mathbb{N}$ such that $s(y) = x$.
-    First note $y + (1 + 1) = (y + 1) + 1$ by Theorem $1.2.7$ part ($2$).
-    Then
-    \[1 + s(y) = 1 + (y + 1) = s(y + 1) = y + s(1) = y + (1 + 1) = (y + 1) + 1 = s(y) + 1\]
-    Thus $1 + x = x + 1$.
+    Consider the set 
+    \[G = \{a \in \mathbb{N} \mid 1 + a = s(a) = a + 1\}\]
+    We will show $G = \mathbb{N}$.
+    Clearly $G \subseteq \mathbb{N}$.
+    We first show $1 \in G$.
+    Let $a \in \mathbb{N}$ such that $a = 1$.
+    \[1 + a = s(a) = s(1) = 1 + 1 = a + 1\]
+    Thus $1 \in G$.
+    Suppose $x \in \mathbb{N}$ and $x \in G$.
+    By our hypothesis, $1 + x = x + 1$.
+    Then 
+    \[1 + s(x) = s(1 + x) = s(x + 1) = s(x) + 1\]
+    So $s(x) \in G$. Thus $G = \mathbb{N}$ by part (c) of the Peano Postulates.
 \end{proof}
 
 \begin{proof}
@@ -96,38 +101,93 @@
 \end{proof}
 
 \begin{proof}
-    Let $x, y \in \mathbb{N}$.
-    We must show $a \cdot 1  = 1 \cdot a$.
-\end{proof}
-
-\begin{proof}
-    STILL NEED TO DO THIS!!!
     Let $a \in \mathbb{N}$.
     We must show $a \cdot 1 = a = 1 \cdot a$.
     Consider the set 
     \[G = \{x \in \mathbb{N} \mid x \cdot 1 = x = 1 \cdot x\}\]
     We will show $G = \mathbb{N}$.
     Clearly $G \subseteq \mathbb{N}$.
-    We first show $1 \in G$.
-    Consider $x \cdot 1 = 1 \cdot 1 = x \cdot 1 = x$ by Theorem $1.2.6$ part (a).
-    Suppose $x \in \mathbb{N}$ and assume $x \in G$.
+    We first show $1 \in G$. Consider
+    \[
+    \begin{aligned}
+    x \cdot 1 
+        &= x && \text{Theorem 1.2.6 part (a)} \\
+        &= 1 \\
+        &= 1 \cdot 1 \\
+        &= x \cdot 1
+    \end{aligned}
+    \]
+    Thus $1 \in G$.
+    Consider 
+    \[
+    \begin{aligned}
+    s(x) \cdot 1 
+        &= s(x) && \text{Theorem 1.2.6 part (a)} \\
+        &= x + 1 && \text{Theorem 1.2.5 part (a)} \\
+        &= x \cdot 1 + 1 && \text{Theorem 1.2.6 part (a)} \\
+        &= 1 \cdot x + 1 && \text{Induction hypothesis} \\
+        &= 1 \cdot s(x) && \text{Theorem 1.2.6 part (b)}
+    \end{aligned}
+    \]
+    So $s(x) \in G$. Thus $G = \mathbb{N}$ by part (c) of the Peano Postulates.
 \end{proof}
 
 \begin{proof}
     Let $a, b, c \in \mathbb{N}$.
     We must show $(a + b)c = ac + bc$.
+    Consider the set 
+    \[G = \{c \in \mathbb{N} \mid \text{if } a, b \in \mathbb{N} \text{ then } (a + b)c = ac + bc\}\]
+    We will show $G = \mathbb{N}$.
+    Clearly $G \subseteq \mathbb{N}$.
+    We first show $1 \in G$. Let $a, b \in \mathbb{N}$. Then
+    \begin{align*}
+        (a + b)1 
+            &= a + b \quad &&\text{(Theorem $1.2.6$ part (a))} \\
+            &= a \cdot 1 + b \cdot 1 \quad &&\text{(Theorem $1.2.6$ part (a))}
+    \end{align*}
+    Suppose $a, b, c \in \mathbb{N}$ and $c \in G$.
+    Then
+    \begin{align*}
+        (a + b) \cdot s(c) 
+            &= ((a + b) c) + (a + b) \quad &&\text{(Theorem 1.2.6 part (a))} \\
+            &= (ac + b c + a + b) \quad &&\text{(Induction Hypothesis)} \\
+            &= (ac + a + bc + b) \quad &&\text{(Theorem 1.2.7 part (4))} \\
+            &= a \cdot s(c) + b \cdot s(c) \quad &&\text{(Theorem 1.2.5 part (a))}
+    \end{align*}
+    So $s(c) \in G$. Thus $G = \mathbb{N}$ by part (c) of the Peano Postulates.
 \end{proof}
 
 \begin{proof}
-    Let $a, b, c \in \mathbb{N}$.
+    Let $a, b \in \mathbb{N}$.
     We must show $ab = ba$.
+        Consider the set 
+    \[G = \{a \in \mathbb{N} \mid \text{if } b \in \mathbb{N} \text{ then } ab = ba\}\]
+    We will show $G = \mathbb{N}$.
+    Clearly $G \subseteq \mathbb{N}$.
+    We first show $1 \in G$. By Theorem $1.2.7$ part ($7$), $a \cdot 1 = 1 \cdot a$.
+    Thus $1 \in G$.
+    Suppose $a, b \in \mathbb{N}$ and $a \in G$.
+    \begin{align*}
+        s(a) \cdot b 
+            &= (a + 1)b \quad &&\text{(Theorem $1.2.5$ part (a))} \\
+            &= ab + 1 b \quad &&\text{(Theorem $1.2.7$ part ($8$))} \\
+            &= ab + b 1 \quad &&\text{(Theorem $1.2.7$ part ($7$))} \\
+            &= ab + b \quad &&\text{(Theorem $1.2.6$ part ($7$))} \\
+            &= ba + b \quad &&\text{(Induction Hypothesis)} \\
+            &= b \cdot s(a) \quad &&\text{(Theorem $1.2.6$ part (b))} 
+    \end{align*}
+    So $s(a) \in G$. Thus $G = \mathbb{N}$ by part (c) of the Peano Postulates.
 \end{proof}
 
 \begin{proof}
-    Let $a, b, c \in \mathbb{N}$.
+    Let $a, b \in \mathbb{N}$.
     We must show $c(a + b) = ca + cb$.
+    By Theorem $1.2.7$ part ($9$), $c(a + b) = (a + b)c$.
+    By Theorem $1.2.7$ part ($8$), $(a + b)c = ac + bc$.
+     By Theorem $1.2.7$ part ($9$), $ac + bc = ca + cb$.
 \end{proof}
 
+\newpage
 \begin{proof}
     Let $a, b, c \in \mathbb{N}$.
     We must show $(ab)c = a(bc)$.
@@ -135,7 +195,48 @@
 
 \begin{proof}
     Let $a, b, c \in \mathbb{N}$.
+    We must show $(ab)c = a(bc)$.
+    Consider the set 
+    \[G = \{c \in \mathbb{N} \mid \text{if } a, b \in \mathbb{N} \text{ then } (ab)c = a(bc)\}\]
+    We will show $G = \mathbb{N}$.
+    Clearly $G \subseteq \mathbb{N}$.
+    We first show $1 \in G$. Let $a, b \in \mathbb{N}$. Then
+    \[(ab)1 = ab \text{ (Theorem $1.2.7$ part ($7$)) } = a (b \cdot 1) \text{ (Theorem $1.2.6$ part (a)) }\]
+    Thus $1 \in G$.
+    Suppose $a, b, c \in \mathbb{N}$ and $c \in G$.
+    Then
+    \begin{align*}
+        (ab) \cdot s(c)
+            &= (ab)(c + 1) \quad &&\text{(Theorem 1.2.5 part (a))} \\
+            &= (ab)c + (ab) 1 \quad &&\text{(Theorem 1.2.7 part ($10$))} \\
+            &= a(bc) + (ab) 1 \quad &&\text{(Induction Hypothesis)} \\
+            &= a(bc) + ab \quad &&\text{(Theorem 1.2.7 part ($7$))} \\
+            &= a(bc + b) \quad &&\text{(Theorem 1.2.7 part ($8$))} \\
+            &= a(bc + b \cdot 1) \quad &&\text{(Theorem 1.2.7 part ($7$))} \\
+            &= a(b(c + 1)) \quad &&\text{(Theorem 1.2.7 part ($8$))} \\
+            &= a(b \cdot s(c)) \quad &&\text{(Theorem 1.2.5 part (a))}
+    \end{align*}
+    So $s(c) \in G$. Thus $G = \mathbb{N}$ by part (c) of the Peano Postulates.
+\end{proof}
+
+\begin{proof}
+    Let $a, b \in \mathbb{N}$.
     We must show $ab = 1$ if and only if $a = 1 = b$.
+
+    Suppose $ab = 1$. For contradiction, suppose $a \ne 1 $ or $b \ne 1$.
+    Suppose $a \ne 1$.
+    By Lemma $1.2.3$ there exists $c \in \mathbb{N}$ such that $s(c) = a$.
+    Then
+    \[ab = s(c) b = (c + 1)b \text{ (Theorem $1.2.5$ part (a)) } = c b + b \text{ (Theorem $1.2.7$ part ($8$)) } = 1\]
+    Contradicting Theorem $1.2.7$ part ($5$).
+    Suppose $b \ne 1$.
+    By Lemma $1.2.3$ there exists $c \in \mathbb{N}$ such that $s(c) = b$.
+    Then
+    \[ab = a \cdot s(c) = a(c + 1) \text{ (Theorem $1.2.5$ part (a)) } = ac + a \text{ (Theorem $1.2.7$ part ($10$)) } = 1\]
+    Contradicting Theorem $1.2.7$ part ($5$).
+
+    Suppose $a = 1 = b$.
+    Then $a b = a \cdot 1 = a = 1$ by Theorem $1.2.6$ part (a).
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
@@ -156,7 +257,9 @@
     Then by Theorem $1.2.7$ part ($1$), $x = y$.
 
     We now prove existence.
-    Since $a < b$ it follows that $a + 1 < b$ by Theorem $1.2.9$ part ($11$).
+    Since $a < b$, by definition of $<$ 
+        there exists $p \in \mathbb{N}$
+        such that $a + p = b$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
@@ -167,7 +270,7 @@
     Let $a \in \mathbb{N}$.
     We must show $a \le a$, and $a \not < a$, and $a < a + 1$.
 
-    To show $a \le a$ consider $a = a$ thus $a \le a$.
+    To show $a \le a$, suppose for contradiction $a = a$. Thus $a \le a$.
     To show $a \not < a$, first, suppose $a < a$.
     By definition of $<$, there exists $p \in \mathbb{N}$ such that $a + p = a$
         contradicting Theorem $1.2.7$ part ($6$).
@@ -255,26 +358,37 @@
         by Theorem $1.2.7$ part ($4$),  $a + p = b$.
     Thus by definition of $<$, $a < b$.
 \end{proof}
-
 \begin{proof}
     Let $a, b, c \in \mathbb{N}$.
     We must show $a < b$ if and only if $ac < bc$.
     
     Suppose $a < b$.
-    Now suppose $ac > bc$.
+    For contradiction, suppose $ac \ge bc$.
+    By definition of $\ge$, either $ac = bc$ or $ac > bc$.
+
+    Suppose $ac = bc$.
+    By Theorem $1.2.7$ part ($12$), $a = b$.
+    But $a = b < b$ contradicting
+        Theorem $1.2.9$ part ($1$).
+
+    Suppose $ac > bc$.
     By definition of $<$, there exists $p_1, p_2 \in \mathbb{N}$
         such that $a + p_1 = b$ and $bc + p_2 = ac$.
-    Then, by Theorem $1.2.8$ part ($8$), $(a + p_1)c + p_2 = ac + p_1 c  + p_2 = ac$.
+    Then $bc + p_2 = (a + p_1)c + p_2 = ac + p_1 c + p_2 \;(\text{by Theorem $1.2.8$ part (8) for distributivity}) = ac$.
     By definition of $<$, $ac < ac$ contradicting
         Theorem $1.2.9$ part ($1$).
 
     Suppose $ac < bc$.
-    Now suppose $a > b$. 
-    By definition of $<$, there exists $p$ such that $b + p = a$.
-    Then, by Theorem $1.2.8$ part ($8$), $(b + p)c = bc$.
-    So $bc + pc = bc$.
-    From this we deduce that $bc < bc$ contradicting 
-        Theorem $1.2.9$ part ($1$).
+    For contradiction, suppose $a \ge b$. 
+    By definition of $\ge$, either $a = b$ or $a > b$ 
+
+    Suppose $a = b$.
+    Then $ac = bc < bc$ which contradicts Theorem $1.2.9$ part ($1$).
+
+    Suppose $a > b$.
+    By definition of $<$, there exists $p \in \mathbb{N}$ such that $b + p = a$.
+    Then, by Theorem $1.2.8$ part ($8$), $ac = (b + p)c = bc + pc$.
+    By definition of $<$, $bc < ac$.
 \end{proof}
 
 \begin{proof}
@@ -282,9 +396,9 @@
     We must show $a < b$ if and only if $a + 1 \le b$.
 
     Suppose $a < b$.
-    Now suppose $a + 1 > b$.
-    By definition of $<$, there exists $p_1, p_2 \in \mathbb{N}$ 
-        such that $b + p_1 = a + 1$ and $a + p_2 = b$.
+    For contradiction, suppose $a + 1 > b$.
+    By definition of $<$, there exists $p_2 \in \mathbb{N}$ such that $a + p_2 = b$.
+    Since $a + 1 > b$, there exists $p_1 \in \mathbb{N}$ such that $b + p_1 = a + 1$.
     Then $b + p_1 = (a + p_2) + p_1 = a + 1$.
     By Theorem $1.2.7$ part ($4$), $p_1 + (a + p_2) = 1 + a$.
     By Theorem $1.2.7$ part ($4$), $p_1 + (p_2 + a) = 1 + a$.
@@ -294,22 +408,21 @@
 
     Suppose $a + 1 \le b$.
     By definition of $\le$, either $a + 1 = b$ or $a + 1 < b$.
+    
+    Suppose $a + 1 = b$.
+    By definition of $<$, $a < b$.
 
     Suppose $a + 1 < b$.
-    Now suppose $a > b$.
+    For contradiction, suppose $a \ge b$.
+    By definition of $\ge$, either $a = b$ or $a > b$.
+    Suppose $a = b$, then $a + 1 = b + 1 > b$
+        contradicting Theorem $1.2.7$ part ($6$).
+    Suppose $a > b$.
     By definition of $<$, there exists $p_1, p_2 \in \mathbb{N}$ 
         such that $(a + 1) + p_1 = b$ and $b + p_2 = a$.
     Then $(a + 1) + p_1 = ((b + p_2) + 1) + p_1 = b$.
     By definition of $<$, $b < b$ contradicting
         Theorem $1.2.9$ part ($1$).
-
-    Suppose $a + 1 = b$.
-    Now suppose $a > b$.
-    By definition of $<$, there exists $p \in \mathbb{N}$ 
-        such that $b + p = a$.
-    Then $a + 1 = b + p + 1 = b$.
-    By definition of $<$, $b < b$ contradicting
-        Theorem $1.2.8$ part ($6$).
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 5, breakable]
@@ -345,11 +458,9 @@
     Suppose $x > b$. Then $x \in B$, so $x \in A \cup B$.
     Therefore $\mathbb{N} \subseteq A \cup B$.
     It follows that $A \cup B = \mathbb{N}$.
-\end{proof}
 
-\begin{proof}
-    Suppose $\{n \in \mathbb{N} \mid 1 \le n \le b\} \cap \{n \in \mathbb{N} \mid b + 1 \le n\} \ne \emptyset$.
-    Let $x \in \{n \in \mathbb{N} \mid 1 \le n \le b\} \cap \{n \in \mathbb{N} \mid b + 1 \le n\}$.
+    Suppose $A \cap B \ne \emptyset$.
+    Let $x \in A \cap B$.
     Then $1 \le x \le b$ and $b + 1 \le x$.
     By Theorem $1.2.9$ part ($3$), $b + 1 \le x \le b$
         contradicting Theorem $1.2.9$ part ($9$).
@@ -393,17 +504,318 @@
 
 \begin{tcolorbox}[title=Problem 8, breakable]
     Suppose that the set $\mathbb{N}$ together with the element 
-        $1 \in mathbb{N}$ and the function $s : \mathbb{N} \rightarrow \mathbb{N}$,
+        $1 \in \mathbb{N}$ and the function $s : \mathbb{N} \rightarrow \mathbb{N}$,
         and the set $\mathbb{N}'$ together with the element $1' \in \mathbb{N}$
         and the function $s' : \mathbb{N}' \rightarrow \mathbb{N}'$, both satisfy 
         the Peano Postulates. Prove that there is a bijective function 
         $f : \mathbb{N} \rightarrow \mathbb{N}'$ such that $f(1) = 1'$
-        and $f \circ s = s' \circ f$. The existence of such a bijective function 
+        and $f \circ s = s' \circ f$. The existence of such a bijective function.
 \end{tcolorbox}
 
+\begin{proof}
+    We can apply Theorem $1.2.4$
+        to the set $\mathbb{N}'$, the element $1'$
+        and the function  $s' : \mathbb{N}' \rightarrow \mathbb{N}'$,
+        to deduce that there is a unique function $f : \mathbb{N} \rightarrow \mathbb{N}'$ such that 
+        $f \circ s = s' \circ f$ and $f(1) = 1'$.
+
+    We can apply Theorem $1.2.4$ again,
+        to the set $\mathbb{N}$, the element $1$
+        and the function  $s : \mathbb{N} \rightarrow \mathbb{N}$,
+        to deduce that there is a unique function $f' : \mathbb{N}' \rightarrow \mathbb{N}$ such that 
+        $f' \circ s' = s \circ f'$ and $f'(1') = 1$.
+
+    Now we must show $f'$ is the inverse of $f$.
+
+    Consider $f' \circ f$.  
+    Let $x \in \mathbb{N}$.  
+
+    \textbf{Base case:} $x = 1$.  
+    \[(f' \circ f)(x) = f'(f(1)) = f'(1') = 1 = x\]  
+
+    \textbf{Inductive step:} Suppose $x > 1$. By Lemma $1.2.3$ there exists $y \in \mathbb{N}$ such that $s(y) = x$.  
+    Suppose for $y \in \mathbb{N}$ such that $y < x$, $(f' \circ f)(y) = y$.
+    Then 
+    \begin{align*}
+    (f' \circ f)(x) 
+    &= f'(f(s(y))) \\
+    &= f'(s'(f(y))) && \text{(by $f \circ s = s' \circ f$)} \\
+    &= s(f'(f(y))) && \text{(by $f' \circ s' = s \circ f'$)} \\
+    &= s(y) && \text{$y < x$} \\
+    &= x
+    \end{align*}
+
+    Consider $f \circ f'$.  
+    Let $x' \in \mathbb{N}'$.  
+
+    \textbf{Base case:} $x' = 1'$.  
+    \[(f \circ f')(x') = f(f'(1')) = f(1) = 1' = x'\]  
+
+    \textbf{Inductive step:} Suppose $x' > 1'$. By Lemma $1.2.3$ there exists $y' \in \mathbb{N}'$ such that $s'(y') = x'$.  
+    Suppose for $y' \in \mathbb{N}'$ such that $y' < x'$, $(f \circ f')(y') = y'$.
+    Then
+    \begin{align*}
+    (f \circ f')(x') 
+    &= f(f'(s'(y'))) \\
+    &= f(s(f'(y'))) && \text{(by $f' \circ s' = s \circ f'$)} \\
+    &= s'(f(f'(y'))) && \text{(by $f \circ s = s' \circ f$)} \\
+    &= s'(y') && \text{(induction hypothesis)} \\
+    &= x'
+    \end{align*}
+
+    Since $(f' \circ f)(x) = x$ and $(f \circ f')(x') = x'$, we conclude that $f'$ is the inverse of $f$.  
+    Thus $f$ is bijective.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Extra Problem, breakable]
     Show the Peano axioms are independent. 
     That is, for any two Peano axioms, 
         find a structure that satisfies them but not the third. 
     You may assume the regular math of $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$.
+\end{tcolorbox}
+
+\begin{axiom}[Peano Postulates]
+    There exists a set $\mathbb{N}$ with an element $1 \in \mathbb{N}$
+        and a function $s : \mathbb{N} \rightarrow \mathbb{N}$
+        that satisfy the following three properties.
+    \begin{enumerate}[label=\textbf{\alph*.}]
+        \item There is no $n \in \mathbb{N}$ such that $s(n) = 1$.
+        \item The function $s$ is injective.
+        \item Let $G \subseteq \mathbb{N}$. Suppose that $1 \in G$, and
+              that if $g \in G$ then $s(g) \in G$. Then $G = \mathbb{N}$.
+    \end{enumerate}
+\end{axiom}
+
+\begin{proof}
+    (\textbf{a., b.})
+    Let $s : \mathbb{N} \rightarrow \mathbb{N}$ be defined by $s(x) = x + 2$.
+    Let $G = \{x \mid \exists k \in \mathbb{Z}, x = 2k + 1\}$.
+    Clearly $s$ is injective, $1 \in G$, and $G \subseteq \mathbb{N}$.
+    But $G \ne \mathbb{N}$, and if $g \in G$ then $s(g) = g + 2 \in G$.
+    Clearly \textbf{a., b.} 
+        hold while \textbf{c.} does not hold.
+
+    (\textbf{a., c.}) 
+    Let $M = \{1, p\}$ and let $s : M \rightarrow M$ be defined
+        by $s(1) = p$ and $s(p) = p$. Clearly \textbf{a., c.} 
+        hold while \textbf{b.} does not hold.
+
+    (\textbf{b., c.}) Let $M = \{1, p\}$ and let $s : M \rightarrow M$ be defined
+        by $s(1) = p$ and $s(p) = 1$. Clearly \textbf{b., c} 
+        hold while \textbf{a.} does not hold.
+\end{proof}
+
+\subsection{Constructing the Integers}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Complete the proof of Lemma $1.3.2$.
+    That is, prove that the relation $\sim$ is transitive.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(a, b), (c, d), (e, f) \in \mathbb{N} \times \mathbb{N}$.
+    Assume $(a, b) \sim (c, d)$ and $(c, d) \sim (e, f)$.
+    By definition of $\sim$,
+        $a + d = b + c$ and $c + f = d + e$.
+    Then taking sums shows $a + d + c + f = b + c + d + e$.
+    Cancelling terms $a + f = b + e$.
+    Thus, by definition of $\sim$, $(a, b) \sim (f, e)$.
+    Since $\sim$ is symmetric, $(a, b) \sim (e, f)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Complete the proof of Lemma $1.3.4$.
+    That is, prove that $\cdot$ and $-$ for $\mathbb{Z}$
+    are well-defined. The proof for $\cdot$ is a bit more complicated
+    than might be expected. [Use Exercise $1.2.5$.]
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(a, b), (c, d), (x, y), (z, w) \in \mathbb{N} \times \mathbb{N}$.
+    Suppose $(a, b) \sim (c, d)$ and $(x, y) \sim (z, w)$.
+    So $a + d = b + c$ and $x + w = y + z$.
+   
+
+    Therefore, $(a, b) \cdot (x, y) \sim (c, d) \cdot (z, w)$, and multiplication is well-defined.
+\end{proof}
+
+\begin{proof}
+    Let $(a, b), (c, d), (x, y), (z, w) \in \mathbb{N} \times \mathbb{N}$.
+    Suppose $(a, b) \sim (c, d)$ and $(x, y) \sim (z, w)$.
+    So $a + d = b + c$ and $x + w = y + z$.
+    Summing shows $a + y + d + z = b + x + c + w$.
+    Which is to say $(a + y, b + x) \sim (c + w, d + z)$.
+    Therefore  $(a, b) + (y, x) \sim (c, d) + (w, z)$.
+    It then follows that $(a, b) - (x, y) \sim (c, d) - (z, w)$.
+    Thus $-$ is well defined.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $a, b \in \mathbb{N}$.
+    \begin{enumerate}
+        \item Prove that $[(a,b)] = \hat{0}$ if and only if $a = b$.
+        \item Prove that $[(a, b)] = \hat{1}$ if and only if $a = b + 1$.
+        \item Prove that \textcircled{$1$} $[(a, b)] = [(n, 1)]$ for some $n \in \mathbb{N}$
+              such that $n \ne 1$ if and only if \textcircled{$2$} $a > b$
+              if and only if \textcircled{$3$} $[(a, b)] > \hat{0}$.
+        \item Prove that \textcircled{$1$} $[(a, b)] = [(1, m)]$ for some $m \in \mathbb{N}$
+              such that $m \ne 1$ if and only if \textcircled{$2$} $a < b$ if and only if 
+              \textcircled{$3$} $[(a, b)] < \hat{0}$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $[(a,b)] = \hat{0}$.
+    Thus $(a, b) \sim (1, 1)$.
+    Therefore $a + 1 = b + 1$.
+    It follows that $a = b$.
+
+    Suppose $a = b$.
+    Then $a + 1 = b + 1$
+    Therefore $(a, b) \sim (1, 1)$.
+    It follows that $[(a,b)] = \hat{0}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $[(a, b)] = \hat{1}$.
+    Thus $(a, b) \sim (1 + 1, 1)$.
+    Therefore $a + 1 = b + (1 + 1)$.
+    It follows that $a = b + 1$.
+
+    Suppose $a = b + 1$.
+    Thus $a + 1 = b + (1 + 1)$.
+    Thus $(a, b) \sim (1 + 1, 1)$.
+    It follows that $[(a,b)] = \hat{1}$.
+\end{proof}
+
+\begin{proof}
+    (\textcircled{$1$} \rightarrow \textcircled{$2$})  
+    Suppose $[(a, b)] = [(n, 1)]$ for some $n \in \mathbb{N}$ such that $n \ne 1$.  
+    Thus $a + 1 = b + n$.  
+    Since $n \ne 1$, $n > 1$.  
+    There exists $p \in \mathbb{N}$ such that $s(p) = n$.  
+    Then $a + 1 = b + s(p) = b + p + 1$.  
+    It follows that $a = b + p$.  
+    Thus $b < a$.  
+
+    (\textcircled{$2$} \rightarrow \textcircled{$1$})  
+    Suppose $a > b$.  
+    There exists $p \in \mathbb{N}$ such that $a = b + p$.  
+    Then $a + 1 = b + p + 1$.  
+    It follows that $a + 1 = b + s(p)$.  
+    Let $n = s(p)$.  
+    Therefore $[(a, b)] = [(n, 1)]$ for some $n \in \mathbb{N}$ such that $n \ne 1$.  
+
+    (\textcircled{$2$} \rightarrow \textcircled{$3$})  
+    Suppose $a > b$.  
+    There exists $p \in \mathbb{N}$ such that $a = b + p$.  
+    Then $a + 1 = b + 1 + p$.  
+    Therefore $[(a, b)] > \hat{0}$.  
+
+    (\textcircled{$3$} \rightarrow \textcircled{$2$})  
+    Suppose $[(a, b)] > \hat{0}$.  
+    It follows that $a + 1 > b + 1$.  
+    Thus there exists $p$ such that $a + 1 = b + 1 + p$.  
+    Therefore $a = b + p$ and it follows that $a > b$.  
+\end{proof}
+
+\begin{proof}
+    (\textcircled{$1$} \rightarrow \textcircled{$2$})  
+    Suppose $[(a, b)] = [(1, m)]$ for some $m \in \mathbb{N}$ such that $m \ne 1$.  
+    Then $a + m = b + 1$.  
+    Since $m \ne 1$, $m > 1$.  
+    There exists $p \in \mathbb{N}$ such that $s(p) = m$.  
+    Then $a + s(p) = b + 1 \implies a + p + 1 = b + 1$.  
+    It follows that $a = b - p$.  
+    Thus $a < b$.  
+
+    (\textcircled{$2$} \rightarrow \textcircled{$1$})  
+    Suppose $a < b$.  
+    There exists $p \in \mathbb{N}$ such that $b = a + p$ with $p \ne 0$.  
+    Then $b + 1 = a + p + 1 = a + s(p)$.  
+    Let $m = s(p)$. Then $m \ne 1$.  
+    Therefore $[(a, b)] = [(1, m)]$ for some $m \in \mathbb{N}$ with $m \ne 1$.  
+
+    (\textcircled{$2$} \rightarrow \textcircled{$3$})  
+    Suppose $a < b$.  
+    Then there exists $p \in \mathbb{N}$ such that $b = a + p$.  
+    Then $b + 1 = a + 1 + p$.  
+    Therefore $[(a, b)] < \hat{0}$.  
+
+    (\textcircled{$3$} \rightarrow \textcircled{$2$})  
+    Suppose $[(a, b)] < \hat{0}$.  
+    It follows that $b + 1 > a + 1$.  
+    Thus there exists $p \in \mathbb{N}$ such that $b + 1 = a + 1 + p$.  
+    Therefore $b = a + p$, so $a < b$.  
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove Theorem $1.3.5$ ($1$) ($3$) ($4$) ($5$) ($6$)
+    ($7$) ($8$) ($10$) ($11$) ($13$) ($14$).
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y, z \in \mathbb{Z}$.
+    We must show $(x + y) + z = z + (x + y)$.
+    Let $(x_1, x_2), (y_1, y_2), (z_1, z_2) \in \mathbb{N} \times \mathbb{N}$
+        such that $x = (x_1, x_2)$, $y = (y_1, y_2)$
+        and $z = (z_1, z_2)$.
+    Then 
+    \begin{align*}
+        (x + y) + z 
+            &= ([(x_1, x_2)] + [(y_1, y_2)]) + [(z_1, z_2)] \\
+            &= [(x_1 + y_1), (x_2 + y_2)] + [(z_1, z_2)] \\
+            &= [((x_1 + y_1) + z_1), ((x_2 + y_2) + z_2)] \\
+            &= [(x_1 + (y_1 + z_1)), (x_2 + (y_2 + z_2))] \\
+            &= [(x_1, x_2)] + [(y_1 + z_1), (y_2 + z_2)] \\
+            &= [(x_1, x_2)] + ([y_1, y_2] +  [z_1, z_2]) \\
+            &= x + (y + z)
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    We must show $x + \hat{0} = x$.
+    Let $(x_1, x_2) \in \mathbb{N} \times \mathbb{N}$
+        such that $x = (x_1, x_2)$.
+    Then $x + \hat{0} = [(x_1, x_2)] + [(1, 1)] = [(x_1 + 1, x_2 + 1)]$.
+    It follows that $x_1 + 1 + x_1 = x_2 + 1 + x_2$.
+
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Prove Theorem $1.3.7$ ($1$) ($3$) ($4(b)$) ($4(c)$).
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $x, y, z \in \mathbb{Z}$
+    \begin{enumerate}
+        \item Prove that $x < y$ if and only if $-x > -y$.
+        \item Prove that if $z < 0$, then $x < y$ if and only if $xz > yz$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $x \in \mathbb{Z}$. Prove that if $x > 0$ then $x \ge 1$.
+    Prove that if $x < 0$ then $x \le -1$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    \begin{enumerate}
+        \item Prove that $1 < 2$.
+        \item Let $x \in \mathbb{Z}$. Prove that $2x \ne 1$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Prove that the Well-Order Principle (Theorem $1.2.10$),
+    which was stated for $\mathbb{N}$ in Section $1.2$, still holds 
+    when we think of $\mathbb{N}$ as the set of positive integers.
+    That is, let $G \subseteq \{x \in \mathbb{Z} \mid x > 0\}$ be 
+    a non-empty set. Prove that there is some $m \in G$ such that 
+    $m \le g$ for all $g \in G$. Use Theorem $1.3.7$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Prove Theorem $1.3.8$ ($1$) ($3$) ($4$) ($5$) ($7$) ($10$) ($11$).
 \end{tcolorbox}
