@@ -39,7 +39,6 @@
         = (n \cdot m) + n$, which is part (b).
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 2, breakable]
     Prove Theorem $1.2.7$ ($2$) ($3$) ($4$) ($7$) ($8$) ($9$) ($10$) ($11$) ($13$).
 \end{tcolorbox}
@@ -187,7 +186,6 @@
      By Theorem $1.2.7$ part ($9$), $ac + bc = ca + cb$.
 \end{proof}
 
-\newpage
 \begin{proof}
     Let $a, b, c \in \mathbb{N}$.
     We must show $(ab)c = a(bc)$.
@@ -567,7 +565,6 @@
     Thus $f$ is bijective.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Extra Problem, breakable]
     Show the Peano axioms are independent. 
     That is, for any two Peano axioms, 
@@ -625,7 +622,7 @@
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
-    Complete the proof of Lemma $1.3.4$.
+    Test Complete the proof of Lemma $1.3.4$.
     That is, prove that $\cdot$ and $-$ for $\mathbb{Z}$
     are well-defined. The proof for $\cdot$ is a bit more complicated
     than might be expected. [Use Exercise $1.2.5$.]
@@ -635,9 +632,32 @@
     Let $(a, b), (c, d), (x, y), (z, w) \in \mathbb{N} \times \mathbb{N}$.
     Suppose $(a, b) \sim (c, d)$ and $(x, y) \sim (z, w)$.
     So $a + d = b + c$ and $x + w = y + z$.
-   
-
-    Therefore, $(a, b) \cdot (x, y) \sim (c, d) \cdot (z, w)$, and multiplication is well-defined.
+    We compute the following equations.
+    \begin{enumerate}
+        \item $ax + aw = ay + az$. Multiply $x + w = y + z$ by $a$.
+        \item $by + bz = bx + bw$. Multiply $y + z = x + w$ by $b$.
+        \item $cx + cw = cy + cz$. Multiply $x + w = y + z$ by $c$.
+        \item $dy + dz = dx + dw$. Multiply $y + z = x + w$ by $d$.
+    \end{enumerate}
+    Then taking sums.
+    \[ax + aw + by + bz + cx + cw + dy + dz = ay + az + bx + bw + cy + cz + dx + dw\]
+    Grouping terms.
+    \[ax + by + cw + dz + (aw + bz + cx + dy) = ay + bx + cz + dw + (az + bw + cy + dx)\]
+    We can complete the proof by ignoring bloch's hint because it doesn't help 
+        dumasses like me and cheating by showing $aw + bz + cx + dy = az + bw + cy + dx$.
+    \begin{align*}
+        &\big([(aw+1,aw)] + [(bz+1,bz)] + [(cx+1,cx)] + [(dy+1,dy)]\big)  \\ 
+        &\quad - \big([(az+1,az)] + [(bw+1,bw)] + [(cy+1,cy)] + [(dx+1,dx)]\big) \\
+        &= [(aw+1,aw)] + [(bz+1,bz)] + [(cx+1,cx)] + [(dy+1,dy)]  \\ 
+        &\quad + [(az,az+1)] + [(bw,bw+1)] + [(cy,cy+1)] + [(dx,dx+1)] \\
+        &= [(aw+bz+cx+dy + az+bw+cy+dx + 4,\ aw+bz+cx+dy + az+bw+cy+dx + 4)] \\
+        &= [(1,1)] = 0
+    \end{align*}
+    Thus $ax + by + cw + dz = ay + bx  + cz + dw$.
+    Then it follows that 
+    \[(ax + by, ay + bx) \sim (cz + dw, cw + dz)\]
+    Then from the definition of $\cdot$
+    \[(a, b) \cdot (x, y) \sim (c, d) \cdot (z, w)\]
 \end{proof}
 
 \begin{proof}
@@ -1006,7 +1026,6 @@
     Cancelling terms shows $a < b$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 7, breakable]
     Let $x, y, z \in \mathbb{Z}$
     \begin{enumerate}
@@ -1073,7 +1092,6 @@
         contradicting Theorem $1.2.9$ part 9.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 9, breakable]
     \begin{enumerate}
         \item Prove that $1 < 2$.
@@ -1082,8 +1100,20 @@
 \end{tcolorbox}
 
 \begin{proof}
-    For contradiction suppose $1 > 2$.
-    Then $1 + -1 > 2 + -1 \iff 0 > 1$ which is a contradiction.
+    For contradiction suppose $1 \ge 2$.
+    Either $1 = 2$ or $1 > 2$.
+
+    Suppose $1 = 2$.
+    Let $i$ be the bijective function in Theorem 1.3.7.
+    Then $i(1) = i(2) = i(1) + i(1)$, 
+    which contradicts Theorem 1.2.7 part 6.
+
+    Suppose $1 > 2$.
+    Then $i(1) > i(1) + i(1)$.
+    There exists $p \in \mathbb{N}$ such that $i(1) = p + i(1) + i(1)$.
+    This also contradicts Theorem 1.2.7 part 6.
+
+    It follows that $1 < 2$.
 \end{proof}
 
 \begin{proof}
@@ -1124,31 +1154,464 @@
 \begin{proof}
     We must show if $x + z = y + z$ then $x = y$.
     Suppose $x + z = y + z$.
+    Then
+    \begin{align*}
+        &x + z = y + z \\ 
+        \iff&(x + z) + (-z) = (y + z) + (-z)  \\
+        \iff&x + (z + (-z)) = y + (z + (-z)) && \text{by Theorem 1.3.5 part (1)} \\
+        \iff&x + 0 = y + z && \text{by Theorem 1.3.5 part (4)} \\
+        \iff&x = y && \text{by Theorem 1.3.5 part (3)}
+    \end{align*}
 \end{proof}
 
 \begin{proof}
-    We must show $-(x + y) = (-x) + -(y)$.
+    We must show $-(x + y) = (-x) + (-y)$.
+    Then
+    \begin{align*}
+        &-(x + y) = (-x) + (-y) \\
+        \iff&-(x + y) + (x + y) = (-x) + (-y) + (x + y) \\
+        \iff&(x + y) + (-(x + y)) = (-x) + (x + y) + (-y) && \text{by Theorem 1.3.5 part (2)} \\
+        \iff&(x + y) + (-(x + y)) = (-x) + x + (y + (-y)) && \text{by Theorem 1.3.5 part (5)} \\
+        \iff&(x + y) + (-(x + y)) = x + (-x) + (y + (-y)) && \text{by Theorem 1.3.5 part (2)} \\
+        \iff&0 = 0 + 0 && \text{by Theorem 1.3.5 part (4)} \\
+        \iff&0 = 0 && \text{by Theorem 1.3.5 part (4)}
+    \end{align*}
 \end{proof}
 
 \begin{proof}
-    We must show $x \cdot 0 = 0$.
+    We must show $x\cdot 0 = 0$.
+    \begin{align*}
+        &(x\cdot 0) + (x\cdot 0) = x(0+0) && \text{by Theorem 1.3.5 part (8)} \\
+        \iff&(x\cdot 0) + (x\cdot 0) = x\cdot 0 && \text{by Theorem 1.3.5 part (3)} \\
+        \iff&(x\cdot 0) + (x\cdot 0) + (-(x\cdot 0)) = x\cdot 0 + (-(x\cdot 0)) \\
+        \iff&(x\cdot 0) + \big( (x\cdot 0) + (-(x\cdot 0)) \big) = x\cdot 0 + (-(x\cdot 0)) && \text{by Theorem 1.3.5 part (1)} \\
+        \iff&(x\cdot 0) + 0 = 0 && \text{by Theorem 1.3.5 part (4)} \\
+        \iff&x\cdot 0 = 0 && \text{by Theorem 1.3.5 part (3)}
+    \end{align*}
 \end{proof}
 
 \begin{proof}
-    We must show if $z \ne 0$ and if $xz = yz$, then $x = y$.
+    We must show that if $z \ne 0$ and $xz = yz$, then $x = y$.
+    Suppose $z \ne 0$ and $xz = yz$. Then
+    \begin{align*}
+        xz = yz &\iff xz - yz = 0 \\
+                &\iff (x - y)z = 0.
+    \end{align*}
+    Since $z \ne 0$, it follows that $x + (-y) = 0$, 
+    so $x = y$.
 \end{proof}
 
 \begin{proof}
-    We must show $x = 1$ if and only if $x = 1 = y$ or $x = -1 = y$.
+    We must show $xy = 1$ if and only if $x = 1 = y$ or $x = -1 = y$.
+
+    ($\rightarrow$)
+    Suppose $xy = 1$.
+    For contradiction, suppose $x \ne 1, y \ne 1$, and $x \ne -1, y \ne -1$.
+
+    To make things easier, we first show $x \ne 0, y \ne 0$.
+    If $x = 0$ then $x y = 0 y$
+        and from the 1.3.8 (4)
+        it follows that $0 y = 0$
+        contradicting that $x y = 1$.
+    Similarly $y \ne 0$.
+
+    \begin{enumerate}
+        \item $x > 1, y > 1$.
+        \item $x < 1, y < 1$ so $x < 0, y < 0$.
+        \item $x > 1, y < 1$ so $y < 0$.
+        \item $x < 1, y > 1$ so $x < 0$.
+    \end{enumerate}
+
+    Suppose $x > 1, y > 1$.
+    Since $1 > 0$ it follows that $y > 0$ by Transitive Law.
+    Since $1 < x$ and $y > 0$ it follows that 
+        $1 \cdot y < x y$.
+    Then from Identity Law for Multiplication
+        it follows that $y < xy$
+        showing $y < 1$ which is a contradiction.
+
+    Suppose $x < 0$ and $y < 0$.
+    Since $-x > 0$ and $-y > 0$, we have $(-x)(-y) = xy$.
+    But $xy = 1$, so $(-x)(-y) = 1$.
+    For contradiction suppose $-x \ne 1$.
+    Then either $-x > 1$ or $-x < 1$.
+    Suppose $-x > 1$.
+    Since $-y > 0$ it follows that $1\cdot(-y) < (-x)(-y) = 1$.
+    Then from Identity Law for Multiplication it follows that $-y < 1$.
+    But $-y \in \mathbb{Z}$ and $-y > 0$ thus $-y \in \mathbb{N}$
+        contradicting that $1$ is the lower bound of $\mathbb{N}$.
+    Suppose $-x < 1$.
+    So $-x \le 0$. Suppose $-x = 0$.
+    Thus $x = 0$ which is a contradiction.
+    Thus $-x < 0$.
+    Since $-y > 0$ it follows that $(-x)(-y) < 0 \cdot (-y)$.
+    From which it follows that $1 < 0$ which is a contradiction.
+
+    Suppose $x > 1$ and $y < 0$.
+    Since $1 < x$ and $y < 0$ it follows that $1\cdot y > x y$.
+    Then from Identity Law for Multiplication
+        it follows that $y > xy$.
+    But $xy = 1$ so $y > 1$
+        which contradicts $y < 1$.
+
+    Suppose $x < 0$ and $y > 1$.
+    Since $1 < y$ and $x < 0$ it follows that $x\cdot 1 > x y$.
+    Then from Identity Law for Multiplication
+        it follows that $x > x y$.
+    But $x y = 1$ so $x > 1$
+        which contradicts $x < 1$.
+
+    ($\leftarrow$) Suppose $x = 1 = y$ or $x = -1 = y$.
+    Suppose $x = 1 = y$.    
+        Then $x y = 1 \cdot 1 = 1.$
+    Suppose $x = -1 = y$.
+        Then $xy = (-1)(-1)$.
+    Then by 1.3.8 (6), $(-1)(-1) = 1(-(-1))$.
+        and by 1.3.8 (2), $1(-(-1)) = 1 \cdot 1 = 1$.
+    Thus $xy = 1$.
 \end{proof}
 
 \begin{proof}
-    If $x \le y$ and $y \le x$, then $x = y$.
+    We must show if $x \le y$ and $y \le x$, then $x = y$.
+    Suppose $x \le y$ and $y \le x$.
+    For contradiction suppose $x \ne y$.
+    Then either $x < y$ or $x > y$.
+    Suppose $x < y$. This contradicts $y \le x$.
+    Suppose $x > y$. This contradicts $x \le y$.
+    Thus $x = y$.
 \end{proof}
 
 \begin{proof}
-    If $x > 0$ and $y > 0$,
-        then $xy > 0$.
-    If $x > 0$ and $y < 0$,
-        then $xy < 0$.
+    We must show that if $x > 0$ and $y > 0$, then $xy > 0$, 
+    and if $x > 0$ and $y < 0$, then $xy < 0$.
+
+    Suppose $x, y > 0$ and for contradiction $xy \le 0$.
+    Either $xy = 0$ or $xy < 0$.
+    Suppose $xy = 0$ and it follows that $x = 0$ or $y = 0$
+        contradicting $x, y >0$.
+    Suppose $xy < 0$.
+    It follows that $-xy > 0$.
+    Thus $x(-y) > x \cdot 0$.
+    Since $x > 0$ it follows that $-y > 0$ (Problem 7).
+    Then $y < 0$ which is a contradiciton.
+
+    Suppose $x > 0$ and $y < 0$ and for contradiction $xy \ge 0$.
+    Either $xy = 0$ or $xy > 0$.
+    Suppose $xy = 0$ and it follows that $x = 0$ or $y = 0$
+        contradicting $x > 0, y < 0$.
+    Suppose $xy > 0$.
+    Since $-y > 0$ and $x > 0$ it follows that $x(-y) > 0$.
+    Thus $-xy > 0$ and it follows that $xy < 0$.
 \end{proof}
+
+\subsection{Axioms for the Integers}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $n \in \mathbb{N}$. Prove that $n + 1 \in \mathbb{N}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Since $n \in \mathbb{N}$, $n \in \mathbb{Z}$ and $n > 0$.
+    By Addition Law for Order, $n + 1 > 1$.
+    By 1.4.5 (9), $n + 1 > 1 > 0$.
+    By Transitive Law, $n + 1 > 0$.
+    Since $n + 1 \in \mathbb{Z}$ and $n + 1 > 0$,
+        by definition of $\mathbb{N}$, $n + 1 \in \mathbb{N}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $x, y \in \mathbb{Z}$.
+    Prove that $x \le y$ if and only if $-x \ge -y$.
+\end{tcolorbox}
+
+\begin{proof}
+    ($\rightarrow$) 
+    Suppose $x \le y$. Then
+    \begin{align*}
+        x \le y
+        \iff &x + ((-x) + (-y)) \le y + ((-x) + (-y)) \\
+        \iff &(x + (-x)) + (-y) \le y + ((-x) + (-y)) && \text{1.4.1 (a)} \\
+        \iff &(x + (-x)) + (-y) \le y + ((-y) + (-x)) && \text{1.4.1 (b)} \\
+        \iff &(x + (-x)) + (-y) \le (y + (-y)) + (-x) && \text{1.4.1 (a)} \\
+        \iff &0 + (-y) \le 0 + (-x) && \text{1.4.1 (d)} \\
+        \iff &-y + 0 \le -x + 0 && \text{1.4.1 (b)} \\
+        \iff &-y \le -x && \text{1.4.1 (c)} 
+    \end{align*}
+    ($\leftarrow$)
+    Suppose $-x \ge -y$. Then
+    \begin{align*}
+        -x \ge -y
+        \iff &-x + (x + y) \ge -y + (x + y) \\
+        \iff &(-x + x) + y \ge -y + (x + y) && \text{1.4.1 (a)} \\
+        \iff &(-x + x) + y \ge -y + (y + x) && \text{1.4.1 (b)} \\
+        \iff &(-x + x) + y \ge (-y + y) + x && \text{1.4.1 (a)} \\
+        \iff &(x + (-x)) + y \ge (y + (-y)) + x && \text{1.4.1 (b)} \\
+        \iff & 0 + y \ge 0 + x && \text{1.4.1 (d)} \\
+        \iff &y + 0 \ge x + 0 && \text{1.4.1 (b)} \\
+        \iff &y \ge x && \text{1.4.1 (c)} 
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Prove that $\mathbb{N} = \{x \in \mathbb{Z} \mid x \ge 1\}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x \in \mathbb{N}$. By definition $x \in \mathbb{Z}$ and $x > 0$.
+    For contradiction, suppose $x < 1$. Then $0 < x < 1$ contradicting 1.4.6.
+    Thus $x \ge 1$. It follows that $x \in \{x \in \mathbb{Z} \mid x \ge 1\}$.
+    Therefore $\mathbb{N} \subseteq \{x \in \mathbb{Z} \mid x \ge 1\}$.
+
+    Let $x \in \{x \in \mathbb{Z} \mid x \ge 1\}$.
+    Either $x = 1$ or $x > 1$. In either case $x > 0$.
+    Thus $x \in \mathbb{N}$.
+    Therefore $\{x \in \mathbb{Z} \mid x \ge 1\} \subseteq \mathbb{N}$.
+
+    It follows that $\mathbb{N} = \{x \in \mathbb{Z} \mid x \ge 1\}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $a, b \in \mathbb{Z}$.
+    Prove that if $a < b$ then $a + 1 \le b$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a < b$. For contradiciton suppose $a + 1 > b$.
+    Then $a + 1 > b > a$ contradicting 1.4.6.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $n \in \mathbb{N}$.
+    Suppose that $n \ne 1$.
+    Prove that there is some $b \in \mathbb{N}$
+        such that $b + 1 = n$.
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) Suppose $n = 2$.
+    Then $s(1) = 1 + 1 = 2$.
+
+    (\textbf{Induction Step}) Suppose the theorem holds for some $n \in \mathbb{N}$
+        such that $n \ne 1$.
+    Consider $n + 1 = s(n)$. By our hypothesis there exists $b \in \mathbb{N}$
+        such that $s(b) = n$. Thus $n + 1 = s(s(b)) = s(b) + 1$.
+        Thus proving our theorem.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $a \in \mathbb{Z}$.
+    \begin{enumerate}
+        \item Let $G \subseteq \{x \in \mathbb{Z} \mid x \ge a\}$ be a set.
+              Suppose that $a \in G$, and that if $g \in G$ then 
+              $g + 1 \in G$. Prove that $G = \{x \in \mathbb{Z} \mid x \ge a\}$.
+        \item Let $H \subseteq \{x \in \mathbb{Z} \mid x \le a\}$ be a set.
+              Suppose that $a \in H$, and that if $h \in H$ then 
+              $h + (-1) \in H$. Prove that $H = \{x \in \mathbb{Z} \mid x \le a\}$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We must show for a fixed $a \in \mathbb{Z}$, $\{x \in \mathbb{Z} \mid x \ge a\} \subseteq G$.
+    Now, $x \ge a \iff x + (-a) \ge 0 \iff x + (-a) + 1 \ge 1$.
+    So we need to show $\{x \in \mathbb{Z} \mid x + (-a) + 1 \ge 1\} \subseteq G$.
+    Which is equivalent to $\{x \in \mathbb{Z} \mid x + (-a) + 1 \in \mathbb{N}\}$.
+
+    (\textbf{Base Case})  
+    Let $x = a$. Then $x + (-a) + 1 = a + (-a) + 1 = 1 \in \mathbb{N}$.
+    Thus $x = a \in G$.
+
+    (\textbf{Induction Step})  
+    Suppose for some $x \in \mathbb{Z}$ that $x + (-a) + 1 \in \mathbb{N}$ and $x \in G$.  
+    Then consider $x+1$. We have
+    \[
+        (x+1) + (-a) + 1 = (x + (-a) + 1) + 1 \in \mathbb{N}.
+    \]
+    By the definition of $G$, since $x \in G$, we have $x+1 \in G$.
+
+    Thus $G = \{x \in \mathbb{Z} \mid x \ge a\}$.
+\end{proof}
+
+\begin{proof}
+    We must show for a fixed $a \in \mathbb{Z}$, $\{x \in \mathbb{Z} \mid x \le a\} \subseteq H$.
+    Now, $x \le a \iff a - x \ge 0 \iff a - x + 1 \ge 1$.
+    So we need to show $\{x \in \mathbb{Z} \mid a - x + 1 \ge 1\} \subseteq H$.
+    Which is equivalent to $\{x \in \mathbb{Z} \mid a - x + 1 \in \mathbb{N}\}$.
+
+    (\textbf{Base Case})  
+    Let $x = a$. Then $a - x + 1 = a - a + 1 = 1 \in \mathbb{N}$.
+    Thus $x = a \in H$.
+
+    (\textbf{Induction Step})  
+    Suppose for some $x \in \mathbb{Z}$ that $a - x + 1 \in \mathbb{N}$ and $x \in H$.  
+    Then consider $x - 1$. We have
+    \[
+        a - (x-1) + 1 = (a - x + 1) + 1 \in \mathbb{N}.
+    \]
+    By the definition of $H$, since $x \in H$, it follows that $x - 1 \in H$.
+
+    Thus $H = \{x \in \mathbb{Z} \mid x \le a\}$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Extra Problem]
+    There is a ``unique'' ordered integral domain 
+        that satisfies Axiom 1.4.4. 
+    Formulate this rigorously and prove it.
+\end{tcolorbox}
+
+\begin{theorem}
+    Let $A$ and $A'$ be ordered integral domains satisfying Axiom 1.4.4.
+    Let $0, 1 \in A$ and $0', 1' \in A'$
+        such that $0 < 1$ and $0' < 1'$
+        and for all $x \in A$, $x + 0 = x$ and for all $x' \in B$, $x' + 0' = x'$.
+    Then there exists a bijective function 
+    \[i: A \rightarrow B\] 
+    such that $i(1) = 1'$  and for all $x, y \in A$
+        the following equations and relation holds.
+    \begin{enumerate}
+        \item $i(x + y) = i(x) + i(y)$.
+        \item $i(x - y) = i(x) - i(y)$.
+        \item $i(x \cdot y) = i(x) \cdot i(y)$.
+        \item $x < y \iff i(x) < i(y)$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    We can apply the recursive construction to the set $B$, the element $1' \in B$, 
+    and the function $s(x) = x + 1'$ on $B$, 
+    to deduce that there is a unique function $i: A \rightarrow B$
+    such that $i(x + 1) = i(x) + 1'$ for all $x \in A$ and $i(1) = 1'$.
+
+    Similarly, we can construct a function $i' : B \rightarrow A$
+    such that  $i'(y + 1') = i'(y) + 1$ for all $y \in B$ and $i'(1') = 1$.
+
+    Now we show that $i'$ is the inverse of $i$.
+
+    Consider $i' \circ i$.  
+    Let $x \in A$.
+
+    \textbf{Base case:} $x = 1$.  
+    \[(i' \circ i)(1) = i'(i(1)) = i'(1') = 1 = x\]
+
+    \textbf{Inductive step:} Suppose $x > 1$.  
+    By the properties of the domain, there exists $y \in A$ such that $y + 1 = x$.  
+    Suppose for $y \in A$ with $y < x$ we have $(i' \circ i)(y) = y$. Then
+    \begin{align*}
+        (i' \circ i)(x) 
+        &= i'(i(y + 1)) \\
+        &= i'(i(y) + 1')  \\
+        &= i'(i(y)) + 1 \\
+        &= y + 1 && \text{(induction hypothesis)} \\
+        &= x
+    \end{align*}
+
+    Now consider $i \circ i'$.  
+    Let $y \in B$.
+
+    \textbf{Base case:} $y = 1'$.  
+    \[(i \circ i')(1') = i(i'(1')) = i(1) = 1' = y\]
+
+    \textbf{Inductive step:} Suppose $y > 1'$.  
+    By the properties of the domain, there exists $y_0 \in B$ such that $y_0 + 1' = y$.  
+    Suppose for $y_0 < y$ we have $(i \circ i')(y_0) = y_0$. Then
+    \begin{align*}
+        (i \circ i')(y) 
+        &= i(i'(y_0 + 1')) \\
+        &= i(i'(y_0) + 1) \\
+        &= i(i'(y_0)) + 1' \\
+        &= y_0 + 1' && \text{(induction hypothesis)} \\
+        &= y
+    \end{align*}
+
+    Since $(i' \circ i)(x) = x$ and $(i \circ i')(y) = y$, we conclude that $i'$ is the inverse of $i$.  
+    Thus $i$ is bijective.
+
+    Finally, we check that $i$ preserves all operations:
+
+    \begin{itemize}
+        \item Addition: By construction, $i(x + 1) = i(x) + 1'$; using induction on sums $x + y$, we get $i(x + y) = i(x) + i(y)$ for all $x, y \in A$.
+        \item Subtraction: $i(x - y) = i(x) - i(y)$ follows from the additive inverse and induction.
+        \item Multiplication: Using induction on $y$, $i(x \cdot 1) = i(x) \cdot 1'$ and $i(x \cdot (y + 1)) = i(x \cdot y) + i(x)$, giving $i(x \cdot y) = i(x) \cdot i(y)$.
+        \item Order: By definition, $x < y \iff \exists z \neq 0$ with $x + z = y$; using preservation of addition and $i(0) = 0'$, we have $i(x) < i(y) \iff x < y$.
+    \end{itemize}
+\end{proof}
+
+\subsection{Constructing the Rational Numbers}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Complete the proof of Lemma 1.5.2. That is,
+    prove that the relation $\asymp$ is reflexive 
+    and symmetric.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Complete the proof of Lemma 1.5.4. That is,
+    prove that the binary relation $+$,
+    the unary operation $^{-1}$ and the relation 
+    $<$, on all $\mathbb{Q}$, are well-defined.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $x \in \mathbb{Z}$ and $y \in \mathbb{Z}^*$.
+    \begin{enumerate}
+        \item Prove that $[(x, y)] = \hat{0}$ if and only if $x = 0$.
+        \item Prove that $[(x, y)] = \hat{1}$ if and only if $x = y$.
+        \item Prove that $\hat{0} < [(x, y)]$ if and only if $0 < xy$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Prove Theorem 1.5.5 (1) (2) (3) (5) (6) (8) (9) (11) (12) (14).
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove Theorem 1.5.6 (1) (2) (3).
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $r, s, p, q \in \mathbb{Q}$.
+    \begin{enumerate}
+        \item Prove that $-1 < 0 < 1$.
+        \item Prove that if $r < s$ then $-s < -r$.
+        \item Prove that $r \cdot 0 = 0$.
+        \item Prove that if $r > 0$ and $s > 0$, then $r + s > 0$ and $rs > 0$.
+        \item Prove that if $r > 0$, then $\frac{1}{r} > 0$.
+        \item Prove that if $0 < r < s$, then $\frac{1}{s} < \frac{1}{s}$.
+        \item Prove that if $0 < r < p$ and $0 < s < q$, then $rs < pq$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    \begin{enumerate}
+        \item Prove that $1 < 2$.
+        \item Let $s,t \in \mathbb{Q}$. Suppose $s < t$.
+              Prove that $\frac{s + t}{2} \in \mathbb{Q}$, 
+              and that $s < \frac{s + t}{2} < t$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $r \in \mathbb{Q}$. Suppose that $r > 0$.
+    \begin{enumerate}
+        \item Prove that if $r = \frac{a}{b}$ for some $a, b \in \mathbb{Z}$
+              such that $b \ne 0$, then either $a > 0$ and $b > 0$,
+              or $a < 0$ adn $b < 0$.
+        \item Prove that $r = \frac{m}{n}$ for some $m, n \in \mathbb{Z}$
+              such that $m > 0$ and $n > 0$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $r, s \in \mathbb{Q}$.
+    \begin{enumerate}
+        \item Suppose $r > 0$ and $s > 0$. Prove that there is some $n \in \mathbb{N}$
+              such that $s < nr$.
+        \item Suppose that $r > 0$. Prove that there is some $m \in \mathbb{N}$
+              such that $\frac{1}{m} < r$.
+        \item For each $x \in \mathbb{Q}$, let $x^2$ denote $x \cdot x$.
+              Suppose that $r > 0$ and $s > 0$. Prove that if $r^2 < p$,
+              then there is some $k \in \mathbb{N}$ such that 
+              $(r + \frac{1}{k})^2 < p$.
+    \end{enumerate}
+\end{tcolorbox}
