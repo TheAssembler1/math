@@ -703,10 +703,28 @@ In this case there is no way to choose $a_3$ as the proof suggests.
 \begin{tcolorbox}[title=Problem 5, breakable]
     Suppose $r$ is a real number and $r \ne 1$.
     Prove that for all $n \in \mathbb{N}$,
-    \[\sum_{i = 0}^{n} r_i = \frac{r^{n + 1} - 1}{r - 1}\]
+    \[\sum_{i = 0}^{n} r^i = \frac{r^{n + 1} - 1}{r - 1}\]
     (Note that this exercise generalizes Example $6.1.1$
     and exercise $7$ of Section $6.1$)
 \end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case})
+    Let $n = 0$.
+    Then $\sum_{i = 0}^n = \sum_{i = 0}^0 = r^0 = 1 = \frac{r^{1} - 1}{r - 1} = \frac{r - 1}{r - 1} = 1$.
+    Thus, for $n = 0$ the theorem holds.
+
+    (\textbf{Induction Step}) Suppose for some $n \in \mathbb{N}$ such that $n > 0$ the theorem holds.
+    Consider 
+    \[\sum_{i = 0}^{n + 1} r^i = \sum_{i = 0}^{n} r^i + r^{n + 1}\]
+    By the induction hypothesis $\sum_{i = 0}^{n} r^i = \frac{r^{n + 1} - 1}{r - 1}$. Then 
+    \[\sum_{i = 0}^{n} r^i + r^{n + 1} 
+        = \frac{r^{n + 1} - 1}{r - 1} + r^{n + 1} 
+        = \frac{r^{n + 1} - 1}{r - 1} + \frac{r^{n + 1}(r - 1)}{r - 1} 
+        = \frac{r^{n + 1}(1 + r - 1) - 1}{r - 1} 
+        = \frac{r^{(n + 1) + 1} - 1}{r - 1}\]
+    So the equation holds for $n + 1$ proving our theorem.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
     Prove that for all $n \ge 1$,

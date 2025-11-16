@@ -1306,7 +1306,6 @@
 
 \subsection{Axioms for the Integers}
 
-\newpage
 \begin{tcolorbox}[title=Problem 2, breakable]
     Let $n \in \mathbb{N}$. Prove that $n + 1 \in \mathbb{N}$.
 \end{tcolorbox}
@@ -1545,6 +1544,193 @@
     and symmetric.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $(a, b), (c, d) \in \mathbb{Q} \times \mathbb{Q}^*$.
+
+    We must show $(a, b) \asymp (a, b)$.
+    But $ab = ab$ thus $(a, b) \asymp (a, b)$.
+
+    Suppose $(a, b) \asymp (c, d)$.
+    We must show $(c, d) \asymp (a, b)$.
+    But $ad = bc \iff cb = da$ thus $(c, d) \asymp (a, b)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Redefining $<$]
+    Let $[(a, b)] \in \mathbb{Q}$.
+    Define $[(a,b)]$ to be in $P$ iff both $a,b>0$ or both $a,b<0$.
+    \begin{enumerate}
+        \item If $[(a,b)] = [(c,d)]$ then $[(a,b)]$ in $P$ iff $[(c,d)]$ in $P$.
+        \item Define $x<y$ if and only if $y-x$ in $P$.
+        \item Show $x<y$ if and only if Definition 1.5.3 is satisfied 
+             (this simplifies the proof of < being well-defined).
+        \item Show that if $x,y$ in $P$, then $x+y$ and $xy$ in $P$.
+        \item Show that for any nonzero $x$ in $\mathbb{Q}$, 
+                exactly one of $x$, $-x$ is in $P$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(x_1, x_2), (y_1, y_2) \in \mathbb{Q} \times \mathbb{Q}^*$
+        and let $x, y \in \mathbb{Q}$ such that $x = [(x_1, x_2)]$
+            and $y = [(y_1, y_2)]$.
+    We first show $x<y$ if and only if Definition 1.5.3 is satisfied.
+    Definition 1.5.3 states $<$ on $\mathbb{Q}$ is defined by 
+    \begin{align*}
+    [(x_1, x_2)] < [(y_1, y_2)] 
+        &\iff (x_2 > 0 \wedge y_2 > 0 \wedge x_1 y_2 < y_1 x_2) &&\textcircled{1} \\
+        &\quad \vee (x_2 < 0 \wedge y_2 < 0 \wedge x_1 y_2 < y_1 x_2) &&\textcircled{2} \\
+        &\quad \vee (x_2 > 0 \wedge y_2 < 0 \wedge x_1 y_2 > y_1 x_2) &&\textcircled{3} \\
+        &\quad \vee (x_2 < 0 \wedge y_2 > 0 \wedge x_1 y_2 > y_1 x_2) &&\textcircled{4}
+    \end{align*}
+
+    ($\longrightarrow$)
+    Suppose $x < y$. It follows that $y - x \in P$. Then
+    \[[(y_1, y_2)] - [(x_1, x_2)] 
+        = [(y_1, y_2)] + [(-x_1, x_2)] 
+        = [(y_1 x_2 - x_1y_2, y_2 x_2)] \in P\]
+    There are two cases.
+    Either  $(y_1 x_2 - x_1 y_2), (y_2 x_2) > 0$ or
+        or  $(y_1 x_2 - x_1 y_2), (y_2 x_2) < 0$.
+
+    \textbf{(Case 1)} Suppose $(y_1 x_2 - x_1 y_2), (y_2 x_2) < 0$.
+    Since $y_2 x_2 > 0$ either $y_2, x_2 > 0$ or $y_2 x_2 < 0$.
+    So, suppose $y_2, x_2 > 0$ we see \textcircled{1} holds.
+    Similarly, suppose $y_2, x_2 < 0$ we see \textcircled{2} holds.
+
+    \textbf{(Case 2)} Suppose $(y_1 x_2 - x_1 y_2), (y_2 x_2) < 0$.
+    Since $y_2 x_2 < 0$ either $y_2 > 0$ and $x_2 < 0$ or $y_2 < 0$ and $x_2 > 0$.
+    So, suppose $y_2 > 0, x_2 < 0$ we see \textcircled{3} holds.
+    Similarly, suppose $y_2 < 0, x_2 > 0$ we see \textcircled{4} holds.
+
+    So we have shown if $x < y$ then one case of Definition 1.5.3 holds.
+
+    ($\longleftarrow$)
+    Suppose $[(x_1, x_2)] < [(y_1, y_2)]$ then one of 
+        \textcircled{1}, \textcircled{2}, \textcircled{3}, \textcircled{4} holds.
+    
+    \textbf{Case \textcircled{1}}: $x_2 > 0$, $y_2 > 0$, and $x_1 y_2 < y_1 x_2$.
+    Then $y_1 x_2 - x_1 y_2 > 0$ and $y_2 x_2 > 0$, so $[(y_1 x_2 - x_1 y_2, y_2 x_2)] \in P$.  
+    Thus $y - x \in P$ and therefore $x < y$.
+
+    \textbf{Case \textcircled{2}}: $x_2 < 0$, $y_2 < 0$, and $x_1 y_2 < y_1 x_2$.
+    Then $y_1 x_2 - x_1 y_2 > 0$ and $y_2 x_2 > 0$, so $[(y_1 x_2 - x_1 y_2, y_2 x_2)] \in P$.  
+    Thus $y - x \in P$ and therefore $x < y$.
+
+    \textbf{Case \textcircled{3}}: $x_2 > 0$, $y_2 < 0$, and $x_1 y_2 > y_1 x_2$.
+    Then $y_1 x_2 - x_1 y_2 < 0$ and $y_2 x_2 < 0$, so $[(y_1 x_2 - x_1 y_2, y_2 x_2)] \in P$.  
+    Thus $y - x \in P$ and therefore $x < y$.
+
+    \textbf{Case \textcircled{4}}: $x_2 < 0$, $y_2 > 0$, and $x_1 y_2 > y_1 x_2$.
+    Then $y_1 x_2 - x_1 y_2 < 0$ and $y_2 x_2 < 0$, so $[(y_1 x_2 - x_1 y_2, y_2 x_2)] \in P$.  
+    Thus $y - x \in P$ and therefore $x < y$.
+
+    Thus proving our theorem.
+\end{proof}
+
+\begin{proof}
+    Let $x, y \in \mathbb{Z}$.
+    Suppose $x, y \in P$.
+    Let $[(x_1, x_2)] = x$ and $[(y_1, y_2)] = y$
+        such that $x_1, x_2, y_1, y_2 \in \mathbb{Z}$.
+    By definition of $+$,
+        $x + y = [(x_1 y_2 + y_1 x_2, x_2 y_2)]$.
+    There are four cases.
+
+    \textbf{Case ($x_1, x_2, y_1, y_2 > 0$)}
+    Now, $y_1 > 0$ and since $x_2 > 0$,
+        $y_1 x_2 > 0 \cdot x_2 \iff y_1 x_2 > 0$.
+    Similarly $x_1 y_2 > 0$.
+    Then $y_1 x_2 + x_1 y_2 > 0 + x_1 y_2 \iff y_1 x_2 + x_1 y_2 > x_1 y_2 > 0$.
+    Thus $x_1 y_2 + y_1 x_2 > 0$.
+    Now, $x_2 > 0$ and since $y_2 > 0$, $x_2 y_2 > 0 \cdot x_2 \iff x_2 y_2 > 0$.
+    Since $x_1 y_2 + y_1 x_2 > 0$ and $x_2 y_2 > 0$,
+        it follows that $x + y > 0$.
+
+    \textbf{Case ($x_1, x_2, y_1, y_2 < 0$)}
+    Now, $y_1 < 0$ and since $x_2 < 0$,
+        $y_1 x_2 < 0 \cdot x_2 \iff y_1 x_2 > 0$.
+    Similarly $x_1 y_2 < 0 \cdot y_2 \iff x_1 y_2 > 0$.
+    Then $y_1 x_2 + x_1 y_2 > 0 + x_1 y_2 \iff y_1 x_2 + x_1 y_2 > x_1 y_2 > 0$.
+    Now, $x_2 < 0$ and since $y_2 < 0$, $x_2 y_2 < 0 \cdot x_2 \iff x_2 y_2 > 0$.
+    Since $x_1 y_2 + y_1 x_2 > 0$ and $x_2 y_2 > 0$,
+        it follows that $x + y > 0$.
+
+    \textbf{Case ($x_1, x_2 > 0$, $y_1, y_2 < 0$)}
+    Now, $y_1 < 0$ and since $x_2 > 0$, $y_1 x_2 < 0 \cdot x_2 \iff y_1 x_2 < 0$.
+    Similarly, $x_1 y_2 > 0 \cdot y_2 \iff x_1 y_2 < 0$.
+    Then $y_1 x_2 + x_1 y_2 < 0 + x_1 y_2 \iff y_1 x_2 + x_1 y_2 < x_1 y_2 < 0$.
+    Now, $x_2 > 0$ and $y_2 < 0$, so $x_2 y_2 > 0 \cdot y_2 \iff x_2 y_2 < 0$.
+    Since $y_1 x_2 + x_1 y_2 < 0$ and $x_2 y_2 < 0$,
+        it follows that $x + y > 0$.
+
+    \textbf{Case ($x_1, x_2 < 0$, $y_1, y_2 > 0$)}
+    Now, $y_1 > 0$ and $x_2 < 0$, so $y_1 x_2 < 0 \cdot x_2 \iff y_1 x_2 < 0$.
+    Similarly, $x_1 y_2 < 0 \cdot y_2 \iff x_1 y_2 < 0$.
+    Then $y_1 x_2 + x_1 y_2 < 0 + x_1 y_2 \iff y_1 x_2 + x_1 y_2 < x_1 y_2 < 0$.
+    Now, $x_2 < 0$ and $y_2 > 0$, so $x_2 y_2 < 0 \cdot y_2 \iff x_2 y_2 < 0$.
+    Since $y_1 x_2 + x_1 y_2 < 0$ and $x_2 y_2 < 0$,
+        it follows that $x + y > 0$.
+\end{proof}
+
+\begin{proof}
+    Let $x, y \in \mathbb{Z}$.
+    Suppose $x, y \in P$.
+    Let $[(x_1, x_2)] = x$ and $[(y_1, y_2)] = y$
+        such that $x_1, x_2, y_1, y_2 \in \mathbb{Z}$.
+    By definition of $\cdot$,
+        $xy = [(x_1 y_1, x_2 y_2)]$.
+    There are four cases.
+
+    \textbf{Case ($x_1, x_2, y_1, y_2 > 0$)}
+    Since $x_1 > 0$ and $y_1 > 0$ it follows that $x_1 y_1 > 0$.
+    Since $x_2 > 0$ and $y_2 > 0$ it follows that $x_2 y_2 > 0$.
+    Therefore $xy = [(x_1 y_1, x_2 y_2)] \in P$.
+
+    \textbf{Case ($x_1, x_2, y_1, y_2 < 0$)}
+    Since $x_1 < 0$ and $y_1 < 0$ it follows that $x_1 y_1 > 0$.
+    Since $x_2 < 0$ and $y_2 < 0$ it follows that $x_2 y_2 > 0$.
+    Therefore $xy = [(x_1 y_1, x_2 y_2)] \in P$.
+
+    \textbf{Case ($x_1, x_2 > 0$, $y_1, y_2 < 0$)}
+    Since $x_1 > 0$ and $y_1 < 0$ it follows that $x_1 y_1 < 0$.
+    Since $x_2 > 0$ and $y_2 < 0$ it follows that $x_2 y_2 < 0$.
+    Therefore $xy = [(x_1 y_1, x_2 y_2)] \in P$.
+
+    \textbf{Case ($x_1, x_2 < 0$, $y_1, y_2 > 0$)}
+    Since $x_1 < 0$ and $y_1 > 0$ it follows that $x_1 y_1 < 0$.
+    Since $x_2 < 0$ and $y_2 > 0$ it follows that $x_2 y_2 < 0$.
+    Therefore $xy = [(x_1 y_1, x_2 y_2)] \in P$.
+\end{proof}
+
+\begin{proof}
+    Let $x \in \mathbb{Q}$ such that $x \ne 0$.
+    Let $x = [(x_1, x_2)]$ such that $x_1, x_2 \in \mathbb{Z}$.
+    We want to show that exactly one of $x$ or $-x$ is in $P$.
+    Consider $-x = [(-x_1, x_2)]$.
+    There are four cases.
+
+    \textbf{Case ($x_1, x_2 > 0$)} 
+    Then $x \in P$ by definition.  
+    For $-x = [(-x_1, x_2)]$, so $-x_1 < 0$ and $x_2 > 0$, so $-x \notin P$.  
+    Thus exactly one of $x$ or $-x$ is in $P$.
+
+    \textbf{Case ($x_1, x_2 < 0$)}
+    Then $x \in P$ by definition.  
+    For $-x = [(-x_1, x_2)]$, so $-x_1 > 0$ and $x_2 < 0$, so $-x \notin P$.  
+    Thus exactly one of $x$ or $-x$ is in $P$.
+
+    \textbf{Case ($x_1 > 0, x_2 < 0$)}
+    Then $x \notin P$ by definition.  
+    For $-x = [(-x_1, x_2)]$, so $-x_1 < 0$ and $x_2 < 0$, so $-x \in P$.  
+    Thus exactly one of $x$ or $-x$ is in $P$.
+
+    \textbf{Case ($x_1 < 0, x_2 > 0$)}
+    Then $x \notin P$ by definition.  
+    For $-x = [(-x_1, x_2)]$, so $-x_1 > 0$ and $x_2 > 0$, so $-x \in P$.  
+    Thus exactly one of $x$ or $-x$ is in $P$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 2, breakable]
     Complete the proof of Lemma 1.5.4. That is,
     prove that the binary relation $+$,
@@ -1552,22 +1738,263 @@
     $<$, on all $\mathbb{Q}$, are well-defined.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $(a, b), (c, d), (x, y), (z, w) \in \mathbb{Q} \times \mathbb{Q}^*$.
+    Suppose $(a, b) \asymp (c, d)$ and $(x, y) \asymp (z, w)$.
+    Thus $ad = bc$ and $xw = zy$.
+
+    Then 
+    \begin{align*}
+        &[(a, b)] + [(x, y)] = [(c, d)] + [(z, w)] \\
+        \iff &(ay + bx, by) \asymp (cw + dz, dw) \\
+        \iff &(ay + bx)dw = (cw + dz)by \\
+        \iff &adyw + bxdw = cbyw + dzby.
+    \end{align*}
+    Since $ad = bc$ and $xw = zy$ it follows that $bcyw + b zyd = bcyw + bdzy$
+    which holds. Thus $(ay + bx, by) \asymp (cw + dz, dw)$.
+
+    Suppose $a \ne 0$ and $c \ne 0$.
+    $[(a, b)]^{-1} = [(b, a)]$ and $[(c, d)]^{-1} = [(d, c)]$.
+    Then $(b, a) \asymp (d, c) \iff bc = da$ which holds.
+    Thus $[(a, b)]^{-1} = [(b, a)] = [(d, c)] = [(c, d)]^{-1}$
+
+    Suppose $[(a, b)] < [(x, y)]$.
+    Then $[(a, b)] - [(x, y)] \in P$.
+    But $[(a, b)] = [(c, d)]$ and $[(x, y)] = [(z, w)]$
+        so $[(c, d)] - [(z, w)] \in P$.
+    It follows that $[(c, d)] < [(z, w)]$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 3, breakable]
     Let $x \in \mathbb{Z}$ and $y \in \mathbb{Z}^*$.
     \begin{enumerate}
-        \item Prove that $[(x, y)] = \hat{0}$ if and only if $x = 0$.
-        \item Prove that $[(x, y)] = \hat{1}$ if and only if $x = y$.
-        \item Prove that $\hat{0} < [(x, y)]$ if and only if $0 < xy$.
+        \item Prove that $[(x, y)] = \bar{0}$ if and only if $x = 0$.
+        \item Prove that $[(x, y)] = \bar{1}$ if and only if $x = y$.
+        \item Prove that $\bar{0} < [(x, y)]$ if and only if $0 < xy$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $[(x, y)] = \bar{0}$.
+    Then $[(x, y)] = [(0, 1)]$.
+    It follows that $x \cdot 1 = y \cdot 0$.
+    Thus $x = 0$.
+
+    Suppose $x = 0$.
+    Then $x \cdot 1 = y \cdot 0$
+    It follows that $[(x, y)] = [(0, 1)]$.
+    Thus $[(x, y)] = \bar{0}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $[(x, y)] = \bar{1}$.
+    Then $[(x, y)] = [(1, 1)]$.
+    It follows that $x \cdot 1 = y \cdot 1$.
+    Thus $x = y$.
+
+    Suppose $x = y$.
+    Then $x \cdot 1 = y \cdot 1$.
+    It follows that  $[(x, y)] = [(1, 1)]$.
+    Thus $[(x, y)] = \bar{1}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $\bar{0} < [(x, y)]$.
+    By definition, $[(x, y)] - \bar{0} \in P$.
+    But $\bar{0} = [(0,1)]$, so
+    \[[(x, y)] - [(0, 1)] = [(x \cdot 1 - 0 \cdot y, y \cdot 1)] = [(x, y)] \in P\]
+    Thus either $x, y > 0$ or $x, y < 0$, so in either case $xy > 0$.
+
+    Suppose $xy > 0$.
+    Then either $x, y > 0$ or $x, y < 0$.
+    Thus $[(x, y)] \in P$, so $\bar{0} < [(x, y)]$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
     Prove Theorem 1.5.5 (1) (2) (3) (5) (6) (8) (9) (11) (12) (14).
 \end{tcolorbox}
 
+\begin{proof}
+    Let $r, s, t \in \mathbb{Q}$.
+    We must show $(r + s) + t = r + (s + t)$.
+    Let $(r_1, r_2), (s_1, s_2), (t_1, t_2) \in \mathbb{Z} \times \mathbb{Z}^*$.
+    Then 
+    \begin{align*}
+        (r + s) + t 
+            &= ([(r_1, r_2)] + [(s_1, s_2)]) + [(t_1, t_2)] \\
+            &= [(r_1 s_2 + r_2 s_1, r_2 s_2)] + [(t_1, t_2)] \\
+            &= [((r_1 s_2 + r_2 s_1) t_2 + t_1 (r_2 s_2), r_2 s_2 t_2)] \\
+            &= [(r_1 s_2 t_2 + r_2 s_1 t_2 + t_1 r_2 s_2, r_2 s_2 t_2)] \\
+            &= [(r_1 s_2 t_2 + (r_2 s_1 t_2 + t_1 r_2 s_2), r_2 s_2 t_2)] \\
+            &= [(r_1 s_2 t_2 + r_2 (s_1 t_2 + s_2 t_1), r_2 s_2 t_2)] \\
+            &= [(r_1, r_2)] + [(s_1 t_2 + s_2 t_1, s_2 t_2)] \\
+            &= [(r_1, r_2)] + ([(s_1, s_2)] + [(t_1, t_2)]) \\
+            &= r + (s + t)
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Let $r, s \in \mathbb{Q}$.
+    We must show $r + s = s + r$.
+    Let $(r_1, r_2), (s_1, s_2)\in \mathbb{Z} \times \mathbb{Z}^*$.
+    Then 
+    \begin{align*}
+        r + s 
+            &= [(r_1, r_2)] + [(s_1, s_2)] \\
+            &= [(r_1 s_2 + s_1 r_2, r_2 s_2)] \\
+            &= [(s_1 r_2 + r_1 s_2, s_2 r_2)] \\
+            &= [(s_1, s_2)] + [(r_1, r_2)] \\
+            &= s + r
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Let $r \in \mathbb{Q}$.
+    We must show $r + \bar{0} = r$.
+    Let $(r_1, r_2) \in \mathbb{Z} \times \mathbb{Z}^*$.
+    Then 
+    \begin{align*}
+        r + \bar{0} = 
+            &= [(r_1, r_2)] + [(0, 1)] \\
+            &= [(r_1 \cdot 1 + 0 \cdot r_2, r_2 \cdot 1)] \\
+            &= [(r_1, r_2)] \\
+            &= r
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Let $r, s, t \in \mathbb{Q}$.
+    We must show $(rs)t = r(st)$.
+    Let $(r_1, r_2), (s_1, s_2), (t_1, t_2) \in \mathbb{Z} \times \mathbb{Z}^*$.
+    Then 
+    \begin{align*}
+        (rs)t 
+            &= ([(r_1, r_2)] \cdot [(s_1, s_2)]) \cdot [(t_1, t_2)] \\
+            &= [(r_1 s_1, r_2 s_2)] \cdot [(t_1, t_2)] \\
+            &= [(r_1 s_1 t_1, r_2 s_2 t_2)] \\
+            &= [(r_1, r_2)] \cdot [(s_1 t_1, s_2 t_2)] \\
+            &= [(r_1, r_2)] \cdot ([(s_1, s_2)] \cdot [(t_1, t_2)]) \\
+            &= r (s t)
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Let $r, s \in \mathbb{Q}$.
+    We must show $rs = sr$.
+    Let $(r_1, r_2), (s_1, s_2) \in \mathbb{Z} \times \mathbb{Z}^*$.
+    Then 
+    \begin{align*}
+        rs &= [(r_1, r_2)] \cdot [(s_1, s_2)] \\
+           &= [(r_1 s_1, r_2 s_2)] \\
+           &= [(s_1 r_1, s_2 r_2)] \\
+           &= [(s_1, s_2)] \cdot [(r_1, r_2)] \\
+           &= sr
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Let $r \in \mathbb{Q}$.
+    We must show if $r \ne \bar{0}$, then $r \cdot r^{-1} = \bar{1}$.
+    Let $(r_1, r_2) \in \mathbb{Z} \times \mathbb{Z}^*$.
+    Suppose $r \ne \bar{0}$.
+    Then 
+    \begin{align*}
+        r \cdot r^{-1}
+            &= [(r_1, r_2)] \cdot [(r_1, r_2)]^{-1} \\
+            &= [(r_1, r_2)] \cdot [(r_2, r_1)] && \text{$r \ne \bar{0} \implies r_1 \ne 0 \implies r_1 \in \mathbb{Z}^*$} \\
+            &= [(r_1 r_2, r_2 r_1)] \\
+            &= \bar{1} && \text{Problem 3 b}
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Let $r, s, t \in \mathbb{Q}$.
+    We must show $r(s + t) = rs + rt$.
+    Let $(r_1, r_2), (s_1, s_2), (t_1, t_2) \in \mathbb{Z} \times \mathbb{Z}^*$.
+    \begin{align*}
+        r(s + t) &= [(r_1, r_2)]([(s_1, s_2)] + [(t_1, t_2)]) \\ 
+                 &= [(r_1, r_2)]([s_1 t_2 + t_1 s_2, s_2 t_2]) \\ 
+                 &= [(r_1(s_1 t_2 + t_1 s_2), r_2 (s_2 t_2))] \\ 
+                 &= [(r_1 s_1 t_2 + r_1 t_1 s_2, r_2 s_2 t_2)] \\ 
+                 &= [(r_1 s_1, r_2 s_2)] + [(r_1 t_1, r_2 t_2)] \\ 
+                 &= rs + rt.
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Let $r, s, t \in \mathbb{Q}$.
+    We must show if $r < s$ and $s < t$, then $r < t$.
+    Suppose $r < s$ and $s < t$.
+    It follows that $s - r \in P$ and $t - s \in P$.
+    It follows that $(s - r) + (t - s) = t - r \in P$.
+    Thus $r < t$.
+\end{proof}
+
+\begin{proof}
+    Let $r, s, t \in \mathbb{Q}$.
+    We must show if $r < s$ then $r + t < s + t$.
+    Supose $r < s$. 
+    Then $s - r = s - r + 0 = s - r + t + (-t) = (s + t) - (r + t) \in P$.
+    Thus $r + t < s + t$.
+\end{proof}
+
+\begin{proof}
+    We must show $\bar{0} \ne \bar{1}$.
+    Suppose $\bar{0} = \bar{1}$.
+    Then $[(0, 1)] = [(1, 1)] \iff 0 \cdot 1 = 1 \cdot 1 \iff 0 = 1$
+        which is a contradiction.
+    Thus $\bar{0} \ne \bar{1}$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 5, breakable]
     Prove Theorem 1.5.6 (1) (2) (3).
 \end{tcolorbox}
+
+\begin{theorem}
+    Let $i : \mathbb{Z}  \longrightarrow  \mathbb{Q}$
+        be defined by $i(x) = [(x, 1)]$ for all $x \in \mathbb{Z}$.
+    \begin{enumerate}
+        \item Then function $i: \mathbb{Z} \longrightarrow \mathbb{Q}$ is injective.
+        \item $i(0) = \bar{0}$ and $i(1) = \bar{1}$.
+        \item Let $x, y \in \mathbb{Z}$. Then 
+              \begin{enumerate}
+                \item $i(x + y) = i(x) + i(y)$;
+                \item $i(-x) = -i(x)$;
+                \item $i(xy) = i(x) i(y)$;
+                \item $x < y$ if and only if $i(x) < i(y)$
+              \end{enumerate}
+        \item For each $r \in \mathbb{Q}$ there are $x, y \in \mathbb{Z}$
+              such that $y \ne 0$ and $r = i(x)(i(y))^{-1}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Let $x, y \in \mathbb{Z}$.
+    Suppose $i(x) = i(y)$.
+    Thus $[(x, 1)] = [(y, 1)]$ so $(x, 1) \asymp (y, 1)$.
+    It follows that $x \cdot 1 = y \cdot 1$.
+    From the Identity Law for Multiplication $x = y$.
+    Thus $i$ is injective.
+\end{proof}
+
+\begin{proof}
+    Notice $i(0) = [(0, 1)] = \bar{0}$
+        and $i(1) = [(1, 1)] = \bar{1}$.
+\end{proof}
+
+\begin{proof}
+    Let $x, y \in \mathbb{Z}$.
+    Then 
+    \[i(x + y) = [(x + y, 1)] = [(x \cdot 1 + y \cdot 1, 1 \cdot 1)] = [(x, 1)] + [(y, 1)] = i(x) + i(y)\]
+    Similarly 
+    \[i(-x) = [(-x, 1)] = -[(x, 1)] = -i(x)\]
+    Similarly 
+    \[i(xy) = [(xy, 1)] = [(xy, 1 \cdot 1)] = [(x, 1)] \cdot [(y, 1)] = i(x) i(y)\]
+    Finally suppose $x < y$. Then $i(y - x) = [(y - x, 1)] \in P$ since $y - x \in P$ and $1 \in P$.
+    Thus 
+    \[[(y - x, 1)] =  [(y \cdot 1 - x \cdot 1, 1 \cdot 1)] = [(y, 1)] - [(x, 1)] = i(y) - i(x) \in P\]
+    It follows that $i(x) < i(y)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
     Let $r, s, p, q \in \mathbb{Q}$.
@@ -1591,16 +2018,64 @@
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    By Problem 6 Part 1, $0 < 1$. 
+    By Addition Law for Order, $0 + 1 < 1 + 1 \iff 1 < 2$.
+\end{proof}
+
+\begin{proof}
+    Now $\frac{1}{2} \in \mathbb{Q}$.
+    Since $\mathbb{Q}$ is closed under 
+        multiplication and addition 
+        $(s + t) \cdot \frac{1}{2} = (s + t)2^{-1} = \frac{s + t}{2} \in \mathbb{Q}$.
+
+    We now show $\frac{s + t}{2} < t$.
+    First, notice $t - \frac{s + t}{2} = \frac{t}{1} + \frac{-(s + t)}{2} = \frac{2t + (-(s + t)) 1}{2 \cdot 1}$.
+    Clearly $2 \in P$ and $2t + (-(s + t)) 1 = 2t -s - t = t - s$. 
+    Since $s < t$ it follows that $t - s \in P$.
+    Thus $t - \frac{s + t}{2} \in P$.
+    Therefore $\frac{s + t}{2} < t$.
+
+    We now show $\frac{s + t}{2} > s$.
+    First, notice $\frac{s + t}{2} - s = \frac{s + t}{2} + \frac{-s}{1} = \frac{(s + t)1 + (-2)s}{2 \cdot 1}$.
+    Clearly $2 \in P$ and $(s + t)1 + (-2)s = t - s$.
+    Since $s < t$ it follows that $t - s \in P$.
+    Thus $\frac{s + t}{2} - s \in P$.
+    Therefore $\frac{s + t}{2} > s$.
+
+    It follows that $s < \frac{s + t}{2} < t$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 8, breakable]
     Let $r \in \mathbb{Q}$. Suppose that $r > 0$.
     \begin{enumerate}
         \item Prove that if $r = \frac{a}{b}$ for some $a, b \in \mathbb{Z}$
               such that $b \ne 0$, then either $a > 0$ and $b > 0$,
-              or $a < 0$ adn $b < 0$.
+              or $a < 0$ and $b < 0$.
         \item Prove that $r = \frac{m}{n}$ for some $m, n \in \mathbb{Z}$
               such that $m > 0$ and $n > 0$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $r = \frac{a}{b}$ for some $a, b \in \mathbb{Z}$
+        such that $b \ne 0$.
+    Since $r > 0$ it follows that $a, b \in P$ or $a, b \notin P$.
+    Suppose $a, b \in P$. Then $a = a - 0 \in P$ and $b = b - 0 \in P$.
+    Thus $a > 0$ and $b > 0$.
+    Suppose $a, b \notin P$. Then $a = a - 0 \notin P$ and $b = b - 0 \notin P$.
+    Thus $-(a - 0) = -a + 0 = 0 - a \in P$ and $-(b - 0) = -b + 0 = 0 - b \in P$.
+    Thus $0 > a$ and $0 > b$.
+\end{proof}
+
+\begin{proof}
+    Suppose $r = \frac{a}{b}$ for some $a,b \in \mathbb{Z}$ with $b \ne 0$.
+    By part (1), either $a,b>0$ or $a,b<0$.
+    If $a,b>0$, let $m = a$ and $n = b$.
+    Suppose $a,b<0$. Then $-a>0$ and $-b>0$.
+    Also, $(-a)(-b) = -(-ab) = ab$ so $(a,b)\asymp(-a,-b)$.  
+    Thus let $m=-a$ and $n=-b$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
     Let $r, s \in \mathbb{Q}$.
@@ -1615,3 +2090,5 @@
               $(r + \frac{1}{k})^2 < p$.
     \end{enumerate}
 \end{tcolorbox}
+
+\subsection{Dedekind Cuts}

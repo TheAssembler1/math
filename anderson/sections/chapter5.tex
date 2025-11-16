@@ -299,14 +299,14 @@ By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
     Thus $f$ is irreducible in $\mathbb{Z}[x]$.
 \end{proof}
 
-
+\newpage
 \begin{tcolorbox}[title=Problem 15, breakable]
     (a) Apply Eisenstein's criterion $5.7$ to check that the 
         following polynomials are irreducible
         \[5x^3 - 6x^2 + 2x - 14 \text{ and } 4x^5 + 5x^3 - 15x + 20\]
 
     (b) Make the substition $x = y + 1$ to the polynomial $x^5 + 5x + 4$
-        that appears in Example $5.1$l. Show that the resulting polynomial
+        that appears in Example $5.1$. Show that the resulting polynomial
         is irreducible.
 
     (c) Use the same technique as in part b to find a substitution 
@@ -318,6 +318,55 @@ By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
         $f(x) \in \mathbb{Z}[x]$, then $f(x)$ is irreducible if 
         and only if $f(y + m)$ is.
 \end{tcolorbox}
+
+\textbf{Solution (a):}
+Consider $2 \nmid 5$. Also $2 \mid -6,  2, -14$.
+Finally $2^2 = 4 \nmid -14$ satisfying parts a, b, c of 
+Eisenstein's criterion respectively. Thus $5x^3 - 6x^2 + 2x - 14$
+is irreducible in $\mathbb{Z}[x]$.
+
+Consider $5 \nmid 4$. Also $5 \mid 5,  -15, 20$.
+Finally $5^2 = 25 \nmid 20$ satisfying parts a, b, c of 
+Eisenstein's criterion respectively. Thus $4x^5 + 5x^3 - 15x + 20$
+is irreducible in $\mathbb{Z}[x]$.
+
+\textbf{Solution (b):}
+Substituting $x = y + 1$ into $x^5 + 5x + 4$ gives
+\[
+(y + 1)^5 + 5(y + 1) + 4 = y^5 + 5y^4 + 10y^3 + 10y^2 + 10y + 10.
+\]
+Consider $5 \nmid 1$. Also $5 \mid 5, 10, 10, 10, 10$. 
+Finally $5^2 = 25 \nmid 10$ satisfying parts a, b, c of 
+Eisenstein's criterion respectively. 
+Thus the polynomial is irreducible in $\mathbb{Z}[y]$, 
+    and so $x^5 + 5x + 4$ is irreducible in $\mathbb{Z}[x]$.
+
+\textbf{Solution (c):}
+Substituting $x = y + 1$ into $x^4 + 6x^3 + 12x^2 + 10x + 5$ gives
+\[
+(y + 1)^4 + 6(y + 1)^3 + 12(y + 1)^2 + 10(y + 1) + 5 = y^4 + 10y^3 + 36y^2 + 56y + 34.
+\]
+Consider $2 \nmid 1$. 
+Also $2 \mid 10, 36, 56, 34$. 
+Finally $2^2 = 4 \nmid 34$ satisfying parts a, b, c of Eisenstein's criterion respectively. 
+Thus $y^4 + 10y^3 + 36y^2 + 56y + 34$ is irreducible in $\mathbb{Z}[y]$.
+
+\begin{proof}
+    ($\longrightarrow$) Let $x = y + m$.  
+    Suppose $f(x)$ is irreducible.  
+    For contradiction, suppose $f(y + m)$ is reducible.  
+    Thus $f(y + m) = g(y) \, l(y)$ for some 
+    $g(y), l(y) \in \mathbb{Z}[y]$.  
+    But $x = y + m$, so $f(x) = g(x - m) \, l(x - m)$.  
+    Thus $f(x)$ is reducible, which is a contradiction.
+
+    ($\longleftarrow$) Let $x = y + m$.  
+    Suppose $f(y + m)$ is irreducible.  
+    For contradiction, suppose $f(x)$ is reducible.  
+    Thus $f(x) = g(x) \, l(x)$ for some $g(x), l(x) \in \mathbb{Z}[x]$.  
+    But $x = y + m$, so $f(y + m) = g(y + m) \, l(y + m)$.  
+    Thus $f(y + m)$ is reducible, which is a contradiction.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 16, breakable]
     Prove Theorem $5.7$ (Eisenstein's criterion).
@@ -367,7 +416,6 @@ By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
     which is not divisible by $p$, contradicting the assumption that $p$ divides $a_k$ for all $0 \le k < n$.
 \end{proof}
 
-
 \begin{tcolorbox}[title=Problem 17, breakable]
     Let $p$ be a positive prime integer. Then the polynomial
     \[\phi_p = \frac{x^p - 1}{x - 1}\]
@@ -386,10 +434,39 @@ By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
 \[p = 3, \frac{x^3 - 1}{x - 1} = \frac{(x - 1)(x^2 + x + 1)}{x - 1} = x^2 + x + 1\]
 \[p = 5, \frac{x^5 - 1}{x - 1} = \frac{(x - 1)(x^4 + x^3 + x^2 + x + 1)}{x - 1} = x^4 + x^3 + x^2 + x + 1\]
 
-Plugging in $x + 1$.
-\[p = 2,\quad (x + 1) + 1 = x + 2\]
-\[p = 3,\quad (x + 1)^2 + (x + 1) + 1 = x^2 + 3x + 3\]
-\[p = 5,\quad (x + 1)^4 + (x + 1)^3 + (x + 1)^2 + (x + 1) + 1 = x^4 + 5x^3 + 10x^2 + 10x + 5\]
-\[p = 7,\quad (x + 1)^6 + (x + 1)^5 + (x + 1)^4 + (x + 1)^3 + (x + 1)^2 + (x + 1) + 1 = x^6 + 7x^5 + 21x^4 + 35x^3 + 35x^2 + 21x + 7\]
+\begin{proof}
+    Let $x = y + 1$. Let $p$ be an arbitrary prime. Then consider 
+    \[
+        \frac{(y + 1)^p - 1}{(y + 1) - 1} = \frac{(y + 1)^p - 1}{y}
+    \]
+    We can re-express the numerator using the binomial theorem
+    \[
+        (y + 1)^p = \sum_{k = 0}^p \binom{p}{k} y^{p - k} 1^k = \sum_{k = 0}^p \binom{p}{k} y^{p - k}
+    \]
+    Substituting into the fraction gives 
+    \[
+        \frac{(y + 1)^p - 1}{y} = \frac{\sum_{k=0}^p \binom{p}{k} y^{p-k} - 1}{y}
+    \]
+    Multiplying numerator and denominator by $y^{-1}/y^{-1}$ gives
+    \[
+        \frac{\sum_{k=0}^p \binom{p}{k} y^{p-k} - 1}{y} \cdot \frac{y^{-1}}{y^{-1}} 
+            = \sum_{k=0}^p \binom{p}{k} y^{p - k - 1} - y^{-1}
+    \]
+    Now we re-express this summation and extract the cases $k = 0, p-1, p$ to show
+    \[
+        \sum_{k = 0}^p \binom{p}{k} y^{p - k - 1} - y^{-1} 
+            = y^{p - 1} + \sum_{k = 1}^{p-2} \binom{p}{k} y^{p - k - 1} + \binom{p}{p-1} y^0 + \binom{p}{p} y^{-1} - y^{-1} 
+            = y^{p - 1} + \sum_{k = 1}^{p-2} \binom{p}{k} y^{p - k - 1} + \binom{p}{p-1}
+    \]
+    Now $y^{p - 1}$ is the term with the highest degree and its coefficient is $1$.
+    Clearly $p \nmid 1$, satisfying part (a) of Eisenstein's criterion.
+    Furthermore, by Chapter 2 Problem 19, since $p$ is a positive prime integer 
+    and $k$ is an integer with $1 \le k \le p - 1$, we have $p \mid \binom{p}{k}$.
+    Additionally, $p \mid \binom{p}{p-1} = p$. Thus part (b) of Eisenstein's criterion is satisfied.
+    Now, the constant term of \(\frac{(y+1)^p - 1}{y}\) is $p$.  
+    Since \(a_0 = p < p^2\), we have $p^2 \nmid a_0$, satisfying part (c) of Eisenstein's criterion.
+    By Problem 15 part d, it follows that all cyclotomic polynomials $\phi_p$ are irreducible
+        over $\mathbb{Z}[x]$.
+\end{proof}
 
 

@@ -145,43 +145,108 @@
 \end{tcolorbox}
 
 \begin{proof}
-    Let $(x, y) = P$. The center of the reflected circle is $(-x, -y)$.
-    Let $(a, b) = X$ be a point lying on the circle $S(r, P)$.
-    The reflection through the point $O$ is equivalent 
-        to a translation of $(-a, -b)$.
-    
-
-    Let $(x, y) = P$. The center of the reflected disc is $(-x, -y)$.
+    Let $X$ be a point on the circle of radius $r$ centered at $P$.
+    This means that $|X - P| = r$.
+    The reflection of $X$ through the origin, which is $-X$, satisfies
+        $|-X - (-P)| = |-(X - P)| = |X - P| = r$. 
+    Thus we see that $-X$ is at distance $r$ from $-P$,
+        and hence lies in the circle of radius $r$ centered at $-P$.
+    Conversely, given a point $Y$ in this circle, so that $|Y - (-P)| = r$,
+        let $X = -Y$. Then $Y = -X$ is the reflection of $X$ through the origin,
+        and $|X - P| = |-Y - P| = |Y - (-P)| = r$. 
+    Therefore every point on the circle of radius $r$, centered at $-P$,
+        is the reflection of a point in the circle of radius $r$ centered at $P$.
+    This proves our theorem.
 \end{proof}
+
+\textbf{Solution:}
+Let $(x, y) = P$. The image of $P$ under a reflection through the origin is $(-x, -y) = -P$.
+
+\begin{proof}
+    Let $X$ be a point in the disc of radius $r$ centered at $P$.
+    This means that $|X - P| < r$.
+    The reflection of $X$ through the origin, which is $-X$, satisfies
+        $|-X - (-P)| = |-(X - P)| = |X - P| < r$.
+    Thus we see that $-X$ is at distance $<r$ from $-P$,
+        and hence lies in the disc of radius $r$ centered at $-P$.
+    Conversely, given a point $Y$ in this disc, so that $|Y - (-P)| < r$,
+        let $X = -Y$. Then $Y = -X$ is the reflection of $X$ through the origin,
+        and $|X - P| = |-Y - P| = |Y - (-P)| < r$.
+    Therefore every point in the disc of radius $r$, centered at $-P$,
+        is the reflection of a point in the disc of radius $r$ centered at $P$.
+    This proves our theorem.
+\end{proof}
+
+\textbf{Solution:}
+Same as the center of a circle reflected through the origin.
 
 \begin{tcolorbox}[title=Problem 14, breakable]
     Let $P, Q$ be points. Write $P = Q + A$, where $A = P - Q$. Define 
     the \textbf{reflection of $P$ through $Q$} to be the point $Q - A$.
-    If $R_Q$ denotes reflection through $Q$, tehn we have $R_Q(P) = 2 Q - P$.
+    If $R_Q$ denotes reflection through $Q$, then we have $R_Q(P) = 2 Q - P$.
     (Why?) Draw the picture, showing $P, Q, A$ and $Q - A$ to convince yourself
-    that this definition corresponds to our geometric intuition.
+        that this definition corresponds to our geometric intuition.
 \end{tcolorbox}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/14.jpg}
+\end{figure}
+
+\textbf{Solution:}
+From the figure we see $Q - A$ is the reflection of $P$ through $Q$.
+Since $A = P - Q$, $R_Q(P) = Q - (P - Q) = Q - A$.
 
 \begin{tcolorbox}[title=Problem 15, breakable]
     (a) Prove that reflection through a point $Q$ can be expressed in terms 
         of reflection through $O$, followed by a translation.
 
-    (b) Let $T_A$ be translation by $A$, and $R_0$ reflection with respect 
-        to teh origin. PRove that the composite $T_A \circ R_0$ is equal 
+    (b) Let $T_A$ be translation by $A$, and $R_O$ reflection with respect 
+        to the origin. Prove that the composite $T_A \circ R_O$ is equal 
         to $R_Q$ for some point $Q$. Which one?
 \end{tcolorbox}
+
+\begin{proof}
+    Let $P$ be an arbitrary point.
+    Let $P = (x, y)$. Reflecting through $O$ gives $R_O(P) = -P = (-x, -y)$.
+    Then translating by $2Q$ gives $-P + 2Q = 2Q - P = R_Q(P)$.
+\end{proof}
+
+\begin{proof}
+    Let $P$ be an arbitrary point.
+    Then 
+    \[(T_A \circ R_O)(P) = T_A(R_O(P)) = T_A(2O - P) = 2O - P + A = A - P\]
+    Also $R_Q(P) = 2Q - P$.
+    Then 
+    \[R_Q(P) = (T_A \circ R_O)(P) \iff 2Q - P = A - P \iff 2Q = A \iff Q = A/2\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 16, breakable]
     (a) Let $r$ be a positive number.
         Give an analytic definition of \textbf{dilation by $r$ with respect to a point $Q$},
         and denote this dilation by $F_{r, Q}$. To give this definition, look at 
-        Excersize $14$. You may also want to look at the discussion about line segments
+        Exercise $14$. You may also want to look at the discussion about line segments
         in $4$. If $P$ is a point, draw the picture with $O, P, Q, P - Q$, and $F_{r, Q}(P)$.
 
     (b) From your definition, it should be clear that $F_{r, Q}$ can be obtained as a composite 
         of dilation with respect to $O$, and a translation. Translation by what point?
 \end{tcolorbox}
 
+\begin{definition}
+    Define the \textbf{dilation by $r$ with respect to a point $Q$ of $P$} 
+        be the point $Q + r(P - Q)$.
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/15.png}
+\end{figure}
+
+\textbf{Solution:}
+\[F_{r, Q}(P) = Q + r(P - Q) = rP - rQ + Q = rP - (r - 1)Q = F_{r, O}(P) - (r - 1)Q\]
+So a translation by $- (r - 1)Q$.
+
+\newpage
 \begin{tcolorbox}[title=Problem 17, breakable]
     Let $S(r, A)$ be the circle of radius $r$ and center $A$.
     Show that the reflection of this circle through a point $Q$ is a circle.
@@ -190,10 +255,45 @@
     Draw a picture.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $X$ be a point on the circle of radius $r$ centered at $P$.
+    This means that $|X - P| = r$.
+    The reflection of $P$ through a point $Q$ is $2Q - P$,
+        and the reflection of $X$ through $Q$ is $2Q - X$.
+    Then
+    \[
+        |(2Q - X) - (2Q - P)| = |-(X - P)| = |X - P| = r.
+    \] 
+    Thus $2Q - X$ is at distance $r$ from $2Q - P$,
+        and hence lies on the circle of radius $r$ centered at $2Q - P$.
+    Conversely, given a point $Y$ on the circle of radius $r$ centered at $2Q - P$,
+        let $X = 2Q - Y$.  Then 
+    \[|X - P| = |(2Q - Y) - P| = |(2Q - P) - Y| = |Y - (2Q - P)| = r\]
+    So $X$ is a point on the original circle centered at $P$,
+        and $Y$ is its reflection through $Q$.
+    Therefore, the reflection of the circle through $Q$ is again a circle
+        with center $2Q - P$ and radius $r$.
+\end{proof}
+
+\textbf{Solution:} The center of the reflected circle is $2Q - P$, and its radius is $r$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/circle.png}
+\end{figure}
+
 \begin{tcolorbox}[title=Problem 18, breakable]
     The inverse of the translation $T_A$ is also a translation.
     By what? Prove your assertion.
 \end{tcolorbox}
+
+\begin{proof}
+    The inverse of $T_A$ is $T_{(-A)}$.
+    Let $P$ be an arbitrary point.
+    Then $(T_A \circ T_{(-A)})(P) = T_A(P - A) = (P - A) + A = P$.
+    Also $(T_{(-A)} \circ T_A)(P) = T_{(-A)}(P + A) = (P + A) - A = P$.
+    Thus $T_A^{-1} = T_{(-A)}$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 19, breakable]
     Let $F_r$ be dilation by a postive number $r$,
@@ -201,14 +301,33 @@
 
     (a) Show that $F_r^{-1}$ is also a dilation. By what number?
 
-    (c) Show that $F_R \circ T_A \circ F_r^{-1}$ is a translation.
+    (c) Show that $F_r \circ T_A \circ F_r^{-1}$ is a translation.
 \end{tcolorbox}
+
+\begin{proof}
+    Consider $F_{(-r)}$. Let $P$ be an arbitrary point.
+    Then $(F_r \circ F_{1/r})(P) = F_r(P/r) = r \cdot P/r = P$.
+    Also $(F_{1/r} \circ F_r)(P) = F_{1/r}(rP) = 1/r \cdot rP = P$.
+    Thus $F_r^{-1} = F_{1/r}$.
+\end{proof}
+
+\begin{proof}
+    Let $P$ be an arbitrary point.
+    Then
+    \[(F_r \circ T_A \circ F_r^{-1})(P) = (F_r \circ T_A)(P/r) = F_r(P/r + A) = r(P/r + A) = P + Ar = T_{rA}(P)\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 20, breakable]
     Show that the composite of two translations is a translation.
     $T_A \circ T_B = T_C$, how would you express $C$ in terms 
     of $A$ and $B$?
 \end{tcolorbox}
+
+\begin{proof}
+    Let $P$ be an arbitrary point. Then 
+    \[(T_A \circ T_B)(P) = T_A(P + B) = P + B + A = T_{B + A}(P) = T_C(P)\]
+    So $C = B + A$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 21, breakable]
     Let $R$ be a reflection through the origin.
@@ -218,29 +337,229 @@
     (b) Show that $R \circ T_A \circ R^{-1}$ is a translation. By what?
 \end{tcolorbox}
 
+\begin{proof}
+    Let $P$ be an arbitrary point.
+    Then $(R \circ R)(P) = R(-P) = -(-P) = P$.
+    Thus $R^{-1} = R$.
+\end{proof}
+
+\begin{proof}
+    Let $P$ be an arbitrary point.
+    Then
+    \[(R \circ T_A \circ R^{-1})(P) = (R \circ T_A \circ R)(P) = (R \circ T_A)(-P) = R(-P + A) = P - A = T_{(-A)}(P)\]
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 22, breakable]
+    Let $A = (a_1, a_2)$ be a point. Define its
+    \textbf{reflection through the x-axis} to be the point 
+    $(a_1, -a_2)$. Draw $A$ and its reflection through the 
+    x-axis in the following cases.
+
+    (a) $A = (1, 2)$
+
+    (b) $A = (-1, 3)$
+
+    (c) $A = (-2, -4)$
+
+    (d) $A = (5, -2)$
 \end{tcolorbox}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/graph.png}
+\end{figure}
 
 \begin{tcolorbox}[title=Problem 23, breakable]
+    Prove that reflection through the x-axis is an isometry.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $P = (p_1, p_2)$ and $Q = (q_1, q_2)$ be arbitrary points.  
+    Then 
+    \[
+    d(P, Q) 
+        = \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2} 
+        = d_{PQ}.
+    \]  
+    Reflecting both points through the $x$-axis gives
+    \[
+    P' = (p_1, -p_2) \quad \text{and} \quad Q' = (q_1, -q_2).
+    \]  
+    Then 
+    \[
+    d(P', Q') 
+        = \sqrt{(p_1 - q_1)^2 + ((-p_2) - (-q_2))^2} 
+        = \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2} 
+        = d_{PQ}.
+    \]  
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 24, breakable]
+    Define the reflection through the y-axis in a similar way,
+        and prove that it is an isometry.
+    Draw the points of Exercise 22, and their reflections 
+        through the y-axis.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $P = (p_1, p_2)$ and $Q = (q_1, q_2)$ be arbitrary points.  
+    Then 
+    \[
+    d(P, Q) 
+        = \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2} 
+        = d_{PQ}.
+    \]  
+    Reflecting both points through the $y$-axis gives
+    \[
+    P' = (-p_1, p_2) \quad \text{and} \quad Q' = (-q_1, q_2).
+    \]  
+    Then 
+    \[
+    d(P', Q') 
+        = \sqrt{((-p_1) - (-q_1))^2 + (p_2 - q_2)^2} 
+        = \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2} 
+        = d_{PQ}.
+    \]  
+\end{proof}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/graph1.png}
+\end{figure}
 
 \begin{tcolorbox}[title=Problem 25, breakable]
+    Recall that a \textbf{fixed point} of a mapping $F$
+    is a point $P$ such that $F(P) = P$. Using the coordinate
+    definition, determine the fixed points of
+
+    (a) translation 
+
+    (b) reflection through $O$
+
+    (c) reflection through an arbitrary point $P$
+
+    (d) reflection through the x-axis and through the y-axis
 \end{tcolorbox}
 
+\begin{proof}
+    Let $P$ be an arbitrary point. If $T_0$, then all points are fixed points.  
+    Consider $T_0(P) = P + 0 = P$.  
+    Suppose $T_A$ with $A \ne 0$.  
+    Then $T_A(P) = P + A \ne P$.
+\end{proof}
+
+\begin{proof}
+    The point $O$ is a fixed point.  
+    Consider $F_O(O) = 2O - O = O$. 
+\end{proof}
+
+\begin{proof}
+    The point $P$ is a fixed point.  
+    Consider $F_P(P) = 2P - P = P$.
+\end{proof}
+
+\begin{proof}
+    All points on the x-axis are fixed points with respect to x-axis reflection.  
+    Let $X = (x_1, x_2)$ be an arbitrary point on the x-axis.  
+    Then $X = (x_1, 0) = (x_1, -x_2)$.  
+
+    All points on the y-axis are fixed points with respect to y-axis reflection.  
+    Let $Y = (y_1, y_2)$ be an arbitrary point on the y-axis.  
+    Then $Y = (0, y_2) = (-y_1, y_2)$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 26, breakable]
+    (a) Let 
+    \[E_1 = (1, 0) \text{ and } E_2 = (0, 1)\]
+    We call $E_1$ and $E_2$ the \textbf{basic units points}
+    of the plane. Plot these points. If $A = (a_1, a_2)$,
+    prove that 
+    \[A = a_1 E_1 + a_2 E_2\]
+
+    (b) If $c$ is a number, what are the coordinates of $cE_1, cE_2$?
 \end{tcolorbox}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/basis.png}
+\end{figure}
+
+\begin{proof}
+    Suppose $A = (a_1, a_2)$.
+    Consider 
+    \[a_1 E_1 + a_2 E_2 = (a_1 \cdot 1, a_1 \cdot 0) + (a_2 \cdot 0, a_2 \cdot 1) = (a_1, 0) + (0, a_2) = (a_1, a_2) = A\]
+\end{proof}
+
+\textbf{Solution (b):}
+\[c E_1 = (c \cdot 1, c \cdot 0) = (c, 0) \text{ and } c E_2 = (c \cdot 0, c \cdot 1) = (0, c)\]
 
 \begin{tcolorbox}[title=Problem 29, breakable]
+    Given a number $r > 0$ and a point $A$, we can 
+    define the corners of a square, having sides of 
+    length $r$ parallel to the axes, and $A$ as 
+    its lower left-hand corner, to be the points 
+    \[A, A + rE_1, A + rE_2, A + rE_1 + rE_2\]
+    Let $s$ be a postitive number.
+    Show that if these four points are dilated
+        by multiplication with $s$, they again form 
+        the corners of a square. What are the corners 
+        of this dilated square.
 \end{tcolorbox}
+
+\begin{proof}
+    The dilation by multiplication with $s$ sends each point $X$ to $sX$.
+    Applying this to the four corners of the square gives
+    \[
+    A \mapsto sA,\qquad
+    A + rE_1 \mapsto sA + srE_1,\qquad
+    A + rE_2 \mapsto sA + srE_2,\qquad
+    A + rE_1 + rE_2 \mapsto sA + srE_1 + srE_2.
+    \]
+    These four points again form a square, since the sides
+    remain parallel to the coordinate axes and each side has length $sr$.
+    Thus the corners of the dilated square are
+    \[sA,\; sA + srE_1,\; sA + srE_2,\; sA + srE_1 + srE_2\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 30, breakable]
+    Let the notation be as in Exercise 29. What is the 
+    area of the dilated square? How does it compare 
+    with the area of the original square?
 \end{tcolorbox}
+
+\textbf{Solution:}
+The original square has side length $r$ and area $r^{2}$.
+The dilated square has side length $sr$ and area $s^{2} r^{2}$.
+Thus the area of the square is multiplied by $s^{2}$ under the dilation.
 
 \begin{tcolorbox}[title=Problem 31, breakable]
+    Let $A$ be a point and $r, s$ positive numbers.
+    How would you define the corners of a rectangle whose sides 
+        are parallel to the axes, with $A$ as the lower left-hand 
+        corner, and such that the vertical side has length $r$
+        and the horizontal side has length $s$.
 \end{tcolorbox}
 
+\textbf{Solution:}
+A rectangle with lower left-hand corner $A$, vertical side of length $r$,
+horizontal side of length $s$, and sides parallel to the coordinate axes
+has corners
+\[
+A,\quad A + sE_1,\quad A + rE_2,\quad A + sE_1 + rE_2.
+\]
+
 \begin{tcolorbox}[title=Problem 32, breakable]
+    Let $t$ be a positive number. What is the effect 
+    of dilation by $t$ on the sides and area of the rectangle
+    in Exercise 31.
 \end{tcolorbox}
+
+\textbf{Solution:}
+Dilation by $t$ multiplies each side by $t$. Thus the horizontal
+side of length $s$ becomes $ts$, and the vertical side of length $r$
+becomes $tr$. The area, originally $rs$, becomes
+\[
+(tr)(ts) = t^{2}rs.
+\]
+Thus the area is multiplied by $t^{2}$.
