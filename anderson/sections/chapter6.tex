@@ -1,0 +1,513 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Show that in a ring, $0a = a0 = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $R$ be a ring and $a$ be an arbitrary element in $R$.
+    Then
+    \begin{align*}
+        0a &= 0a + 0 &&\text{Rule 3} \\
+            &= 0a + (0a + (-0a)) &&\text{Rule 4} \\
+            &= (0a + 0a) + (-0a) &&\text{Rule 2} \\
+            &= ((0 + 0)a) + (-0a) &&\text{Rule 6} \\
+            &= 0a + (-0a) &&\text{Rule 3} \\
+            &= 0 &&\text{Rule 3}
+    \end{align*}
+    Similarly 
+    \begin{align*}
+        a0 &= a0 + 0 &&\text{Rule 3} \\
+            &= a0 + (a0 + (-a0)) &&\text{Rule 4} \\
+            &= (a0 + a0) + (-a0) &&\text{Rule 2} \\
+            &= (a(0 + 0)) + (-a0) &&\text{Rule 6} \\
+            &= a0 + (-a0) &&\text{Rule 3} \\
+            &= 0 &&\text{Rule 3}
+    \end{align*}
+    Thus $a0 = 0a = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove part d of Theorem 6.1:
+    Show that in a ring the additive identity is unique,
+        by supposing $0$ and $0'$ satisfy Rule 3
+        and proving that $0 = 0'$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $R$ be a ring and suppose there exists $0 \in R$
+        and $0' \in R$ such that 
+        for all $a \in R$, $a + 0 = a$ and $a + 0' = a$.
+    Then $a + 0 = a = a + 0'$.
+    By Additive Cancellation $0 = 0'$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Show that in a ring $(-a)b = a(-b) = -(ab)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $R$ be a ring and $a, b \in R$. Then
+    \begin{align*}
+        0 = (a + (-a))b 
+        \iff &0 = ab + (-a)b &&\text{Rule 6} \\
+        \iff &-(ab) + 0 = -(ab) + (ab + (-a)b) \\
+        \iff &-(ab) = -(ab) + (ab + (-a)b) &&\text{Rule 3} \\
+        \iff &-(ab) = (-(ab) + ab) + (-a)b &&\text{Rule 2} \\
+        \iff &-(ab) = 0 + (-a)b &&\text{Rule 4} \\
+        \iff &-(ab) = (-a)b + 0 &&\text{Rule 1} \\
+        \iff &-(ab) = (-a)b &&\text{Rule 3}
+    \end{align*}
+    Also
+    \begin{align*}
+        0 = a(b + (-b)) 
+        \iff &0 = ab + a(-b) &&\text{Rule 6} \\
+        \iff &-(ab) + 0 = -(ab) + ((ab) + a(-b))  \\
+        \iff &-(ab) = -(ab) + ((ab) + a(-b)) &&\text{Rule 3} \\
+        \iff &-(ab) = (-(ab) + (ab)) + a(-b) &&\text{Rule 2} \\
+        \iff &-(ab) = 0 + a(-b) &&\text{Rule 4} \\
+        \iff &-(ab) = a(-b) + 0 &&\text{Rule 1} \\
+        \iff &-(ab) = a(-b) &&\text{Rule 3}
+    \end{align*}
+    Thus $(-a)b = a(-b) = -(ab)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Show that in a ring $(-a)(-b) = ab$.
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        (-a)(-b) + -(ab) &= a(-(-b)) + a(-b) && \text{Rule 6} \\
+                        &= a((-(-b)) + (-b)) && \text{Rule 2} \\
+                        &= a \cdot 0 && \text{Rule 4} \\
+                        &= 0 && \text{Rule 3}
+    \end{align*}
+    Thus $(-a)(-b) = ab$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove the following facts about subtraction in a ring $R$,
+    where $a, b, c \in R$.
+
+    (a) $a - a = 0$.
+
+    (b) $a(b - c) = ab - ac$.
+
+    (c) $(b - c)a = ba - ca$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $R$ be a ring and $a, b, c \in R$.
+    Then $a - a = a + (-a) = 0$ Rule 4.
+    Also, $a(b - c) = a(b + (-c)) = ab + a(-c)$ Rule 6.
+    Then, $ab + a(-c) = ab + -(ac) \text{ Problem 3 } = ab - ac$.
+    Similarly, $(b - c)a = (b + (-c))a = ba + (-c)a$ Rule 6.
+    Then, $ba + (-c)a = ba + -(ca) \text{ Problem 3 } = ba - ca$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    We generalize Exercises 6 and 7: Let $R$
+    be any commutative ring (other than the zero ring).
+    Define $M_2(R)$ as the set of $2 \times 2$
+    matrices with entries from $R$. Show that $M_2(R)$
+    is a ring which is not commutative. (Note that 
+    for the most part the proofs in Exercises 6 and 
+    7 life over without change.)
+\end{tcolorbox}
+
+\begin{proof}
+    Let $R$ be a ring and 
+    \[a, b, c, e, f, g, h, i, j, k, l \in R\]
+    We first show associativity with respect to $+$.
+    \[\begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} \in M_2(R) \text{, }
+    \begin{bmatrix}
+        c & f \\
+        g & h
+    \end{bmatrix} \in M_2(R) \text{ and }
+    \begin{bmatrix}
+        i & j \\
+        k & l
+    \end{bmatrix} \in M_2(R)\]
+    Then 
+    \[\begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} + \begin{bmatrix}
+        c & f \\
+        g & h
+    \end{bmatrix} = \begin{bmatrix}
+        a+c & b+f \\
+        c+g & d+h
+    \end{bmatrix} = \begin{bmatrix}
+        c+a & f+b \\
+        g+c & h+d
+    \end{bmatrix} = \begin{bmatrix}
+        c & f \\
+        g & h
+    \end{bmatrix} + \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}\]
+    We now show associativity with respect to $+$.
+\[\left(\begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} + \begin{bmatrix}
+        c & f \\
+        g & h
+    \end{bmatrix}\right) + \begin{bmatrix}
+        i & j \\
+        k & l
+    \end{bmatrix} = \begin{bmatrix}
+        a+c & b+f \\
+        c+g & d+h
+    \end{bmatrix} +\begin{bmatrix}
+        i & j \\
+        k & l
+    \end{bmatrix} = \begin{bmatrix}
+        (a+c)+i & (b+f)+j \\
+        (c+g)+k & (d+h)+l
+    \end{bmatrix}\] \[= \begin{bmatrix}
+        a+(c+i) & b+(f+j) \\
+        c+(g+k) & d+(h+l)
+    \end{bmatrix} = \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} + \begin{bmatrix}
+        c+i & f+j \\
+        g+k & h+l
+    \end{bmatrix} = \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} + \left(\begin{bmatrix}
+        c & f \\
+        g & h
+    \end{bmatrix} + \begin{bmatrix}
+        i & j \\
+        k & l
+    \end{bmatrix}\right)\]
+    We now show the existence of an additive inverse.
+    \[\begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} -\begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} = \begin{bmatrix}
+        a-a & b-b \\
+        c-c & d-d
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 0 \\
+        0 & 0
+    \end{bmatrix}\]
+    We now show the existence of the additive identity.
+    \[\begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix} + \begin{bmatrix}
+        0 & 0 \\
+        0 & 0
+    \end{bmatrix} = \begin{bmatrix}
+        a+0 & b+0 \\
+        c+0 & d+0
+    \end{bmatrix} = \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}\]
+    We now show left distributivity.
+    \[
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    \left(
+    \begin{bmatrix}
+        e & f \\
+        g & h
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        i & j \\
+        k & l
+    \end{bmatrix}
+    \right)
+    =
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    \begin{bmatrix}
+        e+i & f+j \\
+        g+k & h+l
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        a(e+i) + b(g+k) & a(f+j) + b(h+l) \\
+        c(e+i) + d(g+k) & c(f+j) + d(h+l)
+    \end{bmatrix}
+    \]
+    \[
+    =
+    \begin{bmatrix}
+        ae + bg & af + bh \\
+        ce + dg & cf + dh
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        ai + bk & aj + bl \\
+        ci + dk & cj + dl
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    \begin{bmatrix}
+        e & f \\
+        g & h
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    \begin{bmatrix}
+        i & j \\
+        k & l
+    \end{bmatrix}.
+    \]
+    We now show right distributivity.
+    \[
+    \left(
+    \begin{bmatrix}
+        e & f \\
+        g & h
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        i & j \\
+        k & l
+    \end{bmatrix}
+    \right)
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        e+i & f+j \\
+        g+k & h+l
+    \end{bmatrix}
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        (e+i)a + (f+j)c & (e+i)b + (f+j)d \\
+        (g+k)a + (h+l)c & (g+k)b + (h+l)d
+    \end{bmatrix}
+    \]
+    \[
+    =
+    \begin{bmatrix}
+        ea + fc & eb + fd \\
+        ga + hc & gb + hd
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        ia + jc & ib + jd \\
+        ka + lc & kb + ld
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        e & f \\
+        g & h
+    \end{bmatrix}
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        i & j \\
+        k & l
+    \end{bmatrix}
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    \]
+    We now show matrix multiplication is not commutative 
+        by giving a counterexample.
+    Consider
+    \[
+    \begin{bmatrix}
+    1 & 2 \\
+    0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+    1 & 0 \\
+    3 & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1+6 & 2 \\
+    3 & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    7 & 2 \\
+    3 & 1
+    \end{bmatrix}
+    \]
+    But multiplying the same matrices in the opposite order gives
+    \[
+    \begin{bmatrix}
+    1 & 0 \\
+    3 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+    1 & 2 \\
+    0 & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 & 2 \\
+    3 & 7
+    \end{bmatrix}.
+    \]
+    Since
+    \[
+    \begin{bmatrix}
+    7 & 2 \\
+    3 & 1
+    \end{bmatrix}
+    \neq
+    \begin{bmatrix}
+    1 & 2 \\
+    3 & 7
+    \end{bmatrix}
+    \]
+    matrix multiplication is not commutative.
+\end{proof}
+
+Let $R = \{0, a, \ldots\}$ such that $0 \ne a$.
+\[
+A = \begin{bmatrix} 0 & a \\ 0 & 0 \end{bmatrix}, \quad
+B = \begin{bmatrix} 0 & 0 \\ a & 0 \end{bmatrix}
+\]
+\[
+AB = \begin{bmatrix} a^2 & 0 \\ 0 & 0 \end{bmatrix} \neq 
+BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
+\]
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Check that Example 6.14 is indeed a ring; that is,
+    let $C[0, 1]$ be a set of functions defined from the closed 
+    unit interval $[0, 1]$ to the real numbers that 
+    are continuous. Define the sum and product of two 
+    functions point-wise: $(f + g)(x) = f(x) + g(x)$
+    and $(fg)(x) = f(x)g(x)$. Show that $C[0, 1]$ is a 
+    commutative ring. (You may use theorems from calculus).
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x \in [0, 1]$ and $f, g, l : [0, 1] \longrightarrow \mathbb{R}$.
+    Since $f(x), g(x), l(x) \in \mathbb{R}$ and $\mathbb{R}$ is a ring, standard ring operations (associativity, distributivity, etc.) hold.
+    We first show commutativity over addition
+    \[
+    (f + g)(x) = f(x) + g(x) = g(x) + f(x) = (g + f)(x)
+    \]
+    Next, associativity over addition
+    \[
+    ((f + g) + l)(x) = (f + g)(x) + l(x) = f(x) + g(x) + l(x) = f(x) + (g + l)(x) = (f + (g + l))(x).
+    \]
+    Existence of additive inverses
+    \[
+    (f + (-f))(x) = f(x) + (-f(x)) = 0
+    \]
+    Additive identity
+    \[
+    (f + 0)(x) = f(x) + 0(x) = f(x)
+    \]
+    Commutativity of multiplication
+    \[
+    (fg)(x) = f(x) g(x) = g(x) f(x) = (gf)(x)
+    \]
+    Associativity of multiplication
+    \[
+    ((fg)l)(x) = (fg)(x) l(x) = f(x) g(x) l(x) = f(x) (gl)(x) = (f(gl))(x)
+    \]
+    Distributivity from the left
+    \[
+    f(g + l)(x) = f(x)(g + l)(x) = f(x)(g(x) + l(x)) = f(x)g(x) + f(x)l(x) = (fg + fl)(x)
+    \]
+    Distributivity from the right
+    \[
+    (f + g)l(x) = (f + g)(x) \, l(x) = (f(x) + g(x))l(x) = f(x)l(x) + g(x)l(x) = (fl + gl)(x)
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Let $\mathbb{C}$ be the complex numbers. That inverse
+    \[\mathbb{C} = \{a + bi \mid a, b, \in \mathbb{R}\}\]
+    where $i$ is the square root of $-1$ (that is, $i \cdot i = 1$).
+    Here 
+    \[(a + bi) + (c + di) = (a + c) + (bi + di)\]
+    and 
+    \[(a + bi)(c + di) = (ac - bd) + (ad + bc)i\]
+    Show that $\mathbb{C}$ is a commutative ring.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $a + bi, c + di, e + fi \in \mathbb{C}$.
+    We first show commutativity over addition
+    \[
+    (a + bi) + (c + di) = (a + c) + (bi + di) = (c + a) + (di + bi) = (c + di) + (a + bi)
+    \]
+    Next, associativity over addition
+    \[
+    ((f + g) + l)(x) = (f + g)(x) + l(x) = f(x) + g(x) + l(x) = f(x) + (g + l)(x) = (f + (g + l))(x).
+    \]
+    Existence of additive inverses
+    \[
+    (f + (-f))(x) = f(x) + (-f(x)) = 0
+    \]
+    Additive identity
+    \[
+    (f + 0)(x) = f(x) + 0(x) = f(x)
+    \]
+    Commutativity of multiplication
+    \[
+    (fg)(x) = f(x) g(x) = g(x) f(x) = (gf)(x)
+    \]
+    Associativity of multiplication
+    \[
+    ((fg)l)(x) = (fg)(x) l(x) = f(x) g(x) l(x) = f(x) (gl)(x) = (f(gl))(x)
+    \]
+    Distributivity from the left
+    \[
+    f(g + l)(x) = f(x)(g + l)(x) = f(x)(g(x) + l(x)) = f(x)g(x) + f(x)l(x) = (fg + fl)(x)
+    \]
+    Distributivity from the right
+    \[
+    (f + g)l(x) = (f + g)(x) \, l(x) = (f(x) + g(x))l(x) = f(x)l(x) + g(x)l(x) = (fl + gl)(x)
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Verify that 6.10 is a ring.
+    Namely, let $R$ and $S$ be arbitrary rings.
+    Define addition and subtraction appropriately
+        to make $R \times S$ a ring,
+        where $R \times S$ is the set of ordered pairs
+        with the first entry from $R$ and second entry 
+        from $S$. 
+    Now generalize this to the set $R_1 \times R_2 \times \cdots R_n$
+    of $n$-tuples with entries from the rings $R_i$.
+    This new ring is called the \textbf{direct product}
+    of the rings $R_i$.
+\end{tcolorbox}
