@@ -260,10 +260,10 @@ Thus the ratio $\tan(x)=\frac{\sin(x)}{\cos(x)}$ increases.
     Then $d$ is given by 
     \[d = \frac{2v^2}{2} \sin \theta \cos \theta\]
     where $v, g$ are constants. For what value of $\theta$
-    is the distance maximum? [Hint: Give another expression for $2 sin \theta cos theta$]
+    is the distance maximum? [Hint: Give another expression for $2 \sin \theta \cos \theta$]
 
     (b) You are watering the lawn, and point the watering hose at an angle 
-    of $\theta$ degrees from the ground. The distance from teh nozzle at which the water strikes 
+    of $\theta$ degrees from the ground. The distance from the nozzle at which the water strikes 
     the ground is giving by 
     \[d = 2 c \sin \theta \cos \theta\]
     where $c$ is a constant. For what value of $\theta$ is the distance 
@@ -271,8 +271,16 @@ Thus the ratio $\tan(x)=\frac{\sin(x)}{\cos(x)}$ increases.
 \end{tcolorbox}
 
 \textbf{Solution (a):}
+We have \[d = \frac{2v^2}{2}\cos \theta \sin \theta   
+            = \frac{v^2}{2}(\sin \theta \cos \theta + \sin \theta \cos \theta)   
+            = \frac{v^2}{2}(\sin(2\theta))\]
+Now $\sin(2\theta)$ is maximial at $1$ thus we require $\sin(2\theta) = 1$
+    and it follows that $\theta = \pi/4$.
 
 \textbf{Solution (b):}
+Similar to part (a). 
+\[d = c(\sin \theta \cos \theta + \sin \theta \cos \theta)  = c\sin(2\theta)\]
+ and it follows that $\theta = \pi/4$.
 
 \begin{tcolorbox}[title=Problem 13, breakable]
     Prove the following formulas for any integer $m, n$:
@@ -280,3 +288,88 @@ Thus the ratio $\tan(x)=\frac{\sin(x)}{\cos(x)}$ increases.
     \[\sin mx \cos nx = \frac{1}{2}[\sin(m + n)x + \sin(m - n)x]\]
     \[\cos mx \cos nx = \frac{1}{2}[\cos(m + n)x + \cos(m - n)x]\]
 \end{tcolorbox}
+
+\[
+\frac{1}{2}[\cos(m-n)x - \cos(m+n)x] 
+= \frac{1}{2}[(\cos mx \cos nx + \sin mx \sin nx) - (\cos mx \cos nx - \sin mx \sin nx)] 
+= \sin mx \sin nx
+\]
+
+\[
+\frac{1}{2}[\sin(m+n)x + \sin(m-n)x] 
+= \frac{1}{2}[(\sin mx \cos nx + \cos mx \sin nx) + (\sin mx \cos nx - \cos mx \sin nx)] 
+= \sin mx \cos nx
+\]
+
+\[
+\frac{1}{2}[\cos(m+n)x + \cos(m-n)x] 
+= \frac{1}{2}[(\cos mx \cos nx - \sin mx \sin nx) + (\cos mx \cos nx + \sin mx \sin nx)] 
+= \cos mx \cos nx
+\]
+
+\subsection{Rotations}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    In the following case, write the matrix 
+    associated with the rotation of $G_{\varphi}$,
+    when $\varphi$ has the indicated value.
+    Write explicitly the coordinates 
+    $(x', y')$ of $G_{\varphi}(P)$ if $P$ has 
+    coordinates $(x, y)$.
+
+    $\varphi = \pi/4$.
+\end{tcolorbox}
+
+\[\begin{bmatrix}
+    \cos \pi/4 & -\sin \pi/4 \\
+    \sin \pi/4 & \cos \pi/4
+\end{bmatrix} \begin{bmatrix}
+    x \\
+    y
+\end{bmatrix} = \begin{bmatrix}
+    x' \\
+    y'
+\end{bmatrix}\]
+\[x' = (\cos \pi/4)x - (\sin \pi/4)y, y' = (\sin \pi/4)x + (\cos \pi/4)y\]
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+    Associate a matrix with a dilation by $r$.
+    Interpret dilation by $r$ in terms of 
+    the matrix muliplication.
+    Do the same for mixed dilations of type which we have 
+    written $F_{a, b}$.
+\end{tcolorbox}
+
+\textbf{Dilation:}
+\[
+\begin{bmatrix}
+r & 0 \\
+0 & r
+\end{bmatrix}.
+\]
+\textbf{Mixed Dilation:}
+\[
+\begin{bmatrix}
+a & 0 \\
+0 & b
+\end{bmatrix}.
+\]
+
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+    Write down the matrices for the rotations
+        $G_{\varphi}, G_{\psi}, G_{\varphi + \psi}$
+\end{tcolorbox}
+
+\[\begin{bmatrix}
+    \cos \varphi & -\sin \varphi \\
+    \sin \varphi & \cos \varphi
+\end{bmatrix}\]
+\[\begin{bmatrix}
+    \cos \psi & -\sin \psi \\
+    \sin \psi & \cos \psi
+\end{bmatrix}\]
+\[\begin{bmatrix}
+    \cos \varphi + \psi & -\sin \varphi + \psi \\
+    \sin \varphi + \psi & \cos \varphi + \psi
+\end{bmatrix}\]
