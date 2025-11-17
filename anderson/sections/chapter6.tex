@@ -463,38 +463,70 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
 \end{tcolorbox}
 
 \begin{proof}
-    Let $a + bi, c + di, e + fi \in \mathbb{C}$.
-    We first show commutativity over addition
+    Let $a+bi,\; c+di,\; e+fi \in \mathbb{C}$.
+    Commutativity of addition
     \[
-    (a + bi) + (c + di) = (a + c) + (bi + di) = (c + a) + (di + bi) = (c + di) + (a + bi)
+    (a+bi)+(c+di)
+    = (a+c) + (b+d)i
+    = (c+a) + (d+b)i
+    = (c+di)+(a+bi)
     \]
-    Next, associativity over addition
+    Associativity of addition
     \[
-    ((f + g) + l)(x) = (f + g)(x) + l(x) = f(x) + g(x) + l(x) = f(x) + (g + l)(x) = (f + (g + l))(x).
+    ((a+bi)+(c+di))+(e+fi)
+    = (a+c+e) + (b+d+f)i
     \]
-    Existence of additive inverses
     \[
-    (f + (-f))(x) = f(x) + (-f(x)) = 0
+    = (a+bi) + ((c+di)+(e+fi))
     \]
     Additive identity
     \[
-    (f + 0)(x) = f(x) + 0(x) = f(x)
+    (a+bi) + 0 = (a+0) + (b+0)i = a+bi
+    \]
+    Additive inverses
+    \[
+    (a+bi) + (-a - bi)
+    = (a-a) + (b-b)i
+    = 0
     \]
     Commutativity of multiplication
     \[
-    (fg)(x) = f(x) g(x) = g(x) f(x) = (gf)(x)
+    (a+bi)(c+di)
+    = (ac - bd) + (ad + bc)i
+    = (c+di)(a+bi)
     \]
     Associativity of multiplication
     \[
-    ((fg)l)(x) = (fg)(x) l(x) = f(x) g(x) l(x) = f(x) (gl)(x) = (f(gl))(x)
+    ((a+bi)(c+di))(e+fi)
+    = (a+bi)((c+di)(e+fi))
     \]
-    Distributivity from the left
+    Left distributivity
     \[
-    f(g + l)(x) = f(x)(g + l)(x) = f(x)(g(x) + l(x)) = f(x)g(x) + f(x)l(x) = (fg + fl)(x)
+    (a+bi)((c+di)+(e+fi))
+    = (a+bi)((c+e) + (d+f)i)
     \]
-    Distributivity from the right
     \[
-    (f + g)l(x) = (f + g)(x) \, l(x) = (f(x) + g(x))l(x) = f(x)l(x) + g(x)l(x) = (fl + gl)(x)
+    = a(c+e) - b(d+f) + (a(d+f) + b(c+e))i
+    \]
+    \[
+    = (ac - bd) + (ad + bc)i \;+\; (ae - bf) + (af + be)i
+    \]
+    \[
+    = (a+bi)(c+di) + (a+bi)(e+fi)
+    \]
+    Right distributivity
+    \[
+    ((a+bi)+(c+di))(e+fi)
+    = ((a+c) + (b+d)i)(e+fi)
+    \]
+    \[
+    = (a+c)e - (b+d)f + ((a+c)f + (b+d)e)i
+    \]
+    \[
+    = (ae - bf) + (af + be)i \;+\; (ce - df) + (cf + de)i
+    \]
+    \[
+    = (a+bi)(e+fi) + (c+di)(e+fi)
     \]
 \end{proof}
 
@@ -511,3 +543,88 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
     This new ring is called the \textbf{direct product}
     of the rings $R_i$.
 \end{tcolorbox}
+
+\begin{definition}
+    Let $R, S$ be arbitrary rings.
+    Let $(a, b), (c, d) \in R \times S$.
+    We define $\cdot$ pointwise 
+        such that $(a, b) \cdot (c, d) = (a \cdot c, b \cdot d)$.
+    Similarly we define $+$ pointwise 
+        such that $(a, b) + (c, d) = (a + c, b + d)$.
+\end{definition}
+
+\begin{definition}
+    Let $R, S$ be arbitrary rings.
+    Let $(r_1, r_2, \ldots, r_n, s_1, s_2, \ldots, s_n),
+       (r'_1, r'_2, \ldots, r'_n, s'_1, s'_2, \ldots, s'_n)
+        \in (R_1 \times R_2 \times \cdots \times R_n) \times (S_1 \times S_2 \times \cdots \times S_n)$.
+    We define $\cdot$ pointwise 
+        such that $(r_1, r_2, \ldots, r_n, s_1, s_2, \ldots, s_n)
+             \cdot (r'_1, r'_2, \ldots, r'_n, s'_1, s'_2, \ldots, s'_n) 
+                 = (r_1 \cdot r'_1, r_2 \cdot r'_2, \ldots, r_n \cdot r'_n,
+                    s_1 \cdot s'_1, s_2 \cdot s'_2, \ldots, s_n \cdot s'_n)$.
+    Similarly we define $+$ pointwise 
+        such that $(r_1, r_2, \ldots, r_n, s_1, s_2, \ldots, s_n)
+                 + (r'_1, r'_2, \ldots, r'_n, s'_1, s'_2, \ldots, s'_n) 
+                 = (r_1 + r'_1, r_2 + r'_2, \ldots, r_n + r'_n,
+                    s_1 + s'_1, s_2 + s'_2, \ldots, s_n + s'_n)$.
+\end{definition}
+
+\begin{proof}
+    (\textbf{Base Case}) Let $n = 1$. Let $(a, b), (c, d) \in R \times S$.
+    Consider 
+    \[(a, b) + (c, d) = (a + c, b + d) = (c + a, d + b) = (c, d) + (a, b)\]
+    (\textbf{Induction Step}) Suppose commutativity holds for $n \in \mathbb{N}$.
+
+    Showing commutativity over $+$.
+\end{proof}
+
+\begin{proof}
+    (\textbf{Base Case}) Let $n = 1$. Let $(a, b), (c, d), (e, f) \in R \times S$.
+    Consider 
+    \[((a, b) + (c, d)) + (e, f) = (a + c, b + d) + (e, f) 
+        = (a + c + e, b + d + f)\] 
+    \[= (a + b) + (c + e, d + f) = (a + b) + ((c + d) + (e + f))\]
+
+    (\textbf{Induction Step})
+
+    Showing associativity over $+$.
+\end{proof}
+
+\begin{proof}
+    (\textbf{Base Case})
+
+    (\textbf{Induction Step})
+
+    Showing the existence of an additive inverse.
+\end{proof}
+
+\begin{proof}
+    (\textbf{Base Case})
+
+    (\textbf{Induction Step})
+
+    Showing the existence of an additive identity.
+\end{proof}
+
+\begin{proof}
+    (\textbf{Base Case})
+
+    (\textbf{Induction Step})
+
+    Showing associativity over $\cdot$.
+\end{proof}
+
+\begin{proof}
+    (\textbf{Base Case})
+
+    (\textbf{Induction Step})
+
+    Showing distributivity fromt the left and right.
+\end{proof}
+
+\begin{proof}
+    (\textbf{Base Case})
+
+    (\textbf{Induction Step})
+\end{proof}

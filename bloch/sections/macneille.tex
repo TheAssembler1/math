@@ -1,0 +1,131 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Show that the divisors of $30$, the power set $\{1, 2, 3\}$
+    all have a cube Hasse Diagram.
+\end{tcolorbox}
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/macneil/excersize_1_a.png}
+        \caption{Exercise 1a}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/macneil/excersize_1_b.png}
+        \caption{Exercise 1b}
+    \end{minipage}
+\end{figure}
+
+\begin{tcolorbox}[title=Problem 2 breakable]
+    Find the Hasse diagrams for all ordered sets of $1, 2, 3$ and $4$ elements.
+\end{tcolorbox}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/macneil/3_elements_hass.png}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/macneil/4_elements_hass.png}
+\end{figure}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    What numbers have divisor-diagrams consisting of cubes.
+\end{tcolorbox}
+
+\textbf{Solution:}
+Any number $n$ such that $n = a b c$ where $a, b, c$ are distinct primes.
+The nodes are thus 
+\[\{1, a, b, c, ab, ac, bc, n\}\] 
+And clearly 
+\[1 \prec a, b, c \text{ and } a \prec ab, ac \text{ and } b \prec ab, bc \text{ and } c \prec ac, bc \text{ and } ab, ac, bc \prec n\]
+Thus giving us our $12$ edges.
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Show that each power set is a complete lattice.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $S$ be an arbitrary set.
+    Let $A \in \mathcal{P}(\mathcal{P}(S))$.
+
+    We first show there exists a supremum of $A$.  
+    Let $C = \bigcup_{X \in A} X$.  
+    Let $X \in A$.  
+    Since $C = \bigcup_{X \in A} X$, $X \subseteq C$.  
+    Thus $C$ is an upper bound of $A$.  
+    For contradiction, suppose there exists an upper bound $E \subset C$ of $A$.  
+    Let $x \in C \setminus E$. Then $x \in X$ for some $X \in A$.  
+    Since $E$ is an upper bound, $X \subseteq E$, so $x \in E$, which is a contradiction.  
+    Thus $C = \bigvee A$.
+
+    We now show there exists an infimum of $A$.  
+    Let $D = \bigcap_{X \in A} X$.  
+    Let $X \in A$.  
+    Since $D = \bigcap_{X \in A} X$, $D \subseteq X$.  
+    Thus $D$ is a lower bound of $A$.  
+    For contradiction, suppose there exists a lower bound $F \supset D$ of $A$.  
+    Let $x \in F \setminus D$. Then $x \notin X$ for some $X \in A$.  
+    Since $F$ is a lower bound, $F \subseteq X$, so $x \in X$, which is a contradiction.  
+    Thus $D = \bigwedge A$.
+
+    Therefore, $(\mathcal{P}(S), \subseteq)$ is a complete lattice.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $X = \mathbb{N}$ and take as a relation $n \le m$ if $n \mid m$.
+    Show that this is a lattice.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $S \in \mathcal{P}(X)$ be a set with $n$ elements, where $n \ne 0$.
+
+    We now show there exists an infimum of $S$.  
+    Let $C = \gcd(a_1, a_2, \ldots, a_n)$, where $a_i \in S$ for $1 \le i \le n$.
+    Clearly $C \le a_i$, so $C$ is a lower bound of $S$.
+    For contradiction suppose there exists a lower bound $D$ of $S$ with $D > C$.
+    Then $D \mid a_i$ for $1 \le i \le n$, so $D \mid C$, contradicting that $C$ is the gcd.
+    Thus $C = \bigwedge S$.
+
+    We now show there exists a supremum of $S$.  
+    Let $D = \operatorname{lcm}(a_1, a_2, \ldots, a_n)$, where $a_i \in S$ for $1 \le i \le n$.
+    Clearly $a_i \le D$, so $D$ is an upper bound of $S$.
+    For contradiction suppose there exists an upper bound $E$ of $S$ with $E < D$.
+    Then $a_i \mid E$ for $1 \le i \le n$, so $D \mid E$, contradicting that $D$ is the lcm.
+    Thus $D = \bigvee S$.
+
+    Thus $(X, n \le m \text{ if } n \mid m)$ is a lattice.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Find all lattices with $1, 2, 3, 4, 5$ element(s).
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Show that each totally ordered set is a lattice.
+    Is it also a complete lattice?
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $S$ is a totally ordered set.
+    We proceed using induction on the size of a finite subset of $S$.
+
+    (\textbf{Base Case}) Suppose $C \in \mathcal{P}(S)$ such that $C = \{a\}$.
+    Clearly $a \le a$ and $a \ge a$, thus $a = \bigvee C$ and $a = \bigwedge C$.
+
+    (\textbf{Induction Step}) Suppose the theorem holds for all finite subsets of size $n \in \mathbb{N}$.
+    Consider $C \in \mathcal{P}(S)$ such that $C$ has $n + 1$ elements.
+    Let $C' = C \setminus \{a\}$ for some $a \in C$.
+    By our induction hypothesis, $C'$ has an infimum and supremum.
+    Let $I = \bigwedge C'$ and $K = \bigvee C'$.
+    Since $S$ is totally ordered we can define the following
+    \[
+        \bigwedge C = I \wedge a, \quad \bigvee C = K \vee a,
+    \]
+    which gives the infimum and supremum of $C$.
+\end{proof}
+
+\textbf{Solution (b):} No.
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $a \in X$, prove that $\{a\}^{ul} = \{x \in X \mid x \le a\}$.
+\end{tcolorbox}
