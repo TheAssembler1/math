@@ -1,0 +1,122 @@
+\subsection{Definition}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    A particle starts from the point $(0, 6)$ in the plant.
+    It is attracted by a magnet below the x-axis, and repelled 
+    by a magnet along the y-axis in such a way that its coordinates 
+        are given as a function of $t$ by 
+    \[x(t) = 2t, y(t) = 6 - 15t^3\]
+    (a) Find the time at which it hits the x-axis.
+
+    (b) Give a simple equation in terms of $x$ and $y$ such that the coordinates $(x(t), y(t))$ of the particle 
+        satisfy this equation. Sketch the graph of this equation.
+
+    (c) Find the distance of the point at which the particle hits the x-axis from teh origin.
+
+    (d) Find the time at which the particle is at distance $2$ units from the x-axis, below the x-axis.
+
+    (e) Find the time at which the particle is at distance $5$ units from the x-axis, below the x-axis.
+
+    (f) Find the time at which the particle is at distance $7$ units from the x-axis, below the x-axis.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+We required $0 = 6 - 15t^3$. Thus $t = \sqrt[3]{\frac{6}{15}}$.
+
+\textbf{Solution (b):}
+\[y = 6 - 15\left(\frac{x}{3}\right)^3\]
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/particle.PNG}
+\end{figure}
+
+\textbf{Solution (c):}
+The distance is $\sqrt{(3 \cdot \sqrt[3]{\frac{6}{15}})^2}$ units.
+
+\textbf{Solution (d):}
+We require $-2 = 6 - 15t^3$. Thus $t = \sqrt[3]{\frac{8}{15}}$
+
+\textbf{Solution (e):}
+We require $-5 = 6 - 15t^3$. Thus $t = \sqrt[3]{\frac{11}{15}}$
+
+\textbf{Solution (f):}
+We require $-7 = 6 - 15t^3$. Thus $t = \sqrt[3]{\frac{13}{15}}$
+
+\subsection{Formalism of Mappings}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $f : S \longrightarrow T$ and $g : S \longrightarrow T$ be mappings. 
+    Let 
+    \[h = T \longrightarrow U\]
+    be a mapping have an inverse mapping denoted by
+    \[h^{-1} : U \longrightarrow T\]
+    If 
+    \[h \circ f = h \circ g\]
+    Prove that $f = g$. This is the \textbf{cancellation law} for mappings.
+\end{tcolorbox}
+
+\begin{proof}
+    Composing with $h^{-1}$ shows $f = g$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $f : S \longrightarrow T$ be a mapping having an inverse mapping.
+    Prove the following statements.
+
+    (a) If $x, y$ are elements of $S$ and $f(x) = f(y)$, then $x = y$.
+
+    (c) If $z$ is an element of $T$, then there exists an element $x$ of $S$ such that $f(x) = z$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x, y$ are elements of $S$, and $f(x) = f(y)$. Composing with $f^{-1}$ shows $x = y$.
+\end{proof}
+
+\begin{proof}
+    Suppose $z$ is an element of $T$.
+    There exists $c \in S$ such that $f^{-1}(z) = c$. Composing with $f$ shows 
+        $f(c) = z$.
+\end{proof}
+
+\subsection{Permutations}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Prove that the number of odd permutations of $J_n$
+    for $n \ge 2$ is equal to the number of even permutations.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $\sigma_1, \ldots, \sigma_m$ be all the distinct even permutations.
+    Let $\gamma$ be a transposition.
+    Suppose $\sigma_i = \gamma_1 \gamma_2 \ldots \gamma_{2k}$
+        for some $k \in \mathbb{Z}$.
+    Composing with $\gamma$ we see $\gamma \sigma_i = \gamma \gamma_1 \gamma_2 \ldots \gamma_{2k}$
+        is a product of $2k + 1$ transpositions, thus an odd permuation.
+    Suppose $i \ne j$, $\gamma \sigma_i = \gamma \sigma_j$.
+    Composing with $\gamma$ shows $\sigma_i = \sigma_j$, which is a contradiction.
+    Thus $\gamma \sigma_1, \ldots, \gamma \sigma_m$ are distinct.
+    Now suppose there exists an odd permuation not generated through this process.
+    Let $\pi$ be this permutation.
+    Then, $\pi$ can be written as a product of $2k + 1$ transpositions.
+    Thus $\gamma \pi$ is a product of $2k$ transpositions, thus an even permutation,
+        which must be in out list $\sigma_1, \ldots, \sigma_m$.
+    Thus $\pi$ is of the form $\gamma \sigma_i$ for some $i$,
+        and no odd permutation is as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Prove that the number of permuations of $J_n$ is equal to $n!$.
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) Let $n = 1$. There is $1$ way to permute $1$ element, thus $1 = 1!$ as required.
+
+    (\textbf{Induction Step}) Suppose for some $n \in \mathbb{N}$
+        the theorem holds.
+    Thus there are $n!$ ways to permute $n$ elements.
+    Consider a permuation of $n + 1$ elements.
+    By the induction hypothesis there are $n!$ ways to permute the first $n$ elements.
+    For each of these permutations, there are $n + 1$ positions to place the $(n + 1)$-th 
+    element, including placing it in its original position.
+    Thus we have a total of $n!(n + 1) = (n + 1)!$ permuations as required.
+\end{proof}

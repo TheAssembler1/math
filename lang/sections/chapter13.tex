@@ -108,28 +108,145 @@ $f$ is defined at all real numbers other than $\pm \sqrt{2}$.
 \subsection{Polynomial Functions}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    What is the degree of the following polynomials.
+
+    (a) $3x^2 - 4x + 5$
+
+    (b) $-5x^5 + x$
+
+    (c) $-38x^4 + x^3 - x - 1$
+
+    (d) $(3x^2 - 4x + 5)(-5x^5 + x)$
+
+    (e) $(-5x^5 + x)(-7x + 3)$
+
+    (f) $(-4x^2 + 5x - 4)(3x^3 + x - 1)$
+
+    (g) $(6x^7 - x^3 + 5)(7x^4 - 3x^2 + x - 1)$
+
+    (h) Let $f, g$ be polynomials which are not the zero polynomials.
+        Show that $deg(fg) = deg(f) + deg(g)$.
 \end{tcolorbox}
+
+\textbf{Solution (a):} $2$
+
+\textbf{Solution (b):} $5$
+
+\textbf{Solution (c):} $4$
+
+\textbf{Solution (d):} $7$
+
+\textbf{Solution (e):} $6$
+
+\textbf{Solution (f):} $5$
+
+\textbf{Solution (g):} $11$
+
+\begin{proof}
+    Let $f, g$ be arbitrary polynomials. Let 
+    \[f = a_n x^n + (\text{other terms}), \quad g = b_k x^k + (\text{other terms})\]
+    where $a_n, b_k$ are the coefficients of the largest-degree terms of $f$ and $g$ respectively, with $a_n \ne 0$
+        and $b_k \ne 0$.
+    The term of largest degree in the product of $fg$ is produced by multiplying the highest-degree terms 
+    \[(a_n x^n)(b_k x^k) = (a_n b_k)x^{n + k}\]
+    This term as the degree $n + k$, and since $a_n b_k \ne 0$,
+        the degree of $fg$ is $n + k$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Let $f$ be a polynomial of degree $3$. If there exists
+    polynomials $g, h$ of degree $\ge 1$ such that $f = gh$,
+        show that $f$ has a root.
 \end{tcolorbox}
 
+\begin{proof}
+    By Problem $1$ either $deg(g) = 1$ or $deg(h) = 1$.
+    Suppose wlog $deg(g) = 1$. Let $g = ax + b$ where $a, b$
+        are constants and $a \ne 0$.
+    A root is found when $ax + b = 0$ thus $x = \frac{-b}{a}$.
+    Then $g\left(\frac{-b}{a}\right)h\left(\frac{-b}{a}\right) = f\left(\frac{-b}{a}\right) = 0$ as required.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Give an example of polynomials of degree $2, 4$ which have no roots and degree $3$ that has one root in the real numbers.
 \end{tcolorbox}
+
+\textbf{Solution:}
+\[x^2 + 2 = 0, (x^2 + 2)(x - 4) = 0, x^4 + 2 = 0\]
 
 \subsection{Graphs of Functions}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    Sketch the graph of the following functions.
+    Make a small table of values $f(x) = \frac{1}{x^3}$.
 \end{tcolorbox}
+
+\textbf{Solution:}
+\[x = -2, -1, -0.5, 0, 0.5, 1, 2\]
+\[f(x) = -0.125, -1, -8, \text{undefined}, 8, 1, 0.125\]
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/again.PNG}
+\end{figure}
 
 \subsection{Exponential Function}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
+    The function $f(t) = 4 \cdot 16^t$ describes the growth of bacteria.
+
+    (a) How many bacteria are present at the beggining when $t = 0$?
+
+    (b) After $\frac{1}{2}$ hr, how many bacteria are there?
+
+    (c) After $\frac{1}{4}$ hr, how many bacteria are there?
+
+    (d) After $1$ hr, how many bacteria are there?
 \end{tcolorbox}
+
+\textbf{Solution (a):} $4 \cdot 16^{0}$
+
+\textbf{Solution (b):} $4 \cdot 16^{\frac{1}{2}}$
+
+\textbf{Solution (c):} $4 \cdot 16^{\frac{1}{4}}$
+
+\textbf{Solution (d):} $4 \cdot 16^{1}$
 
 \subsection{Logarithms}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Let $e$ be a fixed number $> 1$ and abbreviate
+        $\log_e$ by $\log$.
+    If $a$ is $> 1$ and $x$ is an arbitrary number, prove that 
+    \[\log (a^x) = x \log (a)\]
 \end{tcolorbox}
 
+\begin{proof}
+    \begin{align*}
+        & \log a = \log a \\
+        &\iff \log(e^{\log a}) = \log a \\
+        &\iff e^{\log a} = a  \\
+        &\iff (e^{\log a})^x = a^x  \\
+        &\iff e^{x \log a} = a^x \\
+        &\iff \log a^x = \log (e^{x \log a}) = x \log a
+    \end{align*}
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 6, breakable]
+    Bacteria increase according to the formula 
+    \[B(t) = Ce^{kt}\]
+    where $C$ and $k$ are constants, and $B(t)$ gives the number of bacteria 
+        as a function of $t$ in min.
+    At time $t = 0$, there are $10^6$ bacteria.
+    How long will it take before they increase to $10^7$ if it takes $12$ min
+        to increase by $2 \times 10^6$.
 \end{tcolorbox}
+
+\textbf{Solution:}
+At $t = 0$ there are $10^6$ bacteria. Thus $C = 10^6$.
+Then plugging in $12$ min we have the formula 
+\[3 \cdot 10^6 = 10^6 \cdot e^{12k}\]
+Solving for $k$ shows 
+\[k = \frac{\ln 3}{12}\]
+Now plugging in 
+\[10^7 = 10^6 e^{kt} \implies 10 = e^{kt}\]
+\[t = \frac{\ln 10}{k} = \frac{12 \ln 10}{\ln 3}\]
