@@ -78,6 +78,196 @@ We require $-7 = 6 - 15t^3$. Thus $t = \sqrt[3]{\frac{13}{15}}$
         $f(c) = z$.
 \end{proof}
 
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $a, b$ be non-zero numbers.
+    Let $F_{a, b} = \mathbb{R}^2 \longrightarrow \mathbb{R}^2$ be the mapping such 
+        that 
+    \[F_{a, b}(x, y) = (ax, by)\]
+    Show that $F_{a, b}$ has an inverse mapping.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $G_{a, b}(x, y) = \left(\frac{x}{a}, \frac{y}{b}\right)$.
+    Consider 
+    \[(F_{a, b} \circ G_{a, b})(x, y) = F_{a, b}(G_{a, b}(x, y)) = F_{a, b}\left(\frac{x}{a}, \frac{y}{b}\right) = (x, y)\]
+    Also 
+    \[(G_{a, b} \circ F_{a, b})(x, y) = G_{a, b}(F_{a, b}(x, y)) = G_{a, b}(ax, by) = (x, y)\]
+    Therefore $G_{a, b} = F_{a, b}^{-1}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $f : S \longrightarrow S$ be a mapping which has an inverse mapping.
+
+    (a) If $f^3 = I$ and $f^5 = I$, show that $f = I$.
+
+    (b) If $f^2 = I$ and $f^7 = I$, show that $f = I$.
+
+    (c) If $f^4 = I$ and $f^11 = I$, show that $f = I$.
+\end{tcolorbox}
+
+\begin{proof}
+    Since $f^3 = I$, $f^2 = f^{-1}$.
+    Then 
+    \[f = f^5 \circ f^{-4} = f^5 \circ f^{-1} \circ f^{-1} \circ f^{-1} \circ f^{-1}\]
+    \[= f^5 \circ f^8 = f^{13} = f^3 \circ f^{10} = f^3 \circ f^5 \circ f^5 = I\]
+\end{proof}
+
+\begin{proof}
+    Since $f^2 = I$, $f = f^3$ and $f = f^{-1}$.
+    Then 
+    \[f = f^2 \circ f^{-1} = f^2 \circ f = f^2 \circ f^3 = f^4 \circ f = f^4 \circ f^3 = f^7 = I\]
+\end{proof}
+
+\begin{proof}
+    Since $f^4 = I$, $f = f^5$ and $f = f^{-3}$.  
+    Then
+    \[
+    f = f^{11} \circ f^{-10} = f^{11} \circ (f^{-4})^2 \circ f^{-2} = f^{11} \circ I^2 \circ f^{-2} = f^{11} \circ f^{-2}.
+    \]
+    Then $f^{11} = I$, so
+    \[
+    f = I \circ f^{-2} = f^{-2}.
+    \]
+    Composing both sides with $f^2$ gives
+    \[
+    f \circ f^2 = f^{-2} \circ f^2 \implies f^3 = I.
+    \]
+    Now $f^3 = I$ and $f^4 = I$, so
+    \[
+    f = f^4 \circ f^{-3} = I \circ I = I.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $f, g$ be mappings of a set $S$ into itself, and assume that they have 
+    inverse mappings. Assume also that $f \circ g = g \circ f$.
+    Express each one of the following in the form $f^m \circ g^n$ 
+    where $m, n$ are integers.
+
+    (a) $f^3 \circ g^2 \circ f^5 \circ g^{-5}$
+
+    (b) $f^7 \circ g \circ g^4 \circ f^{-6} \circ g^3$
+
+    (c) $f^4 \circ g^5 \circ f^{-5} \circ g^{-7} \circ g^2 \circ f^2$
+
+    (d) $f^4 \circ f^{-8} \circ g^2 \circ f^3 \circ g^3 \circ f^{-2}$
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[
+f^3 \circ g^2 \circ f^5 \circ g^{-5} = f^3 \circ f^5 \circ g^2 \circ g^{-5} = f^8 \circ g^{-3}
+\]
+\textbf{Solution (b):}
+\[
+f^7 \circ g \circ g^4 \circ f^{-6} \circ g^3 = f^7 \circ f^{-6} \circ g \circ g^4 \circ g^3 = f \circ g^8
+\]
+\textbf{Solution (c):}
+\[
+f^4 \circ g^5 \circ f^{-5} \circ g^{-7} \circ g^2 \circ f^2
+= f^4 \circ f^{-5} \circ f^2 \circ g^5 \circ g^{-7} \circ g^2
+= f \circ g^0 = f
+\]
+\textbf{Solution (d):}
+\[
+f^4 \circ f^{-8} \circ g^2 \circ f^3 \circ g^3 \circ f^{-2}
+= f^4 \circ f^{-8} \circ f^3 \circ f^{-2} \circ g^2 \circ g^3
+= f^{-3} \circ g^5
+\]
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    (a) Let $f, g$ be mappings of a set $S$ into itself,
+        and assume that they have inverse mappings. Prove that $f \circ g$
+        has an inverse mapping, and express it in terms of $f^{-1} \circ g^{-1}$.
+
+    (b) Let $f_1, \ldots, f_m$ be maps of $S$ into itself, and assume that each 
+        $f_i$ has an inverse mapping. Show that $f_1 \circ f_2 \circ \ldots \circ f_m$
+        has an inverse mapping, and express this mapping in terms of the maps $f_i^{-1}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider 
+    \[
+    (f \circ g) \circ (g^{-1} \circ f^{-1}) = f \circ (g \circ g^{-1}) \circ f^{-1} = f \circ I \circ f^{-1} = f \circ f^{-1} = I
+    \]
+    Also 
+    \[
+    (g^{-1} \circ f^{-1}) \circ (f \circ g) = g^{-1} \circ (f^{-1} \circ f) \circ g = g^{-1} \circ I \circ g = g^{-1} \circ g = I
+    \]
+    Therefore, \(g^{-1} \circ f^{-1}\) is the inverse of \(f \circ g\).
+\end{proof}
+
+\begin{proof}
+    Consider 
+    \[
+    (f_1 \circ f_2 \circ \cdots \circ f_m) \circ (f_m^{-1} \circ f_{m-1}^{-1} \circ \cdots \circ f_1^{-1})
+    \]
+    Then
+    \[
+    f_1 \circ f_2 \circ \cdots \circ f_m \circ f_m^{-1} \circ \cdots \circ f_1^{-1} 
+    = f_1 \circ f_2 \circ \cdots \circ f_{m-1} \circ I \circ f_{m-1}^{-1} \circ \cdots \circ f_1^{-1} 
+    = \cdots = I.
+    \]
+    Similarly,
+    \[
+    (f_m^{-1} \circ \cdots \circ f_1^{-1}) \circ (f_1 \circ f_2 \circ \cdots \circ f_m) = I
+    \]
+    Therefore, 
+    \[
+    (f_1 \circ f_2 \circ \cdots \circ f_m)^{-1} = f_m^{-1} \circ f_{m-1}^{-1} \circ \cdots \circ f_1^{-1}
+    \]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $f$ be a mapping of a set $S$ into itself, and assume that $f$ has an inverse mapping.
+
+    (a) If $f^5 = I$, express $f^{-1}$ as a positive power of $I$.
+
+    (b) In general, if $f^n = I$, for some positive power of $f$,
+        express $f^{-1}$ as a positive power of $f$.
+\end{tcolorbox}
+
+\begin{proof}
+    \[
+    f^{-1} = f^{-1} \circ I = f^{-1} \circ f^5 = f^4
+    \]
+\end{proof}
+
+\begin{proof}
+    \[
+    f^{-1} = f^{-1} \circ I = f^{-1} \circ f^n = f^{n-1}
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $f, g$ be mappings of a set $S$ into itself. Assume that $f^2 = g^2 = I$
+        and that $f \circ g = g \circ f$. Prove that $(f \circ g)^2 = I$.
+    Prove that $(f \circ g)^2 = I$.
+    Prove that $(f \circ g)^3 = I$.
+    What about $(f \circ g)^n$ for any positive integer $n$?
+    What about $(f \circ g)^n$ where $n$ is a negative integer?
+\end{tcolorbox}
+
+\begin{proof}
+    Notice
+    \[
+    (f \circ g)^2 = (f \circ g) \circ (f \circ g) = f \circ (g \circ f) \circ g = f \circ (f \circ g) \circ g = (f \circ f) \circ (g \circ g) = I \circ I = I.
+    \]
+    Also
+    \[
+    (f \circ g)^3 = (f \circ g)^2 \circ (f \circ g) = I \circ (f \circ g) = f \circ g \neq I
+    \]
+    Let $n$ be an arbitrary positive integer. Then
+    \[
+    (f \circ g)^n = 
+    \begin{cases} 
+        I & \text{if } n \text{ is even} \\[2mm]
+        f \circ g & \text{if } n \text{ is odd.}
+    \end{cases}
+    \]
+    For negative integers the pattern is the same.
+\end{proof}
+
 \subsection{Permutations}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
