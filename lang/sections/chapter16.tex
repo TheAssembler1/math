@@ -1,27 +1,74 @@
 \subsection{Induction}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    Prove that, for all integers $n \ge 1$, we have 
+    \[1 + 3 + 5 + \ldots + (2n - 1) = n^2\]
 \end{tcolorbox}
 
+\begin{proof}
+    (\textbf{Base Case}) Let $n = 1$. Then $1 = n^2 = 1^2 = 1$ as required.
+
+    (\textbf{Induction Step}) Suppose the equation holds for some $n \in \mathbb{N}$.
+    Thus $1 + 3 + 5 + \ldots + (2n - 1) = n^2$. Consider 
+    $1 + 3 + 5 + \ldots + (2n - 1) + (2n + 1) = n^2 + (2n + 1)$ by our hypothesis.
+    Then $n^2 + 2n + 1 = (n + 1)^2$ as required.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Prove that $n(n^2 + 5)$ is divisible by $6$ for all integers $n \ge 1$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Prove that, for $x \ne 1$, we have 
+    \[(1 + x)(1 + x^2)(1 + x^4) \ldots (1 + x^2)^n = \frac{1 - x^{2n + 1}}{1 - x}\]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    Let $f$ be a function defined for all real numbers
+        such that $f(xy) = f(x) + f(y)$.
+    for all real numbers $x, y$.
+    Show that $f(x^n) = n f(x)$ for all $x$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Let $f$ be a function defined for all numbers such that $f(xy) = f(x)f(y)$
+    for all real numbers $x, y$. Show that $f(x^n) = f(x)^n$ for all positive integers $n$ 
+    and all real numbers $x$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
+    \textbf{Binomial Coefficients}. Let 
+    \[\binom{n}{k} = \frac{n!}{k!(n - k)!}\]
+    where $n, k$ are integers $\ge 0$, $0 \le k \le n$, and $0!$ is defined to be $1$.
+    Prove that 
+
+    (a) $\binom{n}{k} = \binom{n}{n - k}$
+
+    (b) $\binom{n}{k - 1} + \binom{n}{k} = \binom{n + 1}{k}$ (for $k > 0$)
+
+    (c) Prove by induction that for all numbers $x, y$ we have 
+    \[(x + y)^n = \sum_{k = 0}^n \binom{n}{k} x^k y^{n - k}\]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
+    \begin{theorem}
+        All billiard balls have the same color.
+    \end{theorem}
+    \begin{proof}
+        By induction, on the number of $n$ billiard balls.
+        Our theorem is certainly true for $n = 1$, i.e. for one billiard ball.
+        Assume it for n billiard balls. We prove it for $n + 1$.
+        Look at the first $n$ billiard balls amont those $n + 1$.
+        By induction, they have the same color. Now look at the last $n$ among
+            those $n + 1$. They have the same color.
+        Hence all $n + 1$ have the same color.
+    \end{proof}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
+    Let $E$ be the set with $n$ elements, and let $F$ be a set 
+    with $m$ elements Show that the total number of mappings from $E$
+        to $F$ is $m^n$.
 \end{tcolorbox}
 
 \subsection{Summations}
