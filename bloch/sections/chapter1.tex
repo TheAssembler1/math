@@ -2004,10 +2004,65 @@
         \item Prove that $r \cdot 0 = 0$.
         \item Prove that if $r > 0$ and $s > 0$, then $r + s > 0$ and $rs > 0$.
         \item Prove that if $r > 0$, then $\frac{1}{r} > 0$.
-        \item Prove that if $0 < r < s$, then $\frac{1}{s} < \frac{1}{s}$.
+        \item Prove that if $0 < r < s$, then $\frac{1}{s} < \frac{1}{r}$.
         \item Prove that if $0 < r < p$ and $0 < s < q$, then $rs < pq$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    By Theorem 1.5.5 Part 14,
+        $0 \ne 1$.
+    By Theorem 1.5.5 Part 10, either $1 < 0$ or $0 < 1$.
+    By our definition of $<$
+        either $-1 \in P$ or $1 \in P$.
+    Suppose $-1 \in P$.
+    Again, by our definition of $<$, $(-1) \cdot (-1) \in P$.
+    But $(-1) \cdot (-1) = 1 \in P$, which is a contradiction.
+    Thus $1 \in P$ and $-1 \notin P$. 
+\end{proof}
+
+\begin{proof}
+    Suppose $r < s$.
+    Then $s - r \in P$.
+    But $(-r) - (-s) = s - r \in P$.
+    Therefore $-s < -r$.
+\end{proof}
+
+\begin{proof}
+    Let $r = [(a, b)]$ such that $a, b \in \mathbb{Z}$, $b \neq 0$.
+    \[
+        r \cdot 0 = [(a, b)] \cdot [(0, 1)] = [(a \cdot 0, b \cdot 1)] = [(0, b)] = [(0,1)] = 0
+    \]
+\end{proof}
+
+\begin{proof}
+    Suppose $r > 0$ and $s > 0$.
+    Our definition of $<$ showed that $r + s > 0$ and $rs > 0$.
+\end{proof}
+
+\begin{proof}
+    Suppose $r > 0$ and for contradiction $\frac{1}{r} < 0$.
+    Then $-\frac{1}{r} > 0$.
+    Then $r \cdot -\frac{1}{r} = -\frac{r}{r} = -1 \notin P$
+        which is a contradiction. 
+\end{proof}
+
+\begin{proof}
+    Suppose $0 < r < s$.
+    Since $\frac{1}{r} > 0$ by the previous part, by Theorem 1.5.5 Part 13,
+        $r \cdot \frac{1}{r} < s \cdot \frac{1}{r} \iff 1 < s \cdot \frac{1}{r}$.
+    Similarly, multiplying both sides by $\frac{1}{s} > 0$ shows
+        $\frac{1}{s} < \frac{1}{r}$.
+\end{proof}
+
+\begin{proof}
+    Suppose $0 < r < p$ and $0 < s < q$.
+    Since $r < p$ and $0 < s$, by Theorem 1.5.5 Part 13,
+        $r s < p s$.
+    Similarly, since $s < q$ and $p > 0$,
+        it follows that $p s < p q$.
+    Then by transitive law, $r s < p q$ as required.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
     \begin{enumerate}
@@ -2091,4 +2146,594 @@
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Since $r, s > 0$, let $r = \frac{a}{b}$ and $s = \frac{c}{d}$ such that $a,b,c,d \in \mathbb{N}$.
+    Furthermore, $n = bc + 1$.
+    Then $nr - s 
+        = n \cdot \frac{a}{b} - \frac{c}{d}
+        = n \cdot \left(\frac{a}{b} \cdot \frac{d}{d}\right) - \left(\frac{c}{d} \cdot \frac{b}{b}\right)
+        = \frac{adn}{bd} - \frac{bc}{bd} 
+        = \frac{adn - bc}{bd} 
+        = \frac{ad(bc + 1) - bc}{bd}
+        = \frac{ad(bc) + ad - bc}{bd}
+        = \frac{bc(ad - 1) + ad}{bd}$.
+    Now $a, d \in \mathbb{N}$ thus $ad \ge 1$.
+    Thus $bc(ad - 1) + ad > 0$.
+    It follows that $s < nr$ as required.
+\end{proof}
+
+\begin{proof}
+    Since $r > 0$, let $r = \frac{a}{b}$ such that $a, b \in \mathbb{N}$.
+    Furthermore, let $m = b + 1$.
+    Then $r - \frac{1}{m} 
+        = \frac{a}{b} - \frac{1}{b + 1} 
+        = \frac{a(b + 1)}{b(b + 1)} - \frac{b}{b(b + 1)}
+        = \frac{ab - b + a}{b(b + 1)}$.
+    Now, $a,b \in \mathbb{N}$ thus $ab > b$.
+    Thus $ab - b + a > 0$.
+    It follows that $\frac{1}{m} < r$ as required.
+\end{proof}
+
+\begin{proof}
+    Let $k$ be an arbitrary natural number. Notice
+    $(r + \frac{1}{k})^2 < p 
+        \iff r^2  + \frac{2r}{k} + \frac{1}{k^2} < p$.
+    Now $r^2  + \frac{2r}{k} + \frac{1}{k^2} < r^2  + \frac{2r}{k} + \frac{1}{k}$
+        thus it remains to show that $r^2  + \frac{2r}{k} + \frac{1}{k} < p$.
+    Now 
+    \begin{align*}
+        p - (r^2  + \frac{2r}{k} + \frac{1}{k})
+            &= \frac{pk}{k} - \frac{kr^2}{k} - \frac{2r}{k} + \frac{1}{k} \\
+            &= \frac{pk - kr^2 - 2r - 1}{k}
+    \end{align*}
+    Clearly $k > 0$ since $k \in \mathbb{N}$ so it remains 
+        to show that $pk - kr^2 - 2r - 1 > 0$ for some $k \in \mathbb{N}$.
+    Now, since $r, p > 0$, let $r = \frac{a}{b}$ and $p = \frac{c}{d}$
+        such that $a, b, c, d \in \mathbb{N}$.
+    Then
+    \begin{align*}
+        pk - kr^2 - 2r - 1 
+            &= \frac{c}{d} k - k \frac{a^2}{b^2} - 2 \frac{a}{b} - 1 \\
+            &= \frac{k c b^2 - k a^2 d - 2 a b d - b^2 d}{d b^2}
+    \end{align*}
+    Now $d, b \in \mathbb{N}$ thus $d b^2 > 0$.
+    It remains to show that there is some $k \in \mathbb{N}$
+        such that $k(b^2c - a^2 d) - 2a b d - b^2 d > 0$.
+    Now since $r^2 < p \iff \frac{a^2}{b^2} < \frac{c}{d} \iff a^2d < b^2 c$ it follows that $b^2 c - a^2 d \ge 1$.
+    Then $k(b^2 c - a^2 d) - 2a b d - b^2 d \ge k - 2a b d - b^2 d$.
+    Let $k = 2 a b d + b^2 d + 1$.
+    Then, clearly $k(b^2 c - a^2 d) - 2a b d - b^2 d > 0$ as required.
+\end{proof}
+
 \subsection{Dedekind Cuts}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $A, B \subseteq \mathbb{Q}$ be Dedekind cuts.
+    Suppose that $A \subset B$.
+    Prove that $B - A$ has more than one element.
+    If you are familiar with the cardinality of sets, prove that $B - A$
+    is countably infinite.
+\end{tcolorbox}
+
+\begin{proof}
+    Since $A \subset B$, $B - A \ne \emptyset$.
+    Then, let $x \in B - A$ so $x \in B$ and $x \notin A$.
+    By 1.6.1 Part (c) there exists $c < x$ such that $c \in B$.
+    Now $x \in \mathbb{Q} - A$ and since $c < x$ by Lemma 1.6.5 Part (2),
+        $c \in \mathbb{Q} - A$.
+    Thus $c \in B$ and $c \notin A$ thus $c \in B - A$.
+\end{proof}
+
+\begin{proof}
+    The reader is not familiar with the cardinality of sets as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $T$ be the set defined in Equation $1.6.1$.
+    \begin{enumerate}
+        \item Prove that $T$ is Dedekind cut.
+        \item Prove that if $T = D_r$ for some $r \in \mathbb{Q}$, then $r^2 = 2$.
+              [Use Exercise $1.5.7$ and Exercise $1.5.9 (3)$]
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Definition of $T$} 
+\[T = \{x \mid x > 0 \text{ and } x^2 > 2\}\]
+\begin{proof}
+    Clearly $1 \in \mathbb{Q}$, $1 > 0$, and $1^2 = 1 < 2$ thus $1 \notin T$. Therefore $T \ne \mathbb{Q}$.
+    Also, $3 \in \mathbb{Q}$, $3 > 0$, and $3^2 = 9 > 2$ thus $3 \in T$. Therefore $T \ne \emptyset$.
+    Satisyfing 1.6.1 Part (a).
+
+    Suppose $x \in A$ and $y \in \mathbb{Q}$ such that $y \ge x$.
+    Clearly $y^2 \ge x^2 > 2$ and $y \ge x > 0$ thus $y \in T$.
+    Satisyfing 1.6.1 Part (b).
+
+    Let $x \in T$ such that $x > 0$ and $x^2 > 2$.
+    By 1.5.9 Part (2) there exists $k \in \mathbb{N}$
+        such that $\left(x - \frac{1}{k}\right)^2 > 2$.
+    Clearly $x > x - \frac{1}{k}$ and $x - \frac{1}{k} \in T$.
+    Satisyfing 1.6.1 Part (c).
+\end{proof}
+
+\begin{proof}
+    Suppose $T = D_r$ for some $r \in \mathbb{Q}$.
+    Then $T =  \{x \mid x > 0 \text{ and } x^2 > 2\} = \{x \mid x > r\}$ for some $r \in \mathbb{Q}$.
+    Now, we know that $r \notin D_r = T$, thus $r^2 \le 2$.
+    For contradiction, suppose $r^2 < 2$.
+    By 1.5.9 Part (2) there exists $k \in \mathbb{N}$
+        such that $(r^2 + \frac{1}{k})^2 < 2$.
+    Thus $(r^2 + \frac{1}{k})^2 \notin T$ but $r < r + \frac{1}{k}$ thus 
+        $r + \frac{1}{k} \in D_r = T$ which is a contradicton.
+    Therefore $r^2 = 2$ as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove Lemma $1.6.8 (3)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $A, B \subseteq \mathbb{Q}$ be a Dedekind cuts.
+    Suppose that $0 \in \mathbb{Q} - A$ and $0 \in \mathbb{Q} - B$.
+    Let 
+    \[M = \{r \in \mathbb{Q} \mid r = ab \text{ for some } a \in A \text{ and } b \in B\}\]
+    (\textbf{a}) Now $0 \in M$ implies $ab = 0$ thus $a = 0 \in A$ or $b = 0 \in B$ which is a contradiction.
+    Thus $M \ne \mathbb{Q}$.
+    We know that $A, B \ne \emptyset$ and $A, B \ne \mathbb{Q}$.
+    Let $a \in A$ and $b \in B$.
+    Then $a b \in M$ thus $M \ne \emptyset$.
+
+    (\textbf{b}) Let $x \in M$. Suppose $y \in \mathbb{Q}$ such that $y \ge x$.
+    Now $x = ab$ for some $a, b \in \mathbb{Q}$ and $a \ne 0, b \ne 0$.
+    Then, since $y > x = ab$ it follows $\frac{y}{b} > a$.
+    By the definition of Dedekind cuts Part (b), $\frac{y}{b} \in A$.
+    Then $\frac{y}{b} \cdot b = y$ thus $y \in M$.
+
+    (\textbf{c}) Let $x \in M$. Now $x = ab$ for some $a \in A$ and $b \in B$.
+    By the definition of Dedekind cuts Part (c), there exists $c < a$ such that $c \in A$.
+    Then $cb < ab = x$ and since $c \in A$ and $b \in B$, $cb \in M$ as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $A \subseteq \mathbb{Q}$ be a Dedekind cut, and let $r \in \mathbb{Q}$.
+    \begin{enumerate}
+        \item Prove that $A \subset D_r$ if and only if there is some $q \in \mathbb{Q} - A$ such that $r < q$.
+        \item Prove that \textcircled{1} $A \subseteq D_r$ 
+                if and only if \textcircled{2} $r \in \mathbb{Q} - A$ 
+                if and only if \textcircled{3} $r < a$ for all $a \in A$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    ($\longrightarrow$) Suppose $A \subset D_r$. Let $x \in D_r - A$. Now, $x \notin A$ thus $x \in \mathbb{Q} - A$. 
+    Since $x \in D_r$, $x > r$ as required.
+
+    ($\longleftarrow$) Suppose there is some $q \in \mathbb{Q} - A$ such that $r < q$.
+    Let $x \in A$. Then $x > q > r$ thus $x > r$ and it follows that $x \in D_r$.
+    Thus $A \subset D_r$.
+\end{proof}
+
+\begin{proof}
+    (\textbf{\textcircled{1} $\implies$ \textcircled{2}})
+    Suppose $A \subseteq D_r$. Suppose $x \in A$ then $x \in D_r$ thus $x > r$.
+    Suppose $r \in A$ then $r > r$ which is a contradiction.
+    Thus $r \in \mathbb{Q} - A$ as required.
+
+    (\textbf{\textcircled{2} $\implies$ \textcircled{3}})
+    Suppose $r \in \mathbb{Q} - A$.
+    Let $a \in A$ and suppose $r > a$.
+    By the definition of Dedekind cuts Part (b), $r \in A$ which is a contradicion.
+    Thus for all $a \in A$, $r < a$ as required.
+
+    (\textbf{\textcircled{3} $\implies$ \textcircled{1}})
+    Suppose $r < a$ for all $a \in A$.
+    Let $x \in A$ then $r < a$ by the definition of Dedekind cuts Part (c)
+        $x \in D_r$. Thus $A \subseteq D_r$ as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    What we call a Dedekind cut is often called an ``upper cut'', to 
+    differentiate it from the analogous ``lower cut''. Both types of cuts are 
+    equally valid, and are mirror images of each other, though upper cuts are 
+    slightly simpler to use because the product of positive numbers is positive,
+    whereas the product of negative numbers is not negative.
+    \begin{enumerate}
+        \item Write a precise definition of lower cuts, modeled upon Definition $1.6.1$.
+        \item Let $A \subseteq Q$ be a Dedekind cut. Find an example to show $\mathbb{Q} - A$ is not 
+              necessarily a lower cut.
+        \item Let $A \subseteq \mathbb{Q}$ be a Dedekind cut. Prove that if $\mathbb{Q} - A$ is not a lower cut,
+              then $m \in \mathbb{Q} - A$ such that $x \le m$ for all $x \in \mathbb{Q} - A$.
+        \item Let $A \subseteq \mathbb{Q}$ be a Dedekind cut. Suppose that $\mathbb{Q} - A$ is not a lower cut.
+              Prove that there is a unique element $k \in \mathbb{Q} - A$ such that $\mathbb{Q} - (A \cup \{k\})$
+              is a lower cut.
+        \item Let $A \subseteq Q$ be a Dedekind cut. Suppose that $\mathbb{Q} - A$ is not a lower cut.
+              Let $k$ be as in Part (4) of this lemma. Prove that $k \le x$ for all $x \in A \cup \{k\}$.
+        \item Let $\mathcal{D}^u$ denote the set of of all Dedekind cuts of $\mathbb{Q}$, and 
+              let $\mathcal{D}^l$ denote the set of all lower cuts of $\mathbb{Q}$. Prove that there 
+              is a bijective function $\phi : \mathcal{D}^u \longrightarrow \mathcal{D}^l$ such that 
+              $A \subseteq B$ implies $\phi(A) \supseteq \phi(B)$ for all $A, B \in \mathcal{D}^u$. Because 
+              lower cuts are completely analogous to Dedekind cuts, you may assume that the analog of everything
+              that has been previously proved about Dedekind cuts and lower cuts holds with the roles of 
+              Dedekind cuts and lower cuts reversed. [Use Exercise 1.6.1.]
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{definition}[Lower Cuts]
+    Let $A \subseteq \mathbb{Q}$ be a set. The set $A$ is a \textbf{Dedikind cut}
+    if the following three properties hold.
+    \begin{enumerate}
+        \item $A \ne \emptyset$ and $A \ne \mathbb{Q}$
+        \item Let $x \in A$. If $y \in \mathbb{Q}$ and $y \le x$, then $y \in A$.
+        \item Let $x \in A$. Then there is some $y \in A$ such that $y > x$.
+    \end{enumerate} 
+\end{definition}
+
+\textbf{Solution (2):}  
+Consider the upper cut $D_0 = \{x \in \mathbb{Q} \mid x > 0\}$.  
+Now, $0 \notin D_0$, so $0 \in \mathbb{Q} - D_0$.  
+For $\mathbb{Q} - D_0$ to be a lower cut, it must satisfy that for every $x \in \mathbb{Q} - D_0$ 
+    there exists $y \in \mathbb{Q} - D_0$ with $y > x$.  
+But $0 \in \mathbb{Q} - D_0$ is the largest element, so there is no $y \in \mathbb{Q} - D_0$ with $y > 0$.  
+Thus, $\mathbb{Q} - D_0$ is not a lower cut.
+
+\begin{proof}
+    Suppose $\mathbb{Q} - A$ is not a lower cut.  
+    For contradiction, suppose there does not exist a maximal element in $\mathbb{Q} - A$.
+
+    (\textbf{a}) Now, clearly $\mathbb{Q} - A \ne \emptyset$ since $A \ne \mathbb{Q}$.
+    Take $a \in A$ it follows that $a \notin \mathbb{Q} - A$ thus $L \ne \mathbb{Q}$.  
+    
+    (\textbf{b}) Let $x \in \mathbb{Q} - A$. Then $x - 1 < x$ and $x - 1 \in \mathbb{Q} - A$.  
+    
+    (\textbf{c}) Finally, suppose $x \in \mathbb{Q} - A$. There must exist $b \in \mathbb{Q} - A$ 
+    such that $x < b$. Otherwise, $x$ would be the greatest element in $\mathbb{Q} - A$.  
+    Thus $\mathbb{Q} - A$ is a lower cut, which is a contradiction.
+\end{proof}
+
+\begin{proof}
+    Let $k$ be the maximal element in $\mathbb{Q} - A$.
+    We now show  $L = \mathbb{Q} - (A \cup \{k\})$ is a lower cut.
+    
+    (\textbf{a}) Now $k - 1 \in L$ thus $L \ne \emptyset$.
+    Take $a \ne k \in A$ it follows that $a \notin L$ thus $L \ne \mathbb{Q}$.
+
+    (\textbf{b}) Let $x \in L$. Then $x - 1 < x$ and $x - 1 \in L$.
+
+    (\textbf{c}) Let $x \in L$. $x < \frac{x + k}{2} <  k$ thus $\frac{x + k}{2} \in L$.
+\end{proof}
+
+\begin{proof}
+    Let $x \in A \cup \{k\}$. If $x = k$ then clearly $k \le x$.
+    If $x \ne k$ then $x > k$ since $k \in \mathbb{Q} - A$. Thus $k \le x$ as required.
+\end{proof}
+
+\begin{proof}
+    Let $\phi : \mathcal{D}^u \longrightarrow \mathcal{D}^l$ be a mapping defined as 
+        $\phi(A) = \{-x : x \in A\}$.
+
+    We first show $\phi$ is a function. 
+    This is trivial since the inverse mapping $B = \{-x : x \in B\}$ exists, so $\phi$ is a bijection.
+
+    Let $A$ be an arbitrary upper cut. We now show $\phi(A)$ is a lower cut.
+    This is also trivial since the argument is identical to the upper cut 
+        but flipping the inequality.
+
+    Suppose $A, B \in \mathcal{D}^u$ and $A \subseteq B$.
+    Let $x \in B$, if $x \notin A$ then $x \in B-A$, 
+        but all elements of $A$ are in $B$ thus $\{-x : x \in A\} \supseteq \{-x : x \in B\}$.
+    Therefore $\phi(A) \supseteq \phi(B)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    In Definition 1.6.1, Dedekind cuts were defined as subsets of the 
+    set $\mathbb{Q}$. However, an examination of this definition reveals 
+    that it does not make use of the full features of $\mathbb{Q}$, but 
+    only the order relation $<$ on $\mathbb{Q}$. Hence, it is possible 
+    to define Dedekind cuts on sets equipped with only order relations,
+    but not necessarily with binary operations such as addition and multiplication.
+
+    Let $S$ be a non-empty set, and let $<$ be a relation on $S$.
+    The relation $<$ is an \textbf{order relation} if it satisfies 
+    the Trichotemy Law and the Transitive Law, as stated,
+    for example, in Theorem 1.5.5 (10) (11); the set $S$ is an \textbf{ordered set}
+    if $<$ is an order relation. For example, the natural numbers, the integers and 
+    the rational numbers are all ordered sets. Dedekind cuts can be defined for any 
+    ordered set exactly as in Definition $1.6.1$.
+    \begin{enumerate}
+        \item Give an example of an ordered set for which the analog of Lemma 1.6.2 does not hold.
+        \item Find criteria on an ordered set that would guarantee that the analog of Lemma 1.6.2 holds.
+             The criteria must be defined strictly in terms of the order relation.
+        \item Verify that the analog of Lemma 1.6.7 holds for arbitrary ordered sets.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the set $\mathbb{Z}$ equipped with the standard order relation $<$.  
+    Let $a \in \mathbb{Z}$ and define
+    \[
+    D_a = \{x \in \mathbb{Z} \mid x > a\}.
+    \]  
+    Now $a + 1 > a$, thus $a + 1 \in D_a$.  
+    Clearly, the definition of Dedekind cuts Part (3) cannot hold since there does not exist $k \in \mathbb{Z}$ such that $a < k < a + 1$.
+\end{proof}
+
+\begin{lemma}[1.6.1]
+    Let $A \subseteq \mathbb{Q}$ be a set. The set $A$ is a \textbf{Dedekind cut} if the following 
+    three properties hold.
+    \begin{enumerate}
+        \item $A \ne \emptyset$ and $A \ne \mathbb{Q}$.
+        \item Let $x \in A$. If $y \in \mathbb{Q}$ and $y \ge x$, then $y \in A$.
+        \item Let $x \in A$. Then there is some $y \in A$ such that $y < x$.
+    \end{enumerate}
+\end{lemma}
+
+The following criteria are required of an ordered set for Lemma 1.6.2 to hold.
+Let $A$ be an ordered set. 
+\begin{enumerate}
+    \item $A \ne \emptyset$.
+    \item Let $a, b \in A$. There must exist $k \in A$ such that $a < k < b$.
+    \item Let $a \in A$. There exists $b \in A$ such that $b < a$.
+\end{enumerate}
+
+\textbf{Solution (3):}  
+Clearly the proof provided only makes use of the ordering relation and not 
+properties specific to $\mathbb{Q}$.
+
+\subsection{Construction of the Real Numbers}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $r \in \mathbb{Q}$
+    \begin{enumerate}
+        \item Prove that $D_{-1} = -D_r$, using the Definition 1.6.4 and Definition 1.7.3.
+        \item Prove that $D_{r^{-1}} = [D_r]^{-1}$, using only Definition 1.7.5 and Definition 
+              1.7.3.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    According to Definition 1.7.3, $D_{-r} = \{x \in \mathbb{Q} \mid x > -r\}$.
+    Futhermore, according to definition 1.7.3,
+        $-D_r = \{x \in \mathbb{Q} \mid -x < c \text{ for some } c \in \mathbb{Q} - D_r\}$.
+    Now suppose $x \in D_{-r}$. Then $x > -r$ and it follows that $-x < r$.
+    Since $r \notin D_r$ it follows that $r \in \mathbb{Q} - D_r$.
+    Thus $x \in -D_r$. Therefore $D_{-r} \subseteq -D_r$.
+    Now suppose $x \in -D_r$. Then $-x < c$ for some $c \in \mathbb{Q} - D_r$.
+    Now $c \le r$ thus $x > -c > -r$. It follows that $x \in D_{-r}$.
+    Therefore $-D_r \subseteq D_{-r}$.
+    It follows that $D_{-r} = -D_r$.
+\end{proof}
+
+\begin{proof}
+    According to Definition 1.7.5, 
+    if $A > D_0$ then 
+        $A^{-1} = \{r \in \mathbb{Q} \mid r > 0 \text{ and } \frac{1}{r} < c \text{ for some } c \in \mathbb{Q} - A\}$; 
+    if $A < D_0$ then 
+        $A^{-1} = -(-A)^{-1}$.
+    According to Definition 1.7.3 
+        $-A = \{r \in \mathbb{Q} \mid -r < c \text{ for some } c \in \mathbb{Q} - A\}$.
+    There are two cases.
+    Suppose $D_r > D_0$.  
+    Now suppose $x \in D_{r^{-1}}$.  
+    Then $x > \frac{1}{r} > 0$. Since $r > 0$, we have $\frac{1}{x} < r$.
+    Since $r \in \mathbb{Q} - D_r$, it follows that $x \in [D_r]^{-1}$.
+    Now suppose $x \in [D_r]^{-1}$. 
+    Then $x > 0$ and $\frac{1}{x} < c \le r$ for some $c \in \mathbb{Q} - D_r$.
+    It follows that $x > \frac{1}{r}$, thus $x \in D_{r^{-1}}$.
+    Thus if $D_r > D_0$ then $D_{r^{-1}} = [D_r]^{-1}$.
+    Suppose $D_r < D_0$. 
+    Now $-D_r = D_{-r}$ by part 1. 
+    Then, since $-r > 0$, we can apply case one to find
+        $(D_{-r})^{-1} = D_{(-r)^{-1}}$.
+    Therefore
+        $[D_r]^{-1} = -[D_{-r}]^{-1} = -D_{(-r)^{-1}} = D_{r^{-1}}$.
+    Thus $D_{r^{-1}} = [D_r]^{-1}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $A, B \in \mathbb{R}$. Suppose that $A > D_0$ and 
+    $B > D_0$. For this exercise, you may use results prior to 
+    Theorem 1.7.6.
+    \begin{enumerate}
+        \item Prove that $AB > D_0$.
+        \item Prove that $A^{-1} > D_0$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $A > D_0$ and $B > D_0$. Thus $D_0 \supset A, B$.
+    Let $x \in A B$. Then $x = a b$ for some $a \in A$ and $b \in B$.
+    Since $D_0 \supset A, B$ it follows that $a, b \in D_0$ and therefore $a, b > 0$.
+    Thus $x = a b > 0$ and it follows that $x \in D_0$.
+    Therefore $D_0 \supset AB$ thus $AB > D_0$.
+\end{proof}
+
+\begin{proof}
+    Suppose $A > D_0$. Thus $D_0 \supset A$.
+    Let $x \in A^{-1}$. Since $A > D_0$ it follows from the definition of inverse 
+        that $x > 0$ and $\frac{1}{x} < c$ for some $c \in \mathbb{Q} - A$.
+    Since $x > 0$ it follows that $x \in D_0$.
+    Thus $A^{-1} \subset D_0$ thus $A^{-1} > D_0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove Theorem 1.7.6 (14). For this exercise you may use only results 
+    prior to Theorem 1.7.6. [Use Exercise 1.5.6 (1).]
+\end{tcolorbox}
+
+\begin{theorem}[1.7.6 Part (14)]
+    $D_0 < D_1$ (\emph{Non-Triviality})
+\end{theorem}
+
+\begin{proof}
+    Clearly, $D_1 \ne D_0$ since $1 > \frac{1}{2} > 0$ thus $\frac{1}{2} \notin D_1$ and $\frac{1}{2} \in D_0$.
+    Let $x \in D_1$ thus $x > 1 > 0$.
+    Therefore $x > 0$ and it follows that $x \in D_0$.
+    Thus $D_0 \supset D_1$ therefore $D_0 < D_1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    For this exercise, use only the properties of the real numers 
+    stated in Theorem 1.7.6 (1) (2) (3) (4) (10) (11) (12) (14);
+    it is not necessary to use the definition of real numbers as 
+    Dedekind cuts. Let $A, B \in \mathbb{R}$.
+    \begin{enumerate}
+        \item Prove that \textcircled{1} $A > D_0$ 
+              if and only if \textcircled{2} $-A < D_0$,
+              and that \textcircled{3} $A < D_0$
+              if and only if \textcircled{4} $-A > D_0$.
+        \item Prove that $-(-A) = A$.
+        \item Prove that $-(A + B) = (-A) + (-B)$.
+        \item Prove that if $A > D_0$ and $B > D_0$, then $A + B > D_0$,
+              and that if $A < D_0$ and $B < D_0$, then $A + B < D_0$.
+        \item Prove that $A = (-B) + (A + B) = B + [A + (-B)]$ and $-A = B + [-(B + A)]$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    (\textbf{\textcircled{1} \longrightarrow \textcircled{2}})
+    Suppose $A > D_0$.
+    Then 
+    \begin{align*}
+        A > D_0 
+        \implies &A + (-A) > D_0 + (-A) && \text{(12)} \\
+        \iff &D_0 > D_0 + (-A) && \text{(4)} \\
+        \iff &D_0 > (-A) + D_0 && \text{(2)} \\
+        \iff &D_0 > -A && \text{(3)}
+    \end{align*}
+    (\textbf{\textcircled{2} \longrightarrow \textcircled{1}})
+    Suppose $-A < D_0$.
+    \begin{align*}
+        -A < D_0 
+        \implies &-A + A < D_0 + A && \text{(12)} \\
+        \iff &A + (-A) < D_0 + A && \text{(2)} \\
+        \iff &D_0 < D_0 + A && \text{(4)} \\
+        \iff &D_0 < A && \text{(3)}
+    \end{align*}
+    (\textbf{\textcircled{3} \longrightarrow \textcircled{4}})
+    Suppose $A < D_0$.
+    \begin{align*}
+        A < D_0 
+        \implies &A + (-A) < D_0 + (-A) && \text{(12)} \\
+        \iff &D_0 < D_0 + (-A) && \text{(4)} \\
+        \iff &D_0 < (-A) + D_0 && \text{(2)} \\
+        \iff &D_0 < -A && \text{(3)}
+    \end{align*}
+    (\textbf{\textcircled{4} \longrightarrow \textcircled{3}})
+        \begin{align*}
+        -A > D_0 
+        \implies &-A + A > D_0 + A && \text{(12)} \\
+        \iff &A + (-A) > D_0 + A && \text{(2)} \\
+        \iff &D_0 > D_0 + A && \text{(4)} \\
+        \iff &D_0 > A && \text{(3)}
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    By (4) we know $A + (-A) = D_0$ and $(-(-A)) + (-A) = D_0$.
+    Thus $A + (-A) = (-(-A)) + (-A)$.
+    Adding $-(-A)$ to both sides and applying (4)
+        shows $A = -(-A)$.
+\end{proof}
+
+\begin{proof}
+    Notice
+    \begin{align*}
+        A + B + ((-A) + (-B)) 
+        &= A + ((-A) + (B + (-B))) && \text{(2)} \\
+        &= (A + (-A)) + (B + (-B)) && \text{(2)} \\
+        &= D_0 + D_0 && \text{(4)} \\
+        &= D_0 && \text{(3)}
+    \end{align*}
+    Thus $-(A + B) = (-A) + (-B)$.
+\end{proof}
+
+\begin{proof}
+    Suppose $A > D_0$ and $B > D_0$.
+    Then, by (12),
+    \begin{align*}
+        A > D_0 
+        &\implies A + (B + (-B)) > D_0 && \text{(12)} \\
+        &\implies (A + B) + (-B) > D_0 && \text{(2)} \\
+    \end{align*}
+    Adding $B$ to both sides and cancelling shows $A + B > D_0 + B = B > D_0$.
+    Thus $A + B > D_0$.
+\end{proof}
+
+\begin{proof}
+    Suppose $A < D_0$ and $B < D_0$.
+    Then, by (12),
+    \begin{align*}
+        A < D_0 
+        &\implies A + (B + (-B)) < D_0 && \text{(12)} \\
+        &\implies (A + B) + (-B) < D_0 && \text{(2)} \\
+    \end{align*}
+    Adding $B$ to both sides and cancelling shows $A + B < D_0 + B = B < D_0$.
+    Thus $A + B < D_0$.
+\end{proof}
+
+\begin{proof}
+    Notice 
+    \begin{align*}
+        A &= A + D_0 && \text{(3)} \\
+          &= A + (B + (-B)) && \text{(4)} \\
+          &= (A + B) + (-B) && \text{(1)} \\
+          &= (-B) + (A + B) && \text{(2)} \\
+          &= ((-B) + A) + B && \text{(1)} \\
+          &= (A + (-B)) + B && \text{(2)} \\
+          &= B + (A + (-B)) && \text{(2)}
+    \end{align*}
+    Thus $A = (-B) + (A + B) = B + (A + (-B))$.
+    Similarly 
+        \begin{align*}
+        -A &= -A + D_0 && \text{(3)} \\
+          &= -A + (B + (-B)) && \text{(4)} \\
+          &= -A + ((-B) + B) && \text{(2)} \\
+          &= (-A + (-B)) + B && \text{(1)} \\
+          &= (-B + (-A)) + B && \text{(2)} \\
+          &= -(B + A) + B && \text{(Part 3)} \\
+          &= B + (-(B + A)) && \text{(2)}
+    \end{align*}
+    Thus $-A = B + (-(B + A))$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove Theorem 1.7.6 (5) (7). For this exercise, you may use only 
+    Parts (1) (2) (3) (4) (10) (11) (12) (14) of the theorem,
+    and anything prior to the theorem. [Use Exercise 1.7.4]
+\end{tcolorbox}
+
+\begin{theorem}[1.7.4 Part (5)]
+    Let $A, B, C \in \mathbb{R}$.
+    \[(AB)C = A(BC)\]
+\end{theorem}
+
+\begin{theorem}[1.7.4 Part (7)]
+    Let $A \in \mathbb{R}$.
+    \[A \cdot D_1 = A\]
+\end{theorem}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Prove the remaining four cases in the proof 
+    of Theorem 1.7.6 (9). [Use Exercise 1.7.4]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Prove Theorem 1.7.10. [Use Exercise 1.7.1]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    This exercise makes use of Exercise 1.6.6.
+    Let $S$ be a non-empty ordered set.
+    The \textbf{Dedekind set} of $S$, denoted $S^D$, is defined by 
+    \[S^D = \{A \subseteq S \mid S \text{ is a Dedekind cut}\}.\]
+    For example, we know by definition of $\mathbb{Q}^D = \mathbb{R}$.
+    The order relation $<$ on $S^D$ is defined analogously to 
+    Definition $1.7.2$.
+    \begin{enumerate}
+        \item Find an example of an ordered set $T$ for which $T^D = \emptyset$.
+              It is sufficient to state informally the reasion why your example works.
+        \item Find an example of an ordered set $U$ for which $U^D$ has exactly one element.
+              It is sufficient to state informally the reason why your example works.
+        \item Verify that $S^D$ satisfies the Least Upper Bound Property.
+        \item What can you say about $\mathbb{R}^D$? It is sufficient to answer the question informally.
+    \end{enumerate}
+\end{tcolorbox}
