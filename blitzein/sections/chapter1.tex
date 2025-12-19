@@ -1,0 +1,297 @@
+\subsection{Probability and Counting}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    How many ways are there to permute the letters 
+        in the word MISSISSIPPI?
+\end{tcolorbox}
+
+\begin{proof}
+    There are $\binom{11}{4}$, $\binom{7}{4}$, $\binom{3}{2}$ places to put the S's,
+    I's, then P's respectively. Then the M is fixed.
+    Thus there are $\binom{11}{4}\binom{7}{4}\binom{3}{2}$ ways 
+        to permute the word MISSISSIPPI.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    A \emph{round-robin tournament} is being held with $n$ tennis players;
+    this means that every player will play against every other player exactly once.
+    \begin{enumerate}
+        \item How many possible outcomes are there for the tournament
+              (the outcome lists out who won and who lost for each game)?
+        \item How many games are played in total?
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    By the next part there are $\binom{n}{2}$ total games.  
+    Now, for each game there are two possibilities.
+    Either player 1 or player 2 wins.
+    Thus there are $2^{\binom{n}{2}}$ possible outcomes for the tournament.
+\end{proof}
+
+\begin{proof}
+    This is equivalent to finding how many ways to select $2$ players from $n$ players
+        where order does not matter.
+    Thus the total numbers of games is $\binom{n}{2}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    A \emph{knock-out tournament} is being held with $2^n$ tennis players.
+    This means that for each round, the winners move on to the next round 
+    and the losers are elminated, until only one person remains.
+    For example, if initially there are $2^4 = 16$ players, then there 
+    are $8$ games in the first round, then the $8$ winners move on to round $2$,
+    then the $4$ winners move on to round $3$, then the $2$ winnners move on to round $4$,
+    the winner of which is declared teh winner of the tournament. (There are various systems 
+    for determining who plays whom within a round, but these do not matter for this problem.)
+    \begin{enumerate}
+        \item How many rounds are there?
+        \item Count how many games in total are played, by adding up the numbers of games 
+              played in each round.
+        \item Count how many games in total are played, this time by directly thinking about it without 
+              doing almost any calculation.
+    \end{enumerate}
+    Hint: How many players need to be eliminated?
+\end{tcolorbox}
+
+\begin{proof}
+    We can count the number of rounds starting from the last round until we reach the total number of players over two: 
+        $\frac{2^n}{2} = 2^{n - 1}$
+        because two people play each each game.
+    Thus we see the following pattern of games within each round 
+    \[1, 2, 4, 8, \cdots, 2^{n - 1} = 2^0, 2^1, 2^2, 2^3, \cdots 2^{n - 1}\]
+    Thus the number of rounds can be found by first solving $2^r =\frac{2^n}{2} = 2^{n - 1}$.
+    It follows that $r = n - 1$. Then adjusting by $1$ to reach $n$ rounds.
+\end{proof}
+
+\begin{proof}
+    We can simply sum to find $\sum_{i = 0}^{n - 1} 2^i = 2^n - 1$ games.
+\end{proof}
+
+\begin{proof}
+    Since the number of games doubles each round it is clear that
+        the number of games is $2^n - 1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    To fullfill the requirements for a certain degree, a student can 
+    choose to take any $7$ out of a list of $20$ courses,
+    with the constraint that at least $1$ of the $7$ courses 
+    must be a statistics course. Suppose that $5$ of the $20$ courses are 
+    statistics courses. 
+    \begin{enumerate}
+        \item How many choices are there for which $7$ courses to take?
+        \item Explain intuitively why the answer to (a) is \emph{not} $\binom{5}{1} \cdot \binom{19}{6}$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We can begin by counting the total number of ways to choose $7$ courses from the 
+        available $20$ which is $\binom{20}{7}$.
+    Then we have to subtract choices which do not include one statistics course.
+    There are $\binom{15}{7}$ choices which do not include a statistics course.
+    Thus there are $\binom{20}{7} - \binom{15}{7}$ choices.
+\end{proof}
+
+\begin{proof}
+    Consider a fixed choice of $7$ courses that contains two statistics courses
+    which we will label \textbf{class 1} and \textbf{class 2}. This is a single set of courses.
+    However, in the computation $\binom{5}{1}\binom{19}{6}$, this same set is counted
+    more than once. One time it is counted when \textbf{class 1} is chosen in the
+    $\binom{5}{1}$ factor and \textbf{class 2} is chosen among the remaining $6$
+    courses in the $\binom{19}{6}$. Another time it is counted when \textbf{class 2}
+    is chosen in the $\binom{5}{1}$ factor and \textbf{class 1} is chosen among the
+    remaining $6$ courses in the $\binom{19}{6}$.
+    Thus the computation distinguishes between different ways of forming the same
+    set of courses, and therefore overcounts.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Four players named $A$, $B$, $C$, and $D$, are playing a card game.
+    A standard, well-shuffled deck of cards is dealt to the players (so each 
+    player receives a $13$-card hand).
+    \begin{enumerate}
+        \item How many possibilities are there for the hand that player A will get?
+        (Within a hand, the order in which cards were received doesn't matter.)
+        \item How many possibilities are there overall for what hands everyone will get,
+              assuming that it matters which player gets which hand, but not the order 
+              of cards within a hand?
+        \item Explain intuitively why the answer to Part (b) is not the fourth power 
+               of the answer to Part (a).
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    There are $\binom{52}{13}$ hands player $A$ might get.
+\end{proof}
+
+\begin{proof}
+    There are $\binom{52}{13}, \binom{52 - (13 \cdot 1)}{13}, \binom {52 - (13 \cdot 2)}{13}, \binom{52 - (13 \cdot 3)}{13}$
+        ways to choose cards for players $1, 2, 3, 4$.
+    Thus there are  
+        $\binom{52}{13} \cdot \binom{52 - (13 \cdot 1)}{13} \cdot \binom {52 - (13 \cdot 2)}{13} \cdot \binom{52 - (13 \cdot 3)}{13}$
+        possibilities overall.
+\end{proof}
+
+\begin{proof}
+    There are fewer cards to choose from after selecting the cards for a given person.
+    Thus the choices are not independent.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    A certain casino uses $10$ standard decks of cards mixed toegether into one 
+    big deck, which we will call a \emph{superdeck}. Thus, the superdeck has 
+    $52 \cdot 10 = 520$ cards, with $10$ copies of each card. How many different 
+    $10$-card hands can be dealth from the superdeck? The order of the cards does not matter,
+    nor does it matter which of the original $10$ decks the cards came from. Express 
+    your answer as a binomial coefficient.
+
+    Hint: Bose-Einstein.
+\end{tcolorbox}
+
+\begin{proof}
+    We must find the number of ways of selecting $10$ items from $52$ categories with replacement 
+    where order does not matter.
+    Thus the number of choices is $\binom{52 + 10 - 1}{10}$.
+\end{proof}
+
+\subsection{Story Proofs}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Give a story proof that $\sum_{k = 0}^{n} \binom{n}{k} = 2^n$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider a set of $n$ items.
+    We want to count all subsets that can be constructed from this set.
+    One method is to count subsets by their size.
+    For each $k = 0, 1, \ldots, n$, there are $\binom{n}{k}$ subsets of size $k$,
+    so the total number of subsets is $\sum_{k=0}^{n} \binom{n}{k}$.
+    Another method is to go one by one through each element and either include
+    it in a subset or exclude it.
+    Since each of the $n$ elements has two choices, there are $2^n$ subsets.
+    Both methods count the same collection of subsets,thus
+        $\sum_{k=0}^{n} \binom{n}{k} = 2^n$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Show that for all positive integers $n$ and $k$ with $n \ge k$.
+    \[\binom{n}{k} + \binom{n}{k - 1} = \binom{n + 1}{k}\]
+    doing this in two ways: (a) algebraically and (b) with a story, giving an 
+    interpretation for why both sides count the same thing.
+    Hint for the story proof: Imagine an organization consisting of $n + 1$ people,
+    with one of them pre-designated as the president of the organization.
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        \binom{n}{k} + \binom{n}{k - 1} 
+            &= \frac{n!}{(n - k)!k!} + \frac{n!}{(n - (k - 1))!(k - 1)!} \\
+            &= \frac{n!}{(n - k)!k!} + \frac{n!}{(n - k + 1)!(k - 1)!} \\
+            &= \frac{n!(n - k + 1)}{(n - k + 1)! k!} + \frac{n! k}{(n - k + 1)! k!} \\
+            &= \frac{n! (n - k + 1 + k)}{(n - k + 1)!k!} \\
+            &= \frac{n!(n + 1)}{(n - k + 1)k!} \\
+            &= \frac{(n + 1)!}{((n + 1) - k)! k!} \\
+            &= \binom{n + 1}{k}
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Let $S$ be a set of $n + 1$ people, and let $p \in S$ be an arbitrary person.
+    Consider the subsets of size $k$ of $S$, which can be divided into two categories:
+    those that contain $p$ and those that do not.
+    For the subsets that contain $p$, remove $p$ from each subset.  
+    These are exactly the subsets of size $k-1$ of the remaining $n$ people, 
+    so there are $\binom{n}{k-1}$ of them.
+    For the subsets that do not contain $p$, they are simply subsets of size $k$ 
+    of the remaining $n$ people, giving $\binom{n}{k}$.
+    Combining these two cases gives all subsets of size $k$ of $S$
+        thus $\binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 20, breakable]
+    (a) Show using a story proof that 
+    \[\binom{k}{k} + \binom{k + 1}{k} + \binom{k + 2}{k} + \cdots + \binom{n}{k} = \binom{n + 1}{k + 1}\]
+    where $n$ and $k$ are positive integers $n \ge k$. This is called the 
+    \emph{hockey stick identity}. Hint: Imagine arranging a group of people by age,
+    and then think about the oldest person in a chosen subgroup.
+
+    (b) Suppose that a large pack of Haribo gummi bears can have anywhere between $30$ and $50$
+    gummi bears. There are $5$ delicious flavors: pineapple (clear), raspberry (red),
+    orange (orange), strawberry (green, mysteriously), and lemon (yellow).
+    There are $0$ non-delicious flavors. How many possibilities are there for the 
+    composition of such a pack of gummi bears? You can leave your answer in terms of a 
+    couple binomial coefficients, but not a sum of lots of binomial coefficients.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+    The dutch mathematician R.J. Stroeker remakarked:
+
+    \emph{Every beginning student of number theory surely must have marveled at the 
+    miraculous fact that for each natural number $n$ the sum of the first $n$ positive 
+    consecutive cubes is a perfect square.}
+
+    Usually this identity is proven by induction, but that does not give much insight
+    into why the result is true, nor does it help much if we wanted to compute the 
+    left-hand side but didn't already know this result. In this problem, you will give a 
+    sotry proof the identity.
+    
+    (a) Give a story proof of the identity
+    \[1 + 2 + \cdots + n = \binom{n + 1}{2}.\]
+    Hint: Consider a round-robin tournament (see Exercise $4$).
+
+    (b) Give a story proof of the identity
+    \[1^3 + 2^3 + \cdots + n^3 = 6\binom{n + 1}{4} + 6\binom{n + 1}{3} + \binom{n + 1}{2}.\]
+    It is then just basic algebra (not required for this problem) to check that the square of 
+    the right-hand side in (a) is the right-hand side in (b).
+
+    Hint: Imagine choosing a number between $1$ and $n$ and then choosing $3$ numbers between $0$ and $n$
+    smaller than the original number, with replacement. Then consider cases based on how many distinct 
+    numbers were chosen.
+\end{tcolorbox}
+
+\subsection{Naive Definition of Probability}
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 26, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 31, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 40, breakable]
+\end{tcolorbox}
+
+\subsection{Axioms of Probability}
+
+\begin{tcolorbox}[title=Problem 43, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 44, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 48, breakable]
+\end{tcolorbox}
+
+\subsection{Inclusion-Exclusion}
+
+\begin{tcolorbox}[title=Problem 49, breakable]
+\end{tcolorbox}
+
+\subsection{Mixed Practice}
+
+\begin{tcolorbox}[title=Problem 57, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 60, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 61, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 62, breakable]
+\end{tcolorbox}

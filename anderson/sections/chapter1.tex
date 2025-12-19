@@ -180,7 +180,7 @@ We can define $n!$ as follows. If $n <=1$, then $n! = 1$. If $n > 1$, then $n!
     \end{align*}
     Then:
     \begin{align*}
-        {(x+y)}^n & = {(x+y)}^{n - 1} \cdot (x + y)  s                                                                                              \\
+        {(x+y)}^n & = {(x+y)}^{n - 1} \cdot (x + y)                                                                                             \\
                   & = \left(\sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k}\right) \cdot (x + y)                                              \\
                   & = x \cdot \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k} + y \cdot \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k} \\
                   & = \sum_{k = 1}^{n} \binom{n - 1}{k - 1} x^k y^{n - k} + \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{n - k}                     \\

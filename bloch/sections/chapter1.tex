@@ -20,11 +20,11 @@
     It is clear that $G \subseteq \mathbb{N}$.
     By part (a) applied to each of $\cdot$ and $\times$ we see that 
         $n \cdot 1 = n = n \times 1$ for all $n \in \mathbb{N}$
-        and hence $1 \in G$.
+        and thus $1 \in G$.
     Now let $q \in G$. Let $n \in \mathbb{N}$.
     Then $n \cdot q = n \times q$ by hypothesis on $q$.
     It then follows from part (b) that $n \cdot s(q) = (n \cdot q) + n = (n \times q) + n = n \times s(q)$.
-    Hence $s(q) \in G$.
+    thus $s(q) \in G$.
     By part (c) of the Peano Postulates we conclude that $G = \mathbb{N}$.
 \end{proof}
 
@@ -2427,7 +2427,7 @@ Thus, $\mathbb{Q} - D_0$ is not a lower cut.
     In Definition 1.6.1, Dedekind cuts were defined as subsets of the 
     set $\mathbb{Q}$. However, an examination of this definition reveals 
     that it does not make use of the full features of $\mathbb{Q}$, but 
-    only the order relation $<$ on $\mathbb{Q}$. Hence, it is possible 
+    only the order relation $<$ on $\mathbb{Q}$. Thus, it is possible 
     to define Dedekind cuts on sets equipped with only order relations,
     but not necessarily with binary operations such as addition and multiplication.
 
@@ -2695,6 +2695,7 @@ properties specific to $\mathbb{Q}$.
     Thus $-A = B + (-(B + A))$.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
     Prove Theorem 1.7.6 (5) (7). For this exercise, you may use only 
     Parts (1) (2) (3) (4) (10) (11) (12) (14) of the theorem,
@@ -2711,10 +2712,96 @@ properties specific to $\mathbb{Q}$.
     \[A \cdot D_1 = A\]
 \end{theorem}
 
+\begin{proof}
+    Let $A, B, C \in \mathbb{R}$.  
+    There are $8$ cases depending on whether each of $A, B, C$ is $>D_0$ or $<D_0$.  
+
+    (\textbf{Case 1: $A, B > D_0, C > D_0$})  
+    Suppose $x \in (AB)C$. Then $x = dc$ for some $d \in AB$ and $c \in C$.  
+    Now $d = ab$ for some $a \in A$ and $b \in B$. 
+    Then $x = dc = (ab)c = a(bc)$.  
+    Since $b \in B$ and $c \in C$, $bc \in BC$.
+    Since $a \in A$ and $bc \in BC$, it follows that $x \in A(BC)$.  
+
+    Suppose $x \in A(BC)$. Then $x = ad$ for some $a \in A$ and $d \in BC$.
+    Now $d = bc$ for some $b \in B$ and $c \in C$.
+    Then $x = ad = a(bc) = (ab)c$.
+    Since $a \in A$ and $b \in B$, $ab \in AB$.
+    Since $ab \in AB$ and $c \in C$ it follows that $x \in (AB)C$.
+
+    Thus $(AB)C \subseteq A(BC)$.
+
+    (\textbf{Case 2: $A < D_0, B > D_0, C > D_0$})  
+    Since $A < D_0$, $-A > D_0$.
+    Now, part Part $1$, $(-A)(BC) = ((-A)B)C$.
+    Mulitplying by $-1$ shows $-[(-A)(BC)] = [-((-A)B)C]$.
+    Then by problem $4$, $A(BC) = (AB)C$.
+
+    (\textbf{Case 3: $A > D_0, B < D_0, C > D_0$})  
+    Since $B < D_0$, $-B > D_0$.  
+    By Case 1, $A((-B)C) = (A(-B))C$.  
+    Multiplying by $-1$ shows $A(BC) = (AB)C$.
+
+    (\textbf{Case 4: $A > D_0, B > D_0, C < D_0$})  
+    Since $C < D_0$, $-C > D_0$.  
+    By Case 1, $(AB)(-C) = A(B(-C))$.  
+    Multiplying by $-1$ shows $(AB)C = A(BC)$.
+
+    (\textbf{Case 5: $A < D_0, B < D_0, C > D_0$})  
+    Since $A < D_0$ and $B < D_0$, $-A > D_0$ and $-B > D_0$.  
+    By Case 1, $((-A)(-B))C = (-A)((-B)C)$.  
+    Multiplying by $-1$ twice shows $A(BC) = (AB)C$.
+
+    (\textbf{Case 6: $A < D_0, B > D_0, C < D_0$})  
+    Since $A < D_0$ and $C < D_0$, $-A > D_0$ and $-C > D_0$.  
+    By Case 1, $((-A)B)(-C) = (-A)(B(-C))$.  
+    Multiplying by $-1$ twice shows $A(BC) = (AB)C$.
+
+    (\textbf{Case 7: $A > D_0, B < D_0, C < D_0$})  
+    Since $B < D_0$ and $C < D_0$, $-B > D_0$ and $-C > D_0$.  
+    By Case 1, $A((-B)(-C)) = (A(-B))(-C)$.  
+    Multiplying by $-1$ twice shows $A(BC) = (AB)C$.
+
+    (\textbf{Case 8: $A < D_0, B < D_0, C < D_0$})  
+    Since $A < D_0$, $B < D_0$, $C < D_0$, we have $-A > D_0$, $-B > D_0$, $-C > D_0$.  
+    By Case 1, $((-A)(-B))(-C) = (-A)((-B)(-C))$.  
+    Multiplying by $-1$ three times shows $A(BC) = (AB)C$.
+
+    Thus, in all $8$ cases, $(AB)C = A(BC)$.
+\end{proof}
+
+\begin{proof}
+    Let $A \in \mathbb{R}$.  
+
+    (\textbf{Case 1: $A > D_0$})  
+    Suppose $x \in A D_1$. Then $x = ad$ for some $a \in A$ and $d \in D_1$.
+    Since $d > 1$, $ad > a$ thus $ad \in A$.
+    Therefore $A D_1 \subseteq A$.
+
+    Suppose $x \in A$.  
+    Let $d \in D_1$. Then $d > 1$.
+    Now $\frac{x}{d} < x$. Since $d > 0$ and $x > 0$, $\frac{x}{d} > 0$
+        thus $\frac{x}{d} \in A$.
+    Then $x = \frac{x}{d} \cdot d \in A D_1$.
+    Thus $A \subseteq A D_1$.
+
+    (\textbf{Case 2: $A < D_0$})
+    Now $-A > D_0$ and by \textbf{Case 1}, $-A = -A D_1$.
+    Multiplying by $-1$ shows $A = A D_1$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 6, breakable]
     Prove the remaining four cases in the proof 
     of Theorem 1.7.6 (9). [Use Exercise 1.7.4]
 \end{tcolorbox}
+
+\begin{proof}
+    There four 8 FUCKING cases again! Unfortunately
+        Bloch is making us do 4 of them for some unkown reason...
+
+    (\textbf{})
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
     Prove Theorem 1.7.10. [Use Exercise 1.7.1]
@@ -2724,7 +2811,7 @@ properties specific to $\mathbb{Q}$.
     This exercise makes use of Exercise 1.6.6.
     Let $S$ be a non-empty ordered set.
     The \textbf{Dedekind set} of $S$, denoted $S^D$, is defined by 
-    \[S^D = \{A \subseteq S \mid S \text{ is a Dedekind cut}\}.\]
+    \[S^D = \{A \subseteq S \mid A \text{ is a Dedekind cut}\}.\]
     For example, we know by definition of $\mathbb{Q}^D = \mathbb{R}$.
     The order relation $<$ on $S^D$ is defined analogously to 
     Definition $1.7.2$.
@@ -2737,3 +2824,7 @@ properties specific to $\mathbb{Q}$.
         \item What can you say about $\mathbb{R}^D$? It is sufficient to answer the question informally.
     \end{enumerate}
 \end{tcolorbox}
+
+\textbf{Solution (1):}
+Clearly $\mathbb{Z}$ is an ordered set which has no Dedekind cuts.
+Thus $T^D = \emptyset$.

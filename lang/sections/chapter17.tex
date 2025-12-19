@@ -1,0 +1,605 @@
+\subsection{Matrices}
+
+
+In each of the following cases, write down the second row 
+and first column of the indicated matrix.
+Also write down its transpose.
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    \[\begin{bmatrix}
+        2 & -5 \\
+        -3 & -7
+    \end{bmatrix}\]
+\end{tcolorbox}
+
+\textbf{Solution:}
+Second row:
+\[(-3, -7)\] 
+First column:
+\[\begin{bmatrix}
+    2 \\
+    -3
+\end{bmatrix}\]
+Transpose:
+\[\begin{bmatrix}
+    2 & -3 \\
+    -5 & -7
+\end{bmatrix}\]
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    \[\begin{bmatrix}
+        3 & 5 & 6 \\
+        -1 & 2 & 3 \\
+        7 & 3 & -2
+    \end{bmatrix}\]
+\end{tcolorbox}
+
+\textbf{Solution:}
+Second row:
+\[(-1, 2, 3)\] 
+First column:
+\[\begin{bmatrix}
+    3 \\
+    -1 \\
+    7
+\end{bmatrix}\]
+Transpose:
+\[\begin{bmatrix}
+    3 & -1 & 7 \\
+    5 & 2 & 3 \\
+    6 & 3 & -2
+\end{bmatrix}\]
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Find the sum of the first two columns in the matrix in Exercise $4$.
+\end{tcolorbox}
+
+\textbf{Solution:}
+\[\begin{bmatrix}
+    3 \\
+    5 \\
+    6
+\end{bmatrix} + \begin{bmatrix}
+    -1 \\
+    2 \\
+    3
+\end{bmatrix} = \begin{bmatrix}
+    2 \\
+    7 \\
+    9
+\end{bmatrix}\]
+
+\subsection{Determinants of Order $2$}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Compute the determinant of 
+    \[\begin{bmatrix}
+        \cos \theta & -\sin \theta \\
+        \sin \theta & \cos \theta
+    \end{bmatrix}\]
+\end{tcolorbox}
+
+\textbf{Solution:}
+\[D\left(\begin{bmatrix}
+    \cos \theta & -\sin \theta \\
+    \sin \theta & \cos \theta
+\end{bmatrix}\right) = \cos \theta \cos \theta - (-\sin \theta)\sin \theta = \cos^2 \theta + \sin^2 \theta = 1\]
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Compute the determinant 
+    \[\begin{bmatrix}
+        \cos \theta & \sin \theta \\
+        \sin \theta & \cos \theta 
+    \end{bmatrix}\]
+    (a) $\theta = \pi$,
+
+    (b) $\theta  = \pi/2$
+
+    (c) $\theta = \pi/3$
+
+    (d) $\theta = \pi/4$
+\end{tcolorbox}
+
+\textbf{General solution:}
+\[D\left(\begin{bmatrix}
+        \cos \theta & \sin \theta \\
+        \sin \theta & \cos \theta 
+\end{bmatrix}\right) = \cos \theta \cos \theta - \sin \theta \sin \theta = cos^2 \theta - sin^2 \theta\]
+
+\textbf{Solution (a):} $cos^2 \pi - sin^2 \pi$
+
+\textbf{Solution (b):} $cos^2 \pi/2 - sin^2 \pi/2$
+
+\textbf{Solution (c):} $cos^2 \pi/3 - sin^2 \pi/3$
+
+\textbf{Solution (d):} $cos^2 \pi/4 - sin^2 \pi/4$
+
+\subsection{Properties of $2 \times 2$ Determinants}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Prove the other half of \textbf{D1}, i.e.
+    distributivity on the other side other than that given in the text.
+\end{tcolorbox}
+
+\begin{proof}
+    
+    \begin{align*}
+        D(C, B' + B'') &= D\left(\begin{bmatrix}
+            b'_1 + b''_1 & c_1 \\
+            b'_2 + b''_2 & c_2
+        \end{bmatrix}\right) \\
+                             &= c_2(b'_1 + b''_1) - c_1(b'_2 + b''_2) \\
+                             &= c_2 b'_1 + c_2 b'_1 - c_1 b'_2 - c_1 b''_2 \\
+                             &= D(C, B') + D(C, B'')
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove the other half of \textbf{D2}.
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[D(B, xC) = D\left(\begin{bmatrix}
+        b_1 & x c_1 \\
+        b_2 & x c_2
+    \end{bmatrix}\right) = x b_1 c_2 - x b_2 c_1 = x(b_1 c_2 - b_2 c_1) = x D(B, C)\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove the other half of \textbf{D5}.
+\end{tcolorbox}
+
+\begin{proof}
+    Using \textbf{D1, D2, D4} we find 
+    \[D(B, C + xB) = D(B, C) + D(B, xB) = D(B, C) + xD(B, B) = D(B, C)\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Using the same method as at the end of the section,
+        find the value for $y$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x, y$ are solutions to the system of equations.
+    We have 
+    \[D(C, A) = D(xA + yB, A) = D(xA, A) + D(yB, A) = xD(A, A) + yD(B, A) = yD(B, A)\]
+    Thus $y = \frac{D(C, A)}{D(B, A)}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $c$ be a number, and let $A$ be a $2 \times 2$ matrix.
+    Define $cA$ to be the matrix obtained by multiplying all components
+    of $A$ by $c$. How does $D(cA)$ differ from $D(A)$.
+\end{tcolorbox}
+
+\textbf{Solution:} By \textbf{D2} it scales the value of the determinant by $c^2$.
+
+\subsection{Determinants of Order $3$}
+
+\begin{tcolorbox}[title=Problem 2 (a), breakable]
+    Compute the following determinants by expandingaccording to the 
+    second row, and also according to the third column.
+
+    (a) \[\begin{bmatrix}
+        3 & 1 & 2 \\
+        0 & 3 & -1 \\
+        4 & 1 & 1
+    \end{bmatrix}\]
+\end{tcolorbox}
+
+\textbf{Solution:} By second row 
+\[3(3 - 8) - (-1)(3 - 4) = -15 - 1 = -16\]
+By third column 
+\[2(0 - 12) - (-1)(3 - 4) + 1(9 - 0) = -24 - 1 + 9 = -16\]
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $a, b, c$ be numbers. In terms of $a, b, c$
+        what is the value of the determinant.
+    \[\begin{bmatrix}
+        a & 0 & 0 \\
+        0 & b & 0 \\
+        0 & 0 & c
+    \end{bmatrix}\]
+\end{tcolorbox}
+
+\textbf{Solution:}
+\[a(bc) = abc\]
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    In terms of the components of the matrix,  what is the value 
+        of the determinant:
+    \[(a) \begin{bmatrix}
+        a_11 & a_12 & a_13 \\
+        0 & a_22 & a_23 \\
+        0 & 0 & a_33
+    \end{bmatrix}, (b) \begin{bmatrix}
+        a_11 & 0 & 0 \\
+        a_21 & a_22 & 0 \\
+        a_31 & a_32 & a_33
+    \end{bmatrix}\]
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[a_{11}(a_{22} a_{33}) = a_{11} a_{22} a_{33}\]
+\textbf{Solution (b):}
+\[a_{11} a_{22} a_{33}\]
+
+\subsection{Properties of $3 \times 3$ Determinants}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Write out in full and prove property \textbf{D1}
+    with respect to the second and third column.
+\end{tcolorbox}
+
+\begin{theorem}
+    Suppose that the second column can be written as a sum,
+    \[A^2 = B + C\]
+    that is,
+    \[\begin{bmatrix}
+        a_12 \\
+        a_22 \\
+        a_32
+    \end{bmatrix} = \begin{bmatrix}
+        b_1 \\
+        b_2 \\
+        b_3
+    \end{bmatrix} + \begin{bmatrix}
+        c_1 \\
+        c_2 \\
+        c_3
+    \end{bmatrix}\]
+    Then 
+    \[D(A^1, B + C, A^3) = D(A^1, B, A^3) + D(A^1, C, A^3)\]
+\end{theorem}
+
+\begin{proof}
+    We use the definition of the determinant, namely the expansion
+    according to the second column. Each term splits into a sum of two
+    terms corresponding to $B$ and $C$. For instance,
+    \[a_{21} \begin{bmatrix}
+        a_{12} & a_{13} \\
+        a_{32} & a_{33} 
+    \end{bmatrix} = b_1 \begin{bmatrix}
+        a_{12} & a_{13} \\
+        a_{32} & a_{33}
+    \end{bmatrix} + c_1 \begin{bmatrix}
+        a_{12} & a_{13} \\
+        a_{32} & a_{33}
+    \end{bmatrix}\]
+    \[a_{22} \begin{bmatrix}
+        b_2 + c_2 & a_{13} \\
+        b_3 + c_3 & a_{33} 
+    \end{bmatrix} = a_{22} \begin{bmatrix}
+        b_2 & a_{13} \\
+        b_3 & a_{33}
+    \end{bmatrix} + a_{22} \begin{bmatrix}
+        c_2 & a_{13} \\
+        c_3 & a_{33}
+    \end{bmatrix}\]
+    \[a_{23} \begin{bmatrix}
+        b_2 + c_2 & a_{12} \\
+        b_3 + c_3 & a_{32} 
+    \end{bmatrix} = a_{23} \begin{bmatrix}
+        b_2 & a_{12} \\
+        b_3 & a_{32}
+    \end{bmatrix} + a_{23} \begin{bmatrix}
+        c_2 & a_{12} \\
+        c_3 & a_{32}
+    \end{bmatrix}\]
+    Summing with the appropriate signs yields the desired relation.
+\end{proof}
+
+\begin{theorem}
+    Suppose that the third column can be written as a sum,
+    \[A^3 = B + C\]
+    that is,
+    \[\begin{bmatrix}
+        a_13 \\
+        a_23 \\
+        a_33
+    \end{bmatrix} = \begin{bmatrix}
+        b_1 \\
+        b_2 \\
+        b_3
+    \end{bmatrix} + \begin{bmatrix}
+        c_1 \\
+        c_2 \\
+        c_3
+    \end{bmatrix}\]
+    Then 
+    \[D(A^1, A^2, B + C) = D(A^1, A^2, B) + D(A^1, A^2, C)\]
+\end{theorem}
+
+\begin{proof}
+    We use the definition of the determinant, namely the expansion
+    according to the third column. Each term splits into a sum of two
+    terms corresponding to $B$ and $C$. For instance,
+    \[a_{31} \begin{bmatrix}
+        a_{12} & a_{13} \\
+        a_{22} & a_{23} 
+    \end{bmatrix} = b_1 \begin{bmatrix}
+        a_{12} & a_{13} \\
+        a_{22} & a_{23}
+    \end{bmatrix} + c_1 \begin{bmatrix}
+        a_{12} & a_{13} \\
+        a_{22} & a_{23}
+    \end{bmatrix}\]
+    \[a_{32} \begin{bmatrix}
+        b_2 + c_2 & a_{13} \\
+        b_3 + c_3 & a_{23} 
+    \end{bmatrix} = a_{32} \begin{bmatrix}
+        b_2 & a_{13} \\
+        b_3 & a_{23}
+    \end{bmatrix} + a_{32} \begin{bmatrix}
+        c_2 & a_{13} \\
+        c_3 & a_{23}
+    \end{bmatrix}\]
+    \[a_{33} \begin{bmatrix}
+        b_2 + c_2 & a_{12} \\
+        b_3 + c_3 & a_{22} 
+    \end{bmatrix} = a_{33} \begin{bmatrix}
+        b_2 & a_{12} \\
+        b_3 & a_{22}
+    \end{bmatrix} + a_{33} \begin{bmatrix}
+        c_2 & a_{12} \\
+        c_3 & a_{22}
+    \end{bmatrix}\]
+    Summing with the appropriate signs yields the desired relation.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Same thing for property \textbf{D2}.
+\end{tcolorbox}
+
+\begin{theorem}
+    If $x$ is a number, then 
+    \[D(A^1, x A^2, A^3) = x \cdot D(A^1, A^2, A^3)\]
+\end{theorem}
+
+\begin{proof}
+We have:
+\[
+D(A^1, x A^2, A^3) =
+- a_{11} \begin{vmatrix} x a_{22} & a_{23} \\ x a_{32} & a_{33} \end{vmatrix}
++ a_{21} \begin{vmatrix} x a_{12} & a_{13} \\ x a_{32} & a_{33} \end{vmatrix}
+- a_{31} \begin{vmatrix} x a_{12} & a_{13} \\ x a_{22} & a_{23} \end{vmatrix}
+= x \cdot D(A^1, A^2, A^3).
+\]
+\end{proof}
+
+\begin{theorem}
+    If $x$ is a number, then 
+    \[D(A^1, A^2, x A^3) = x \cdot D(A^1, A^2, A^3)\]
+\end{theorem}
+
+\begin{proof}
+We have:
+\[
+D(A^1, A^2, x A^3) =
+a_{11} \begin{vmatrix} a_{22} & x a_{23} \\ a_{32} & x a_{33} \end{vmatrix}
+- a_{21} \begin{vmatrix} a_{12} & x a_{13} \\ a_{32} & x a_{33} \end{vmatrix}
++ a_{31} \begin{vmatrix} a_{12} & x a_{13} \\ a_{22} & x a_{23} \end{vmatrix}
+= x \cdot D(A^1, A^2, A^3).
+\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove the two cases not treated in the text for 
+    property \textbf{D4}.
+\end{tcolorbox}
+
+\begin{proof}
+Suppose that $A_2 = A_3$, and look at the expansion of the determinant according to the first row. 
+Then $a_{13} = a_{12}$, and the first two terms cancel. The third term is equal to 0 because it involves a 
+$2 \times 2$ determinant whose two columns are equal. 
+\end{proof}
+
+\begin{proof}
+Suppose that $A_1 = A_3$, and look at the expansion of the determinant according to the first row. 
+Then $a_{13} = a_{11}$, and the first two terms cancel. The third term is equal to 0 because it involves 
+a $2 \times 2$ determinant whose two columns are equal. 
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+Prove \textbf{D5}
+
+(a) you add a multiple of the third column to the first;
+
+(b) you add a multiple of the second column to the first;
+
+(c) you add a third column to the second.
+\end{tcolorbox}
+
+\begin{proof}
+    We have
+    \[
+        D(A_1 + x A_3, A_2, A_3) = D(A_1, A_2, A_3) + D(x A_3, A_2, A_3) \text{ (by D1)}
+    \]
+    \[
+        = D(A_1, A_2, A_3) + x \cdot D(A_3, A_2, A_3) \text{ (by D2)}
+        = D(A_1, A_2, A_3) \text{ (by D4).}
+    \]
+    We have
+    \[
+        D(A_1 + x A_2, A_2, A_3) = D(A_1, A_2, A_3) + D(x A_2, A_2, A_3) \text{ (by D1)}
+    \]
+    \[
+        = D(A_1, A_2, A_3) + x \cdot D(A_2, A_2, A_3) \text{ (by D2)}
+        = D(A_1, A_2, A_3) \text{ (by D4).}
+    \]
+    We have
+    \[
+        D(A_1, A_2 + A_3, A_3) = D(A_1, A_2, A_3) + D(A_1, A_3, A_3) \text{ (by D1)}
+        = D(A_1, A_2, A_3) \text{ (by D4).}
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove \textbf{D6} in the second case.
+\end{tcolorbox}
+
+\begin{proof}
+    \[
+    0 = D(A_1, A_2 + A_3, A_2 + A_3)
+    = D(A_1, A_2, A_2 + A_3) + D(A_1, A_3, A_2 + A_3)
+    \]  
+    \[
+    = D(A_1, A_2, A_2) + D(A_1, A_2, A_3) + D(A_1, A_3, A_2) + D(A_1, A_3, A_3)
+    = D(A_1, A_2, A_3) + D(A_1, A_3, A_2)
+    \]
+    Thus $D(A_1, A_2, A_3) = -D(A_1, A_3, A_2)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    If you interchange the first and third columns 
+    of the given matrix, how does its determinant change?
+    What about interchanging the first and third row?
+\end{tcolorbox}
+
+\textbf{Solution:} The determinant changes by a sign.
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    State \textbf{D5} and \textbf{D6} for rows.
+\end{tcolorbox}
+
+\begin{theorem}[D5 for rows]
+If we add a multiple of one row to another, 
+then the value of the determinant does not change. In other words, let $x$ be a number. Then, for instance,
+\[
+D(R_1 + x R_2, R_2, R_3) = D(R_1, R_2, R_3),
+\]
+and similarly in all other cases.
+\end{theorem}
+
+\begin{theorem}[D6 for rows]
+If two adjacent rows are interchanged, then the determinant changes by a sign. In other words, we have
+\[
+D(R_2, R_1, R_3) = -D(R_1, R_2, R_3),
+\]
+and similarly in the other cases.
+\end{theorem}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $c$ be a number and multiply each componenet 
+    $a_{ij}$ of a $3 \times 3$ matrix $A$ by $c$, thus 
+    obtaining a new matrix which we denote by $cA$.
+    How does $D(A)$ differ from $D(cA)$.
+\end{tcolorbox}
+
+\textbf{Solution:} The determinant is scaled by $c^3$.
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $x_1, x_2, x_3$ be numbers. Show that 
+    \[
+    \begin{vmatrix}
+    1 & x_1 & x_1^2 \\
+    1 & x_2 & x_2^2 \\
+    1 & x_3 & x_3^2
+    \end{vmatrix} = (x_2 - x_1)(x_3 - x_2)(x_3 - x_1)
+    \]
+\end{tcolorbox}
+
+\begin{proof}
+    Then
+    \[
+    \begin{vmatrix}
+    1 & x_1 & x_1^2 \\
+    1 & x_2 & x_2^2 \\
+    1 & x_3 & x_3^2
+    \end{vmatrix}
+    = 1 \cdot (x_2 x_3^2 - x_3 x_2^2) 
+    - x_1 \cdot (1 \cdot x_3^2 - 1 \cdot x_2^2) 
+    + x_1^2 \cdot (1 \cdot x_3 - 1 \cdot x_2)
+    = (x_2 - x_1)(x_3 - x_2)(x_3 - x_1).
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    State the analogous property to that of Exercise $12$
+    with respect to the second column. Then with respect 
+    to the third column.
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+Let 
+\[
+A^2 = \sum_{j=1}^{n} x_j C^j
+\]
+where $C^j$ are column vectors and $x_j$ are numbers. Then
+\[
+D(A^1, A^2, A^3, \dots, A^n) = \sum_{j=1}^{n} x_j D(A^1, C^j, A^3, \dots, A^n).
+\]
+
+\textbf{Solution (b):}
+Let 
+\[
+A^3 = \sum_{j=1}^{n} x_j C^j
+\]
+where $C^j$ are column vectors and $x_j$ are numbers. Then
+\[
+D(A^1, A^2, A^3, \dots, A^n) = \sum_{j=1}^{n} x_j D(A^1, A^2, C^j, \dots, A^n).
+\]
+
+\subsection{Cramer's Rule}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Fill in the missing steps in the proof of Cramer's rule.
+    Cf. Exercises $11$ and $12$ of the proceeding section.
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        D(B, A^2, A^3) &= D(x_1 A^1 + x_2 A^2 + x_3 A^3, A^2, A^3) \\
+        &= D(x_1 A^1 + x_2 A^2, A^2, A^3) + D(x_3 A^3, A^2, A^3) \\
+        &= D(x_1 A^1, A^2, A^3) + D(x^2 A^2, A^2, A^3) + D(x_3 A^3, A^2, A^3) \\
+        &= x_1 D(A^1, A^2, A^3) + x_2 D(A^2, A^2, A^3) + x_3 D(A^3, A^2, A^3) \\
+        &= x_1 D(A^1, A^2, A^3)
+    \end{align*}
+    Thus $x_1 = \frac{D(B, A^2, A^3)}{D(A^1, A^2, A^3)}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Write out in full the proof of Cramer's rule for $x_2$ and $x_3$.
+    It is very similar to the proof for $x_1$ in the text.
+\end{tcolorbox}
+
+\begin{proof}
+    \begin{align*}
+        D(B, A^1, A^3) &= D(x_1 A^1 + x_2 A^2 + x_3 A^3, A^1, A^3) \\
+        &= D(x_1 A^1, A^1, A^3) + D(x_2 A^2 + x_3 A^3, A^1, A^3) \\
+        &= D(x_1 A^1, A^1, A^3) + D(x_2 A^2, A^1, A^3) + D(x_3 A^3, A^1, A^3) \\
+        &= x_1 D(A^1, A^1, A^3) + x_2 D(A^2, A^1, A^3) + x_3 D(A^3, A^1, A^3) \\
+        &= x_2 D(A^2, A^1, A^3)
+    \end{align*}
+    Thus $x_2 = \frac{D(B, A^1, A^3)}{D(A^2, A^1, A^3)}$.
+\end{proof}
+
+\begin{proof}
+    \begin{align*}
+        D(B, A^1, A^2) &= D(x_1 A^1 + x_2 A^2 + x_3 A^3, A^1, A^2) \\
+        &= D(x_1 A^1 + x_2 A^2, A^1, A^2) + D(x_3 A^3, A^1, A^2) \\
+        &= D(x_1 A^1, A^1, A^2) + D(x_2 A^2, A^1, A^2) + D(x_3 A^3, A^1, A^2) \\
+        &= x_1 D(A^1, A^1, A^2) + x_2 D(A^2, A^1, A^2) + x_3 D(A^3, A^1, A^2) \\
+        &= x_3 D(A^3, A^1, A^2)
+    \end{align*}
+    Thus $x_2 = \frac{D(B, A^1, A^2)}{D(A^3, A^1, A^2)}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $A^1, A^2, A^3$ be columns of a $3 \times 3$ matrix $A$,
+    and assume that there are numbers $x_1, x_2, x_3$
+    not all $0$ such that 
+    \[x_1 A^1 + x_2 A^2 + x_3 A^3 = 0\]
+    Prove that $D(A) = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose wlog that $x_1 \ne 0$. 
+    Then
+    \[
+        A^1 = -\frac{x_2}{x_1} A^2 - \frac{x_3}{x_1} A^3
+    \]
+    Clearly, $A^1$ is a linear combination of $A^2$ and $A^3$, so
+    $D(A) = 0$.
+\end{proof}

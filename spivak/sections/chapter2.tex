@@ -1,0 +1,86 @@
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Prove the following formulas by induction.
+    \begin{enumerate}
+        \item $1^2 + \cdots + n^2 = \frac{n(n + 1)(2n + 1)}{6}$
+        \item $1^3 + \cdots + n^3 = (1 + \cdots + n)^2$
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    First notice 
+    \[n(n + 1)(2n + 1) = 2n^3 + 3n^2 + n.\]
+    Also 
+    \[(n + 1)((n + 1) + 1)(2(n + 1) + 1) = 2n^3 + 9n^2 + 13n + 6.\]
+    Now, the base case is trivial.
+    Suppose for some $n \in \mathbb{N}$ the equation holds.
+    Then 
+    \[1 + \cdots + n^2 + (n + 1)^2 = \frac{2n^3 + 3n^2 + n}{6} + \frac{6(n^2 + 2n + 1)}{6} = \frac{2n^3 + 9n^2 + 13n + 6}{6}.\]
+\end{proof}
+
+\begin{proof}
+    The base case is trivial.
+    Suppose for some $n \in \mathbb{N}$ the equation holds.
+    Then 
+    \begin{align*}
+        (1 + \cdots + n + (n + 1))^2 
+            &= (1 + \cdots + n)^2 + [(n + 1)(1 + \cdots + n) + (n + 1)(1 + \cdots + n) + (n + 1)(n + 1)] \\
+            &= (1 + \cdots + n)^2 + (n + 1)\big((1 + \cdots + n) + (1 + \cdots + n) + (n + 1)\big) \\
+            &= (1 + \cdots + n)^2 + (n + 1)(n^2 + 2n + 1) \\
+            &= (1 + \cdots + n)^2 + (n + 1)^3 \\
+            &= 1^3 + \cdots + n^3 + (n + 1)^3.
+    \end{align*}
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Find a formula for 
+    \begin{enumerate}
+        \item $\sum_{i = 1}^n (2i - 1) = 1 + 3 + 5 + \cdots + (2n - 1)$
+        \item $\sum_{i = 1}^n (2i - 1)^2 = 1^2 + 3^2 + 5^2 + \cdots + (2n - 1)$
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $n$ is even.
+    We can view the sum as pairing terms as follows 
+    \[
+        \sum_{k = 0}^{n} \bigl((n - k + 1) + (2n - (2k + 1))\bigr).
+    \]
+    This gives the pattern
+    \[
+        (1 + (2n - 1)) + (3 + (2n - 3)) + \cdots.
+    \]
+    There are $\frac{n}{2}$ such pairs.
+    Thus the sum is $\frac{n}{2}(2n) = n^2$.
+    If $n$ is odd, we simply add the middle unpaired term and find
+    \[
+        \frac{n - 1}{2}(2n) + (2n - 2\cdot\tfrac{n-1}{2}) = n^2.
+    \]
+\end{proof}
+
+\begin{proof}
+    From Problem 1 part (i) we know 
+    \[
+        1^2 + \cdots + (2n)^2
+        = \frac{2n(2n + 1)(2(2n) + 1)}{6}
+        = \frac{2n(2n + 1)(4n + 1)}{6}.
+    \]
+    Now, we have overcounted the sum of the even squares between $1$ and $2n$.
+    The even squares are
+    \[
+        2^2 + 4^2 + \cdots + (2n)^2
+        = 4(1^2 + 2^2 + \cdots + n^2)
+        = 4 \cdot \frac{n(n+1)(2n+1)}{6}.
+    \]
+    Thus
+    \[
+        1^2 + 3^2 + 5^2 + \cdots + (2n - 1)^2
+        = \frac{2n(2n + 1)(4n + 1)}{6}
+          - 4\cdot\frac{n(n+1)(2n+1)}{6}
+        = \frac{n(2n - 1)(2n + 1)}{3}.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}

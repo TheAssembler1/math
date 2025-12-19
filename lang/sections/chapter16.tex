@@ -18,10 +18,42 @@
     Prove that $n(n^2 + 5)$ is divisible by $6$ for all integers $n \ge 1$.
 \end{tcolorbox}
 
+\begin{proof}
+    (\textbf{Base Case}) Let $n = 1$. Then $n(n^2 + 5) = 1(1^2 + 5) = 6$. Clearly $6 \mid 6$ as required.
+
+    (\textbf{Induction Step}) Suppose the equation holds for some $n \in \mathbb{N}$.
+    Thus $n(n^2 + 5) = 6k$ for some $k \in \mathbb{Z}$.
+    Consider $(n + 1)((n + 1)^2 + 5) = n^3 + 3n^2 + 8n + 6 = n(n^2 + 5) + 3n^2 + 3n + 6$.
+    Then, by our hypothesis, $n(n^2 + 5) + 3n^2 + 3n + 6 = 6k + 3n^2 + 3n + 6 = 6k + 3(n(n + 1) + 2)$.
+    Now $n(n + 1)$ is even thus $n(n + 1) = 2j$ for some $j \in \mathbb{Z}$.
+    Then, $6k + 3(n(n + 1) + 2) = 6k + 3(2j + 2) = 6k + 6j + 6 = 6(k + j + 1)$ as required.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 5, breakable]
     Prove that, for $x \ne 1$, we have 
-    \[(1 + x)(1 + x^2)(1 + x^4) \ldots (1 + x^2)^n = \frac{1 - x^{2n + 1}}{1 - x}\]
+    \[(1 + x)(1 + x^2)(1 + x^4) \cdots (1 + {x^2}^n) = \frac{1 - x^{2^{n + 1}}}{1 - x}\]
 \end{tcolorbox}
+
+\begin{proof}
+    (\textbf{Base Case}) Let $n = 0$. Then 
+    $1 + x = \frac{1 - x^{2^{0 + 1}}}{1 - x} 
+           = \frac{1 - x^2}{1 - x} 
+           = \frac{(1 + x)(1 - x)}{1 - x} 
+           = 1 + x$ as required.
+
+    (\textbf{Induction Step}) Suppose the equation holds for some $n \in \mathbb{N}$.
+    Thus 
+    \[
+    (1 + x)(1 + x^2)(1 + x^4)\cdots(1 + x^{2^n})
+      = \frac{1 - x^{2^{\,n+1}}}{1 - x}
+    \]
+    Then
+    \[
+    (1 + x)(1 + x^2)(1 + x^4)\cdots(1 + x^{2^n})(1 + x^{2^{\,n+1}})
+      = \frac{1 - x^{2^{\,n+1}}}{1 - x}(1 + x^{2^{\,n+1}})
+      = \frac{1 - x^{2^{\,n+2}}}{1 - x}
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
     Let $f$ be a function defined for all real numbers
@@ -50,6 +82,53 @@
     \[(x + y)^n = \sum_{k = 0}^n \binom{n}{k} x^k y^{n - k}\]
 \end{tcolorbox}
 
+\begin{proof}
+    \begin{align*}
+    \binom{m}{n} &= \binom{m}{m - n} \\
+    \frac{m!}{n!(m - n)!} &= \frac{m!}{(m-n)!(m - (m - n))!} \\
+    \frac{m!}{n!(m - n)!} &= \frac{m!}{(m-n)!(n)!} \\
+    \frac{m!}{n!(m - n)!} &= \frac{m!}{(n)!(m-n)!} \\
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    \[
+    \begin{aligned}
+        \binom{n}{k-1} + \binom{n}{k}
+        &= \frac{n!}{(k-1)!(\,n-k+1\,)!}
+        + \frac{n!}{k!(\,n-k\,)!} \\[6pt]
+        &= \frac{n!}{(k-1)!(\,n-k+1\,)!}\cdot\frac{k}{k}
+        + \frac{n!}{k!(\,n-k\,)!}\cdot\frac{n-k+1}{n-k+1} \\[6pt]
+        &= \frac{n!k}{k!(\,n-k+1\,)!}
+        + \frac{n!(n-k+1)}{k!(\,n-k+1\,)!} \\[6pt]
+        &= \frac{n!\big(k + (n-k+1)\big)}{k!(\,n-k+1\,)!} \\[6pt]
+        &= \frac{n!(n+1)}{k!(\,n-k+1\,)!}
+        = \frac{(n+1)!}{k!(\,n-k+1\,)!} \\[6pt]
+        &= \binom{n+1}{k}
+    \end{aligned}
+    \]
+\end{proof}
+
+\begin{proof}
+    Let $n = 0$. Then
+    \begin{align*}
+        {(x + y)}^0 = 1 = \sum_{k = 0}^{0} \binom{0}{k} x^k y^{0-k} = \binom{0}{0} x^0 y^0 = 1 \cdot 1 \cdot 1 = 1
+    \end{align*}
+    Assume the formula holds for $n - 1$, thus
+    \begin{align*}
+        \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k} = (x+y)^{n - 1}
+    \end{align*}
+    Then
+    \begin{align*}
+        {(x+y)}^n & = {(x+y)}^{n - 1} \cdot (x + y)                                                                                                 \\
+                  & = \left(\sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k}\right) \cdot (x + y)                                              \\
+                  & = x \cdot \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k} + y \cdot \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k} \\
+                  & = \sum_{k = 1}^{n} \binom{n - 1}{k - 1} x^k y^{n - k} + \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{n - k}                     \\
+                  & = \sum_{k = 0}^{n} \left( \binom{n - 1}{k - 1} + \binom{n - 1}{k} \right) x^k y^{n - k}                                         \\
+                  & = \sum_{k = 0}^{n} \binom{n}{k} x^k y^{n - k}
+    \end{align*}
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 12, breakable]
     \begin{theorem}
         All billiard balls have the same color.
@@ -58,12 +137,15 @@
         By induction, on the number of $n$ billiard balls.
         Our theorem is certainly true for $n = 1$, i.e. for one billiard ball.
         Assume it for n billiard balls. We prove it for $n + 1$.
-        Look at the first $n$ billiard balls amont those $n + 1$.
+        Look at the first $n$ billiard balls among those $n + 1$.
         By induction, they have the same color. Now look at the last $n$ among
             those $n + 1$. They have the same color.
         Hence all $n + 1$ have the same color.
     \end{proof}
 \end{tcolorbox}
+
+\textbf{Solution:} When there are $2$ balls there is no overlap in the first $n$ and last $n$ balls.
+Therefore, they do not necessarily have the same color.
 
 \begin{tcolorbox}[title=Problem 13, breakable]
     Let $E$ be the set with $n$ elements, and let $F$ be a set 
@@ -71,39 +153,321 @@
         to $F$ is $m^n$.
 \end{tcolorbox}
 
+\begin{proof}
+    There are $m$ choices in $F$ for each of the $n$ elements in $E$.
+    The total number of mappings from $E$ to $F$ is therefore
+    \[
+        \underbrace{m \cdot m \cdot \dots \cdot m}_{n\ \text{terms}} = m^n
+    \]
+\end{proof}
+
 \subsection{Summations}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    Get the forumula for the volume of a cone by approximating an arbitrary cone with cylinders.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $C$ be an arbitrary cone with height $h$ and base radius $r$.
+    In the plane, the edge of the cone is the line $y = \frac{r}{h} x$. 
+    Suppose we split the x-axis into $n$ segments of width $h/n$.
+    Rotating these segments about the x-axis produces $n$ cylinders, 
+    each with volume 
+    \[
+        \pi \left(\frac{k}{n} r\right)^2 \frac{h}{n}, \quad 1 \le k \le n
+    \]
+    Then taking the sum of the volumes of the $n$ cylinders gives
+    \[
+        \sum_{k=1}^{n} \pi \left(\frac{k r}{n}\right)^2 \frac{h}{n} 
+        = \frac{\pi r^2 h}{n^3} \sum_{k=1}^{n} k^2
+        = \frac{\pi r^2 h}{n^3} \cdot \frac{n(n+1)(2n+1)}{6}
+    \]
+    Simplifying
+    \[
+        \frac{\pi r^2 h}{n^3} \cdot \frac{n(n+1)(2n+1)}{6} 
+        = \frac{\pi r^2 h}{6} \cdot \frac{2n^3 + 3n^2 + n}{n^3} 
+        = \frac{\pi r^2 h}{6} \left( 2 + \frac{3}{n} + \frac{1}{n^2} \right)
+    \]
+    Taking $n$ to be arbitrary large shows the volume is $\frac{1}{3} \pi r^2 h$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
+    Rotate the curve $y = 3x$ about the x-axis.
+    What is the volume of the solid obtained?
+
+    (a) when $0 \le x \le 2$?
+
+    (b) when $0 \le x \le 5$?
+
+    (c) when $0 \le x \le c$ with an arbitrary positive number $c$.
 \end{tcolorbox}
+
+\textbf{Solution:} The solid is a cone.
+
+
+\textbf{Solution (a):} Let $h = 2$ and $r = 3 (2) = 6$. Then
+\[
+V = \frac{1}{3} \pi r^2 h = \frac{1}{3} \pi \cdot 6^2 \cdot 2 = 24 \pi
+\]
+\textbf{Solution (b):} Let $h = 5$ and $r = 3 (5) = 15$. Then
+\[
+V = \frac{1}{3} \pi r^2 h = \frac{1}{3} \pi \cdot 15^2 \cdot 5 = 375 \pi
+\]
+\textbf{Solution (c):} Let $h = c$ and $r = 3 c$. Then
+\[
+V = \frac{1}{3} \pi r^2 h = \frac{1}{3} \pi \cdot (3c)^2 \cdot c = 3 \pi c^3
+\]
 
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Rotate the curve $y = \sqrt{x}$ about the x-axis.
+    What is the volume of the solid obtained when $0 \le x \le h$ and $h$ 
+        has the value:
+
+    (a) $h = 1$?
+
+    (b) $h = 2$?
+
+    (c) $h = 3$?
+
+    (d) arbitrary $h$?
 \end{tcolorbox}
+
+\begin{proof}
+    Let $S$ be the solid obtained by rotating the curve $y = \sqrt{x}$ about the x-axis from $x = 0$ to $x = h$.
+    In the plane, the edge of the solid is $y = \sqrt{x}$. 
+    Suppose we split the x-axis into $n$ segments of width $h/n$.
+    Rotating these segments about the x-axis produces $n$ cylinders, 
+    each with volume 
+    \[
+        \pi \left(\sqrt{\frac{k h}{n}}\right)^2 \frac{h}{n} = \pi \frac{k h}{n} \cdot \frac{h}{n} = \pi \frac{k h^2}{n^2}, \quad 1 \le k \le n
+    \]
+    Then taking the sum of the volumes of the $n$ cylinders gives
+    \[
+        \sum_{k=1}^{n} \pi \frac{k h^2}{n^2} 
+        = \frac{\pi h^2}{n^2} \sum_{k=1}^{n} k
+        = \frac{\pi h^2}{n^2} \cdot \frac{n(n+1)}{2}.
+    \]
+    Simplifying
+    \[
+        \frac{\pi h^2}{n^2} \cdot \frac{n(n+1)}{2} 
+        = \frac{\pi h^2}{2} \cdot \frac{n+1}{n} 
+        = \frac{\pi h^2}{2} \left( 1 + \frac{1}{n} \right).
+    \]
+    Taking $n$ to be arbitrarily large shows the volume is
+    \[
+        V = \frac{\pi h^2}{2}.
+    \]
+\end{proof}
+
+\textbf{Solution (a):} Let $h = 1$. Then
+\[
+V = \frac{\pi h^2}{2} = \frac{\pi \cdot 1^2}{2} = \frac{\pi}{2}
+\]
+\textbf{Solution (b):} Let $h = 2$. Then
+\[
+V = \frac{\pi h^2}{2} = \frac{\pi \cdot 2^2}{2} = 2 \pi
+\]
+\textbf{Solution (c):} Let $h = 3$. Then
+\[
+V = \frac{\pi h^2}{2} = \frac{\pi \cdot 3^2}{2} = \frac{9 \pi}{2}
+\]
+\textbf{Solution (d):} Let $h$ be arbitrary. Then
+\[
+V = \frac{\pi h^2}{2}.
+\]
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Rotate the curve $y = \sqrt{r^2 - x^2}$ about the x-axis.
+    What is the volume of the solid obtained when $0 \le x \le r$ has the value:
+
+    (a) $r = 1$,
+
+    (b) $r = 3$,
+
+    (c) $r = 2$,
+
+    (d) $r$ is arbitrary?
 \end{tcolorbox}
 
+\begin{proof}
+    Let $S$ be the solid obtained by rotating the curve $y = \sqrt{r^2 - x^2}$ about the x-axis from $x = 0$ to $x = r$.
+    In the plane, the edge of the solid is $y = \sqrt{r^2 - x^2}$. 
+    Suppose we split the x-axis into $n$ segments of width $r/n$.
+    Rotating these segments about the x-axis produces $n$ cylinders, 
+    each with volume 
+    \[
+        \pi \left(\sqrt{r^2 - \left(\frac{k r}{n}\right)^2}\right)^2 \frac{r}{n} 
+        = \pi \left(r^2 - \frac{k^2 r^2}{n^2}\right) \cdot \frac{r}{n} 
+        = \pi \frac{r^3}{n} \left( 1 - \frac{k^2}{n^2} \right), \quad 1 \le k \le n
+    \]
+    Then taking the sum of the volumes of the $n$ cylinders gives
+    \[
+        \sum_{k=1}^{n} \pi \frac{r^3}{n} \left( 1 - \frac{k^2}{n^2} \right) 
+        = \pi \frac{r^3}{n} \left( \sum_{k=1}^{n} 1 - \sum_{k=1}^{n} \frac{k^2}{n^2} \right)
+        = \pi r^3 \left( 1 - \frac{1}{n^3} \sum_{k=1}^{n} k^2 \right)
+    \]
+    Then
+    \[
+        \pi r^3 \left( 1 - \frac{n(n+1)(2n+1)}{6 n^3} \right)
+        = \pi r^3 \left( 1 - \frac{(n+1)(2n+1)}{6 n^2} \right)
+        = \pi r^3 \left( \frac{6 n^2 - (2 n^2 + 3 n + 1)}{6 n^2} \right)
+        = \pi r^3 \left( \frac{4 n^2 - 3 n - 1}{6 n^2} \right)
+    \]
+    Simplifying
+    \[
+        \pi r^3 \left( \frac{4 n^2 - 3 n - 1}{6 n^2} \right)
+        = \pi r^3 \left( \frac{4 n^2}{6 n^2} - \frac{3 n}{6 n^2} - \frac{1}{6 n^2} \right)
+        = \pi r^3 \left( \frac{2}{3} - \frac{1}{2 n} - \frac{1}{6 n^2} \right)
+    \]
+    Taking $n$ to be arbitrarily large shows the volume is $\frac{2}{3} \pi r^3$.
+\end{proof}
+
+\textbf{Solution (a):} Let $r = 1$. Then
+\[
+V = \frac{2}{3} \pi r^3 = \frac{2}{3} \pi \cdot 1^3 = \frac{2 \pi}{3}
+\]
+\textbf{Solution (b):} Let $r = 3$. Then
+\[
+V = \frac{2}{3} \pi r^3 = \frac{2}{3} \pi \cdot 3^3 = 18 \pi
+\]
+\textbf{Solution (c):} Let $r = 2$. Then
+\[
+V = \frac{2}{3} \pi r^3 = \frac{2}{3} \pi \cdot 2^3 = \frac{16 \pi}{3}
+\]
+\textbf{Solution (d):} Let $r$ be arbitrary. Then
+\[
+V = \frac{2}{3} \pi r^3
+\]
+
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Look again at Exercise $4$. What is the solid obtained?
+    You should now be able to see that the volume of a spherical ball 
+    of radius $r$ is equal to 
+    \[\frac{4}{3}\pi r^3\]
 \end{tcolorbox}
+
+\textbf{Solution:} The solid is a hemisphere. Yep I see it.
 
 \subsection{Geometric Series}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
+    Argue in a manner similar to that of the text to give a value 
+    to the geometric series when $-1 < c \le 0$.
+    Give the general formula, and also give the specific numerical values 
+    of the geometric series for the following numbers $c$.
+
+    (a) $\frac{-1}{3}$
+
+    (b) $\frac{-1}{4}$
+
+    (c) $\frac{-1}{5}$
+
+    (d) $\frac{-1}{6}$
+
+    (e) $\frac{-3}{4}$
+
+    (f) $\frac{-2}{3}$
+
+    (g) $\frac{-2}{5}$
+
+    (h) $\frac{-3}{5}$
 \end{tcolorbox}
+
+\begin{proof}
+    Let $c$ be a number $\ne 1$.
+    Consider the sum 
+    $\sum_{k = 0}^{n} c^k = 1 + c + c^2 + \cdots + c^n$.
+    Observe that 
+    $(1 + c + c^2 + \cdots + c^n)(1 - c) = 1 - c^{n + 1}$.
+    Thus $\sum_{k = 0}^{n} c^k = \frac{1}{1 - c} - \frac{c^{n + 1}}{1 - c}$.
+    Now, suppose $-1 < c \le 0$.
+    Suppose $c = \frac{1}{2}$ and observe that 
+    $c^2 = \frac{1}{4}$, $c^3 = \frac{-1}{8}$, and $c^4 = \frac{-1}{16}$.
+    We see that the denominator of $|0 - c|$ is increasing by powers of $2$.
+    Therefore the fraction $c^{n + 1}$ approaches $0$.
+    Hence, $\frac{c^{n + 1}}{1 - c}$ approaches $0$ as $n$ becomes arbitrarily large.
+    Thus, $1 + c + c^2 + \cdots + c^n = \frac{1}{1 - c}$.
+\end{proof}
+
+\textbf{Solution (a):}
+\[\sum_{k = 0}^{n} \left(-\frac{1}{3}\right)^k = \frac{1}{1 - \left(-\frac{1}{3}\right)} = \frac{3}{3 + 1} = \frac{3}{4}\]
+\textbf{Solution (b):}
+\[\sum_{k = 0}^{n} \left(-\frac{1}{4}\right)^k = \frac{1}{1 - \left(-\frac{1}{4}\right)} = \frac{4}{4 + 1} = \frac{4}{5}\]
+\textbf{Solution (c):}
+\[\sum_{k = 0}^{n} \left(-\frac{1}{5}\right)^k = \frac{1}{1 - \left(-\frac{1}{5}\right)} = \frac{5}{5 + 1} = \frac{5}{6}\]
+\textbf{Solution (d):}
+\[\sum_{k = 0}^{n} \left(-\frac{1}{6}\right)^k = \frac{1}{1 - \left(-\frac{1}{6}\right)} = \frac{6}{6 + 1} = \frac{6}{7}\]
+\textbf{Solution (e):}
+\[\sum_{k = 0}^{n} \left(-\frac{3}{4}\right)^k = \frac{1}{1 - \left(-\frac{3}{4}\right)} = \frac{4}{4 + 3} = \frac{4}{7}\]
+\textbf{Solution (f):}
+\[\sum_{k = 0}^{n} \left(-\frac{2}{3}\right)^k = \frac{1}{1 - \left(-\frac{2}{3}\right)} = \frac{3}{3 + 2} = \frac{3}{5}\]
+\textbf{Solution (g):}
+\[\sum_{k = 0}^{n} \left(-\frac{2}{5}\right)^k = \frac{1}{1 - \left(-\frac{2}{5}\right)} = \frac{5}{5 + 2} = \frac{5}{7}\]
+\textbf{Solution (h):}
+\[\sum_{k = 0}^{n} \left(-\frac{3}{5}\right)^k = \frac{1}{1 - \left(-\frac{3}{5}\right)} = \frac{5}{5 + 3} = \frac{5}{8}\]
 
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Let $c$ be a complex number such that $0 \le |c| < 1$.
+    Again argue in a similar way to give a value to the geometric series.
 \end{tcolorbox}
+
+\begin{proof}
+    Identical to the real case.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    What is the value of the sum 
+    \[\sum_{k = 0}^{n} c^k\]
+    where $c$ is equal to $r e^{i \theta}$ and $0 \le r < 1$?
+    Express your answer in the same form as that used to discuss the geometric series.
+    Similarly, give the value of the series 
+    \[\sum_{k = 0}^{\infty} c^k\]
+    where $c = r e^{i \theta}$ and $0 \le r < 1$.
 \end{tcolorbox}
+
+\textbf{Solution:}
+\[
+\sum_{k=0}^{n} c^k=\frac{1-c^{\,n+1}}{1-c}
+=\frac{1-r^{\,n+1}e^{i(n+1)\theta}}{1-r e^{i\theta}}.
+\]
+\[
+\sum_{k=0}^{\infty} c^k=\frac{1}{1-c}=\frac{1}{1-r e^{i\theta}}.
+\]
 
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Let $c = e^{2 \pi i/n}$ for some positive integer $n$. 
+    What is the value of 
+    \[1 + c + c^2 + \cdots + c^{n - 1}\]
 \end{tcolorbox}
+
+\textbf{Solution:}
+\[
+1+c+\cdots+c^{n-1}=\frac{1-c^n}{1-c}=\frac{1-1}{1-c}=0.
+\]
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    Let $c$ be a complex number $\ne 1$, such that $c^n = 1$ for some positive 
+    integer $n$.
+    What is the value of 
+    \[1 + c + c^2 + \cdots + c^{n - 1}\]
 \end{tcolorbox}
 
+\textbf{Solution}
+\[
+1+c+\cdots+c^{n-1}=\frac{1-c^n}{1-c}=0.
+\]
+
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Consider the sums 
+    \[\sum_{k = 1}^{n} \frac{1}{k} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}\]
+    Show that these sums can be made to have arbitrarily large values, for sufficiently large $n$.
 \end{tcolorbox}
+
+\begin{proof}
+    We can group the terms $1 + \frac12 + \left(\frac13+\frac14\right)
+    + \left(\frac15+\frac16+\frac17+\frac18\right)+\cdots$.
+    Then for each group $2^m+1,\dots,2^{m+1}$ there are $2^m$ terms,
+    each at least $\dfrac{1}{2^{m+1}}$, so the block sum is at least $\dfrac{2^m}{2^{m+1}}=\tfrac12$.
+    Thus after $k$ blocks the sum is at least $1+\frac12 + k\cdot\frac12$.
+    which can be made arbitrarily large by choosing $k$ large. 
+\end{proof}

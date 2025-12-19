@@ -571,60 +571,227 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
 \end{definition}
 
 \begin{proof}
-    (\textbf{Base Case}) Let $n = 1$. Let $(a, b), (c, d) \in R \times S$.
-    Consider 
-    \[(a, b) + (c, d) = (a + c, b + d) = (c + a, d + b) = (c, d) + (a, b)\]
-    (\textbf{Induction Step}) Suppose commutativity holds for $n \in \mathbb{N}$.
+    Let $R$ and $S$ be arbitrary rings.
+    Let $(a, b), (c, d), (e, f) \in R \times S$.
 
-    Showing commutativity over $+$.
+    (\textbf{Rule 1})
+    \begin{align*}
+        (a, b) + (c, d) &= (a + c, b + d)
+                        &= (c + a, d + b)
+                        &= (c, d) + (a, b)
+    \end{align*}
+    (\textbf{Rule 2})
+    \begin{align*}
+        (a, b) + [(c, d) + (e, f)]
+            &= (a, b) + (c + e, d + f) \\
+            &= (a + (c + e), b + (d + f)) \\
+            &= ((a + c) + e, (b + d) + f) \\
+            &= (a + c, b + d) + (e, f) \\
+            &= [(a, b) + (c, d)] + (e, f)
+    \end{align*}
+    (\textbf{Rule 3})
+    \begin{align*}
+        (a, b) + (0, 0) &= (a + 0, b + 0) \\
+                        &= (a, b)
+    \end{align*}
+    (\textbf{Rule 4})
+    \begin{align*}
+        (a, b) + (-a, -b) &= (a - a, b - b) \\
+                          &= (0, 0)
+    \end{align*}
+    (\textbf{Rule 5})
+    \begin{align*}
+        (a, b) [(c, d) (e, f)] &= (a, b)(ce, df) \\
+                               &= (a(ce), b(df)) \\
+                               &= ((ac)e, (bd)f) \\
+                               &= (ac, bd)(e, f) \\
+                               &= [(a, b)(c, d)](e, f)
+    \end{align*}
+    (\textbf{Rule 6 Left})
+    \begin{align*}
+        (a, b)[(c, d) + (e, f)] &= (a, b)(c + e, d + f) \\
+                                &= (a(c + e), b(d + f)) \\
+                                &= (ac + ae, bd + bf) \\
+                                &= (ac, bd) + (ae, bf) \\
+                                &= (a, b)(c, d) + (a, b)(e, f)
+    \end{align*}
+    (\textbf{Rule 6 Right})
+    \begin{align*}
+        [(a, b)(c, d)](e, f) &= (a + c, b + d)(e, f) \\
+                             &= ((a + c)e, (b + d)f) \\
+                             &= (ae + ce, bf + df) \\
+                             &= (ae, bf) + (ce, df) \\
+                             &= (a, b)(e, f) + (c, d)(e, f)
+    \end{align*}
+    We proceed via induction to prove the direct product of an arbitrary number of rings
+        is indeed a ring.
+    The proceeding part of this proof shows the base case.
+    Suppose it holds for some $R_1 \times R_2 \times \cdots \times R_n$ where $n \in \mathbb{N}$.
+    Consider $R_1 \times R_2 \times \cdots \times R_n \times R_{n + 1}$.
+    Now, $R_1 \times R_2 \times \cdots \times R_n$ is a ring and $R_{n + 1}$ is a ring 
+    and our proceeding part of the proof works for arbitrary rings thus 
+    $R_1 \times R_2 \times \cdots \times R_n \times R_{n + 1}$ is a ring.
 \end{proof}
 
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Find an example of $M_2(\mathbb{Z})$ to show that 
+    $(a + b)^2$ is not necessarily equal to 
+    $a^2 + 2ab + b^2$. (Recall that $2ab = ab + ab$.) What is 
+    the correct expansion of $(a + b)^2$ for an arbitrary ring?
+    What can you say of the ring is commutative.
+\end{tcolorbox}
+
+\textbf{Solution:}
+\[
+    (a + b)^2 =
+    \left(\begin{bmatrix}
+    0 & 1 \\
+    1 & 1
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+    1 & 1 \\
+    1 & 0
+    \end{bmatrix}\right)^2
+    =
+    \begin{bmatrix}
+    1 & 2 \\
+    2 & 1
+    \end{bmatrix}^2
+    =
+    \begin{bmatrix}
+    1\cdot1 + 2\cdot2 & 1\cdot2 + 2\cdot1 \\
+    2\cdot1 + 1\cdot2 & 2\cdot2 + 1\cdot1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    5 & 4 \\
+    4 & 5
+    \end{bmatrix}.
+\]
+\[
+    a^2 + 2ab + b^2
+    =
+    \begin{bmatrix}
+    0 & 1 \\
+    1 & 1
+    \end{bmatrix}^2
+    + 2
+    \begin{bmatrix}
+    0 & 1 \\
+    1 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+    1 & 1 \\
+    1 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+    1 & 1 \\
+    1 & 0
+    \end{bmatrix}^2
+    =
+    \begin{bmatrix}
+    5 & 2 \\
+    6 & 5
+    \end{bmatrix}.
+\]
+
+The correct expansion is 
+    $(a + b)^2 = a^2 + ab + ba + b^2$.
+
+If the ring is commutative then $ab = ba$
+    thus $(a + b)^2 = a^2 + 2ab + b^2$.
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    (This exercise extends the discussion of Exercise 16.)
+    Let $R$ be a commutative ring and $a, b \in R$.
+    Then prove the \emph{binomial theorem}
+    for $R$, by induction on $n$: Namely, show that 
+    \[(a + b)^n = \sum_{k = 0}^{n} \binom{n}{k} a^{n - k}b^k.\]
+\end{tcolorbox}
+
 \begin{proof}
-    (\textbf{Base Case}) Let $n = 1$. Let $(a, b), (c, d), (e, f) \in R \times S$.
-    Consider 
-    \[((a, b) + (c, d)) + (e, f) = (a + c, b + d) + (e, f) 
-        = (a + c + e, b + d + f)\] 
-    \[= (a + b) + (c + e, d + f) = (a + b) + ((c + d) + (e + f))\]
+    (\textbf{Base Case:}) Trivial.
 
-    (\textbf{Induction Step})
-
-    Showing associativity over $+$.
+    (\textbf{Induction Step:}) Assume the formula holds for $n - 1$, thus:
+    \begin{align*}
+        \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k} = (x+y)^{n - 1}
+    \end{align*}
+    Then:
+    \begin{align*}
+        {(x+y)}^n & = {(x+y)}^{n - 1} \cdot (x + y)                                                                                              \\
+                  & = \left(\sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k}\right) \cdot (x + y)                                              \\
+                  & = x \cdot \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k} + y \cdot \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{(n-1)-k} \\
+                  & = \sum_{k = 1}^{n} \binom{n - 1}{k - 1} x^k y^{n - k} + \sum_{k = 0}^{n - 1} \binom{n - 1}{k} x^k y^{n - k}                     \\
+                  & = \sum_{k = 0}^{n} \left( \binom{n - 1}{k - 1} + \binom{n - 1}{k} \right) x^k y^{n - k}                                         \\
+                  & = \sum_{k = 0}^{n} \binom{n}{k} x^k y^{n - k}
+    \end{align*}
 \end{proof}
 
+\begin{tcolorbox}[title=Problem 18, breakable]
+    Suppose $a \cdot a = a$ for every element $a$ in a ring $R$.
+    (Elements $a$ in a ring where $a^2 = a$ are called \textbf{idempotent}.)
+
+    (a) Show that $a = -a$.
+
+    (b) Now show that $R$ is commutative.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    Let $S = \{(x_2, x_2, x_3, \ldots) \mid x_i \in \mathbb{R}\}$,
+    the real-valued sequences. Define addition and multiplication 
+    on $S$ coordinate-wise (see Exercise $13$ and $14$). Show that 
+    $S$ is a commutative ring.
+\end{tcolorbox}
+
 \begin{proof}
-    (\textbf{Base Case})
-
-    (\textbf{Induction Step})
-
-    Showing the existence of an additive inverse.
+    We know from problem $14$ that $S$ is a ring.
+    The $\cdot$ operation for the direct product is based 
+        on the multiplication of $\mathbb{R}$ which commutes.
+    Thus $S$ is a commutative ring.
 \end{proof}
 
+\begin{tcolorbox}[title=Problem 20, breakable]
+    Let $X$ be some arbitrary set, an $P(X)$ the 
+    set of all subsets of $X$.
+    In Example 1.1 we proved that if $X$ has $n$
+    elements, then $P(X)$ has $2^n$ elements;
+    we are here allowing the possibility that $X$
+    (and hence $P(X)$) has \emph{infinitely} many 
+    elements. Define operations on 
+    $P(X)$ as follows, where $a, b \in P(X)$:
+    \[a + b = (a \cup b) \setminus (a \cap b) \text{ and } ab = a \cap b\]
+    (Addition here is often called the 
+    \textbf{symmetric difference} of the two sets $a, b$.)
+    Prove that $P(X)$ is commutative ring.
+    ($P(X)$ is called the \textbf{power set} for the set $X$.)
+\end{tcolorbox}
+
 \begin{proof}
-    (\textbf{Base Case})
+    Let $a, b, c \in P(X)$.
 
-    (\textbf{Induction Step})
-
-    Showing the existence of an additive identity.
+    (\textbf{Rule 1})
+    \[a + b = (a \cup b) \setminus (a \cap b) = (b \cup a) \setminus (b \cap a) = b + a\]
+    (\textbf{Rule 2})
+    \[(a + b) + c = ((a \cup b) \setminus (a \cap b)) \cup ((a \cup b) \setminus (a \cap b)) \setminus ((a \cup b) \setminus (a \cap b)) \cap ((a \cup b) \setminus (a \cap b))\]
+    (\textbf{Rule 3})
+    \[a + \emptyset\]
+    (\textbf{Rule 4})
+    \[a + a^c\]
+    (\textbf{Rule 5})
+    \[\]
+    (\textbf{Rule 6 Left})
+    \[a(b + c) = \]
+    (\textbf{Rule 6 Right})
+    \[(a + b)c = \]
 \end{proof}
 
-\begin{proof}
-    (\textbf{Base Case})
-
-    (\textbf{Induction Step})
-
-    Showing associativity over $\cdot$.
-\end{proof}
+\begin{tcolorbox}[title=Problem 23, breakable]
+    Let $R$ be any commuatative ring.
+    Let $R[x]$ be the collection of polynomials with 
+    coefficients from $R$. Show that $R[x]$ is a ring.
+\end{tcolorbox} 
 
 \begin{proof}
-    (\textbf{Base Case})
-
-    (\textbf{Induction Step})
-
-    Showing distributivity fromt the left and right.
-\end{proof}
-
-\begin{proof}
-    (\textbf{Base Case})
-
-    (\textbf{Induction Step})
 \end{proof}

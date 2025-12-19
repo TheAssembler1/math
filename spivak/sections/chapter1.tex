@@ -545,12 +545,77 @@
     for $a > 0$.
 \end{tcolorbox}
 
+\begin{proof}
+    \begin{align*}
+        x^2 + bx + c 
+            &= \left(\frac{-b + \sqrt{b^2 - 4c}}{2}\right)^2 + b\left(\frac{-b + \sqrt{b^2 - 4c}}{2}\right) + c \\
+            &= \frac{b^2 - 2b\sqrt{b^2 - 4c} + b^2 - 4c}{4} + \frac{-2b^2 + 2b\sqrt{b^2 - 4c}}{4} + \frac{4c}{4} \\
+            &= \frac{2b^2 - 2b^2 + 2b\sqrt{b^2 - 4c} - 2b \sqrt{b^2 - 4c} + 4c - 4c}{4} \\
+            &= \frac{0}{4} = 0
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    \begin{align*}
+        x^2 + bx + c 
+            &= \left(\frac{-b - \sqrt{b^2 - 4c}}{2}\right)^2 + b\left(\frac{-b - \sqrt{b^2 - 4c}}{2}\right) + c \\
+            &= \frac{b^2 + 2b\sqrt{b^2 - 4c} + b^2 - 4c}{4} + \frac{-2b^2 - 2b\sqrt{b^2 - 4c}}{4} + \frac{4c}{4} \\
+            &= \frac{2b^2 - 2b^2 + 2b\sqrt{b^2 - 4c} - 2b \sqrt{b^2 - 4c} + 4c - 4c}{4} \\
+            &= \frac{0}{4} = 0
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Suppose $b^2 - 4 c < 0$.
+    For contradiction, suppose $x^2 + bx + c = 0$ for some $x$.
+    Then $x^2 + bx + c = 0 
+        \iff x^2 + bx = -c 
+        \iff \left(x + \frac{b}{2}\right)^2 = \left(\frac{b}{2}\right)^2 - c 
+        \iff \left(x + \frac{b}{2}\right)^2 = \frac{b^2 - 4c}{4}$.
+    Now, $b^2 - 4c < 0$ thus $\frac{b^2 - 4c}{4} < 0$
+        contradicting the square of a non-zero number being $>0$.
+\end{proof}
+
+\begin{proof}
+    Suppose wlog that $x \ne 0$.
+    Let $b = y$ and $c = y^2$.
+    Notice $b^2 - 4c = y^2 - 4y^2$ which is certainly $<0$.
+    It directly follows from part (b)
+        that $x^2 + xy + y^2 > 0$.
+\end{proof}
+
+\begin{proof}
+    From part (b), for $x^2 + \alpha xy + y^2$ to be $>0$ for all $x,y$ not both $0$,
+        we require that $(\alpha y)^2 - 4y^2 < 0$.
+    Then
+        $(\alpha y)^2 - 4y^2 < 0
+            \iff (\alpha y)^2 < 4y^2
+            \iff \alpha^2 y^2 < 4y^2
+            \iff \alpha^2 < 4$.
+    From which it follows that $|\alpha| < 2$.
+\end{proof}
+
+\begin{proof}
+    We find the smallest value of $ax^2 + bx + c$ to derive the formula for the general solution 
+        then show $x^2 + bx + c$ as a specific case where $a = 1$.
+    Notice 
+    \begin{align*}
+        ax^2 + bx + c 
+            &= a\left(x^2 + \frac{b}{a} x\right) + c \\
+            &= a\left(\left(x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a^2}\right) + c \\
+            &= a\left(x + \frac{b}{2a}\right)^2 + c - \frac{b^2}{4a}.
+    \end{align*}
+    It is clear that $x = -\frac{b}{2a}$ gives the minimum value.
+    Plugging in shows $\min(ax^2 + bx + c) = c - \frac{b^2}{4a}$.
+    Let $a = 1$, plugging in shows $\min(x^2 + bx + c) = c - \frac{b^2}{4}$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 19, breakable]
     The fact that $a^2 \ge 0$ for all numbers $a$, elementary as it may seem,
     is nevertheless a fundamental idea upon which most important inequalities
     are ultimately based. The great-granddaddy of all inequalities is the 
     \emph{Schwarz inequality}:
-    \[x_1 y_1 \le \sqrt{x_1^2 + x_2^2} \sqrt{y_1^2 + y_2^2}\]
+    \[x_1 y_1 + x_2 y_2 \le \sqrt{x_1^2 + x_2^2} \sqrt{y_1^2 + y_2^2}\]
     (A more general form occurs in Problem $2-21$.) The three proofs of the 
     Schwarz inequality outlined below have one thing in common - their 
     reliance on the fact that $a^2 \ge 0$ for all $a$.
@@ -569,27 +634,28 @@
     (b) Prove the Schwarz inequality by using $2xy \le x^2 + y^2$ (how is 
     this derived) with
     \[x = \frac{x_i}{\sqrt{x_1^2 + x_2^2}}, \quad y = \frac{y_i}{\sqrt{y_1^2 + y_2^2}}\]
-    first show for $i = 1$ then for $i = 2$. \\
+    first show for $i = 1$ then for $i = 2$.
 
     (c) Prove the Scwarz inequality by first proving that 
     \[(x_1^2 + x_2^2)(y_1^2 + y_2^2) = (x_1 y_1 + x_2 y_2)^2 + (x_1 y_2 - x_2 y_1)^2\]
 
     (d) Deduce, from each of these three proofs, that equality holds only when 
     $y_1 = y_2 = 0$ or when there is a number $\lambda$ such that $x_1 = \lambda y_1$ and 
-    $x_2 = \lambda y_2$. \\
-
-    In our later work, three facts about inequalities will be crucial. Although proofs 
-    will be supplied at the appropriate poijnt in the text, a personal assault on these 
-    problems is infinitely more enlightening than a persual of a completely worked-out 
-    proof. The statements of these propositions involve some weird numbers, but their 
-    basic message is very simple: if $x$ is close enough to $x_0$, and $y$ is close enough
-    to $y_0$ then $x + y$ will be close to $x_0 + y_0$, and $xy$ will be closer 
-    to $x_0 y_0$, and $\frac{1}{y}$ will be close to $\frac{1}{y_0}$. The symbol
-    "$\epsilon$" which apperas in these propositions is the fith letter of the Greek 
-    alphabet ("epsilon"), and could just as well be replaced by a less intimidating 
-    Roman letter; however, tradition has made the use of the $\epsilon$ almost sacrosanet
-    in the contexts to which these theorems apply.
+    $x_2 = \lambda y_2$. 
 \end{tcolorbox}
+
+\begin{proof}
+    
+    Suppose $y_1  = y_2 = 0$.
+    Then 
+    \[0 = 0 + 0
+        = x_1 \cdot 0 + x_2 \cdot 0 
+        = x_1 y_1 + x_2 y_2 = \sqrt{x_1^2 + x_2^2} \cdot 0 
+        = \sqrt{x_1^2 + x_2^2} \sqrt{0}         
+        = \sqrt{x_1^2 + x_2^2} \sqrt{0^2 + 0^2}
+        = \sqrt{x_1^2 + x_2^2}\sqrt{y_1^2 + y_2^2}\]
+    Thus $x_1 x_2 = \sqrt{x_1^2 + x_2^2}\sqrt{y_1^2 + y_2^2}$ as required.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 20, breakable]
     Prove that if 
@@ -598,6 +664,18 @@
     \[|(x + y) - (x_0 + y_0)| < \epsilon\]
     \[|(x - y) - (x_0 - y_0)| < \epsilon\]
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $|x - x_0| < \frac{\epsilon}{2} \text{ and } |y - y_0| < \frac{\epsilon}{2}$.
+    Then 
+    \[|(x + y) - (x_0 + y_0)| = |(x - x_0) + (y - y_0)| 
+        \le |x - x_0| + |y - y_0| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon\]
+    Thus $|(x + y) - (x_0 + y_0)| < \epsilon$.
+    Similarly 
+    \[|(x - y) - (x_0 - y_0)| = |(x - x_0) + (y_0 - y)| 
+        \le |x - x_0| + |y_0 - y| = |x - x_0| + |y - y_0| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon\]
+    Thus $|(x - y) - (x_0 - y_0)| < \epsilon$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 21, breakable]
     Prove that if 
@@ -609,14 +687,30 @@
     \[|x - x_0| < \frac{\epsilon}{2(|y_0| + 1)} \text{ and } |x - x_0| < 1 \text{;}\]
     at one point in the argument you will need the first inequality, and at another point
     you will need the second. One more word of advice: since the hypotheses only provide information
-    about $x - x_0$ and $y - y_0$, it is almost a forgone conclusion taht the proof will depend
+    about $x - x_0$ and $y - y_0$, it is almost a forgone conclusion that the proof will depend
     up writing $xy - x_0y_0$ in a way that involves $x - x_0$ and $y - y_0$.)
 \end{tcolorbox}
 
+\newpage
 \begin{tcolorbox}[title=Problem 22, breakable]
     Prove that if $y_0 \not = 0$ and 
     \[|y - y_0| < min\left(\frac{|y_0|}{2}, \frac{\epsilon{|y_0|^2}}{2}\right)\]
+    then $y \ne 0$ and 
+    \[\left|\frac{1}{y} - \frac{1}{y_0}\right| < \epsilon\]
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $y_0 \not = 0$.
+    Then 
+    \[|y| = |y - y_0 + y_0| = |y_0 + (y - y_0)| \ge ||y_0| - |y - y_0|| \ge |y_0| - |y - y_0| > |y_0| - \frac{|y_0|}{2} = \frac{|y_0|}{2}\]
+    Thus $y \ne 0$.
+    Also 
+    \[\left|\frac{1}{y} - \frac{1}{y_0}\right|
+    =\left|\frac{y - y_0}{y y_0}\right|
+    = \frac{|y - y_0|}{|y||y_0|}
+    < \frac{\frac{\epsilon|y_0|^2}{2}}{\frac{|y_0|}{2}|y_0|}
+    = \epsilon\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 23, breakable]
     Replace the question marks in the following statement by expressions 
