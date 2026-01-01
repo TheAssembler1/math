@@ -5,21 +5,77 @@
     For each $u \in \sum^{**}$ describe the set of elements covering $u$.
 \end{tcolorbox}
 
+\begin{proof}
+    Consider the empty string $e$.
+    Now, $e \in \sum^{**}$, and for all $t \in \sum^{**}$,
+        $e \le t$.
+    Thus $e = \perp$.
+
+    Let $x$ be an arbitrary element in $\sum^{**}$. 
+    Note that $\downarrow x \neq \emptyset$ since $e \le x$.
+    Now, let $s_1, s_2$ be arbitrary elements in $\downarrow x$.
+    Clearly, either $s_1 \le s_2$ or $s_2 \le s_1$,
+    since both are prefixes of the same string $x$.
+    Thus $\downarrow x$ is a chain as required.
+
+    Let $s$ be an arbitrary element in $\sum^{**}$.
+    Now, if $s$ is infinite then there is no element covering $s$.
+    Therefore, suppose $s$ is finite.
+    There are two elements $s', s'' \in \sum^{**}$ covering $s$.
+    These are $s' = s0$ and $s'' = s1$, where concatenation
+    appends the symbol to the end of the string.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 7, breakable]
     Let $P$ and $Q$ be ordered sets. 
     Prove that $(a_1, b_1) \prec (a_2, b_2)$ in $P \times Q$
-    if and only if $(a_1 = a_2 \text{ \& } b_1 \prec b_2)$ or $(a_1 \prec a_2 \text{ \& } b_1 = b_2)$.
+        if and only if $(a_1 = a_2 \text{ \& } b_1 \prec b_2)$ or $(a_1 \prec a_2 \text{ \& } b_1 = b_2)$.
 \end{tcolorbox}
+\begin{proof}
+
+    ($\longrightarrow$) 
+    Suppose $(a_1, b_1) \prec (a_2, b_2)$ in $P \times Q$.
+    Furthermore, suppose $a_1 < a_2$ and $b_1 < b_2$.
+    Considering the pairs $(a_2, b_1)$ and $(a_1, b_2)$,
+        we find the following two relations: 
+        $(a_1, b_1) < (a_2, b_1) < (a_2, b_2)$ and
+        $(a_1, b_1) < (a_1, b_2) < (a_2, b_2)$.
+    Both of which contradict the $\prec$ relation.
+    Therefore, either $a_1 = a_2$ or $b_1 = b_2$.
+    Suppose $a_1 = a_2$. Then $b_1 < b_2$. If $b_1 \not\prec b_2$ then 
+        there exists $b'$ such that $b_1 < b' < b_2$.
+    But then $(a_1, b_1) < (a_1, b') < (a_2, b_2)$.
+    Thus $b_1 \prec b_2$.
+    A similar argument shows $a_1 \prec a_2$ if $b_1 = b_2$.
+
+    ($\longleftarrow$) 
+    Suppose $(a_1 = a_2 \text{ \& } b_1 \prec b_2)$ or
+    $(a_1 \prec a_2 \text{ \& } b_1 = b_2)$.
+    Now, suppose $(a_1 = a_2 \text{ \& } b_1 \prec b_2)$.
+    Futhermore, suppose there exists $(a', b')$ such that
+        $(a_1, b_1) < (a', b') < (a_2, b_2)$.
+    Then $a_1 \le a' \le a_2$ and $b_1 \le b' \le b_2$.
+    But $a_1 = a_2$ and $b_1 \prec b_2$, thus $a' = a_1$ and $b' = b_1$.
+    It follows that $(a_1, b_1) = (a', b')$.
+    Thus $(a_1, b_1) \prec (a_2, b_2)$.
+    A similar argument shows $(a_1, b_1) \prec (a_2, b_2)$ if $b_1 = b_2$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
     Draw the diagrams of the products shown in Figure 1.12.
 \end{tcolorbox}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/chapter1/1.8.1.PNG}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{images/chapter1/1.8.2.PNG}
+\end{figure}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
     Draw and label a diagram for $\mathcal{O}(P)$ for each of the ordered sets $P$
         of Figure 1.13.
-
-    FIXME DRAW
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 14, breakable]

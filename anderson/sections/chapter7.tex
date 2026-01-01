@@ -1,0 +1,359 @@
+\begin{tcolorbox}[title=Warmup d, breakable]
+    Give examples of the following (or explain why they don't exist):
+
+    (a) A commutative subring of a non-commutative ring.
+
+    (b) A non-commutative subring of a commutative ring.
+
+    (c) A subring without unity, of a ring with unity. (See 
+        Exercise 22 for the converse possibility)
+
+    (d) A ring (with more than one element) whose only subrings are itself,
+        and the zero subring. \emph{Hint:} Look at an earlier Warm-up Exercise.
+\end{tcolorbox} 
+
+\textbf{Solution (a):} The trivial ring.
+
+\textbf{Solution (b):} Does not exist. The elements required are still in the subring 
+thus they commute.
+
+\textbf{Solution (c):} $2\mathbb{Z}$ is a subring of $\mathbb{Z}$ and does not have unity.
+
+\textbf{Solution (d):} The only subring of $\mathbb{Z}_5$ is the trivial ring.
+
+\begin{tcolorbox}[title=Warmup e, breakable]
+    What is the unity of the power set ring $\mathcal{P}(X)$ considered in Exercise 6.20?
+\end{tcolorbox} 
+
+\textbf{Solution:} The set $X$.
+
+\begin{tcolorbox}[title=Warmup f, breakable]
+    What is the unity of the ring $\mathbb{Z} \times \mathbb{Z}$? (See Example 6.9) What 
+    about $R \times S$, where $R$ and $S$ are rings with unity? (See Example 6.10.)
+\end{tcolorbox} 
+
+\textbf{Solution:} The unity of $\mathbb{Z} \times \mathbb{Z}$ is $(1, 1)$.
+The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respectively.
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    We generalize Exercise $1$: Let $\mathbb{Z}[\sqrt{n}] = 
+    \{a + b\sqrt{n} \mid a, b, \in \mathbb{Z}\}$ where 
+    $n$ is some fixed integer (positive or negative).
+    Show that $\mathbb{Z}[\sqrt{n}]$ is a commutative 
+    ring by showing it is a subring of $\mathbb{C}$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $a + b\sqrt{n}, c + d\sqrt{n} \in \mathbb{Z}[\sqrt{n}]$.
+    Then $(a + b\sqrt{n}) - (c + d\sqrt{n}) = (a - c) + (b - d)\sqrt{n}$.
+    Now, $a - c \in \mathbb{Z}$ and $b - d \in \mathbb{Z}$ thus $\mathbb{Z}[\sqrt{n}]$ is closed under subtraction.
+    Similarly $(a + b\sqrt{n})(c + d\sqrt{n}) = (ac + bdn) + (ad + bc)\sqrt{n}$.
+    Now, $ac + bdn \in \mathbb{Z}$ and $ad + bc \in \mathbb{Z}$ thus $\mathbb{Z}[\sqrt{n}]$ is closed under multiplication.
+    It follows from Theorem 7.1 that $\mathbb{Z}[\sqrt{n}]$ is a subring of $\mathbb{C}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $\alpha = \sqrt[3]{5}$ 
+        and $\mathbb{Z}[\alpha] = \{a + b\alpha + c \alpha^2 \mid a, b, c \in \mathbb{Z}\} \subseteq \mathbb{R}$.
+    Prove that $\mathbb{Z}[\alpha]$ is a subring of $\mathbb{R}$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $a + b\alpha + c\alpha^2, d + e\alpha + f\alpha^2 \in \mathbb{Z}[\alpha]$.
+    Then $(a + b\alpha + c\alpha^2) - (d + e\alpha + f\alpha^2) = (a - d) + (b - e)\alpha + (c - f)\alpha^2$.
+    Now, $a - d, b - e, c - f \in \mathbb{Z}$ thus $\mathbb{Z}[\alpha]$ is closed under subtraction.
+    Similarly $
+    (a + b\alpha + c\alpha^2)(d + e\alpha + f\alpha^2)
+    = (ad + 5bf + 5ce) + (ae + bd + 5cf)\alpha + (af + be + cd)\alpha^2$.
+    To see this simply note that $\alpha^3 = 5$ and $\alpha^4 = 5\alpha$.
+    Now, $ad + 5bf + 5ce, ae + bd + 5cf, af + be + cd \in \mathbb{Z}$ thus $\mathbb{Z}[\alpha]$ is closed under multiplication.
+    It follows from Theorem 7.1 that $\mathbb{Z}[\alpha]$ is a subring of $\mathbb{R}$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Show that $m\mathbb{Z}$ is a subring of $n\mathbb{Z}$ if and only if 
+        $n$ divides $m$. (See Example 7.7)
+\end{tcolorbox} 
+
+\begin{proof}
+    ($\longrightarrow$) Suppose $m\mathbb{Z}$ is a subring of $n\mathbb{Z}$.
+    If $m = 0$ then clearly $n \mid m$.
+    Therefore, suppose $m \ne 0$.
+    Now, $m\mathbb{Z} \subseteq n\mathbb{Z}$.
+    Thus $m \in n\mathbb{Z}$ since $m \in m\mathbb{Z}$.
+    Therefore there exists $k \in \mathbb{Z}$ such that $m = nk$,
+    so $n \mid m$.
+
+    ($\longleftarrow$) Suppose $n$ divides $m$.
+    Let $x, y \in m\mathbb{Z}$.
+    Then $x = m k_1, y = m k_2$, for some $k_1, k_2 \in \mathbb{Z}$.
+    Since $n \mid m$ there exists $k_3 \in \mathbb{Z}$ such that $x = m k_1 = n(k_3 k_1) \in n \mathbb{Z}$.
+    Thus $m \mathbb{Z} \subseteq n \mathbb{Z}$.
+    Then $x - y = m k_1 - m k_2 = m(k_1 - k_2) \in m\mathbb{Z}$.
+    Thus $m\mathbb{Z}$ is closed under subtraction.
+    Similarly, $x y = (m k_1)(m k_2) = m(k_1 m k_2) \in m\mathbb{Z}$.
+    Thus $m\mathbb{Z}$ is closed under multiplication.
+    It follows from Theorem 7.1 that $m\mathbb{Z}$ is a subring of $n\mathbb{Z}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    (a) Show that $4\mathbb{Z} \cap 6\mathbb{Z} = 12\mathbb{Z}$.
+
+    (b) Let $m$ and $n$ be two positive integers. Show that 
+        $m\mathbb{Z} \cap n\mathbb{Z} = f\mathbb{Z}$
+        where $l$ is the least common multiple of $m$ and $n$.
+        (See Exercise 2.11.)
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $4\mathbb{Z} \cap 6\mathbb{Z}$.
+    Then $x \in 4\mathbb{Z}$ and $x \in 6\mathbb{Z}$; thus
+        there exist $k_1, k_2 \in \mathbb{Z}$ such that $x = 4 k_1$ and $x = 6 k_2$.
+    Now, dividing by $\gcd(6,4) = 2$ we obtain $2 k_1 = 3 k_2$.
+    Then, since $\gcd(2,3)=1$, it must be that $2 \mid k_2$.
+    Thus, there exists $k_3 \in \mathbb{Z}$ such that $k_2 = 2 k_3$.
+    Then $x = 6 k_2 = 6 (2 k_3) = 12 k_3$.
+    Therefore, $x \in 12\mathbb{Z}$, so
+        $4\mathbb{Z} \cap 6\mathbb{Z} \subseteq 12\mathbb{Z}$.
+
+    To prove the converse, let $x$ be an arbitrary element in $12\mathbb{Z}$.
+    Thus, for some $k \in \mathbb{Z}$, $x = 12 k$.
+    Then it clearly follows that $x = 4 (3 k)$ and $x = 6 (2 k)$;
+        therefore $x \in 4\mathbb{Z}$ and $x \in 6\mathbb{Z}$.
+    Thus $x \in 4\mathbb{Z} \cap 6\mathbb{Z}$ as required.
+\end{proof}
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $m\mathbb{Z} \cap n\mathbb{Z}$.
+    Then $x \in m\mathbb{Z}$ and $x \in n\mathbb{Z}$; thus
+        there exist $k_1, k_2 \in \mathbb{Z}$ such that
+        $x = n k_1$ and $x = m k_2$.
+    Let $d = \gcd(n,m)$. Dividing by $d$ we obtain
+        $\frac{n}{d} k_1 = \frac{m}{d} k_2$.
+    Then, since $\gcd\!\left(\frac{n}{d}, \frac{m}{d}\right) = 1$,
+        it must be that $\frac{n}{d} \mid k_2$.
+    Thus, there exists $k_3 \in \mathbb{Z}$ such that
+        $k_2 = \frac{n}{d} k_3$.
+    Then
+        $x = m k_2 = m \left(\frac{n}{d} k_3\right)
+           = \frac{mn}{d} k_3$.
+    Now $\frac{mn}{d} = \operatorname{lcm}(m,n) = f$.
+    Thus $x \in f\mathbb{Z}$.
+
+    To prove the converse, let $x$ be an arbitrary element in $f\mathbb{Z}$.
+    Thus, for some $k \in \mathbb{Z}$, $x = f k$.
+    Since $f = \operatorname{lcm}(m,n)$, there exist $k_1, k_2 \in \mathbb{Z}$
+        such that $x = m k_1$ and $x = n k_2$.
+    Therefore, $x \in m\mathbb{Z}$ and $x \in n\mathbb{Z}$.
+    Thus $x \in m\mathbb{Z} \cap n\mathbb{Z}$ as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $S$ be the set of all polynomials in $\mathbb{Z}[x]$ which have $0$ 
+    as constant term (that is, polynomials in the form 
+    $a_1 x + a_2 x^2 + \cdots + a_n x^n$.) Show that $S$ is a subring of 
+    $\mathbb{Q}[x]$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Clearly $S$ is not empty.
+    There is no way for the subtraction of two polynomials in $S$ to 
+        produce a non-zero constant term, since both polynomials have
+        constant term $0$.
+    There is no way for the multiplication of two polynomials in $S$
+        to produce a non-zero constant term, since this would require
+        the multiplication of two non-zero constant terms.
+    Thus $S$ is closed under subtraction and multiplication,
+        and by Theorem 7.1, $S$ is a subring of $\mathbb{Q}[x]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $f$ be some polynomial with rational coefficients, with 
+        $deg(f) > 0$, and let $S$ be the set of all polynomials $g$
+        in $\mathbb{Q}[x]$ for which $f$ divides $g$. Show that $S$
+        is a subring of $\mathbb{Q}[x]$. How is this exercise related to the 
+        previous exercise?
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $\phi, \psi$ be arbitrary elements in $S$.
+    Then $f \theta_1 = \phi$ and $f \theta_2 = \psi$ for some
+        $\theta_1, \theta_2 \in \mathbb{Q}[x]$.
+    Then
+        $\phi - \psi = f \theta_1 - f \theta_2 = f(\theta_1 - \theta_2)$.
+    Since $\theta_1 - \theta_2 \in \mathbb{Q}[x]$, it follows that
+        $\phi - \psi \in S$.
+    Thus $S$ is closed under subtraction.
+    Similarly,
+        $\phi \psi = (f \theta_1)(f \theta_2) = f(f \theta_1 \theta_2)$.
+    Since $f \theta_1 \theta_2 \in \mathbb{Q}[x]$, it follows that
+        $\phi \psi \in S$.
+    Thus $S$ is closed under multiplication.
+    Since $0 = f \cdot 0 \in S$, it follows by Theorem 7.1 that
+        $S$ is a subring of $\mathbb{Q}[x]$.
+\end{proof}
+
+\textbf{Solution:} The previous problem is a specific case where $f = x$.
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    (a) Show that the set $\{(a, a) \mid a \in \mathbb{Z}\}$
+    is a subring of $\mathbb{Z} \times \mathbb{Z}$.
+
+    (b) Now consider the set $\{(a, -a) \mid a \in \mathbb{Z}\}$.
+    Show that this set is closd under subtraction, but not closed under 
+    multiplication, and so is \emph{not} a subring of $\mathbb{Z} \times \mathbb{Z}$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Notice $(1, 1) \in \{(a, a) \mid a \in \mathbb{Z}\} \ne \emptyset$.
+    Let $(a, a), (b, b)$ be arbitrary elements in $\{(a, a) \mid a \in \mathbb{Z}\}$.
+    Then $(a, a) - (b, b) = (a - b, a - b) \in \{(a, a) \mid a \in \mathbb{Z}\}$.
+    Thus $\{(a, a) \mid a \in \mathbb{Z}\}$ is closed under subtraction.
+    Similarly, $(a, a)(b, b) = (ab, ab) \in \{(a, a) \mid a \in \mathbb{Z}\}$.
+    Thus $\{(a, a) \mid a \in \mathbb{Z}\}$ is closed under multiplication.
+    It follows by Theorem 7.1 that $\{(a, a) \mid a \in \mathbb{Z}\}$ is a subring of $\mathbb{Z} \times \mathbb{Z}$.
+\end{proof}
+
+\begin{proof}
+    Let $(a, -a), (b, -b)$ be arbitrary elements in $\{(a, -a) \mid a \in \mathbb{Z}\}$.
+    Then $(a, -a) - (b, -b) = (a - b, -a + b) = (a - b, -(a - b)) \in \{(a, -a) \mid a \in \mathbb{Z}\}$.
+    Thus $\{(a, -a) \mid a \in \mathbb{Z}\}$ is closed under subtraction.
+    But $(a, -a)(b, -b) = (ab, -ab)$. Now $ab = -ab$ iff $ab = 0$, 
+    so $\{(a, -a) \mid a \in \mathbb{Z}\}$ is not closed under multiplication.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Show that the intersection of any two subrings of a ring is a subring.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $R$ be a ring, and let $S_1, S_2$ be two subrings of $R$.
+    Let $x, y$ be arbitrary elements in $S_1 \cap S_2$.
+    Since $x, y \in S_1$, it follows that $x - y \in S_1$.
+    Similarly, $x - y \in S_2$, so $x - y \in S_1 \cap S_2$.
+    Also, since $x, y \in S_1$, it follows that $xy \in S_1$.
+    Similarly, $xy \in S_2$, so $xy \in S_1 \cap S_2$.
+    Finally, note that $0 \in S_1$ and $0 \in S_2$, so $0 \in S_1 \cap S_2$ and the intersection is nonempty.
+    By Theorem 7.1, $S_1 \cap S_2$ is a subring of $R$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Show by example that the union of any two subrings of a ring need \emph{not}
+    be a subring. \emph{Hint: } You can certainly find such an example by working in $\mathbb{Z}$.
+\end{tcolorbox} 
+
+\textbf{Solution:}
+Consider $2\mathbb{Z}$ and $3\mathbb{Z}$ which are subrings of $\mathbb{Z}$.
+Notice, $2 \in 2\mathbb{Z}$ and $3 \in 3\mathbb{Z}$ thus $2, 3 \in 2\mathbb{Z} \cup 3 \mathbb{Z}$, 
+    but $2 + 3 = 5 \notin 2\mathbb{Z} \cup 3\mathbb{Z}$.
+Thus, $2\mathbb{Z} \cup 3\mathbb{Z}$ is not a subring of $\mathbb{Z}$.
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Suppose that $R$ is a ring with unity, and $R$ has at least two elements.
+    Prove that the additive identity of $R$ is not equal to the multiplicative 
+        identity.
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $1 \in R$ is both the additive and multiplicative identity.
+    Furthermore, let $a$ be an element in $R$ not equal to $1$.
+    Then $a + 1 = a$ and $a \cdot 1 = a$, thus $a + 1 = a \cdot 1 = a$.
+    But this means $a = 0$, and since $a$ was arbitrary, for all 
+        $x \in R$, $x = 0$, contradicting that $R$ has more than one element.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    Show that if a ring has unity, it is unique.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $R$ be a ring with unity.
+    Suppose $x, y \in R$ are both the unity in $R$.
+    Then $x \cdot y = x$ and $x \cdot y = y$, thus $x = y$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 18, breakable]
+    (a) Let $R$ be a ring, and consider the set $R \times \mathbb{Z}$
+        of all ordered pairs with entries from $R$ and $\mathbb{Z}$.
+        Equip this set with operations
+        $(r, n) + (s, m) = (r + s, n + m)$
+        and
+        $(r, n)(s, m) = (rs + mr + ns, nm)$. Prove that these operations make 
+        $R \times \mathbb{Z}$ a ring. (Note that this is \emph{not} the 
+        same ring discussed in Example 6.10.)
+
+    (b) Show that $R \times \mathbb{Z}$ under these operations has unity, 
+        even if $R$ does not.
+
+    (c) Show that $R \times \{0\}$ is a subring of the ring $R \times \mathbb{Z}$.
+        Argue that this ring is ``essentially the same'' as $R$. (\emph{Note: } Later in the 
+        book we will make precise the notion of two rings which are ``essentially the same'', by defining 
+        the \emph{ring isomorphism}.) This means that any ring without unity can essentially be found as 
+        a subring of a ring which has unity.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $(a, b), (c, d), (e, f)$ be arbitrary elements in $R \times \mathbb{Z}$.
+
+    (\textbf{Rule 1})
+    \[[(a, b) + (c, d)] + (e, f) = (a + c, b + d) + (e, f) = ((a + c) + e, (b + d) + f).\]
+    Then the following holds since $R, \mathbb{Z}$ are both rings.
+    \[((a + c) + e, (b + d) + f) = (a + (c + e), b + (d + f)) = (a, b) + (c + e, d + f) = (a, b) + [(c, d) + (e, f)].\]
+
+    (\textbf{Rule 2})
+
+    (\textbf{Rule 3})
+
+    (\textbf{Rule 4})
+
+    (\textbf{Rule 5})
+
+    (\textbf{Rule 6 Left})
+
+    (\textbf{Rule 6 Right})
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+    Some students wonder why we require that addition in a ring be commutative;
+    this exercise shows why. Suppose that $R$ is a set with two operations 
+    $+$ and $\circ$, which satisfy the rules defining a ring, except Rule 1; that is,
+    we do not assume that the addition is commutative. Suppose that $R$ also has a 
+    multiplicative identity $1$. Then prove that the addition in $R$ must in fact 
+    be commutative, and so $R$ under the given operations is a ring.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+    Consider the ring $S$ of all real-valued sequences, as discussed in 
+    Exercise 6.19. Let $F$ be the set of all sequences $\{x_1, x_2, x_2, \ldots\}$
+    where at most finitely many of the entries $x_i$ are non-zero.
+    Prove that $F$ is a subring of $S$. Does $F$ have unity?
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+    Let $F$ be the ring of finitely non-zero real-valued sequences, considered 
+    in the previous exercise. Now let $W$ consist of all sequences 
+    $(x_1, x_2, x_3, \ldots)$ where $0 = x_2 = x_3 = \cdots$. Show that $W$
+    is a subring that has unity, even though the larger ring $F$ does not work.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 25, breakable]
+    Let $R$ be a commutative ring with unity.
+    An element $e \in R$ is \textbf{idempotent}
+    if $e^2 = e$. Note that the elements $0$ and $1$ are 
+    idempotent. Throughout this problem assume that $e$ 
+    is idempotent in $R$.
+
+    (a) Find a commutative ring with unity with at least one idempotent element,
+        other than $0$ and $1$.
+
+    (b) Let $f = 1 - e$. Prove that $f$ is idempotent, too.
+
+    (c) Let $Re = \{re \mid r \in R\}$. Prove that $Re$ is a subring 
+    of $R$, and that $e$ is unity for this subring.
+
+    (d) Prove that $Re \cap Rf = \{0\}$ (where $f$ is the idempotent from part b)
+
+    (e) Prove that for all $r \in R$, $r = a + b$, where $a \in Re$ and $b \in Rf$.
+\end{tcolorbox} 

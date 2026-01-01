@@ -1,0 +1,240 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Consider the set 
+    \[i \mathbb{R} = \{a_i \mid a \in \mathbb{R}\} \subseteq \mathbb{C}\]
+    these are the \textbf{imaginary} numbers.
+    Prove that this is a subgroup of the additive group $\mathbb{C}$.
+    Is $I$ a subring of the ring $\mathbb{C}$?
+    Similarly, show that $i\mathbb{Z} = \{ni \mid n \in \mathbb{Z}\}$
+        is a subgroup of the additive group of the Gaussian
+        integers $\mathbb{Z}[i]$.
+\end{tcolorbox} 
+
+
+\begin{proof}
+    Clearly the set is nonempty.
+    Let $xi, yi \in i\mathbb{R}$.
+    Then $xi - yi = (x - y)i \in i\mathbb{R}$.
+    By Theorem 35.2, $i\mathbb{R}$ is a subgroup of $\mathbb{C}$.
+\end{proof}
+
+\textbf{Solution:} No, $i\mathbb{R}$ is not a subring of $\mathbb{C}$ since it is 
+not closed under multiplication.
+
+\begin{proof}
+    Clearly the set is nonempty.
+    Let $xi, yi \in i\mathbb{Z}$.
+    Then $xi - yi = (x - y)i \in i\mathbb{Z}$.
+    By Theorem 35.2, $i\mathbb{Z}$ is a subgroup of $\mathbb{Z}[i]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove Theorem 25.1c. That is, suppose that $G$ 
+    is a group and $g, h \in G$. Prove that $gx = h$
+    has a unique solution; likewise, prove that 
+    $xg = h$ has a unique solution. (We have 
+    written the equations multiplicatively.)
+\end{tcolorbox} 
+
+\begin{proof}
+    Notice $gx = h \iff g^{-1}gx = g^{-1}h \iff x = g^{-1}h$.
+    Similarly $xg = h \iff xgg^{-1} = hg^{-1} \iff x = h g^{-1}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove Theorem 25.1d. That is, prove that in a group,
+    every element has exactly one inverse.
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $G$ is a group and let $x \in G$.
+    Futhermore, suppose $x$ has two inverses namely: $x^{-1}_1, x^{-1}_2$.
+    Then $x x^{-1}_1 = 1 = x x^{-1}_2$.
+    Then by the cancellation property $x^{-1}_1 = x^{-1}_2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Prove the subgroup Theorem 25.2: A non-empty subset $H$ of a group $G$
+    is a subgroup if and only if whenever $h, k \in H$, then $h k^{-1} \in H$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $H$ is a nonempty subset of a group $G$.
+
+    ($\longrightarrow$) 
+    Suppose $H$ is a subgroup of $G$.
+    Let $h, k$ be arbitrary elements in $H$.
+    Since $H$ is a subgroup, $k^{-1} \in H$.
+    Also, since $H$ is closed under multiplication, $hk^{-1} \in H$ as required.
+
+    ($\longleftarrow$)
+    Suppose that if $h, k \in H$, then $hk^{-1} \in H$.
+
+    (\textbf{Rule 1})
+    Associativity holds in $G$, thus it holds in $H$.
+
+    (\textbf{Rule 2})
+    Since $H$ is nonempty, let $h \in H$.
+    Then $hh^{-1} = 1 \in H$.
+    Thus the multiplicative identity belongs to $H$.
+
+    (\textbf{Rule 3})
+    Let $h \in H$.
+    Since $1, h \in H$, it follows that $1h^{-1} = h^{-1} \in H$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Show that if $H$ and $K$ are subgroups of the group $G$,
+    then $H \cap K$ is also a subgroup of $G$. Show by example
+    that $H \cup K$ need not be a subgroup. (This exercise 
+    and should be compared to Exercises 7.9 and 7.10.)
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $H$ and $K$ are subroups of the group $G$.
+    Now, $1 \in H$ and $1 \in K$ since they are subgroups 
+        thus $1 \in H \cap K$.
+    Therefore, $H \cap K$ is nonempty.
+    Let $x, y \in H \cap K$.
+    We know $x y^{-1} \in H$ and $x y^{-1} \in K$
+        since $H, K$ are subgroups of $G$.
+    Thus $x y^{-1} \in H \cap K$.
+    By Theorem 35.2, $H \cap K$ is a subgroup of $G$.
+\end{proof}
+
+\begin{proof}
+    Consider the group $\langle\mathbb{Z}, +\rangle$.
+    Let $H = 2\mathbb{Z}$ and $K = 3\mathbb{Z}$.
+    Then $H$ and $K$ are subgroups of $\mathbb{Z}$.
+
+    But $2 \in H$ and $3 \in K$, and $2 + 3 = 5 \notin H \cup K$.
+    Thus $H \cup K$ is not closed under addition and therefore is not a subgroup.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Suppose that $G$ is a group, written multiplicatively.
+    Let $g \in G$, and suppose that $g^2 = g$.
+    Prove that $g$ is the identity.
+\end{tcolorbox} 
+
+\begin{proof}
+    We have $g^2 = gg = g = g1$.
+    Cancellation on the left shows $g = 1$, as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $G$ be a group, and $a, b, c \in G$.
+    Prove that the equation $axc = b$ has a unique solution in $G$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Notice $axc = b \iff axcc^{-1} = bc^{-1} \iff ax = bc^{-1} \iff a^{-1}ax = a^{-1}bc^{-1} \iff x = a^{-1}bc^{-1}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    \textcircled{1} Suppose that $G$ is equipped with an associative operation $*$.
+    \textcircled{2} Suppose that $G$ has an element $e$ so that $g * e = g$,
+        for all $g \in G$; \textcircled{3} futhermore, for all $g \in G$,
+        there exists an element $g' \in G$, so that 
+        $g * g' = e$. Why are these assumptions apparently weaker 
+        than decreeing that $G$ be a group? Prove, however,
+        that these assumptions are sufficient to force $G$ to 
+        be a group.
+\end{tcolorbox} 
+
+\textbf{Solution: } A group requires the Rule 2 and 3 to commute.
+
+\begin{proof}
+    (\textbf{Rule 1}) It is given that $*$ is associative.
+
+    (\textbf{Rule 2}) 
+    Notice $g * g' = e \iff g * (g' * e) = e \textcircled{2} \iff (g * g') * e  = e \textcircled{1} \iff g * g' = e \textcircled{3}$.
+
+    (\textbf{Rule 3}) 
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Show that if $(xy)^{-1} = x^{-1} y^{-1}$ for all $x$ and $y$
+        in the group $G$. Then $G$ is abelian.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Complete the following multiplicaiton table so tthe following 
+    will be a group.
+    \[
+    \begin{array}{c|cccc}
+    & a & b & c & d \\ \hline
+    a        &  &  &  &  \\
+    b        &  &  &  & d \\
+    c        &  &  & d &  \\
+    d        &  &  &  &  \\
+    \end{array}
+    \]
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Show that $n \mathbb{Z}$ is a subgroup of the additive group 
+    of integers $\mathbb{Z}$, for all integers $n$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Clearly $n \mathbb{Z}$ is nonempty (consider $5n \in \mathbb{Z}$).
+    Let $x, y$ be arbitrary elements in $n \mathbb{Z}$.
+    Thus $x = k_1 n$ and $y = k_2 n$ for some $k_1, k_2 \in \mathbb{Z}$.
+    Then $x - y = k_1 n - k_2 n = (k_1 - k_2)n \in n \mathbb{Z}$.
+    Thus $n \mathbb{Z}$ is closed under subtraction.
+    It follows from Theorem 35.2 that $n \mathbb{Z}$ is a subgroup of $\mathbb{Z}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Find all finite subgroups of the additive group $\mathbb{C}$.
+    What can you say about all finite subgroups of the multiplicative 
+    group $\mathbb{C}^*$?
+\end{tcolorbox} 
+
+\textbf{Solution: } Both have no nontrivial finite subgroups.
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Argue \emph{geometrically} that the dihedral group, $D_n$,
+    has a subgroup of order $n$.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Let $G$ be a group and $a \in G$. Define the \textbf{centralizer}
+    of $a$ to be 
+    \[C(a) = \{g \in G \mid ga = ag\}\]
+    That is, $C(a)$ consists of all elements that commute with $a$.
+
+    (a) Find $C(\rho)$ in $D_3$.
+
+    (b) Find $C(4)$ in $\mathbb{Z}_7$.
+
+    (c) Show that $C(a)$ is a subgroup of $G$.
+
+    (d) Let $H$ be a subgroup of $G$, and let 
+        \[C(H) = \{g \in G \mid gh = hg \text{ for all } h \in H\}\]
+        call $C(H)$ the \textbf{centralizer} of $H$. 
+        Show that $C(H)$ is a subgroup of $G$.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Let $Z(G)$, the \textbf{center of} $G$, be thset of elements of $G$
+        that commute with all elements of $G$.
+
+    (a) Find the center of the quaternions, defined in Example 24.15.
+
+    (b) Find the center of $\mathbb{Z}_5$.
+
+    (c) Show that $Z(G)$ is a subgroup of $G$.
+
+    (d) If $Z(G) = G$, what can you say about the group $G$.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    If $H$ is a subgroup of $G$, then show that $Z(G) \cap H$
+        is a subgroup of $Z(H)$.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+    Generalize the situtation in the previous two exercises,
+        replacing $2$ and $3$ by some positive integer $m$.
+\end{tcolorbox} 

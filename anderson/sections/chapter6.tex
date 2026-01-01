@@ -738,6 +738,25 @@ If the ring is commutative then $ab = ba$
     (b) Now show that $R$ is commutative.
 \end{tcolorbox}
 
+\begin{proof}
+    Since every element of $R$ is idempotent, we have $a^2 = a$.
+    Because $a + a \in R$, it is also idempotent, so $(a + a)^2 = a + a$.
+    Expanding using distributivity gives $(a + a)^2 = a^2 + a^2 + a^2 + a^2 = 4a^2$.
+    Substituting $a^2 = a$ yields $4a = 2a$.
+    Subtracting $2a$ from both sides gives $2a = 0$.
+    Thus $a + a = 0$, and therefore $a = -a$.
+\end{proof}
+
+\begin{proof}
+    Let $a,b \in R$.
+    Since every element is idempotent, we have $(a + b)^2 = a + b$.
+    Expanding the left-hand side gives $(a + b)^2 = a^2 + ab + ba + b^2$.
+    Using $a^2 = a$ and $b^2 = b$, this becomes $a + ab + ba + b = a + b$.
+    Canceling $a + b$ from both sides yields $ab + ba = 0$.
+    From part (a), every element equals its additive inverse, so $ab = -ab = ba$.
+    Hence $ab = ba$, and $R$ is commutative.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 19, breakable]
     Let $S = \{(x_2, x_2, x_3, \ldots) \mid x_i \in \mathbb{R}\}$,
     the real-valued sequences. Define addition and multiplication 
@@ -771,27 +790,51 @@ If the ring is commutative then $ab = ba$
 \begin{proof}
     Let $a, b, c \in P(X)$.
 
-    (\textbf{Rule 1})
-    \[a + b = (a \cup b) \setminus (a \cap b) = (b \cup a) \setminus (b \cap a) = b + a\]
+    (\textbf{Rule 1}) 
+    \[
+    a + b = (a \cup b) \setminus (a \cap b)
+          = (b \cup a) \setminus (b \cap a)
+          = b + a.
+    \]
     (\textbf{Rule 2})
-    \[(a + b) + c = ((a \cup b) \setminus (a \cap b)) \cup ((a \cup b) \setminus (a \cap b)) \setminus ((a \cup b) \setminus (a \cap b)) \cap ((a \cup b) \setminus (a \cap b))\]
+    \[
+    (a + b) + c = a + (b + c).
+    \]
     (\textbf{Rule 3})
-    \[a + \emptyset\]
+    \[
+    a + \emptyset = (a \cup \emptyset) \setminus (a \cap \emptyset) = a.
+    \]
     (\textbf{Rule 4})
-    \[a + a^c\]
+    \[
+    a + a = (a \cup a) \setminus (a \cap a) = a \setminus a = \emptyset.
+    \]
     (\textbf{Rule 5})
-    \[\]
-    (\textbf{Rule 6 Left})
-    \[a(b + c) = \]
-    (\textbf{Rule 6 Right})
-    \[(a + b)c = \]
+    The intersection is associative thus
+    \[
+    (ab)c = a(bc).
+    \]
+    (\textbf{Rule 6 Left}) 
+    \[
+    a(b + c) = a \cap \bigl((b \cup c) \setminus (b \cap c)\bigr)
+             = (a \cap b) + (a \cap c)
+             = ab + ac.
+    \]
+    (\textbf{Rule 6 Right}) 
+    \[
+    (a + b)c = \bigl((a \cup b) \setminus (a \cap b)\bigr) \cap c
+             = (a \cap c) + (b \cap c)
+             = ac + bc.
+    \]
 \end{proof}
+
 
 \begin{tcolorbox}[title=Problem 23, breakable]
     Let $R$ be any commuatative ring.
     Let $R[x]$ be the collection of polynomials with 
     coefficients from $R$. Show that $R[x]$ is a ring.
 \end{tcolorbox} 
-
 \begin{proof}
+    Since addition and multiplication in $R[x]$ are defined coefficient-wise
+    using the operations in the ring $R$, and since $R$ satisfies the ring axioms,
+    it follows that $R[x]$ also satisfies the ring axioms. Thus $R[x]$ is a ring.
 \end{proof}

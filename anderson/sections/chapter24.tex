@@ -1,0 +1,265 @@
+\begin{tcolorbox}[title=Problem 5, breakable]
+    In this problem we consider permutations of the set $\mathbb{R}$.
+
+    (a) Let $S(\mathbb{R})$ denote the set of all real-valued functions 
+    $f : \mathbb{R} \longrightarrow \mathbb{R}$, such that $f$ is 
+    \emph{one-to-one} and \emph{onto}. Prove that $S(\mathbb{R})$ is 
+    a group, where the operation is functional composition.
+
+    (b) Now let $A(\mathbb{R})$ be the set of functions from 
+    $S(\mathbb{R})$ that are also \textbf{order preserving}: By 
+    this we mean that if $x < y$, then $f(x) < f(y)$. Prove that 
+    $A(\mathbb{R})$ is a group under functional composition.
+\end{tcolorbox} 
+
+\begin{proof}
+Let $f, g, h \in S(\mathbb{R})$.
+Furthermore, let $\iota : \mathbb{R} \longrightarrow \mathbb{R}$ be a function
+defined by $\iota(x) = x$.
+Notice that $\iota \in S(\mathbb{R})$.
+
+\begin{proof}
+    Let $f, g \in A(\mathbb{R})$.
+    We know that $f$ and $g$ are bijections and order preserving.
+    Let $\iota : \mathbb{R} \to \mathbb{R}$ be defined by $\iota(x)=x$.
+
+    (\textbf{Rule 1})
+    Let $x,y \in \mathbb{R}$ such that $x < y$.
+    Since $g$ is order preserving, $g(x) < g(y)$.
+    Since $f$ is order preserving, $f(g(x)) < f(g(y))$.
+    Thus $(f \circ g)(x) < (f \circ g)(y)$.
+    It follows that $f \circ g \in A(\mathbb{R})$.
+
+    (\textbf{Rule 2})
+    Suppose $x<y$. Then $\iota(x)<\iota(y)$, so $\iota$ is order preserving.
+    Thus $\iota \in A(\mathbb{R})$.
+
+    (\textbf{Rule 3})
+    Let $f \in A(\mathbb{R})$.
+    Since $f$ is a bijection, it has an inverse $f^{-1}$.
+    Let $x,y \in \mathbb{R}$ such that $x<y$.
+    Then $f(x) < f(y)$, and applying $f^{-1}$ gives
+    $f^{-1}(x) < f^{-1}(y)$.
+    It follows that $f^{-1}$ is order preserving, and $f^{-1} \in A(\mathbb{R})$.
+\end{proof}
+
+
+(\textbf{Rule 1})
+    Let $x$ be an arbitrary real number.
+    Notice $
+    ((f \circ g) \circ h)(x)
+    = (f \circ g)(h(x))
+    = f(g(h(x)))
+    = f((g \circ h)(x))
+    = (f \circ (g \circ h))(x)$.
+
+    (\textbf{Rule 2})
+    Notice that $f \circ \iota = \iota \circ f = f$.
+
+    (\textbf{Rule 3})
+    Since $f$ is a bijection, it has an inverse $f^{-1}$ such that
+    $f \circ f^{-1} = f^{-1} \circ f = \iota$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $n$ be a positive integer and $\mathcal{C}$ be a circle.
+    Now for $i = 0, 1, \ldots, n - 1$, let $p_i$ be the rotation of 
+    $\mathcal{C}$ counterclockwise through the angle 
+    $2 \pi i / n$ radians. Show that this set of rotations is a group 
+    under the operation of composition. How many elements are in this group?
+\end{tcolorbox} 
+
+\begin{proof}
+Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
+
+(\textbf{Rule 1})
+    Notice that
+    \[
+    p_i \circ p_j = p_{\, (i+j)\bmod n} = p_j \circ p_i.
+    \]
+    It follow that the set of closed under composition.
+
+    (\textbf{Rule 2})
+    Notice that
+    \[
+    p_i \circ p_{\, (n-i)\bmod n} = p_0.
+    \]
+
+    (\textbf{Rule 3})
+    Since $p_0$ is rotation by angle $0$, it follows that
+    \[
+    p_i \circ p_0 = p_0 \circ p_i = p_i.
+    \]
+\end{proof}
+
+\textbf{Solution:} There are $n$ elements in this group.
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $G$ be a group with operation $\circ$.
+    Suppose that $x \circ x = 1$, for all $x \in G$.
+    Prove that $G$ is abelian.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $x, y \in G$.
+    Then $x \circ y = (x \circ y)^{-1} = y^{-1} \circ x^{-1} = y \circ x$ as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $R$ be any ring, and suppose that $\phi, \psi \in Aut(R)$.
+    Show that the composition of $\phi \psi \in Aut(R)$, by checking 
+    that this function has the appropriate domain and range, is one-to-one,
+    onto, and preserves addition and mutiplication. (This exercise 
+    verfies that $Aut(R)$ is closed under functional composition; in 
+    Example 24.18 we complete the verification that $Aut(R)$ is a group under this 
+    operation.)
+\end{tcolorbox} 
+
+\begin{proof}
+    Since $dom(\phi \psi) = dom(\psi) = R$, the domain of $\phi \psi$ is valid.  
+    Now, since $ran(\psi) = R$ and $\phi$ is one-to-one and onto, the range of the composition $\phi \psi$ is $R$.  
+
+    Let $x, y \in R$.  
+    Then $\phi(\psi(x)) = \phi(\psi(y))$, and since $\phi$ is one-to-one, it follows that $\psi(x) = \psi(y)$.  
+    Then, since $\psi$ is one-to-one, $x = y$; thus $\phi \psi$ is one-to-one.  
+
+    Now let $x$ be an arbitrary element in $R$.  
+    Since $\phi$ is onto, there exists $y \in R$ such that $\phi(y) = x$.  
+    Since $y \in R$ and $\psi$ is onto, there exists $z \in R$ such that $\psi(z) = y$.  
+    Then $\phi \psi(z) = x$; thus $\phi \psi$ is onto.  
+
+    Therefore $\phi \psi : R \longrightarrow R$ is a one-to-one, onto function as required.  
+
+    Now let $x, y$ be arbitrary elements in $R$.  
+    Then $(\phi \psi)(x + y) = \phi(\psi(x + y)) = \phi(\psi(x) + \psi(y))$.  
+    Similarly, $(\phi \psi)(xy) = \phi(\psi(x)\psi(y))$.  
+    Thus $\phi \psi$ is closed under addition and multiplication.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Prove that $Aut(\mathbb{Z})$ is a group with only 
+    a single element.
+\end{tcolorbox} 
+
+\begin{proof}
+    Since $\mathbb{Z}$ is a ring, by problem $10$, $\langle Aut(\mathbb{Z}), \circ \rangle$ is a group.
+    Now clearly $\iota \in Aut(\mathbb{Z})$.
+    Let $\psi$ be an arbitrary automorphism in $Aut(\mathbb{Z})$.
+    Consider $\psi(1 \cdot 1) = \psi(1^2) = \psi(1)\psi(1)$.
+    Thus $\psi(1)^2 = \psi(1)$, which in $\mathbb{Z}$ has two solutions: $0$ and $1$.
+    Suppose $\psi(1) = 0$. 
+    Then $\psi$ would map all integers to $0$, contradicting bijectivity.
+    To see this, let $x$ be an arbitrary integer.
+    Then $x = \underbrace{1 + 1 + \cdots + 1}_{x \text{ times}}$,
+    and it follows that $
+        \psi(x) = \underbrace{\psi(1) + \psi(1) + \cdots + \psi(1)}_{x \text{ times}} 
+                  = \underbrace{0 + 0 + \cdots + 0}_{x \text{ times}} = 0$.
+    It follows that $\psi(1) = 1$.
+    Therefore $\psi(x) = x$ for all $x \in \mathbb{Z}$, so $\psi = \iota$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Show that $Aut(\mathbb{Q})$ is a group with only 
+    a single element.
+\end{tcolorbox} 
+
+\begin{proof} 
+    Since $\mathbb{Q}$ is a ring, by problem $10$, $\langle Aut(\mathbb{Q}), \circ \rangle$ is a group. 
+    Now clearly $\iota \in Aut(\mathbb{Q})$. 
+    Let $\psi$ be an arbitrary automorphism in $Aut(\mathbb{Q})$. 
+    Consider $\mathbb{Z} \subset \mathbb{Q}$. By problem $10$, we know that for $a \in \mathbb{Z}$, $\psi(a) = a$. 
+    Now let $b \in \mathbb{Q} - \{0\}$ and note that 
+    $
+    \psi(1) = \psi\Big(b \cdot \frac{1}{b}\Big) = \psi(b) \psi\Big(\frac{1}{b}\Big) = b \cdot x = 1
+    $.
+    It must be that $x = \frac{1}{b}$, thus $\psi\Big(\frac{1}{b}\Big) = \frac{1}{b}$. 
+    Then let $x \in \mathbb{Q}$ be written as $\frac{a}{b}$ with $a \in \mathbb{Z}$ and $b \in \mathbb{Z} - \{0\}$. 
+    It follows that $\frac{a}{b} = a \cdot \frac{1}{b}$ and 
+    $
+    \psi\Big(a \cdot \frac{1}{b}\Big) = \psi(a) \psi\Big(\frac{1}{b}\Big) = a \cdot \frac{1}{b} = \frac{a}{b}
+    $.
+    Thus $\psi = \iota$, as required. 
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    In this problem you will sketch the proof that $Aut(\mathbb{R})$ is a group 
+    with only a single element. You will use the fact that all 
+    positive real numbers have exactly two square roots.
+
+    (a) Let $a, b, \in \mathbb{R}$. Show that $a \ge b$ if and only if 
+    $a - b = x^2$, for some $x \in \mathbb{R}$.
+
+    (b) Use part a to show that if $\rho \in Aut(\mathbb{R})$, then $a \ge b$
+    if and only if $\rho(a) \ge \rho(b)$.
+
+    (c) Argue that any automorphism of $\mathbb{R}$ is fixed on the rational 
+    numbers $\mathbb{Q}$ (See Exercise 12.)
+
+    (d) You may assume that between any two real numbers is a rational number.
+    Use this to prove that any automorphism of $\mathbb{R}$ is fixed on all 
+    real numbers, so $Aut(\mathbb{R})$ has only a single element.
+\end{tcolorbox} 
+
+\begin{proof}
+($\longrightarrow$) 
+    Suppose $a \ge b$.
+    It follows that $a - b \ge 0$.
+    Thus since $a - b \in \mathbb{R}$,
+    there exists $x \in \mathbb{R}$
+    such that $x^2 = a - b$.
+
+    ($\longleftarrow$)
+    Suppose $a - b = x^2$, for some $x \in \mathbb{R}$.
+    It follows that $x^2 \ge 0$ thus $a \ge b$.
+\end{proof}
+
+\begin{proof}
+    ($\longrightarrow$)
+    Suppose $\rho \in Aut(\mathbb{R})$.
+    Furthermore, suppose $a \ge b$.
+    Then $a + (-b) = x^2 \ge 0$.
+    Thus $\rho(a + (-b)) = \rho(a) + \rho(-b) = \rho(x^2) \ge \rho(0) = 0$.
+    Therefore $\rho(a) \ge \rho(b)$ as required.
+
+    ($\longleftarrow$) Suppose $\rho(a) \ge \rho(b)$.
+    Then $\rho(a) - \rho(b) \ge \rho(0) \iff \rho(a + (-b)) \ge \rho(0)$.
+    Thus $a + (-b) \ge 0$ and it follows that $a \ge b$.
+\end{proof}
+
+\begin{proof}
+    This follows directly from Problem 12 since $\mathbb{Q} \subset \mathbb{R}$.
+\end{proof}
+
+\begin{proof}
+    Now, since the rationals are fixed, if $\rho$ is not the identity it 
+        must be that an irrational number was mapped to a different irrational number.
+    That is, for some $x \in \mathbb{R}$ such that $x$ is irrational,
+        $\rho(x) = z$ such that $z$ is irrational and $x \ne z$.
+    Consider some arbitrary rational number between $x$ and $z$, say $l$.
+    Now there are two cases: either $x < l < z$ or $x > l > z$.
+    Then, wlog suppose $x < l < z$.
+    It follows that $\rho(x) < \rho(l) < \rho(z)$, but $\rho(l) = l$ and $\rho(x) = z$,
+    thus $z < l < \rho(z)$, which is a contradiction.
+    Thus the real numbers are fixed.
+    It follows that $Aut(\mathbb{R})$ contains one element $\iota$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Consider the field of complex numbers $\mathbb{C}$, and its group of automorphisms
+    $Aut(\mathbb{C})$. Show that this group has only two elements,
+    namely the identity automorphism $\iota$, and the 
+    complex conjugate map $\phi$ defined by $\phi(a + b) = a - bi$.
+    (See Exercise 16.4).
+\end{tcolorbox} 
+
+\begin{proof}
+    Clearly $\iota \in Aut(\mathbb{C})$.  
+    Let $\rho \in Aut(\mathbb{C})$.  
+    Then $\rho$ must fix all real numbers from Problem 13.  
+    Now consider $\rho(i)$. Since $i^2 = -1$ it follows that $\rho(i)^2 = \rho(i^2) = \rho(-1) = -1$.  
+    Thus $\rho(i) = i$ or $\rho(i) = -i$.  
+    Therefore, for any $a + bi \in \mathbb{C}$, either $\rho(a + bi) = a + bi$ or $\rho(a + bi) = a - bi$.  
+    Thus $Aut(\mathbb{C})$ has exactly two elements: $\iota$ and $\phi$.
+\end{proof}
+
+
