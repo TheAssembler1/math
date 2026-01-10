@@ -1,0 +1,167 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Prove that if $R$ is a commutative ring 
+    and $a \in R$ is a zero divisor, then $ax$
+    is also a zero divisor or $0$, for all $x \in R$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $R$ is a commutative ring and $a \in R$ is a zero divisor.
+    Then there exists $b \in R$ with $b \ne 0$ such that $ab = 0$.
+    Now, let $x$ be an arbitrary element of $R$.
+    If $ax = 0$, then we are done.
+    Suppose $ax \ne 0$.
+    Then $(ax)b = a(xb) = (ab)x = 0$.   
+    Since $b \ne 0$, it follows that $ax$ is a zero divisor.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Use Fermat's Little Theorem 8.7 to find 
+    $[6]^{-1}$ in $\mathbb{Z}_{19}$.
+\end{tcolorbox} 
+
+\begin{proof}
+    In $\mathbb{Z}_{19}$ the theorem asserts that 
+        $[6]^{18} = [1]$.
+    But then $[6][6]^{17} = [1]$ so $[6]^{-1} = [6]^{17} = [16]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Use Euclid's Algorithm to find $[36]^{-1}$ in $\mathbb{Z}_{101}$.
+\end{tcolorbox} 
+
+\begin{proof}
+    First notice $1 = 5 \cdot 101 - 14 \cdot 36$.
+    Thus $-14 \cdot 36 = 1 \pmod 101$.
+    Therefor $[36]^{-1} = [-14] = [87]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Suppose that $b \in R$, a non-commutative ring 
+    with unity. Suppose that $ab = bc = 1$;
+    that is, $b$ has a \textbf{right inverse} $c$
+    and a \textbf{left inverse} $a$. Prove that 
+    $a = c$ and that $b$ is a unit.
+\end{tcolorbox} 
+
+\begin{proof}
+    Now $a = a \cdot 1 = a(bc) = (ab)c = 1 \cdot c = c$ as required.
+    It directly follows that $b$ is a unit.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Let $R$ be a commutative ring with unity.
+    Suppose that $n$ is the least postivive integer 
+    for which we get $0$ when we add $1$ to itself $n$
+    times; we then say $R$ has a \textbf{characteristic n}.
+    If there exists no such $n$, we say that $R$ has 
+    \textbf{characteristic 0}. For example, the 
+    characteristic of $\mathbb{Z}_5$ is $5$ because 
+    $1 + 1 + 1 + 1 + 1 = 0$, whereas 
+    $1 + 1 + 1 + 1 \ne 0$. (Note that here we 
+    have suppressed `[' and `]'.)
+
+    (a) Show that, if the characteristic of a commutative ring with unity $R$ 
+        is $n$ and $a$ is \emph{any} of $R$, then $na = 0$. (Recall that 
+        $na = \underbrace{a + a + \cdots + a}_{n \text{ times}}$.)
+
+    (b) What are the characteristics of $\mathbb{Q}, \mathbb{R}, \mathbb{Z}_{17}$?
+
+    (c) Prove that if a field $F$ has characteristic $n$, where $n > 0$, 
+        then $n$ is a prime integer.
+\end{tcolorbox} 
+
+\begin{proof}
+    Notice
+    \[
+    na = \underbrace{a + a + \cdots + a}_{n \text{ times}}
+       = a(\underbrace{1 + 1 + \cdots + 1}_{n \text{ times}})
+       = a \cdot 0
+       = 0.
+    \]
+\end{proof}
+
+\textbf{Solution:} $\mathbb{Q}$ and $\mathbb{R}$ have characteristic $0$.
+Finally, $\mathbb{Z}_{17}$ has characteristic $17$.
+
+\begin{proof}
+    Suppose $F$ is a field with characteristic $n$ where $n > 0$.
+    For contradiction, suppose $n$ is not prime, so $n = ab$ for some
+    $a,b$ with $1 < a,b < n$.
+    Since $F$ is a field, it has no zero divisors, so
+    $
+    0 = n \cdot 1 = (a \cdot 1)(b \cdot 1)
+    $.
+    Now either $a \cdot 1 = 0$ or $b \cdot 1 = 0$ either of which is a contradiction.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Consider the commutative ring $F = \{0, 1, \alpha, 1 + \alpha\}$,
+    where $0$ is the additive identity, $1$ is the mutliplicative identity,
+    $x + x = 0$, for all $x \in F$, and $\alpha^2 = 1 + \alpha$.
+
+    (a) Write out explicitly the addition and mutliplication tables for $F$.
+
+    (b) Prove that $F$ is a field.
+
+    (c) Because $F$ has four elements, you might expect $F$ would be the ``same''
+        as the ring $\mathbb{Z}_4$. Show this is false, by computing the characteristics 
+        of $F$ and $\mathbb{Z}_4$ (see the previous exercise).
+\end{tcolorbox} 
+
+\textbf{Solution (a):}
+\[
+\begin{array}{c|cccc}
++ & 0 & 1 & \alpha & 1+\alpha \\
+\hline
+0 & 0 & 1 & \alpha & 1+\alpha \\
+1 & 1 & 0 & 1+\alpha & \alpha \\
+\alpha & \alpha & 1+\alpha & 0 & 1 \\
+1+\alpha & 1+\alpha & \alpha & 1 & 0
+\end{array}
+\]
+\[
+\begin{array}{c|cccc}
+\cdot & 0 & 1 & \alpha & 1+\alpha \\
+\hline
+0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 1 & \alpha & 1+\alpha \\
+\alpha & 0 & \alpha & 1+\alpha & 1 \\
+1+\alpha & 0 & 1+\alpha & 1 & \alpha
+\end{array}
+\]
+
+\begin{proof}
+    Notice $1 \cdot 1 = 1$ and
+    \[
+    \alpha \cdot (1+\alpha) = \alpha + \alpha^2 = \alpha + (\alpha+1) = 1.
+    \]
+    Since every nonzero element has a multiplicative inverse, $F$ is a field.
+\end{proof}
+
+\textbf{Solution (c):}
+In $F$, $1 + 1 = 0$ but in $\mathbb{Z}_4$, $1 + 1 + 1 + 1 = 0$ and $1 + 1 \ne 0$. So they are not the same ring.
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Prove that $\mathbb{Z}_m$ is the union of three mutually disjoint subsets: its 
+    zero divisors, its units, and $\{0\}$. Show by example that this is false 
+    for an arbitrary commutative ring.
+\end{tcolorbox} 
+
+\begin{proof}
+    $\{0\}$ is clearly not a zero divisor or a unit in $\mathbb{Z}_m$.
+    Now, suppose $a \in \mathbb{Z}_m$ is a zero divisor and a unit.
+    Then there exists $b \ne 0$ such that $ab = 0$.
+    But then $a^{-1} ab = a^{-1} 0 \implies 1 \cdot b = 0 \implies b = 0$,
+        a contradiction.
+
+    Now suppose $a \in \mathbb{Z}_m$ and $a \ne 0$.
+    If $\gcd(a, m) = 1$ then $a$ is a unit.
+    Suppose $\gcd(a, m) = d > 1$.
+    Then, there exists $k_1, k_2 \in \mathbb{Z}$ such that $a = d k_1$ and $m = d k_2$.
+    Then $a = d k_1 \iff a k_2 = d k_2 k_1 = m k_1 \equiv 0 \pmod m$.
+    Thus $a$ is either a unit or a zero divisor.
+
+    A counterexample is the trivial ring.
+\end{proof}

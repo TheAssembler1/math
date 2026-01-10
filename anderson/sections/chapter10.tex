@@ -1,0 +1,97 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Find all simultaneous solutions to the Diophantine
+    equations $ac - bd = 1$, $ad + bc = 0$ directly,
+    by eliminating variables, interpret your solutions 
+    as determining all units in the Gaussian integers.
+\end{tcolorbox} 
+
+\begin{proof}
+    Now, if $c = 0$ then $ad = 0$ implies $a = 0$ or $d = 0$.
+    Suppose $a = 0$ then $-bd = 1$ so $b = 1,\ d = -1$
+    or $b = -1,\ d = 1$.
+    Suppose $d = 0$ then $ac = 1$ so $a = 1,\ c = 1$
+    or $a = -1,\ c = -1$.
+
+    Now, suppose $c \ne 0$.
+    Then $ad + bc = 0 \iff bc = -ad \iff b = -\frac{ad}{c}$.
+    Plugging in we find
+    $$
+    ac - \left(-\frac{ad}{c}\right)d = 1
+    \iff ac + \frac{ad^2}{c} = 1
+    \iff a(c^2 + d^2) = c
+    \iff a = \frac{c}{c^2 + d^2}.
+    $$
+    Which only has solutions $c^2 + d^2 = 1$.
+
+    Thus the solutions are $a = \pm 1,\ b = 0,\ c = \pm 1,\ d = 0$
+    or $a = 0,\ b = \pm 1,\ c = 0,\ d = \pm 1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove Theorem 10.1. That is, let $n$, be a square-free integer.
+    As in the text, define $N(a + b\sqrt{n}) = |a^2 - nb^2|$.
+    Prove that $N$ preserves multiplication, that is,
+    $N(\alpha \beta) = N(\alpha) N(\beta)$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $\alpha = a + b\sqrt{n}$ and $\beta = c + d\sqrt{n}$.
+    Then
+    \[
+    N(\alpha \beta)
+        = N((a + b\sqrt{n})(c + d\sqrt{n}))
+        = N(ac + ad\sqrt{n} + bc\sqrt{n} + bdn)
+    \]
+    \[
+        = N((ac + bdn) + (ad + bc)\sqrt{n})
+        = |(ac + bdn)^2 - n(ad + bc)^2|.
+    \]
+    Similarly
+    \[
+    N(\alpha)N(\beta)
+        = N(a + b\sqrt{n})N(c + d\sqrt{n})
+        = |a^2 - nb^2||c^2 - nd^2|.
+    \]
+    Then
+    \[
+    (ac + bdn)^2 - n(ad + bc)^2
+    = a^2c^2 + 2abcd\,n + b^2d^2n^2
+    - n(a^2d^2 + 2abcd + b^2c^2),
+    \]
+    which simplifies to
+    \[
+    a^2c^2 - na^2d^2 - nb^2c^2 + n^2b^2d^2.
+    \]
+    Then
+    \[
+    (a^2 - nb^2)(c^2 - nd^2)
+    = a^2c^2 - na^2d^2 - nb^2c^2 + n^2b^2d^2.
+    \]
+    Thus $N(\alpha\beta) = N(\alpha)N(\beta)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Suppose that $n, m$ are distinct square-free integers.
+    Prove that $\mathbb{Z}[\sqrt{n}] \cap \mathbb{Z}[\sqrt{m}] = \mathbb{Z}$.
+    This is not true if at least one of the integers $n$ and $m$ is not 
+    square-free. Give an example to show this.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $\mathbb{Z}[\sqrt{n}] \cap \mathbb{Z}[\sqrt{m}]$.
+    Then $x = a + b\sqrt{n}$ and $x = c + d\sqrt{m}$ for some $a, b, c, d \in \mathbb{Z}$.
+    Then $a + b\sqrt{n} = c + d\sqrt{m} \iff b\sqrt{n} - d\sqrt{m} = c - a$. 
+    Now the lhs is irrational unless $b = d = 0$.
+    Thus $a = c$ and $x \in \mathbb{Z}$.
+
+    Conversely, any integer $z \in \mathbb{Z}$ is in both $\mathbb{Z}[\sqrt{n}]$ and $\mathbb{Z}[\sqrt{m}]$,
+    so $\mathbb{Z} \subseteq \mathbb{Z}[\sqrt{n}] \cap \mathbb{Z}[\sqrt{m}]$.
+
+    Thus, $\mathbb{Z}[\sqrt{n}] \cap \mathbb{Z}[\sqrt{m}] = \mathbb{Z}$.
+\end{proof} 
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Prove that the Diophantine equation $2b^2 = a^2 + 3$ has no 
+        integer solutions, proceeding similarly as the problem 
+        $a^2 = 2b^2 + 3$ is handled in the text in Example 10.6.
+\end{tcolorbox} 

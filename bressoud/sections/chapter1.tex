@@ -1,0 +1,27 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Graph each of the following partial sums of Fourier's expansion
+    over the inverval $-1 \le x \le 3$.
+    \begin{enumerate}
+        \item $\frac{4}{\pi}\cos(\pi x/2)$
+        \item $\frac{4}{\pi}(\cos(\pi x/2) - \frac{1}{3}\cos(3 \pi x/2))$
+        \item $\frac{4}{\pi}(\cos(\pi x/2) - \frac{1}{3}\cos(3\pi x/2) + \frac{1}{5}\cos(5 \pi x/2))$
+        \item $\frac{4}{\pi}(\cos(\pi x/2) - \frac{1}{3}\cos(3\pi x/2) + \frac{1}{5}\cos(5 \pi x/2)) - \frac{1}{7}\cos(7 \pi x/2))$
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{images/chapter1/1.PNG}
+\end{figure}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $F_n(x)$ denote the sum of the first $n$ terms of the Fourier's series 
+    evaluated at $x$:
+    \[F_n(x) = \frac{4}{\pi}\left(\cos\frac{\pi x}{2} - \frac{1}{3}\cos\frac{3 \pi x}{2} + \cdots + \frac{(-1)^{n - 1}}{2n - 1}\cos\frac{(2n - 1)\pi x}{2}\right)\]
+    \begin{enumerate}
+        \item Evaluate $F_{100}(x)$ at $x = 0, 0.5, 0.9, 0.99, 1.1,$ and $2$. Is this close to the expected value?
+        \item Evaluate $F_n(0.99)$ at $n = 100, 200, 300, \ldots, 2000$ and plot these successive approximations.
+        \item Evaluate $F_n(0.999)$ at $n = 100, 200, 300, \ldots, 2000$ and plot these successive approximations.
+        \item What is the value of this infinite series at $x = 1$?
+    \end{enumerate}    
+\end{tcolorbox}

@@ -295,65 +295,76 @@ Thus, $2\mathbb{Z} \cup 3\mathbb{Z}$ is not a subring of $\mathbb{Z}$.
 \end{tcolorbox} 
 
 \begin{proof}
-    Let $(a, b), (c, d), (e, f)$ be arbitrary elements in $R \times \mathbb{Z}$.
-
-    (\textbf{Rule 1})
-    \[[(a, b) + (c, d)] + (e, f) = (a + c, b + d) + (e, f) = ((a + c) + e, (b + d) + f).\]
-    Then the following holds since $R, \mathbb{Z}$ are both rings.
+    (\textbf{Rule 1}) 
+    \[[(a, b) + (c, d)] + (e, f) = (a + c, b + d) + (e, f) = ((a + c) + e, (b + d) + f).\] 
+    Then the following holds since $R, \mathbb{Z}$ are both rings. 
     \[((a + c) + e, (b + d) + f) = (a + (c + e), b + (d + f)) = (a, b) + (c + e, d + f) = (a, b) + [(c, d) + (e, f)].\]
 
     (\textbf{Rule 2})
+    \[
+    (a, b) + (c, d) = (a + c, b + d) = (c + a, d + b) = (c, d) + (a, b),
+    \]
 
     (\textbf{Rule 3})
+    \[
+    (a, b) + (0_R, 0) = (a + 0_R, b + 0) = (a, b),
+    \]
 
-    (\textbf{Rule 4})
+    (\textbf{Rule 4})\[
+    (a, b) + (-a, -b) = (a - a, b - b) = (0_R, 0),
+    \]
 
     (\textbf{Rule 5})
+    \[
+    \begin{aligned}
+    [(a, b)(c, d)](e, f)
+    &= (ac + da + bc, bd)(e, f) \\
+    &= \big((ac + da + bc)e + f(ac + da + bc) + (bd)e,\; (bd)f\big) \\
+    &= \big(a(ce) + a(de) + b(ce) + a(fc) + a(fd) + b(fc),\; b(df)\big) \\
+    &= (a, b)(ce + fc + de,\; df) \\
+    &= (a, b)[(c, d)(e, f)].
+    \end{aligned}
+    \]
 
     (\textbf{Rule 6 Left})
+    \[
+    \begin{aligned}
+    (a, b)\big[(c, d) + (e, f)\big]
+    &= (a, b)(c + e, d + f) \\
+    &= \big(a(c + e) + (d + f)a + b(c + e),\; b(d + f)\big) \\
+    &= (ac + da + bc, bd) + (ae + fa + be, bf) \\
+    &= (a, b)(c, d) + (a, b)(e, f).
+    \end{aligned}
+    \]
 
     (\textbf{Rule 6 Right})
+    \[
+    \begin{aligned}
+    \big[(a, b) + (c, d)\big](e, f)
+    &= (a + c, b + d)(e, f) \\
+    &= \big((a + c)e + f(a + c) + (b + d)e,\; (b + d)f\big) \\
+    &= (ae + fa + be, bf) + (ce + fc + de, df) \\
+    &= (a, b)(e, f) + (c, d)(e, f).
+    \end{aligned}
+    \]
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 20, breakable]
-    Some students wonder why we require that addition in a ring be commutative;
-    this exercise shows why. Suppose that $R$ is a set with two operations 
-    $+$ and $\circ$, which satisfy the rules defining a ring, except Rule 1; that is,
-    we do not assume that the addition is commutative. Suppose that $R$ also has a 
-    multiplicative identity $1$. Then prove that the addition in $R$ must in fact 
-    be commutative, and so $R$ under the given operations is a ring.
-\end{tcolorbox} 
+\begin{proof}
+    Let $(r,n) \in R \times \mathbb{Z}$. Then
+    \[
+    (r,n)(0_R,1) = (r\cdot 0_R + 1\cdot r + n\cdot 0_R,\; n\cdot 1) = (r,n),
+    \]
+    \[
+    (0_R,1)(r,n) = (0_R\cdot r + n\cdot 0_R + 1\cdot r,\; 1\cdot n) = (r,n).
+    \]
+\end{proof}
 
-\begin{tcolorbox}[title=Problem 21, breakable]
-    Consider the ring $S$ of all real-valued sequences, as discussed in 
-    Exercise 6.19. Let $F$ be the set of all sequences $\{x_1, x_2, x_2, \ldots\}$
-    where at most finitely many of the entries $x_i$ are non-zero.
-    Prove that $F$ is a subring of $S$. Does $F$ have unity?
-\end{tcolorbox} 
-
-\begin{tcolorbox}[title=Problem 22, breakable]
-    Let $F$ be the ring of finitely non-zero real-valued sequences, considered 
-    in the previous exercise. Now let $W$ consist of all sequences 
-    $(x_1, x_2, x_3, \ldots)$ where $0 = x_2 = x_3 = \cdots$. Show that $W$
-    is a subring that has unity, even though the larger ring $F$ does not work.
-\end{tcolorbox} 
-
-\begin{tcolorbox}[title=Problem 25, breakable]
-    Let $R$ be a commutative ring with unity.
-    An element $e \in R$ is \textbf{idempotent}
-    if $e^2 = e$. Note that the elements $0$ and $1$ are 
-    idempotent. Throughout this problem assume that $e$ 
-    is idempotent in $R$.
-
-    (a) Find a commutative ring with unity with at least one idempotent element,
-        other than $0$ and $1$.
-
-    (b) Let $f = 1 - e$. Prove that $f$ is idempotent, too.
-
-    (c) Let $Re = \{re \mid r \in R\}$. Prove that $Re$ is a subring 
-    of $R$, and that $e$ is unity for this subring.
-
-    (d) Prove that $Re \cap Rf = \{0\}$ (where $f$ is the idempotent from part b)
-
-    (e) Prove that for all $r \in R$, $r = a + b$, where $a \in Re$ and $b \in Rf$.
-\end{tcolorbox} 
+\begin{proof}
+    Let $R$ be a ring. Consider the subset $R \times \{0\} = \{(r,0) \mid r \in R\} \subseteq R \times \mathbb{Z}$.  
+    Let $(r,0), (s,0)$ be arbitrary elements in $R \times \{0\}$.  
+    Since $r, s \in R$, it follows that $(r,0) - (s,0) = (r - s, 0) \in R \times \{0\}$.  
+    Also, since $r, s \in R$, it follows that $(r,0)(s,0) = (rs + 0\cdot r + 0\cdot s, 0\cdot 0) = (rs, 0) \in R \times \{0\}$.  
+    Finally, note that $(0_R, 0) \in R \times \{0\}$, so the subset is nonempty.  
+    By Theorem 7.1, $R \times \{0\}$ is a subring of $R \times \mathbb{Z}$.  
+    The map $r \longrightarrow (r,0)$ preserves addition and multiplication, so $R \times \{0\}$ behaves exactly like $R$.  
+\end{proof}

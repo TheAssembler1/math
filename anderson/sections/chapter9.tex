@@ -1,0 +1,249 @@
+\begin{tcolorbox}[title=Problem 2, breakable]
+    (a) Why does every non-zero complex number have exactly 
+        two square roots?
+
+    (b) Given part a, check that the proof of the quadratic formula 
+        obtained in Exercise 9.1 still holds in $\mathbb{C}[x]$.
+
+    (c) Use the quadratic formula to compute the roots of the polynomials 
+        $x^2 - (3 + 2i)x + (1 + 3i)$ and $x^2 - (1 + 3i)x + (-2 + 2i)$.
+\end{tcolorbox} 
+
+\textbf{Solution (a):}
+The book states a non-zero complex number $\alpha = |\alpha|(\cos \theta + i \sin \theta) = |\alpha|e^{i \theta}$
+has a square root $\beta = |\alpha|^{1/2}(\cos(\theta/2) + i \sin(\theta/2))$.
+Any square root of $\alpha$ must have argument $\theta/2 \pmod{\pi}$, so the only square roots are $\beta$ and $-\beta$.
+
+\textbf{Solution (b):} Checked, and it still holds.
+
+\textbf{Solution (c):}
+The roots of $x^2 - (3 + 2i)x + (1 + 3i)$ are
+$\frac{-(-(3 + 2i)) \pm \sqrt{(-(3 + 2i))^2 - 4(1 + 3i)}}{2}$.
+The roots of $x^2 - (1 + 3i)x + (-2 + 2i)$ are
+$\frac{-(-(1 + 3i)) \pm \sqrt{(-(1 + 3i))^2 - 4(-2 + 2i)}}{2}$.
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Give examples of two different polynomials in $\mathbb{Z}_5[x]$
+    that are identical as functions over $\mathbb{Z}_5$.
+    This shows that equality of polynomials in $F[x]$ cannot be 
+    thought of as equality of the corresponding polynomial \emph{functions}.
+    (See the Quick Exercise in Section 4.1 for $F = \mathbb{Z}_2$ case, and 
+    Exercise 4.12 for the $F = \mathbb{Z}_3$.)
+\end{tcolorbox} 
+
+\textbf{Solution:} By Fermat's little Theorem in $\mathbb{Z}_5$
+the polynomials $x^5$ and $x$ are equivalent for all $x$.
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Consider the polynomial $f = x^3 + 3x^2 + 2x \in \mathbb{Z}_6[x]$.
+    Show that this polynomial has more than three roots in $\mathbb{Z}_6$.
+    Why doesn't this contradict the Root Theorem?
+\end{tcolorbox} 
+
+\textbf{Solution:} We can manually check that $x = 0, 1, 2, 3$ are roots.
+The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Show that if $f$ is a polynomial with real coefficients and $\alpha = s + ti$
+    is a root of $f$ in $\mathbb{C}$, then so is $\overline{\alpha} = s - ti$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $\alpha, \beta$ be complex numbers.
+    We have the following two properties of the algebra of complex numbers 
+    \begin{enumerate}
+        \item $\overline{\alpha} + \overline{\beta} = \overline{\alpha + \beta}$.
+        \item $\overline{\alpha\beta} = \overline{\alpha}\,\overline{\beta}$.
+    \end{enumerate}
+    Suppose $f$ has real coefficients. 
+    Note that for a coefficient $x \in R$, $x = \overline{x}$.
+    From this it clearly follows that
+    $f(\overline{\alpha}) = \overline{f(\alpha)}$.
+    But then suppose $f(\alpha) = 0$ and it follows that
+    $f(\overline{\alpha}) = \overline{f(\alpha)} = \overline{0} = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    In this exercise, we describe the cubic formula for factoring an arbitrary polynomial
+    of degree $3$ in $\mathbb{R}[x]$. This version of the formula is called the 
+    \emph{Cardano-Tartaglia} formula, after two 16th-century Italian mathematicians 
+    involved in its discovery. Consider the polynomial $f = x^3 + ax^2 + bx + c \in \mathbb{R}[x]$
+    (by dividing by the leading coefficient if necessary, we have assumed without loss 
+    of generality that it is $1$).
+
+    (a) Show that the change in variables $x = y - \frac{1}{3}a$ changes $f$ into 
+        a cubic polynomial that lacks a square term; that is, a 
+        polynomial of the form $g = f(y - \frac{1}{3}a) = y^3 + py + q = 0$.
+        \emph{Note: } This process is called \emph{depressing the conic}. Clearly 
+        we can solve $f = 0$ for $x$ if and only if we can solve $g = 0$ for $y$.
+
+    (b) Find explicit solutions $u, v$ to the pair of simultaneous equations 
+        \textcircled{1} $v^3 - u^3 = q$ and \textcircled{2} $uv = \frac{1}{3}p$.
+
+    (c) Prove the identity $(u - v)^3 + 3uv(u - v) + (v^3 - u^3) = 0$ and 
+        use it to show that $y = u - v$ is a solution to the cubic equation 
+        $y^3 + py + q = 0$.
+
+    (d) Let $D = q^2 + \frac{3p^3}{27}$. (This is called the \emph{discriminant} of the conic.)
+        Conclude that $y = \sqrt[3]{\frac{-q + \sqrt{D}}{2}} - \sqrt[3]{\frac{q + \sqrt{D}}{2}}$
+        is a root for $g = 0$. (This is just $u - v$.)
+\end{tcolorbox} 
+
+
+\begin{proof}
+\begin{align*}
+    f\Bigl(y - \frac{1}{3}a\Bigr) &= \Bigl(y - \frac{1}{3}a\Bigr)^3 + a\Bigl(y - \frac{1}{3}a\Bigr)^2 + b\Bigl(y - \frac{1}{3}a\Bigr) + c \\
+                                  &= y^3 + \left(b - \frac{a^2}{3}\right)y + \left(c - \frac{ab}{3} + \frac{2a^3}{27}\right).
+\end{align*}
+\end{proof}
+
+\begin{proof}
+    If $p = 0$, then $u = v = 0$. Suppose $p \ne 0$. From \textcircled{2} we know $u \ne 0$ and $v \ne 0$.
+    From \textcircled{2}, $v = \frac{p}{3u}$. Plugging this into \textcircled{1} gives
+        \[
+            \left(\frac{p}{3u}\right)^3 - u^3 = q.
+        \]
+    Multiplying through by $u^3 \ne 0$ gives 
+        \[
+            \left(\frac{p}{3}\right)^3 - u^6 = u^3 q \quad \iff \quad u^6 + q u^3 - \left(\frac{p}{3}\right)^3 = 0.
+        \]
+    Letting $x = u^3$ we have the quadratic
+        \[
+            x^2 + q x - \left(\frac{p}{3}\right)^3 = 0.
+        \]
+    Applying the quadratic formula gives
+        \[
+            x = \frac{-q \pm \sqrt{q^2 + \frac{4p^3}{27}}}{2}.
+        \]
+    Taking cube roots shows
+        \[
+            u = \sqrt[3]{\frac{-q \pm \sqrt{q^2 + \frac{4p^3}{27}}}{2}}.
+        \]
+    Finally, from \textcircled{2} we get
+        \[
+            v = \frac{p}{3 \sqrt[3]{\frac{-q \pm \sqrt{q^2 + \frac{4p^3}{27}}}{2}}}.
+        \]
+\end{proof}
+
+\begin{proof}
+    Expanding $(u - v)^3 + 3uv(u - v)$, we have
+    \begin{align*}
+        (u - v)^3 + 3uv(u - v) 
+        &= u^3 - 3u^2v + 3uv^2 - v^3 + 3uv(u - v) \\
+        &= u^3 - 3u^2v + 3uv^2 - v^3 + 3u^2v - 3uv^2 \\
+        &= u^3 - v^3.
+    \end{align*}
+    Therefore
+        \[
+            (u - v)^3 + 3uv(u - v) + (v^3 - u^3) = 0.
+        \]
+\end{proof}
+
+\begin{proof}
+    Since $uv = \frac{p}{3}$ and $v^3 - u^3 = q$, we have
+    \[
+        (u - v)^3 + 3uv(u - v) + (v^3 - u^3) = 0.
+    \]
+    Substituting $3uv = p$ and $v^3 - u^3 = q$ shows
+    \[
+        (u - v)^3 + p(u - v) + q = 0.
+    \]
+\end{proof}
+
+\begin{proof}
+    From part b we know
+    \[
+        u = \sqrt[3]{\frac{-q + \sqrt{D}}{2}}, \quad v = \sqrt[3]{\frac{q + \sqrt{D}}{2}}.
+    \]
+    Therefore,
+    \[
+        y = u - v = \sqrt[3]{\frac{-q + \sqrt{D}}{2}} - \sqrt[3]{\frac{q + \sqrt{D}}{2}}
+    \]
+    is a root of $g(y) = y^3 + py + q = 0$ as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    In Exercise 12, there is an apparent ambiguity arising from the plus or minus when extracting
+        the square root of $D$ to obtain values for $u^3$ and $v^3$. However, show that we obtain 
+        the same value value for the root $u - v$, regardless of which choice is made.
+\end{tcolorbox} 
+
+\begin{proof}
+    We have the equation $v^3 - u^3 = q$, which any choice of roots satisfies.  
+    Viewing our polynomial 
+    \[
+    (u - v)^3 + 3uv(u - v) + (v^3 - u^3) = 0,
+    \] 
+    we showed in Exercise $12$ that $(u - v)^3 + 3uv(u - v) = -(v^3 - u^3)$,
+        which is independent of our choice of roots.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Suppose as in Exercise 12 that $g = y^3 + px + q$ is a cubic polynomial
+    with real coefficients, and $y = u - v$ is the root given by the 
+    Cardano-Tartaglia formula. Suppose that $D > 0$. (Thus $u$ and $v$ are real numbers.)
+    Let $\zeta = e^{\frac{2\pi}{3}}$ be a cube root of unity (called the primitive cube root of unity 
+    in Exercise 25 below). Argue that the other two distinct roots of $g = 0$ are the complex 
+    conjugates of $u \zeta - v \zeta^2$ and $u \zeta^2 - v \zeta$. \emph{Note: }
+    be sure and check both that these are roots and that they are necessarily distinct.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 26, breakable]
+    A field $F$ is said to be \textbf{algebraically closed} if every polynomial 
+    $f \in F[x]$ with $deg(F) \ge 1$ has a root in $F$; we can rephrase this 
+    definition roughly by saying that a field is algebraically closed if it 
+    satisfies the Fundamental Theorem of Algebra. Thus, $\mathbb{C}$ is 
+    algebraically closed, while $\mathbb{R}$ and $\mathbb{Q}$ are not.
+    Show that for every prime $p$, the field $\mathbb{Z}_p$ is not algebraically closed.
+\end{tcolorbox} 
+
+\begin{proof}
+    From Fermat's little theorem $f(x) = x^p - x$ evaluates to $0$ for all $x \in \mathbb{Z}_p$.
+    Then $g(x) = f(x) + 1$ evaluates to $1$ for all $x \in \mathbb{Z}_p$.
+    Therefore $\mathbb{Z}_p$ is not algebraically closed.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 26, breakable]
+    Show that the field in Exercise 8.12 is not algebraically closed.
+    (See the previous exercise for a definition.)
+    \begin{enumerate}
+        \item The field $F = \{0, 1, \alpha, 1 + \alpha\}$.
+        \item $0$ is the additive idenitty.
+        \item $1$ is the multiplicative identity.
+        \item $x + x = 0$ for all $x \in F$, and $\alpha^2 = \alpha + 1$.
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{proof}
+    Consider $f(x) = x^4 - x$. Then 
+    \begin{align*}
+        f(0) &= 0
+    \end{align*}
+    \begin{align*}
+        f(1) &= 1 - 1 = 0
+    \end{align*}
+    \begin{align*}
+        f(\alpha) &= \alpha^4 - \alpha = (\alpha^2)^2 - \alpha = (\alpha + 1)^2 - \alpha = (\alpha^2 + 1) - \alpha = (\alpha + 1 + 1) - \alpha = \alpha + \alpha = 0
+    \end{align*}
+    \begin{align*}
+        f(1+\alpha) &= (1+\alpha)^4 - (1+\alpha) = ((1+\alpha)^2)^2 - (1+\alpha) = (\alpha)^2 - (1+\alpha) = \alpha^2 - (1+\alpha) = (\alpha+1) - (1+\alpha) = 0
+    \end{align*}
+    Then $g(x) = f(x) + 1 = 1$ for all $x \in F$, thus $F$ is not algebraically closed.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 28, breakable]
+    Show that, if $F$ is a field with infinitely many elements, then $f(x) = g(x)$
+    for all $x \in F$ implies that $f = g$ as polynomials. (We have already seen 
+    that this is not the case if $F$ is a finite field. For example, consider 
+    $x^2 + x + 1$ and $1$ in $\mathbb{Z}_2[x]$.)
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $F$ is a field with infinitely many elements and $f(x) = g(x)$
+        for all $x \in F$.
+    Then $\psi(x) = f(x) - g(x) = 0$ for all $x \in F$ and thus has 
+        infinitely many roots.
+    But a nonzero polynomial over a field can only have a finite number of roots 
+        thus $\psi$ must be the zero polynomial.
+    Therefore $f = g$.
+\end{proof}
