@@ -188,6 +188,81 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     be sure and check both that these are roots and that they are necessarily distinct.
 \end{tcolorbox} 
 
+\begin{proof}
+    Let $y_1 = u - v, y_2 =  \zeta - v \zeta^2, y_3 = u \zeta^2 - v \zeta$.
+    Notice
+    \begin{align*}
+        (u \zeta - v \zeta^2)^3 + 3uv(u \zeta - v \zeta^2) + (v^3 - u^3)
+        &= u^3 \zeta^3 - v^3 (\zeta^2)^3 - 3 uv (u \zeta - v \zeta^2) + 3 uv (u \zeta - v \zeta^2) + (v^3 - u^3) \\
+        &= u^3 - v^3 - 3uv(u \zeta - v \zeta^2) + 3 uv (u \zeta - v \zeta^2) + (v^3 - u^3) \\
+        &= 0
+    \end{align*}
+    Similarly,
+    \begin{align*}
+        (u \zeta^2 - v \zeta)^3 + 3uv(u \zeta^2 - v \zeta) + (v^3 - u^3)
+        &= u^3 (\zeta^2)^3 - v^3 \zeta^3 - 3 uv (u \zeta^2 - v \zeta) + 3 uv (u \zeta^2 - v \zeta) + (v^3 - u^3) \\
+        &= u^3 - v^3 - 3 uv (u \zeta^2 - v \zeta) + 3 uv (u \zeta^2 - v \zeta) + (v^3 - u^3) \\
+        &= 0
+    \end{align*}
+    We show that $y_2$ and $y_3$ are complex conjugates:
+    \[
+        \overline{y_2} = \overline{u \zeta - v \zeta^2} = u \overline{\zeta} - v \overline{\zeta^2} = u \zeta^2 - v \zeta = y_3.
+    \]
+    Clearly $y_1 \ne y_2$ and $y_1 \ne y_3$ since its imaginary part is $0$.
+    Additionally the imaginary parts of $y_2$ and $y_3$ are opposite in sign, so $y_2 \neq y_3$. 
+    Thus the roots are distinct.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    An interesting and suprising conclusion one can draw from example 15 is that 
+    if the discriminant of $D > 0$, then the cubic polynomial $y^3 + py + q \in \mathbb{R}[x]$
+        necessarily has exactly one real root, and a conjugate pair of complex roots. 
+    In this exercise you will use elementary calculus to verify this fact again:
+    \begin{enumerate}
+        \item Consider the function $g(y) = y^3 + py + q$. Suppose that $p > 0$.
+              Compute the derivative of $g'(y)$, and use it to argue that $g$ 
+              has exactly one real root, and consequently two complex roots.
+        \item Suppose now that $p = 0$. Then conclude that $q \ne 0$. In this simple case,
+              what are the roots of $g$.
+        \item Now suppose that $p < 0$, Compute the two roots of $g'(y) = 0$.
+              Argue that the values of $g$ at these two roots are both positive (using the assumption that $D > 0$).
+              Why does this mean that $g$ has exactly one root?
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{proof}
+    $g'(y) = 3y^2 + p$. Since the deriviative is always $> 0$ the function is always increasing 
+        thus can only cross the real x-axis once. Therefore there is a single real root.
+\end{proof}
+
+\begin{proof}
+    If $q = 0$ then $D = 0$. The roots are $0$.
+\end{proof}
+
+\begin{proof}
+    Notice
+    \[
+    3y^2 + p = 0 \quad \Rightarrow \quad y^2 = -\frac{p}{3} \quad \Rightarrow \quad y = \pm \sqrt{-\frac{p}{3}}.
+    \]
+    Let $y_1 = \sqrt{-p/3}$ and $y_2 = -\sqrt{-p/3}$ be the critical points.  
+    Since the discriminant $D > 0$, the values $g(y_1)$ and $g(y_2)$ have the same sign.
+    Thus the cubic can only cross the $y$-axis once so $g(y)$ as one real root.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    Exercise 18 is a particular example of what is called the \emph{irreducible}
+    case for a real cubic. Show that in the case $D < 0$, we obtain real roots 
+    for the polynomial $g = y^3 + px + q$ by an appropriate choice of $u$ and $v$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Choose $v$ to be the complex conjugate of $u$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+    
+\end{tcolorbox} 
+
 \begin{tcolorbox}[title=Problem 26, breakable]
     A field $F$ is said to be \textbf{algebraically closed} if every polynomial 
     $f \in F[x]$ with $deg(F) \ge 1$ has a root in $F$; we can rephrase this 
@@ -203,7 +278,7 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     Therefore $\mathbb{Z}_p$ is not algebraically closed.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 26, breakable]
+\begin{tcolorbox}[title=Problem 27, breakable]
     Show that the field in Exercise 8.12 is not algebraically closed.
     (See the previous exercise for a definition.)
     \begin{enumerate}

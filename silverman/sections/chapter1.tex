@@ -1,0 +1,73 @@
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Try adding up the first few 
+    odd numbers and see if the numbers 
+    you get satisfy some sort of pattern.
+    Once you find the pattern, express it 
+    as a formula. Give a geometric verification
+    that your formula is correct.
+\end{tcolorbox}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/chapter1/1.png}
+\end{figure}
+
+\begin{proof}
+    We add up the first few odd numbers.
+    \begin{enumerate}
+        \item $1 = 1 = 1^2$
+        \item $1 + 3 = 4 = 2^2$
+        \item $1 + 3 + 5 = 9 = 3^2$
+        \item $1 + 3 + 5 + 7 = 16 = 4^2$
+    \end{enumerate}
+
+    Please view the image above.
+    The number of dots in the lower red triangle is what we are trying to discover a formula for.
+    We first add $k$ dots to the left of the triangle.
+    Then we double the triangle and combine it with the first to make a rectangle
+        with width $2k$ and height $k + 1$.
+    Therefore the total number of dots is $2k^2 + 2k$.
+    Now we doubled the triangle so we must remove dots to discover the number of dots in the original lower left triangle.
+    We first halve the number of dots, $\frac{2k^2 + 2k}{2} = k^2 + k$.
+    We also added $k$ redundant blue dots, thus our total number of dots
+        is $k^2 + k - k = k^2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    The consecutive odd numbers $3$, $5$,
+    and $7$ are all primes. Are there infinitely
+    many such ``prime triplets''?
+    That is, are there infinitely many prime 
+    numbers $p$ such that $p + 2$ and $p + 4$
+    are also primes?
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the sequence
+    \[p, p + 1, p + 2, p + 3, p + 4\]
+    There are three cases for the remainders of each term in the sequence when divided by $3$.
+    They are as follows
+    \[0, 1, 2, 0, 1\]
+    In which case $3 \mid p$.
+    \[1, 2, 0, 1, 2\]
+    In which case $3 \mid p + 2$.
+    \[2, 0, 1, 2, 0\]
+    In which case $3 \mid p + 4$.
+    Thus there is only one set of prime triplets.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    It is generally believed that infinitely many primes have the form 
+    $N^2 + 1$, although no one knows for sure.
+    \begin{enumerate}
+        \item Do you think there are infinitely many primes of the form $N^2 - 1$?
+        \item How about of the form $N^2 - 3$? How about $N^2 - 4$.
+        \item Which values of $a$ do you think give infinitely many primes of the form $N^2 - a$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (a):} No, since $N^2 - 1 = (N + 1)(N - 1)$, which is composite for all $N > 2$.
+
+\textbf{Solution (b):} For $N^2 - 3$ I think it does, and $N^2 - 4 = (N + 2)(N - 2)$, so there are finitely many primes.
+
+\textbf{Solution (c):} Values of $a$ such that $N^2 - a$ cannot be factored as a difference of squares $(N - b)(N + b)$ for some integer $b$.  

@@ -77,21 +77,58 @@
     square-free. Give an example to show this.
 \end{tcolorbox} 
 
+
+\begin{theorem}
+    Suppose $n, m$ are square free integers such that $n \ne m$ and $a, b \in \mathbb{Z}$.
+    Futhermore, suppose $a \ne 0, b \ne 0$ and $x = a\sqrt{n} - b\sqrt{m}$.
+    Then $x$ is an irrational number.
+\end{theorem}
+
+\begin{proof}
+    For contradiction, suppose $x$ is rational.
+    Then $x = a\sqrt{n} - b \sqrt{m} \iff x + b\sqrt{m} = a \sqrt{n} \iff \frac{x + b\sqrt{m}}{a} = \sqrt{n}$.
+    Now squaring both sides we find $\frac{x^2 + 2xb\sqrt{m} + b^2 m}{a^2} = n \iff x^2 + 2xb\sqrt{m} + b^2 m = a^2 n \iff 2xb\sqrt{m} = a^2 n - x^2 - b^2 m$.
+    Now the rhs is an integer but the lhs is irrational which is a contradiction.
+\end{proof}
+
 \begin{proof}
     Let $x$ be an arbitrary element in $\mathbb{Z}[\sqrt{n}] \cap \mathbb{Z}[\sqrt{m}]$.
     Then $x = a + b\sqrt{n}$ and $x = c + d\sqrt{m}$ for some $a, b, c, d \in \mathbb{Z}$.
     Then $a + b\sqrt{n} = c + d\sqrt{m} \iff b\sqrt{n} - d\sqrt{m} = c - a$. 
     Now the lhs is irrational unless $b = d = 0$.
     Thus $a = c$ and $x \in \mathbb{Z}$.
-
     Conversely, any integer $z \in \mathbb{Z}$ is in both $\mathbb{Z}[\sqrt{n}]$ and $\mathbb{Z}[\sqrt{m}]$,
     so $\mathbb{Z} \subseteq \mathbb{Z}[\sqrt{n}] \cap \mathbb{Z}[\sqrt{m}]$.
-
     Thus, $\mathbb{Z}[\sqrt{n}] \cap \mathbb{Z}[\sqrt{m}] = \mathbb{Z}$.
-\end{proof} 
+\end{proof}
+
+\begin{proof}
+    Let $n = 2$ and $m = 8$.
+    Then $\sqrt{8} = 2\sqrt{2}$ and thus $\mathbb{Z}[\sqrt{2}] = \mathbb{Z}[\sqrt{8}]$.
+    Therefore,
+    \[
+        \mathbb{Z}[\sqrt{2}] \cap \mathbb{Z}[\sqrt{8}] = \mathbb{Z}[\sqrt{2}] \neq \mathbb{Z}.
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
     Prove that the Diophantine equation $2b^2 = a^2 + 3$ has no 
         integer solutions, proceeding similarly as the problem 
-        $a^2 = 2b^2 + 3$ is handled in the text in Example 10.6.
+        $a^2 = 2b^2 + 3$ is handled in the text in Example 10.16.
+\end{tcolorbox} 
+
+\begin{proof}
+    Now $2b^2 = a^2 + 3 \iff a^2 = 2b^2 - 3$, thus $a$ is odd
+        and can be written as $2k_1 + 1$ with $k_1 \in \mathbb{Z}$.
+    Then $(2k_1 + 1)^2 = 2b^2 - 3 \iff 4 k_1^2 + 4k_1 + 1 = 2b^2 - 3 \iff 2(2k_1^2 + 2k_1 + 2) = 2b^2$.
+    Thus $b^2 = 2k_1^2 + 2k_1 + 2$, so $b$ is even and can be written as $2k_2$ for some $k_2 \in \mathbb{Z}$.
+    Substituting, we obtain $2(2k_2)^2 = a^2 + 3 \iff 2k_2^2 = k_1^2 + 1$.
+    But this equation has the same form as the original with smaller positive integers.
+    Repeating this process contradicts the well-ordering principle for positive integers,
+     and thus there are no integer solutions.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5 breakable]
+    Find infinitely many distinct units in $\mathbb{Z}[\sqrt{7}]$. 
+    Then list inifintely many associates of $\sqrt{7}$ in $\mathbb{Z}[\sqrt{7}]$.
 \end{tcolorbox} 

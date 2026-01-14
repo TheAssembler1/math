@@ -1,0 +1,569 @@
+\subsection{Linear Mappings}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $T$ be a set, $V = \mathcal{F}(T, \mathbb{R})$ the vector space
+    of all functions $x : T \longrightarrow \mathbb{R}$
+    (Example 1.3.4). Fix a point $t \in T$ and define 
+    $f : V \longrightarrow \mathbb{R}$ by the formula 
+    $f(x) = x(t)$. Then $f$ is a linear form on $V$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y \in V$ and $c \in \mathbb{R}$.  
+    Then $f(x + y) = (x + y)(t) = x(t) + y(t) = f(x) + f(y)$.
+    and $f(c x) = (c x)(t) = c \, x(t) = c f(x)$.
+    Thus $f$ is a linear mapping. 
+    Since it maps functions in $V$ to scalars in $\mathbb{R}$ it is a linear form.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    If $T : V \longrightarrow W$ is a linear mapping, then $T(x - y) = Tx - Ty$
+        for all $x, y \in V$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $T : V \longrightarrow W$ is a linear mapping.
+    Let $x, y$ be arbitrary elements in $V$.
+    Then $T(x - y) = T(x + (-y)) = Tx + T(-y) = Tx + (-T(y)) = Tx - Ty$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $V$ is a vector space, prove that the mapping $T : V \times V \longrightarrow V$
+    defined by $T(x, y) = x - y$ is linear. (It is understood that $V \times V$ has the product 
+    vector space structure described in Example 1.3.10.)
+\end{tcolorbox}
+
+\begin{proof}
+    Suppse $V$ is a vector space.
+    Let $(x, y), (a, b)$ be arbitrary elements in $V \times V$.
+    Let $c \in \mathbb{R}$ be a scalar.  
+    Then $T((x, y) + (a, b)) = T(x + a, y + b) = (x + a) - (y + b) = (x - y) + (a - b) = T(x, y) + T(a, b)$.
+    Also $T(c(x, y)) = T(cx, cy) = cx - cy = c(x - y) = c \, T(x, y)$.
+    Thus $T$ is linear.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    With notations as in Theorem 2.1.3, an element $(a_1, \ldots, a_n)$ of $F^n$
+    such that $T(a_1, \ldots, a_n) = \theta$ is called a (linear) \emph{relation}
+    among the vectors $x_1, \ldots, x_n$. 
+    For example, suppose that $V = F^2, n = 3$ and $x_1 = (2, -3), x_2 = (4, 1), x_3 = (8, 9)$.
+    \begin{enumerate}
+        \item Find a formula for the linear mapping $F^3 \longrightarrow F^2$ defined in Theorem 2.1.3.
+        \item Show that $(-2, 3, 1)$ is a relation among $x_1, x_2, x_3$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[f(a_1, a_2, a_3) = a_1 x_1 + a_2 x_2 + a_3 x_3\]
+
+\textbf{Solution (b):}
+\[f(-2, 3, -1) = -2 x_1 + 3 x_2 - x_3 = -2(2, -3) + 3(4, 1) - (8, 9) = (-4, 6) + (12, 3) - (8, 9) = (8, 9) - (8, 9) = (0, 0) = \theta\]
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    The proof of Theorem 2.1.2 uses only the additivity of the mapping $T$.
+    Give a proof using only its homogeneity. [Hint: Corollaries 1.4.3, 1.4.5]
+\end{tcolorbox}
+
+\begin{theorem}
+    If $T : V \longrightarrow W$ is a linear mapping, then $T \theta = \theta$
+        and $T(-x) = -(Tx)$ for all $x \in V$.
+\end{theorem}
+
+\begin{proof}
+    Suppose $T : V \longrightarrow W$ is a linear mapping.
+    Then $T(\theta) = T(0 \cdot x) = 0 \cdot T(x)$.
+    Then by Corollary 1.4.3, $0 \cdot T(x) = \theta$, hence $T(\theta) = \theta$.
+    Also $T(-x) = T((-1)\cdot x) = (-1)T(x)$.
+    Then by Corollary 1.4.5, $(-1)T(x) = -T(x)$.
+    Thus $T(-x) = -Tx$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    If $\mathcal{D}$ is the vector space of real polynomial functions (Example 1.3.5)
+    and $f : \mathcal{D} \longrightarrow \mathbb{R}$ is the mapping defined by 
+    $f(p) = p'(1)$ (the value of the derivative of $p$ at $1$), then $f$ is a linear 
+    form on $\mathcal{D}$. What is the geometric meaning of $f(p) = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y \in \mathcal{D}$ and $c \in \mathbb{R}$.
+    Then $f(x + y) = (x + y)'(1) = x'(1) + y'(1) = f(x) + f(y)$.
+    and $f(cx) = (cx)'(1) = c\, x'(1) = c f(x)$.
+    It follows that $f$ is a linear form on $\mathcal{D}$.
+\end{proof}
+
+\textbf{Solution:} $f(p) = 0$ is a critical point at the value $x = 1$ of the function $p$.
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $S : \mathcal{D} \longrightarrow \mathcal{D}$ be the linear mapping of Example 2.1.5.
+    Define $R : \mathcal{D} \longrightarrow \mathcal{D}$ by $Rp = Sp + p(5)1$, where $p(5)1$ is the 
+    constant function defined by the real number $p(5)$. Then $R$ is linear and 
+    $(Rp)' = p$. [So to speak, the constant of integration can be tailor-made for $p$ in a linear fashion.]
+    More generally, look at the mapping $Rp = Sp + f(p)1$, where $f$ is any linear form on $\mathcal{D}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y \in \mathcal{D}$ and $c \in \mathbb{R}$.
+    Then $R(x + y) = S(x + y) + (x + y)(5)1 = S(x) + S(y) + x(5)1 + y(5)1 = R(x) + R(y)$.
+    Also $R(cx) = S(cx) + (cx)(5)1 = c S(x) + c x(5)1 = c R(x)$.
+    Thus $R$ is linear.
+    
+    For the general form 
+        notice $R(x + y) = S(x + y) + f(x + y)1 = S(x) + S(y) + f(x)1 + f(y)1 = R(x) + R(y)$.
+    Also $R(c x) = S(c x) + f(c x)1 = c S(x) + c f(x)1 = c R(x)$.
+\end{proof}
+
+\subsection{Linear Mappings and Linear Subspaces: Kernel and Range}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $V$ be a vector space over $F$, $f : V \longrightarrow F$ a linear form on $V$ 
+        (Definition 2.1.11). Assume that $f$ is not identically zero and choose a vector $y$ 
+        such that $f(y) \ne 0$. 
+    Let $N$ be the kernel of $f$. Prove that every vector $x$ in $V$ may be written $x = z + cy$
+        with $z \in N$ and $c \in F$, and that $z$ and $c$ are uniquely determined by $x$.
+    [Hint: If $x \in V$, compute the value of $f$ at the vector $x - [f(x)/f(y)]y$.]
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x, y \in V$.  
+    Notice $f\Big(x - \frac{f(x)}{f(y)} y\Big) = f(x) - f\Big(\frac{f(x)}{f(y)} y\Big) = f(x) - \frac{f(x)}{f(y)} f(y) = f(x) - f(x) = 0$.  
+    We've just shown $x - \frac{f(x)}{f(y)} y \in \ker(f)$.  
+    Thus $x = \Big(x - \frac{f(x)}{f(y)} y\Big) + \frac{f(x)}{f(y)} y$.  
+    Let $z = x - \frac{f(x)}{f(y)} y$ and $c = \frac{f(x)}{f(y)}$, and we see $x = z + cy$ as required.
+
+    Suppose $x = z' + c'y$ with $z' \in \ker(f)$ and $c' \in F$.  
+    Then $z + cy = z' + c'y \implies z - z' = (c' - c)y$.  
+    Applying $f$ gives $0 = f(z - z') = (c' - c) f(y)$, so $c' - c = 0$ since $f(y) \ne 0$.  
+    Thus $c' = c$ and $z' = z$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $S : V \longrightarrow W$ and $T : V \longrightarrow W$ be a linear mappings and let 
+    $M = \{x \in V \mid Sx \in T(V)\}$. Prove that $M$ is a linear subspace of $V$.
+\end{tcolorbox}
+
+\begin{proof} 
+    Let $x, y \in M$ and let $c$ be a scalar of the vector space $V$. 
+    Since $x,y \in M$, we have $Sx \in T(V)$ and $Sy \in T(V)$. 
+    Since $T(V)$ is a linear subspace of $W$ it follows that $S(x + y) = Sx + Sy \in T(V)$.
+    Thus $x + y \in M$. 
+    Similarly $S(cx) = cS(x) \in T(V)$ thus $cx \in M$. 
+    Therefore $M$ is a linear subspace of $V$. 
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $T : V \times V \longrightarrow V$ is the linear mapping 
+    $T(x, y) = x - y$ (2.1, Exercise 4), determine the kernel and range of $T$.
+\end{tcolorbox}
+
+\textbf{Solution:} The kernel is $(x, x) \in V \times V$ and the range is $V$.
+
+\newpage
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $V$ be a real vector space, $W$ its complexification (1.3, Exercise 4);
+    write $W_R$ for $W$ regarded as a real vector space (1.3, Exercise 3).
+    For $(x, y) \in W$, we have 
+    \[(x, y) = (x, \theta) + (\theta, y) = (x, \theta) + i(y, \theta).\]
+    Prove that $x \mapsto (x, \theta)$ is an injective mapping $V \longrightarrow W_R$.
+    [Identifying $x \in V$ with $(x, \theta) \in W$, one can suggestively write 
+    $W = V + iV$; so to speak, $V$ is the `real part' of its complexification.]
+\end{tcolorbox}
+
+\begin{proof}
+    \[x(x_1) = x(x_2) \iff (x_1, 0) = (x_2, 0) \iff x_1 = x_2\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $\mathcal{D}$ be the vector space of real polynomial functions (1.3.5)
+    and let $T : \mathcal{D} \longrightarrow \mathcal{D}$ be the linear mapping 
+    defined by $Tp = p - p'$, where $p'$ is the derivative of $p$.
+    Prove that $T$ is injective.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x, y \in \mathcal{D}$ such that $T(x) = T(y)$.
+    Then $T(x) = T(y) \iff x - x' = y - y' \iff (x - y) - (x' - y') = 0$.
+    Let $q = x - y$ then $q - q' = 0 \iff q = q'$.
+    Thus $q = 0$ and it follows that $x = y$ and $x' = y'$.
+\end{proof}
+
+\subsection{Spaces of Linear Mappings: $\mathcal{L}(V, W)$ and $\mathcal{L}(V)$}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Complete the details in the proof of Theorem 2.3.11.
+\end{tcolorbox}
+
+\begin{theorem}
+    If $V$ and $W$ are vector spaces over $F$, then 
+    $\mathcal{L}(V, W)$ is also a vector space over $F$ 
+    for the operations defined in 2.3.9.
+\end{theorem}
+
+\begin{proof}
+    Let $S,T \in \mathcal{L}(V,W)$ and let $a,b \in F$.
+    For all $x \in V$, $(a(S+T))(x)
+        = a((S+T)(x))
+        = a(S(x)+T(x))
+        = aS(x)+aT(x)
+        = (aS+aT)(x)$.
+    For all $x \in V$, $((a+b)T)(x)
+        = (a+b)T(x)
+        = aT(x)+bT(x)
+        = (aT+bT)(x)$.
+    For all $x \in V$, $((ab)T)(x)
+        = ab\,T(x)
+        = a(bT(x))
+        = (a(bT))(x)$.
+    For all $x \in V$,
+        $(1T)(x)=1\cdot T(x)=T(x)$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $V$ be a vector space. If $R, S, T \in \mathcal{L}(V)$ and $c$
+        is a scalar, the following equalities are true.
+    \begin{enumerate}
+        \item $(RS)T = R(ST)$;
+        \item $(R + S)T = RT + ST$;
+        \item $R(S + T) = RS + RT$;
+        \item $(cS)T = c(ST) = S(cT)$;
+        \item $TI = T = IT$; ($T$ is the identity mapping)
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    For all $x \in V$.
+    \begin{enumerate}
+        \item $(RS)T(x) = R(S(T(x))) = R(ST(x)) = (R(ST))(x)$.
+        \item $(R + S)T(x)
+            = (R + S)(T(x))
+            = R(T(x)) + S(T(x))
+            = RT(x) + ST(x)
+            = (RT + ST)(x)$.
+        \item $R(S + T)(x)
+            = R(S(x) + T(x))
+            = R(S(x)) + R(T(x))
+            = RS(x) + RT(x)
+            = (RS + RT)(x)$.
+        \item $(cS)T(x)
+            = cS(T(x))
+            = c(ST(x))
+            = (c(ST))(x)
+            = S(cT)(x)$.
+        \item $TI(x) = T(I(x)) = T(x)$ and $IT(x) = I(T(x)) = T(x)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $T : V \longrightarrow W$ is a linear mapping and $g$
+    is a linear form on $W$, show that the formula 
+    $f(x) = g(Tx)$ defines a linear form $f$ on $V$.
+    [Shortcut: $f = gT = g \circ T$.] The formula 
+    $T'g = f$ defines a mapping $T' : \mathcal{L}(W, F) \longrightarrow \mathcal{L}(V, F)$,
+    where $F$ is the field of scalars. Show that $T'$ is linear.
+    [$T'$ is called the \emph{transpose} (or `adjoint' of $T$.)]
+\end{tcolorbox}
+
+\begin{proof}
+    By Theorem $2.3.13$ it directly follows that $f$ is linear.
+
+    Let $x, y \in \mathcal{L}(W, F)$ and $c$ be a scalar in $F$. Then for all $v \in V$,
+        $T'(x + y)(v) = (x + y)(T(v)) = x(T(v)) + y(T(v)) = T'(x)(v) + T'(y)(v)$.
+    Similarly, $T'(c x)(v) = (c x)(T(v)) = c\, x(T(v)) = c\, T'(x)(v)$.
+    Therefore, $T'$ is linear.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    If $V$ is a vector space over $F$, the vector space 
+    $\mathcal{L}(V, F)$ of linear forms on $V$ is called the \emph{dual 
+    space} of $V$ and is denoted $V'$.
+    Thus, the correspondence $T \mapsto T'$ described in 
+    Exercise 4 defines a mapping $\mathcal{L}(V, W) \longrightarrow \mathcal{L}(W', V')$.
+    Show that this mapping is linear, that is, $(S + T)' = S' + T'$ and $(cT)' = cT'$
+    for all $S, T$ in $\mathcal{L}(V, W)$ and all scalars $c$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $S, T \in \mathcal{L}(V, W)$ and let $c$ be a scalar.
+    Let $v$ be a vector in $V$.
+    Then $(S + T)'g(v) = g(S + T)(v) = g(S(v) + T(v)) = gS(v) + gT(v) = S'g(v) + T'g(v)$.
+    Similarly $(cT)'g(v) = g(cT(v)) = cgT(v) = c(T'g)(v)$.
+    Thus the correspondence $T \mapsto T'$ is linear.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    With notations as in Exercise 4, prove that if $T$
+    is surjective then $T'$ is injective; in other words,
+    show that if $T(V) = W$ then $T'g = 0 \implies g = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $T(V) = W$ and $T'g = 0$.
+    Let $v \in V$ then $(T'g)(v) = g(T(v)) = 0$ for all $v \in V$.
+    Thus $g = 0$ and $T'$ is injective. 
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    As in Example 2.1.4, let $V = \mathcal{D}$ be the real vector 
+    space of all polynomial functions $p : \mathbb{R} \longrightarrow \mathbb{R}$,
+    $D : V \longrightarrow V$ the linear mapping defined by $Dp = p'$
+    (the derivative of $p$); let $D' : V' \longrightarrow V'$
+    be the transpose of $D$ as defined in Exericise 4.
+    (Caution: The prime is being used with three different meanings.)
+
+    For each $t \in \mathbb{R}$ let $\rho_i$ be the linear form on $V$ 
+    defined by $\rho_t(p) = p(t)$. Let $[a, b]$ be a closed interval on $\mathbb{R}$
+    and let $\rho$ be the linear form on $V$ defined by 
+    \[\rho(p) = \int_a^b p(t) dt\]
+    Prove : $D' \rho = \rho_b - \rho_a$.
+    [Hint: Fundamental Theorem of Calculus.]
+\end{tcolorbox}
+
+\begin{proof}
+    Let $p \in V$.
+    Notice $(D'\rho)(p) = \rho(Dp) = \int_a^b p'(t) dt = p(b) - p(a) = \rho_b(p) - \rho_a(p)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $U, V, W$ be vector spaces over $F$. Prove:
+    \begin{enumerate}
+        \item For fixed $T \in \mathcal{L}(U, V)$, $\psi = S \mapsto ST$ is a linear mapping 
+              $\mathcal{L}(V, W) \longrightarrow \mathcal{L}(U, W)$ (see Figure 8 2.3.12).
+        \item For fixed $S \in \mathcal{L}(V, W)$, $\phi = T \mapsto ST$ is a mapping $\mathcal{L}(U, V)
+                \longrightarrow \mathcal{L}(U, W)$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y \in \mathcal{L}(V, W)$ and $v \in U$. Let $c$ be a scalar.
+    Then $(\psi(x + y))(v) = ((x + y)T)(v) = (x + y)(T(v)) = xT(v) + yT(v) = \psi(x)(v) + \psi(y)(v)$.
+    Also $(\psi(cx))(v) = ((cx)T)(v) = (cx)(T(v)) = c(xT(v)) = c\psi(x)(v)$.
+    Thus $\psi$ is a linear mapping.
+\end{proof}
+
+\begin{proof}
+    Let $x, y \in \mathcal{L}(U, V)$ and $v \in U$. Let $c$ be a scalar.
+    Then $(\phi(x + y))(v) = S(x + y)(v) = S(x(v) + y(v)) = S(x(v)) + S(y(v)) = \phi(x)(v) + \phi(y)(v)$.
+    Also $(\phi(cx))(v) = S(cx(v)) = c\,S(x(v)) = c\,\phi(x)(v)$.
+    Thus $\phi$ is a linear mapping.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    If $T : U \longrightarrow V$ and $S : V \longrightarrow W$ are linear mappings,
+    prove that $Im(ST) \subset Im S$ and $Ker(ST) \supset Ker T$.
+\end{tcolorbox}
+
+\begin{proof}
+    Clearly $T$ can only restrict the domain of $S$ thus $Im(ST) \subset Im S$.
+    Clearly any $x$ in $Ker T$ will be in $Ker(ST)$ since $S(0) = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Let $T : V \longrightarrow V$ be a linear mapping such that $Im T \subset Ker (T - I)$,
+    where $I$ is the identity mapping (2.3.3). Prove that $T^2 = T$.
+    [Recall $T^2 = TT$.]
+\end{tcolorbox}
+
+\begin{proof}
+    First note that $Ker(T - I) = \{ v \in V \mid (T - I)(v) = 0 \}$.
+    For any $v \in V$, 
+    $(T - I)(v) = 0 
+        \iff T(v) - I(v) = 0 
+        \iff T(v) - v = 0 
+        \iff T(v) = v$.
+    Let $v \in V$ be arbitrary. Then $T(v) \in Im\, T$.
+    Since $Im\, T \subset Ker(T - I)$, it follows that $T(v) \in Ker(T - I)$,
+    and thus $T(T(v)) = T(v)$.
+    Thus $T^2 = T$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Supose $V = M \oplus N$ in the sense of 1.6, Exercise 12.
+    For each $x \in V$, let $x = y + z$ be its unique decomposition with $y \in M,
+    z \in N$ and define $Px = y$, $Qx = z$. Prove that $P, Q \in \mathcal{L}(V)$,
+    $P^2 = P$, $Q^2 = Q$, $P + Q = I$ and $PQ = QP = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $a_1, a_2 \in M$ and $b_1, b_2 \in N$.
+    Let $x = a_1 + b_1, y = a_2 + b_2 \in V$.
+    Then $P(x + y) = P((a_1 + a_2) + (b_1 + b_2)) = a_1 + a_2  = Px + Py$.
+    Also $P(cx) = P(c(a_1 + b_1)) = P(ca_1 + cb_1) = ca_1 = c(Px)$.
+    Thus $P \in \mathcal{L}(V)$. The argument that $Q \in \mathcal{L}(V)$ is similar.
+\end{proof}
+
+\begin{proof}
+    Simply note that $Im P \subset Ker (P - I)$ thus $P^2 = P$.
+    The argument that $Q^2 = Q$ is similar.
+\end{proof}
+
+\begin{proof}
+    Let $a \in M$ and $b \in N$.
+    Let $x = a + b$.
+    Then $(P + Q)(x) = P(x) + Q(x) = a + b = x$.
+    Thus $P + Q = I$.
+\end{proof}
+
+\begin{proof}
+    Let $a \in M$ and $b \in N$.
+    Let $x = a + b$.
+    Then $(PQ)(x) = P(Q(x)) = P(Q(a + b)) = P(0 + Q(b)) = 0$.
+    The argument for $QP$ is similar.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Let $T : V \longrightarrow V$ be a linear mapping such that $T^2 = T$,
+    and let $M = Im T$ and $N = Ker T$. 
+    Prove that $M = \{x \in V \mid Tx = x\} = Ker (T - I)$ and that 
+    $V = M \oplus N$ in the sense of 1.6, Exercise 12.
+\end{tcolorbox}
+
+\begin{proof}
+    Notice $x \in M \iff Tx = x \iff Tx - x = 0 \iff Tx - Ix = 0 \iff (T - I)(x) = 0 \iff x \in \ker(T - I)$.
+
+    Let $x \in V$.
+    Let $y = Tx \in M$ and $z = x - Tx \in N$.
+    Notice
+    \[
+    T(z) = T(x - Tx) = Tx - T^2 x = Tx - Tx = 0
+    \]
+    Thus $z \in \ker T = N$.
+    Therefore $x = y + z \in M + N$.
+    Suppose $x = y_1 + z_1 = y_2 + z_2$ with $y_i \in M, z_i \in N$. Then
+    \[
+    y_1 - y_2 = z_2 - z_1 \in M \cap N.
+    \]
+    But then $M \cap N = \{0\}$ because suppose $v \in M \cap N$, then $Tv = v$ and $Tv = 0$, so $v = 0$.
+    Thus $V = M \oplus N$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Find $S, T \in \mathcal{L}(\mathbb{R}^2)$
+        such that $ST \ne TS$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the linear maps $S, T \in \mathcal{L}(\mathbb{R}^2)$
+    \[
+    S(x, y) = (y, 0), \quad T(x, y) = (0, x).
+    \]
+    Then for any $(x, y) \in \mathbb{R}^2$
+    \[
+    ST(x, y) = S(T(x, y)) = S(0, x) = (x, 0),
+    \]
+    \[
+    TS(x, y) = T(S(x, y)) = T(y, 0) = (0, y).
+    \]
+    Thus $ST \ne TS$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Let $T : U \longrightarrow V$ and $S : V \longrightarrow W$
+    be linear mappings. Prove 
+    \begin{enumerate}
+        \item If $S$ is injective, then $Ker(ST) = Ker(T)$.
+        \item If $T$ is surjective, then $Im(ST) = Im S$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $S$ is injective.
+    Let $x$ be an arbitrary element in $U$.
+    Suppose $x \in Ker(T)$ thus $T(x) = 0$.
+    Then $(ST)(x) = S(T(x)) = S(0) = 0$.
+    Thus $x \in Ker(ST)$.
+    Suppose $x \in Ker(ST)$ thus $(ST)(x) = 0$.
+    Now $S(0) = 0$ and since $S(T(x)) = 0$ and $S$ is injective, $T(x) = 0$ thus $x \in Ker T$.
+    It follows that $Ker(ST) = Ker(T)$.
+\end{proof}
+
+\begin{proof}
+    Suppose $T$ is surjective.
+    It follows that $T$ maps onto all elements in the domain of $S$.
+    Therefore $Im (ST) = S$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Let $V$ be a real or complex vector space and let $t \in \mathcal{V}$
+        be such that $T^2 = I$. Define 
+        \[M = \{x \in V \mid Tx = x\}, \quad N = \{x \in V \mid Tx = -x\}\]
+        Prove that $M$ and $N$ are linear subspaces of $V$ such that $V = M \oplus N$.
+    [Hint: For every vector $x$, $x = \frac{1}{2}(x + Tx) + \frac{1}{2}(x - Tx)$.]
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x \in V$ and consider $x = \frac{1}{2}(x + Tx) + \frac{1}{2}(x - Tx)$.
+    
+
+    Suppose $v \in M \cap N$.
+    Then $v = x$ and $v = -x$ which implies $v = 0$.
+    Thus $M \cap N = \{0\}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+    A lightning proof of Theorem 2.3.11 can be based on an eaerlier exercise:
+    Since $0 \in \mathcal{L}(V, W)$, Lemma 2.3.10 shows that $\mathcal{V, W}$
+    is a linear subspace of the vector space $\mathcal{F}(V, W)$ defined as in 
+    1.3, Exercise 1, therefore $\mathcal{L}(V, W)$ is also a vector space (1.6.2).
+\end{tcolorbox}
+
+\textbf{Solution:} OK.
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 24, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 25, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 26, breakable]
+\end{tcolorbox}
+
+\subsection{Isomorphic Vector Spaces}
+
+\subsection{Equivalence Relations and Quotient Sets}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $X$ be a nonempty set.
+    Let $R$ be a subset of the cartesian product 
+    $X \times X$, such that (i) $R$ contains the `diagnol'
+    $X \times X$, that is, $(x, x) \in R$ 
+    for all $x \in X$; (ii) $R$  is `symmetric in the diagnol',
+    that is, if $(x, y) \in R$ then $(y, x) \in R$;
+    and (iii) if $(x, y) \in R$ and $(y, z) \in R$ then 
+    $(x, z) \in R$. Does this suggest a way of defining an equivalence
+    relation $x \sim y$ in $X$.
+\end{tcolorbox}
+
+\textbf{Solution: } Yes.
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $\mathcal{L}$ be the set of all lines $L$ in the cartesian plane 
+    that are not vertical (i.e. not parallel to the y-axis). Define a 
+    function $m : \mathcal{L} \longrightarrow \mathbb{R}$ by 
+    $m(L) = $slope of $L$. Let $\sim$ be the equivalence relation 
+    on $\mathcal{L}$ derived from $m$ (2.5.1), that is,
+    $L \sim L'$ means that $L$ and $L'$ have the same slope.
+    \begin{enumerate}
+        \item Describe the equivalence class $[L] = L$.
+        \item True or false (explain): 
+    \end{enumerate}
+\end{tcolorbox}
