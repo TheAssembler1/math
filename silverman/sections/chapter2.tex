@@ -10,14 +10,225 @@
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Notice for $k \in \mathbb{Z}$:
+    \begin{enumerate}
+        \item $(3k)^2 = 9k^2 \equiv 0 \pmod{3}$.
+        \item $(3k + 1)^2 = 9k^2 + 6k + 1 \equiv 1 \pmod{3}$.
+        \item $(3k + 2)^2 = 9k^2 + 12k + 4 \equiv 1 \pmod{3}$.
+    \end{enumerate}
+    Then if $3 \nmid a, b$
+    \[
+        (1 \pmod{3}) + (1 \pmod{3}) \equiv 2 \pmod{3} = c^2.
+    \]
+    But no integer squared has remainder $2$ modulo $3$, which is a contradiction.
+\end{proof}
+
+\begin{proof}
+    Notice for $k \in \mathbb{Z}$:
+    \begin{enumerate}
+        \item $(5k)^2 \equiv 0 \pmod{5}$,
+        \item $(5k \pm 1)^2 = 25k^2 \pm 10k + 1 \equiv 1 \pmod{5}$,
+        \item $(5k \pm 2)^2 = 25k^2 \pm 20k + 4 \equiv 4 \pmod{5}$.
+    \end{enumerate}
+    Then if $5 \nmid a, b, c$
+    \[
+        a^2, b^2, c^2 \equiv 1 \text{ or } 4 \pmod{5}.
+    \]
+    Checking all possibilities,
+    \[
+        1+1 \equiv 2,\quad 1+4 \equiv 0,\quad 4+4 \equiv 3 \pmod{5}.
+    \]
+    Since $a^2 + b^2 = c^2$, the only possible case is
+    \[
+        a^2 + b^2 \equiv 0 \pmod{5},
+    \]
+    thus $5 \mid c^2$ and therefore $5 \mid c$, which is a contradiction.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 2, breakable]
+    A nonzero integer $d$ is said to \emph{divide}
+    an integer $m$ if $m = dk$ for some number $k$.
+    Show that if $d$ divides both $m$ and $n$,
+    then $d$ also divides $m - n$ and $m + n$.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $d$ divides both $m$ and $n$.
+    Thus there exists $k_1, k_2$ such that $m = k_1 d$ and $n = k_2 d$.
+    Then $m - n = k_1 d - k_2 d = (k_1 - k_2)d$.
+    Thus $d \mid m - n$.
+    Similarly, $m + n = k_1 d + k_2 d = (k_1 + k_2)d$.
+    Thus $d \mid m + n$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    If you look at the table of Pythagorean triples in this chapter,
+        you will see many triples in which $c$ is $2$ greater than $a$.
+    For example, the triples $(3, 4 ,5)$, $(15, 8, 17)$, $(35, 12, 37)$, and $(63, 16, 65)$ 
+    all have this property.
+    \begin{enumerate}
+        \item Find two more primitive Pythagorean triples $(a, b, c)$ have $c = a + 2$.
+        \item Find a primitive Pythagorean triple $(a, b, c)$ having $c = a + 2$ and $c > 100$.
+        \item Try to find a formula that describes all primitive Pythagorean triples $(a, b, c)$
+                having $c = a + 2$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\textbf{Solution (a):}
+\begin{enumerate}
+    \item $(99, 20, 101)$
+    \item $(143, 24, 145)$
+    \item $(195, 28, 197)$
+    \item $(255, 32, 257)$
+    \item $(323, 36, 325)$
+    \item $(399, 40, 401)$
+    \item $(483, 44, 485)$
+    \item $(575, 48, 577)$
+    \item $(675, 52, 677)$
+    \item $(783, 56, 785)$
+    \item $(899, 60, 901)$
+\end{enumerate}
+
+\textbf{Solution (b):} All previous solutions have $c > 100$.
+
+\begin{proof}
+    We require $a^2 + b^2 = c^2$ with $c = a + 2$.
+    Thus
+    \[
+        a^2 + b^2 = (a + 2)^2
+        \iff b^2 = (a + 2)^2 - a^2
+        \iff b^2 = a^2 + 4a + 4 - a^2
+        \iff b^2 = 4a + 4 = 4(a + 1).
+    \]
+    Thus $4 \mid b^2$ and therefore $2 \mid b$. Then $b = 2k$ for some integer $k$.
+    Then
+    \[
+        4k^2 = 4(a + 1) \iff k^2 = a + 1.
+    \]
+    Thus $a = k^2 - 1$ and $c = a + 2 = k^2 + 1$.
+    Therefore $(a,b,c) = (k^2 - 1,\, 2k,\, k^2 + 1)$ satisfies $a^2 + b^2 = c^2$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
+    For each primitive Pythagorean triple $(a, b, c)$
+    in the table in this chapter, compute the quantity 
+    $2c - 2a$. Do these values seem to have some special form?
+    Try to prove that your observation is true for all primitive Pythagorean triples.
 \end{tcolorbox}
 
+\textbf{Solution: }
+\begin{enumerate}
+    \item $(3, 4, 5)$ then
+    $2c - 2a = 2(5) - 2(3) = 10 - 6 = 4$.
+    \item $(5, 12, 13)$ then
+    $2c - 2a = 2(13) - 2(5) = 26 - 10 = 16$.
+    \item $(7, 24, 25)$ then
+    $2c - 2a = 2(25) - 2(7) = 50 - 14 = 36$.
+    \item $(9, 40, 41)$ then
+    $2c - 2a = 2(41) - 2(9) = 82 - 18 = 64$.
+    \item $(15, 8, 17)$ then
+    $2c - 2a = 2(17) - 2(15) = 34 - 30 = 4$.
+    \item $(21, 20, 29)$ then
+    $2c - 2a = 2(29) - 2(21) = 58 - 42 = 16$.
+    \item $(35, 12, 37)$ then
+    $2c - 2a = 2(37) - 2(35) = 74 - 70 = 4$.
+    \item $(45, 28, 53)$ then
+    $2c - 2a = 2(53) - 2(45) = 106 - 90 = 16$.
+    \item $(63, 16, 65)$ then
+    $2c - 2a = 2(65) - 2(63) = 130 - 126 = 4$.
+\end{enumerate}
+
+Those are all perfect squares.
+
+\begin{proof}
+    We know that for $s > t > 1$ we have 
+    \[
+        a = st
+        \quad \text{and} \quad
+        c = \frac{s^2 + t^2}{2}.
+    \]
+    Then
+    \[
+        2c - 2a
+        = (s^2 + t^2) - 2st
+        = (s - t)^2.
+    \]
+    Thus $2c - 2a$ is a perfect square.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 9, breakable]
+    \begin{enumerate}
+        \item Read about the Babylonian number system and write a short description,
+        including the symbols from $1$ to $10$ and the multiples of $10$ from $20$ to $50$.
+        \item Read about the Babylonian tablet called `Plimpton 322' and write a brief report,
+        including its approximate date of origin.
+        \item The second and third columns of `Plimpton 322' give pairs of integers $(a, c)$
+        having the property that $c^2 - a^2$ is a perfect square. Convert some of these 
+        pairs from Babylonian numbers to decimal numbers and compute the value $b$ so that 
+        $(a, b, c)$ is a Pythagorean triple.
+    \end{enumerate}
 \end{tcolorbox}
+
+The Babylonians used a sexagesimal (base-60) positional 
+numeral system. This system was inherited from either 
+the Sumerian or Akkadian civilizations. However, neither 
+of these predecessors used a positional system. In other words, 
+they did not have a convention for which ``end'' of the numeral 
+represented the units. The system first appeared around 2000~BC. 
+It is credited as being the first known positional numeral system 
+in which the digit itself and its position within the number 
+reflect its value.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/chapter2/numerals.png}
+    \caption{Babylonian numerals from $1$ to $50$}
+    \label{numerals}
+\end{figure}
+
+Figure~\ref{numerals} shows the numbers $1$--$50$. 
+The Babylonians did not have a digit for the number zero.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/chapter2/tablet.png}
+    \caption{The Babylonian tablet \emph{Plimpton 322}}
+    \label{tablet}
+\end{figure}
+
+Figure~\ref{tablet} shows a tablet named \emph{Plimpton 322}. 
+It was made of clay and is believed to have been written around 
+1800~BC. Each row of the table corresponds to a Pythagorean triple. 
+In other words, each row corresponds to three integers, 
+say $(a,b,c)$, such that $a^2 + b^2 = c^2$. The tablet was written 
+approximately 13--15 centuries prior to the Greek discoveries 
+in geometry. The table exclusively lists numbers in which the 
+longer leg has prime factors only $2$, $3$, or $5$. Thus, the other 
+two sides have exact terminating representations in the 
+Mesopotamian sexagesimal number system. The purpose of the table 
+is unknown.
+
+On the table, the second and third columns of \emph{Plimpton 322} 
+give pairs $(a,c)$ such that $c^2 - a^2$ is a perfect square. 
+For example, one row corresponds to 
+$a = 119$ and $c = 169$. Then
+\[
+b^2 = c^2 - a^2 = 169^2 - 119^2 = 28561 - 14161 = 14400 = 120^2,
+\]
+thus $b = 120$ and it follows that $(119,120,169)$ is a Pythagorean triple. 
+Another row shows $a = 65$ and $c = 97$. Then
+\[
+b^2 = 97^2 - 65^2 = 5184 = 72^2,
+\]
+so $(65,72,97)$ is also a Pythagorean triple. These examples 
+show that the pairs listed on \emph{Plimpton 322}  
+generate valid Pythagorean triples.
+
+\textbf{References}
+\begin{enumerate}
+    \item Wikipedia, \emph{Babylonian cuneiform numerals}.  
+    \url{https://en.wikipedia.org/wiki/Babylonian_cuneiform_numerals}
+    \item Wikipedia, \emph{Plimpton 322}.  
+    \url{https://en.wikipedia.org/wiki/Plimpton_322}
+\end{enumerate}

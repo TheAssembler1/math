@@ -158,7 +158,6 @@
 
 \textbf{Solution:} The kernel is $(x, x) \in V \times V$ and the range is $V$.
 
-\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
     Let $V$ be a real vector space, $W$ its complexification (1.3, Exercise 4);
     write $W_R$ for $W$ regarded as a real vector space (1.3, Exercise 3).
@@ -218,7 +217,6 @@
         $(1T)(x)=1\cdot T(x)=T(x)$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 2, breakable]
     Let $V$ be a vector space. If $R, S, T \in \mathcal{L}(V)$ and $c$
         is a scalar, the following equalities are true.
@@ -457,7 +455,6 @@
     Thus $ST \ne TS$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 15, breakable]
     Let $T : U \longrightarrow V$ and $S : V \longrightarrow W$
     be linear mappings. Prove 
@@ -494,30 +491,79 @@
 
 \begin{proof}
     Let $x \in V$ and consider $x = \frac{1}{2}(x + Tx) + \frac{1}{2}(x - Tx)$.
-    
+    Let $m = \frac{1}{2}(x + Tx)$ and $n = \frac{1}{2}(x - Tx)$. 
+    Then $Tm = \frac{1}{2}(Tx + T^2x) = \frac{1}{2}(Tx + x) = m$ so $m \in M$, 
+    and $Tn = \frac{1}{2}(Tx - T^2x) = \frac{1}{2}(Tx - x) = -n$ so $n \in N$. 
+    Thus $x = m + n \in M + N$.
 
     Suppose $v \in M \cap N$.
-    Then $v = x$ and $v = -x$ which implies $v = 0$.
+    Then $Tv = v$ and $Tv = -v$, which implies $v = 0$.
     Thus $M \cap N = \{0\}$.
+    It follows that $V = M \oplus N$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
+    Let $V = \mathcal{F}(\mathbb{R})$ be the real vector space of all functions $x : \mathbb{R} \longrightarrow \mathbb{R}$ (1.3.4).
+    For $x \in V$ define $Tx \in V$ by the formula $(Tx)(t) = x(-t)$. Analyze $T$ in the light of Exercise 16.
+    [Remember 1.6, Exercise 13]
 \end{tcolorbox}
+
+\textbf{Solution: } The set of functions for which $x(t) = x(-t)$, i.e., the even functions, are in $M$. 
+The functions for which $x(t) = -x(-t)$, i.e., the odd functions, are in $N$. 
+Every function $x \in V$ can be expressed as $x = \frac{1}{2}(x + Tx) + \frac{1}{2}(x - Tx) \in M \oplus N$.
 
 \begin{tcolorbox}[title=Problem 18, breakable]
+    Let $T \in \mathcal{L}(U, V)$ and $S \in \mathcal{L}(V, W)$,
+        prove that $(ST)' = T'S'$.
+    (cf. Exercise 4).
 \end{tcolorbox}
+
+\begin{proof}
+    Let $f \in W'$ be a linear form on $W$.  
+    Then $(ST)'(f) = f \circ (ST) = (f \circ S) \circ T = T'(S'(f))$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 19, breakable]
+    Let $S, T \in \mathcal{L}(V, W)$ and let $M = \{x \in V \mid Sx = Tx\}$.
+    Prove that $M$ is a linear subspace of $V$. [Hint: Consider $Ker(S - T)$.]
 \end{tcolorbox}
+
+\begin{proof}
+    Note that $M = \{x \in V \mid Sx - Tx = 0\} = \{x \in V \mid (S - T)x = 0\} = \ker(S - T)$.
+    Since the kernel of a linear map is always a linear subspace, $M$ is a linear subspace of $V$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 20, breakable]
+    If $T : V \longrightarrow W, S : W \longrightarrow V$ are linear mappings
+        such that $ST = I$, prove that $Ker T = \{0\}$ and $Im S = V$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $x \in Ker T$ such that $Tx = 0$.
+    Then $STx = Tx = 0$.
+    Since $ST = I$, we have $x = 0$ thus $Kern T = \{0\}$.
+
+    Next, let $v \in V$. Then $v = Iv = STv = S(Tv)$.
+    Thus $v \in Im S$. Therefore $Im S = V$.
+\end{proof} 
 
 \begin{tcolorbox}[title=Problem 21, breakable]
+    If $V = \{\theta\}$ or $W = \{\theta\}$ then $\mathcal{L}(V, W) = \{0\}$.
+    If $V \ne \{\theta\}$ then $I_v \ne 0$.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $V = \{\theta\}$ or $W = \{\theta\}$.
+    Clearly there is only one linear mapping between $V$ and $W$
+    which is for all $x \in V$, $T(x) = 0 \in W$.
+
+    Suppose $V \ne \{\theta\}$. $V$ has at least two elements,
+    one of which maps to $0$.
+    The other must map to a nonzero element under $I_V$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 22, breakable]
-    A lightning proof of Theorem 2.3.11 can be based on an eaerlier exercise:
+    A lightning proof of Theorem 2.3.11 can be based on an earlier exercise:
     Since $0 \in \mathcal{L}(V, W)$, Lemma 2.3.10 shows that $\mathcal{V, W}$
     is a linear subspace of the vector space $\mathcal{F}(V, W)$ defined as in 
     1.3, Exercise 1, therefore $\mathcal{L}(V, W)$ is also a vector space (1.6.2).
@@ -526,20 +572,552 @@
 \textbf{Solution:} OK.
 
 \begin{tcolorbox}[title=Problem 23, breakable]
+    If $T : U \longrightarrow V$ and $S : V \longrightarrow W$
+        are linear mappings, prove that $Ker(ST) = T^{-1}(Ker S)$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $x \in U$. Then
+    \[
+        x \in Ker(ST)
+        \iff STx = 0
+        \iff S(Tx) = 0
+        \iff Tx \in Ker S
+        \iff x \in T^{-1}(Ker S).
+    \]
+    Therefore $Ker(ST) = T^{-1}(Ker S)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 24, breakable]
+    Let $V = \mathcal{D}$ be the vector space of real polynomial functions,
+    $D : V \longrightarrow V$ the differentiation mapping $Dp = p'$ (2.1.4).
+    Let $u$ be the monomial $u(t) = t$ and define another linear mapping 
+    $M : V \longrightarrow V$ by the formula $Mp = up$. (So to speak,
+    $M$ is multiplication by $t$.) Prove that $DM - MD = I$ (the identity mapping).
+    [Hint: The claim is that $(up)' - up' = p$. Remember the `product rule'?]
 \end{tcolorbox}
+
+\begin{proof}
+    By the product rule,
+    \[
+        (up)' = u'p + up'.
+    \]
+    Since $u(t) = t$ we know $u' = 1$. Thus
+    \[
+        (up)' = p + up'.
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 25, breakable]
+    Let $D : \mathcal{D} \longrightarrow \mathcal{D}$ be the differentiating map of Exercise 24
+        and let $S : \mathcal{D} \longrightarrow \mathcal{D}$ be the linear mapping such that 
+        $(Sp)' = p$ and $(Sp)(0) = 0$ (2.1.5). Prove:
+        \begin{enumerate}
+            \item If $R : \mathcal{D} \longrightarrow \mathcal{D}$ is any linear mapping such that $(Rp)' = p$ for all $p \in \mathcal{D}$, then $DR = I$.
+            \item If $T : \mathcal{D} \longrightarrow \mathcal{D}$ is a linear mapping such that $DT = 0$, then there exists a linear form $f$ on $\mathcal{D}$
+                    such that (in the notation of Exercise 2.3.4) $T = f \otimes 1$, where $1$ is the constant function $1$. [Hint: $Im T \subset Ker D$.]
+            \item With $R$ as in (i), $R = S + f \otimes 1$ for a suitable linear form $f$ on $\mathcal{D}$. [Hint: Consider $T = R - S$.] Remember $2.1$, Exercise 8?
+        \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $R : \mathcal{D} \longrightarrow \mathcal{D}$ is a linear mapping such that $(Rp)' = p$ for all $p \in \mathcal{D}$.
+    Let $p \in \mathcal{D}$. Then $(DR)(p) = D(Rp) = (Rp)' = p$.  
+    Thus $DR = I$.
+\end{proof}
+
+\begin{proof}
+    If $T : \mathcal{D} \longrightarrow \mathcal{D}$ is a linear mapping such that $DT = 0$,  
+    then for all $p \in \mathcal{D}$, $Tp$ is a constant function.  
+    Thus $T = T \otimes 1$, where $1$ is the constant function $1$.
+\end{proof}
+
+\begin{proof}
+    Let $R : \mathcal{D} \longrightarrow \mathcal{D}$ and let $T = R - S$.
+    Then for any $p \in \mathcal{D}$, $D(Tp) = D((R - S)p) = DR(p) - DS(p) = I(p) - I(p) = 0$.
+    Thus $DT = 0$.
+    By part (ii), there exists a linear form $f$ on $\mathcal{D}$ such that $T = f \otimes 1$.
+    Therefore $R = S + T = S + f \otimes 1$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 26, breakable]
+    Let $S, T \in \mathcal{L}(V)$. If $ST - I$ is injective then so is $TS - I$. [Hint: $S(TS - I) = (ST - I)S$.]
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $ST - I$ is injective.
+    Thus $\ker (ST - I) = \{0\}$.
+    Suppose $x \in V$ such that $(TS - I)(x) = 0$.
+    Then applying $S$ we have $S(TS - I)(x) = 0$.
+    By the hint we have $((ST - I)S)(x) = 0 \iff (ST - I)(S(x)) = 0$.
+    Since $ST - I$ is injective we have $S(x) = 0$.
+    Then $(TS - I)(x) = TS(x) - x = T0 - x = -x = 0$.
+    Thus $x = 0$.
+\end{proof}
 
 \subsection{Isomorphic Vector Spaces}
 
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Regard $\mathbb{C}^n$ as a real vector space 
+    in the natural way (sums as usual, multiplication 
+    only by real scalars); 
+    then $\mathbb{C}^n \cong \mathbb{R}^{2n}$
+    as real vector spaces.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $r_1, r_2, \ldots, r_{2n-1}, r_{2n} \in \mathbb{R}$.
+    Consider the mapping
+    \[
+    (r_1, r_2, \ldots, r_{2n-1}, r_{2n})
+    \mapsto
+    (r_1 + r_2 i, \ldots, r_{2n-1} + r_{2n} i).
+    \]
+    We know that the map $(r_1, r_2) \mapsto r_1 + r_2 i$ is linear and bijective
+    over $\mathbb{R}$.
+    Our mapping is simply an extension of this map to $n$ components and is therefore
+    linear and bijective.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $X$ be a set, $V$ a vector space, $f : X \longrightarrow V$ a bijection.
+    There exists a unique vector space structure on $X$ for which $f$ is a linear mapping 
+    (hence a vector space isomorphism).
+    [Hint: Define sums and scalar multiples in $X$ by the formulas $x + y = f^{-1}(f(x) + f(y)), cx = f^{-1}(cx)$.
+    This trick is called `transport of structure'.]
+\end{tcolorbox}
+
+\begin{proof}
+    Clearly $X$ is a vector space, since after applying $f$ each vector space axiom
+    becomes the corresponding axiom in $V$, and injectivity of $f$ implies the axioms
+    hold in $X$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $V$ be the set of n-ples $x = (x_1, \ldots, x_n)$
+        of real numbers $> 0$, that is, 
+    \[V = \{(x_1, \ldots, x_n) \mid x_i \in (0, + \infty \text{ for } i = 1, \ldots, n)\}.\]
+    For $x = (x_1, \ldots, x_n), y = (y_1, \ldots, y_n)$ in $V$ and $c \in \mathbb{R}$, define 
+    \[x \oplus y  = (x_1 y_1, \ldots, x_n y_n), c \cdot x = (x_1^c, \ldots, x_n^c),\]
+    (here $x_i y_i$ and $c_i^c$ are the usual product and power),
+    Define a mapping $T : V \longrightarrow \mathbb{R}^n$ by the formula 
+    $T(x_1, \ldots, x_n) = (\log x_1, \ldots, \log x_n)$.
+    \begin{enumerate}
+        \item Show that $T(x \oplus y) = Tx + Ty$ and $T(c \cdot x) = c(Tx)$ for all $x, y$ in $V$ and all $c \in \mathbb{R}$.
+        \item True or false (explain): $V$ is a real vector space for the operations $\cdot$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y \in V$ and $c$ be a scalar.
+    Then
+    \[
+    T(x \oplus y)
+        = T((x_1 y_1, \ldots, x_n y_n))
+        = (\log(x_1 y_1), \ldots, \log(x_n y_n))
+        = (\log x_1 + \log y_1, \ldots, \log x_n + \log y_n)
+    \]
+    \[
+        = (\log x_1, \ldots, \log x_n) + (\log y_1, \ldots, \log y_n)
+        = Tx + Ty.
+    \]
+    Also,
+    \[
+    T(c \cdot x)
+        = T((x_1^c, \ldots, x_n^c))
+        = (\log(x_1^c), \ldots, \log(x_n^c))
+        = (c \log x_1, \ldots, c \log x_n)
+        = c(Tx).
+    \]
+\end{proof}
+
+\textbf{Solution: } False since scalar multiplication does not satisfy the vector space axioms.
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $V$ be a vector space, $T \in \mathcal{L}(V)$ bijective, and $c$ a nonzero 
+    scalar. Prove that $cT$ is bijective and that $(cT)^{-1} = c^{-1}T^{-1}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $v, v' \in V$ and suppose $cT(v) = cT(v')$.
+    Then $cT(v) = cT(v') \iff cT(v) - cT(v') = 0 \iff c(T(v) - T(v')) = 0$.
+    Since $c \ne 0$, we must have $T(v) = T(v')$.
+    Since $T$ is injective, it follows that $v = v'$.
+    Thus $cT$ is injective.
+
+    Let $v \in V$. Since $c \ne 0$, the scalar $\frac{1}{c}$ exists.
+    Since $V$ is closed under scalar multiplication, $\frac{1}{c} \cdot v = \frac{v}{c} \in V$.
+    Since $T$ is surjective, there exists $x \in V$ such that $T(x) = \frac{v}{c}$.
+    Then $cT(x) = c\left(\frac{v}{c}\right) = v$.
+    Thus $cT$ is surjective.
+
+    Let $v \in V$, and suppose $(cT)^{-1}(v) = x$. 
+    Then $cT(x) = v \implies T(x) = \frac{v}{c} \implies x = T^{-1}\left(\frac{v}{c}\right) = T^{-1}(c^{-1} v)$.
+    Thus $(cT)^{-1} = c^{-1}T^{-1}$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $T : V \longrightarrow W$ be a bijective linear mapping.
+    For each $S \in \mathcal{L}(V)$, define $\rho : \mathcal{L}(V) \longrightarrow TST^{-1}$
+    (note that the product is defined). Prove that $\rho : \mathcal{L}(V) \longrightarrow \mathcal{L}(W)$
+    is a bijective linear mapping such that $\rho(RS) = \rho(R)\rho(S)$ for all $R, S \in \mathcal{L}(V)$.
+\end{tcolorbox}
+
+
+\begin{proof}
+    Since the composition of linear mappings is linear, $T S T^{-1}$ is a linear mapping.  
+    Let $R, S \in \mathcal{L}(V)$. Then
+    \[
+        \rho(RS) = T (RS) T^{-1} = (T R T^{-1}) (T S T^{-1}) = \rho(R)\rho(S).
+    \]
+    Suppose $\rho(S)(v) = 0$ for some $v \in W$.
+    Then $\rho(S)(v) = 0 \iff TST^{-1}(v) = 0$.
+    Now $v = T(x)$ for some $x \in V$ thus $TST^{-1}(T(x)) = TS(x) = 0$.
+    Then since $T$ is injective $S(x) = 0$ thus $\rho$ is injective.
+    It is surjective because for any $U \in \mathcal{L}(W)$, 
+        setting $S = T^{-1} U T$ gives $\rho(S) = U$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $V$ be a vector space, $T \in \mathcal{L}(V)$. Prove:
+    \begin{enumerate}
+        \item If $T^2 = 0$ then $I - T$ is bijective. 
+        \item If $T^n = 0$ for some positive integer $n$, then $I - T$ is bijective.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $T^2 = 0$. Let $v \in V$ and suppose 
+    $(I - T)(v) = 0 \implies T(v) - T^2(v) = 0 \implies T(v) = 0$.
+    But $I(v) - T(v) = 0 \implies T I(v) - T^2(v) = T(0) \implies v - T(v) = 0 \implies v = T(v)$.
+    Thus $v = 0$. It follows that $I - T$ is injective.
+
+    Let $y \in V$. We want to find $x \in V$ such that $(I - T)(x) = y$.
+    Let $x = y + T(y)$.
+    Then $(I - T)(x) 
+        = (I - T)(y + T(y)) 
+        = I(y + T(y)) - T(y + T(y)) 
+        = I(y) + IT(y) - T(y) - T^2(y) 
+        = y + T(y) - T(y)
+        = y$.
+\end{proof}
+
+\begin{proof}
+    We proceed via induction on $n$. The previous proof shows the base case $n = 2$.
+    Suppose for some $n-1$, $T^{n-1} = 0$ implies $I - T$ is bijective.
+    Now suppose $T^n = 0$.
+    Let $v \in V$ and suppose $(I - T)(v) = 0$. 
+    Composing with $T^{n - 1}$, we get
+        $T^{n-1}(v) - T^n(v) = T^{n-1}(v) = 0$.
+    By the induction hypothesis, this implies $v = 0$, so $I - T$ is injective.
+
+    For surjectivity, let $y \in V$ and set 
+        $x = y + T(y) + \dots + T^{n-1}(y)$. 
+    Then $(I - T)(x) = y$, so $I - T$ is bijective.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $U, V, W$ be vector spaces over the same field.
+    Form the product vector spaces $U \times V, V \times W$ (Definition 1.3.11),
+    then the product vector spaces $(U \times V) \times W$ and $U \times (V \times W)$.
+    Prove that $(U \times V) \times W \cong U \times (V \times W)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping 
+    \[
+        \rho : (U \times V) \times W \longrightarrow U \times (V \times W), \quad
+        \rho((x_1, x_2), x_3) = (x_1, (x_2, x_3)).
+    \]
+
+    Suppose $\rho((x_1, x_2), x_3) = \rho((y_1, y_2), y_3)$. 
+    Then $(x_1, (x_2, x_3)) = (y_1, (y_2, y_3))$, so $x_1 = y_1$, $x_2 = y_2$, $x_3 = y_3$. 
+    Thus $((x_1, x_2), x_3) = ((y_1, y_2), y_3)$, and $\rho$ is injective.
+
+    Let $(u, (v, w)) \in U \times (V \times W)$. 
+    Then $\rho((u, v), w) = (u, (v, w))$.
+    Thus $\rho$ is surjective.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Prove that $\mathbb{R}^2 \times \mathbb{R}^3 \cong \mathbb{R}^5$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping 
+    \[ 
+        \rho : \mathbb{R}^2 \times \mathbb{R}^3 \longrightarrow \mathbb{R}^5, \quad 
+        \rho(((x_1, x_2), (x_3, x_4, x_5))) = (x_1, x_2, x_3, x_4, x_5)
+    \]
+
+    Suppose $\rho(((x_1, x_2), (x_3, x_4, x_5))) = \rho(((y_1, y_2), (y_3, y_4, y_5)))$.
+    Then $(x_1, x_2) = (y_1, y_2)$ and $(x_3, x_4, x_5) = (y_3, y_4, y_5)$.
+    Thus $((x_1, x_2), (x_3, x_4, x_5)) = ((y_1, y_2), (y_3, y_4, y_5))$, and $\rho$ is injective.
+
+    Let $(x_1, x_2, x_3, x_4, x_5) \in \mathbb{R}^5$.
+    Then $\rho(((x_2, x_2), (x_3, x_4, x_5))) = (x_1, x_2, x_3, x_4, x_5)$.
+    Thus $\rho$ is surjective.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    With notations as in Exercie 8, prove that $V \times W \cong W \times V$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping
+    \[
+        \rho : V \times W \longrightarrow W \times V, \quad
+        \rho((v, w)) = (w, v).
+    \]
+
+    Suppose $\rho((v_1, w_1)) = \rho((v_2, w_2))$.
+    Then $(w_1, v_1) = (w_2, v_2)$, so $v_1 = v_2$ and $w_1 = w_2$.
+    Thus $(v_1, w_1) = (v_2, w_2)$, and $\rho$ is injective.
+
+    Let $(w, v) \in W \times V$.
+    Then $\rho((v, w)) = (w, v)$.
+    Thus $\rho$ is surjective.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    With notations as in Example 2.4.2, prove that $(x_1, x_2) \mapsto (x_1, x_2 + x_2, 0)$
+    is an isomorphism $\mathbb{R}^2 \mapsto W$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping
+    \[
+        \rho : \mathbb{R}^2 \longrightarrow W, \quad
+        \rho((x_1, x_2)) = (x_1, x_2, 0).
+    \]
+
+    Suppose $\rho((x_1, x_2)) = \rho((y_1, y_2))$.
+    Then $(x_1, x_2, 0) = (y_1, y_2, 0)$, so $x_1 = y_1$ and $x_2 = y_2$.
+    Thus $(x_1, x_2) = (y_1, y_2)$, and $\rho$ is injective.
+
+    Let $(x_1, x_2, 0) \in W$.
+    Then $\rho((x_1, x_2)) = (x_1, x_2, 0)$.
+    Thus $\rho$ is surjective.
+\end{proof}
+
 \subsection{Equivalence Relations and Quotient Sets}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $X$ be the set of all \emph{nonzero}
+    vectors in $\mathbb{R}^n$, that is,
+    $X = \mathbb{R}^n - \{\theta\}$.
+    For $x, y$ in $X$, write $x \sim y$
+    if $x$ is proportional to $y$, that is,
+    if there exists a scalar $c$ (necessarily nonzero)
+    such that $x = cy$; this is an equivalence relation 
+    in $X$.
+\end{tcolorbox}
+
+
+\begin{proof}
+    Notice that $x = 1x$, thus $x \sim x$.
+
+    Suppose $x \sim y$.
+    Then $x = cy$ for some scalar $c$.
+    Since $c \ne 0$, we have $\frac{1}{c}x = y$.
+    Thus $y \sim x$.
+
+    Suppose $x \sim y$ and $y \sim z$.
+    Then $x = c_1 y$ and $y = c_2 z$ for some scalars $c_1, c_2$.
+    Then $x = c_1 y = c_1(c_2 z) = (c_1 c_2)z$.
+    Thus $x \sim z$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $\lambda$ is a nonempty set of vector spaces over the field $F$, then the relation 
+    of isomorphism (2.4.1) is an equivalence relation in $\lambda$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y, z \in \lambda$.
+    Notice that $x \sim x$ through the identity mapping.
+
+    Suppose $x \sim y$. Then there exists an isomorphism $\rho$
+    such that $\rho(x) = y$. But then $x = \rho^{-1}(y)$,
+    thus $y \sim x$.
+
+    Suppose $x \sim y$ and $y \sim z$.
+    Then there exist $\rho_1, \rho_2$
+    such that $\rho_1(x) = y$ and $\rho_2(y) = z$.
+    Then $z = \rho_2(\rho_1(x))$
+    Thus $x \sim z$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $f : X \longrightarrow Y$ be any mapping, $x \sim x'$
+    the equivalence relation defined by $f(x) = f(x')$ (2.5.1),
+    $q : X \longrightarrow X / \sim$ the quotient mapping (2.5.17).
+    
+    Define a mapping $g : X / \sim \longrightarrow f(X)$ as follows : 
+    if $u \in X / \sim$ define $g(u) = f(x)$, where $x$ is any element of $X$
+    such that $u = q(x)$. [If also $u = q(x')$ then $x \sim x'$, 
+    so $f(x) = f(x')$; thus $g(u)$ depends only on $u$ not on the particular 
+    $x$ chosen to represent the class $u$.] Prove (cf. Fig. 10):
+    \begin{enumerate}
+        \item $g$ is bijective;
+        \item $f = i \circ g \circ q$, where $i : f(X) \longrightarrow Y$ is the insertion mapping 
+              (Appendix A.3.8).
+    \end{enumerate}
+    In particular, if $f : X \longrightarrow Y$ is surjective, then $g : X / \sim \longrightarrow Y$ is bijective.
+\end{tcolorbox}
+\begin{proof}
+    Suppose $u, u' \in X / \sim$ such that $g(u) = g(u')$.
+    By definition, $g(u) = f(x)$ and $g(u') = f(x')$ for some
+    $x, x' \in X$ with $u = q(x)$ and $u' = q(x')$.
+    Then $f(x) = f(x')$, so $x \sim x'$.
+    Thus $q(x) = q(x')$, and therefore $u = u'$.
+    Thus $g$ is injective.
+
+    Let $y$ be an arbitrary element of $f(X)$.
+    Then $y = f(x)$ for some $x \in X$.
+    Let $u = q(x) \in X / \sim$.
+    By definition of $g$, we have $g(u) = f(x) = y$.
+    Thus $g$ is surjective.
+\end{proof}
+
+\begin{proof}
+    Let $x \in X$.
+    Then $q(x) \in X/\sim$ and $g(q(x)) = f(x)$ by definition of $g$.
+    Since $i : f(X) \to Y$ is the insertion mapping, $i(f(x)) = f(x)$.
+    Thus $(i \circ g \circ q)(x) = f(x)$ so $f = i \circ g \circ q$.
+
+    Suppose $f : X \longrightarrow Y$ is surjective.
+    Then $f(X) = Y$, so $g : X/\sim \longrightarrow Y$.
+
+    Suppose $u, u' \in X / \sim$ such that $g(u) = g(u')$.
+    Then $g(u) = f(x)$ and $g(u') = f(x')$ for some $x, x' \in X$.
+    Thus $f(x) = f(x')$, so $x \sim x'$ and thus $u = u'$.
+    Thus $g$ is injective.
+
+    Let $y \in Y$.
+    Since $f$ is surjective there exists $x \in X$ such that $f(x) = y$.
+    Let $u = q(x) \in X/\sim$.
+    Then $g(u) = f(x) = y$.
+    Thus $g$ is surjective.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 10, breakable]
+    For $x, y$ in $\mathbb{R}$, write $x \sim y$ if $x \sim y$ is an integer (that is, $x - y \in \mathbb{Z}$);
+    this is an equivalence relation in $\mathbb{R}$. The quotient set is denoted $\mathbb{R} / \mathbb{Z}$; the 
+    equivalence class $[x]$ of $x \in \mathbb{R}$ is the set $x + \mathbb{Z} = \{x + n \mid n \in \mathbb{Z}\}$.
+    \begin{enumerate}
+        \item There is a connection between functions defined on $\mathbb{R} / \mathbb{Z}$ and functions defined 
+              on $\mathbb{R}$ that are periodic of period $1$; can you make it precise?
+        \item There exists a bijection $g : \mathbb{R} / \mathbb{Z} \longrightarrow U$, where 
+                    $U = \{(a, b) \in \mathbb{R}^2 \mid a^2 + b^2 = 1\}$ is the `unit circle' in $\mathbb{R}^2$.
+                [Hint: Apply Exercise 9 to the function $f : \mathbb{R} \longrightarrow U$ defined by 
+                $f(t) = (\cos 2 \pi t, \sin 2 \pi t)$.]
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution: }
+Consider a periodic function of period $1$, say 
+$f : \mathbb{R} \longrightarrow \mathbb{R}$.
+Then for all $x \in \mathbb{R}$ and all $n \in \mathbb{Z}$,
+\[
+f(x+n) = f(x).
+\]
+Thus $f$ takes the same value on all elements of the equivalence class
+\[
+[x] = x + \mathbb{Z}.
+\]
+Conversely, any function defined on $\mathbb{R}/\mathbb{Z}$ determines
+a function on $\mathbb{R}$ that is periodic of period $1$ by composition
+with the quotient map.
+
+\begin{proof}
+    Consider the function
+    \[
+    f : \mathbb{R} \longrightarrow U, \qquad f(t) = (\cos 2\pi t, \sin 2\pi t).
+    \]
+    Notice that $f(t + n) = f(t)$ for all $n \in \mathbb{Z}$, so $f$ is constant on equivalence classes of $\mathbb{R}/\mathbb{Z}$.
+    By Exercise 9 there is a map
+    \[
+    g : \mathbb{R}/\mathbb{Z} \longrightarrow U, \qquad g([t]) = f(t).
+    \]
+    Suppose $g([t]) = g([s])$. Then $f(t) = f(s)$ so $t - s \in \mathbb{Z}$. Thus $[t] = [s]$.
+    Suppose $(a,b) \in U$. There exists $t \in [0,1)$ such that $(\cos 2\pi t, \sin 2\pi t) = (a,b)$, so $(a,b) = g([t])$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    For $x, y$ in $\mathbb{R}$, write $x \sim y$ if $x - y$ is an integral multiple of $2 \pi$
+    (that is, $x - y \in 2 \pi \mathbb{Z}$). With an eye on Exercise 10, discuss periodic functions 
+    of period $2 \pi$ and describe a bijection of $\mathbb{R} / 2 \pi \mathbb{Z}$ onto the unit circle $U$.
+\end{tcolorbox}
+
+\textbf{Solution: }  
+The equivalence class of $x \in \mathbb{R}$ in $\mathbb{R} / 2\pi \mathbb{Z}$ is $[x] = \{ x + 2 \pi n \mid n \in \mathbb{Z} \}$.
+A function $f : \mathbb{R} \longrightarrow \mathbb{R}$ is periodic of period $2\pi$ if $f(x + 2 \pi) = f(x)$ for all $x \in \mathbb{R}$.
+A bijection of $\mathbb{R}/2\pi \mathbb{Z}$ onto the unit circle $U = \{(a,b) \in \mathbb{R}^2 \mid a^2+b^2 = 1\}$ 
+can be defined as
+\[
+g : \mathbb{R}/2\pi \mathbb{Z} \longrightarrow U, \qquad g([x]) = (\cos x, \sin x),
+\]
+
+\subsection{Quotient Vector Spaces}
+
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Prove that if $V = M \oplus N$ (1.6, Exercise 12) then $V / M \cong N$.
+    [Hint: Restrict the quotient mapping $V \longrightarrow V / M$ to $N$ 
+    (Appendix $A.3.8$, and calculate the kernel and range of the restricted mapping.)]
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $V = M \oplus N$.
+    Let $q : V \longrightarrow V / M$ be the quotient mapping.
+    Then consider $(q \mid N) : N \longrightarrow V / M$, which is the restriction 
+    of $q$ to $N$.
+    It was shown in the proof of Theorem 2.6.1 that $q$ is linear.
+    Suppose $x \in N$ such that $(q \mid N)(x) = [0]$.  
+    By definition, this means $x \in M$.  
+    But $x \in N$ and $V = M \oplus N$ thus $x = 0$.  
+    Thus $(q \mid N)$ is injective.
+    Let $[y] \in V / M$.  
+    Since $V = M \oplus N$ then $y = m + n$ with $m \in M$ and $n \in N$.  
+    Then $(q \mid N)(n) = [n] = [m + n] = [y]$.  
+    Thus $(q \mid N)$ is surjective.
+    Therefore $q \mid N$ is bijective, and it follows that $V / M \cong N$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $M$ and $N$ be linear subspaces of the vector spaces $V$ and $W$,
+        respectively.
+    Form the product vector space $V \times W$ (Definition 1.3.11).
+    Then $M \times N$ is a linear subspace of $V \times W$ and 
+    \[(V \times W) / (M \times N) \cong (V / M) \times (W / N).\]
+    Prove this by showing that 
+    \[(x, y) + M \times N \longrightarrow (x + M, y + N),\]
+    defines a function $(V \times W) / (M \times N) \longrightarrow (V / M) \times (W / N)$
+    and that this function is linear and bijective. 
+    [The essential first step to show that if $u = (x, y) + M \times N = (x', y') + M \times N$,
+    then $(x + M, y + N) = (x' + M, y' + N)$, that is, the proposed functional value at $u$ 
+    depends only on $u$ and not on the particular ordered pair $(x, y) \in u$ chosen to 
+    represent it (cf. the proof of Theorem 2.6.1).]
+\end{tcolorbox}
+
+\begin{proof}
+    Let $q : (V \times W) / (M \times N) \cong (V / M) \times (W / N)$ be 
+        a linear mapping defined as $q(x + M, y + N) = (x' + M, y' + N)$.
+    
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
     Let $X$ be a nonempty set.
@@ -553,17 +1131,30 @@
     relation $x \sim y$ in $X$.
 \end{tcolorbox}
 
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
 \textbf{Solution: } Yes.
 
-\begin{tcolorbox}[title=Problem 7, breakable]
-    Let $\mathcal{L}$ be the set of all lines $L$ in the cartesian plane 
-    that are not vertical (i.e. not parallel to the y-axis). Define a 
-    function $m : \mathcal{L} \longrightarrow \mathbb{R}$ by 
-    $m(L) = $slope of $L$. Let $\sim$ be the equivalence relation 
-    on $\mathcal{L}$ derived from $m$ (2.5.1), that is,
-    $L \sim L'$ means that $L$ and $L'$ have the same slope.
-    \begin{enumerate}
-        \item Describe the equivalence class $[L] = L$.
-        \item True or false (explain): 
-    \end{enumerate}
+\subsection{The First Isomorphism Theorem}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
 \end{tcolorbox}
