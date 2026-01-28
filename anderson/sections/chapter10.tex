@@ -128,7 +128,176 @@
      and thus there are no integer solutions.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 5 breakable]
+\begin{tcolorbox}[title=Problem 5, breakable]
     Find infinitely many distinct units in $\mathbb{Z}[\sqrt{7}]$. 
-    Then list inifintely many associates of $\sqrt{7}$ in $\mathbb{Z}[\sqrt{7}]$.
+    Then list infinitely many associates of $\sqrt{7}$ in $\mathbb{Z}[\sqrt{7}]$.
 \end{tcolorbox} 
+
+\begin{proof}
+    Let $\alpha = 8 + 3\sqrt{7}$ and note that $N(\alpha) = 1$,
+        thus $\alpha$ is a unit by Theorem 10.2.
+    To find infinitely many additional units simply consider $\alpha^n$
+        where $n \ge 1$.
+    To find infinitely many associates of $\sqrt{7}$,
+        consider $\alpha^n \sqrt{7}$ where $n \ge 1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Suppose that $n$ is a square-free integer and $n > 0$.
+    Prove that $\mathbb{Z}[\sqrt{-n}]$ has only finitely many units.
+\end{tcolorbox} 
+
+\begin{proof}
+    Since $-n < 0$, for $\alpha \in \mathbb{Z}[\sqrt{-n}]$ with $\alpha = a + b\sqrt{-n}$, we have
+        $N(\alpha) = a^2 + n b^2$.
+    Suppose there are infinitely many units.
+    Then there would be infinitely many integer solutions 
+        to the equation $N(\alpha) = a^2 + n b^2 = 1$ with $a, b \in \mathbb{Z}$.
+    Clearly, this is not possible.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Show that there are no irreducible elements in $\mathbb{Z}_6$.
+\end{tcolorbox} 
+
+\begin{proof}
+    The units in $\mathbb{Z}_6$ are $1$ and $5$.
+    But then 
+    \begin{enumerate}
+        \item $2 = 2 \cdot 1 = 4 \cdot 2$.
+        \item $3 = 3 \cdot 3$.
+        \item $4 = 2 \cdot 2$.
+    \end{enumerate}
+    Thus there are no irreducible elements in $\mathbb{Z}_6$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Show that $2$ is irreducible in $\mathbb{Z}_8$, and that 
+    every non-unit in $\mathbb{Z}_8$ is irreducible or a product of irreducibles.
+\end{tcolorbox} 
+
+\begin{proof}
+    We can view the multiplication table and see $2$ is irreducible in $\mathbb{Z}_8$.
+    Similarly we can do the same for non-units and see they are either irreducible or a product of irreducibles.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Determine all irreducible elements in $\mathbb{Z} \times \mathbb{Z}$.
+\end{tcolorbox} 
+
+\begin{proof}
+    $(a, b) \in \mathbb{Z} \times \mathbb{Z}$ where $\pm a$ or $\pm b$ is prime
+    and the other element is $\pm 1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Prove that if $p$ is prime in $\mathbb{Z}$ and $p$ is congruent to $3 \pmod{4}$,
+    then $p$ is irreducible in $\mathbb{Z}[i]$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $p$ is prime in $\mathbb{Z}$ and $p \equiv 3 \pmod{4}$.
+    Then $p = 4k + 3$ for some $k \in \mathbb{Z}$.
+    Consider the norm $N(p) = (4k+3)^2$. 
+    Clearly $N(p) \ne 1$, so $p$ is not a unit. 
+    Suppose $p = \alpha \beta$ in $\mathbb{Z}[i]$.
+    Then
+    \[
+        N(p) = p^2 = N(\alpha) N(\beta) > 1.
+    \]
+    Since $p$ is prime in $\mathbb{Z}$ we must have $N(\alpha) = N(\beta) = p$,
+    which is impossible because a prime $p \equiv 3 \pmod 4$ cannot be written as a sum of two squares.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Prove $2$ is irreducible in $\mathbb{Z}[n]$ for all square-free $n < -2$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $n < -2$ is square free.
+    Furthermore, suppose $2 = \alpha \beta$ where $\alpha, \beta \in \mathbb{Z}[\sqrt{n}]$ and neither $\alpha$ nor $\beta$ is a unit.
+    Now 
+    \[
+        N(2) = 2^2 = N(\alpha) N(\beta) = 4.
+    \]
+    Let $p > 0$ such that $n = -p$. 
+    Suppose $\alpha = a + b\sqrt{-p}$ and $\beta = c + d\sqrt{-p}$.
+    Then 
+    \[
+        N(\alpha) = a^2 + p b^2, \qquad N(\beta) = c^2 + p d^2,
+    \]
+    so
+    \[
+        (a^2 + p b^2)(c^2 + p d^2) = 4.
+    \]
+    Ignoring signs and wlog, we must have either
+    \[
+        a^2 + p b^2 = 4, \quad c^2 + p d^2 = 1,
+    \]
+    or
+    \[
+        a^2 + p b^2 = c^2 + p d^2 = 2.
+    \]
+    The first case is ruled out because we assumed neither factor is a unit.  
+    In the second case, since $p > 2$, we cannot have $a^2 + p b^2 = 2$ with integers $a,b$.
+    Thus $2$ is irreducible.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Find two distinct square-free integers $n$ (with $n > 1$) for which $2$
+        is not irreducible in $\mathbb{Z}[\sqrt{n}]$.
+\end{tcolorbox} 
+
+\textbf{Solution: }
+\[n = 2, 3\]
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Suppose that $p$ is a postive prime integer.
+    Prove that $\sqrt{p}$ is irreducible in $\mathbb{Z}[\sqrt{p}]$.
+    Show by example that this is false if $p$ is not prime; in particular, consider $p = 6$.
+\end{tcolorbox} 
+
+\begin{proof}
+    For contradiction, suppose $\sqrt{p} = \alpha \beta$ for some $\alpha, \beta \in \mathbb{Z}[\sqrt{p}]$ that are not units.  
+    Suppose $\alpha = a + b \sqrt{p}$ and $\beta = c + d \sqrt{p}$ where $a,b,c,d \in \mathbb{Z}$.  
+    Then 
+    \[
+        N(\sqrt{p}) = p = N(\alpha)N(\beta)
+    \]
+    Since $p$ is prime either $N(\alpha) = 1$ or $N(\beta) = 1$
+    In either case, one is a unit which is a contradiction.
+\end{proof}
+
+\textbf{Solution: }
+Note that $\sqrt{2}, \sqrt{3}$ are not units in $\mathbb{Z}[\sqrt{6}]$.
+\[\sqrt{6} = \sqrt{2}\sqrt{3} \in \mathbb{Z}[\sqrt{6}].\]
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Show that $11 + 6 \sqrt{-5}$ and $16 + 3 \sqrt{-5}$ are irreducible elements in $\mathbb{Z}[\sqrt{-5}]$,
+        with the same norm. Show that these elements are not associates.
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $11 + 6 \sqrt{-5} = \alpha \beta$ for some non-units $\alpha, \beta \in \mathbb{Z}[\sqrt{-5}]$.
+    Then $N(11 + 6 \sqrt{-5}) = 11^2 + 5 \cdot 6^2 = 301 = N(\alpha) N(\beta)$.
+    Since $\alpha, \beta$ are not units, we can assume wlog $N(\alpha) = 7$ and $N(\beta) = 43$.
+    Now, suppose $\alpha = a + b \sqrt{-5}$ for integers $a,b$. Then $N(\alpha) = a^2 + 5 b^2 = 7$.
+    Checking all possibilities there are no integer solutions.
+    Similarly, no $\beta$ with norm $43$ exists.
+    Therefore, $11 + 6 \sqrt{-5}$ cannot be factored into non-units, so it is irreducible.
+    A similar argument shows $16 + 3 \sqrt{-5}$ is irreducible.
+    Neither are associates because the only units in $\mathbb{Z}[\sqrt{-5}]$ are $\pm 1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Suppose that $n$ is a square-free integer.
+    Prove that $\sqrt{n}$ is irrational.
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $n$ is square-free and $\sqrt{n}$ is rational.
+    Let $\sqrt{n} = \frac{a}{b}$ where $a,b \in \mathbb{Z}$ and $\gcd(a, b) = 1$.
+    Then $n = \frac{a^2}{b^2}$, thus $n b^2 = a^2$.
+    Thus $b^2 \mid a^2 \implies b \mid a$, so $a = b k$ for some $k \in \mathbb{Z}$.
+    Then $n = \frac{b^2 k^2}{b^2} = k^2$, contradicting that $n$ is square-free.
+\end{proof}

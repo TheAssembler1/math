@@ -1,0 +1,57 @@
+\subsection{The Archimedean Understanding}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Consider the series 
+    \[1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots + \frac{1}{2^k} + \cdots.\]
+    Find the target value, $T$, of the partial sums. 
+    How do you know that for any $M$ greater than your target 
+        value, all of the partial sums are strictly less than $M$?
+    How many terms do you have to take in order to garuntee 
+        that all of the partial sums from that point on will be 
+        larger than $L = T - \frac{1}{10}$.
+\end{tcolorbox}
+
+\begin{proof}
+    The target value $T$ is equal to $2$.
+    Suppose $M$ is a real number greater than $2$.
+    Then 
+    \[
+        2(1 - (1/2)^n) = M > 2 \implies 1 - (1/2)^n > 1 \implies -(1/2)^n > 0,
+    \]
+    which is impossible since $(1/2)^n > 0$ for all $n$. 
+
+    Notice $1.9 < 2(1 - (1/2)^n) \iff \frac{1.9}{2} < 1 - (1/2)^n 
+    \iff (1/2)^n < 1 - 0.95 = 0.05$.
+    Taking logarithms shows $n > \log_{1/2}(0.05)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    What is the Archimedean understanding of the infinite series 
+        $1 - 1 + 1 - 1 + \cdots$? Explain why this series cannot have a value under this understanding.
+\end{tcolorbox}
+
+\textbf{Solution: }
+The Archimedean understanding relies on the assumption that 
+a sum is approximated by partial sums.
+But for even $S_n$ the sum seems to go to $0$,
+while for odd $S_n$ the sum seems to go to $1$.
+Since the partial sums do not approach a single number,
+the series cannot have a value with this understanding.
+
+\subsection{Geometric Series}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Find the target value of the series 
+    \[1 + \frac{1}{3} + \frac{1}{9} + \cdots + \frac{1}{3^k} + \cdots\]
+    Find a value of $n$ so that any partial sum with at least $n$ terms 
+    is within $0.001$ of the target value. Justify your answer.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    It is tempting to differentiate each side of equation (2.11) with respect to $x$
+        and to assert that 
+    \[1 + 2x + 3x^2 + 4x^3 + \cdots = \frac{1}{(1 - x)^2}.\]
+    Following Cauchy's advice, we know we need to be careful. Differentiate each side 
+    of equation (2.10). What is the difference between $1 + 2x + 3x^2 + \cdots + n x^{n - 1}$
+    and $(1 - x)^2$? For which values of $x$ will this difference approach $0$ as $n$ increases?
+\end{tcolorbox}

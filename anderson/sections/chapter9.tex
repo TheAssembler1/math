@@ -259,9 +259,109 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     Choose $v$ to be the complex conjugate of $u$.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 20, breakable]
-    
+    In this problem we will explore Ferrari's approach to solving the 
+    general quartic equation. Consider the arbitrary quartic
+    \[f = x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 \in \mathbb{R}[x].\]
+    \begin{enumerate}
+        \item Find a linear change of variables $y = x + m$ so as to depress the quartic 
+                - that is, to eliminate the cubic term, as we eliminated the quadratic term in Exercise 12.
+        \item We may by part a assume that our quartic equation is of the form $x^4 = px^2 + qx + r$, 
+                where $p, q, r \in \mathbb{R}$. Add the term $2bx^2 + b^2$ to both sides of this equation.
+                Clearly this makes the left-hand side of the equation a perfect square. We would like to 
+                choose $b$ so that the right-hand side is also a perfect square. Obtain an equation for 
+                b (in terms of $p, q, r$) that makes this true. The equation you obtain should be a cubic 
+                equation in $b$. Explain why a (real) solution to this cubic will always lead to a solution to the 
+                quartic equation. How do you then get all four solutions.
+    \end{enumerate}
 \end{tcolorbox} 
+
+\begin{proof}
+    Let $x = y - m$. Then plugging in, we have 
+    \begin{align*}
+        f(y - m) &= x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 \\
+                 &= (y - m)^4 + a_3 (y - m)^3 + a_2 (y - m)^2 + a_1 (y - m) + a_0 \\
+                 &= (y^4 - 4 y^3 m + 6 y^2 m^2 - 4 y m^3 + m^4) + a_3(y^3 - 3 y^2 m + 3 y m^2 - m^3) + a_2(y^2 - y m + m^2) + a_1 (y - m) + a_0 \\
+                 &= y^4 + (a_3 - 4m) y^3 + (a_2 - 3 a_3 m + 6 m^2)y^2 + (a_1 - a_2 m + 3 a_3 m^2 - 4 m^3) y + (a_0 - a_1 m + a_2 m^2 - a_3 m^3 + m^4).
+    \end{align*}
+    To remove the cubic term, we set $a_3 - 4m = 0$ thus $m = \frac{a_3}{4}$.  
+    Then plugging in $m$ we find
+    \begin{align*}
+        &y^4 + (a_3 - 4 \tfrac{a_3}{4}) y^3 + \big(a_2 - 3 a_3  \tfrac{a_3}{4} + 6 (\tfrac{a_3}{4})^2\big) y^2 \\ 
+        &\quad + \big(a_1 - a_2 \tfrac{a_3}{4} + 3 a_3 (\tfrac{a_3}{4})^2 - 4 (\tfrac{a_3}{4})^3\big) y + \big(a_0 - a_1 \tfrac{a_3}{4} + a_2 (\tfrac{a_3}{4})^2 - a_3 (\tfrac{a_3}{4})^3 + (\tfrac{a_3}{4})^4\big) \\
+        &= y^4 + \left(a_2 - \frac{3 a_3^2}{8}\right) y^2 + \left(a_1 - \frac{a_2 a_3}{4} + \frac{a_3^3}{16}\right) y + \left(a_0 - \frac{a_1 a_3}{4} + \frac{a_2 a_3^2}{16} - \frac{3 a_3^4}{256}\right).
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    Adding the term $2 b x^2 + b^2$ to both sides, we have
+    \[
+        x^4 + 2 b x^2 + b^2 = (x^2 + b)^2 = (p + 2b)x^2 + q x + r + b^2.
+    \]
+    We want 
+    \[
+        (p + 2b)x^2 + q x + (r + b^2) = (\sqrt{p + 2b}\, x + m)^2
+    \]
+    for some $m \in \mathbb{R}$. Expanding the right-hand side gives
+    \[
+        (\sqrt{p + 2b}\, x + m)^2 = (p + 2b)x^2 + 2 m \sqrt{p + 2b}\, x + m^2.
+    \]
+    Comparing coefficients, we must have
+    \[
+        q = 2 m \sqrt{p + 2b} \quad \text{and} \quad r + b^2 = m^2.
+    \]
+    Solving for $m$ gives $m = \frac{q}{2 \sqrt{p + 2b}}$. Plugging this into $r + b^2 = m^2$ shows
+    \[
+        4(r + b^2)(p + 2b) - q^2 = 0,
+    \]
+    a cubic equation in $b$. 
+    Now note that 
+    \[
+        (x^2 + b)^2 - (\sqrt{p + 2b}\, x + m)^2 = (x^2 + b + \sqrt{p + 2b}\, x + m)(x^2 + b - \sqrt{p + 2b}\, x - m) = x^4 + p x^2 + q x + r.
+    \]
+    With a real solution $b$, we can then compute $m$ and factor the quartic as
+    \[
+        x^4 + p x^2 + q x + r = (x^2 + b + \sqrt{p + 2b}\, x + m)(x^2 + b - \sqrt{p + 2b}\, x - m).
+    \]
+    Each quadratic has two solutions, giving all four roots of the quartic.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 23, breakable]
+    Suppose that the complex number $\alpha = a + bi$ has been factored as 
+    \[\alpha = \sqrt{a^2 + b^2}(\cos \theta + i \sin \theta) = |\alpha| e^{i \theta},\]
+    as we did in the text when computing the square roots of $\alpha$.
+    \begin{enumerate}
+        \item Show that 
+        \[\beta_k = \sqrt[2n]{a^2 + b^2}\left(\cos\left(\frac{\theta + 2 \pi k}{n}\right) + i \sin \left(\frac{\theta + 2 \pi k}{n}\right)\right)\]
+        for $k = 0, 1, 2, \cdots, n - 1$, are all $n$th roots of $\alpha$.
+        \item Show that these are all distinct roots.
+        \item Why is this the \emph{complete} list of $n$th roots of $\alpha$.
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{proof}
+    First note that 
+    \[\beta_k 
+        =  \sqrt[2n]{a^2 + b^2}\left(\cos\left(\frac{\theta + 2 \pi k}{n}\right) + i \sin \left(\frac{\theta + 2 \pi k}{n}\right)\right) 
+        = \sqrt[2n]{a^2 + b^2}e^{i\frac{\theta + 2 \pi k}{n}}.\]
+    Then 
+    \[\left(\sqrt[2n]{a^2 + b^2}e^{i\frac{\theta + 2 \pi k}{n}}\right)^n 
+        = \left(\sqrt[2n]{a^2 + b^2}\right)^n e^{i(\theta + 2\pi k)}
+        = \sqrt{a^2 + b^2}e^{i\theta}
+        = \alpha.\]
+\end{proof}
+
+\begin{proof}
+    This is trivial since the arguments of the roots are clearly different.
+\end{proof}
+
+\begin{proof}
+    Suppose there are more roots.
+    Then the polynomial $x^n - \alpha = 0$ would have more than $n$ roots,
+    violating the Fundamental Theorem of Algebra.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 26, breakable]
     A field $F$ is said to be \textbf{algebraically closed} if every polynomial 

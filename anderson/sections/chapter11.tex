@@ -1,0 +1,216 @@
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove that all ideals in $\mathbb{Q}[x]$ are principal,
+        using a similar proof to that for $\mathbb{Z}$ (Theorem 11.6).
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose that $I$ is an ideal of $\mathbb{Q}[x]$.
+    We wish to show that $I$ is principal.
+    If $I$ is the zero ideal this is already obvious,
+        so suppose $I$ has more elements than just the zero polynomial.
+    Let $f$ be a non-zero polynomial with smallest degree in the ideal.
+    We claim that $\langle f \rangle = I$.
+    Because $I$ is an ideal, it is clear that $\langle f \rangle \subseteq I$.
+    Suppose now that $g \in I$. 
+    We apply the Division Theorem to obtain quotient $q$ and remainder $r$
+        such that $g = q f + r$ with either $r = 0$ or $\deg(r) < \deg(f)$.
+    Since $r \in I$ and $f$ has minimal degree, we must have $r = 0$.
+    Therefore $g \in \langle f \rangle$.
+    Thus for $\mathbb{Q}[x]$ all ideals are principal.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Consider the set 
+    \[I = \{f \in \mathbb{Q}[x] \mid f(i) = 0\}\]
+    (Here, $i$ is the usual complex number.)
+    \begin{enumerate}
+        \item Prove that $I$ is ideal.
+        \item We know that $I$ is a principal ideal (why?). 
+              Find a generator for $I$, and prove that it works.
+              [Hint: The generator should be an element in $I$ with the smallest degree greater than $0$.]
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $f, g \in I$.  
+    Then $(f - g)(i) = f(i) - g(i) = 0 - 0 = 0$, so $f - g \in I$.  
+    Similarly $(fg)(i) = f(i)g(i) = 0 g(i) = 0$. so $fg \in I$.
+    Thus $I$ is an ideal.
+\end{proof}
+
+\begin{proof}
+    Consider the polynomial $x^2 + 1$.  
+    Now suppose $f \in I$. By the Division Theorem, there exist $q, r \in \mathbb{Q}[x]$ such that  
+    \[
+    f = q(x^2 + 1) + r \quad \text{with } \deg(r) < 2.
+    \]  
+    Since no degree $1$ polynomial with rational coefficients has $i$ as a root, we must have $r = 0$.  
+    Thus $f = q(x^2 + 1)$, so $x^2 + 1$ divides every $f \in I$.  
+    Thus $I = \langle x^2 + 1 \rangle$ is principal with generator $x^2 + 1$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Consider the set 
+    \[I = \{f \in \mathbb{C}[x] \mid f(i) = 0\}\]
+    Repeat Exercise 3 for this set.
+\end{tcolorbox} 
+
+\begin{proof}
+    Suppose $f, g \in I$.  
+    Then $(f - g)(i) = f(i) - g(i) = 0 - 0 = 0$, so $f - g \in I$.  
+    Similarly $(fg)(i) = f(i)g(i) = 0 \cdot g(i) = 0$, so $fg \in I$.  
+    Thus $I$ is an ideal.
+\end{proof}
+
+\begin{proof}
+    Consider the polynomial $x - i$.  
+    Now suppose $f \in I$. By the Division Theorem, there exist $q, r \in \mathbb{C}[x]$ such that  
+    \[
+    f = q(x - i) + r \quad \text{with } \deg(r) < 1.
+    \]  
+    Since no degree $0$ polynomial (constant) with complex coefficients can have $i$ as a root unless it is $0$, we must have $r = 0$.  
+    Thus $f = q(x - i)$, so $x - i$ divides every $f \in I$.  
+    Thus $I = \langle x - i \rangle$ is principal with generator $x - i$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Consider 
+    \[
+    I = \left\{
+    \begin{bmatrix}
+        a & 0 \\[2mm] 
+        b & 0
+    \end{bmatrix} \in M_2(\mathbb{Z}) \;\middle|\; a, b \in \mathbb{Z} 
+    \right\}.
+    \]
+    \begin{enumerate}
+        \item Show that $I$ is a subring of $M_2(\mathbb{Z})$.
+        \item Show that $I$ is \emph{not} an ideal of $M_2(\mathbb{Z})$ (using the stronger 
+                definition of ideal used for non-commutative rings).
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{proof}
+    Let 
+    \[\begin{bmatrix}
+        a & 0 \\[2mm] 
+        b & 0
+    \end{bmatrix}, \begin{bmatrix}
+        c & 0 \\[2mm] 
+        d & 0
+    \end{bmatrix} \in I.\]
+    Then 
+    \[\begin{bmatrix}
+        a & 0 \\[2mm] 
+        b & 0
+    \end{bmatrix} - \begin{bmatrix}
+        c & 0 \\[2mm] 
+        d & 0
+    \end{bmatrix} = \begin{bmatrix}
+        a - c & 0 \\[2mm] 
+        b - d & 0
+    \end{bmatrix} \in I.\]
+    Similarly,
+    \[\begin{bmatrix}
+        a & 0 \\[2mm] 
+        b & 0
+    \end{bmatrix} \times \begin{bmatrix}
+        c & 0 \\[2mm] 
+        d & 0
+    \end{bmatrix} = \begin{bmatrix}
+        ac & 0 \\[2mm] 
+        bc & 0
+    \end{bmatrix} \in I.\]
+    Thus $I$ is a subring of $M_2(\mathbb{Z})$.
+\end{proof}
+
+\textbf{Solution: }
+\[\begin{bmatrix}
+    a & 0 \\[2mm] 
+    b & 0
+\end{bmatrix} \times \begin{bmatrix}
+    c & 1 \\[2mm] 
+    d & 0
+\end{bmatrix} = \begin{bmatrix}
+    ac & a \\[2mm] 
+    bd & b
+\end{bmatrix} \notin I.\]
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Suppose $p, q$ are distinct prime integers in $\mathbb{Z}$.
+    Prove that 
+    \[\langle 3 + \sqrt{5} \rangle = \{c + d \sqrt{5} \mid 4 \mid (c + d)\}.\]
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Let $R$ be a commutative ring, and suppose that $I$ and $J$ are 
+        ideals. Prove that $I \cap J$ is an ideal.
+    (Note the many examples of intersections of ideals provided in Exercise 11.
+    Also compare this exercise to Exercise 7.9.) Now describe the ideal in Exercise 5 
+    as an intersection of two proper ideals.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Suppose that $R$ is a commutative ring, $I$ and $J$ are ideal of $R$,
+    and $I \subseteq J$. Prove that $I$ is an ideal of the ring $J$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $x, y$ be arbitrary elements in $I$.
+    Since $I$ is an ideal of $R$, $x - y \in I$.
+    Now, let $j$ be an arbitrary element in $J$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Let $R$ be a commutative ring, with ideals $I$ and $J$.
+    Let 
+    \[I + J = \{a + b \mid a \in I, b \in J\}\]
+    Prove that $I + J$ is an ideal of $R$.
+    For obvious reasons, we call the ideal $I + J$ the \textbf{sum}
+    of $I$ and $J$.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Suppose that $R$ is a commutative ring with unity, and $I$ and $J$
+    are ideals. Define 
+    \[I \cdot J = \left\{\sum_{k = 1}^{n} a_k b_k \mid a_k \in I, b_k \in J, n \in \mathbb{N}\right\}.\]
+    (That is, $I \cdot J$ consists of all possible finite sums of products of elements from $I$ and $J$.)
+    \begin{enumerate}
+        \item Prove that $I \cdot J$ is an ideal. We call the ideal $I \cdot J$ the \textbf{product} of the ideals $I$ and $J$.
+        \item Prove that $I \cdot J \subseteq I \cap J$.
+        \item Prove that if $a, b \in R$, we have that $\langle a \rangle \cdot \langle b \rangle = \langle ab \rangle$.
+        \item Show by example in $R = \mathbb{Z}$ that we can have $I \cdot J \subseteq I \cap J$.
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Suppose that $I, J, K$ are ideals in $R$, a commutative ring with unity.
+    Prove that $I \cdot (J + K) = I \cdot J + I \cdot K$.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    Let $X$ be a set; consider the power set ring $\mathcal{P}(X)$, described in
+        Exercise 6.20. Pick a fixed subset $a$ of $X$, and let 
+        \[I = \{b \in \mathcal{P}(X) \mid b \subseteq a\}.\]
+    \begin{enumerate}
+        \item Prove that $I$ is an ideal of $\mathcal{P}(X)$.
+        \item Prove that $I$ is a principal ideal (find the generator!).
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    Prove that the nilradical of a commutative ring with unity is an ideal. (See Exercise 7.15, where you proved it is a subring.)
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+    Generalize Exercise 19: Suppose that $R$ is a commutative ring with unity, and $I$ is an ideal.
+    Let 
+    \[A(I) = \{s \in R \mid rs = 0, \text{ for all } r \in I\}.\]
+    we call $A(I)$ the \textbf{annihilator} of $I$. Prove that $A(I)$ is an ideal.
+\end{tcolorbox} 
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+    Generalize Theorem 11.5: Suppose that $R$ is a commutative ringwith unity and $r, s \in R$,
+    with $r$ not a zero divisor. Prove that $\langle r \rangle = \langle s \rangle$ if and only if $r, s$ are associates.
+\end{tcolorbox} 

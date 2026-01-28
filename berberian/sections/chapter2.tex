@@ -1105,19 +1105,142 @@ g : \mathbb{R}/2\pi \mathbb{Z} \longrightarrow U, \qquad g([x]) = (\cos x, \sin 
 \end{tcolorbox}
 
 \begin{proof}
-    Let $q : (V \times W) / (M \times N) \cong (V / M) \times (W / N)$ be 
-        a linear mapping defined as $q(x + M, y + N) = (x' + M, y' + N)$.
-    
+    Let $q : (V \times W) / (M \times N) \longrightarrow (V / M) \times (W / N)$ be 
+        a mapping defined as 
+    \[q((x, y) + M \times N) = (x + M, y + N).\]
+    We first show that $q$ is well defined.
+    Suppose $u = (x, y) + M \times N = (x', y') + M \times N$.
+    Then 
+    \[(x, y) - (x', y') \in M \times N.\]
+    Thus $(x - x', y - y') = (m, n)$ for some $m \in M$ and $n \in N$.
+    Then $x - x' \in M$ and $y - y' \in N$ thus $x + M = x' + M$ and $y + N = y' + N$.
+    Thus $(x + M, y + N) = (x' + M, y' + N)$.
+
+    We now show $q$ is additive.
+    Let $(x, y), (x', y')$ be elements in $V \times W$.
+    Then 
+    \[
+    q((x, y) + (x', y')) 
+    = q((x + x', y + y')) 
+    = (x + x' + M, y + y' + N)
+    = (x + M, y + N) + (x' + M, y' + N)
+    = q((x, y)) + q((x', y')).
+    \]
+
+    We now show $q$ is homogeneous.
+    \[
+    q(c(x, y)) = q((cx, cy)) = (cx + M, cy + N) = c(x + M, y + N) = cq(x, y).
+    \]
+
+    We now show $q$ is injective.
+    Suppose $q((x, y)) = (0 + M, 0 + N)$. Then $x \in M$ and $y \in N$.
+    Thus $(x, y) \in M \times N$ so $(x, y) + M \times N = M \times N$.
+    Therefore $(x, y) = 0$ in $(V \times W)/(M \times N)$, and $q$ is injective.
+
+    We now show $q$ is surjective.
+    Let $(x + M, y + N)$ be an element in $(V/M) \times (W/N)$.
+    Then $q((x, y)) = (x + M, y + N)$, thus $q$ is surjective.
 \end{proof}
 
+
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Let $f : \mathbb{R}^3 \longrightarrow \mathbb{R}$
+    be the linear form $f(x) = 2 x_1 - 3 x_2 + x_3$ and let $M$ be its 
+    kernel. As in Example 2.5.9, think of $V/M$ as the set of planes consisting 
+    of $M$ and the planes parallel to it. If $u$ and $v$ are two of these planes,
+    their sum $u + v$ in $V/M$ can be visualized as follows: choose a point $P$
+    on the plane $u$ and a point $Q$ on the plane $v$; add the arrows $OP$ and $OQ$
+    using the parallelogram rule, obtaining an arrow $OR$; the plane through $R$ 
+    parallel to $M$ is $u + v$.
 \end{tcolorbox}
+
+\textbf{Solution: } OK.
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Let $M$ be a linear subspace of $V$, $u = x + M$ and $v = y + M$ 
+    two elements of $V / M$.
+    \begin{enumerate}
+        \item Let $A = \{s + t \mid s \in u, t \in v\}$ be the sum of the sets $x + M$ and $y + M$
+              in the sense of Definition 1.6.9. Then $A$ is also a coset, namely $A = x + y + M$.
+              [This offers a definition of $u + v$ that is obviously independent of the vectors $x$ and $y$
+              chosen to represent $u$ and $v$.]
+        \item If $c$ is a nonzero scalar, then the set $B = \{cs \mid s \in u\}$ is a coset, 
+              namely $B = cx + M$. What if $c = 0$?
+    \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Let $a$ be an arbitrary element in $A$ such that $a = s + t$.
+    Suppose $s = x + m$ and $t = y + m'$ where $m, m' \in M$.
+    Then taking sums we have $s + t = x + y + m + m'$.
+    Now $m + m' \in M$ since $M$ is closed under addition.
+    Thus $x + y + m + m' \in x + y + M$.
+
+    Conversely, suppose $t \in x + y + M$ such that $t = x + 0 + y + m$.
+    Then $0, m \in M$ thus $x + 0 \in x + M$ and $y + m \in y + M$ thus $t \in A$.
+\end{proof}
+
+\begin{proof}
+    Suppose $c$ is a nonzero scalar.
+    Let $b$ be an arbitrary element in $B$ such that $b = cs$ where $s \in u$.
+    Suppose $s = x + m$ where $m \in M$. Then $b = cs = c(x + m) = cx + cm$.
+    Now $cm \in m$ thus $b = cx + cm = cx + m \in cx + M$.
+
+    Conversely, suppose $t$ is an arbitrary element in $cx + M$ such that $t = cx + m$ where $m \in M$.
+     Now, $t = cx + m = cx + (0 + m)$ and $0 + m \in u$ thus $t \in B$.
+\end{proof}
+
+\textbf{Solution: } If $c = 0$ then $B$ is the set $\{0\}$.
+
+\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Let $V$ be a vector space, $M$ and $N$ linear subspaces of $V$, and $x, y$ vectors in $V$.
+    Prove:
+    \begin{enumerate}
+        \item $x + M \subset y + N$ if and only if $M \subset N$ and $x - y \in N$.
+        \item $(x + M) \cap (y + N) \ne \emptyset$ if and only if $x - y \in M + N$.
+        \item If $z \in (x + M) \cap (y + N)$ then $(x + M) \cap (y + N) = z + M \cap N$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    ($\longrightarrow$) Suppose $x + M \subset y + N$.
+    Let $m$ be an arbitrary element in $M$.
+    Since $x + m \in x + M$ and $x + M \subset y + N$ we have $x + m = y + n$ for some $n \in N$.
+    Now let $m = 0$. Then $x = y + n \iff x - y = n \in N$.
+    Now for arbitrary $m \in M$, we have $x + m = y + n$ for some $n \in N$, so $m = n - (x - y)$.
+    Since $n \in N$ and $x - y \in N$ we have $m \in N$. Thus $M \subset N$ as required.
+
+    ($\longleftarrow$) Suppose $M \subset N$ and $x - y \in N$.
+    Let $t \in x + M$ such that $t = x + m$ for some $m \in M$.
+    Since $M \subset N, x - y \in N$, we have $m \in N$ thus $t = y + ((x - y) + m) \in y + N$.
+    Therefore $x + M \subset y + N$.
+\end{proof}
+
+\begin{proof}
+    ($\longrightarrow$) Suppose $(x + M) \cap (y + N) \ne \emptyset$.
+    Let $t \in (x + M) \cap (y + N)$ such that $t = x + m$ and $t = y + n$ for $m \in M$ and $n \in N$.
+    Then $x + m = y + n \iff x - y = n - m \in N - M = M + N$.
+
+    ($\longleftarrow$) Suppose $x - y \in M + N$. Then $x - y = m + n$ for some $m \in M$ and $n \in N$.
+    Then $x - n = y + m$. Then $x - n \in x + N$ and $y + m \in y + M$ thus $x + N \cap y + M \ne \emptyset$.
+\end{proof}
+
+\begin{proof}
+    Suppose $z \in (x + M) \cap (y + N)$.
+    Then $z = x + m$ and $z = y + n$ for $m \in M$ and $n \in N$.
+    Let $t$ be an arbitrary element in $(x + M) \cap (y + N)$.
+    Then $t = x + m'$ and $t = y + n'$ for some $m' \in M$ and $n' \in N$.
+    Then 
+    \[t - z = (x + m') - (x + m) \in M,\]
+    and 
+    \[t - z = (y + n') - (y + n) \in N.\]
+    Thus $t - z \in M \cap N$. Thus $t \in z + M \cap N$.
+    Conversely, let $t \in z + M \cap N$.
+    Then $t = z + m$ where $m \in M \cap N$.
+    Thus $t \in x + M$ and $t \in x + N$ and therefore $t \in (x + M) \cap (y + N)$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 6, breakable]
     Let $X$ be a nonempty set.
@@ -1131,30 +1254,120 @@ g : \mathbb{R}/2\pi \mathbb{Z} \longrightarrow U, \qquad g([x]) = (\cos x, \sin 
     relation $x \sim y$ in $X$.
 \end{tcolorbox}
 
+\textbf{Solution: } 
+\[x \sim y \iff (x, y) \in R\]
+
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Let $T : V \longrightarrow W$ be a linear mapping, $M$ a linear subspace of $V$ such that 
+    $M \subset Ker T$, and $Q : V \longrightarrow V/M$ the quotient mapping. Prove:
+    \begin{enumerate}
+        \item There exists a (unique) linear mapping $S : V/M \longrightarrow W$ such that $T = SQ$ (Fig. 11).
+        \item $S$ is injective if and only if $M = Ker T$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Consider $S : V / M \longrightarrow W$ defined 
+    \[
+        S(x + M) = T(x).
+    \]
+    We first show $S$ is well defined. Suppose $x + M = y + M$.
+    Therefore $x - y \in M$. Since $M \subset Ker T$,
+    we have $T(x - y) = 0 \implies T(x) = T(y)$.
+    Then let $x + M, y + M$ be arbitrary elements in $V/M$.
+    Then 
+    \[
+        S((x + M) + (y + M)) = S(x + y + M) = T(x + y)
+        = T(x) + T(y) = S(x + M) + S(y + M).
+    \]
+    Let $c$ be a scalar. Then 
+    \[
+        S(c(x + M)) = S(cx + M) = T(cx) = cT(x).
+    \]
+    Thus $S$ is a linear mapping.
+    Now let $v$ be an arbitrary element in $V$.
+    Then $(SQ)(v) = S(Q(v)) = S(v + M) = T(v)$.
+    
+    Suppose there exists $S'$ such that $S' : V/M \longrightarrow W$ and $T = S'Q$.
+    For all $v \in V$ we have $T(v) = S'(Q(v)) = S(Q(v))$.
+    Thus $S, S'$ agree at all cosets and therefore $S' = S$ and $S$ is unique.
+\end{proof}
+
+\begin{proof}
+    Suppose $S$ is injective.
+    We know $M \subset Ker T$ so let $t$ be an arbitrary element in $Ker T$.
+    Then $T(t) = (SQ)(t) = S(t + M) = 0$.
+    Since $S$ is injective we have $t + M = 0 + M$ thus $t \in M$. Thus $M = Ker T$.
+
+    Suppose $M = Ker T$.
+    Let $x + M$ be an arbitrary element in $V / M$.
+    Suppose $S(x + M) = 0$.
+    Then $T(x) = 0$ thus $x \in M$ and $S$ is injective.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
+    Let $M$ be a linear subspace of $V, Q: V \longrightarrow V/M$ the quotient mapping,
+    $T : V \longrightarrow V$ a linear mapping such that $T(M) \subset M$. Prove that there 
+    exists a (unique) linear mapping: $S : V/M \longrightarrow V/M$ such that $SQ = QT$ (Fig. 12).
+    [Hint: Apply Exercise 7 to the linear mapping $QT : V \longrightarrow V/M$.]
 \end{tcolorbox}
 
-\textbf{Solution: } Yes.
+\begin{proof}
+    Let $v$ be an arbitrary element in $M$.
+    Since $T(M) \subset M$, we have $T(v) \in M$.
+    Then $QT(v) = Q(T(v)) = 0$.
+    Thus $M \subset Ker(QT)$.
+    We can then apply Exercise 7 to find a linear mapping $S : V / M \longrightarrow V / M$
+        such that $SQ = QT$.
+\end{proof}
 
 \subsection{The First Isomorphism Theorem}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    When there's a first, there's a second.
+    The following results is called the \emph{Second isomorphism theorem}.
+    Let $V$ be a vector space, $M$ and $N$ linear subpsaces of $V$, $M \cap N$
+    their intersection and $M + N$ their sum (1.6.9).
+    Then $M \cap N$ is a linear subspace of $M$, $N$ is a linear subspace of $M + N$,
+    and 
+    \[M / (M \cap N) \cong (M + N) / N\]
+    [Hint: Let $Q : V \longrightarrow V / N$ be the quotient mapping and let $T = Q \mid M$
+    be the restriction of $Q$ to $M$ (Appendix 3.8), that is, $T : M \longrightarrow V / N$
+    and $Tx = x + N$ for all $x \in M$. Show that $T$ has range $(M + N) / N$ and kernel $M \cap N$.]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
+    Let $M, N$ be linear subspaces of the vector spaces $V, W$ and let 
+    \[T : V \times W \longrightarrow (V / M) \times (W / N),\]
+    be the linear mapping defined by $T(x, y) = (x + M, y + N)$.
+    Determine the kernel of $T$ and deduce another proof of 2.6, Exercise 2.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Let $V$ be a vector space over $F$, $f : V \longrightarrow F$ a linear form on $V$ (Definition 2.1.11),
+    $N$ the kernel of $f$. Prove that if $f$ is not identically zero, then $V / N \cong F$.
+    [Hint: If $f(z) \ne 0$ and $c$ is any scalar, evaluate $f$ at the vector $(c / f(z))z$.]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Let $V$ be a vector space, $V \times V$ the product vector space (1.3.11),
+    and $\triangle = \{(x, x) \mid x \in V\}$ (called the \emph{diagnol} of $V \times V$).
+    Prove that $\triangle$ is a linear subspace of $V \times V$ and that $(V \times V)/\triangle \cong V$.
+    [Hint: 2.2, Exercise 4,]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Let $N$ be the set of vectors in $\mathbb{R}^5$ whose last two coordinates are zero:
+    \[N = \{x_1, x_2, x_3, 0, 0\} \mid x_1, x_2, x_3 \in \mathbb{R}.\]
+    Prove that $N$ is a linear subspace of $\mathbb{R}^5$, $\mathbb{R}^3 \cong \mathbb{N}$, 
+        and $\mathbb{R}^5 / \mathbb{N} \cong \mathbb{R}^2$.
+    [Taking some liberties with the notation, $\mathbb{R}^5 / \mathbb{R}^3 = \mathbb{R}^2$.]
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    Let $T$ be a set, $A$ a subset of $T$, $V = \mathcal{F}(T, \mathbb{R})$ and $W = \mathcal{F}(A, \mathbb{R})$
+        the vector spaces of functions constructed in 1.3.4. Let $N$ be the set of all functions $x \in V$
+        such that $x(t) = 0$ for all $t \in A$. Then $N$ is a linear subspace of $V$ and $V / N \cong W$.
+    [Hint: Consider the mapping $x \mapsto x \mid A, (x \in V)$, where $x \mid A$ is the restriction 
+    of the function $x$ to $A$ (Appendix A.3.8).]
 \end{tcolorbox}

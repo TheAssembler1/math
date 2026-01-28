@@ -1,0 +1,560 @@
+\subsection{Polynomials and Affine Space}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $\mathcal{F}_2$ be the field from Exercise 1.
+    \begin{enumerate}
+        \item Consider the polynomial $g(x, y) = x^2 y + y^2 x \in \mathcal{F}_2[x, y]$.
+        Show that $g(x, y) = 0s$ for every $(x, y) \in \mathcal{F}_2^2$, and explain why this 
+        does not contradict Proposition 5.
+        \item Find a nonzero polynomial in $\mathcal{F}_2[x, y, z]$ which vanishes at every point of $\mathcal{F}_2^3$.
+        Try to find one involving three variables.
+        \item Find a nonzero polynomial in $\mathcal{F}_2[x_1, \ldots, x_n]$ which vanishes at every point of $\mathcal{F}_2^n$.
+                Can you find one in which all of $x_1, \ldots, x_n$ appear?
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (1):}
+It is clear that if $x = 0$ or $y = 0$, then $g(x, y) = 0$.
+Now, if $x = y = 1$, then
+\[
+g(x, y) = 1^2 \cdot 1 + 1^2 \cdot 1 = 1 + 1 = 0.
+\]
+Thus $g(x, y) = 0$ for all $(x, y) \in \mathcal{F}_2^2$.
+
+\textbf{Solution (2):}
+Consider the polynomial $g \in \mathcal{F}_2[x, y, z]$ defined by
+\[
+g(x, y, z) = (x^2 - x)(y^2 - y)(z^2 - z),
+\]
+which is clearly $0$ at all $(x, y, z) \in \mathcal{F}_2 \times \mathcal{F}_2 \times \mathcal{F}_2$.
+
+\textbf{Solution (3):}
+Consider the polynomial $g \in \mathcal{F}_2[x_1, \ldots, x_n]$ defined by
+\[
+g(x_1, \ldots, x_n) = (x_1^2 - x_1)\cdots(x_n^2 - x_n),
+\]
+which is clearly $0$ at all $(x_1, \ldots, x_n) \in \mathcal{F}_2 \times \cdots \times \mathcal{F}_2$.
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    (Requires abstract algebra)
+    Let $p$ be a prime number.
+    The ring of integers modulo $p$ is a field with $p$ elements, which we will denote $\mathcal{F}_p$.
+    \begin{enumerate}
+        \item Explain why $\mathcal{F}_p \setminus \{0\}$ is a group under multiplication.
+        \item Use Lagrange's theorem to show that $a^{p - 1} = 1$ for all $a \in \mathcal{P} \setminus \{0\}$.
+        \item Prove that $a^p = a$ for all $a \in \mathcal{F}_p$. [Hint: Treat the cases $a = 0$ and $a \ne 0$ separately.]
+        \item Find a nonzero polynomial in $\mathcal{F}_p[x]$ that vanishes at all points in $\mathcal{F}_p$. [Hint: Use part (c).]
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (1):}
+It is well known that for any ring $R$ the set of units $U(R)$
+    under multiplication forms a group.
+All elements $x \ne 0$ in $\mathcal{F}_p$ have inverses and are thus in $U(\mathcal{F}_p)$.
+Therefore $\mathcal{F}_p \setminus \{0\}$ is a group under multiplication.
+
+\textbf{Solution (2):}
+Don't have preqreuisites.
+
+\begin{proof}
+    Let $a \in \mathcal{F}_p$.
+    Suppose $a = 0$. Then $a^p = 0^p = 0 = a$.
+    Suppose $a \ne 0$. Then $a^{p - 1} = 1$ by part 2.
+    Then $a \cdot a^{p - 1} = a \cdot 1 \iff a^p = a$ as required.
+\end{proof}
+
+\textbf{Solution (4):}
+Consider the polynomial $g(x) = x^p - x \in \mathcal{F}_p[x]$.
+Now, for all $a \in \mathcal{F}_p$ we have $a^p = a$ by part 3, thus $g(a) = 0$.
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    In the proof of Proposition 5, we took $f \in k[x_1, \ldots, x_n]$ and wrote it as a polynomial
+    in $x_n$ with coefficients in $k[x_1, \ldots, x_{n - 1}]$. To see what this looks like in a specific case,
+    consider the polynomial
+    \[f(x, y, z) = x^5 y^2 z - x^4 y^3 + y^5 + x^2 z - y^3 z + xy + 2x - 5z + 3.\]
+    \begin{enumerate}
+        \item Write $f$ as a polynomial in $x$ with coefficients in $k[y, z]$.
+        \item Write $f$ as a polynomial in $y$ with coefficients in $k[x, z]$.
+        \item Write $f$ as a polynomial in $z$ with coefficients in $k[x, y]$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (1):}
+\[f(x) =  (y^2 z)x^5 - (y^3) x^4 + (z) x^2 + (y + 2)x - y^3 z + y^5 - 5z + 3\]
+\textbf{Solution (2):}
+\[f(y) = y^5 - (x^4  - z) y^3 + (x^5 z) y^2  + (x)y + x^2 z + 2x - 5z + 3\]
+\textbf{Solution (3):}
+\[f(z) = (x^5 y^2  + x^2 - y^3  - 5) z - x^4 y^3 + y^5 + xy + 2x + 3\]
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Inside of $\mathbb{C}^n$, we have the subset $\mathbb{Z}^n$, which consists of all points with integer coordinates.
+    \begin{enumerate}
+        \item Prove that if $f \in \mathbb{C}[x_1, \ldots, x_n]$ vanishes at every point of $\mathbb{Z}^n$, then $f$
+                is the zero polynomial. [Hint: Adapt the proof of Proposition 5.]
+        \item Let $f \in \mathbb{C}[x_1, \ldots, x_n]$, and let $M$ be the largest power of any variable that appears in $f$.
+              Let $\mathbb{Z}_{M + 1}^n$ be the set of all points of $\mathbb{Z}^n$, all coordinates which lie between $1$ and $M + 1$, inclusive.
+              Prove that if $f$ vanishes at all points of $\mathbb{Z}_{M + 1}^n$, then $f$ is the zero polynomial.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f \in \mathbb{C}[x_1, \ldots, x_n]$ vanishes at every point of $\mathbb{Z}^n$.
+    We will use induction on the number of variables $n$.
+    When $n = 1$. It is well known that a nonzero polynomial in $\mathbb{C}[x]$ of degree $m$
+    has at most $m$ distinct roots. For our particular $f \in \mathbb{C}[x]$, we are assuming $f(a) = 0$
+    for all $a \in \mathbb{Z}$. Since $\mathbb{Z}$ is infinite, this means that $f$ has infinitely many roots, and, hence,
+    $f$ must be the zero polynomial.
+
+    Now assume that the theorem holds for $n - 1$ variables.
+    By collecting the various powers of $x_n$, we can write $f$ in the form 
+    \[f = \sum_{i = 0}^{N} g_i (x_1, \ldots, x_{n - 1}) x_n^i,\]
+    where $g_i \in \mathbb{C}[x_1, \ldots, x_{n - 1}]$. We will show that each $g_i$ 
+    is the zero polynomial in $n - 1$ variables, which will force $f$ to be the zero polynomial in $\mathbb{C}[x_1, \ldots, x_n]$.
+
+    If we fix $(a_1, \ldots, a_{n - 1}) \in \mathbb{Z}^{n - 1}$, we get the polynomial 
+    $f(a_1, \ldots, a_{n - 1}, x_n) \in \mathbb{C}[x_n]$.
+    By our hypothesis on $f$, this vanishes for every $a_n \in \mathbb{Z}$. 
+    It follows from the case $n = 1$ that $f(a_1, \ldots, a_{n - 1}, x_n)$ is the zero polynomial in $\mathbb{C}[x_n]$.
+    Using the above formula for $f$, we see that all coefficients of $f(a_1, \ldots, a_{n - 1}, x_n)$ vanish.
+    Since $(a_1, \ldots, a_{n - 1})$ was arbitrarily chosen in $\mathbb{Z}^{n - 1}$,
+    it follows that each $g_i \in \mathbb{C}[x_1, \ldots, x_{n - 1}]$ gives the zero function on $\mathbb{Z}^{n - 1}$. 
+    Our inductive assumption then implies each $g_i$ is the zero polynomial in $\mathbb{C}[x_1, \ldots, x_{n - 1}]$.
+    This forces $f$ to be the zero polynomial in $\mathbb{C}[x_1, \ldots, x_n]$.
+\end{proof}
+
+\begin{proof}
+    Suppose $f \in \mathbb{C}[x_1, \ldots, x_n]$ vanishes at every point of $\mathbb{Z}_{M + 1}^n$.
+    We will use induction on the number of variables $n$.
+    When $n = 1$. It is well known that a nonzero polynomial in $\mathbb{C}[x]$ of degree at most $M$
+    has at most $M$ distinct roots. For our particular $f \in \mathbb{C}[x]$, we are assuming $f(a) = 0$
+    for all $a \in \mathbb{Z}_{M + 1}$. Since $\mathbb{Z}_{M + 1}$ has $M + 1$ elements, this means that $f$ has $M + 1$ roots, and, hence,
+    $f$ must be the zero polynomial.
+
+    Now assume that the theorem holds for $n - 1$ variables.
+    By collecting the various powers of $x_n$, we can write $f$ in the form 
+    \[f = \sum_{i = 0}^{N} g_i (x_1, \ldots, x_{n - 1}) x_n^i,\]
+    where $g_i \in \mathbb{C}[x_1, \ldots, x_{n - 1}]$. We will show that each $g_i$ 
+    is the zero polynomial in $n - 1$ variables, which will force $f$ to be the zero polynomial in $\mathbb{C}[x_1, \ldots, x_n]$.
+
+    If we fix $(a_1, \ldots, a_{n - 1}) \in \mathbb{Z}_{M + 1}^{n - 1}$, we get the polynomial 
+    $f(a_1, \ldots, a_{n - 1}, x_n) \in \mathbb{C}[x_n]$.
+    By our hypothesis on $f$, this vanishes for every $a_n \in \mathbb{Z}_{M + 1}$. 
+    It follows from the case $n = 1$ that $f(a_1, \ldots, a_{n - 1}, x_n)$ is the zero polynomial in $\mathbb{C}[x_n]$.
+    Using the above formula for $f$, we see that all coefficients of $f(a_1, \ldots, a_{n - 1}, x_n)$ vanish.
+    Since $(a_1, \ldots, a_{n - 1})$ was arbitrarily chosen in $\mathbb{Z}_{M + 1}^{n - 1}$,
+    it follows that each $g_i \in \mathbb{C}[x_1, \ldots, x_{n - 1}]$ gives the zero function on $\mathbb{Z}_{M + 1}^{n - 1}$. 
+    Our inductive assumption then implies each $g_i$ is the zero polynomial in $\mathbb{C}[x_1, \ldots, x_{n - 1}]$.
+    This forces $f$ to be the zero polynomial in $\mathbb{C}[x_1, \ldots, x_n]$.
+\end{proof}
+
+\subsection{Affine Varieties}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Sketch the following affine varieties in $\mathbb{R}^2$:
+    \begin{enumerate}
+        \item \textbf{V}$(x^2 + 4y^2 + 2x - 16y + 1)$
+        \item \textbf{V}$(x^2 - y^2)$
+        \item \textbf{V}$(2x + y - 1, 3x - y + 2)$
+    \end{enumerate}
+    In each case, does the variety have the dimension you would intuitively expect it to have?
+\end{tcolorbox}
+
+\textbf{Solution (1):} I would expect it to have two dimensions.
+Notice 
+\begin{align*}
+    x^2 + 4y^2 + 2x - 16y + 1 = 0
+    &\iff x^2 + 2x + 1 + 4y^2 - 16y = 0 \\
+    &\iff (x + 1)^2 + 4(y^2 - 4y) = 0 \\
+    &\iff (x + 1)^2 + 4(y^2 - 4y + 4 - 4) = 0 \\
+    &\iff (x + 1)^2 + 4((y - 2)^2 - 4) = 0 \\
+    &\iff (x + 1)^2 + 4(y - 2)^2 - 16 = 0  \\
+    &\iff \frac{(x + 1)^2}{4} + \frac{(y - 2)^2}{1} = 4
+\end{align*}
+Which is an ellipse.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/1.png}
+\end{figure}
+
+\textbf{Solution (2):} I would expect it to have two dimensions.
+If we solve $x^2 - y^2$ for $y$ we find $y = \pm x$ which is two lines 
+with slope of $1$ passing through the origin.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/2.png}
+\end{figure}
+
+\textbf{Solution (3):} I would expect it to be a single point.
+We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/3.png}
+\end{figure}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let us show that all finite subset of $k^n$ are affine varieties.
+    \begin{enumerate}
+        \item Prove that a single point $(a_1, \ldots, a_n) \in k^n$ is an affine variety.
+        \item Prove that every finite subset of $k^n$ is an affine variety. [Hint: Lemma 2 will be useful.]
+    \end{enumerate}
+\end{tcolorbox}
+
+
+\begin{proof}
+    Let $(a_1, \ldots, a_n)$ be an arbitrary point in $k^n$.
+    Consider the following set of polynomials
+    \[\mathcal{P} = \{x_i - a_i \mid 1 \le i \le n\}.\]
+    For which the point $(a_1, \ldots, a_n)$ is the exact solution.
+    Thus
+    \[
+        \mathbf{V}(\mathcal{P})
+        = \{(a_1, \ldots, a_n)\}.
+    \]
+    Therefore a single point in $k^n$ is an affine variety.
+\end{proof}
+
+\begin{proof}
+    Let $V \subset k^n$ be a finite set.
+    Then $V$ can be written as
+    \[
+        V = \bigcup_{i=1}^m \{p_i\},
+    \]
+    where each $p_i \in k^n$.
+    By part (1), each $\{p_i\}$ is an affine variety.
+    By Lemma 2, a finite union of affine varieties is an affine variety.
+    Thus $V$ is an affine variety.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]
+    It can take some work to show that something is \emph{not}
+    an affine variety. For example, consider the set 
+    \[X = \{(x, x) \mid x \in \mathbb{R}, x \ne 1\} \subseteq \mathbb{R}^2\]
+    which is the straight line $x = y$ with the point $(1, 1)$ removed.
+    To that $X$ is not an affine variety, suppose that 
+    $X = \textbf{V}(f_1, \ldots, f_s)$. Then each $f_i$ vanishes on $X$, and if 
+    we can show that $f_i$ also vanishes at $(1, 1)$, we will get the desired contradiction.
+    Thus, here is what you are to prove: if $f \in \mathbb{R}[x, y]$ vanishes on $X$,
+    then $f(1, 1) = 0$. [Hint: Let $g(t) = f(t, t)$ which is a polynomial $\mathbb{R}[t]$.
+    Now apply the proof of proposition 5 on 1.]
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f \in \mathbb{R}[x, y]$ vanishes on $X$.
+    Let $g(t) = f(t, t)$, which is a polynomial in $\mathbb{R}[t]$.
+    Then $g(x) = 0$ for all $x \in \mathbb{R}$ with $x \ne 1$. 
+    Since a nonzero polynomial in $\mathbb{R}[t]$ can have only finitely many roots, 
+    it follows from Proposition 5 that $g$ must be the zero polynomial. 
+    Therefore $g(1) = f(1, 1) = 0$, which is a contradiction.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $\textbf{R} = \{(x, y) \in \mathbb{R}^2 \mid y > 0\}$ be the upper half plane.
+    Prove that $\textbf{R}$ is not an affine variety.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f \in \mathbb{R}[x, y]$ vanishes on $\textbf{R}$.
+    Fix any $y_0 > 0$ and consider the polynomial in one variable $g(x) = f(x, y_0) \in \mathbb{R}[x]$.
+    Since $f(x, y_0) = 0$ for all $x \in \mathbb{R}$ by Proposition 5, $g$ is the zero polynomial.
+    Because $y_0 > 0$ was arbitrary it follows that that $f(x, y) = 0$ for all $(x, y) \in \textbf{R}$.  
+    Therefore $f$ is the zero polynomial.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $\mathbb{Z}^n \subseteq \mathbb{C}^n$ consist of those points with integer coordinates.
+    Prove that $\mathbb{Z}^n$ is not an affine variety. [Hint: See Exercise 6 1.]
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f \in \mathbb{C}[x_1, \dots, x_n]$ vanishes on $\mathbb{Z}^n$.
+    Fix integers $k_2, \dots, k_n \in \mathbb{Z}$ and consider the polynomial
+    \[
+        g(x_1) = f(x_1, k_2, \dots, k_n) \in \mathbb{C}[x_1].
+    \]
+    Since $g(x_1) = f(x_1, k_2, \dots, k_n) = 0$ for all $x_1 \in \mathbb{Z}$, by Proposition 5 it follows that $g$ is the zero polynomial.
+    Because $k_2, \dots, k_n$ were arbitrary integers, it follows that $f(x_1, x_2, \dots, x_n) = 0 \quad \text{for all } (x_1, \dots, x_n) \in \mathbb{Z}^n$.
+    Therefore $f$ is the zero polynomial in $\mathbb{C}[x_1, \dots, x_n]$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 11, breakable]
+    So far, we have discussed varieties in $\mathbb{R}$ or $\mathbb{C}$.
+    It is also possible to consider varieties over the field $\mathbb{Q}$,
+    although the questions here tend to be \emph{much} harder.
+    For example, let $n$ be a positive integer, and consider the variety 
+    $F_n \subseteq \mathbb{Q}^2$ defined by
+    \[x^n + y^n = 1.\]
+    Notice that there are some obvious solutions when $x$ or $y$ is zero.
+    We call these \emph{trivial solutions}.
+    An interesting question is whether or not there are any nontrivial solutions.
+    \begin{enumerate}
+        \item Show that $F_n$ has two trivial solutions if $n$ is odd and four trivial solutions of $n$ is even.
+        \item Show that $F_n$ would have a nontrivial solution for some $n \ge 3$ if and only if Fermat's Last Theorem were false.
+    \end{enumerate}
+    \begin{theorem}
+        \emph{Fermat's Last Theorem} states that, for $n \ge 3$, the equation
+        \[x^n + y^n = z^n\]
+        has no solutions where $x, y$ and $z$ are nonzero integers.
+        The general case of this conjecture was proved by Andrew Wiles in 1994 using some 
+        very sophisticated number theory. The proof is \emph{extremely} difficult.
+    \end{theorem}
+\end{tcolorbox}
+
+
+\begin{proof}
+    Suppose $n$ is odd. 
+    If $x = 0$ then $y = 1$.
+    Similarly, if $y = 0$ then $x = 1$.
+    Thus we have two solutions: $(0, 1), (1, 0)$.
+
+    Suppose $n$ is even.
+    If $x = 0$ then $y = \pm 1$.
+    Similarly, if $y = 0$ then $x = \pm 1$.
+    Thus we have four solutions: $(0, \pm 1), (\pm 1, 0)$.
+\end{proof}
+
+\begin{proof}
+    Suppose $F_n$ has a nontrivial solution for some $n \ge 3$.
+    Then suppose $x, y \in \mathbb{Q}$ such that $x^n + y^n = 1$.
+    Furthermore, suppose $x = \frac{a}{b}, y = \frac{c}{d}$ where $a, b, c, d \in \mathbb{Z}$.
+    Then 
+    \[
+        \left(\frac{a}{b}\right)^n + \left(\frac{c}{d}\right)^n = \frac{a^n}{b^n} + \frac{c^n}{d^n} = 1.
+    \]
+    Multiply through by $b^n d^n$ to obtain 
+    \[
+        (a d)^n + (c b)^n = (b d)^n.
+    \]
+    Since $a, b, c, d \in \mathbb{Z}$ and $n \ge 3$, this is a solution to Fermat's Last Theorem.
+
+    Conversely, suppose Fermat's Last Theorem is false.
+    Then there exists nonzero integers $x, y, z$ and $n \ge 3$ such that $x^n + y^n = z^n$.
+    Dividing through by $z^n$ gives
+    \[
+        \left(\frac{x}{z}\right)^n + \left(\frac{y}{z}\right)^n = 1.
+    \]
+    Therefore $F_n$ has a nontrivial solution for some $n \ge 3$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 15, breakable]
+    In Lemma 2, we showed that if $V$ and $W$ are affine varieties,
+    then so are there union $V \cup W$ and intersection $V \cap W$.
+    In this exercise we will study how other set-theoretic operations 
+    affect affine varieties.
+    \begin{enumerate}
+        \item Prove that finite unions and intersections of affine varieties are again affine varieties. [Hint: Induction].
+        \item Give an example to show that an infinite union of affine varieties need not be an affine variety.
+              Hint: By Exercise 8-10, we know some subsets of $k^n$ that are not affine varieties.
+              Suprisingly, an infinite intersection of affine varieties is still an affine variety.
+              This is a consequence of the Hilbert Basis Theorem, which will be discussed in Chapter 2.
+        \item Given an example to show that the set-theoretic difference $V \setminus W$ of two affine varieties
+              need not be an affine varietiy.
+        \item Let $V \subseteq k^n$ and $W \subseteq k^m$ be two affine varieties, and let 
+        \[V \times W = \{(x_1, \ldots, x_n, y_1, \ldots, y_m) \in k^{n + m} \mid (x_1, \ldots, x_n) \in V, (y_1, \ldots, y_n) \in W\}\]
+        be their Cartesian product. Prove that $V \times W$ is an affine variety in $k^{n + m}$.
+        [Hint: If $V$ is defined by $f_1, \ldots, f_s \in k[x_1, \ldots, x_n]$, then we can regard $f_1, \ldots, f_s$
+        as polynomials in $k[x_1, \ldots, x_n, y_1, \ldots, y_m]$, and similarly for $W$. Show that this gives defining
+        equations for the Cartesian product.]
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    By Lemma 2 we know the base case holds for the union and intersection of two affine varieties.
+    Suppose Lemma 2 holds for the union and intersection of $n - 1$ affine varieties.
+    Let $V = \{v_1, \ldots, v_n\}$ be a set of $n$ affine varieties.
+    Then 
+    \[\mathcal{U} = \bigcup_{i = 1}^{n} v_i = \bigcup_{i = 1}^{n - 1} v_i \cup v_n,\]
+    and
+    \[\mathcal{I} = \bigcap_{i = 1}^{n} v_i = \bigcap_{i = 1}^{n - 1} v_i \cap v_n.\]
+    Now, by our hypothesis $\bigcup_{i = 1}^{n - 1} v_i$ and $\bigcap_{i = 1}^{n - 1} v_i$
+        are affine varieties.
+    Then by Lemma 2, $\bigcup_{i = 1}^{n - 1} v_i \cup v_n$ and $\bigcap_{i = 1}^{n - 1} v_i \cap v_n$
+        are also affine varieties.
+    Thus $\mathcal{U}$ and $\mathcal{I}$ are affine varieties.
+\end{proof}
+
+\begin{proof}
+    Consider the union of all points in $\mathbb{Z}^n$.
+    Each point is an affine variety by Problem 6.
+    However, by Problem 10, their union (which is $\mathbb{Z}^n$) is not an affine variety.
+\end{proof}
+
+\begin{proof}
+    Consider the varieties $V_1 = \{(x, y) \mid x = y\}$ and $V_2 = \{(1, 1)\}$.
+    By Problem 8, $V_1 \setminus V_2$ is not an affine variety.
+\end{proof}
+
+\begin{proof}
+    Let $V \subseteq k^n$ be defined by polynomials $f_1, \ldots, f_s \in k[x_1, \ldots, x_n]$
+        and $W \subseteq k^m$ be defined by polynomials $g_1, \ldots, g_t \in k[y_1, \ldots, y_m]$.
+    Then, let $f_1, \ldots, f_s \in k[x_1, \ldots, x_n, y_1, \ldots, y_m]$
+    and $g_1, \ldots, g_t \in k[x_1, \ldots, x_n, y_1, \ldots, y_m]$.
+    Then
+    \[
+        V \times W = \textbf{V}(f_1, \ldots, f_s, g_1, \ldots, g_t) \subseteq k^{n + m},
+    \]
+    so $V \times W$ is an affine variety.
+\end{proof}
+
+\subsection{Parametrizations of Affine Varieties}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Parametrize all solutions of the linear equations 
+    \[x + 2y - 2z + w = 1,\]
+    \[x + y + z - w = 2.\]
+\end{tcolorbox}
+
+\begin{proof}
+    We use row reduction to find the simplified equations:
+    \[
+        x - 4z + 3w = 3, \quad
+        y - 3z + 2w = -1.
+    \]
+    Then let $s = w$ and $t = z$.
+    Then
+    \[
+        x = 3 + 4t - 3s, \quad
+        y = -1 + 3t - 2s.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Use a trigonometric identity to show that 
+    \[x = \cos(t),\]
+    \[y = \cos(2 t)\]
+    parametrizes a portion of a parabola.
+    Indicate exactly what portion of the parabola is covered.
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[
+        y = \cos(2t) = 2 \cos^2(t) - 1 = 2 x^2 - 1.
+    \]  
+    Since $\operatorname{Ran}(\cos) = [-1, 1]$, we have $\operatorname{Ran}(x(t)) = [-1, 1]$,
+    and thus $\operatorname{Ran}(y = 2 x^2 - 1) = [-1, 1]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Given $f \in k[x]$, find a parametrization of $V(y - f(x))$.
+\end{tcolorbox}
+
+\begin{proof}
+    We want to parametrize $y - f(x) = 0$.  
+    Let $t = x$, then $y = f(x) = f(t)$.  
+    Thus we have $(x, y) = (t, f(t))$ where $t \in k$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    The goal of this problem is to that the sphere $x^2 + y^2 + z^2 = 1$
+    in 3-dimensional space can be parametrized by 
+    \[x = \frac{2u}{u^2 + v^2 + 1},\]
+    \[y = \frac{2v}{u^2 + v^2 + 1},\]
+    \[z = \frac{u^2 + v^2 - 1}{u^2 + v^2 + 1}.\]
+    The idea is to adapt the argument used for the circle $x^2 + y^2 = 1$ to 3-dimensional space.
+    \begin{enumerate}
+        \item Given a point $(u, v, 0)$ in the $(x, y)$-plane, draw the line from this point to the 
+                ``north pole'' $(0, 0, 1)$ of the sphere, and let $(x, y, z)$ be the other point 
+                where the line meets the sphere. Draw a picture to illustrate this, and argue goemetrically
+                that mapping $(u, v)$ to $(x, y, z)$ gives a parametrization of the sphere minus the north pole.
+        \item Show that the line connecting $(0, 0, 1)$ to $(u, v, 0)$ is parametrized by $(tu, tv, 1 - t)$, where $t$ 
+                is a parameter that moves along the line.
+        \item Substitute $x = tu$, $y = tv$ and $z = 1 - t$ into the equation for the sphere $x^2 + y^2 + z^2 = 1$.
+                Use this to derive the formulas given at the beggining of the problem.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/4.png}
+\end{figure}
+
+\begin{proof}
+    The figure above shows the unit sphere in 3-space.
+    It is clear that if we are to draw all lines from $(0, 0, 1)$ to $(u, v, 0)$ where $u, v \in \mathbb{R}$
+        then we would be able to intersect all points on the sphere other than $(0, 0, 1)$.
+    Now, taking a point $(u, v)$ we can compute the line through $(u, v, 0)$ and $(0, 0, 1)$
+        and find the point at which it intersects the unit sphere.
+\end{proof}
+
+\begin{proof}
+    Notice
+    \begin{align*}
+        (x, y, z) &= (0, 0, 1) + t((u, v, 0) - (0, 0, 1)) \\
+                  &= (0, 0, 1) + t(u, v, -1) \\
+                  &= (tu, tv, 1 - t)
+    \end{align*}
+\end{proof}
+
+\begin{proof}
+    We have 
+    \begin{align*}
+        x^2 + y^2 + z^2 = 1 \iff t^2 u^2 + t^2 v^2 + t^2 -2t = 0
+                            \iff t(t u^2 + t v^2 + t -2) = 0
+    \end{align*}
+    Now $t = 0$ corresponds with $(0, 0, 1)$ thus we want 
+        $t u^2 + t v^2 + t - 2 = 0$.
+    Solving for $t$ we find $t = \frac{2}{u^2 + v^2 + 1}$.
+    Plugging $t$ into $(x(t), y(t), z(t))$ gives the desired equations.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Consider the curved defined by $y^2 = cx^2 - x^3$,
+        where $c$ is some constant.
+    Here is a picture of the curve when $c > 0$.
+    Our goal is to parametrize this curve.
+    \begin{enumerate}
+        \item Show that a line will meet this curve at either $0, 1,$ or $3$ points.
+                Illustrate you answer with a picture. [Hint: Let the equation of the line by either $x = a$ or $y = mx + b$.]
+        \item Show that a nonvertical line through the origin meets the curve at exactly one other point 
+                $m^2 \ne c$. Draw a picture to illustrate this, and see if you can come up with an intuitive explanation 
+                for as to why this happens.
+        \item Now draw the vertical line $x = 1$. Given a point $(1, t)$ on this line, draw the line 
+                connecting $(1, t)$ to the origin. This will interesect the curve in a point $(x, y)$.
+                Draw a picture to illustrate this, and argue geometrically that this gives a parametrization of the entire curve.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x = a$. then $y = \pm \sqrt{ca^2 - a^3}$.
+    Now if $ca^2 = a^3$ then there is a single solution, namely $(0, 0)$.
+    If $ca^2 < a^3$ then the line does not intersect.
+    If $ca^2 < a^3$ then there are two unique solutions.
+
+    Suppose $y = mx + b$.
+    Then $y = \pm \sqrt{c(mx + b)^2 - (mx + b)^3}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Around 180 B.C.E., Diocles wrote the book \emph{On Burning Mirrors}.
+    One of the curves he considered was the \emph{cissoid} and he used it to solve
+    the problem of duplication of the cube [see part (c) below].
+    The cissoid has the equation $y^2(a + x) = (a - x)^3$, where $a$
+    is a constraint. This gives the following curve in the plane:
+
+    \begin{enumerate}
+        \item Find an algebraic parametrization of the cissoid.
+        \item Diocles described the cissoid using the following geometric construction.
+                Given a circle of radius $a$ (which we will take as centered at the origin),
+                pick $x$ between $a$ and $-a$, and draw the line $L$ connecting $(a, 0)$
+                to the point $P = (-x, \sqrt{a^2 - x^2})$ on the circle.
+                This determines a point $Q = (x, y)$ on $L$:
+                
+                Prove that the cissoid is the locus of all such points $Q$.
+        \item The duplication of the cube is the classical Greek problem of trying to 
+              construct $\sqrt[3]{2}$ using ruler and compass. It is known that this is 
+              impossible given just a ruler and compass. Diocles showed that if in addition,
+              you allow the use of the cissoid, then one construct $\sqrt[3]{2}$.
+              Here is how it works. Draw the line connecting $(-a, 0)$ to $(0, -a/2)$.
+              This line will meet the cissoid at a point $(x, y)$. Then prove that 
+              \[2 = \left(\frac{a - x}{y}\right)^3,\]
+              which shows how to construct $\sqrt[3]{2}$ using ruler, compass, and cissoid.
+    \end{enumerate}
+\end{tcolorbox}
