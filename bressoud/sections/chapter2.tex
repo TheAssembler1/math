@@ -1,57 +1,48 @@
-\subsection{The Archimedean Understanding}
+\subsection{The Archimedian Understanding}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
-    Consider the series 
-    \[1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots + \frac{1}{2^k} + \cdots.\]
-    Find the target value, $T$, of the partial sums. 
-    How do you know that for any $M$ greater than your target 
-        value, all of the partial sums are strictly less than $M$?
-    How many terms do you have to take in order to garuntee 
-        that all of the partial sums from that point on will be 
-        larger than $L = T - \frac{1}{10}$.
-\end{tcolorbox}
-
-\begin{proof}
-    The target value $T$ is equal to $2$.
-    Suppose $M$ is a real number greater than $2$.
-    Then 
-    \[
-        2(1 - (1/2)^n) = M > 2 \implies 1 - (1/2)^n > 1 \implies -(1/2)^n > 0,
-    \]
-    which is impossible since $(1/2)^n > 0$ for all $n$. 
-
-    Notice $1.9 < 2(1 - (1/2)^n) \iff \frac{1.9}{2} < 1 - (1/2)^n 
-    \iff (1/2)^n < 1 - 0.95 = 0.05$.
-    Taking logarithms shows $n > \log_{1/2}(0.05)$.
-\end{proof}
-
-\begin{tcolorbox}[title=Problem 9, breakable]
-    What is the Archimedean understanding of the infinite series 
-        $1 - 1 + 1 - 1 + \cdots$? Explain why this series cannot have a value under this understanding.
-\end{tcolorbox}
-
-\textbf{Solution: }
-The Archimedean understanding relies on the assumption that 
-a sum is approximated by partial sums.
-But for even $S_n$ the sum seems to go to $0$,
-while for odd $S_n$ the sum seems to go to $1$.
-Since the partial sums do not approach a single number,
-the series cannot have a value with this understanding.
+\begin{definition}[Archimedian Understanding of an Infinite Series]
+    The \textbf{Archimedian Understanding} of an infinite series is that it is shorthand 
+    for the sequence of finite summations. The \textbf{value} of an infinite series,
+    if it exists, is that number $T$ such that given any $L < T$ and any $M > T$, all of the finite 
+    sums from some point on will be strictly contained in the interval between $L$ and $M$.
+    More precisely, given $L < T < M$, there is an integer $n$, whose value depends on the choice 
+    of $L$ and $M$, such that every partial sum with at least $n$ terms lies inside the interval $(L, M)$.
+\end{definition}
 
 \subsection{Geometric Series}
 
-\begin{tcolorbox}[title=Problem 1, breakable]
-    Find the target value of the series 
-    \[1 + \frac{1}{3} + \frac{1}{9} + \cdots + \frac{1}{3^k} + \cdots\]
-    Find a value of $n$ so that any partial sum with at least $n$ terms 
-    is within $0.001$ of the target value. Justify your answer.
-\end{tcolorbox}
+\begin{definition}[Convergence of an Infinite Series]
+    An infinite series \textbf{converges} if there is a target value $T$
+    such that for any $L < T$ and any $M > T$, all of the partial sums 
+    from some point on are strictly between $L$ and $M$.
+\end{definition}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
-    It is tempting to differentiate each side of equation (2.11) with respect to $x$
-        and to assert that 
-    \[1 + 2x + 3x^2 + 4x^3 + \cdots = \frac{1}{(1 - x)^2}.\]
-    Following Cauchy's advice, we know we need to be careful. Differentiate each side 
-    of equation (2.10). What is the difference between $1 + 2x + 3x^2 + \cdots + n x^{n - 1}$
-    and $(1 - x)^2$? For which values of $x$ will this difference approach $0$ as $n$ increases?
-\end{tcolorbox}
+\subsection{Calculating $\pi$}
+
+\begin{theorem}[Newton's Binomial Series]
+    For any real number $a$ and any $x$ such that $|x| < 1$,
+    we have that 
+    \[(1 + x)^a = 1 + ax + \frac{a(a - 1)}{2!} + \frac{a(a - 1)(a - 2)}{3!} x^3 + \cdots.\]
+\end{theorem}
+
+\subsection{Logarithms and Harmonic Series}
+
+\begin{definition}[Divergence to Infinity]
+    When we write that an infinite series equals $\infty$, we mean that no matter 
+    what number we pick, we can find an $n$ so that the partial sums with at least $n$ 
+    terms will exceed that number.
+\end{definition}
+
+\begin{definition}[Euler's constant, $\gamma$]
+    Euler's constant is defined as the limit between the partial sum of the harmonic series 
+    and the natural logarithm,
+    \[\gamma = \lim_{n \rightarrow \infty} \left(1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n - 1} - \ln n\right)\]
+\end{definition}
+
+\begin{definition}[Nested Interval Principle]
+    Given an increasing sequence, $x_1 \le x_2 \le x_3 \le \cdots$, and a decreasing sequence,
+    $y_1 \ge y_2 \ge y_3 \ge \cdots$, such that $y_n$ is always larger than $x_n$ but the difference
+    between $y_n$ and $x_n$ can be made arbitrarily small by taking $n$ sufficiently large, there 
+    is exactly one real number that is greater than or equal to every $x_n$ and less than or equal to 
+    every $y_n$.
+\end{definition}

@@ -2789,21 +2789,82 @@ properties specific to $\mathbb{Q}$.
     Multiplying by $-1$ shows $A = A D_1$.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 6, breakable]
     Prove the remaining four cases in the proof 
     of Theorem 1.7.6 (9). [Use Exercise 1.7.4]
 \end{tcolorbox}
 
-\begin{proof}
-    There four 8 FUCKING cases again! Unfortunately
-        Bloch is making us do 4 of them for some unkown reason...
+\begin{theorem}[1.7.6 Part 9]
+    \[A(B + C) = AB + AC \quad (\text{Distributive Law})\]
+\end{theorem}
 
-    (\textbf{})
+\begin{proof}
+    ($A < D_0, B < D_0, C < D_0$)
+
+    ($A < D_0, B \ge D_0, C \ge D_0$)
+
+    ($A < D_0, B < D_0, C \ge D_0$)
+
+    ($D < D_0, B \ge D_0, C < D_0$)
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 7, breakable]
     Prove Theorem 1.7.10. [Use Exercise 1.7.1]
 \end{tcolorbox}
+
+\begin{theorem}[1.7.10]
+    Let $i : \mathbb{Q} \longrightarrow \mathbb{R}$ be defined by $i(r) = D_r$, for all $r \in \mathbb{R}$.
+    \begin{enumerate}
+        \item The function $i : \mathbb{Q} \longrightarrow \mathbb{R}$ is injective.
+        \item $i(0) = D_0$ and $i(1) = D_1$.
+        \item Let $r, s \in \mathbb{Q}$ then 
+        \begin{enumerate}
+            \item $i(r + s) = i(r) + i(s)$;
+            \item $i(-r) = -i(r)$;
+            \item $i(rs) = i(r)i(s)$;
+            \item if $r \ne 0$ then $i(r^{-1}) = [i(r)]^{-1}$;
+            \item $r < s$ if and only if $i(r) < i(s)$.
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Let $x, y$ be arbitrary elements in $\mathbb{Q}$.
+    Suppose $i(x) = i(y)$. Then $D_x = D_y$.
+    Thus $x = y$.
+\end{proof}
+
+\begin{proof}
+    Applying the definition of $i$ shows that $i(0) = D_0$ and $i(1) = D_1$.
+\end{proof}
+
+\begin{proof}
+    Let $r, s$ be arbitrary elements in $\mathbb{Q}$. Then 
+    \[
+        i(r + s) = D_{r + s} = D_r + D_s = i(r) + i(s).
+    \]
+    \[
+        i(-r) = D_{-r} = -D_r = -i(r).
+    \]
+    \[
+        i(rs) = D_{rs} = D_r D_s = i(r)i(s).
+    \]
+    Suppose $r \ne 0$. Then
+    \[
+        i(r^{-1}) = D_{r^{-1}} = [D_r]^{-1} = [i(r)]^{-1}.
+    \]
+    Suppose $r < s$. Then
+    \[
+        D_r < D_s \implies i(r) < i(s).
+    \]
+    Suppose $i(r) < i(s)$. Then
+    \[
+        i(r) < i(s) \iff D_r < D_s \iff r < s.
+    \]
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 8, breakable]
     This exercise makes use of Exercise 1.6.6.
@@ -2823,6 +2884,30 @@ properties specific to $\mathbb{Q}$.
     \end{enumerate}
 \end{tcolorbox}
 
-\textbf{Solution (1):}
-Clearly $\mathbb{Z}$ is an ordered set which has no Dedekind cuts.
-Thus $T^D = \emptyset$.
+\textbf{Solution (1): }
+Let $T = \{a\}$ be a one-element ordered set.
+The only subsets of $T$ are $\emptyset$ and $T$ itself.
+The empty set is not a Dedekind cut, and $T$ has a least element.
+Thus $T$ has no Dedekind cuts, and therefore $T^D = \emptyset$.
+
+\textbf{Solution (2): }
+Consider the ordered set $U = \{1,2\}$ with $1 < 2$.
+The subset $\{2\}$ is an upper Dedekind cut:
+    it is nonempty, proper, upward closed, and has no least element.
+No other subset of $U$ satisfies the definition of an upper Dedekind cut.
+Thus $U^D$ has exactly one element.
+
+\textbf{Solution (3): }
+Let $\mathcal{C} \subseteq S^D$ be a nonempty set of Dedekind cuts that is bounded above.
+Define
+\[
+A = \bigcap_{C \in \mathcal{C}} C.
+\]
+Since each $C \in \mathcal{C}$ is an upper-cut, their intersection $A$ is also an upper-cut.
+Also $A$ has no least element and is a proper subset of $S$.
+Thus $A \in S^D$.
+We know that $A$ is an upper bound for $\mathcal{C}$ and that it is the least upper bound.
+Thus $S^D$ satisfies the Least Upper Bound Property.
+
+
+\textbf{Solution (4): } $\mathbb{R}^D$ is order–isomorphic to $\mathbb{R}$.

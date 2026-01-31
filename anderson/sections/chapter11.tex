@@ -137,11 +137,22 @@
     bd & b
 \end{bmatrix} \notin I.\]
 
+\newpage
 \begin{tcolorbox}[title=Problem 11, breakable]
     Suppose $p, q$ are distinct prime integers in $\mathbb{Z}$.
     Prove that 
-    \[\langle 3 + \sqrt{5} \rangle = \{c + d \sqrt{5} \mid 4 \mid (c + d)\}.\]
+    \[\langle p \rangle \cap \langle q \rangle = \langle pq \rangle.\]
 \end{tcolorbox} 
+
+\begin{proof}
+    Suppose $x \in \langle p \rangle \cap \langle q \rangle$.
+    Then $x = p k_1$ and $x = q k_2$ for $k_1, k_2 \in \mathbb{Z}$.
+    Since $p, q \mid x$ and $\gcd(p, q) = 1$ we have $pq \mid x$ thus $x \in \langle pq \rangle$.
+
+    Suppose $x \in \langle pq \rangle$.
+    Then $x = p q k$ for some $k \in \mathbb{Z}$.
+    Since $x = p(qk)$ and $x = q(pk)$ we have $x \in \langle p \rangle \cap \langle q \rangle$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
     Let $R$ be a commutative ring, and suppose that $I$ and $J$ are 
@@ -151,15 +162,28 @@
     as an intersection of two proper ideals.
 \end{tcolorbox} 
 
+\textbf{Solution: }
+\[\langle x^2 - 3 \rangle \cap \langle x - 3 \rangle = \langle (x^2 - 3)(x - 3) \rangle\]
+
+\begin{proof}
+    Let $x, y$ be arbitrary elements in $I \cap J$.
+    Let $t$ be an arbitrary element in $R$.
+    Since $x,y \in I \cap J$ both of which are closed under subtraction,
+        $x - y \in I \cap J$.
+    Similarly, $xt \in I \cap J$.
+    Thus $I \cap J$ is an ideal.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 13, breakable]
     Suppose that $R$ is a commutative ring, $I$ and $J$ are ideal of $R$,
     and $I \subseteq J$. Prove that $I$ is an ideal of the ring $J$.
 \end{tcolorbox} 
 
 \begin{proof}
-    Let $x, y$ be arbitrary elements in $I$.
-    Since $I$ is an ideal of $R$, $x - y \in I$.
-    Now, let $j$ be an arbitrary element in $J$.
+    Let $i$ be an arbitrary element in $I$ and $j$ an arbitrary element in $J$.
+    Since $I$ is an ideal it is closed under subtraction.
+    Now $i \cdot j \in I$ since $I$ is an ideal of $R$ and $j \in R$.
+    Thus $I$ is an ideal of the ring $J$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
@@ -170,6 +194,17 @@
     For obvious reasons, we call the ideal $I + J$ the \textbf{sum}
     of $I$ and $J$.
 \end{tcolorbox} 
+
+\begin{proof}
+    Let $x, y$ be arbitrary elements in $I + J$.
+    Let $t$ be an arbitrary element in $R$.
+    Let $x = a_1 + b_1, y = a_2 + b_2$ for some $a_1, a_2 \in I$ and $b_1, b_2 \in J$.
+    Then 
+    \[x - y = (a_1 - a_2) + (b_1 - b_2) \in I + J \quad \text{I, J \text{ are closed under subtraction.}}\]
+    Similarly 
+    \[tx = t(a_1 + b_1) = ta_1 + tb_1 \in I + J \quad \text{I, J \text{ are closed under multiplication for $x \in R$.}}\]
+    Thus $I + J$ is an ideal of $R$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 15, breakable]
     Suppose that $R$ is a commutative ring with unity, and $I$ and $J$
@@ -184,10 +219,93 @@
     \end{enumerate}
 \end{tcolorbox} 
 
+\begin{proof}
+    Let $c \in R$.  
+    Suppose $x, y \in I \cdot J$ such that 
+    \[
+    x = \sum_{k = 1}^{n_1} a_k b_k \quad \text{and} \quad 
+    y = \sum_{j = 1}^{n_2} a'_j b'_j, 
+    \quad a_k, a'_j \in I, \ b_k, b'_j \in J, \ n_1, n_2 \in \mathbb{N}.
+    \]
+    Let
+    \[
+    c_i =
+    \begin{cases}
+    a_i, & 1 \le i \le n_1, \\
+    - a'_{\,i-n_1}, & n_1 < i \le n_1 + n_2,
+    \end{cases}
+    \qquad
+    d_i =
+    \begin{cases}
+    b_i, & 1 \le i \le n_1, \\
+    b'_{\,i-n_1}, & n_1 < i \le n_1 + n_2.
+    \end{cases}
+    \]
+    Then 
+    \[
+    x - y
+    = \sum_{k = 1}^{n_1} a_k b_k - \sum_{j = 1}^{n_2} a'_j b'_j
+    = \sum_{i = 1}^{n_1 + n_2} c_i d_i \in I \cdot J.
+    \]
+    Similarly,
+    \[
+    cx = c \sum_{k = 1}^{n_1} a_k b_k = \sum_{k = 1}^{n_1} (c a_k) b_k \in I \cdot J,
+    \]
+    since $c a_k \in I$ as $I$ is closed under multiplication by elements of $R$.
+    Thus $I \cdot J$ is an ideal.
+\end{proof}
+
+\begin{proof}
+    Suppose $x \in I \cdot J$ such that 
+    \[
+        x = \sum_{i = 1}^{n} a_i b_i, \quad a_i \in I,\ b_i \in J.
+    \]
+    Viewing each term in the sum, we see $a_i b_i \in I$ since $I$ is closed under multiplication by elements of $R$.
+    Since $I$ is closed under subtraction, the sum is in $I$, thus $x \in I$.
+    Similarly, $x \in J$.
+    Therefore $x \in I \cap J$, and thus $I \cdot J \subset I \cap J$.
+\end{proof}
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $\langle a \rangle \cdot \langle b \rangle$ such that 
+    \[
+        x = \sum_{i = 1}^{n} a_i b_i = \sum_{i = 1}^{n} k_i a k'_i b = ab \sum_{i = 1}^{n} k_i k'_i, 
+        \quad a_i \in \langle a \rangle, \ b_i \in \langle b \rangle, \ n \in \mathbb{N}, k_i, k'_i \in R.
+    \]
+    Thus $x \in \langle ab \rangle$.
+
+    Let $x$ be an arbitrary element in $\langle ab \rangle$.
+    Then $x = k ab$ for some $k \in R$.
+    Then $x = k a \cdot b = \sum_{i = 1}^{1} (k a) b \in \langle a \rangle \cdot \langle b \rangle$ by Part 1.
+\end{proof}
+
+\textbf{Solution (4): }
+Take $I = 2 \mathbb{Z}$ and $J = 3 \mathbb{Z}$ then $I \cdot J = 6 \mathbb{Z}$
+    and $I \cap J = 6 \mathbb{Z}$ thus $I \cdot J \subseteq 6 \mathbb{Z}$.
+
 \begin{tcolorbox}[title=Problem 16, breakable]
     Suppose that $I, J, K$ are ideals in $R$, a commutative ring with unity.
     Prove that $I \cdot (J + K) = I \cdot J + I \cdot K$.
 \end{tcolorbox} 
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $I \cdot (J + K)$ such that 
+    \[
+        x = \sum_{i = 1}^{n} a_i b_i, \quad a_i \in I, \ b_i \in J + K, \ n \in \mathbb{N}.
+    \]
+    Then each $b_i = j_i + k_i$ such that $j_i \in J$ and $k_i \in K$. Then
+    \[
+        x = \sum_{i = 1}^{n} a_i (j_i + k_i) = \sum_{i = 1}^{n} a_i j_i + \sum_{i = 1}^{n} a_i k_i \in I \cdot J + I \cdot K.
+    \]
+    Thus $I \cdot (J + K) \subseteq I \cdot J + I \cdot K$.
+    Conversely, let $x$ be an arbitrary element in $I \cdot J + I \cdot K$ such that 
+    \[
+        x = \sum_{i = 1}^{n_1} a'_i j'_i + \sum_{i = 1}^{n_2} a''_i k'_i, \quad 
+        a'_i, a''_i \in I, \ j'_i \in J, \ k'_i \in K.
+    \]
+    Then $a'_i j'_i = a'_i (j'_i + 0) \in I \cdot (J + K)$ and $a''_i k'_i = a''_i (0 + k'_i) \in I \cdot (J + K)$.  
+    Therefore $x \in I \cdot (J + K)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
     Let $X$ be a set; consider the power set ring $\mathcal{P}(X)$, described in
@@ -199,9 +317,45 @@
     \end{enumerate}
 \end{tcolorbox} 
 
+\begin{proof}
+    Let $x, y$ be arbitrary elements in $I$.
+    Let $t$ be an arbitrary element in $\mathcal{P}(X)$.
+    Then $x + y = (x \cup y) \setminus (x \cap y)$.
+    Since $x \subset a$ and $y \subset a$, $x \cup y \subset a$ then $-$
+        only removes elements thus $x + y \in I$.
+    Then $xt = x \cap t \subset x \subset a$ thus $xt \in I$.
+    It follows that $I$ is an ideal of $\mathcal{P}(X)$.
+\end{proof}
+
+\begin{proof}
+    The ideal $I$ is principal, generated by $a$
+    \[
+        I = \langle a \rangle = \{ b \subseteq X \mid b \subseteq a \}.
+    \]  
+    Every subset of $a$ can be written as $b \cap a = b$ for some $b \in \mathcal{P}(X)$, so $\langle a \rangle = I$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 18, breakable]
     Prove that the nilradical of a commutative ring with unity is an ideal. (See Exercise 7.15, where you proved it is a subring.)
 \end{tcolorbox} 
+
+\begin{proof}
+    Let $R$ be a commutative ring with unity.
+    Suppose $\mathcal{N}(P)$ be the nilpotent elements in $R$.
+    Let $x, y$ be arbitrary elements in $\mathcal{N}(P)$.
+    Suppose $x^n = 0$ and $y^m = 0$.
+    Let $t$ be an arbitrary element in $R$.
+    Then
+    Consider $x - y$. Using the binomial theorem in a commutative ring
+    \[
+        (x - y)^{n + m} = \sum_{k=0}^{n+m} \binom{n+m}{k} x^k (-y)^{\,n+m-k} = 0.
+    \]
+    Thus $x - y \in \mathcal{N}(P)$.
+    Then $(cx)^n = c^n x^n = c^n \cdot 0 = 0$.
+    Thus $cx \in \mathcal{N}(P)$.
+    It follows that $\mathcal{N}(P)$ is an ideal.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 21, breakable]
     Generalize Exercise 19: Suppose that $R$ is a commutative ring with unity, and $I$ is an ideal.
@@ -210,7 +364,41 @@
     we call $A(I)$ the \textbf{annihilator} of $I$. Prove that $A(I)$ is an ideal.
 \end{tcolorbox} 
 
+\begin{proof}
+    Let $x, y \in A(I)$ and $r \in R$ be arbitrary.  
+    For any $s \in I$, we have
+    \[
+        s(x - y) = sx - sy = 0 - 0 = 0,
+    \]
+    so $x - y \in A(I)$.  
+    Now, for any $r \in R$ and $x \in A(I)$, we have
+    \[
+        s(rx) = (sr)x = r(sx) = r \cdot 0 = 0
+    \]
+    for all $s \in I$, since $R$ is commutative.  
+    Thus $rx \in A(I)$.  
+    Therefore, $A(I)$ is an ideal of $R$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 23, breakable]
-    Generalize Theorem 11.5: Suppose that $R$ is a commutative ringwith unity and $r, s \in R$,
+    Generalize Theorem 11.5: Suppose that $R$ is a commutative ring with unity and $r, s \in R$,
     with $r$ not a zero divisor. Prove that $\langle r \rangle = \langle s \rangle$ if and only if $r, s$ are associates.
 \end{tcolorbox} 
+
+\begin{proof}
+    Suppose $\langle r \rangle = \langle s \rangle$.  
+    Then $s \in \langle r \rangle$ so there exists $u \in R$ such that $s = u r$.
+    Similarly, $r \in \langle s \rangle$ so there exists $v \in R$ such that 
+    \[
+        r = v s = v (u r) = (v u) r.
+    \]  
+    Since $r$ is not a zero divisor, we can cancel $r$ to get $v u = 1$.  
+    Thus $u$ is a unit so $r$ and $s$ are associates.  
+    Conversely, suppose $r$ and $s$ are associates thus $s = u r$ for some unit $u \in R$.  
+    Then 
+    \[
+        \langle s \rangle = \langle u r \rangle = \langle r \rangle
+    \]  
+    because multiplying by a unit does not change the principal ideal.  
+\end{proof}

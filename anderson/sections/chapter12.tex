@@ -1,0 +1,162 @@
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $R$ be a commutative ring with unity and $a_1, a_2, \ldots, a_n \in R$.
+    Prove that 
+    \[I = \langle a_1, a_2, a_3, \ldots, a_n \rangle = \]
+    \[\{a_1 x_1 + a_2 x_2 + \cdots + a_n x_n \mid x_i \in R_i, i = 1, 2, \ldots, n\}.\]
+    is an ideal; furthermore, show that it is the smallest ideal of $R$ 
+    that contains all the $a_i$'s. We call the $a_i$'s the \textbf{generators}
+    of the ideal; we say that the ideal is \textbf{finitely generated}.
+    Note that each element of the ideal can be expressed as a \emph{linear combination}
+    of its generators.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $c$ be a scalar.
+    Let $x, y$ be arbitrary elements in $I$ such that 
+    \[x = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n \text{ and } y = a_1 x'_1 + a_2 x'_2 + \cdots + a_n x'_n, x'_i, x'_i \in R_i \text{ where } i = 1, 2, \ldots, n.\]
+    Then 
+    \[x - y = (a_1 x_1 + a_2 x_2 + \cdots + a_n x_n) - (a_1 x'_1 + a_2 x'_2 + \cdots + a_n x'_n, x'_i) = \] 
+    \[a_1(x_1 - x'_1) + a_2(x_2 - x'_2) + \cdots + a_n(x_n - x'_n) \in I.\]
+    $I$ is closed under subtraction thus $x_i - x'_i \in R$. 
+    Also 
+    \[cx = c(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n) = a_1 (c x_2) + a_2 (c x_2) + \cdots + a_n (c x_n) \in I.\]
+    $I$ is closed under scalar multiplication thus $c x_i \in R$.
+    Thus $I$ is an ideal of $R$.
+    Suppose $I'$ is an ideal containing all $a_i$'s.
+    Then $I'$ is closed under scalar multiplication by elements of $R$
+        and subtraction thus each element in $I$ is expressible 
+        in $I'$ thus $I \subset I'$.
+    It follows that $I$ is the smallest ideal containing the $a_i$'s.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $n$ be a postive integer and consider the ideals 
+    \[\langle x^n \rangle,\]
+    in $\mathbb{Q}[x]$. Describe succintly the elements of $\langle x^n \rangle$.
+    What containment relations hold among these ideals?
+    Explain why $\mathbb{Q}[x]$ is Noetherian. Explain 
+    why the ideals $\langle x^n \rangle$ do not contradiction that $\mathbb{Q}[x]$
+    is Noetherian.
+\end{tcolorbox} 
+
+\textbf{Solution: }
+Elements in $\mathbb{Q}[x]$ with a factor of $x^n$.
+We see 
+\[\langle x^n \rangle \subset \langle x^{n - 1} \rangle \subset \cdots \subset \langle x \rangle \subset \langle 1 \rangle = \mathbb{Q}[x].\]
+Now, $\mathbb{Q}[x]$ is a PID and is thus Noetherian.
+By the well ording principle the chain of subsets is finite and thus doesn't contradict $\mathbb{Q}[x]$ being Neotherian.
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $X$ be an arbitrary set, and consider the power set ring $\mathcal{P}(X)$.
+    (See Exercise 6.20, where we made $\mathcal{P}(X)$ a ring, by equipping it with an addition (symmetric difference).)
+    In Exercise 11.17 we discussed a principal ideal of $\mathcal{P}(X)$; that exercise is relevant to the present 
+    problem but not strictly necessary.
+    \begin{enumerate}
+        \item Let $a \in \mathcal{P}(X)$. Describe the elements of the principal ideal $\langle a \rangle$.
+        \item Suppose that $X$ has more than one element. Show that $\mathcal{P}(X)$ is not a domain.
+        \item Suppose that $X$ has infinitely many elements. Let 
+        \[I = \{a \in \mathcal{P}(X) \mid a \text{ has finitely many elements}.\}.\]
+        Prove that $I$ is an ideal of $\mathcal{P}(X)$. 
+        Show that $I$ is not a principal ideal.
+    \end{enumerate}
+\end{tcolorbox} 
+
+\textbf{Solution: } $x \in \mathcal{P}(X)$ such that $x \subseteq a$.
+
+\begin{proof}
+    Let $a, b$ be arbitrary elements in $X$ such that $a \ne b$ and $a, b \ne \emptyset$.
+    Then $\{a\} \cdot \{b\} = \{a\} \cap \{b\} = \emptyset$.
+    Thus $a$ and $b$ are zero divisors.
+    Therefore $\mathcal{P}(X)$ is not a domain.
+\end{proof}
+
+\begin{proof}
+    Let $t$ be an arbitrary element in $\mathcal{P}(X)$.
+    Let $x, y$ be arbitrary elements in $I$.
+    Then $x - y = x \triangle y$ which is finite thus $x - y \in I$.
+    Futhermore, $c \cdot x = c \cap x$ which is finite since $x$ is finite thus $c \cdot x \in I$.
+    It follows that $I$ is an ideal of $\mathcal{P}(X)$.
+\end{proof}
+
+\begin{proof}
+    Suppose for contradiction $I$ is a principle ideal.
+    Then there exists $C \in \mathcal{P}(X)$ such that $\langle C \rangle = I$.
+    Let $T$ be an arbitrary element in $I$.
+    There exists $A \in \mathcal{P}(X)$ such that $C \cap A = T$.
+    Thus $C \subseteq T$.
+    But then every $x \in C$ is in $T$ and is thus in $I$ and $C \ne \emptyset$.
+    Thus $C = \mathcal{P}(X)$ contradicting that $I$ has only finite sets.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Consider the ring $S$ of real-valued sequences considered in Exercise 6.19.
+    \begin{enumerate}
+        \item Let $n$ be a fixed positive integer, and let 
+        \[I_n = \{\{s_k\} \in S \mid s_m = 0, \text{ for all } m > n\}.\]
+        Prove that $I_n$ is an ideal of $S$.
+        \item Use the ideals in part a to show that $S$ is not a Noetherian ring.
+        \item Let 
+        \[\sum = \{\{s_n\} \in S \mid \text{ at most finitely many $s_i \ne 0$}\};\]
+        prove that $\sum$ is an ideal of $S$. What is the relationship between $\sum$ and $I_i$'s?
+        \item Prove that $\sum$ is not finitely generated. Recall from Exercise 2 that by this we mean that 
+        \[\sum \ne \langle \vec{s_1}, \vec{s_2}, \cdots, \vec{s_n} \rangle,\]
+        for any finite set of sequences $\vec{s_i}$.
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $c$ be an arbitrary element in $S$.
+    Let $x, y$ be arbitrary elements in $I_n$.
+    Then 
+    \[x - y = (x_1, x_2, \cdots, x_n, 0_m, 0_{m + 1}, \cdots) - (y_1, y_2, \cdots, y_n, 0_m, 0_{m + 1}, \cdots) = (x_1 - y_1, x_2 - y_2, \cdots, x_n - y_n, 0_m, 0_{m + 1}, \cdots) \in I\]
+    Similarly
+    \[cx = c(x_1, x_2, \cdots, x_n, 0_m, 0_{m + 1}, \cdots) = (c x_1, c x_2, \cdots, c x_n, c \cdot 0_m, c \cdot 0_{m + 1}, \cdots) = (c x_1, c x_2, \cdots, c x_n, 0_m, 0_{m + 1}, \cdots) \in I_n.\]
+    Thus $I_n$ is an ideal of $S$.
+\end{proof}
+
+\begin{proof}
+    We see that 
+    \[I_1 \subset I_2 \subset \cdots.\]
+    Thus $I_n$ is not Noetherian.
+\end{proof}
+
+\begin{proof}
+    The proof is identical to part $1$.
+    We have 
+    \[\sum \subset I_n.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Consider again the ring $S$ of real-valued sequences. Let 
+    \[B = \{\{s_n\} \in S \mid \text{ there exists $M \in \mathbb{R}$ with $|s_n| \le M$, for all $n$}\}.\]
+    These are the \textbf{bounded} sequences.
+    Note that $M$ is not fixed in the definition of $B$; that is,
+        different sequences may require different bounds.
+        Prove that $B$ is a subring, but is nonetheless \emph{not} an ideal of $S$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $x, y$ be arbitrary elements in $B$.
+    Let $c$ be an arbitrary element in $B$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Consider $\mathbb{Q}[x, y]$ the set of all polynomials with coefficients from
+    $\mathbb{Q}$, in the two indeterminates $x$ and $y$.
+    In Exercise 6.23, you showed that the ring of polynomials $\mathbb{R}[x]$ with coefficients 
+    in any given commutative ring makes sense.
+    Applying this construction with coefficients in $\mathbb{Q}[x]$, where we then have to use 
+    the ring $\mathbb{Q}[x, y]$. It turns out (though we won't verify the details here)
+    that addition and multiplication in this ring behave just as you would expect.
+    Formally then, an element of $\mathbb{Q}[x, y]$ can be viwed as an element of the form 
+    \[a_{0, 0} + a_{1, 0} x + a_{0, 1} y + a_{2, 0} x^2 + a_{1, 1} x y + a_{0, 2} y^2 + \cdots,\]
+    where the $a_{i, j}$'s are the rational numbers, and only finite many of them are not zero.
+    \begin{enumerate}
+        \item Provide a nice description of the elements in the ideal $\langle x, y \rangle$.
+        \item Show that the ideal $\langle x, y \rangle$ is not principal, thus showing that $\mathbb{Q}[x, y]$ is not a PID.
+    \end{enumerate}
+\end{tcolorbox} 
+
+\textbf{Solution: } Elements in $\mathbb{Q}[x, y]$ for which $xy$ is a factor.
