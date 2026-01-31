@@ -148,12 +148,14 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
 
 \begin{proof}
     Let $x, y$ be arbitrary elements in $B$ with bounds $X, Y$ respectively.
-    Let $c$ be an arbitrary element in $B$ with a bound $C$.
-    Now, $x - y$ is bounded by $|X| + |Y|$ and $cx$ is bounded by $|CX|$.
-    Thus $x - y$ and $cx$ are in $B$. It follows that $B$ is a subring of $S$.
-    Consider the sequnce of all $1$'s which is in $B$.
-    Then take any unbounded sequence in $S$.
-    When multiplied this is clearly unbounded thus $B$ is not an ideal of $S$.
+    For all $n$
+    \[|x_n - y_n| \le |x_n| + |y_n| \le X + Y,\]
+    and 
+    \[x_n y_n \le XY.\]
+    To see $B$ is not an ideal, take $(1, 1, 1, \ldots) \in B$
+        and $(1, 2, 3, \dots) \in S$.
+    Then $b \cdot s = (1, 2, 3, \dots) \notin B$.
+    Thus $B$ is not an ideal of $S$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
@@ -162,6 +164,7 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
     In Exercise 6.23, you showed that the ring of polynomials $\mathbb{R}[x]$ with coefficients 
     in any given commutative ring makes sense.
     Applying this construction with coefficients in $\mathbb{Q}[x]$, where we then have to use 
+    a different symbol $y$ for the new indeterminate, gives us
     the ring $\mathbb{Q}[x, y]$. It turns out (though we won't verify the details here)
     that addition and multiplication in this ring behave just as you would expect.
     Formally then, an element of $\mathbb{Q}[x, y]$ can be viwed as an element of the form 
@@ -173,4 +176,23 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
     \end{enumerate}
 \end{tcolorbox} 
 
-\textbf{Solution: } Elements in $\mathbb{Q}[x, y]$ for which $xy$ is a factor.
+\textbf{Solution (a): }
+\[\langle x, y \rangle = \{f(x, y)x + g(x, y)y \mid f(x, y), g(x, y) \in \mathbb{Q}[x, y]\}.\] 
+Notice $\langle x,y \rangle$ consists of the zero-polynomial along with polynomials with a zero constant term in $\mathbb{Q}[x, y]$.
+
+\begin{proof}
+    Suppose that $\langle x, y \rangle$ is principal ideal generated from $f \in \mathbb{Q}[x, y]$.
+    Thus 
+    \[\langle f \rangle = \langle x, y \rangle = \{f \cdot g \mid g \in \mathbb{Q}[x, y]\}.\]
+    Since $x \in \langle f \rangle$ and $y \in \langle f \rangle$
+        we must have $x = f g$ and $y = f g'$ for some $g, g' \in \mathbb{Q}[x, y]$.
+    Now $deg(x) = deg(f) + deg(g)$ and since $deg(x) = 1$ we have $deg(f) \le 1$.
+    Now, if $deg(f) = 0$ then $\langle f \rangle = \mathbb{Q}[x,  y]$ thus $deg(f) = 1$.
+    Therefore let $f = \alpha x + \beta y + \rho$ for some $\alpha, \beta, \rho \in \mathbb{Q}$.
+    We know that $\langle x, y \rangle$ consists of polynomials with a zero constant thus $\rho = 0$.
+    So we have $f = \alpha x + \beta y$.
+    Now $x = fg = (\alpha x + \beta y)g$. The lhs has no $y$ term thus $\beta = 0$.
+    So $f = \alpha x$. But $y = f g' = (\alpha x) g'$.
+    But $deg_x(y) \ne deg((\alpha x) g') = 1$ which is a contradiction.
+    Thus $\langle x, y \rangle$ is not a principal ideal.
+\end{proof}
