@@ -43,9 +43,9 @@
 \textbf{Solution: }
 Elements in $\mathbb{Q}[x]$ with a factor of $x^n$.
 We see 
-\[\langle x^n \rangle \subset \langle x^{n - 1} \rangle \subset \cdots \subset \langle x \rangle \subset \langle 1 \rangle = \mathbb{Q}[x].\]
+\[\langle x^n \rangle \subseteq \langle x^{n - 1} \rangle \subseteq \cdots \subseteq \langle x \rangle.\]
 Now, $\mathbb{Q}[x]$ is a PID and is thus Noetherian.
-$\langle x^n \rangle$ forms an infinite descending chain which does not contradict $\mathbb{Q}[x]$ being Noetherian.
+$\langle x^n \rangle$ forms a finite ascending chain which does not contradict $\mathbb{Q}[x]$ being Noetherian.
 
 \begin{tcolorbox}[title=Problem 5, breakable]
     Let $X$ be an arbitrary set, and consider the power set ring $\mathcal{P}(X)$.
@@ -82,11 +82,11 @@ $\langle x^n \rangle$ forms an infinite descending chain which does not contradi
 \begin{proof}
     Suppose for contradiction $I$ is a principle ideal.
     Then there exists $C \in \mathcal{P}(X)$ such that $\langle C \rangle = I$.
-    Let $T$ be an arbitrary element in $I$.
-    There exists $A \in \mathcal{P}(X)$ such that $C \cap A = T$.
-    Thus $C \subseteq T$.
-    But then every $x \in C$ is in $T$ and is thus in $I$ and $C \ne \emptyset$.
-    Thus $C = \mathcal{P}(X)$ contradicting that $I$ has only finite sets.
+    By definition 
+    \[I = \langle C \rangle = \{C \cap A \mid A \subseteq X\}.\]
+    If $C$ is finite the $\langle C \rangle$ contains only finite subsets of $C$.
+    If $C$ is infinite then $\langle C \rangle \ne I$ since $I$ only contains finite subsets.
+    Thus $I$ is not principle.
 \end{proof}
 
 \newpage
@@ -112,7 +112,8 @@ $\langle x^n \rangle$ forms an infinite descending chain which does not contradi
     Then 
     \[x - y = (x_1, x_2, \cdots, x_n, 0_m, 0_{m + 1}, \cdots) - (y_1, y_2, \cdots, y_n, 0_m, 0_{m + 1}, \cdots) = (x_1 - y_1, x_2 - y_2, \cdots, x_n - y_n, 0_m, 0_{m + 1}, \cdots) \in I\]
     Similarly
-    \[cx = c(x_1, x_2, \cdots, x_n, 0_m, 0_{m + 1}, \cdots) = (c x_1, c x_2, \cdots, c x_n, c \cdot 0_m, c \cdot 0_{m + 1}, \cdots) = (c x_1, c x_2, \cdots, c x_n, 0_m, 0_{m + 1}, \cdots) \in I_n.\]
+    \[cx = (c_1, c_2, \cdots, c_n, c_m, c_{m + 1}, \cdots)(x_1, x_2, \cdots, x_n, 0_m, 0_{m + 1}, \cdots) =\] 
+    \[(c_1 x_1, c_2 x_2, \cdots, c_n x_n, c_m \cdot 0_m, c_{m + 1} \cdot 0_{m + 1}, \cdots) = (c x_1, c x_2, \cdots, c x_n, 0_m, 0_{m + 1}, \cdots) \in I_n.\]
     Thus $I_n$ is an ideal of $S$.
 \end{proof}
 
@@ -123,23 +124,36 @@ $\langle x^n \rangle$ forms an infinite descending chain which does not contradi
 \end{proof}
 
 \begin{proof}
-    The proof is identical to part $1$.
+    The proof $\sum$ is an ideal is basically identical to part $1$.
     We have 
-    \[\sum \subset I_n.\]
+    \[\sum = \bigcup_{i = 1}^{\infty} I_i.\]
 \end{proof}
 
+\begin{proof}
+    Suppose $\sum$ is finitely generated from $\langle \vec{s_1}, \vec{s_2}, \cdots, \vec{s_n} \rangle$.
+    But then there is an element in $\sum$
+        which is non-zero at the  $n + 1$'th index.
+    Thus $\langle \vec{s_1}, \vec{s_2}, \cdots, \vec{s_n} \rangle$ does not finitely generate $\sum$.
+\end{proof}
+ 
+\newpage
 \begin{tcolorbox}[title=Problem 9, breakable]
     Consider again the ring $S$ of real-valued sequences. Let 
     \[B = \{\{s_n\} \in S \mid \text{ there exists $M \in \mathbb{R}$ with $|s_n| \le M$, for all $n$}\}.\]
     These are the \textbf{bounded} sequences.
-    Note that $M$ is not fixed in the definition of $B$; that is,
+    Note that $M$ is not fixed in the definition of   $B$; that is,
         different sequences may require different bounds.
         Prove that $B$ is a subring, but is nonetheless \emph{not} an ideal of $S$.
 \end{tcolorbox} 
 
 \begin{proof}
-    Let $x, y$ be arbitrary elements in $B$.
-    Let $c$ be an arbitrary element in $B$.
+    Let $x, y$ be arbitrary elements in $B$ with bounds $X, Y$ respectively.
+    Let $c$ be an arbitrary element in $B$ with a bound $C$.
+    Now, $x - y$ is bounded by $|X| + |Y|$ and $cx$ is bounded by $|CX|$.
+    Thus $x - y$ and $cx$ are in $B$. It follows that $B$ is a subring of $S$.
+    Consider the sequnce of all $1$'s which is in $B$.
+    Then take any unbounded sequence in $S$.
+    When multiplied this is clearly unbounded thus $B$ is not an ideal of $S$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
