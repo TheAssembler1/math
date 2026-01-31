@@ -11,7 +11,7 @@
 \end{tcolorbox} 
 
 \begin{proof}
-    Let $c$ be a scalar.
+    Let $c$ be an arbitrary element in $R$.
     Let $x, y$ be arbitrary elements in $I$ such that 
     \[x = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n \text{ and } y = a_1 x'_1 + a_2 x'_2 + \cdots + a_n x'_n, x'_i, x'_i \in R_i \text{ where } i = 1, 2, \ldots, n.\]
     Then 
@@ -19,11 +19,11 @@
     \[a_1(x_1 - x'_1) + a_2(x_2 - x'_2) + \cdots + a_n(x_n - x'_n) \in I.\]
     $I$ is closed under subtraction thus $x_i - x'_i \in R$. 
     Also 
-    \[cx = c(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n) = a_1 (c x_2) + a_2 (c x_2) + \cdots + a_n (c x_n) \in I.\]
+    \[cx = c(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n) = a_1 (c x_1) + a_2 (c x_2) + \cdots + a_n (c x_n) \in I.\]
     $I$ is closed under scalar multiplication thus $c x_i \in R$.
     Thus $I$ is an ideal of $R$.
     Suppose $I'$ is an ideal containing all $a_i$'s.
-    Then $I'$ is closed under scalar multiplication by elements of $R$
+    Then $I'$ is closed under multiplication by elements of $R$
         and subtraction thus each element in $I$ is expressible 
         in $I'$ thus $I \subset I'$.
     It follows that $I$ is the smallest ideal containing the $a_i$'s.
@@ -45,7 +45,7 @@ Elements in $\mathbb{Q}[x]$ with a factor of $x^n$.
 We see 
 \[\langle x^n \rangle \subset \langle x^{n - 1} \rangle \subset \cdots \subset \langle x \rangle \subset \langle 1 \rangle = \mathbb{Q}[x].\]
 Now, $\mathbb{Q}[x]$ is a PID and is thus Noetherian.
-By the well ording principle the chain of subsets is finite and thus doesn't contradict $\mathbb{Q}[x]$ being Neotherian.
+$\langle x^n \rangle$ forms an infinite descending chain which does not contradict $\mathbb{Q}[x]$ being Noetherian.
 
 \begin{tcolorbox}[title=Problem 5, breakable]
     Let $X$ be an arbitrary set, and consider the power set ring $\mathcal{P}(X)$.
