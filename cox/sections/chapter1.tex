@@ -522,14 +522,63 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
     \end{enumerate}
 \end{tcolorbox}
 
-\begin{proof}
-    Suppose $x = a$. then $y = \pm \sqrt{ca^2 - a^3}$.
-    Now if $ca^2 = a^3$ then there is a single solution, namely $(0, 0)$.
-    If $ca^2 < a^3$ then the line does not intersect.
-    If $ca^2 < a^3$ then there are two unique solutions.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/6.png}
+\end{figure}
 
-    Suppose $y = mx + b$.
-    Then $y = \pm \sqrt{c(mx + b)^2 - (mx + b)^3}$.
+\begin{proof}
+    Suppose $x = a$.
+    Then 
+    \begin{align*}
+        y^2 &= ca^2 - a^3 \\
+        \iff y^2 &= a^2(c - a) \\
+        \iff y &= \pm \sqrt{a^2(c - a)} \\
+        \iff y &= \pm a \sqrt{c - a}
+    \end{align*}
+    If $c < a$ then there is no solution.
+    If $c = a$ then $y = 0$ thus there is a single solution $(0, 0)$.
+    If $c > a$ then there are two solutions given by $\pm a \sqrt{c - a}$.
+
+    Now, suppose $y = mx + b$.
+    Then 
+    \begin{align*}
+        y^2 &= cx^2 - x^3 \\
+        \iff (mx + b)^2 &= cx^2 - x^3 \\
+        \iff m^2 x^2 + 2 mxb + b^2 &= cx^2 - x^3 \\
+        \iff x^3 + m^2 x^2 - c x^2 + 2 mxb + b^2 &= 0 \\
+        \iff x^3 + (m^2 - c)x^2 + (2mb) x + b^2 &= 0
+    \end{align*}
+    When the discriminant of this cubic is $>0$ we have three solutions.
+\end{proof}
+
+\begin{proof}
+    Suppose $y = mx$ and $c \ne m^2$.
+    By our previous proof we have 
+    \begin{align*}
+        x^3 + (m^2 - c)x^2 + (2mb) x + b^2 &= 0 \\
+        \iff x^3 + (m^2 - c)x^2 &= 0
+    \end{align*}
+    Now $x = 0$ is a solution so we need $x + (m^2 - c) = 0$.
+    Thus our single solutions is $x = -(m^2 - c)$.
+
+    Looking at the figure the slope of the going up to the right when $x > 0$
+        is smaller than that of the slop of the line going to the bottom left when $x < 0$.
+    Thus if a line were to intersect within the circle its slope would be 
+        incorrect to increcept the lines when $x < 0$.
+\end{proof}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/5.png}
+\end{figure}
+
+\begin{proof}
+    When viewing the figure we can clearly see any point in the range is 
+        obtainable by taking $t$ to be sufficiently large or small.
+    Thus all points on the curve can be reached.
+
+
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
@@ -538,7 +587,6 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
     the problem of duplication of the cube [see part (c) below].
     The cissoid has the equation $y^2(a + x) = (a - x)^3$, where $a$
     is a constraint. This gives the following curve in the plane:
-
     \begin{enumerate}
         \item Find an algebraic parametrization of the cissoid.
         \item Diocles described the cissoid using the following geometric construction.
