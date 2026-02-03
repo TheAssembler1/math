@@ -46,3 +46,46 @@
     is exactly one real number that is greater than or equal to every $x_n$ and less than or equal to 
     every $y_n$.
 \end{definition}
+
+\subsection{Taylor Series}
+
+\begin{definition}[Taylor Series]
+    If all of the derivatives of the 
+    function $f$ exist at the point $a$,
+    then the Taylor series $f$ about $a$
+    is the infinite series 
+    \[f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \frac{f'''(a)}{3!}(x - a)^3 + \frac{f^{(4)}(a)}{4!}(x - a)^3 + \cdots.\]
+    This has a special case $(a = 0)$:
+    \[f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \frac{f^{(4)}(0)}{4!}x^4 + \cdots.\]
+\end{definition}
+
+\begin{theorem}[Lagrange's Remainder Theorem]
+    Given a function $f$ for which all derivatives 
+    exist at $x = a$, let $D_n(a, x)$ denote the 
+    difference between the $n$th partial sum 
+    of the tayls series for $f$ expanded about $x = a$
+    and the target value $f(x)$,
+    \[D_n(a, x) = f(x) - \left(f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \cdots + \frac{f^{(n - 1)}(a)}{(n - 1)!}(x - a)^{n - 1}\right).\]
+    There is at least one real number $c$ strictly between $a$ and $x$
+        for which 
+    \[D_n(a, x) = \frac{f^{(n)}(c)}{n!}(x - a)^n.\]
+\end{theorem}
+
+\begin{theorem}[Stirling's Formula]
+    The factorial function $n!$
+    is well approximated by the function 
+    $(n/e)^n \sqrt{2 \pi n}$. 
+    Specifically, we have that 
+    \[\lim_{n \rightarrow \infty} \frac{n!}{(n/e)^n \sqrt{2 \pi n}} = 1.\]
+\end{theorem}
+
+\begin{theorem}[$C^p$ and analytic functions]
+    Given an interval $I$, a function with 
+    a continuous first derivative in $I$ is 
+    said to belong to the class $C^1$.
+    If the $p$th derivative exists and is 
+    continuous in $I$, the function belongs
+    to the class $C^p$. If all derivatives exist,
+    the function belongs to $C^{\infty}$ and 
+    is called \textbf{analytic}.
+\end{theorem}

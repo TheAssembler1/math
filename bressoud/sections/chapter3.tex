@@ -1,0 +1,34 @@
+\subsection{Differentiability}
+
+\begin{theorem}[Mean Value Theorem]
+    Given a function $f$ that is differentiable at all 
+    points strictly between $a$ and $x$ and continuous
+    at all points on the closed interval from $a$ to $x$,
+    there exists a real number $c$ strictly between $a$ and $x$ such that 
+    \[\frac{f(x) - f(a)}{x - a} = f'(c).\]
+\end{theorem}
+
+\begin{definition}[Archimedian Understanding of Limits]
+    When we write any limit statement such as 
+    \[\lim_{x \rightarrow a} f(x) = T.\]
+    what we actually mean is that if we take any number $M > T$,
+    then we can force $f(x) < M$ by taking $x$ to be sufficiently close 
+    to $a$. Similarly, if we take any $L < T$, then we can force $f(x) > L$
+    by taking $x$ sufficiently close to (but not equal to) $a$.
+\end{definition}
+
+\begin{definition}[Derivative of $f$ at $x = a$]
+    The \textbf{derivative} of $f$ at $a$ is that value, denoted $f'(a)$,
+    such that for any $L < f'(a)$ and any $M > f'(a)$, we can force 
+    \[L < \frac{f(x) - f(a)}{x - a} < M,\]
+    by simply taking $x$ sufficiently close to (but not equal to) $a$.
+\end{definition}
+
+\begin{definition}[Cauchy Definition of Derivative of $f$ at $x = a$]
+    The \textbf{derivative} of $f$ at $a$ is that value, denoted $f'(a)$,
+    such that for any $\epsilon > 0$, we have a response $\delta > 0$
+    so that if $0 < |x - a| < \delta$, then this forces 
+    \[
+        E(x, a) = \left| f'(a) - \frac{f(x)-f(a)}{x-a} \right| < \epsilon.
+    \]
+\end{definition}

@@ -157,6 +157,14 @@ not closed under multiplication.
         in the group $G$. Then $G$ is abelian.
 \end{tcolorbox} 
 
+\begin{proof}
+    Notice 
+    \[(yx)(xy)^{-1} = (yx)(x^{-1} y^{-1}) = y(x x^{-1}) y^{-1} = y y^{-1} = 1,\]
+    and 
+    \[(xy)^{-1}(yx) = (x^{-1} y^{-1})(yx) = x^{-1} (y^{-1} y) x = x^{-1} x = 1.\]
+    Thus $yx = \bigl((xy)^{-1}\bigr)^{-1} = xy$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 10, breakable]
     Complete the following multiplicaiton table so tthe following 
     will be a group.
@@ -191,12 +199,17 @@ not closed under multiplication.
     group $\mathbb{C}^*$?
 \end{tcolorbox} 
 
-\textbf{Solution: } Both have no nontrivial finite subgroups.
+\textbf{Solution: } $\mathbb{C}$ has no nontrivial finite subgroups.
+The elements in $\mathbb{C}^*$ formed using the roots of unity are finite subgroups.
 
 \begin{tcolorbox}[title=Problem 14, breakable]
     Argue \emph{geometrically} that the dihedral group, $D_n$,
     has a subgroup of order $n$.
 \end{tcolorbox} 
+
+\begin{proof}
+    There are $n$ rotations of the $n$-gon which form a subgroup of $D_n$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 15, breakable]
     Let $G$ be a group and $a \in G$. Define the \textbf{centralizer}

@@ -529,43 +529,38 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
 
 \begin{proof}
     Suppose $x = a$.
-    Then 
-    \begin{align*}
-        y^2 &= ca^2 - a^3 \\
-        \iff y^2 &= a^2(c - a) \\
-        \iff y &= \pm \sqrt{a^2(c - a)} \\
-        \iff y &= \pm a \sqrt{c - a}
-    \end{align*}
+    Then
+    \[y^2 = ca^2 - a^3 = a^2(c - a).\]
     If $c < a$ then there is no solution.
-    If $c = a$ then $y = 0$ thus there is a single solution $(0, 0)$.
-    If $c > a$ then there are two solutions given by $\pm a \sqrt{c - a}$.
+    If $c = a$ then $y = 0$ and there is a single solution $(a,0)$.
+    If $c > a$ then there are two solutions
+    \[
+        y = \pm a \sqrt{c - a}.
+    \]
+    Thus a vertical line meets the curve in $0,1,$ or $2$ points.
 
-    Now, suppose $y = mx + b$.
-    Then 
-    \begin{align*}
-        y^2 &= cx^2 - x^3 \\
-        \iff (mx + b)^2 &= cx^2 - x^3 \\
-        \iff m^2 x^2 + 2 mxb + b^2 &= cx^2 - x^3 \\
-        \iff x^3 + m^2 x^2 - c x^2 + 2 mxb + b^2 &= 0 \\
-        \iff x^3 + (m^2 - c)x^2 + (2mb) x + b^2 &= 0
-    \end{align*}
-    When the discriminant of this cubic is $>0$ we have three solutions.
+    Now suppose $y = mx + b$.
+    Substituting into the equation of the curve gives
+    \begin{align}
+        (mx + b)^2 &= cx^2 - x^3 \\
+        \iff x^3 + (m^2 - c)x^2 + 2mbx + b^2 &= 0.
+    \end{align}
+    This is a cubic equation in $x$, so a nonvertical line meets the curve in at most
+    three points.
 \end{proof}
 
 \begin{proof}
-    Suppose $y = mx$ and $c \ne m^2$.
-    By our previous proof we have 
+    Suppose $y = mx$ and $m^2 \ne c$.
+    Substituting into the equation of the curve gives
     \begin{align*}
-        x^3 + (m^2 - c)x^2 + (2mb) x + b^2 &= 0 \\
-        \iff x^3 + (m^2 - c)x^2 &= 0
+        m^2x^2 &= cx^2 - x^3 \\
+        \iff x^3 + (m^2 - c)x^2 &= 0 \\
+        \iff x^2(x + m^2 - c) &= 0.
     \end{align*}
-    Now $x = 0$ is a solution so we need $x + (m^2 - c) = 0$.
-    Thus our single solutions is $x = -(m^2 - c)$.
-
-    Looking at the figure the slope of the going up to the right when $x > 0$
-        is smaller than that of the slop of the line going to the bottom left when $x < 0$.
-    Thus if a line were to intersect within the circle its slope would be 
-        incorrect to increcept the lines when $x < 0$.
+    Thus $x = 0$ is a root corresponding to the origin, and the other
+        intersection point is $x = c - m^2$.
+    Therefore every nonvertical line through the origin with $m^2 \ne c$
+        meets the curve in exactly one other point.
 \end{proof}
 
 \begin{figure}[h!]
@@ -574,11 +569,20 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
 \end{figure}
 
 \begin{proof}
-    When viewing the figure we can clearly see any point in the range is 
-        obtainable by taking $t$ to be sufficiently large or small.
-    Thus all points on the curve can be reached.
-
-
+    Consider the vertical line $x = 1$ and a point $(1,t)$ on this line.
+    The line connecting $(1,t)$ to the origin has equation $y = tx$.
+    Substituting into the equation of the curve gives
+    \begin{align*}
+        t^2x^2 &= cx^2 - x^3 \\
+        \iff x^3 + (t^2 - c)x^2 &= 0 \\
+        \iff x^2(x + t^2 - c) &= 0.
+    \end{align*}
+    Ignoring the double root $x=0$ we have $x = c - t^2$.
+        and therefore $y = t(c - t^2)$.
+    Therefore the curve is parametrized by
+    \[
+        x(t) = c - t^2, \qquad y(t) = t(c - t^2).
+    \]
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
