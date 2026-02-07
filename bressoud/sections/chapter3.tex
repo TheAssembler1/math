@@ -32,3 +32,105 @@
         E(x, a) = \left| f'(a) - \frac{f(x)-f(a)}{x-a} \right| < \epsilon.
     \]
 \end{definition}
+
+\subsection{Cauchy and the Mean Value Theorem}
+
+\begin{definition}[Intermediate Value Property]
+    A function $f$ is said to have the \text{intermediate value property}
+    on the interval $[a, b]$ if given any two points $x_1, x_2 \in [a, b]$
+    and any number $N$ satisfying
+    \[f(x_1) < N < f(x_2),\]
+    then there is at least one value $c$ between $x_1$ and $x_2$
+    for which $f(c) = N$.
+\end{definition}
+
+\begin{theorem}[Generalized Mean Value Theorem]
+    If $f$ and $F$ are both continuous at every point of $[a, b]$
+    and differentiable at every point on the open interval $(a, b)$
+    and $F'$ is never zero in this interval, then 
+    \[\frac{f(b) - f(a)}{F(b) - F(a)} = \frac{f'(c)}{F'(c)},\]
+    for at least one point $c$, $a < c < b$.
+\end{theorem}
+
+\subsection{Continuity}
+
+\begin{definition}[Continuity]
+    We say that $f$ is \textbf{continuous at} $a$ if given any positive 
+    error bound $\epsilon$, we can always reply with a tolerance $\delta$
+    such that if $x$ is within $\delta$ of $a$, then $f(x)$ is within $\epsilon$
+    of $f(a)$:
+    \[|x - a| = \delta \text{ implies that } |f(x) - f(a)| < \epsilon.\]
+    To say that $f$ is \textbf{continuous on an interval} $I$ means that it is 
+    continuous at every point $a$ in the interval $I$.
+\end{definition}
+
+\begin{theorem}[Intermediate Value Theorem]
+    If $f$ is continuous on the interval $[a, b]$, then $f$ has the 
+    intermediate value property on this interval.
+\end{theorem}
+
+\begin{definition}[Monotonic]
+    A function is \textbf{monotonic} on $[a, b]$ if it is \textbf{increasing} on this interval,
+    \[a \le x_1 \le x_2 < b \text{ implies that } f(x_1) \le f(x_2),\]
+    or if it is \textbf{decreasing} on this interval,
+    \[a \le x_1 \le x_2 \le b \text{ implies that } f(x_1) \ge f(x_2).\]
+    A function is \textbf{piecewise monotonic} on $[a, b]$ if we can find a partition of this interval 
+    into a finite number of subintervals
+    \[a = x_1 < x_2 < \cdots < x_{n - 1} < x_n = b,\]
+    for which the function is monotonic on each open subinterval $(x_i, x_{i + 1})$.
+\end{definition}
+
+\begin{theorem}[Modified Converse to IVT]
+    If $f$ is a piecewise monotonic and satisfies the intermediate value property on the 
+    interval $[a, b]$, then $f$ is continuous at every point $c$ in $(a, b)$.
+\end{theorem}
+
+\begin{theorem}[Differentiable implies Continuous]
+    If $f$ is differentiable at $x = c$, then $f$ is continuous at $x = c$.
+\end{theorem}
+
+\begin{definition}[One-side Limits and Derivatives]
+    The \textbf{limit from the right,} $\lim_{x \rightarrow a^+} f(x),$ is the target value $T$,
+        with the property that for any $\epsilon > 0$, there is a reponse $\delta$ so that if 
+        $a < x < a + \delta$, then $|f(x) - T| < \epsilon$. The \textbf{one-sided derivatives}
+        are defined by 
+    \[f'_+(a) = \lim_{x \rightarrow a^+} \frac{f(x) - f(a)}{x - a}, \quad f'_{-}(a) = \lim_{x \rightarrow a^-} \frac{f(x) - f(a)}{x - a}.\]
+\end{definition}
+
+\subsection{Consequences of Continuity}
+
+\begin{theorem}[Continuous implies Bounded]
+    If $f$ is continuous on the interval $[a, b]$,
+    then there exists finite $A$ and $B$ such that 
+    \[A \le f(x) \le B,\]
+    for all $x \in [a, b]$.
+\end{theorem}
+
+\begin{definition}[Least Upper, Greatest Lower Bounds]
+    Given a set $S$, the \textbf{least upper bound} or \textbf{supremum} of $S$,
+        denoted sup $S$, is the number $G$ with the property that for any numbers 
+        $L < G$ and $M > G$, there is at least one elemement of $S$ that is strictly 
+        larger than $L$ and at least one upper bound for $S$ that is strictly smaller than $M$.
+    The \textbf{greatest lower bound} or \textbf{infimum} of $S$, denoted inf $S$,
+        is the negative of the least upper bound of $-S = \{-s \mid s \in S\}$.
+\end{definition}
+
+\begin{theorem}[Upperbound implies Least Upper Bound] 
+    In the real numbers, every set 
+    that has an upper bound also has a least upper bound and every 
+    set that has a lower bound also has a greatest lower bound.
+\end{theorem}
+
+\begin{theorem}[Continuous implies Bounds Achieved]
+    If $f$ is continuous on $[a, b]$, then 
+    it achieves its greatest lower bound and its least upper bound.
+    Equivalently, there exists $k_1, k_2 \in [a, b]$ such that 
+    \[f(k_1) \le f(x) \le f(k_2),\]
+    for all $x \in [a, b]$.
+\end{theorem}
+
+\begin{theorem}[Fermat's Theorem on Extrema]
+    If $f$ has an extremum at a point $c \in (a, b) [f(c) \ge f(x)$
+        for all $x \in (a, b)$ or $f(c) \le f(x)$ for all $x \in (a, b)$]
+        and if $f$ is differentiable at every point in $(a, b)$, then $f'(c) = 0$.
+\end{theorem}

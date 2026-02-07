@@ -166,7 +166,7 @@ not closed under multiplication.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
-    Complete the following multiplicaiton table so tthe following 
+    Complete the following multiplicaiton table so that the following 
     will be a group.
     \[
     \begin{array}{c|cccc}
@@ -178,6 +178,15 @@ not closed under multiplication.
     \end{array}
     \]
 \end{tcolorbox} 
+\[
+\begin{array}{c|cccc}
+    & a & b & c & d \\ \hline
+a & d & a & b & c \\
+b & a & b & c & d \\
+c & b & c & d & a \\
+d & c & d & a & b
+\end{array}
+\]
 
 \begin{tcolorbox}[title=Problem 12, breakable]
     Show that $n \mathbb{Z}$ is a subgroup of the additive group 
@@ -229,8 +238,30 @@ The elements in $\mathbb{C}^*$ formed using the roots of unity are finite subgro
         Show that $C(H)$ is a subgroup of $G$.
 \end{tcolorbox} 
 
+\textbf{Solution (a):}
+\[\{e,\rho,\rho^2\}\]
+
+\textbf{Solution (b):}
+\[0, 1, 2, 3, 4, 5, 6\]
+
+\begin{proof}
+    Let $h, k \in C(a)$.
+    Let $g = a$.
+    Then $hk^{-1}g = hgk^{-1} = gh k^{-1}$.
+    Thus $h k^{-1} \in C(a)$.
+    Therefore $C(a)$ is a subgroup of $G$.
+\end{proof}
+
+\begin{proof}
+    Let $h, k \in C(H)$.
+    Let $g$ be an arbitrary element in $H$.
+    Then $hk^{-1}g = hgk^{-1} = gh k^{-1}$.
+    Thus $h k^{-1} \in C(H)$.
+    Therefore $C(H)$ is a subgroup of $G$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 16, breakable]
-    Let $Z(G)$, the \textbf{center of} $G$, be thset of elements of $G$
+    Let $Z(G)$, the \textbf{center of} $G$, be the set of elements of $G$
         that commute with all elements of $G$.
 
     (a) Find the center of the quaternions, defined in Example 24.15.
@@ -240,7 +271,7 @@ The elements in $\mathbb{C}^*$ formed using the roots of unity are finite subgro
     (c) Show that $Z(G)$ is a subgroup of $G$.
 
     (d) If $Z(G) = G$, what can you say about the group $G$.
-\end{tcolorbox} 
+\end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
     If $H$ is a subgroup of $G$, then show that $Z(G) \cap H$
