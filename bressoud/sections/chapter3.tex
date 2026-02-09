@@ -134,3 +134,56 @@
         for all $x \in (a, b)$ or $f(c) \le f(x)$ for all $x \in (a, b)$]
         and if $f$ is differentiable at every point in $(a, b)$, then $f'(c) = 0$.
 \end{theorem}
+
+\begin{theorem}[Rolle's Theorem]
+    Let $f$ be a function that is continuous on $[a, b]$
+    and differentiable on $(a, b)$ and for which $f(a) = f(b) = 0$.
+    There exists at least one $c$, $a < c < b$, for $f'(c) = 0$.
+\end{theorem}
+
+\subsection{Consequences of the Mean Value Theorem}
+
+\begin{theorem}[Cauchy's Remainder Theorem]
+    Given a function $f$ for which all derivatives exist at $x = a$,
+    let $D_n(a, x)$ denote the difference between the $n$th partial 
+    sum of the Taylor series for $f$ expanded about $x = a$ and the 
+    target value $f(x)$,
+    \[D_n(a, x) = f(x) - \left(f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \cdots + \frac{f^{(n - 1)}(a)}{(n - 1)!}(x - a)^{n - 1}\right).\]
+    There is at least one real number $c$ strictly between $a$ and $x$ for which 
+    \[D_n(a, x) = \frac{f^{(n)}(c)}{(n - 1)!}(x - c)^{n - 1}(x - a).\]
+\end{theorem}
+
+
+\begin{definition}[Infinite Limit and Limit at Infinity]
+    The statement 
+    \[\lim_{x \rightarrow a} f(x) = \infty,\]
+    means that for any real number $L$, we can force $f(x) > L$
+    by restricting $x$ to be sufficiently close to $a$.
+    That is to say, there is a $\delta > 0$ so that $|x - a| < \delta$ implies 
+    $f(x) > L$. When we write 
+    \[\lim_{x \rightarrow \infty}f(x) = T,\]
+    we mean that for any positive $\epsilon$, we can force 
+    $f(x)$ to be within $\epsilon$ of $T$ by taking $x$
+    sufficiently large. In other words, there is an $N$
+    so that $x > N$ implies that $|f(x) - T| < \epsilon$.
+\end{definition}
+
+\begin{theorem}[L'Hoposital's Rule: 0/0]
+    If $f$ and $F$ are both differentiable inside an open interval that contains $a$, if 
+    \[\lim_{x \rightarrow a} f(x) = 0 = \lim_{x \rightarrow a} F(x),\]
+    if $F'(x) \ne 0$ for all $x$ in this open interval, and if $\lim_{x \rightarrow a} f'(x) / F'(x)$ exists, then 
+    \[\lim_{x \rightarrow a} \frac{f(x)}{F(x)} = \lim_{x \rightarrow a} \frac{f'(x)}{F'(x)}.\]
+\end{theorem}
+
+\begin{theorem}[L'Hopsital's Rule: $\infty/\infty$]
+    If $f$ and $F$ are both differentiable at every point except $x = a$
+    in an open interval that contains $a$, if 
+    \[\lim_{x \rightarrow a} |F(x)| = \infty,\]
+    if $F'(x) \ne 0$ for all $x$ in this open interval, and if $\lim_{x \rightarrow a} f'(x) / F'(x)$
+    exists, then 
+    \[\lim_{x \rightarrow a} \frac{f(x)}{F(x)} = \lim_{x \rightarrow a} \frac{f'(x)}{F'(x)}.\]
+\end{theorem}
+
+\begin{theorem}[Darboux's Theorem]
+    If $f$ is differentiable on $[a, b]$, then $f'$ has the intermediate value property on $[a, b]$.
+\end{theorem}
