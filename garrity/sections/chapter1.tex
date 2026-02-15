@@ -1244,7 +1244,7 @@ a parabola into a hyperbola.
 
 \subsection{Conics over the Complex Numbers}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 1, breakable]
     Show that the set 
     \[\{(x, y) \in \mathbb{R}^2 \mid x^2 + y^2 + 1 = 0\},\]
@@ -1297,7 +1297,7 @@ a parabola into a hyperbola.
     Therefore, there is exactly one value of $y$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 2, breakable]
     Let 
     \[P(x, y) = ax^2 + bxy + cy^2 + dx + ey + f,\]
@@ -1362,7 +1362,7 @@ a parabola into a hyperbola.
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 5, breakable]
     Show that if $x = u$ and $y = iv$, then the circle 
     $\{(x, y) \in \mathbb{C}^2 \mid x^2 + y^2 = 1\}$
@@ -1422,7 +1422,7 @@ a parabola into a hyperbola.
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 7, breakable]
     Use Theorem 1.2.25 together with the new result of Exercise 1.3.5
     to conclude that all ellipses and hyperbolas are equivalent under 
@@ -1434,7 +1434,7 @@ a parabola into a hyperbola.
     Then, by Exercise 1.3.5 the circle can be transformed via a complex affine change to a hyperbola.  
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 8, breakable]
     Show that the circle $\{(x, y) \in \mathbb{C}^2 \mid x^2 + y^2 - 1 = 0\}$
     is not equivalent under a complex affine change of coordinates to the parabola 
@@ -1538,7 +1538,7 @@ a parabola into a hyperbola.
     Thus no such $\lambda$ exists.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 2, breakable]
     Show that $\sim$ is an equivalence relation.
 \end{tcolorbox}
@@ -1676,7 +1676,7 @@ Thus each element of $\mathbb{P}^2$ represents a complex
     \[(\lambda a, \lambda b,  \lambda c) = \left(\frac{a}{c}, \frac{b}{c}, 1\right).\]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 9, breakable]
     Show that the map $\psi : \mathbb{C}^2 \rightarrow \{(x : y : z) \in \mathbb{P}^2 \mid z \ne 0\}$
     defined by $\psi(x, y) = (x : y : 1)$ is a bijection.
@@ -1728,7 +1728,7 @@ be defined by
     Since $b$ and $c$ are constants, as $|y| \to \infty$ we have $|x| \to \infty$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 12, breakable]
     Consider again the line $l$. We know that $a$ and $b$
     cannot both be $0$, so we will assume without loss of generality that 
@@ -1743,29 +1743,1157 @@ be defined by
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    We start by solving explicitly for $y$ and note $b \ne 0$.
+    \[
+    ax + by + c = 0 \iff y = \frac{-ax - c}{b}.
+    \]
+    Then 
+    \[
+    \psi\left(x, \frac{-ax - c}{b}\right)
+    =
+    \left(x : \frac{-ax - c}{b} : 1\right)
+    =
+    (bx : -ax - c : b).
+    \]
+\end{proof}
+
+\begin{proof}
+    There are two cases. If $x = 0$ then 
+    \[
+    (bx : -ax - c : b) = (0 : -c : b).
+    \]
+    Otherwise, if $x \ne 0$ then we can divide by $bx \ne 0$ and see
+    \[
+    (bx : -ax - c : b)
+    =
+    \left(1 : \frac{-ax - c}{bx} : \frac{1}{x}\right)
+    =
+    \left(1 : -\frac{a}{b} - \frac{c}{bx} : \frac{1}{x}\right).
+    \]
+\end{proof}
+
+\begin{proof}
+    As $|x| \to \infty$, we have $\frac{c}{bx} \to 0$ and $\frac{1}{x} \to 0$. Thus
+    \[
+    \left(1 : -\frac{a}{b} - \frac{c}{bx} : \frac{1}{x}\right)
+    \to
+    \left(1 : -\frac{a}{b} : 0\right).
+    \]
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 13, breakable]
+    Explain why the following polynomials are homogeneous, and find each degree.
+    \begin{enumerate}
+        \item $x^2 + y^2 - z^2$.
+        \item $xz - y^2$.
+        \item $x^3 + 3xy^2 + 4y^3$.
+        \item $x^4 + x^2 y^2$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\textbf{Solution (1):}
+All monomials have total degree $2$ thus it is homogeneous.
+The total degree is $2$.
+
+\textbf{Solution (2):}
+All monomials have total degree $2$ thus it is homogeneous.
+The total degree is $2$.
+
+\textbf{Solution (3):}
+All monomials have total degree $3$ thus it is homogeneous.
+The total degree is $3$.
+
+\textbf{Solution (4):}
+All monomials have total degree $4$ thus it is homogeneous.
+The total degree is $4$.
 
 \begin{tcolorbox}[title=Problem 14, breakable]
+    Explain why the following polynomials are not homogeneous.
+    \begin{enumerate}
+        \item $x^2 + y^2 - z$.
+        \item $xz - y$.
+        \item $x^2 + 3xy^2 + 4y^3 + 3$.
+        \item $x^3 + x^2 y^2 + x^2$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\textbf{Solution (1):}
+$z$ has total degree $1$ and $x^2$ has total degree $2$ thus it is not homogeneous.
+
+\textbf{Solution (2):}
+$xz$ has total degree $2$ and $y$ has total degree $1$ thus it is not homogeneous.
+
+\textbf{Solution (3):}
+$3$ has total degree $0$ and $x^2$ has total degree $2$ thus it is not homogeneous.
+
+\textbf{Solution (4):}
+$x^3$ has total degree $3$ and $x^2$ has total degree $2$ thus it is not homogeneous.
 
 \begin{tcolorbox}[title=Problem 15, breakable]
+    Show that if the homogeneous equation $Ax + By + Cz = 0$
+    holds for every point $(x, y, z)$ in $\mathbb{C}^3 - \{0, 0, 0\}$,
+    then it holds for every point in $\mathbb{C}^3$ that belongs 
+    to the equivalence class $(x : y : z)$ in $\mathbb{C}^2$.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose the homogeneous equation $Ax + By + Cz = 0$ holds for all 
+    $(x, y, z) \in \mathbb{C}^3 - \{(0,0,0)\}$.  
+    Consider the polynomial in $x$
+    \[
+        f(x) = Ax + (By + Cz).
+    \]
+    Since $f(x) = 0$ for all $x \in \mathbb{C}$, $A = 0$.  
+    Similarly, $B = 0$ and $C = 0$.  
+    Therefore $Ax + By + Cz = 0$ for all $(x, y, z) \in \mathbb{C}^3$, 
+        which includes $(x : y : z)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 16, breakable]
+    Show that if the homogenous equation 
+        $Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz = 0$
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose the homogeneous equation 
+        $Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz = 0$.
+    Consider the polynomial in $x$
+    \[
+        f(x) = Ax^2 + Dxy + Exz + (By^2 + Cz^2 + Fyz).
+    \]
+    Since $f(x) = 0$ for all $x \in \mathbb{C}$, $A = 0$.
+    Similarly, $B = C = D = E = F = 0$.  
+    Therefore $Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz = 0$ 
+        for all $(x, y, z) \in \mathbb{C}^3$, which includes $(x : y : z)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
+    State and prove the generalization of the previous two 
+        exercises for any degree $n$ homogenous equation $P(x, y, z) = 0$.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose the homogeneous equation 
+        $P(x, y, z) = 0$ of degree $n$.  
+    Consider the polynomial in $x$
+    \[
+        f(x) = P(x, y, z).
+    \]
+    Since $f(x) = 0$ for all $x \in \mathbb{C}$ coefficients of powers of $x$ must vanish.  
+    Similarly, all other coefficients vanish.  
+    Therefore $P(x, y, z) = 0$ for all $(x, y, z) \in \mathbb{C}^3$, which includes $(x : y : z)$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 18, breakable]
+    Consider the non-homogeneous equation $P(x, y, z) = x^2 + 2y + 2z = 0$.
+    Show that $(2, -1, -1)$ satisfies the equation.
+    Find a point of the equivalence class $(2 : -1 : -1)$
+    that does not satisfy this equation.
 \end{tcolorbox}
+
+\textbf{Solution: }
+\[2^2 + 2(-1) + 2(-1) = 0\]
+\[4^2 + 2(-2) + 2(-2) = 16 - 4 - 4 = 8 \ne 0\]
 
 \begin{tcolorbox}[title=Problem 19, breakable]
+    Homogenize the following equations. Then find point(s)
+        where the curves intersect the line at infinity.
+    \begin{enumerate}
+        \item $ax + by + c = 0$.
+        \item $x^2 + y^2 = 1$.
+        \item $y = x^2$.
+        \item $x^2 + 9y^2 = 1$.
+        \item $y^2 - x^2 = 1$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\textbf{Solution (1):}
+\[z \cdot \left(a \frac{x}{z} + b \frac{y}{z} + c\right) = 0 \iff ax + by + cz = 0.\]
+At $z = 0$ we have 
+\[ax + by = 0.\]
+A point at infinity is 
+\[(x : y : z) = (b : -a : 0).\]
+
+\textbf{Solution (2):}
+\[z^2 \cdot \left(\left(\frac{x}{z}\right)^2 + \left(\frac{y}{z}\right)^2 - 1\right) = 0 \iff x^2 + y^2 - z^2 = 0.\]
+At $z = 0$ we have 
+\[x^2 + y^2 = 0.\]
+Points at infinity are 
+\[(x : y : z) = (1 : i : 0), (1 : -i : 0).\]
+
+\textbf{Solution (3):}
+\[z^2 \cdot \left(\frac{y}{z} - \left(\frac{x}{z}\right)^2 \right) = 0 \iff x^2 - yz = 0.\]
+At $z = 0$ we have 
+\[x^2 = 0 \implies x = 0.\]
+Point at infinity is 
+\[(x : y : z) = (0 : 1 : 0).\]
+
+\textbf{Solution (4):}
+\[z^2 \cdot \left(\left(\frac{x}{z}\right)^2 + 9\left(\frac{y}{z}\right)^2 - 1 \right) = 0 \iff x^2 + 9y^2 - z^2 = 0.\]
+At $z = 0$ we have 
+\[x^2 + 9y^2 = 0.\]
+Points at infinity are 
+\[(x : y : z) = (3i : 1 : 0), (-3i : 1 : 0).\]
+
+\textbf{Solution (5):}
+\[z^2 \cdot \left(\left(\frac{y}{z}\right)^2 - \left(\frac{x}{z}\right)^2 - 1 \right) = 0 \iff y^2 - x^2 - z^2 = 0.\]
+At $z = 0$ we have 
+\[y^2 - x^2 = 0 \implies (y-x)(y+x) = 0.\]
+Points at infinity are 
+\[(x : y : z) = (1 : 1 : 0), (1 : -1 : 0).\]
 
 \begin{tcolorbox}[title=Problem 20, breakable]
+    Show that in $\mathbb{P}^2$, any two distinct lines will intersect in a point.
+    Notice this implies that parallel lines in $\mathbb{C}^2$, when embeed in $\mathbb{P}^2$,
+    intersect at the line at infinity.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose we have the lines 
+    \[
+        l_1: a x + b y + c z = 0, \quad 
+        l_2: d x + e y + f z = 0.
+    \]
+    If $l_1$ is not parallel to $l_2$, then set $z = 1$ and solve the two equations for $x$ and $y$ to find the intersection point in $\mathbb{C}^2$.  
+    If $l_1$ is parallel to $l_2$, then homogenizing shows that the intersection occurs at $z = 0$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 21, breakable]
+    Once we have homogenized an equation, the original variables $x$ $y$ 
+        are no more important than the variable $z$.
+    Suppose we regard $x$ and $z$ as the original variables in our 
+        homogeneous equation. Then the image of the $xz$-plane in $\mathbb{P}^2$
+        would be $\{(x, y, z) \in \mathbb{P}^2 \mid y = 1.\}$.
+    \begin{enumerate}
+        \item Homogenize the equations for the parallel lines $y = x$ and $y = x + 2$.
+        \item Now regard $x$ and $z$ as the original variables, and set $y = 1$ to sketch 
+                the image of the lines in the $xz$-plane.
+        \item Explain why the lines in part meet at the $x$-axis.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (1):}
+The lines are $y = x$ and $y = x + 2$. Homogenizing with $z$ gives: 
+\[
+y - x = 0 \quad \implies \quad y - x = 0
+\]  
+\[
+y - x - 2 = 0 \quad \implies \quad y - x - 2z = 0
+\]  
+
+\textbf{Solution (2):}
+Regarding $x$ and $z$ as the original variables and setting $y = 1$
+\[
+1 - x = 0 \quad \implies \quad x = 1
+\]  
+\[
+1 - x - 2 z = 0 \quad \implies \quad x + 2 z = 1
+\]  
+\begin{tikzpicture}[scale=1.2]
+    % Axes
+    \draw[->] (-0.5,0) -- (3.5,0) node[right] {$x$};
+    \draw[->] (0,-0.5) -- (0,3.5) node[above] {$z$};
+    
+    % Lines
+    \draw[thick,blue] (1,-0.5) -- (1,3) node[above right] {$x=1$};
+    \draw[thick,red] (-0.5,0.75) -- (3, -1) node[right] {$x + 2 z = 1$};
+    
+    % Labels for intersection
+    \filldraw[black] (1,0) circle (2pt) node[below right] {};
+    
+    % Optional grid
+    \draw[very thin, gray!30] (-0.5,-0.5) grid (3.5,3.5);
+\end{tikzpicture}
+
+\textbf{Solution (3):}
+The lines intersect at the $x$-axis because in the $xz$-plane the $x$-axis is defined by $z = 0$.
+
+\subsection{Projective Changes of Coordinates}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    For the complex affine change of coordinates 
+    \[u = ax + by + e.\]
+    \[v = cx + dy + f,\]
+    where $a, b, c, d \in \mathbb{C}$ and $ad - bc \ne 0$, show that 
+    \[u = ax + by + ez,\]
+    \[v = cx + dy + fz,\]
+    \[w = z,\]
+    is the corresponding projective change of coordinates.
+\end{tcolorbox}
+
+\begin{proof}
+    We have $\psi(u, v) = \left(\frac{ax + by + e}{z} : \frac{cx + dy + f}{z} : 1\right) = (ax + by + e : cx + dy + f : z)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $C_1 = V(x^2 + y^2 - 1)$ be an ellipse in $\mathbb{C}^2$
+        and let $C_2 = V(u^2 - v)$ be a parabola in $\mathbb{C}^2$.
+    Homogenize the defining polynomials for $C_1$ and $C_2$ and show that 
+        the projective change of coordinates 
+    \[u = ix,\]
+    \[v = y + z,\]
+    \[w = y - z,\]
+    transforms the ellipse in $\mathbb{P}^2$ into the parabola in $\mathbb{P}^2$.
+\end{tcolorbox}
+
+\begin{proof}
+    We first homogenize $C_1$ and $C_2$ to obtain
+    \[x^2 + y^2 - z^2 = 0 \quad \text{and} \quad u^2 - vw = 0.\]
+    Then substituting our change of variables gives
+    \[u^2 - vw = (ix)^2 - (y + z)(y - z)
+    = -x^2 - (y^2 - z^2)
+    = -(x^2 + y^2 - z^2) = 0,\]
+    as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Use the results of Section 1.3, together with the above problem,
+        to show that, under a projective change of coordinates,
+        all ellipses, hyperbolas, and parabolas are equivalent in $\mathbb{P}^2$.
+\end{tcolorbox}
+
+
+\begin{proof}
+    By Section 1.3 ellipses and hyperbolas are equivalent under affine
+    changes of coordinates, and by Problem 1 these extend to
+    projective changes of coordinates in $\mathbb{P}^2$.
+    By Problem 2 ellipses are equivalent to parabolas in $\mathbb{P}^2$.
+    Therefore under a projective change of coordinates, all ellipses,
+    hyperbolas, and parabolas are equivalent in $\mathbb{P}^2$.
+\end{proof}
+
+\subsection{The Complex Projective Line $\mathbb{P}^1$}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Suppose that $(x_1, y_1) \sim (x_2, y_2)$ and that $x_1 = x_2 \ne 0$.
+    Show that $y_1 = y_2$.
+\end{tcolorbox}
+
+\begin{proof}
+    We know there exists $\lambda$ such that $x_1 = \lambda x_2$.
+    Dividing by $x_2 \ne 0$ shows $\lambda = 1$.
+    But then $y_1 = \lambda y_2 = y_2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Suppose that $(x_1, y_1) \sim (x_2, y_2)$ with $y_1 \ne 0$
+    and $y_2 \ne 0$. Show that 
+    \[(x_1, y_1) \sim \left(\frac{x_1}{y_1}, 1\right) = \left(\frac{x_2}{y_2}, 1\right) \sim (x_2, y_2).\]
+\end{tcolorbox}
+
+
+\begin{proof}
+    Let $\lambda = y_1$ to see that 
+    \[\left(\lambda \frac{x_1}{y_1}, \lambda \cdot 1\right) = (x_1, y_1).\]
+    Thus $(x_1, y_1) \sim \left(\frac{x_1}{y_1}, 1\right)$.
+    Similarly, $(x_2, y_2) \sim \left(\frac{x_2}{y_2}, 1\right)$.
+    Since $(x_1, y_1) \sim (x_2, y_2)$ and $\sim$ is an equivalence relation
+    \[
+    \left(\frac{x_1}{y_1}, 1\right)
+    =
+    \left(\frac{x_2}{y_2}, 1\right).
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Explain why the elements of $\mathbb{P}^1$ can intuitively 
+    be thought of as complex lines through the origin in $\mathbb{C}^2$.
+\end{tcolorbox}
+
+\textbf{Solution: } 
+Take a line passing through the origin in $\mathbb{C}^2$
+with direction vector $(a, b) \ne (0,0)$. 
+This line consists of all points of the form $(\lambda a, \lambda b)$
+ such that $\lambda \in \mathbb{C}$.
+If we require $\lambda \ne 0$
+we get the equivalence class $(a : b : c) \in \mathbb{P}^2$.
+Thus each element of $\mathbb{P}^1$ represents a complex
+    line through the origin in $\mathbb{C}^2$.
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $b \ne 0$, show that the line $x = \lambda a$, $y = \lambda b$ 
+        will intersect the line $\{(x, y) \mid y = 1\}$ in exactly one point.
+    Show that the point of intersection is $\left(\frac{a}{b}, 1\right)$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have $1 = y = \lambda b$ thus $\lambda = \frac{1}{b}$.
+    Therefore $(x, y) = (\lambda a, 1) = \left(\frac{a}{b}, 1\right)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Show that the map $\psi : \mathbb{C} \rightarrow \{(x : y) \in \mathbb{P}^2 \mid y \ne 0\}$
+    defined by $\psi(x) = (x : 1)$ is a bijection.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a, b \in \mathbb{C}$ such that $\psi(a) = \psi(b)$.
+    Then 
+    \[\psi(a) = \psi(b) \iff (a : 1) = (b : 1).\]
+    But then since $1 = \lambda 1$ we have $\lambda = 1$ so $a = b$.
+    Let $(a : y)$ be an arbitrary element in $\{(x : y) \in \mathbb{P}^2 \mid y \ne 0\}$.
+    Then $(a : y) = \left(\frac{a}{y} : 1\right) = \psi\left(\frac{a}{b}\right)$.
+    Thus $\psi$ is a bijection.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Find a map $\{(x : y) \in \mathbb{P}^1 \mid y \ne 0\}$ to $\mathbb{C}$
+    that is the inverse of the map $\psi$ in Exercise 1.6.5.
+\end{tcolorbox}
+
+\textbf{Solution:}
+\[\psi^{-1}(x : y) = \frac{x}{y}.\]
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Consider the map $\psi : \mathbb{C} \rightarrow \mathbb{P}^2$ given by 
+    $\psi(x) = (x : 1)$. Show that as $|x| \rightarrow \infty$,
+        we have $\psi(x) \rightarrow (1 : 0)$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[(x : 1) = \left(1 : \frac{1}{x}\right).\]
+    As $|x| \to \infty$, we have $\frac{1}{x} \to 0$ thus
+    \[
+    \left(1 : \frac{1}{x}\right) \to (1 : 0).
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $p$ denote the point $(0, 0, 1) \in S^2$, and let $l$
+    denote the line through $p$ and the point $(x, y, 0)$
+    in the $xy$-plane, whose parametrization is given by 
+    \[\rho(t) = (1 - t)(0, 0, 1) + t(x, y, 0),\]
+    i.e.,
+    \[l = \{(tx, ty, 1 - t) \mid t \in \mathbb{R}\}.\]
+    \begin{enumerate}
+        \item $l$ clearly intersects $S^2$ at the point $p$. Show that there is exactly one other point of intersection $q$.
+        \item Find the coordinates of $q$.
+        \item Define the map $\psi : \mathbb{R}^2 \rightarrow S^2 - \{p\}$ to be the map that takes the point $(x, y)$ to the point $q$.
+              Show that $\psi$ is a continuous bijection.
+        \item Show that as $\sqrt{x^2 + y^2} \rightarrow \infty$, we have $\psi(x, y) \rightarrow p$. Thus as we move away from the origin 
+                in $\mathbb{R}^2$, $\psi(x, y)$ moves toward the North Pole.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We substitute $l$ into the unit sphere equation to find 
+    \[
+    x^2 + y^2 + z^2 - 1 = (tx)^2 + (ty)^2 + (1 - t)^2 - 1 
+    = t^2(x^2 + y^2 + 1) - 2t 
+    = t \big( t(x^2 + y^2 + 1) - 2 \big) = 0.
+    \]
+    Now $t = 0$ corresponds to $p$. The other point corresponds to
+    \[
+    t(x^2 + y^2 + 1) - 2 = 0 \quad \implies \quad t = \frac{2}{x^2 + y^2 + 1}.
+    \]
+    Substituting back into the line gives
+    \[
+    q = \left( \frac{2x}{x^2 + y^2 + 1}, \frac{2y}{x^2 + y^2 + 1}, \frac{x^2 + y^2 - 1}{x^2 + y^2 + 1} \right).
+    \]
+\end{proof}
+
+\begin{proof}
+    Each coordinate is a continuous fraction thus $\psi$ is continuous.
+    Suppose $(x, y), (a,b) \in \mathbb{R}^2$ such that 
+    \[\psi(x, y) = \psi(a, b) 
+        \iff \left( \frac{2x}{x^2 + y^2 + 1}, \frac{2y}{x^2 + y^2 + 1}, \frac{x^2 + y^2 - 1}{x^2 + y^2 + 1} \right) 
+            = \left( \frac{2a}{a^2 + b^2 + 1}, \frac{2b}{a^2 + b^2 + 1}, \frac{a^2 + b^2 - 1}{a^2 + b^2 + 1} \right)\]
+    From the third coordinate we infer $x^2 + y^2 + 1 = a^2 + b^2 + 1$.
+    Then from the first coordinates we see $a = x$ and $b = y$.
+    Thus $\psi$ is injective.
+    Suppose $(X, Y, Z) \in S^2 - \{p\}$.
+    We can solve the following equations for $x, y$
+    \[\frac{2x}{x^2 + y^2 + 1} = X, \quad  \frac{2y}{x^2 + y^2 + 1} = Y, \quad  \frac{x^2 + y^2 - 1}{x^2 + y^2 + 1} = Z.\]
+    Thus 
+    \[x = \frac{X}{1 - Z} \quad \text{ and }  \quad y = \frac{Y}{1 - Z}.\]
+    Finally, we see 
+    \[\psi(x, y) = (X, Y, Z).\]
+    Thus $\psi$ is surjective and it follows that $\psi$ is a bijection.
+\end{proof}
+
+\begin{proof}
+    As $\sqrt{x^2 + y^2} \to \infty$ we have 
+        $\frac{2x}{x^2 + y^2 + 1} \to 0$,
+        $\frac{2y}{x^2 + y^2 + 1} \to 0$, and 
+        $\frac{x^2 + y^2 - 1}{x^2 + y^2 + 1} \to 1$.
+    Thus $q \to (0, 0, 1) = p$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Determine which point(s) in $\mathbb{P}^1$ do \textbf{not}
+    have two representitives of the form $(x : 1) = (1 : \frac{1}{x})$.
+\end{tcolorbox}
+
+\textbf{Solution: }
+\[(0 : 1) \in \mathbb{P}^1.\]
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Map $U \rightarrow \mathbb{P}^1$ via $x \mapsto (x : 1)$
+        and map $V \rightarrow \mathbb{P}^1$ via $y \mapsto (1 : y)$.
+    Show that $(x : 1) \mapsto \left(1 : \frac{1}{x}\right)$ is a natural one-to-one 
+    map from $U^*$ to $V^*$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y \in U^*$ then under the map we have $\left(1 : \frac{1}{x}\right) = \left(1 : \frac{1}{y}\right) \in V^*$.
+    Then since $1$ is the first coordinate we have $\lambda = 1$ thus $x = y$.
+    Therefore the mapping is a natural one-to-one map from $U^*$ to $V^*$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    A sphere can be split into a neighborhood of its northern hemisphere
+        and a neighborhood of its southern hemisphere.
+    Show that a sphere can be obtained by correctly gluing together two copies of $\mathbb{C}$.
+\end{tcolorbox}
+
+\begin{proof}
+    We take two spaces $\mathbb{C}_1, \mathbb{C}_2$.
+    Then define maps $\psi_1 : \mathbb{C}_1 \rightarrow \mathbb{R}^3 - \{0, 0, 1\}$, $\psi_2 : \mathbb{C}_2 \rightarrow \mathbb{R}^3 - \{0, 0, -1\}$ by
+    \[
+    \psi_1(x, y) = \left( \frac{2x}{x^2 + y^2 + 1}, \frac{2y}{x^2 + y^2 + 1}, \frac{x^2 + y^2 - 1}{x^2 + y^2 + 1} \right),
+    \]
+    and 
+    \[
+    \psi_2(u, v) = \left( \frac{2u}{u^2 + v^2 + 1}, \frac{2v}{u^2 + v^2 + 1}, \frac{1 - u^2 - v^2}{u^2 + v^2 + 1} \right).
+    \]
+    Then
+    \[
+    S^2 = \psi_1(\mathbb{C}_1) \cup \psi_2(\mathbb{C}_2).
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Put together the last two exercises to show that $\mathbb{P}^1$ is topologically equivalent 
+        to a sphere.
+\end{tcolorbox}
+
+\begin{proof}
+    From Problem 10, we can map the two spaces $U^*$ and $V^*$ to $\mathbb{P}^1$.
+    We can then equate $U^*$ and $V^*$ to the two copies of $\mathbb{C}$.
+    Then from Problem 11 there is a homeomorphism from the two spaces $\mathbb{C}$ to $S^2$.
+    Thus $\mathbb{P}^1$ is homeomorphic to $S^2$.
+\end{proof}
+
+\subsection{Ellipses, Hyperbolas, and Parabolas as Spheres}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Find a bijective polynomial map from $\mathbb{C}$ to the conic 
+    $C = \{(x, y) \in \mathbb{C}^2 \mid x^2 - y = 0\}$
+\end{tcolorbox}
+
+\begin{proof}
+    We first paramtrize $C$ as follows 
+    \[x = t \text{ and } y = t^2.\]
+    Then, we define the mapping $\psi : \mathbb{C} \rightarrow C$ as 
+    \[\psi(\alpha) = (\alpha, \alpha^2).\]
+    Now, suppose $\alpha_1, \alpha_2 \in \mathbb{C}$ and $\psi(\alpha_1) = \psi(\alpha_2)$. Then 
+    \[\psi(\alpha_1) = \psi(\alpha_2) \iff (\alpha_1, \alpha_1^2) = (\alpha_2, \alpha_2^2) \iff \alpha_1 = \alpha_2.\]
+    Thus $\psi$ is injective.
+    Now, let $(x, y) \in C$ and notice $y = x^2$.
+    Then $\psi(x) = (x, x^2) = (x, y)$.
+    Thus $\psi$ is surjective.
+    It follows that $\psi$ is a bijection from $\mathbb{C}$ to $C$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $C = V(x^2 + y^2 - 1)$ be an ellipse in $\mathbb{C}^2$.
+    Find a trigonometric parametrization of $C$.
+    [Hint: Think high school trigonometry.]
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x = \cos(t)$ and $y = \sin(t)$ for $t \in \mathbb{C}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Consider the ellipse $C = V(x^2 + y^2 - 1) \subset \mathbb{C}^2$
+    and let $p$ denote the point $(0, 1) \in C$.
+    \begin{enumerate}
+        \item Parametrize the line segment from $p$ to the point $(\lambda, 0)$ on 
+                the complex line $y = 0$ as in Exercise 16.8.
+        \item This line segment clearly intersects $C$ at the point $p$. Show 
+                that if $\lambda \ne \pm i$, then there is exactly one other point 
+                of intersection. Call this point $q$.
+        \item Find the coordinates of $q \in C$.
+        \item Show that if $\lambda = \pm i$, then the line segment intersects $C$ only at $p$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We have $p + x(p - (\lambda, 0))$ for $x \in \mathbb{C}$.
+    Then 
+    \[p + x(p - (\lambda, 0)) = (0, 1) + x((0, 1) - (\lambda, 0)) = (0, 1) + x(-\lambda, 1) = (-\lambda x, 1 + x).\]
+\end{proof}
+
+\begin{proof}
+    Suppose $\lambda \ne \pm i$.
+    Then 
+    \[
+        (-\lambda x)^2 + (1 + x)^2 - 1 
+        = \lambda^2 x^2 + (1 + 2x + x^2) - 1 
+        = (\lambda^2 + 1)x^2 + 2x 
+        = x\big((\lambda^2 + 1)x + 2\big) = 0.
+    \]
+    $x = 0$ corresponds to $p$.  
+    \[
+        x = -\frac{2}{\lambda^2 + 1}
+    \]
+    corresponds to 
+    \[
+        q = \left(-\lambda\!\left(-\frac{2}{\lambda^2 + 1}\right),\, 1 - \frac{2}{\lambda^2 + 1}\right).
+    \]
+\end{proof}
+
+\begin{proof}
+    Suppose $\lambda = \pm i$.
+    Then 
+    \[
+        (-\lambda x)^2 + (1 + x)^2 - 1 = (-(\pm i) x)^2 + (1 + 2x + x^2) - 1 = 2x = 0.
+    \]
+    $x = 0$ corresponds to $p$ and there are no other solutions.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Define the map $\tilde{\psi} : \mathbb{C} \rightarrow C \subset \mathbb{C}^2$ by
+    \[\tilde{\psi}(\lambda) = \left(\frac{2 \lambda}{\lambda^2 + 1}, \frac{\lambda^2 - 1}{\lambda^2 + 1}\right).\]
+    Show that the above map can be extended to the map 
+    \[\psi : \mathbb{P}^1 \rightarrow \{(x : y : z) \in \mathbb{P}^2 \mid x^2 + y^2 - z^2 = 0\}.\]
+    given by 
+    \[\psi(\lambda : u) = (2 \lambda u : \lambda^2 - u^2 : \lambda^2 + u^2).\]
+\end{tcolorbox}
+
+\begin{proof}
+    Plugging in we find 
+    \begin{align*}
+        (2\lambda u)^2 + (\lambda^2 - u^2)^2 - (\lambda^2 + u^2)^2
+        &= 4\lambda^2 u^2 + (\lambda^4 - 2\lambda^2 u^2 + u^4)
+           - (\lambda^4 + 2\lambda^2 u^2 + u^4) \\
+        &= 4\lambda^2 u^2 + \lambda^4 - 2\lambda^2 u^2 + u^4
+           - \lambda^4 - 2\lambda^2 u^2 - u^4 \\
+        &= 0.
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    \begin{enumerate}
+        \item Show that the map $\psi$ is one-to-one.
+        \item Show that $\psi$ is onto. [Hint: Consider the two cases: $z \ne 0$ and $z = 0$.
+                For $z \ne 0$ follow the contruction given above. For $z = 0$, find values of 
+                $\lambda$ and $u$ to show that these points are given by $\psi$. How does this 
+                relate to Part 4 of Exercise 1.7.3?]
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(\lambda : u), (\lambda' : u') \in \mathbb{P}^1$. Then 
+    \[
+        \psi(\lambda : u) = \psi(\lambda' : u') 
+        \iff 
+        (2 \lambda u : \lambda^2 - u^2 : \lambda^2 + u^2) 
+        = 
+        (2 \lambda' u' : \lambda'^2 - u'^2 : \lambda'^2 + u'^2).
+    \]
+    There exists $k \in \mathbb{C}$ such that 
+    \[
+        2 \lambda u = k(2 \lambda' u'), \quad 
+        \lambda^2 - u^2 = k(\lambda'^2 - u'^2) = k \lambda'^2 - k u'^2, \quad  
+        \lambda^2 + u^2 = k(\lambda'^2 + u'^2) = k \lambda'^2 + k u'^2.
+    \]
+    Adding the second and third equations shows 
+    \[\lambda^2 = k \lambda'^2.\]
+    Subtracting the second and third equations shows 
+    \[-2 u^2 = - 2 k u'^2 \implies u^2 = k u'^2.\]
+    Thus $(\lambda : u) = (\lambda' : u')$ in $\mathbb{P}^1$.
+    It follows that $\psi$ is injective.
+
+    Suppose $z = 0$. We have 
+    \[x^2 + y^2 - z^2 = 0 \iff -x^2 = y^2 \iff y = \pm i x.\]
+    Then 
+    \[(x : \pm i x : z) = (1 : \pm i : 0).\]
+    We have 
+    \[\lambda^2 + u^2 = 0 \iff \lambda^2 = - u^2 \iff \lambda = \pm i u.\]
+    Then 
+    \[\psi(\pm i u : u) = (2 (\pm i u) u : (\pm i u)^2 - u^2 : (\pm i u)^2 + u^2)  = (\pm 2 i u^2 : -2 u^2 : 0) = (1 : \pm i : 0).\]
+
+    Now, suppose $z \ne 0$.
+    Let $(x : y : z)$ be an element in $\mathbb{P}^2$ with $z \ne 0$.
+    We require 
+    \[2 \lambda u = x, \quad \lambda^2 - u^2 = y, \quad \lambda^2 + u^2 = z.\]
+    Adding and subtracting the second and third equations we find 
+    \[\lambda^2 = \frac{y + z}{2} \implies \lambda = \pm \sqrt{\frac{y + z}{2}}, \quad u^2 = \frac{z - y}{2} \implies u = \pm \sqrt{\frac{z - y}{2}}.\]
+    Then 
+    \[\psi\left(\pm \sqrt{\frac{y + z}{2}}, \pm \sqrt{\frac{z - y}{2}}\right) = (x : y : z).\]
+    Thus $\psi$ is surjective.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    For the following conics and the given point $p$, follow 
+    what we did for the conic $x^2 + y^2 - 1 = 0$ to find a rational 
+    map from $\mathbb{C}$ to the curve $\mathbb{C}^2$ and then a one-to-one 
+    map from $\mathbb{P}^1$ onto the conic in $\mathbb{P}^2$.
+    \begin{enumerate}
+        \item $x^2 + 2x - y^2 - 4y - 4 = 0$ with $p = (0, -2)$.
+        \item $3x^2 + 3y^2 - 75 = 0$ with $p = (5, 0)$.
+        \item $4x^2 + y^2 - 8 = 0$ with $p = (1, 2)$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (1): }
+Consider the line $y = mx - 2$. We have 
+\begin{align*}
+x^2 + 2x - y^2 - 4y - 4 &= 0 \\
+&\iff x^2 + 2x - (mx - 2)^2 - 4(mx - 2) - 4 = 0 \\
+&\iff x^2 + 2x - (m^2x^2 - 4mx + 4) - 4mx + 8 - 4 = 0 \\
+&\iff (1 - m^2)x^2 + 2x = 0 \\ 
+&\iff x[(1 - m^2)x + 2] = 0.
+\end{align*}
+Then $x = 0$ corresponds to $p$.
+So $x = \frac{-2}{1 - m^2}$, thus $y = \frac{-2m - 2(1 - m^2)}{1 - m^2}$.
+So we have the parametrization 
+\[
+x(m) = \frac{-2}{1 - m^2}, \quad y(m) = \frac{2m^2 - 2m - 2}{1 - m^2}.
+\]
+Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
+\[
+\psi(m, u) = (-2 : 2m^2 - 2m - 2 : 1 - m^2).
+\]
+
+\textbf{Solution (2):}
+Consider the line $y = m(x - 5) = mx - 5m$. We have 
+\begin{align*}
+3x^2 + 3y^2 - 75 &= 0 \\
+&\iff 3x^2 + 3(mx - 5m)^2 - 75 = 0 \\
+&\iff 3x^2 + 3(m^2x^2 - 10m^2x + 25m^2) - 75 = 0 \\
+&\iff 3x^2 + 3m^2x^2 - 30m^2x + 75m^2 - 75 = 0 \\
+&\iff 3(1 + m^2)x^2 - 30m^2x + 75(m^2 - 1) = 0 \\
+&\iff (1 + m^2)x^2 - 10m^2x + 25(m^2 - 1) = 0 \\
+&\iff [(1 + m^2)x - 5(m^2 + 1)][x - 5] = 0.
+\end{align*}
+Then $x = 5$ corresponds to $p$.
+So $x = \frac{5(m^2 + 1)}{1 + m^2} = 5$, thus $y = m(x - 5) = m(5 - 5) = 0$.
+So we have the parametrization 
+\[
+x(m) = 5, \quad y(m) = 0.
+\]
+Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
+\[
+\psi(m, u) = (5 : 0 : 1).
+\]
+
+\textbf{Solution (3):}
+Consider the line $y = m(x - 1) + 2 = mx - m + 2$. We have 
+\begin{align*}
+4x^2 + y^2 - 8 &= 0 \\
+&\iff 4x^2 + (mx - m + 2)^2 - 8 = 0 \\
+&\iff 4x^2 + (m^2x^2 - 2m^2x + 4mx + m^2 - 4m + 4) - 8 = 0 \\
+&\iff (4 + m^2)x^2 + (-2m^2 + 4m)x + (m^2 - 4m - 4) = 0 \\
+&\iff (x - 1)\big((4 + m^2)x + (-4 + m^2 + 4m)\big) = 0.
+\end{align*}
+Then $x = 1$ corresponds to $p$.
+So $x = \frac{4 - m^2 - 4m}{4 + m^2}$, thus 
+\[
+y = m\left(\frac{4 - m^2 - 4m}{4 + m^2} - 1\right) + 2.
+\]
+So we have the parametrization 
+\[
+x(m) = \frac{4 - m^2 - 4m}{4 + m^2}, \quad y(m) = m\left(\frac{4 - m^2 - 4m}{4 + m^2} - 1\right) + 2.
+\]
+Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
+\[
+\psi(m, u) = (4 - m^2 - 4m : m(4 - m^2 - 4m - (4 + m^2)) + 2(4 + m^2) : 4 + m^2).
+\]
+
+\subsection{Links to Number Theory}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Suppose $(x_0, y_0, z_0)$ is a solution to $x^2 + y^2 = z^2$.
+    Show that $(m x_0, m y_0, m z_0)$ is also a solution for any scalar $m$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[
+        x_0^2 + y_0^2 - z_0^2 
+            = 0 \iff m^2(x_0^2 + y_0^2 - z_0^2) 
+            = 0 \iff m^2 x_0^2 + m^2 y_0^2 - m^2 z_0^2 
+            = 0 \iff (mx_0)^2 + (my_0)^2 - (mz_0)^2 = 0.
+    \]
+    Thus $(m x_0, m y_0, m z_0)$ is also a solution for any scalar $m$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $(a, b, c) \in \mathbb{Z}^3$ be a solution to $x^2 + y^2 = z^2$.
+    Show that $c = 0$ if and only if $a = b = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $c = 0$ then clearly $a = b = 0$.
+    Suppose $a = b = 0$. Then 
+    $a^2 + b^2 = 0^2 + 0^2 = 0$.
+    Thus $c = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Show that if $(a, b, c)$ is a Pythagorean triple with $c \ne 0$,
+    then the pair of rational number $\left(\frac{a}{c}, \frac{b}{c}\right)$
+    is a solution to $x^2 + y^2 = 1$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $(a, b, c)$ is a Pythagorean triple with $c \ne 0$.
+    Then 
+    \[a^2 + b^2 = c^2 \iff \frac{a^2}{c^2} + \frac{b^2}{c^2} = 1 \iff \left(\frac{a}{c}\right)^2 + \left(\frac{b}{c}\right)^2 = 1.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $\left( \frac{a}{c_1}, \frac{b}{c_2} \right) \in \mathbb{Q}^2$ be a rational solution to 
+    $x^2 + y^2 = 1$. Find a corresponding Pythagorean triple.
+\end{tcolorbox}
+
+\begin{proof}
+    First, write $\frac{a}{c_1}, \frac{b}{c_2}$ in their lowest terms by dividing by common factors.
+    Then 
+    \[
+        \left(\frac{a}{c_1}\right)^2 + \left(\frac{b}{c_2}\right)^2 = 1 
+        \iff (a c_2)^2 + (b c_1)^2 = (c_1 c_2)^2.
+    \]
+    Thus $(a c_2, b c_1, c_1 c_2)$ is a Pythagorean triple.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let
+    \[C(\mathbb{Q}) = \{(x, y) \in \mathbb{Q}^2 \mid x^2 + y^2 = 1\}.\]
+    Define the map $\tilde{\psi} : \mathbb{Q} \rightarrow \{(x, y) \in \mathbb{Q}^2 \mid x^2 + y^2 = 1\}.$ as 
+    \[\lambda \mapsto \left(\frac{2 \lambda}{\lambda^2 + 1}, \frac{\lambda^2 - 1}{\lambda^2 + 1}\right).\]
+    Show that the above map $\tilde{\psi}$ sends $\mathbb{Q} \rightarrow C(\mathbb{Q})$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $\lambda \in \mathbb{Q}$
+    Then $\tilde{\lambda} = \left(\frac{2 \lambda}{\lambda^2 + 1}, \frac{\lambda^2 - 1}{\lambda^2 + 1}\right)$.
+    Plugging in we find 
+    \begin{align*}
+        \left(\frac{2 \lambda}{\lambda^2 + 1}\right)^2 + \left( \frac{\lambda^2 - 1}{\lambda^2 + 1}\right)^2 
+        &= \frac{4 \lambda^2}{(\lambda^2 + 1)^2} + \frac{(\lambda^2 - 1)^2}{(\lambda^2 + 1)^2} \\
+        &= \frac{4 \lambda^2 + (\lambda^4 - 2 \lambda^2 + 1)}{(\lambda^2 + 1)^2} \\
+        &= \frac{\lambda^4 + 2 \lambda^2 + 1}{(\lambda^2 + 1)^2} \\
+        &= 1.
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    \begin{enumerate}
+        \item Show that $\psi : \mathbb{P}^1(\mathbb{Q}) \rightarrow C(\mathbb{Q}) \subset \mathbb{P}^2(\mathbb{Q})$ is onto.
+        \item Show that every primitive triple is of the form $(2 \lambda u, \lambda^2 - u^2, \lambda^2 + u^2)$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    This is the same as 1.7.5.
+    $\psi$ is a bijection thus every primitive triple is of that form.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Find a rational point on the conic $x^2 + y^2 - 2 = 0$.
+    Develop a parametrization and conclude that there are infinitely many rational points on this curve.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider $p = (1, 1) \in \mathbb{Q}^2$.
+    Then $x^2 + y^2 - 2 = 1 + 1 - 2 = 0$.
+    Consider the line $y = m(x - 1) + 1 = mx - m + 1$.
+    Then 
+    \begin{align*}
+    x^2 + (mx - m + 1)^2 - 2 
+    &= x^2 + \big(mx - m + 1\big)^2 - 2 \\
+    &= x^2 + \big(m^2 x^2 - 2 m^2 x + 2 m x + m^2 - 2 m + 1\big) - 2 \\
+    &= (1 + m^2)x^2 + 2 m (1 - m)x + (m^2 - 2 m - 1) \\
+    &= (x - 1)\big((1 + m^2)x - m^2 + 2 m + 1\big)
+    \end{align*}
+    Now, $x = 1$ corresponds to $p$.
+    So we have $x = \frac{m^2 - 2m - 1}{1 + m^2}$.
+    Then we have the paramtrization 
+    \[x(m) = \frac{m^2 - 2m - 1}{1 + m^2}, \quad y(m) = m\left(\frac{m^2 - 2m - 1}{1 + m^2}\right) - m + 1.\]
+    From this we can obtain infinitely many rational points on the curve.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    By mimicking the above, find four rational points on each of the following conics.
+    \begin{enumerate}
+        \item $x^2 + 2x - y^2 - 4y - 4 = 0$ with $p = (0, -2)$.
+        \item $3x^ + 3y^2 - 75 = 0$ with $p = (5, 0)$.
+        \item $4 x^2 + y^2 - 8 = 0$ with $p = (1, 2)$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    \textbf{(1)} Consider $p = (0, -2) \in \mathbb{Q}^2$.
+    Then $x^2 + 2x - y^2 - 4y - 4 = 0$ at $(0, -2)$.
+    Consider the line $y = m(x - 0) - 2 = mx - 2$.
+    Then 
+    \begin{align*}
+    x^2 + 2x - (mx - 2)^2 - 4(mx - 2) - 4
+    &= x^2 + 2x - (m^2 x^2 - 4 m x + 4) - (4 m x - 8) - 4 \\
+    &= (1 - m^2)x^2 + (2 + 0)x + (-4 + 8 - 4) \\
+    &= (1 - m^2)x^2 + 2 x + 0 \\
+    &= x\big((1 - m^2)x + 2\big)
+    \end{align*}
+    Now, $x = 0$ corresponds to $p$.
+    So we have $x = \frac{-2}{1 - m^2}$.
+    Then we have the parametrization 
+    \[x(m) = \frac{-2}{1 - m^2}, \quad y(m) = m\left(\frac{-2}{1 - m^2}\right) - 2.\]
+    From this we can obtain infinitely many rational points on the curve.
+\end{proof}
+
+\begin{proof}
+    Consider $p = (5, 0) \in \mathbb{Q}^2$.
+    Then $3x^2 + 3y^2 - 75 = 0$ at $(5, 0)$.
+    Consider the line $y = m(x - 5) + 0 = m(x - 5)$.
+    Then
+    \begin{align*}
+    3x^2 + 3(mx - 5m)^2 - 75
+    &= 3x^2 + 3(m^2 x^2 - 10 m^2 x + 25 m^2) - 75 \\
+    &= 3(1 + m^2)x^2 - 30 m^2 x + 75(m^2 - 1) \\
+    &= (x - 5)\big(3(1 + m^2)x - 30 m^2 - 75\big)
+    \end{align*}
+    Now, $x = 5$ corresponds to $p$.
+    So the other intersection point satisfies
+    \[
+        3(1 + m^2)x - 30 m^2 - 75 = 0 \implies x = \frac{30 m^2 + 75}{3(1 + m^2)} = \frac{10 m^2 + 25}{1 + m^2}.
+    \]
+    Then we have the parametrization
+    \[
+        x(m) = \frac{10 m^2 + 25}{1 + m^2}, \quad y(m) = m\left(\frac{10 m^2 + 25}{1 + m^2} - 5\right) = m\left(\frac{10 m^2 + 25 - 5 - 5 m^2}{1 + m^2}\right) = m\left(\frac{5 m^2 + 20}{1 + m^2}\right).
+    \]
+    From this we can obtain infinitely many rational points on the curve.
+\end{proof}
+
+\begin{proof}
+    Consider $p = (1, 2) \in \mathbb{Q}^2$.
+    Then $4x^2 + y^2 - 8 = 0$ at $(1, 2)$.
+    Consider the line $y = m(x - 1) + 2 = mx - m + 2$.
+    Then 
+    \begin{align*}
+    4x^2 + (mx - m + 2)^2 - 8
+    &= 4x^2 + (m^2 x^2 - 2 m^2 x + 2 m x + m^2 - 4 m + 4) - 8 \\
+    &= (4 + m^2)x^2 + 2 m(1 - m)x + (m^2 - 4 m - 4) \\
+    &= (x - 1)\big((4 + m^2)x + 2 m (1 - m) + (m^2 - 4 m - 4)\big)
+    \end{align*}
+    Now, $x = 1$ corresponds to $p$.
+    So we have $x = \frac{-2 m^2 + 2 m + 4}{4 + m^2}$.
+    Then we have the parametrization 
+    \[x(m) = \frac{-2 m^2 + 2 m + 4}{4 + m^2}, \quad y(m) = m\left(\frac{-2 m^2 + 2 m + 4}{4 + m^2} - 1\right) + 2.\]
+    From this we can obtain infinitely many rational points on the curve.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Show that the conic $x^2 + y^2 = 3$ has no rational points.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x = \frac{a}{b}$ and $y = \frac{c}{d}$ are in lowest terms with $a, b, c, d \in \mathbb{Z}$.
+    Furthermore, suppose
+    \[
+        \left(\frac{a}{b}\right)^2 + \left(\frac{c}{d}\right)^2 = 3.
+    \]
+    Then
+    \[
+        \left(\frac{a}{b}\right)^2 + \left(\frac{c}{d}\right)^2 = 3
+        \iff a^2 d^2 + c^2 b^2 = 3 b^2 d^2
+        \iff (ad)^2 = 3 (bd)^2 - (bc)^2 = b^2(3d^2 - c^2).
+    \]
+    Now we must have $3d^2 - c^2 = k^2$ for some $k \in \mathbb{Z}$.
+    We see $3d^2 - c^2 \equiv 0, 2 \pmod{3}$ while $k^2 \equiv 0, 1 \pmod{3}$.
+    But, $\gcd(c, d) = 1$ thus $3d^2 - c^2 \equiv 2 \pmod{3}$ while $k^2 \equiv 0, 1 \pmod{3}$ which is a contradiction.
+\end{proof}
+
+\subsection{Degenerate Conics}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Dehomogenize $f(x, y, z)$ by setting $z = 1$. Graph 
+    the curve 
+    \[C(\mathbb{R}) = \{(x : y : z) \in \mathbb{P}^2 \mid f(x, y, 1) = 0\}.\]
+    in the real plane $\mathbb{R}^2$.
+\end{tcolorbox}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/10.png}
+\end{figure}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Consider the two lines given by 
+    \[(a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0,\]
+    and suppose 
+    \[\det \begin{bmatrix}
+        a_1 & b_1 \\
+        a_2 & b_2
+    \end{bmatrix} \ne 0.\]
+    Show that the two lines intersect at a point where $z \ne 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose the two lines intersect at a point where $z = 0$. Thus 
+    \[
+        a_1 x + b_1 y = 0
+        \quad \text{and} \quad
+        a_2 x + b_2 y = 0,
+    \]
+    so
+    \[\begin{bmatrix}
+        a_1 & b_1 \\
+        a_2 & b_2
+    \end{bmatrix} \begin{bmatrix}
+        x \\
+        y
+    \end{bmatrix} = 0.\]
+    Then 
+    \[\det \begin{bmatrix}
+        a_1 & b_1 \\
+        a_2 & b_2
+    \end{bmatrix} \ne 0 \implies \begin{bmatrix}
+        x \\ y
+    \end{bmatrix} = \begin{bmatrix}
+        0 \\ 0
+    \end{bmatrix}.\]
+    Thus $x = y = 0$ but $(0, 0, 0) \notin \mathbb{P}^2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Dehomogenize the equation in the previous exercise 
+    by setting $z = 1$. Given an argument that, as lines in the 
+    complex plane $\mathbb{C}^2$, they have distinct slopes.
+\end{tcolorbox}
+
+\begin{proof}
+    Dehomogenizing we find 
+    \[(a_1 x + b_1 y + c_1)(a_2 x + b_2 y + c_2) = 0.\]
+    Since they intersect at a point such that $z \ne 0$ 
+        they are not parallel in $\mathbb{C}^2$.
+    Thus either $a_1 \ne a_2$ or $b_1 \ne b_2$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Again consider the two lines 
+    \[(a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0.\]
+    Suppose that 
+    \[\det \left( A = \begin{bmatrix}
+        a_1 & b_1 \\
+        a_2 & b_2
+    \end{bmatrix} \right) = 0.\]
+    but that 
+    \[\det \begin{bmatrix}
+        a_1 & c_1 \\
+        a_2 & c_2
+    \end{bmatrix} \ne 0 \text{ or } \begin{bmatrix}
+        b_1 & c_1 \\
+        b_2 & c_2
+    \end{bmatrix} \ne 0.\]
+    Show that the two lines still have one common point 
+    of intersection but that this point must have $z = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose the two lines intersect at a point such that $z \ne 0$.
+    Then dividing by $z$ we find 
+    \[\left(a_1 \frac{x}{z} + b_1 \frac{y}{z} + c_1\right)\left(a_2 \frac{x}{z} + b_2 \frac{y}{z} + c_2\right) = 0.\]
+    Let $X = \frac{x}{z}, Y =\frac{y}{z}$.
+    We now have the following system 
+    \[\begin{bmatrix}
+        a_1 & b_1 \\
+        a_2 & b_2
+    \end{bmatrix} \begin{bmatrix}
+        X \\
+        Y
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        -c_1 \\
+        -c_2
+    \end{bmatrix}.\]
+    Since $\det(A) = 0$ the system does not have a unique solution.
+    It follows that the lines are linearly dependent.
+    Now, wlog suppose 
+    \[\det \begin{bmatrix}
+        a_1 & c_1 \\
+        a_2 & c_2
+    \end{bmatrix} \ne 0.\]
+    Then $a_1 c_2 \ne a_2 c_1$ and it follows that the lines are not equivalent.
+    Therefore, the lines are parallel and meet at $z = 0$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let 
+    \[f(x, y, z) = (a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z),\]
+    where at least one of $a_1, b_2$, or $c_1$ is non-zero and at least one 
+    of the $a_2, b_2$, or $c_2$ is non-zero. Show that the curve defined 
+    by $f(x, y, z) = 0$ is a double line if and only if 
+    \[\det \begin{bmatrix}
+        a_1 & b_1 \\
+        a_2 & b_2
+    \end{bmatrix} = 0, \quad \det \begin{bmatrix}
+        a_1 & c_1 \\
+        a_2 & c_2
+    \end{bmatrix} = 0, \quad  \det \begin{bmatrix}
+        b_1 & c_1 \\
+        b_2 & c_2
+    \end{bmatrix} = 0.\]
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f(x, y, z) = 0$ is a double line.  
+    By Problem 4 we know
+    \[
+    \det \begin{bmatrix} a_1 & b_1 \\ a_2 & b_2 \end{bmatrix} = 0, \quad
+    \det \begin{bmatrix} a_1 & c_1 \\ a_2 & c_2 \end{bmatrix} = 0, \quad
+    \det \begin{bmatrix} b_1 & c_1 \\ b_2 & c_2 \end{bmatrix} = 0.
+    \]
+    Conversely, suppose
+    \[
+    \det \begin{bmatrix} a_1 & b_1 \\ a_2 & b_2 \end{bmatrix} = 0, \quad
+    \det \begin{bmatrix} a_1 & c_1 \\ a_2 & c_2 \end{bmatrix} = 0, \quad
+    \det \begin{bmatrix} b_1 & c_1 \\ b_2 & c_2 \end{bmatrix} = 0.
+    \]  
+    Thus $(a_2, b_2, c_2)$ is a scalar multiple of $(a_1, b_1, c_1)$.
+    Therefore $f(x, y, z) = 0$ is a double line.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Consider the crossing lines 
+    \[(a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0,\]
+    with 
+    \[\det \left(\begin{bmatrix}
+        a_1 & b_1 \\
+        a_2 & b_2
+    \end{bmatrix}\right) \ne 0.\]
+    Find a projective change of coordinates from $xyz$-space to $uvw$-space 
+    so that the crossing lines become 
+    \[uv = 0.\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Consider the crossing lines $(a_2 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0$, with 
+    \[\det \left(\begin{bmatrix}
+        a_1 & c_1 \\
+        a_2 & c_2
+    \end{bmatrix}\right) \ne 0.\]
+    Find a projective change of coordinates from $xyz$-space to $uvw$-space 
+    so that the crossing lines become 
+    \[uv = 0.\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Show that there is a projective change of coordinates from $xyz$-space to $uvw$-space so that 
+    the double lines $(ax + by + cz)^2 = 0$ becomes teh double line
+    \[u^2 = 0.\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Argue that there are three distinct classes of conics in $\mathbb{P}^2$.
 \end{tcolorbox}
