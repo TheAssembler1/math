@@ -2864,36 +2864,357 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     Therefore $f(x, y, z) = 0$ is a double line.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 6, breakable]
-    Consider the crossing lines 
+    Consider 
     \[(a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0,\]
     with 
-    \[\det \left(\begin{bmatrix}
+    \[\det \begin{bmatrix}
         a_1 & b_1 \\
         a_2 & b_2
-    \end{bmatrix}\right) \ne 0.\]
+    \end{bmatrix} \ne 0.\]
     Find a projective change of coordinates from $xyz$-space to $uvw$-space 
     so that the crossing lines become 
     \[uv = 0.\]
 \end{tcolorbox}
+
+\begin{proof}
+    Consider
+    \[
+        u = a_1 x + b_1 y + c_1 z, \quad
+        v = a_2 x + b_2 y + c_2 z, \quad
+        w = z.
+    \]
+    Then,
+    \[
+        (a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z)
+        =
+        uv.
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
     Consider the crossing lines $(a_2 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0$, with 
-    \[\det \left(\begin{bmatrix}
+    \[\det \begin{bmatrix}
         a_1 & c_1 \\
         a_2 & c_2
-    \end{bmatrix}\right) \ne 0.\]
+    \end{bmatrix} \ne 0.\]
     Find a projective change of coordinates from $xyz$-space to $uvw$-space 
     so that the crossing lines become 
     \[uv = 0.\]
 \end{tcolorbox}
 
+\begin{proof}
+    Consider
+    \[
+        u = a_1 x + b_1 y + c_1 z, \quad
+        v = a_2 x + b_2 y + c_2 z, \quad
+        w = z.
+    \]
+    Then,
+    \[
+        (a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z)
+        =
+        uv.
+    \]
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 8, breakable]
     Show that there is a projective change of coordinates from $xyz$-space to $uvw$-space so that 
-    the double lines $(ax + by + cz)^2 = 0$ becomes teh double line
+    the double lines $(ax + by + cz)^2 = 0$ becomes the double line
     \[u^2 = 0.\]
 \end{tcolorbox}
 
+\begin{proof}
+    Consider
+    \[
+        u = a x + b y + c z, \quad
+        v = a x + b y + c z, \quad
+        w = z.
+    \]
+    Then,
+    \[
+        (a x + b y + c z)(a x + b y + c z)
+        =
+        u^2.
+    \]
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 9, breakable]
     Argue that there are three distinct classes of conics in $\mathbb{P}^2$.
+\end{tcolorbox}
+
+\begin{proof}
+    There are three cases.
+    If $f(x, y, z)$ cannot be factored then it represents an ellipse, circle, parabola, or hyperbola, which are all equivalent in $\mathbb{P}^2$.
+    If $f(x, y, z)$ can be factored into two distinct linear factors then it represents two crossing lines.
+    If $f(x, y, z)$ can be factored into two identical linear factors then it represents a double line.
+\end{proof}
+
+\subsection{Tangents and Singular Points}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Explain why if both $\frac{\partial{f}}{\partial{x}}(a, b) = 0$ and $\frac{\partial{f}}{\partial{y}}(a, b) = 0$,
+    then the tangent line is not well-defined at $(a, b)$.
+
+\end{tcolorbox}
+\begin{proof}
+    Suppose both $\frac{\partial{f}}{\partial{x}}(a, b) = 0$ and $\frac{\partial{f}}{\partial{y}}(a, b) = 0$.
+    The equation of the tangent line is
+    \[
+        \frac{\partial f}{\partial x}(a,b)(x-a) + \frac{\partial f}{\partial y}(a,b)(y-b) = 0.
+    \]
+    Substituting we find
+    \[
+        0(x-a) + 0(y-b) = 0,
+    \]
+    which is true for all $(x,y)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Show that the curve 
+    \[C = \{(x, y) \in \mathbb{C}^2 \mid x^2 + y^2 - 1 = 0\},\]
+    is smooth.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(a, b)$ be arbitrary points on $C$.
+    Suppose
+    \[\frac{\partial f}{\partial x}(a,b) = 2a = 0,\]
+    and 
+    \[\frac{\partial f}{\partial y}(a,b) = 2b = 0.\]
+    Then $a = b = 0$ but $x^2 + y^2 - 1 = -1 \ne 0$ which is a contradiction.
+    Thus $C$ is smooth.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Show that the pair of crossing lines 
+    \[C = \{(x, y) \in \mathbb{C}^2 \mid (x + y - 1)(x - y - 1) = 0\}\]
+    has exactly one singular point. Give a geometric interpretation of this singular point.
+\end{tcolorbox}
+
+\begin{proof}
+    Expanding we find 
+    \[(x + y - 1)(x - y - 1) = x^2 - 2x - y^2 + 1 = 0.\]
+    Suppose
+    \[\frac{\partial f}{\partial x}(a,b) = 2a - 2 = 0,\]
+    and 
+    \[\frac{\partial f}{\partial y}(a,b) = -2b = 0.\]
+    Then $a = 1$ and $b = 0$.
+    Thus $C$ is singular.
+    This singular point is at the point of intersetion.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Show that every point on the double line 
+    \[C = \{(x, y) \in \mathbb{C}^2 \mid (2x + 3y - 4)^2 = 0\},\]
+    is singular.
+\end{tcolorbox}
+
+\begin{proof}
+    Expanding we find 
+    \[(2x + 3y - 4)^2 = 4x^2 + 12xy - 16x + 9y^2 - 24y + 16 = 0.\]
+    Suppose
+    \[
+    \frac{\partial f}{\partial x}(a,b) = 8a + 12b - 16 = 4(2a + 3b - 4) = 0,
+    \]
+    and 
+    \[
+    \frac{\partial f}{\partial y}(a,b) = 12a + 18b - 24 = 6(2a + 3b - 4) = 0.
+    \]
+    Thus all $(a, b)$ vanish and therefore every point on the double line $C$ is singular.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Show that the curve 
+    \[C = \{(x : y : z) \in \mathbb{P}^2 \mid x^2 + y^2 - z^2 = 0\}\]
+    is smooth.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(a:b:c) \in C$. Suppose
+    \[
+    \frac{\partial f}{\partial x}(a,b,c) = 2a = 0,
+    \]
+    \[
+    \frac{\partial f}{\partial y}(a,b,c) = 2b = 0,
+    \]
+    and
+    \[
+    \frac{\partial f}{\partial z}(a,b,c) = -2c = 0.
+    \]
+    Then $a=b=c=0$ which is not possible in projective space.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Show that the pair of crossing lines 
+    \[C = \{(x : y : z) \in \mathbb{P}^2 \mid (x + y - z)(x - y - z) = 0\},\]
+    has exactly one point.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(a:b:c) \in C$. Suppose
+    \[
+    \frac{\partial f}{\partial x}(a,b,c) = 2a - 2c = 0,
+    \]
+    \[
+    \frac{\partial f}{\partial y}(a,b,c) = -2b = 0,
+    \]
+    and
+    \[
+    \frac{\partial f}{\partial z}(a,b,c) = -2a + 2c = 0.
+    \]
+    Then $b=0$ and $a=c$.
+    Thus $(a:b:c) = (a:0:a) = (1:0:1)$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Show that every point on the double line 
+    \[C = \{(x : y : z) \in \mathbb{P}^2 \mid (2x + 3y - 4z)^2 = 0\},\]
+    is singular.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(a:b:c) \in C$. Suppose
+    \[
+    f(x,y,z) = (2x + 3y - 4z)^2.
+    \]
+    Then
+    \[
+    \frac{\partial f}{\partial x}(a,b,c) = 2(2a + 3b - 4c) \cdot 2 = 4(2a + 3b - 4c),
+    \]
+    \[
+    \frac{\partial f}{\partial y}(a,b,c) = 2(2a + 3b - 4c) \cdot 3 = 6(2a + 3b - 4c),
+    \]
+    \[
+    \frac{\partial f}{\partial z}(a,b,c) = 2(2a + 3b - 4c) \cdot (-4) = -8(2a + 3b - 4c).
+    \]
+    But $(a:b:c) \in C$ thus $2a + 3b - 4c = 0$. So all partial derivatives vanish on $C$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    For 
+    \[f(x, y, z) = x^2 + 3xy + 5xz + y^2 - 7yz + 8z^2,\]
+    show that 
+    \[2f = x \frac{\partial f}{\partial x} + y \frac{\partial f}{\partial y} + z \frac{\partial f}{\partial z}.\]
+\end{tcolorbox}
+
+\begin{proof}
+    For all $(a, b, c)$ we have 
+    \[
+    2f(a, b, c) = 2(a^2 + 3ab + 5ac + b^2 - 7bc + 8c^2) 
+    = 2a^2 + 6ab + 10ac + 2b^2 - 14bc + 16c^2.
+    \]
+    Then
+    \[
+    \frac{\partial f}{\partial x}(a,b,c) = 2a + 3b + 5c,
+    \]
+    \[
+    \frac{\partial f}{\partial y}(a,b,c) = 3a + 2b - 7c,
+    \]
+    \[
+    \frac{\partial f}{\partial z}(a,b,c) = 5a - 7b + 16c.
+    \]
+    Then
+    \[
+    a \frac{\partial f}{\partial x} + b \frac{\partial f}{\partial y} + c \frac{\partial f}{\partial z} 
+    = a(2a + 3b + 5c) + b(3a + 2b - 7c) + c(5a - 7b + 16c),
+    \]
+    \[
+    = 2a^2 + 3ab + 5ac + 3ab + 2b^2 - 7bc + 5ac - 7bc + 16c^2
+    = 2a^2 + 6ab + 10ac + 2b^2 - 14bc + 16c^2.
+    \]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 9, breakable]
+    For 
+    \[f(x, y, z) = ax^2 + bxy + cxz + dy^2 + eyz + hz^2\]
+    show that 
+    \[2f = x \frac{\partial f}{\partial x} + y \frac{\partial f}{\partial y} + z \frac{\partial f}{\partial z}.\]
+\end{tcolorbox}
+
+\begin{proof}
+    Notice
+    \[
+    \frac{\partial f}{\partial x} = 2ax + by + cz,
+    \quad
+    \frac{\partial f}{\partial y} = bx + 2dy + ez,
+    \quad
+    \frac{\partial f}{\partial z} = cx + ey + 2hz.
+    \]
+    Then
+    \begin{align*}
+    x \frac{\partial f}{\partial x} + y \frac{\partial f}{\partial y} + z \frac{\partial f}{\partial z} 
+    &= x(2ax + by + cz) + y(bx + 2dy + ez) + z(cx + ey + 2hz) \\
+    &= 2ax^2 + bxy + cxz + bxy + 2dy^2 + eyz + cxz + eyz + 2hz^2 \\
+    &= 2ax^2 + 2bxy + 2cxz + 2dy^2 + 2eyz + 2hz^2 \\
+    &= 2f(x,y,z),
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $f(x, y, z)$ be a homogeneous polynomial of degree $n$.
+    Show that 
+    \[nf = x \frac{\partial f}{\partial x} + y \frac{\partial f}{\partial y} + z \frac{\partial f}{\partial z}.\]
+\end{tcolorbox}
+
+\begin{proof}
+    Let 
+    \[
+    f(x,y,z) = \sum_{i+j+k=n} c_{ijk} x^i y^j z^k
+    \]
+    Then
+    \[
+    \frac{\partial f}{\partial x} = \sum_{i+j+k=n} i \, c_{ijk} x^{i-1} y^j z^k, 
+    \quad
+    \frac{\partial f}{\partial y} = \sum_{i+j+k=n} j \, c_{ijk} x^i y^{j-1} z^k,
+    \quad
+    \frac{\partial f}{\partial z} = \sum_{i+j+k=n} k \, c_{ijk} x^i y^j z^{k-1}.
+    \]
+    Then
+    \begin{align*}
+    x \frac{\partial f}{\partial x} + y \frac{\partial f}{\partial y} + z \frac{\partial f}{\partial z} 
+    &= \sum_{i+j+k=n} (i+j+k) c_{ijk} x^i y^j z^k \\
+    &= \sum_{i+j+k=n} n \, c_{ijk} x^i y^j z^k \\
+    &= n f(x,y,z).
+    \end{align*}
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Use Exercise 1.10.10 to show that if $p = (a : b : c)$
+    satisfies 
+    \[\frac{\partial f}{\partial x}(a, b, c) = \frac{\partial f}{\partial y}(a, b, c) = \frac{\partial f}{\partial z}(a ,b, c) = 0,\]
+    then $p \in V(f)$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
 \end{tcolorbox}
