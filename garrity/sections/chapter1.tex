@@ -3362,7 +3362,7 @@ Thus,
 
 \subsection{Conics via Linear Algebra}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 1, breakable]
     Write the following conics in the form 
     \[\begin{bmatrix}
@@ -3438,7 +3438,7 @@ A = \begin{bmatrix}
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 3, breakable]
     Let $C$ be a $3 \times 3$ matrix and let $X$ 
         be a $3 \times 1$ matrix.
@@ -3562,7 +3562,7 @@ A = \begin{bmatrix}
     The roots of this third degree polynomial are the three eigenvalues, counting multiplicity.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 6, breakable]
     \begin{enumerate}
         \item Let $A$ and $B$ be two symmetric matrices, neither of which 
@@ -3580,7 +3580,7 @@ A = \begin{bmatrix}
     \end{enumerate}
 \end{tcolorbox}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 7, breakable]
     \begin{enumerate}
         \item Show that the $3 \times 3$ matrix associated to the ellipse 
@@ -3754,7 +3754,7 @@ A = \begin{bmatrix}
 \textbf{Solution: } In $\mathbb{P}^2$ all equations are homogeneous of degree 2. 
 Thus linear and constant terms become second order terms involving $z$. 
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 10, breakable]
     Find the discriminant of each of the following conics.
     \begin{enumerate}
@@ -3828,10 +3828,185 @@ Thus linear and constant terms become second order terms involving $z$.
     If $\triangle > 0$, there are no real roots.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 13, breakable]
     The discriminant in the quadratic formula tells us  
     how many (real) solutions a given quadratic equation in a single 
     variable has. Classify a conic $V(f(x, y))$ based on the number 
     of solutions to its dehomogenized quadratic equation.
+\end{tcolorbox}
+
+\begin{proof}
+    If $\triangle = 0$ then the dehomogenized quadratic has one real solution so the conic is tangent to the line at infinity and is thus a parabola.
+    If $\triangle > 0$ then the dehomogenized quadratic has two real solution, so the conic intersects the line at infinity twice and is thus a hyperbola.
+    If $\triangle < 0$ then the dehomogenized quadratic has no real solutions so the conic does not intersect the line at infinity and is thus an ellipse.
+\end{proof}
+
+\subsection{Duality}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Show that the line associated to $a_1 = 1$,
+    $b_1 = 2$, $c_1 = 3$ is the same line as that associated 
+    to $a_2 = -2, b_2 = -4, c_2 = -6$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[
+    L_1 = \{(x : y : z) \in \mathbb{P}^2 \mid x + 2y + 3z = 0\}
+    \]
+    and 
+    \[
+    L_2 = \{(x : y : z) \in \mathbb{P}^2 \mid -2x - 4y - 6z = 0\}.
+    \]
+    But 
+    \[
+    (-2, -4, -6) = \lambda (1, 2, 3)
+    \quad (\lambda = -2),
+    \]
+    Thus 
+    \[
+    L_1 = L_2.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Show that the line associated to $a_1, b_1, c_1$
+    is the same as the line associated to $a_2, b_2, c_2$
+    if and only if there is a non-zero constant $\lambda \in \mathbb{C}$
+    such that $a_1 = \lambda a_2, b_1 = \lambda b_2, c_1 = \lambda c_2$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose the line associated to $a_1, b_1, c_1$ is the same as the line associated to $a_2, b_2, c_2$.
+    Then
+    \[
+    L_1 = \{(x,y,z) \in \mathbb{P}^2 \mid a_1 x + b_1 y + c_1 z = 0\}
+    \]
+    and
+    \[
+    L_2 = \{(x,y,z) \in \mathbb{P}^2 \mid a_2 x + b_2 y + c_2 z = 0\}.
+    \]
+    There exists a nonzero constant $\lambda \in \mathbb{C}$ such that
+    \[
+    a_1 = \lambda a_2, \quad b_1 = \lambda b_2, \quad c_1 = \lambda c_2.
+    \]
+
+    Conversely suppose that there is a non-zero constant $\lambda \in \mathbb{C}$
+    such that $a_1 = \lambda a_2, b_1 = \lambda b_2, c_1 = \lambda c_2$.
+    Then
+    \[
+    a_1 x + b_1 y + c_1 z
+    =
+    \lambda (a_2 x + b_2 y + c_2 z).
+    \]
+    Since $\lambda \neq 0$ the equations have the same zero set. Thus the lines are the same.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Show that the set of all lines in $\mathbb{P}^2$ can be 
+    identified with $\mathbb{P}^2$ itself.
+\end{tcolorbox}
+
+\begin{proof}
+    By Problem 2, each line can be associated with exactly one point in $\mathbb{P}^2$, 
+    and each point in $\mathbb{P}^2$ can be associated with exactly one line.  
+    Thus the set of all lines can be identified with the set of all points in $\mathbb{P}^2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Explain in your own words why, given $(x_0 : y_0 : z_0) \in \mathbb{P}^2$,
+    we can interpret $M_{(x_0 : y_0 : z_0)}$ as the set of all lines containing 
+    the point $(x_0 : y_0 : z_0)$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Show that both maps $\pi_1$ and $\pi_2$ are onto.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Given a point $(a : b : c) \in \tilde{\mathbb{P}}^2$, consider the set 
+    \[\pi_1^{-1}(a : b : c) = \{((a : b : c), (x_0 : y_0 : c_0)) \in \sum\}.\]
+    Show that hte set $\pi_2(\pi_1^{-1}(a : b : c))$ is identical to a set in $\mathbb{P}^2$
+    that we defined near the beggining of this section.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Given a point $(x_0 : y_0 : z_0) \in \mathbb{P}^2$, consider the set 
+    \[\pi_2^{-1}(x_0 : y_0 : z_0) = \{((a : b : c), (x_0 : y_0 : z_0)) \in \sum\}.\]
+    Show that the set $\pi_1(\pi_2^{-1}(x_0 : y_0 : z_0))$ is identical to a set in 
+    $\tilde{\mathbb{P}}^2$ that we defined near the beggining of this section.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $(1 : 2 : 3), (2 : 5 : 1) \in \tilde{\mathbb{P}}^2$. Find 
+    \[\pi_2(\pi_1^{-1}(1 : 2 : 3)) \cap \pi_2(\pi_1^{-1}(2 : 5 : 1)).\]
+    Explain why this is just a fancy way for finding the point of intersection of the two lines 
+    \[x + 2y + 3z = 0,\]
+    \[2x + 5y + z = 0.\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $(1 : 2 : 3), (2 : 5 : 1) \in \mathbb{P}^2$. Find 
+    \[\pi_1(\pi_2^{-1}(1 : 2 : 3)) \cap \pi_1(\pi_2^{-1} (2 : 5 : 1)).\]
+    Explain why this is just a fancy way for finding the unique line containing the points 
+    $(1 : 2 : 3), (2 : 5 : 1)$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Use the duality principle to find the corresponding theorem to :
+    \begin{theorem}
+        Any two distinct points in $\mathbb{P}^2$ determine a unique line.
+    \end{theorem}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Given $(x_0, y_0, z_0, w_0), (x_1, y_1, z_1, w_1) \in \mathbb{C}^4 - \{(0, 0, 0, 0)\}$, define 
+    \[(x_0, y_0, z_0, w_0) \sim (x_1, y_1, z_1, w_1),\]
+    if there exists a non-zero $\lambda$ such that 
+    \[x_0 = \lambda x_1, y_0 = \lambda y_1, z_0 = \lambda z_1, w_0 = \lambda w_1.\]
+    Define 
+    \[\mathbb{P}^3 = \mathbb{C}^4 - \{(0, 0, 0, 0)\} \setminus \tilde.\]
+    Show that the set of all planes in $\mathbb{P}^3$ can be identified with another copy 
+    of $\mathbb{P}^3$. Explain how the duality principle can be used to link the fact 
+    that three non-colinear points define a unique plane to the fact three planes with linearly 
+    dependent normal vectors intersect in a unique point.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Show for any $p = (x_0, y_0, z_0) \in C$, we have 
+    \[T_p(C) = \{(x : y : z) \in \mathbb{P}^2 \mid (x - x_0) \frac{\partial f}{\partial x}(p)\}\]
+    \[+ (y - y_0) \frac{\partial f}{\partial y}(p) + (z - z_0) \frac{\partial f}{\partial z}(p) = 0.\]
+    Recall that $p \in C$ is smooth if the gradient 
+    \[\triangle f(p) \ne (0, 0, 0).\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    For $f(x, y, z) = x^2 + y^2 - z^2$, let $C = V(f(x, y, z))$. Show for any $(x_0 : y_0 : z_0) \in C$
+    that 
+    \[\mathcal{D}(x_0 : y_0 : z_0) = (2 x_0 : 2 y_0 : -2 z_0).\]
+    Show that in this case the dual curve $\tilde{C}$ is the same as the original $C$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Consider $f(x, y, z) = x^2 - yz = 0$. Then for any $(x_0 : y_0 : z_0) \in C$,
+    where $C = V(f)$, show that 
+    \[\mathcal{D}(x_0, y_0, z_0) = (2 x_0 : - z_0 : - y_0).\]
+    Show that the image is in $\mathbb{P}^2$ by showing that $(2 x_0, -z_0, -y_0) \ne (0, 0, 0)$.
+    Letting $(u : v : w) = (2x : -z : -y)$, show that $u^2 - 4vw = 0$ defines the 
+    dual curve $\tilde{C}$. Note that here $\tilde{C} \ne C$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    For $C = V(x^2 + 4y^2 - 9z^2)$, show that the dual curve is 
+    \[\tilde{C} = \{(x, y, z) \in \mathbb{P}^2 \mid x^2 + \frac{1}{4} y^2 - \frac{1}{9}z^2 = 0\}.\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    For $C = V(5x^2 + 2y^2 - 8z^2)$, find the dual curve.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    For a line $L = \{(x : y : z) \in \mathbb{P}^2 \mid ax + bx + cz\}$,
+        find the dual curve. Explain why calling this set the ``dual curve''
+        might seem strange.
 \end{tcolorbox}
