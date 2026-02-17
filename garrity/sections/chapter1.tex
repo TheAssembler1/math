@@ -2725,7 +2725,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     \includegraphics[width=0.3\textwidth]{images/chapter1/10.png}
 \end{figure}
 
-\newpage
 \begin{tcolorbox}[title=Problem 2, breakable]
     Consider the two lines given by 
     \[(a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0,\]
@@ -2778,7 +2777,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     Thus either $a_1 \ne a_2$ or $b_1 \ne b_2$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     Again consider the two lines 
     \[(a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0.\]
@@ -2827,7 +2825,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     Therefore, the lines are parallel and meet at $z = 0$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
     Let 
     \[f(x, y, z) = (a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z),\]
@@ -2864,7 +2861,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     Therefore $f(x, y, z) = 0$ is a double line.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 6, breakable]
     Consider 
     \[(a_1 x + b_1 y + c_1 z)(a_2 x + b_2 y + c_2 z) = 0,\]
@@ -2987,7 +2983,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     Thus $C$ is smooth.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 3, breakable]
     Show that the pair of crossing lines 
     \[C = \{(x, y) \in \mathbb{C}^2 \mid (x + y - 1)(x - y - 1) = 0\}\]
@@ -3026,7 +3021,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     Thus all $(a, b)$ vanish and therefore every point on the double line $C$ is singular.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
     Show that the curve 
     \[C = \{(x : y : z) \in \mathbb{P}^2 \mid x^2 + y^2 - z^2 = 0\}\]
@@ -3070,7 +3064,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     Thus $(a:b:c) = (a:0:a) = (1:0:1)$.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 7, breakable]
     Show that every point on the double line 
     \[C = \{(x : y : z) \in \mathbb{P}^2 \mid (2x + 3y - 4z)^2 = 0\},\]
@@ -3129,7 +3122,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     \]
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 9, breakable]
     For 
     \[f(x, y, z) = ax^2 + bxy + cxz + dy^2 + eyz + hz^2\]
@@ -3184,7 +3176,6 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     \end{align*}
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 11, breakable]
     Use Exercise 1.10.10 to show that if $p = (a : b : c)$
     satisfies 
@@ -3192,29 +3183,655 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     then $p \in V(f)$.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $f$ has degree $n \ne 0$.
+    Suppose $p = (a : b : c)$ such that 
+    \[\frac{\partial f}{\partial x}(a, b, c) = \frac{\partial f}{\partial y}(a, b, c) = \frac{\partial f}{\partial z}(a ,b, c) = 0.\]
+    Then
+    \[n f(a, b, c) = a \frac{\partial f}{\partial x}(a, b, c) + b \frac{\partial f}{\partial y}(a, b, c) + c \frac{\partial f}{\partial z}(a, b, c) = 0.\]
+    Thus $f(a, b, c) = 0$ so $(a : b : c) \in V(f)$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 12, breakable]
+    Graph the curve 
+    \[f(x, y) = x^3 + x^2 - y^2 = 0,\]
+    in the real plane $\mathbb{R}^2$.
+    What is happening at the origin $(0, 0)$?
+    Find the singular points.
 \end{tcolorbox}
+
+\textbf{Solution: }
+The curve intersects itself at the origin, which is a singular point.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/11.png}
+\end{figure}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
+    Graph the curve 
+    \[f(x, y) = x^3 - y^2 = 0,\]
+    in the real plane $\mathbb{R}^2$. What is happening at the origin $(0,0)$?
+    Find the singular points.
 \end{tcolorbox}
+
+\textbf{Solution: }
+The curve has no derivative at the origin, which is a singular point.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/12.png}
+\end{figure}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
+    Suppose that 
+    \[f_1(a, b) = 0 \text{ and } f_2(a, b) = 0,\]
+    for a point $(a, b) \in \mathbb{C}^2$.
+    Show that $(a, b)$ is a singular point on $V(f)$,
+        where $f = f_1 f_2$.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 15, breakable]
-\end{tcolorbox}
+\begin{proof}
+    Notice
+    \[
+    \frac{\partial f}{\partial x} = f_1 \frac{\partial f_2}{\partial x} + f_2 \frac{\partial f_1}{\partial x}, \quad
+    \frac{\partial f}{\partial y} = f_1 \frac{\partial f_2}{\partial y} + f_2 \frac{\partial f_1}{\partial y}.
+    \]  
+    Then
+    \[
+    \frac{\partial f}{\partial x}(a, b) = f_1(a, b) \frac{\partial f_2}{\partial x}(a, b) + f_2(a, b) \frac{\partial f_1}{\partial x}(a, b) = 0,
+    \]
+    \[
+    \frac{\partial f}{\partial y}(a, b) = f_1(a, b) \frac{\partial f_2}{\partial y}(a, b) + f_2(a, b) \frac{\partial f_1}{\partial y}(a, b) = 0.
+    \]  
+    Therefore $(a, b)$ is a singular point of $V(f)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 16, breakable]
+    Consider the curve 
+    \[C = \{(u, v, w) \in \mathbb{P}^2 \mid u^2 - v^2 - w^2 = 0\}.\]
+    Suppose we have the projective change of coordinates given by
+    \[u = x + y,\]
+    \[v = x - y,\]
+    \[w = z.\]
+    Show that $C$ corresponds to the curve 
+    \[\tilde{C} = \{(x, y, z) \in \mathbb{P}^2 \mid 4xy - z^2 = 0\}.\]
+    In other words, if $f(u, v, w) = u^2 - v^2 - w^2$,
+    then $\tilde{f}(x, y, z) = 4xy - z^2$.
 \end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \begin{align*}
+        u^2 - v^2 - w^2 &= (x + y)^2 - (x - y)^2 - z^2 \\
+                        &= x^2 + 2xy + y^2 - (x^2 - 2xy + y^2) - z^2 \\
+                        &= 4xy - z^2. 
+    \end{align*}
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
+    Suppose we have the projective change of coordinates given by 
+    \[u = x + y,\]
+    \[v = x - y,\]
+    \[w = x + y + z.\]
+    If $f(u, v, w) = u^2 + uw + v^2 + vw$, find $\tilde{f}(x, y, z)$.
 \end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \begin{align*}
+        u^2 + uw + v^2 + vw 
+        &= (x + y)^2 + (x + y)(x + y + z) + (x - y)^2 + (x - y)(x + y + z) \\
+        &= (x^2 + 2xy + y^2) + (x^2 + 2xy + y^2 + (x + y)z) + (x^2 - 2xy + y^2) + (x^2 - 2xy + y^2 + (x - y)z) \\
+        &= 4x^2 + 4y^2 + 2xz + 2yz \\
+        &= 2(2x^2 + 2y^2 + (x+y)z).
+    \end{align*}
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 18, breakable]
+    For a general projective change of coordinates given by 
+    \[u = a_{11} x + a_{12} y + a_{13} z,\]
+    \[v = a_{21} x + a_{22} y + a_{23} z,\]
+    \[w = a_{31} x + a_{32} y + a_{33} z,\]
+    and a polynomial $f(u, v, w)$, describe how to find the corresponding 
+    $\tilde{f}(x, y, z)$.
 \end{tcolorbox}
+
+\textbf{Solution: }
+Substitute $u, v, w$ which are written in terms of $x, y, z$ into $f(u, v, w)$.  
+Thus,
+\[
+    \tilde{f}(x, y, z) = f\bigl(a_{11} x + a_{12} y + a_{13} z,\; a_{21} x + a_{22} y + a_{23} z,\; a_{31} x + a_{32} y + a_{33} z\bigr).
+\]
 
 \begin{tcolorbox}[title=Problem 19, breakable]
+    Let 
+    \[u = a_{11} x + a_{12} y + a_{13} z,\]
+    \[v = a_{21} x + a_{22} y + a_{23} z,\]
+    \[w = a_{31} x + a_{32} y + a_{33} z,\]
+    be a projective change of coordinates. Show that $(u_0 : v_0 : w_0)$
+    is a singular point of the curve $C = \{(u : v : w) : f(u, v, w) : 0\}$
+    if and only if the corresponding curve $\tilde{C} = \{(x : y : z) \mid \tilde{f}(x, y, z) = 0\}$.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $(u_0 : v_0 : w_0)$
+    is a singular point of $C$. Then
+    \[
+        f(u_0, v_0, w_0) = 0, \quad
+        \frac{\partial f}{\partial u}(u_0, v_0, w_0) = 0,\quad
+        \frac{\partial f}{\partial v}(u_0, v_0, w_0) = 0,\quad
+        \frac{\partial f}{\partial w}(u_0, v_0, w_0) = 0.
+    \]
+    Let $(x_0 : y_0 : z_0)$ be the point under the linear change.  
+    Then $\tilde{f}(x_0, y_0, z_0) = f(u_0, v_0, w_0) = 0$ so
+    \begin{align*}
+        \frac{\partial \tilde{f}}{\partial x}(x_0, y_0, z_0) 
+        &= a_{11} \frac{\partial f}{\partial u}(u_0, v_0, w_0)
+         + a_{21} \frac{\partial f}{\partial v}(u_0, v_0, w_0)
+         + a_{31} \frac{\partial f}{\partial w}(u_0, v_0, w_0) = 0,\\
+        \frac{\partial \tilde{f}}{\partial y}(x_0, y_0, z_0) 
+        &= a_{12} \frac{\partial f}{\partial u}(u_0, v_0, w_0)
+         + a_{22} \frac{\partial f}{\partial v}(u_0, v_0, w_0)
+         + a_{32} \frac{\partial f}{\partial w}(u_0, v_0, w_0) = 0,\\
+        \frac{\partial \tilde{f}}{\partial z}(x_0, y_0, z_0) 
+        &= a_{13} \frac{\partial f}{\partial u}(u_0, v_0, w_0)
+         + a_{23} \frac{\partial f}{\partial v}(u_0, v_0, w_0)
+         + a_{33} \frac{\partial f}{\partial w}(u_0, v_0, w_0) = 0.
+    \end{align*}
+    Thus $(x_0 : y_0 : z_0)$ is singular in $\tilde{C}$.  
+
+    Conversely, if $(x_0 : y_0 : z_0)$ is singular on $\tilde{C}$ a symmetrical argument shows that $(u_0 : v_0 : w_0)$ is singular in $C$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 20, breakable]
+    Use the previous exercise to prove Theorem 1.10.15.
+\end{tcolorbox}
+
+\begin{proof}
+    By Problem 19 if $(u_0 : v_0 : w_0)$ is a singular point of a curve 
+    \[
+        C = \{(u : v : w) \mid f(u, v, w) = 0\},
+    \] 
+    and $(x_0 : y_0 : z_0)$ is the corresponding point under a projective change of coordinates
+     then $(x_0 : y_0 : z_0)$ is singular on the curve 
+    \[
+        \tilde{C} = \{(x : y : z) \mid \tilde{f}(x, y, z) = 0\}.
+    \]  
+    Conversely, any singular point of $\tilde{C}$ corresponds to a singular point of $C$.  
+\end{proof}
+
+\subsection{Conics via Linear Algebra}
+
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Write the following conics in the form 
+    \[\begin{bmatrix}
+        x & y & z
+    \end{bmatrix} A
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix} = 0.\]
+    That is, find a symmetrix matrix $A$ for each quadratic equation.
+    \begin{enumerate}
+        \item $x^2 + y^2 + z^2 = 0$.
+        \item $x^2 + y^2 - z^2 = 0$.
+        \item $x^2 - y^2 = 0$.
+        \item $x^2 + 2xy + y^2 + 3xz + z^2 = 0$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (1)}
+\[A = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix}\]
+\textbf{Solution (2)}
+\[
+A = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & -1
+\end{bmatrix}
+\]
+\textbf{Solution (3)}
+\[
+A = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & -1 & 0 \\
+    0 & 0 & 0
+\end{bmatrix}
+\]
+\textbf{Solution (4)}
+\[
+A = \begin{bmatrix}
+    1 & 1 & \frac{3}{2} \\
+    1 & 1 & 0 \\
+    \frac{3}{2} & 0 & 1
+\end{bmatrix}
+\]
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Show that any conic 
+    \[f(x, y, z) = ax^2 + bxy + cy^2 + dxz + eyz + hz^2,\]
+    can be written as 
+    \[
+    \begin{bmatrix}
+        x & y & z
+    \end{bmatrix} 
+    A 
+    \begin{bmatrix}
+        x \\ 
+        y \\
+        z
+    \end{bmatrix}
+    \]
+\end{tcolorbox}
+
+\begin{proof}
+    \[A = 
+    \begin{bmatrix}
+        a & \frac{b}{2} & \frac{d}{2} \\
+        \frac{b}{2} & c & \frac{e}{2} \\
+        \frac{d}{2} & \frac{e}{2} & h
+    \end{bmatrix}.
+    \]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $C$ be a $3 \times 3$ matrix and let $X$ 
+        be a $3 \times 1$ matrix.
+    Show that $(CX)^T = X^T C^T$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let 
+    \[
+        C = (c_{ij}), \quad X = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}.
+    \]
+    Then 
+    \begin{align*}
+        (CX)^T &= 
+        \begin{bmatrix}
+            \sum_{k=1}^{3} c_{1k} x_k \\
+            \sum_{k=1}^{3} c_{2k} x_k \\
+            \sum_{k=1}^{3} c_{3k} x_k
+        \end{bmatrix}^T \\
+        &= 
+        \begin{bmatrix}
+            \sum_{k=1}^{3} x_k c_{k1} & 
+            \sum_{k=1}^{3} x_k c_{k2} & 
+            \sum_{k=1}^{3} x_k c_{k3}
+        \end{bmatrix} \\
+        &= X^T C^T.
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $M$ be a projective change of coordinates 
+    \[
+    \begin{bmatrix}
+        u \\ v \\ m
+    \end{bmatrix} = M 
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix},
+    \]
+    and suppose 
+    \[f(u, v, w) = 
+    \begin{bmatrix}
+        u & v & w
+    \end{bmatrix} A 
+    \begin{bmatrix}
+        u \\ v \\ w
+    \end{bmatrix}, \quad 
+    \tilde{f}(x, y, z) = 
+    \begin{bmatrix}
+        x & y & z
+    \end{bmatrix} B 
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix}.
+    \]
+    Show that 
+    \[B = M^T AM.\]
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[
+    \begin{bmatrix}
+        u \\ v \\ w
+    \end{bmatrix}^T = \left(M 
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix}\right)^T = 
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix}^T M^T.
+    \]
+    But then substituting for $u,v,w$ we see
+    \[
+    f(u, v, w) = 
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix}^T M^T A 
+    M 
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix}.
+    \]
+    Since
+    \[
+    \tilde f(x,y,z)
+    =
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix}^T
+    B
+    \begin{bmatrix}
+        x \\ y \\ z
+    \end{bmatrix},
+    \]
+    it follows that $B = M^T A M$. 
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Given a $3 \times 3$ matrix $A$, show that $A$ has exactly 
+    three eigenvalues, counting multiplicity.
+\end{tcolorbox}
+
+\begin{proof}
+    We want to find non-zero vectors $v$ such that 
+    \[A v = \lambda v.\]
+    Now let 
+    \[V = \begin{bmatrix}
+    x \\ y \\ z
+    \end{bmatrix}, \text{ such that $x$, $y$, or $z$ is non-zero}.\]
+    Then
+    \[
+    A V = \lambda V
+    \iff
+    (A - \lambda I)V = 0.
+    \]
+    Since $V \ne 0$ we have
+    \[
+    \det(A - \lambda I) = 0.
+    \]
+    The roots of this third degree polynomial are the three eigenvalues, counting multiplicity.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    \begin{enumerate}
+        \item Let $A$ and $B$ be two symmetric matrices, neither of which 
+        has a zero eigenvalue. Show there is an invertible $3 \times 3$ 
+        matrix $C$ such that 
+        \[A = C^T BC.\]
+        \item Let $A$ and $B$ be two symmetric matrices, each of which has 
+        exactly one zero eigenvalue (with the other two eigenvalues being non-zero).
+        Show that there is an invertible $3 \times 3$ matric $C$ such that 
+        \[A = C^T BC.\]
+        \item Now let $A$ and $B$ be two symmetric matrices, each of which has a zero 
+        eigenvalue with multiplicity two (and hence the remaining eigenvalues being non-zero).
+        Show that there is an invertible $3 \times 3$ matrix such that 
+        \[A = C^T BC.\]
+    \end{enumerate}
+\end{tcolorbox}
+
+\newpage
+\begin{tcolorbox}[title=Problem 7, breakable]
+    \begin{enumerate}
+        \item Show that the $3 \times 3$ matrix associated to the ellipse 
+        $V(x^2 + y^2 - z^2)$ has three non-zero eigenvalues.
+        \item Show that the $3 \times 3$ matrix associated to the two crossing lines 
+        $V(xy)$ has one zero eigenvalue and two non-zero eigenvalues.
+        \item Finally, show that the $3 \times 3$ matrix associated to the double 
+        line $V((x - y)^2)$ has a zero eigenvalue of multiplicity two and a non-zero 
+        eigenvalue.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We must solve 
+    \[
+    \det \begin{bmatrix}
+        1 - \lambda & 0 & 0 \\
+        0 & 1 - \lambda & 0 \\
+        0 & 0 & -1 - \lambda
+    \end{bmatrix} = 0,
+    \] 
+    for $\lambda$.  
+    Computing the determinant we find 
+    \[
+    (1-\lambda)(1-\lambda)(-1-\lambda) = (1-\lambda)^2(-1-\lambda).
+    \]  
+    Thus $\lambda = 1$ and $\lambda = -1$.
+    Substituting in $\lambda$ we solve for $v$
+    \[
+    \begin{bmatrix}
+        1 - \lambda & 0 & 0 \\
+        0 & 1 - \lambda & 0 \\
+        0 & 0 & -1 - \lambda
+    \end{bmatrix} v = 0.
+    \]
+    For $\lambda = 1$, this gives
+    \[
+    \begin{bmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & -2
+    \end{bmatrix} 
+    \begin{bmatrix}x\\y\\z\end{bmatrix} = 0
+    \implies z = 0, \quad v = \begin{bmatrix}x\\y\\0\end{bmatrix}.
+    \]
+    For $\lambda = -1$, this gives
+    \[
+    \begin{bmatrix}
+    2 & 0 & 0 \\
+    0 & 2 & 0 \\
+    0 & 0 & 0
+    \end{bmatrix} 
+    \begin{bmatrix}x\\y\\z\end{bmatrix} = 0
+    \implies x = 0, \ y = 0, \quad v = \begin{bmatrix}0\\0\\z\end{bmatrix}.
+    \]
+\end{proof}
+ 
+\begin{proof}
+    We must solve 
+    \[
+    \det \begin{bmatrix}
+    -\lambda & 0 & 0 \\
+    0 & 1 - \lambda & 0 \\
+    0 & 0 & 1 - \lambda
+    \end{bmatrix} = 0
+    \] 
+    for $\lambda$.  
+    Computing the determinant we find 
+    \[
+    (-\lambda)(1-\lambda)(1-\lambda) = -\lambda (1-\lambda)^2.
+    \]  
+    Thus $\lambda = 0$ and $\lambda = 1$.
+    Substituting in $\lambda$, we solve for $v$
+    \[
+    \begin{bmatrix}
+    -\lambda & 0 & 0 \\
+    0 & 1 - \lambda & 0 \\
+    0 & 0 & 1 - \lambda
+    \end{bmatrix} v = 0.
+    \]
+    For $\lambda = 0$, this gives
+    \[
+    \begin{bmatrix}
+    0 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+    \end{bmatrix} 
+    \begin{bmatrix}x\\y\\z\end{bmatrix} = 0
+    \implies y = 0, \ z = 0, \quad v = \begin{bmatrix}x\\0\\0\end{bmatrix}.
+    \]
+    For $\lambda = 1$, this gives
+    \[
+    \begin{bmatrix}
+    -1 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0
+    \end{bmatrix} 
+    \begin{bmatrix}x\\y\\z\end{bmatrix} = 0
+    \implies x = 0, \quad v = \begin{bmatrix}0\\y\\z\end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{proof}
+    We must solve 
+    \[
+    \det \begin{bmatrix}
+    1-\lambda & -1 & 0 \\
+    -1 & 1-\lambda & 0 \\
+    0 & 0 & -\lambda
+    \end{bmatrix} = 0
+    \] 
+    for $\lambda$.  
+    Computing the determinant we find 
+    \[
+    (-\lambda)((1-\lambda)^2 - (-1)^2) = (-\lambda)(\lambda^2 - 2\lambda) = -\lambda^2(\lambda - 2).
+    \]  
+    Thus $\lambda = 0$ and $\lambda = 2$.
+    Substituting in $\lambda$, we solve for $v$
+    \[
+    \begin{bmatrix}
+    1-\lambda & -1 & 0 \\
+    -1 & 1-\lambda & 0 \\
+    0 & 0 & -\lambda
+    \end{bmatrix} v = 0.
+    \]
+    For $\lambda = 0$, this gives
+    \[
+    \begin{bmatrix}
+    1 & -1 & 0 \\
+    -1 & 1 & 0 \\
+    0 & 0 & 0
+    \end{bmatrix} 
+    \begin{bmatrix}x\\y\\z\end{bmatrix} = 0
+    \implies x = y, \quad v = \begin{bmatrix}x\\x\\z\end{bmatrix}.
+    \]
+    For $\lambda = 2$, this gives
+    \[
+    \begin{bmatrix}
+    -1 & -1 & 0 \\
+    -1 & -1 & 0 \\
+    0 & 0 & -2
+    \end{bmatrix} 
+    \begin{bmatrix}x\\y\\z\end{bmatrix} = 0
+    \implies x = -y, \ z = 0, \quad v = \begin{bmatrix}x\\-x\\0\end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Based on the material of this section, give another proof 
+    that under projective changes of coordinates all ellipses,
+    hyperbolas, and parabolas are the same, all crossing lines 
+    are the same, and all double lines are the same.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $A$ be the $3 \times 3$ symmetric matrix for a conic or line. 
+    By Problem 6 we obtain a projective change of coordinates
+    \[
+        A' = C^T A C.
+    \]
+    where $A'$ represents the standard form for an ellipse, crossing line, or double line.
+    By Problem 7 the eigenvalues are preserved up to scaling.
+    Thus under projective changes of coordinates, 
+        ellipses, hyperbolas, and parabolas are equivalent, crossing lines are equivalent, and double lines are equivalent.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Explain why we need to only consider only the second order terms.
+\end{tcolorbox}
+
+\textbf{Solution: } In $\mathbb{P}^2$ all equations are homogeneous of degree 2. 
+Thus linear and constant terms become second order terms involving $z$. 
+
+\newpage
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Find the discriminant of each of the following conics.
+    \begin{enumerate}
+        \item $9x^2 + 4y^2 = 1$.
+        \item $9x^2 - 4y^2 = 1$.
+        \item $9x^2 - y = 0$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (1):}
+\[
+\triangle = -4 \det 
+\begin{bmatrix}
+    a & \frac{b}{2} \\
+    \frac{b}{2} & c
+\end{bmatrix} = 
+-4 
+\det \begin{bmatrix}
+    9 & 0 \\
+    0 & 4
+\end{bmatrix} 
+= -4(36) = -144
+\]
+\textbf{Solution (2):}
+\[
+\triangle = -4 \det 
+\begin{bmatrix}
+    9 & 0 \\
+    0 & -4
+\end{bmatrix} 
+= -4(-36) = 144
+\]
+\textbf{Solution (3):}
+\[
+\triangle = -4 \det 
+\begin{bmatrix}
+    9 & 0 \\
+    0 & 0
+\end{bmatrix} 
+= -4(0) = 0
+\]
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Based on the previous exercise, describe the conics 
+    obtained of $\triangle = 0$, $\triangle < 0$, and $\triangle > 0$.
+    State what the general result ought to be.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Consider the equation $ax^2 + bxy + cy^2 = 0$, where 
+    all coefficients are real numbers. Dehomogenize the equation 
+    by setting $y = 1$. Solve the resulting quadratic equation for $x$.
+    You should see a factor involving $\triangle$ in your solution.
+    How does $\triangle$ relate to the discriminant used in the 
+    quadratic formula?
+\end{tcolorbox}
+
+\begin{proof}
+    Let $y = 1$, then 
+    \[
+        ax^2 + bxy + cy^2 = ax^2 + bx + c = 0.
+    \]
+    Notice 
+    \[\triangle = -4 \det \begin{pmatrix} a & b/2 \\ b/2 & c \end{pmatrix} = -4\left(ac - \frac{b^2}{4}\right) = b^2 - 4ac.\]  
+    Using the quadratic formula we find 
+    \[
+        x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-b \pm \sqrt{-\triangle}}{2a},
+    \]
+    If $\triangle < 0$, there are two real roots.  
+    If $\triangle = 0$, there is one real root.  
+    If $\triangle > 0$, there are no real roots.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 13, breakable]
+    The discriminant in the quadratic formula tells us  
+    how many (real) solutions a given quadratic equation in a single 
+    variable has. Classify a conic $V(f(x, y))$ based on the number 
+    of solutions to its dehomogenized quadratic equation.
 \end{tcolorbox}
