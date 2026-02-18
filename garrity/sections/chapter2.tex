@@ -1,0 +1,123 @@
+\subsection{Cubics in $\mathbb{C}^2$}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Sketch the following cubics in the real plane $\mathbb{R}^2$.
+    \begin{enumerate}
+        \item $y^2 = x^3$.
+        \item $y^2 = x(x - 1)^2$.
+        \item $y^2 = x(x - 1)(x - 2)$.
+        \item $y^2 = x(x^2 + x + 1)$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (1):}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/1.png}
+\end{figure}
+
+\textbf{Solution (2):}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/2.png}
+\end{figure}
+
+\textbf{Solution (3):}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/3.png}
+\end{figure}
+
+\textbf{Solution (4):}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/4.png}
+\end{figure}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Consider the cubics in the above exercise.
+    \begin{enumerate}
+        \item Give the homogeneous form for each cubic, which extends each of
+            the above cubics to the complex projective plane.
+        \item For each of the above cubics, dehomogenize by setting $x = 1$,
+        and graph the resulting cubic in $\mathbb{R}^2$ with coordinates $y$ and $z$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution: }
+\begin{enumerate}
+    \item $y^2 = x^3$ becomes $Y^2 Z = X^3$.
+    \item $y^2 = x(x-1)^2$ becomes $Y^2 Z = X (X - Z)^2$.
+    \item $y^2 = x(x-1)(x-2)$ becomes $Y^2 Z = X (X - Z)(X - 2Z)$.
+    \item $y^2 = x(x^2 + x + 1)$ becomes $Y^2 Z = X (X^2 + X Z + Z^2)$.
+\end{enumerate}
+
+\textbf{Solution (1):}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/5.png}
+\end{figure}
+
+\textbf{Solution (2):}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/6.png}
+\end{figure}
+
+\textbf{Solution (3):}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/7.png}
+\end{figure}
+
+\newpage
+\textbf{Solution (4):}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/8.png}
+\end{figure}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Show that the following cubics are singular.
+    \begin{enumerate}
+        \item $V(xyz)$.
+        \item $V(x(x^2 + y^2 - z^2))$.
+        \item $V(x^3)$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Here we list each function and calculate its gradient.
+\begin{enumerate}
+    \item For $f(x, y, z) = xyz$
+    \[
+        \nabla f = (yz, xz, xy).
+    \]
+    $(1:0:0)$ is a singular point.
+    
+    \item For $f(x, y, z) = x(x^2 + y^2 - z^2) = x^3 + xy^2 - x z^2$
+    \[
+        \nabla f = \left( 3x^2 + y^2 - z^2, 2xy, -2xz \right).
+    \]
+    $(0:0:0)$ is a singular point.
+
+    \item For $f(x, y, z) = x^3$
+    \[
+        \nabla f = (3x^2, 0, 0).
+    \]
+    Any point with $x = 0$ is a singular point.
+\end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Sketch the cubic $y^2 = x^3$ in the real plane $\mathbb{R}^2$.
+    Show that the corresonding cubic $V(x^3 - y^2z)$ in $\mathbb{P}^2$
+    has a singular point at $(0 : 0 : 1)$.
+    Show that this is the only singular point on this cubic.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Show that the polynomial $P(x, y, z) = x^3 - y^2z$ is 
+    irreducible, i.e., cannot be factored into two polynomials.
+    (This is a fairly brute force high school algebra problem).
+\end{tcolorbox}

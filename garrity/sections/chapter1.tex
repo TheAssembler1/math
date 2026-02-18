@@ -224,14 +224,14 @@
 
 \textbf{Solution (1):}
 Parabola.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/1.png}
 \end{figure}
 
 \textbf{Solution (2):}
 Hyperbola.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/2.png}
 \end{figure}
@@ -241,42 +241,42 @@ Point.
 
 \textbf{Solution (4):}
 Ellipse.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/4.png}
 \end{figure}
 
 \textbf{Solution (5):}
 Two lines.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/5.png}
 \end{figure}
 
 \textbf{Solution (6):}
 Ellipse.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/6.png}
 \end{figure}
 
 \textbf{Solution (7):}
 Ellipse.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/7.png}
 \end{figure}
 
 \textbf{Solution (8):}
 Hyperbola.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/8.png}
 \end{figure}
 
 \textbf{Solution (9):}
 Hyperbola.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/9.png}
 \end{figure}
@@ -2720,7 +2720,7 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
     in the real plane $\mathbb{R}^2$.
 \end{tcolorbox}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/10.png}
 \end{figure}
@@ -3203,7 +3203,7 @@ Then define $\psi : \mathbb{P}^1 \rightarrow \mathbb{P}^2$ as
 
 \textbf{Solution: }
 The curve intersects itself at the origin, which is a singular point.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/11.png}
 \end{figure}
@@ -3217,7 +3217,7 @@ The curve intersects itself at the origin, which is a singular point.
 
 \textbf{Solution: }
 The curve has no derivative at the origin, which is a singular point.
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{images/chapter1/12.png}
 \end{figure}
@@ -3913,29 +3913,70 @@ Thus linear and constant terms become second order terms involving $z$.
     Thus the set of all lines can be identified with the set of all points in $\mathbb{P}^2$.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     Explain in your own words why, given $(x_0 : y_0 : z_0) \in \mathbb{P}^2$,
     we can interpret $M_{(x_0 : y_0 : z_0)}$ as the set of all lines containing 
     the point $(x_0 : y_0 : z_0)$.
 \end{tcolorbox}
 
+\textbf{Solution: }
+$M_{(x_0 : y_0 : z_0)}$ consists of all lines for which $(x_0 : y_0 : z_0)$
+is a solution, so we can interpret it as the set of all lines containing 
+the point $(x_0 : y_0 : z_0)$.
+
 \begin{tcolorbox}[title=Problem 5, breakable]
     Show that both maps $\pi_1$ and $\pi_2$ are onto.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $(a : b : c) \in \tilde{\mathbb{P}}^2$ and $(x_0 : y_0 : z_0) \in \mathbb{P}^2$.
+    Then 
+    \[\pi_1((a : b : c), (x_0, y_0, z_0)) = (a : b : c),\]
+    and 
+    \[\pi_2((a : b : c), (x_0, y_0, z_0)) = (x_0 : y_0 : z_0).\]
+    Thus $\pi_1, \pi_2$ are onto.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 6, breakable]
     Given a point $(a : b : c) \in \tilde{\mathbb{P}}^2$, consider the set 
-    \[\pi_1^{-1}(a : b : c) = \{((a : b : c), (x_0 : y_0 : c_0)) \in \sum\}.\]
-    Show that hte set $\pi_2(\pi_1^{-1}(a : b : c))$ is identical to a set in $\mathbb{P}^2$
+    \[\pi_1^{-1}(a : b : c) = \{((a : b : c), (x_0 : y_0 : c_0)) \in \textstyle \sum\}.\]
+    Show that the set $\pi_2(\pi_1^{-1}(a : b : c))$ is identical to a set in $\mathbb{P}^2$
     that we defined near the beggining of this section.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $(a : b : c) \in \tilde{\mathbb{P}}^2$.  
+    By definition,
+    \[
+    \pi_1^{-1}(a : b : c) = \{ ((a:b:c), (x_0:y_0:z_0)) \in \textstyle \sum \}.
+    \]  
+    Applying $\pi_2$
+    \[
+    \pi_2(\pi_1^{-1}(a : b : c)) = \{ (x_0:y_0:z_0) \in \mathbb{P}^2 \mid ((a:b:c),(x_0:y_0:z_0)) \in \textstyle  \sum \}.
+    \]  
+    This is the set of all lines in $\mathbb{P}^2$ passing through $(a:b:c)$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 7, breakable]
     Given a point $(x_0 : y_0 : z_0) \in \mathbb{P}^2$, consider the set 
-    \[\pi_2^{-1}(x_0 : y_0 : z_0) = \{((a : b : c), (x_0 : y_0 : z_0)) \in \sum\}.\]
+    \[\pi_2^{-1}(x_0 : y_0 : z_0) = \{((a : b : c), (x_0 : y_0 : z_0)) \in \textstyle \sum\}.\]
     Show that the set $\pi_1(\pi_2^{-1}(x_0 : y_0 : z_0))$ is identical to a set in 
     $\tilde{\mathbb{P}}^2$ that we defined near the beggining of this section.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $(x_0 : y_0 : z_0) \in \mathbb{P}^2$.  
+    By definition,
+    \[
+    \pi_2^{-1}(x_0 : y_0 : z_0) = \{ ((a:b:c), (x_0:y_0:z_0)) \in \textstyle \sum \}.
+    \]  
+    Applying $\pi_1$
+    \[
+    \pi_1(\pi_2^{-1}(x_0 : y_0 : z_0)) = \{ (a:b:c) \in \tilde{\mathbb{P}}^2 \mid ((a:b:c),(x_0:y_0:z_0)) \in \textstyle \sum \}.
+    \]  
+    This is the set of all points in $\tilde{\mathbb{P}}^2$ that lie on the line $(x_0:y_0:z_0)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
     Let $(1 : 2 : 3), (2 : 5 : 1) \in \tilde{\mathbb{P}}^2$. Find 
@@ -3945,12 +3986,39 @@ Thus linear and constant terms become second order terms involving $z$.
     \[2x + 5y + z = 0.\]
 \end{tcolorbox}
 
+\begin{proof}
+    We have 
+    \[\pi_2(\pi_1^{-1}(1 : 2 : 3)) = \pi_2(\{((1 : 2 : 3), (x_0 : y_0 : z_0)) \in \textstyle \sum \}) ,\]
+    and 
+    \[\pi_2(\pi_1^{-1}(2 : 5 : 1)) = \pi_2(\{((2 : 5 : 1), (x_1 : y_1 : z_1)) \in \textstyle \sum \}) .\]
+    Then 
+    \[\pi_2(\pi_1^{-1}(1 : 2 : 3)) \cap \pi_2(\pi_1^{-1}(2 : 5 : 1))\]
+    is the set of all lines passing through both $(1 : 2 : 3)$ and $(2 : 5 : 1)$.  
+    In projective space there is only one line through two distinct points so this intersection is a single line.
+    This line corresponds to the point of intersection of the two lines
+    \[
+        x + 2y + 3z = 0 \quad \text{and} \quad 2x + 5y + z = 0.
+    \]
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 9, breakable]
     Let $(1 : 2 : 3), (2 : 5 : 1) \in \mathbb{P}^2$. Find 
     \[\pi_1(\pi_2^{-1}(1 : 2 : 3)) \cap \pi_1(\pi_2^{-1} (2 : 5 : 1)).\]
     Explain why this is just a fancy way for finding the unique line containing the points 
     $(1 : 2 : 3), (2 : 5 : 1)$.
 \end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[\pi_2(\pi_1^{-1}(1 : 2 : 3)) = \pi_2(\{((1 : 2 : 3), (x_0 : y_0 : z_0)) \in \textstyle \sum \}),\]
+    and 
+    \[\pi_2(\pi_1^{-1}(2 : 5 : 1)) = \pi_2(\{((2 : 5 : 1), (x_1 : y_1 : z_1)) \in \textstyle \sum \}).\]
+    Then 
+    \[\pi_2(\pi_1^{-1}(1 : 2 : 3)) \cap \pi_2(\pi_1^{-1}(2 : 5 : 1))\]
+    is the set of all lines passing through both $(1 : 2 : 3)$ and $(2 : 5 : 1)$.  
+    In projective space there is only one line through two points.
+    This line is the unique line passing through $(1 : 2 : 3)$ and $(2 : 5 : 1)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
     Use the duality principle to find the corresponding theorem to :
@@ -3959,26 +4027,79 @@ Thus linear and constant terms become second order terms involving $z$.
     \end{theorem}
 \end{tcolorbox}
 
+\begin{theorem}
+    Any two distinct lines in $\mathbb{P}^2$ determine a unique point.
+\end{theorem}
+
+\newpage
 \begin{tcolorbox}[title=Problem 12, breakable]
     Given $(x_0, y_0, z_0, w_0), (x_1, y_1, z_1, w_1) \in \mathbb{C}^4 - \{(0, 0, 0, 0)\}$, define 
     \[(x_0, y_0, z_0, w_0) \sim (x_1, y_1, z_1, w_1),\]
     if there exists a non-zero $\lambda$ such that 
     \[x_0 = \lambda x_1, y_0 = \lambda y_1, z_0 = \lambda z_1, w_0 = \lambda w_1.\]
     Define 
-    \[\mathbb{P}^3 = \mathbb{C}^4 - \{(0, 0, 0, 0)\} \setminus \tilde.\]
+    \[\mathbb{P}^3 = \mathbb{C}^4 \setminus \{(0,0,0,0)\} \Big/ \sim.\]
     Show that the set of all planes in $\mathbb{P}^3$ can be identified with another copy 
     of $\mathbb{P}^3$. Explain how the duality principle can be used to link the fact 
     that three non-colinear points define a unique plane to the fact three planes with linearly 
     dependent normal vectors intersect in a unique point.
 \end{tcolorbox}
 
+\begin{proof}
+    A plane in $\mathbb{P}^3$ is defined by
+    \[
+        ax + by + cz + dw = 0,
+    \]
+    where $(a,b,c,d) \in \mathbb{C}^4 \setminus \{(0,0,0,0)\}$. 
+    If $(a,b,c,d) \sim (\lambda a,\lambda b,\lambda c,\lambda d)$, they define the same plane.
+    Thus the coefficients $(a,b,c,d)$ determine exactly one point in $\mathbb{P}^3$.
+    Conversely, each point $(a,b,c,d) \in \mathbb{C}^4 \setminus \{(0,0,0,0)\}$
+    determines the plane
+    \[
+        ax + by + cz + dw = 0.
+    \]
+    Therefore, the set of all planes in $\mathbb{P}^3$ can be identified with another copy of $\mathbb{P}^3$.
+\end{proof}
+
+\textbf{Solution: } 
+Three non-colinear points determine a unique plane, while dually, 
+three planes with linearly independent normal vectors intersect in a unique point.
+
+\newpage
 \begin{tcolorbox}[title=Problem 13, breakable]
     Show for any $p = (x_0, y_0, z_0) \in C$, we have 
-    \[T_p(C) = \{(x : y : z) \in \mathbb{P}^2 \mid (x - x_0) \frac{\partial f}{\partial x}(p)\}\]
-    \[+ (y - y_0) \frac{\partial f}{\partial y}(p) + (z - z_0) \frac{\partial f}{\partial z}(p) = 0.\]
-    Recall that $p \in C$ is smooth if the gradient 
-    \[\triangle f(p) \ne (0, 0, 0).\]
+    \begin{align*}
+        T_p(C)
+        &= \left\{(x : y : z) \in \mathbb{P}^2 \;\middle|\;
+        (x - x_0)\frac{\partial f}{\partial x}(p)
+        + (y - y_0)\frac{\partial f}{\partial y}(p)
+        + (z - z_0)\frac{\partial f}{\partial z}(p)
+        = 0 \right\}.
+    \end{align*}
 \end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \begin{align*}
+        (x - x_0)\frac{\partial f}{\partial x}(p)
+        + (y - y_0)\frac{\partial f}{\partial y}(p)
+        + (z - z_0)\frac{\partial f}{\partial z}(p)
+        &= x \frac{\partial f}{\partial x}(p) - x_0 \frac{\partial f}{\partial x}(p) \\
+        &\quad + y \frac{\partial f}{\partial y}(p) - y_0 \frac{\partial f}{\partial y}(p) \\
+        &\quad + z \frac{\partial f}{\partial z}(p) - z_0 \frac{\partial f}{\partial z}(p) \\
+        &= x \frac{\partial f}{\partial x}(p) + y \frac{\partial f}{\partial y}(p) + z \frac{\partial f}{\partial z}(p) \\
+        &\quad - \big( x_0 \frac{\partial f}{\partial x}(p) + y_0 \frac{\partial f}{\partial y}(p) + z_0 \frac{\partial f}{\partial z}(p) \big)
+    \end{align*}
+    Now, we know 
+    \[
+        x_0 \frac{\partial f}{\partial x}(p) + y_0 \frac{\partial f}{\partial y}(p) + z_0 \frac{\partial f}{\partial z}(p) = 0.
+    \]
+    So our equation reduces to 
+    \[
+        x \frac{\partial f}{\partial x}(p) + y \frac{\partial f}{\partial y}(p) + z \frac{\partial f}{\partial z}(p) = 0,
+    \]
+    which is the tangent line equation at $p$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
     For $f(x, y, z) = x^2 + y^2 - z^2$, let $C = V(f(x, y, z))$. Show for any $(x_0 : y_0 : z_0) \in C$
@@ -3986,6 +4107,23 @@ Thus linear and constant terms become second order terms involving $z$.
     \[\mathcal{D}(x_0 : y_0 : z_0) = (2 x_0 : 2 y_0 : -2 z_0).\]
     Show that in this case the dual curve $\tilde{C}$ is the same as the original $C$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $(x_0 : y_0 : z_0)$ be an arbitrary point in $C$.  
+    Then
+    \[
+        \frac{\partial f}{\partial x}(x_0, y_0, z_0) = 2 x_0, \quad
+        \frac{\partial f}{\partial y}(x_0, y_0, z_0) = 2 y_0, \quad
+        \frac{\partial f}{\partial z}(x_0, y_0, z_0) = -2 z_0.
+    \]
+    Then
+    \[
+        \mathcal{D}(x_0 : y_0 : z_0) = \left( \frac{\partial f}{\partial x}(p) : \frac{\partial f}{\partial y}(p) : \frac{\partial f}{\partial z}(p) \right) 
+        = (2 x_0 : 2 y_0 : -2 z_0).
+    \]
+    Then 
+    \[x^2 + y^2 - z^2 = (2x_0)^2 + (2y_0)^2 + (-2 z_0)^2 = 4(x_0^2 + y_0^2 - z_0^2) = 0.\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 15, breakable]
     Consider $f(x, y, z) = x^2 - yz = 0$. Then for any $(x_0 : y_0 : z_0) \in C$,
@@ -3996,17 +4134,119 @@ Thus linear and constant terms become second order terms involving $z$.
     dual curve $\tilde{C}$. Note that here $\tilde{C} \ne C$.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $(x_0 : y_0 : z_0) \in C$.
+    Then
+    \[
+        \frac{\partial f}{\partial x}(p) = 2 x_0, \quad
+        \frac{\partial f}{\partial y}(p) = - z_0, \quad
+        \frac{\partial f}{\partial z}(p) = - y_0.
+    \]
+    Then
+    \[
+        \mathcal{D}(x_0 : y_0 : z_0) = (2 x_0 : - z_0 : - y_0).
+    \]
+    since $(x_0 : y_0 : z_0) \in C$
+    \[
+        x_0^2 - y_0 z_0 = 0,
+    \]  
+    so either $x_0, y_0, z_0$ is non-zero. Thus $(2 x_0, -z_0, -y_0) \in \mathbb{P}^2$.
+    Let $(u:v:w) = (2x : -z : -y)$. Then
+    \[u^2 - 4vw = (2x)^2 - 4(-z)(-y) =4(x^2 - yz) = 0 \iff x^2 - yz = 0.\]
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 16, breakable]
     For $C = V(x^2 + 4y^2 - 9z^2)$, show that the dual curve is 
     \[\tilde{C} = \{(x, y, z) \in \mathbb{P}^2 \mid x^2 + \frac{1}{4} y^2 - \frac{1}{9}z^2 = 0\}.\]
 \end{tcolorbox}
 
+\begin{proof}
+    Let $(x_0 : y_0 : z_0) \in C$.
+    Then
+    \[
+        \frac{\partial f}{\partial x}(p) = 2 x_0, \quad
+        \frac{\partial f}{\partial y}(p) = 8 y_0, \quad
+        \frac{\partial f}{\partial z}(p) = -18 z_0.
+    \]
+    Then
+    \[
+        \mathcal{D}(x_0 : y_0 : z_0) = (2 x_0 : 8 y_0 : -18 z_0).
+    \]
+    Since $(x_0 : y_0 : z_0) \in C$ at least one coordinate is non-zero.  
+    Thus $(2 x_0, 8 y_0, -18 z_0) \in \mathbb{P}^2$.
+    Let $(u : v : w) = (2x : 8y : -18z)$. Then
+    \[
+        u^2 + \frac{1}{4} v^2 - \frac{1}{9} w^2
+        = (2x)^2 + \frac{1}{4}(8y)^2 - \frac{1}{9}(-18 z)^2
+        = 4x^2 + 16 y^2 - 36 z^2
+        = 4(x^2 + 4y^2 - 9 z^2) = 0.
+    \]
+    Thus
+    \[
+        \tilde{C} = \{ (x : y : z) \in \mathbb{P}^2 \mid x^2 + \frac{1}{4} y^2 - \frac{1}{9} z^2 = 0 \}.
+    \]
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 17, breakable]
     For $C = V(5x^2 + 2y^2 - 8z^2)$, find the dual curve.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $(x_0 : y_0 : z_0) \in C$.
+    Then
+    \[
+        \frac{\partial f}{\partial x}(p) = 10 x_0, \quad
+        \frac{\partial f}{\partial y}(p) = 4 y_0, \quad
+        \frac{\partial f}{\partial z}(p) = -16 z_0.
+    \]
+    Then
+    \[
+        \mathcal{D}(x_0 : y_0 : z_0) = (10 x_0 : 4 y_0 : -16 z_0).
+    \]
+    Since $(x_0 : y_0 : z_0) \in C$, at least one coordinate is non-zero.  
+    Thus $(10 x_0, 4 y_0, -16 z_0) \in \mathbb{P}^2$.
+    Let $(u : v : w) = (10x : 4y : -16z)$. Then
+    \[
+        u^2 + \frac{25}{100} v^2 - \frac{25}{256} w^2
+        = (10x)^2 + \frac{25}{100}(4y)^2 - \frac{25}{256}(-16 z)^2
+        = 100x^2 + 4y^2 - 25 z^2
+        = 25(4x^2 + \frac{4}{25}y^2 - z^2)
+        = 25(4x^2 + \tfrac{4}{25}y^2 - z^2) = 0.
+    \]
+    Thus
+    \[
+        \tilde{C} = \{ (x : y : z) \in \mathbb{P}^2 \mid 4x^2 + \tfrac{1}{25} y^2 - z^2 = 0 \}.
+    \]
+\end{proof}
+
+
+\newpage
 \begin{tcolorbox}[title=Problem 18, breakable]
     For a line $L = \{(x : y : z) \in \mathbb{P}^2 \mid ax + bx + cz\}$,
         find the dual curve. Explain why calling this set the ``dual curve''
         might seem strange.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $(x_0 : y_0 : z_0) \in L$.
+    Then
+    \[
+        \frac{\partial f}{\partial x}(p) = a, \quad
+        \frac{\partial f}{\partial y}(p) = b, \quad
+        \frac{\partial f}{\partial z}(p) = c.
+    \]
+    Then
+    \[
+        \mathcal{D}(x_0 : y_0 : z_0) = (a : b : c).
+    \]
+    Since $(a, b, c) \ne (0,0,0)$, we have $(a : b : c) \in \mathbb{P}^2$.
+    Let $(u : v : w) = (a : b : c)$. 
+    Then 
+    \[
+        \tilde{L} = \{(u : v : w) \in \mathbb{P}^2 \mid (u : v : w) = (a : b : c) \}.
+    \]
+\end{proof}
+
+\textbf{Solution: } It is strange because the ``curve'' is a point.
