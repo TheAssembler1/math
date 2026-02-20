@@ -109,6 +109,7 @@
 \end{enumerate}
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     Sketch the cubic $y^2 = x^3$ in the real plane $\mathbb{R}^2$.
     Show that the corresonding cubic $V(x^3 - y^2z)$ in $\mathbb{P}^2$
@@ -116,8 +117,411 @@
     Show that this is the only singular point on this cubic.
 \end{tcolorbox}
 
+\textbf{Solution}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter2/9.png}
+\end{figure}
+
+\begin{proof}
+    We have 
+    \[\frac{\partial f}{\partial x}(x^3 - y^2 z) = 3x^2, \quad
+    \frac{\partial f}{\partial y}(x^3 - y^2 z) = -2yz, \quad 
+    \frac{\partial f}{\partial z}(x^3 - y^2 z) = -y^2.\]
+    Thus $x = 0$ and $y = 0$. Then $z$ is any element in  $\mathbb{C} - \{0\}$.
+    Therefore $(0 : 0 : 1) \in \mathbb{C} - \{(0, 0, 0)\}$ is a singularity.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 5, breakable]
     Show that the polynomial $P(x, y, z) = x^3 - y^2z$ is 
     irreducible, i.e., cannot be factored into two polynomials.
     (This is a fairly brute force high school algebra problem).
+\end{tcolorbox}
+
+\begin{proof}
+    The only possible factorization is 
+    \[(x + A)(x^2 + Bx + C) = x^3 + Bx^2 + Cx + Ax^2 + ABx + AC = x^3 + (A + B)x^2 + (AB + C)x + AC,\]
+    where $A, B, C \in P(y, z)$.
+    Comparing to $P(x, y, z)$ we must have
+    \[A + B = 0, \quad AB + C = 0, \quad \text{and} \quad AC = -y^2 z.\]
+    Then $A = -B$ thus $AB + C = A(-A) + C = -A^2 + C = 0 \iff C = A^2$.
+    Then 
+    \[AC = A(A^2) = A^3 \text{ thus } A^3 = -y^2 z.\]
+    This is impossible since the cube of a polynomial must have all exponents divisible by $3$, but in $y^2 z$ the exponents of $y$ and $z$ are not divisible by $3$. Therefore $P(x,y,z)$ is irreducible.
+\end{proof}
+
+\subsection{Inflection Points}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    If $(x - a)$ divides $P(x)$, show that $a$ is a root of $P(x)$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have $P(x) = (x - a)g(x)$ for some $g(x)$.
+    Then $P(a) = (a - a)g(a) = 0 \cdot g(a) = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    If $a$ is a root of $P(x)$, show that $(x - a)$ divides 
+    $P(x)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a$ is a root of $P(x)$.
+    By the Division Algorithm we obtain $q(x)$ and $r(x)$
+    such that $P(x) = q(x)(x - a) + r(x)$.
+    Then $P(a) = 0 = (a - a)q(a) + r(a) = r(a)$.
+    Thus $r(a) = 0$. Since $r(x)$ has degree $<1$ it is a constant so $r(x) = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Suppose that $a$ is a root of multiplicity two for $P(x)$.
+    Show that there is a polynomial $g(x)$, with $g(a) \ne 0$,
+    such that 
+    \[P(x) = (x - a)^2 g(x).\]
+\end{tcolorbox}
+
+\begin{proof}
+    By definition of multiplicity two, we can write $P(x) = (x - a)^2g(x)$ for some $g(x)$.
+    Now suppose $g(a) = 0$ then $g(x) = (x - a)g'(x)$ for some $g'(x)$.
+    But then $P(x) = (x - a)^2(x - a)g'(x) = (x - a)^3g'(x)$ contradicting 
+    that $a$ has multiplicity two for $P(x)$.
+    Therefore $g(a) \ne 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Suppose $a$ is a root of multiplicity two for $P(x)$.
+    Show that $P(a) = 0$ and $P'(a) = 0$ but $P''(a) \ne 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    By definition of multiplicity two, we can write $P(x) = (x - a)^2g(x)$ for some $g(x)$ with $g(a) \ne 0$.
+    Clearly, $P(a) = (a - a)^2g(a) = 0 \cdot g(a) = 0$.
+    Then 
+    \[P'(x) = 2(x - a)g(x) + (x - a)^2g'(x) \text{ and } P''(x) = 2g(x) + 4(x - a)g'(x) + (x - a)^2 g''(x).\]
+    Then $P'(a) = 0$ and $P''(a) = 2 g(a)$ where $g(a) \ne 0$ thus $P''(a) \ne 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Suppose that $a$ is a root of multiplicity $k$ for $P(x)$.
+    Show there is a polynomial $g(x)$ such that
+    \[P(x) = (x - a)^kg(x)\]
+    with $g(a) \ne 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    By definition of multiplicity $k$, we can write $P(x) = (x - a)^k g(x)$ for some $g(x)$.
+    Now suppose $g(a) = 0$ then $g(x) = (x - a)g'(x)$ for some $g'(x)$.
+    But then $P(x) = (x - a)^k (x - a)g'(x) = (x - a)^{k + 1} g'(x)$ contradicting 
+    that $a$ has multiplicity $k$ for $P(x)$.
+    Therefore $g(a) \ne 0$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Suppose that $a$ is a root of multiplicity $k$ for $P(x)$.
+    Show that $P(a) = P'(a) = \cdots = P^{(k - 1)}(a) = 0$ but $P^k(a) \ne 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a$ is a root of multiplicity $k$. Then
+    \[
+    P(x) = (x-a)^k g(x)
+    \]
+    for some polynomial $g(x)$ with $g(a) \ne 0$.
+    Taking the $k$-th derivative and applying the product rule repeatedly gives
+    \[
+    P^{(k)}(x)
+    =
+    \underbrace{k! g(x)}_{\text{no factor of }(x-a)}
+    +
+    \underbrace{k! (x-a) g'(x)}_{\text{has factor }(x-a)}
+    +
+    \underbrace{\cdots}_{\text{has factor }(x-a)}
+    +
+    \underbrace{(x-a)^k g^{(k)}(x)}_{\text{has factor }(x-a)}.
+    \]
+    Every term except the first contains a factor of $(x-a)$. Therefore, evaluating at $x=a$ gives
+    \[
+    P^{(k)}(a)
+    =
+    \underbrace{k! g(a)}_{\ne 0}
+    +
+    \underbrace{0 + \cdots + 0}_{\text{all contain factor }(x-a)}
+    \ne 0,
+    \]
+    since $g(a) \ne 0$.
+    Similarly, for any derivative of order $m < k$, every term contains a factor of $(x-a)$, so
+    \[
+    P(a) = P'(a) = \cdots = P^{(k-1)}(a) = 0.
+    \]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Suppose that $(a : b)$ is a root of multiplicity two for $P(x, y)$.
+    Show that 
+    \[P(a, b) = \frac{\partial f}{\partial x}(a,b) = \frac{\partial f}{\partial y}(a, b) = 0,\]
+    but at least one of the second partials does not vanish at $(a : b)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $(a:b)$ is a root of multiplicity two for $P(x,y)$.  
+    Then
+    \[
+    P(x,y) = (bx - ay)^2 g(x,y)
+    \]
+    for some polynomial $g(x,y)$ such that $g(a,b) \ne 0$.
+    Then
+    \[
+    \frac{\partial P}{\partial x} = 2(bx - ay) \cdot b \, g(x,y) + (bx - ay)^2 \frac{\partial g}{\partial x}, \quad
+    \frac{\partial P}{\partial y} = 2(bx - ay)(-a) \, g(x,y) + (bx - ay)^2 \frac{\partial g}{\partial y}.
+    \]
+    Then
+    \[
+    \frac{\partial P}{\partial x}(a,b) = \frac{\partial P}{\partial y}(a,b) = 0.
+    \]
+    Then
+    \begin{align*}
+    \frac{\partial^2 P}{\partial x^2} &= 2 b^2 g(x,y) + 4 b (bx - ay) \frac{\partial g}{\partial x} + (bx - ay)^2 \frac{\partial^2 g}{\partial x^2}, \\
+    \frac{\partial^2 P}{\partial x \partial y} &= -2 ab g(x,y) + 2 b (bx - ay) \frac{\partial g}{\partial y} - 2 a (bx - ay) \frac{\partial g}{\partial x} + (bx - ay)^2 \frac{\partial^2 g}{\partial x \partial y}, \\
+    \frac{\partial^2 P}{\partial y^2} &= 2 a^2 g(x,y) - 4 a (bx - ay) \frac{\partial g}{\partial y} + (bx - ay)^2 \frac{\partial^2 g}{\partial y^2}.
+    \end{align*}
+    Plugging in $(x,y) = (a, b)$ shows
+    \[
+    \frac{\partial^2 P}{\partial x^2}(a,b) = 2 b^2 g(a,b), \quad
+    \frac{\partial^2 P}{\partial x \partial y}(a,b) = -2 ab g(a,b), \quad
+    \frac{\partial^2 P}{\partial y^2}(a,b) = 2 a^2 g(a,b).
+    \]
+    Since $g(a,b) \ne 0$ and $(a,b) \ne (0,0)$, some second partial derivative is nonzero.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Suppose $(a : b)$ is a root of multiplicity $k$ 
+    for $P(x, y)$. Show that 
+    \[P(a, b) = \frac{\partial P}{\partial x}(a, b) = \frac{\partial P}{\partial y}(a, b) = \cdots = \frac{\partial^{k - 1} P}{\partial x^i \partial y^j}(a, b) = 0,\]
+    where $i + j = k - 1$ but 
+    \[\frac{\partial^k P}{\partial x^i \partial y^j}(a, b) \ne 0,\]
+    for at least one pair $i + j = k$.
+\end{tcolorbox}
+
+\begin{proof}
+Suppose $(a:b)$ is a root of multiplicity $k$. Then
+\[
+P(x,y) = (bx-ay)^k g(x,y)
+\]
+for some polynomial $g(x,y)$ with $g(a,b)\ne 0$.
+
+Taking a partial derivative of total order $k$ and applying the product rule repeatedly gives
+\[
+\frac{\partial^k P}{\partial x^i \partial y^j}
+=
+\underbrace{
+k! \, b^i (-a)^j \, g(x,y)
+}_{\text{no factor of }(bx-ay)}
++
+\underbrace{
+(bx-ay)(\cdots)
+}_{\text{has factor }(bx-ay)}
++
+\underbrace{
+\cdots
+}_{\text{has factor }(bx-ay)}
++
+\underbrace{
+(bx-ay)^k \frac{\partial^k g}{\partial x^i \partial y^j}
+}_{\text{has factor }(bx-ay)}.
+\]
+
+Every term except the first contains a factor of $(bx-ay)$. Therefore, evaluating at $(x,y)=(a,b)$ gives
+\[
+\frac{\partial^k P}{\partial x^i \partial y^j}(a,b)
+=
+\underbrace{
+k! \, b^i (-a)^j \, g(a,b)
+}_{\ne 0}
++
+\underbrace{0 + \cdots + 0}_{\text{all contain factor }(bx-ay)}
+\ne 0,
+\]
+since $g(a,b)\ne 0$.
+
+Similarly, any derivative of total order $m<k$ still contains a factor of $(bx-ay)$, so
+\[
+P(a,b)
+=
+\frac{\partial P}{\partial x}(a,b)
+=
+\frac{\partial P}{\partial y}(a,b)
+=
+\cdots
+=
+\frac{\partial^m P}{\partial x^i \partial y^j}(a,b)
+=
+0.
+\]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Supppose 
+    \[P(a, b) = \frac{\partial P}{\partial x}(a, b) = \frac{\partial P}{\partial y}(a, b) = \cdots = \frac{\partial^{k - 1} P}{\partial x^i \partial y^j}(a, b) = 0,\]
+    where $i + j =  k - 1$ and 
+    \[\frac{\partial^k P}{\partial x^i \partial y^j}(a, b) \ne 0,\]
+    for at least one pair $i + j = k$. Show that $(a : b)$ is a root of multiplicity $k$ for $P(x, y)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose for contradiction that $(a:b)$ is a root of multiplicity $m \ne k$.
+    Now suppose $m < k$. Then
+    \[
+    P(x,y) = (bx-ay)^m g(x,y)
+    \]
+    where $g(a,b)\ne 0$.
+    Taking a partial derivative of total order $m$ gives
+    \[
+    \frac{\partial^m P}{\partial x^i \partial y^j}(a,b)
+    =
+    \underbrace{m! b^i (-a)^j g(a,b)}_{\ne 0}
+    +
+    \underbrace{0 + \cdots + 0}_{\text{all contain factor }(bx-ay)}
+    \ne 0,
+    \]
+    which contradicts the assumption that all derivatives of order less than $k$ vanish.
+    Next suppose $m > k$. Then
+    \[
+    P(x,y) = (bx-ay)^m g(x,y).
+    \]
+    Taking any derivative of total order $k$ every term contains a factor of $(bx-ay)$ thus
+    \[
+    \frac{\partial^k P}{\partial x^i \partial y^j}(a,b) = 0,
+    \]
+    which contradicts the assumption that at least one derivative of order $k$ is nonzero.
+    Therefore $m=k$, and $(a:b)$ is a root of multiplicity $k$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $(x_0 : y_0 : z_0) \in V(P) \cap V(l)$. Show that $(x_0 : z_0)$
+        is a root of the homogeneous two-variable polynomial $P(x, ax + cz, z)$
+        show that $y_0 = a x_0 + c z_0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Since $(x_0 : y_0 : z_0) \in V(l)$
+    \[
+    a x_0 - y_0 + c z_0 = 0.
+    \]
+    Solving for $y_0$ gives
+    \[
+    y_0 = a x_0 + c z_0.
+    \]
+    Then define
+    \[
+    Q(x,z) := P(x, a x + c z, z).
+    \]
+    Then
+    \[
+    Q(x_0, z_0) = P(x_0, a x_0 + c z_0, z_0) = P(x_0, y_0, z_0) = 0,
+    \]
+    since $(x_0:y_0:z_0) \in V(P)$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Let $P(x, y, z) = x^2 - yz$ and $l(x, y, z) = \lambda x - y$.
+    Show that the intersection multiplicity of $V(P)$ and $V(l)$ at $(0 : 0 : 1)$
+    is one when $\lambda \ne 0$ and two when $\lambda = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have $y = \lambda x$.
+    \[P(x, y, z) = P(x, \lambda x, 1) = x^2 - \lambda x \cdot 1 = x(x - \lambda)= 0.\]
+    If $\lambda = 0$ then $x = 0$ is the only solution.
+    If $\lambda \ne 0$ then $x = 0$ and $x = \lambda$ are solutions.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 24, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 25, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 26, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 27, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 28, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 29, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 30, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 31, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 32, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 33, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 34, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 35, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 36, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 37, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 38, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 39, breakable]
 \end{tcolorbox}
