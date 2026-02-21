@@ -70,7 +70,7 @@
     \includegraphics[width=0.3\textwidth]{images/chapter2/7.png}
 \end{figure}
 
-\newpage
+
 \textbf{Solution (4):}
 \begin{figure}[H]
     \centering
@@ -109,7 +109,7 @@
 \end{enumerate}
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 4, breakable]
     Sketch the cubic $y^2 = x^3$ in the real plane $\mathbb{R}^2$.
     Show that the corresonding cubic $V(x^3 - y^2z)$ in $\mathbb{P}^2$
@@ -217,7 +217,7 @@
     Therefore $g(a) \ne 0$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 6, breakable]
     Suppose that $a$ is a root of multiplicity $k$ for $P(x)$.
     Show that $P(a) = P'(a) = \cdots = P^{(k - 1)}(a) = 0$ but $P^k(a) \ne 0$.
@@ -257,7 +257,7 @@
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 7, breakable]
     Suppose that $(a : b)$ is a root of multiplicity two for $P(x, y)$.
     Show that 
@@ -296,7 +296,7 @@
     Since $g(a,b) \ne 0$ and $(a,b) \ne (0,0)$, some second partial derivative is nonzero.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 8, breakable]
     Suppose $(a : b)$ is a root of multiplicity $k$ 
     for $P(x, y)$. Show that 
@@ -363,7 +363,7 @@ P(a,b)
 \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 9, breakable]
     Supppose 
     \[P(a, b) = \frac{\partial P}{\partial x}(a, b) = \frac{\partial P}{\partial y}(a, b) = \cdots = \frac{\partial^{k - 1} P}{\partial x^i \partial y^j}(a, b) = 0,\]
@@ -427,7 +427,7 @@ P(a,b)
     since $(x_0:y_0:z_0) \in V(P)$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 11, breakable]
     Let $P(x, y, z) = x^2 - yz$ and $l(x, y, z) = \lambda x - y$.
     Show that the intersection multiplicity of $V(P)$ and $V(l)$ at $(0 : 0 : 1)$
@@ -441,51 +441,481 @@ P(a,b)
     If $\lambda \ne 0$ then $x = 0$ and $x = \lambda$ are solutions.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 12, breakable]
-    
+    Let $(x_0 : y_0 : z_0) \in V(P) \cap V(l)$. 
+    Let $x = a_1 s + b_1 t, y = a_2 s + b_2 t, z = a_3 s + b_3 t$ and 
+    $x = c_1 u + d_1 v, y = c_2 u + d_2 v, z = c_3 u + d_3 v$ be two 
+    parametrizations of the line $V(l)$ such that 
+    $(x_0 : y_0 : z_0)$ corresponds to $(s_0 : t_0)$ and $(u_0 : v_0)$,
+    respectively. 
+    Show that the multiplicity of the root $(s_0 : t_0)$ of
+    $P(a_1 s + b_1 t, a_2 s + b_2 t, a_3 s + b_3 t)$ is equal 
+    to the multiplicityof the root $(u_0, v_0)$ of 
+    $P(c_1 u + d_1 v, c_2 u + d_2 v, c_3 u + d_3 v)$. Conclude
+    that our definition of the intersection multiplicity of $V(P)$
+    and $V(l)$ is independent of the paramtrization used for the line $V(l)$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let 
+    \[
+    f(s,t) = P(a_1 s + b_1 t, a_2 s + b_2 t, a_3 s + b_3 t), \quad
+    g(u,v) = P(c_1 u + d_1 v, c_2 u + d_2 v, c_3 u + d_3 v).
+    \]
+    Since $(s_0:t_0)$ and $(u_0:v_0)$ correspond to the same point $(x_0:y_0:z_0)$, there exist constants $\alpha, \beta, \gamma, \delta$ such that
+    \[
+    s = \alpha u + \beta v, \quad t = \gamma u + \delta v
+    \]
+    and therefore $f(s,t) = g(u,v)$ for all points on the line.
+    It follows that the parametrizations have the same multiplicity of roots.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
+    Let $P(x, y, z) = x^2 + 2xy - yz + z^2$.
+    Show that the intersection and multiplicity of $V(P)$
+    and any line $l$ at a point of intersection is at most two.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $l = a x_0 + b y_0 + c z_0$ be an arbitrary line with $a, b$, or $c$ being nonzero.
+    Wlog suppose $b \ne 0$. We can let $b = -1$ and get 
+    \[y_0 = a x_0 + c z_0.\]
+    Then substituting into $P$ we have 
+    \[
+        P(x_0, a x_0 + c z_0, z_0) = x_0^2 + 2 x_0 (a x_0 + c z_0) - (a x_0 + c z_0) z_0 + z_0^2.
+    \]
+    Simplifying, we get
+    \[
+        P(x_0, a x_0 + c z_0, z_0) = (1 + 2a)x_0^2 + (2c - a)x_0 z_0 + (1 - c) z_0^2.
+    \]
+    Therefore any root has multiplicity at most $2$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
+    Let $P(x, y, z)$ be an irreducible second degree homogeneous polynomial.
+    Show that the intersection multiplicity of $V(P)$ and any line $l$ at a point 
+    of intersection is at most two.
 \end{tcolorbox}
+
+\begin{proof}
+    If we substitute the equation of the line into the second degree homogeneous polynomial, 
+    we get another second degree polynomial in one or two variables. 
+    But if a root had multiplicity greater than $2$, it would require a polynomial with total degree greater than $2$.
+    Thus the intersection multiplicity is at most two.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 15, breakable]
+    Let $P(x, y, z) = x^2 + y^2 + 2xz - yz$.
+    \begin{enumerate}
+        \item Find the tangent line $l = V(l)$ to $V(P)$ at $(-2 : 1 : 1)$.
+        \item Show that the intersection multiplicity of $V(P)$ and $l$ at 
+        $(-2 : 1 : 1)$ is two.
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Notice
+    \[
+    \nabla P(x,y,z) = (2x + 2z,\, 2y - z,\, 2x - y).
+    \]
+    Then, at $(-2,1,1)$ we have
+    \[
+    \nabla P(-2,1,1) = (-2,\,1,\,-5).
+    \]
+    Thus the tangent plane is
+    \[
+    -2(x + 2) + 1(y - 1) - 5(z - 1) = 0 \quad \Longrightarrow \quad -2x + y - 5z = 0.
+    \]
+    Parametrizing
+    \[
+    (x,y,z) = (-2,1,1) + t(2,9,1) = (-2+2t,\, 1+9t,\, 1+t).
+    \]
+    Plugging this into $P(x,y,z)$ gives
+    \[
+    \begin{aligned}
+    P(-2+2t,\,1+9t,\,1+t) &= (-2+2t)^2 + (1+9t)^2 + 2(-2+2t)(1+t) - (1+9t)(1+t) \\
+    &= 4 - 8t + 4t^2 + 1 + 18t + 81t^2 + 2(-2+2t)(1+t) - (1+9t)(1+t) \\
+    &= 85 t^2.
+    \end{aligned}
+    \]
+    Thus the polynomial vanishes with multiplicity 2 at $t=0$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 16, breakable]
+    Let $P(x, y, z) = x^3 - y^2 z + z^3$.
+    \begin{enumerate}
+        \item Find the tangent line to $V(P)$ at $(2 : 3 : 1)$ and show directly that 
+        the intersection multiplicity of $V(P)$ and its tangent at $(2 : 3 : 1)$ is two.
+        \item Find the tangent line to $V(P)$ at $(0 : 1 : 1)$ and show directly that 
+        the intersection multiplicity of $V(P)$ and its tangent at $(0 : 1 : 1)$ is three.
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Notice
+    \[
+    \nabla P(x,y,z) = (3x^2,\, -2yz,\, -y^2 + 3z^2).
+    \]
+    Then, at $(2,3,1)$ we have
+    \[
+    \nabla P(2,3,1) = (12, -6, 0).
+    \]
+    Thus the tangent plane is
+    \[
+    12(x - 2) - 6(y - 3) + 0(z - 1) = 0 \quad \Longrightarrow \quad 12x - 6y - 6 = 0.
+    \]
+    Parametrizing 
+    \[
+    (x,y,z) = (2,3,1) + t(1,2,0) = (2+t,\, 3+2t,\, 1).
+    \]
+    Plugging this into $P(x,y,z)$ gives
+    \[
+    \begin{aligned}
+    P(2+t,\, 3+2t,\, 1) &= (2+t)^3 - (3+2t)^2 \cdot 1 + 1^3 \\
+    &= 8 + 12t + 6t^2 + t^3 - (9 + 12t + 4t^2) + 1 \\
+    &= 6t^2 + t^3
+    \end{aligned}
+    \]
+    Thus the polynomial vanishes with multiplicity 2 at $t=0$.
+    Now, at $(0,1,1)$ we have
+    \[
+    \nabla P(0,1,1) = (0, -2, 2).
+    \]
+    Thus the tangent plane is
+    \[
+    0(x - 0) -2(y - 1) + 2(z - 1) = 0 \quad \Longrightarrow \quad -2y + 2z + 0 = 0 \quad \Longrightarrow \quad y = z.
+    \]
+    Parametrizing 
+    \[
+    (x,y,z) = (0,1,1) + t(1,1,1) = (t,\, 1+t,\, 1+t).
+    \]
+    Plugging this into $P(x,y,z)$ gives
+    \[
+    \begin{aligned}
+    P(t,\, 1+t,\, 1+t) &= t^3 - (1+t)^2 (1+t) + (1+t)^3 \\
+    &= t^3 - (1+t)^3 + (1+t)^3 \\
+    &= t^3
+    \end{aligned}
+    \]
+    Thus the polynomial vanishes with multiplicity 3 at $t=0$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
+    Redo the previous two exercises using Exercise 2.2.9.
 \end{tcolorbox}
 
+\begin{proof}
+    Notice
+    \[
+    P(x,y,z) = x^2 + y^2 + 2xz - yz.
+    \]
+    The first partial derivatives are
+    \[
+    P_x = 2x+2z, \quad P_y = 2y-z, \quad P_z = 2x-y.
+    \]
+    At $(-2,1,1)$ we have
+    \[
+    P_x(-2,1,1) = -2, \quad P_y(-2,1,1) = 1, \quad P_z(-2,1,1) = -5.
+    \]
+    Thus the tangent plane is
+    \[
+    -2(x+2) + (y-1) -5(z-1) = 0.
+    \]
+    Points on the tangent line satisfy this equation, so the linear term
+    \[
+    P_x(-2,1,1)(x+2)
+    +
+    P_y(-2,1,1)(y-1)
+    +
+    P_z(-2,1,1)(z-1)
+    \]
+    vanishes along the tangent line.
+
+    The second partial derivatives are
+    \[
+    P_{xx} = 2, \quad P_{yy} = 2, \quad P_{zz} = 0, \quad
+    P_{xy} = 0, \quad P_{xz} = 2, \quad P_{yz} = -1,
+    \]
+    and at least one of these is nonzero at $(-2,1,1)$.
+    Therefore all first-order terms vanish but some second-order partial derivative
+    is nonzero. By Exercise 2.2.9, the polynomial vanishes with multiplicity $2$ at
+    $(-2:1:1)$ along the tangent line.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 18, breakable]
+    Show for any nonsingular curve $V(P) \subset \mathbb{P}^2$,
+    the intersection of multiplicity of $V(P)$ and its tangent line $l$
+    at the point of tangency is at least two.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $V(P) \subset \mathbb{P}^2$ is nonsingular at a point $(x_0:y_0:z_0)$.  
+    Then 
+    \[
+    \nabla P(x_0,y_0,z_0) \neq 0.
+    \]
+    The tangent line $l$ at $(x_0:y_0:z_0)$ is
+    \[
+    P_x(x_0,y_0,z_0) (x - x_0) + P_y(x_0,y_0,z_0) (y - y_0) + P_z(x_0,y_0,z_0) (z - z_0) = 0.
+    \]
+    Parametrize this line by $l(t)$ such that $l(0) = (x_0,y_0,z_0)$ thus
+    \[
+    f(t) = P(l(t)).
+    \]
+    Then
+    \[
+    f(0) = P(x_0,y_0,z_0) = 0, \quad f'(0) = 0
+    \]
+    since $l$ is tangent at the point.  
+    Since $V(P)$ is nonsingular we have
+    \[
+    f''(0) \neq 0.
+    \]
+    By Exercise 2.2.9 the intersection multiplicity of $V(P)$ and $l$ at $(x_0:y_0:z_0)$ is at least $2$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 19, breakable]
+    \begin{enumerate}
+        \item Let $P(x, y, z)$ be an irreducible degree three homogeneous polynomial.
+        Show that the intersection multiplicity of $V(P)$ and any line $l$ at a point 
+        of intersection is at most three.
+        \item Let $P(x, y, z)$ be an irreducible homogeneous polynomial of degree $n$.
+        Show that the intersection multiplicity of $V(P)$ and any line $l$ at a point of intersection 
+        is at most $n$.
+    \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Composing $P$ with $l$ gives
+    \[
+        f(t) = P(l(t)),
+    \] 
+    which has degree at most $3$. 
+\end{proof}
+
+\begin{proof}
+    Composing a degree $n$ polynomial $P$ with a line $l$ gives 
+    \[
+        f(t) = P(l(t)),
+    \] 
+    which has degree at most $n$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 20, breakable]
+    Let $P(x, y, z) = x^3 + y z^2$. Show that $(0 : 0 : 1)$ is an inflection 
+    point of $V(P)$.
 \end{tcolorbox}
+
+\begin{proof}
+    We have
+    \[
+    \nabla P(x, y, z) = (3x^2, z^2, 2yz).
+    \]
+    At $(0 : 0 : 1)$ we have 
+    \[
+    \nabla P(0, 0, 1) = (0, 1, 0).
+    \]
+    The tangent line at $(0:0:1)$ is
+    \[
+    P_x(0,0,1) (x-0) + P_y(0,0,1) (y-0) + P_z(0,0,1) (z-1) = 0,
+    \]
+    which simplifies to
+    \[
+    0 \cdot x + 1 \cdot y + 0 \cdot (z-1) = y = 0.
+    \]
+    Thus $y = 0$.  
+    Plugging into $P$ we have
+    \[
+    P(x,0,z) = x^3 + 0 \cdot z^2 = x^3.
+    \]
+    Thus the tangent line intersects the curve with multiplicity $3$ at this point.  
+    Therefore, $(0:0:1)$ is an inflection point of $V(P)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 21, breakable]
+    Let $P(x, y, z) = x^3 + y^3 + z^3$ (the Fermat curve).
+    Show that $(1 : -2 : 0)$ is an inflection point of $V(P)$.
 \end{tcolorbox}
+
+\begin{proof}
+    We have
+    \[
+    \nabla P(x, y, z) = (3x^2, 3y^2, 3z^2).
+    \]
+    At $(1 : -2 : 0)$ we have 
+    \[
+    \nabla P(1, -2, 0) = (3, 12, 0).
+    \]
+    The tangent line at $(1:-2:0)$ is
+    \[
+    P_x(1,-2,0) (x-1) + P_y(1,-2,0) (y+2) + P_z(1,-2,0) (z-0) = 0,
+    \]
+    which simplifies to
+    \[
+    3(x-1) + 12(y+2) + 0 \cdot z = 3(x-1) + 12(y+2) = 0.
+    \]
+    Dividing by $3$ we have
+    \[
+    (x-1) + 4(y+2) = 0 \quad \implies \quad x + 4y + 7 = 0.
+    \]
+    Thus the tangent line is $x + 4y + 7 = 0$.  
+    Plugging into $P$ we have
+    \[
+    P(-4y-7, y, z) = (-4y-7)^3 + y^3 + z^3.
+    \]
+    Thus the tangent line intersects the curve with multiplicity $3$ at this point.  
+    Therefore, $(1:-2:0)$ is an inflection point of $V(P)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 22, breakable]
+    Compute $H(P)$ for the following cubic polynomials.
+    \begin{enumerate}
+        \item $P(x, y, z) = x^3 + y z^2$.
+        \item $P(x, y, z) = y^3 + z^3 + x y^2 - 3 y z^2  + 3 z y^2$.
+        \item $P(x, y, z) = x^3 + y^3 + z^3$.
+    \end{enumerate}
 \end{tcolorbox}
 
+\textbf{Solution (1):}
+\[
+\det 
+\begin{bmatrix}
+    P_{xx} & P_{xy} & P_{xz} \\
+    P_{yx} & P_{yy} & P_{yz} \\
+    P_{zx} & P_{zy} & P_{zz} \\
+\end{bmatrix} 
+=
+\det 
+\begin{bmatrix}
+6x & 0 & 0 \\
+0 & 0 & 2z \\
+0 & 2z & 2y \\
+\end{bmatrix} 
+= 6x \cdot (0 \cdot 2y - 2z \cdot 2z) = -24 x z^2.
+\]
+\textbf{Solution (2):}
+\begin{align*}
+\det 
+\begin{bmatrix}
+    P_{xx} & P_{xy} & P_{xz} \\
+    P_{yx} & P_{yy} & P_{yz} \\
+    P_{zx} & P_{zy} & P_{zz} \\
+\end{bmatrix} 
+&=
+\det 
+\begin{bmatrix}
+0 & 2y & 0 \\
+2y & 6y + 2x + 6z & -6z + 6y \\
+0 & -6z + 6y & 6z - 6y \\
+\end{bmatrix} \\[2mm]
+&= 0 \cdot ((6y+2x+6z)(6z-6y) - (-6z+6y)(-6z+6y)) \\ 
+&\quad - 2y \cdot (2y (6z-6y) - (-6z+6y)\cdot 0) \\
+&\quad + 0 \cdot (2y(-6z+6y) - (6y+2x+6z)\cdot 0) \\[1mm]
+&= -2y \cdot (12y(z-y)) \\[1mm]
+&= -24 y^2 (z-y).
+\end{align*}
+\textbf{Solution (3):}
+\[
+\det 
+\begin{bmatrix}
+    P_{xx} & P_{xy} & P_{xz} \\
+    P_{yx} & P_{yy} & P_{yz} \\
+    P_{zx} & P_{zy} & P_{zz} \\
+\end{bmatrix} 
+=
+\det 
+\begin{bmatrix}
+6x & 0 & 0 \\
+0 & 6y & 0 \\
+0 & 0 & 6z \\
+\end{bmatrix} 
+= 6x \cdot 6y \cdot 6z = 216 xyz.
+\]
+
 \begin{tcolorbox}[title=Problem 23, breakable]
+    Let $P(x, y, z)$ be an irreducible homogeneous polynomial
+    of degree three. Show that $H(P)$ is also a third degree 
+    homogeneous polynomial.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 24, breakable]
+    Let $P(x, y, z) = x^3 + y^3 + z^3$ (th Fermat curve).
+    Show that $(1 : -1 : 0) \in V(P) \cap V(H(P))$.
 \end{tcolorbox}
 
+\begin{proof}
+    Clearly 
+    \[
+    P(1, -1, 0) = 1^3 + (-1)^3 + 0^3 = 0.
+    \]
+    Then 
+    \[
+    H(P) = \det \begin{bmatrix}
+        6x & 0 & 0 \\
+        0 & 6y & 0 \\
+        0 & 0 & 6z
+    \end{bmatrix} = 6^3 xyz.
+    \]
+    Then
+    \[
+    H(P)(1, -1, 0) = 6^3 \cdot 1 \cdot (-1) \cdot 0 = 0.
+    \]
+    Therefore, $(1 : -1 : 0) \in V(P) \cap V(H(P))$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 25, breakable]
+    Let $P(x, y, z) = y^3 + z^3 + xy^2 - 3 y z^2 + 3 z y^2$.
+    Show that $(-2 : 1 : 1) \in V(P) \cap V(H(P))$.
 \end{tcolorbox}
+
+\begin{proof}
+    Clearly 
+    \[
+    P(-2, 1, 1) = 1^3 + 1^3 + (-2)(1^2) - 3 \cdot 1 \cdot 1^2 + 3 \cdot 1 \cdot 1^2 = 1 + 1 - 2 - 3 + 3 = 0.
+    \]
+    Then 
+    \[
+    H(P) = \det \begin{bmatrix}
+        0 & 2y & 0 \\
+        2y & 6y + 2x + 6z & -6z + 6y \\
+        0 & -6z + 6y & 6z - 6y
+    \end{bmatrix} = -24 y^2 (z - y).
+    \]
+    Then
+    \[
+    H(P)(-2, 1, 1) = -24 \cdot 1^2 \cdot (1 - 1) = 0.
+    \]
+    Therefore, $(-2 : 1 : 1) \in V(P) \cap V(H(P))$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 26, breakable]
+    Let $P(x, y, z) = x^3+ y z^2$. Show that 
+    $(0 : 0 : 1) = V(P) \cap V(H(P))$.
 \end{tcolorbox}
+
+\begin{proof}
+    Clearly 
+    \[
+    P(0, 0, 1) = 0^3 + 0 \cdot 1^2 = 0.
+    \]
+    Then 
+    \[
+    H(P) = \det \begin{bmatrix}
+        6x & 0 & 0 \\
+        0 & 0 & 2z \\
+        0 & 2z & 2y
+    \end{bmatrix} = -4 z^2 \cdot 6x = -24 x z^2.
+    \]
+    Then
+    \[
+    H(P)(0, 0, 1) = -24 \cdot 0 \cdot 1^2 = 0.
+    \]
+    Therefore, $(0 : 0 : 1) \in V(P) \cap V(H(P))$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 27, breakable]
 \end{tcolorbox}
