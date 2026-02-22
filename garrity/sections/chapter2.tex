@@ -1161,21 +1161,18 @@ so the intersection corresponds to the root $(0 : 1)$.
 
 \begin{proof}
     Suppose $p$ is a point of inflection of $V(P)$.
-    The multiplicity of the tangent line substituted into the curve must be $\ge 3$ since 
-    it is an inflection point, the root $(0 : 1)$ of
-    \[
-    P(x,0,z) = a x^2 z^{d-2} + \text{ higher order terms}
-    \]
-    must have multiplicity at least $3$.
-    Thus the $x^2$ term must vanish, so $a = 0$.
+    The multiplicity of the tangent line substituted into the curve must be $3$ since 
+    it is an inflection point. Thus the root $(0 : 1)$ of $P(x,0,z)$ has multiplicity $3$,
+    so $x^3 \mid P(x,0,z)$ and therefore the $x^2$ term must vanish, implying $a = 0$.
 
     Conversely, suppose $a = 0$.
     Then the lowest degree term in $P(x,0,z)$ is degree at least $3$ in $x$,
-    so the root $(0 : 1)$ has multiplicity at least $3$.
-    Thus the tangent line intersects the curve with multiplicity at least $3$,
+    so the root $(0 : 1)$ has multiplicity $3$.
+    Thus the tangent line intersects the curve with multiplicity $3$,
     so $p$ is a point of inflection of $V(P)$.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 35, breakable]
     \begin{enumerate}
         \item Show that 
@@ -1190,10 +1187,87 @@ so the intersection corresponds to the root $(0 : 1)$.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Notice 
+    \[
+    H(P) = 
+    \det \begin{bmatrix}
+        P_{xx} & P_{xy} & P_{xz} \\
+        P_{yx} & P_{yy} & P_{yz} \\
+        P_{zx} & P_{zy} & P_{zz}
+    \end{bmatrix}.
+    \]
+    From Exercise 2.2.33
+    \[
+    P(x,y,z)
+    =
+    ax^2z^{d-2}
+    + bxyz^{d-2}
+    + cy^2z^{d-2}
+    + \lambda yz^{d-1}
+    + \text{higher order terms}.
+    \]
+    Thus the partial derivatives are
+    \begin{enumerate}
+        \item $P_{xx} = 2az^{d-2} + (\text{higher order terms in } x,y,z)$
+        \item $P_{xy} = bz^{d-2} + (\text{higher order terms in } x,y,z)$
+        \item $P_{xz} = 2a(d-2)xz^{d-3} + b(d-2)yz^{d-3} + (\text{higher order terms in } x,y,z)$
+        \item $P_{yy} = 2cz^{d-2} + (\text{higher order terms in } x,y,z)$
+        \item $P_{yz} = b(d-2)xz^{d-3} + 2c(d-2)yz^{d-3} + \lambda(d-1)z^{d-2} + (\text{higher order terms in } x,y,z)$
+        \item $P_{zz} = \lambda(d-1)(d-2)yz^{d-3} + (\text{higher order terms in } x,y,z)$
+    \end{enumerate}
+    Evaluating at the point $p = (0:1)$ gives
+    \[
+    P_{xx}(p)=2a,\quad
+    P_{xy}(p)=b,\quad
+    P_{xz}(p)=0,\quad
+    P_{yy}(p)=2c,\quad
+    P_{yz}(p)=\lambda(d-1),\quad
+    P_{zz}(p)=0.
+    \]
+    Evaluating at the point $p$
+    \[
+    H(P)(p) =
+    \det \begin{bmatrix}
+        2a & b & 0 \\
+        b & 2c & \lambda (d - 1) \\
+        0 & \lambda (d - 1) & 0
+    \end{bmatrix}.
+    \]
+    Using the third column
+    \[
+    H(P)(p)
+    =
+    -\lambda (d - 1)
+    \det
+    \begin{bmatrix}
+        2a & b \\
+        0 & \lambda (d - 1)
+    \end{bmatrix}
+    =
+    -2a \lambda^2 (d - 1)^2.
+    \]
+    Since $\lambda \ne 0$ and $d \ne 1$ this equation is $0$ if and only if $a = 0$.
+    Thus $p \in V(H(P))$ if and only if $a = 0$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 36, breakable]
     Let $P(x, y, z)$ be an irreducible second degree homogeneous polynomial.
     Using the Hessian curve, show that $V(P)$ has no points of inflection.
 \end{tcolorbox}
+
+\begin{proof}
+    Since $P$ is quadratic, each second partial derivative $P_{ij}$ is either constant or zero. 
+    Therefore the Hessian determinant $H(P)$ is a constant, independent of $x, y, z$.
+    There are two cases.
+
+    Suppose $H(P) = 0$ for all $(x, y, z)$.
+    Then $P$ must be degenerate meaning it is not irreducible.
+
+    Suppose $H(P) \ne 0$ for all $(x, y, z)$. 
+    Then there are no inflection points in $P$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 38, breakable]
     Use Exercise 2.2.38 and Theorems 2.2.28 and 2.2.37 
@@ -1201,10 +1275,52 @@ so the intersection corresponds to the root $(0 : 1)$.
     has exactly nine inflection points.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $V(P)$ is a smooth cubic curve.
+    By Exercise 2.2.38, the Hessian curve $H(P)$ also has degree $3$.
+    If $H(P)$ and $P$ have a common component then $H(P)$ is degenerate and therefore has a singular point.
+    Thus $H(P)$ and $P$ have no common components.
+    By Theorem 2.2.37, the curves $V(P)$ and $V(H(P))$ intersect in exactly $9$ points.
+    Finally, by Theorem 2.2.28, each of these $9$ points of intersection is an inflection point of $V(P)$.
+    Therefore $V(P)$ has exactly nine inflection points.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 39, breakable]
     Find all nine points of inflection of the Fermat curve,
     \[P(x, y, z) = x^3 + y^3 + z^3.\]
 \end{tcolorbox}
+
+\begin{proof}
+    Compute the second partial derivatives
+    \[
+        P_{xx} = 6x, \quad P_{yy} = 6y, \quad P_{zz} = 6z,
+    \]
+    \[
+        P_{xy} = P_{xz} = P_{yz} = 0.
+    \]
+    Thus
+    \[
+        H(P) =\begin{bmatrix}
+            6x & 0 & 0 \\
+            0 & 6y & 0 \\
+            0 & 0 & 6z
+        \end{bmatrix},
+    \]
+    Therefore
+    \[
+        H(P) = \det \begin{bmatrix}6x & 0 & 0 \\ 0 & 6y & 0 \\ 0 & 0 & 6z\end{bmatrix} = 216 \, xyz.
+    \]
+    We require
+    \[
+        x^3 + y^3 + z^3 = 0 \text{ and } \quad xyz = 0.
+    \]
+    There are three cases $x = 0, y = 0, z = 0$.
+    Suppose $x = 0$.
+    \(y^3 + z^3 = 0 \implies y^3 = -z^3.\)
+    We can let $y = 1$ then clearly $z = -1$ is one root and the roots of unity give the other two.
+    The other two cases $y = z = 0$ follow similarly.
+\end{proof}
 
 \subsection{Group Law}
 
@@ -1325,8 +1441,12 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
     thus $P_2, P_4 \in V(H(C))$.
 \end{proof}
 
-
+\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Let 
+    \[C = V(x^3 - y^2 z + z^3) \subset \mathbb{P}^2,\]
+    and 
+    \[P_1 = (2 : 3 : 1), P_2 = (0 : 1 : 1), P_3 = (-1 : 0 : 1), P_4 = (0 : -1 : 1), P_5 = (2 : -3 : 1).\]
     Let $O = P_2$ be the specified inflection point so that $+$
     is defined relative to $P_2$, i.e., $Q + R = P_2(QR)$ for points $Q, R$
     on $C$.
@@ -1340,8 +1460,230 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
 \end{tcolorbox}
 
 \begin{proof}
-    We have 
-    \[P_1 + P_2 = P_2(P_1 P_2) = P_2 P_3 = P_1,\]
-    \[P_2 + P_2 = P_2(P_2 P_2) = P_2 P_2 = P_2,\]
-    \[P_4 + P_2 = P_2(P_4 P_2) = \]
+    We use the affine patch $z = 1$ then compute the lines through $P_i P_2$ where $i \in \{1, 2, 3, 4, 5\}$.
+    \begin{enumerate}
+        \item $P_1 P_2$ had
+        $m = \frac{3-1}{2-0} = 1$
+        \[
+            y - 1 = 1 \cdot (x - 0) \implies y = x + 1.
+        \]
+        \item $P_2 P_2$ is a trivial case.
+        \item $P_3 P_2$ has
+        $m = \frac{1-0}{0-(-1)} = 1$
+        \[
+            y - 0 = 1 \cdot (x + 1) \implies y = x + 1.
+        \]
+        \item $P_4 P_2$ is vertical
+        \[
+            x = 0.
+        \]
+        \item $P_5 P_2$ has
+        $m = \frac{-3-1}{2-0} = -2$
+        \[
+            y - 1 = -2 \cdot (x - 0) \implies y = -2x + 1.
+        \]
+    \end{enumerate}
+    Plugging each of these into our curve we have 
+    \begin{enumerate}
+        \item $P_1 P_2$: $(x+1)^2 = x^3 + 1 \implies x^3 - x^2 - 2x = 0 \iff x = 0, 2, -1$.
+        \item $P_2 P_2$: is trivally $P_2$.
+        \item $P_3 P_2$: $(x+1)^2 = x^3 + 1 \implies x^3 - x^2 - 2x = 0 \iff x = -1, 0, 2$.
+        \item $P_4 P_2$: $x = 0 \implies y^2 = 0^3 + 1 = 1 \iff y = \pm 1$.
+        \item $P_5 P_2$: $(-2x+1)^2 = x^3 + 1 \implies 4x^2 - 4x + 1 = x^3 + 1 \implies x^3 - 4x^2 + 4x = 0 \iff x = 0, 1, 3$.
+    \end{enumerate}
+    Then plugging solution points into our curve we have 
+    \begin{enumerate}
+        \item $P_1 + P_2 = (2,3) = P_1$
+        \item $P_2 + P_2 = (0,1) = P_2$
+        \item $P_3 + P_2 = (-1,0) = P_3$
+        \item $P_4 + P_2 = (0,-1) = P_4$
+        \item $P_5 + P_2 = (2,-3) = P_5$
+    \end{enumerate}
 \end{proof}
+
+\begin{proof}
+    Since $P_i + P_2 = P_i$ for all $i \in \{1, 2, 3, 4, 5\}$,
+        $P_2$ must be the idenity element.
+\end{proof}
+
+\newpage
+\newpage
+\begin{proof}
+    The inverses of $P_i$ are the points $P_i'$ such that $P_i + P_i' = P_2$, thus
+    \begin{enumerate}
+        \item $-P_1 = P_5 = (2,-3)$
+        \item $-P_2 = P_2 = (0,1)$
+        \item $-P_3 = P_4 = (0,-1)$
+        \item $-P_4 = P_3 = (-1,0)$
+        \item $-P_5 = P_1 = (2,3)$
+    \end{enumerate}
+\end{proof}
+
+\begin{proof}
+    The line through $P_3=(-1,0)$ and $P_4=(0,-1)$ is $y = -x - 1$.
+    Plugging into the curve $y^2 = x^3 + 1$ gives $x^3 - x^2 - 2x = 0$ with three intersection points $x=-1,0,2$.  
+    Two of them are $P_3$ and $P_4$, so the third intersection point is $P_5=(2,-3)$ thus
+    \[
+        P_3 + P_4 = P_5.
+    \]
+    Then
+    \[
+        P_1 + (P_3 + P_4) = P_1 + P_5.
+    \]
+    The line through $P_1=(2,3)$ and $P_5=(2,-3)$ is $x=2$
+     which intersects the curve at the point at infinity. 
+    This corresponds to the identity $P_2$ thus
+    \[
+        P_1 + (P_3 + P_4) = P_2.
+    \]  
+
+    The line through $P_1=(2,3)$ and $P_3=(-1,0)$ is $y = x + 1$.
+    Plugging into the curve gives three intersection points $x=-1,0,2$.  
+    Two of them are $P_1$ and $P_3$, so the third intersection point is $P_2=(0,1)$ thus
+    \[
+        P_1 + P_3 = P_2.
+    \]  
+    Then $(P_1 + P_3) + P_4 = P_2 + P_4$. The line through $P_2$ and $P_4$ has intersection points $P_2$, $P_4$, and $P_2$ thus
+    \[
+        (P_1 + P_3) + P_4 = P_2.
+    \]  
+    Thus
+    \[
+        P_1 + (P_3 + P_4) = (P_1 + P_3) + P_4.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Now let $O = P_4$ be the specified inflection point so 
+    that $+$ is defined relative to $P_4$, i.e., $Q + R = P_4(QR)$
+    for points $Q, R$, on $C$.
+    \begin{enumerate}
+        \item Compute $P_1 + P_2, P_2 + P_2, P_3 + P_2, P_4 + P_2$, and $P_5 + P_2$.
+        \item Now compute $P_1 + P_4, P_2 + P_4, P_3 + P_4, P_4 + P_4$, and $P_5 + P_4$.
+        Explain why $P_4$ is now the idenity element for $C$.
+        \item Using the fact that $P_4$ is now the indepentity element on $C$, find 
+        the inverses of $P_1, P_2, P_3, P_4$ and $P_5$ on $C$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Explain why $P + Q = Q + P$ for all points $P, Q$ on $C$.
+    This establishes that $+$ is a commutative binary operation.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $C$ be a smooth cubic curve and let $O$ be one of its inflection points.
+    Define $+$ of points on $C$ relative to $O$.
+    Show that $P + O = P$ for all points $P$ on $C$ and that there is no other point 
+        on $C$ with this property.
+    Thus $O$ is the idenity element for $+$ on $C$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $C$ be a smooth cubic curve and let $O$ be one of its inflection points.
+    Define addition $+$ of points on $C$ relative to the idenity $O$.
+    \begin{enumerate}
+        \item Suppose that $P, Q, R$ are collinear points on $C$.
+        Show that $P + (Q + R) = O$ and $(P + Q) + R = O$.
+        \item Let $P$ be anypoints on $C$. Assume that $P$ has an inverse element $P^{-1}$ on $C$.
+        Prove that the points $P, P^{-1}$, and $O$ muts be colinear.
+        \item Use the results of Part (1) and Part (2) to show that for any $P$ there is an element $P'$ on $C$
+        statisfying $P + P' = P' + P = O$, i.e., every element $P$ has an inverse $P^{-1}$.
+        Then show this inverse is unique.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Start with two cubic curves, $C = V(f)$ and $D = V(g)$.
+    By Theorem 1.2.37, there are exactly nine points of intersection,
+        counting multiplicities, of $C$ and $D$.
+    Denote these points by $P_1, P_2, \ldots, P_9$.
+    \begin{enumerate}
+        \item Let $\lambda, \mu \in \mathbb{C}$ be arbitrary constants. Show that $P_1, P_2, \ldots, P_9$
+        are points on the cubic curve defined by $\lambda f + \mu g = 0$.
+        \item Let $\lambda_1, \lambda_2, \mu_1, \mu_2 \in \mathbb{C}$ be arbitrary constants.
+        Show that $P_1, P_2, \ldots, P_9$ are the nine points of intersection of the curbic curves 
+        $C_1 = V(\lambda_1 f + \mu_1 g)$ and $C_2 = V(\lambda_2 f + \mu_2 g)$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Consider eight distinct points $P_1, P_2, \ldots, P_8$ in $\mathbb{P}^2$,
+    such that no four are collinear and no seven are on a single conic.
+    Let $F$ be a generic cubic polynomial with unknown coefficients
+    $a_1, a_2, \ldots, a_{10}$. The system of simultaneous equations 
+    \[F(P_1) = F(P_2) = \cdots = F(P_{10}) = 0,\]
+    is a system of eight linear equations in the ten unknowns $a_1, a_2, \ldots, a_{10}$.
+    Prove that the vector space of solutions to this linear system as dimension equal to $2$
+    by considering each of the following cases.
+    \begin{enumerate}
+        \item The eight points are in \emph{general position}, which means that no three 
+        are colinear and no six are on a conic.
+        \item Three of the points are collinear.
+        \item Six of the points are on a conic.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Show that there are two linearly independent cubics 
+    \[P_1(x, y, z) \text{ and } F_2(x, y, z)\]
+    such that any cubic curve passing thorugh the eight points 
+    \[P_1, P_2, \ldots, P_8,\]
+    has the form $\lambda F_1 + \mu F_2$. Conclude that 
+    for any collection of eight points with no four collinear and no 
+    seven on a conic, there is a \emph{unique} ninth point $P_9$
+    such that \emph{every} cubic curve passing through the 
+    eight given points must also pass through $P_9$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Let $C$ be a smooth cubic curve in $\mathbb{P}^2$ and let $P, Q, R$
+    be three points on $C$. We will show that $P + (Q + R) = (P + Q) + R$.
+    \begin{enumerate}
+        \item Let $V(l_1) = l(P, Q)$ and $S_2 = PQ$, so $V(l_1) \cap C = \{P, Q, S_1\}$.
+        \item Let $V(l_2) = l(S_1, O)$ and $S_2 = O S_1 = P + Q$, so $V(l_2) \cap C = \{S_1, O, S_2\}$.
+        \item Let $V(l_3) = l(S_2, R)$ and $S_3 = (P + Q) R$ so $V(l_3) \cap C = \{S_2, R, S_3\}$.
+    \end{enumerate}
+    Similarly:
+    \begin{enumerate}
+        \item Let $V(m_1) = l(Q, R)$ and $T_1 = QT$, so $V(m_1) \cap C = \{Q, R, T_1\}$.
+        \item Let $V(m_2) = l(T_1, O)$ and $T_2 = O T_1 = Q + R$, so $V(m_2) \cap C = \{T_1, O, T_2\}$.
+        \item Let $V(m_3) = l(T_2, P)$ and $T_3 = P(Q + R)$, so $V(m_3) \cap C = \{T_2, P, T_3\}$.
+    \end{enumerate}
+    \begin{enumerate}
+        \item Notice that $C' = V(l_1 m_2 l_3)$ is a cubic. Find $C' \cap C$.
+        \item Likewise, $C'' = V(m_1 l_2 m_3)$ is a cubic. Find $C'' \cap C$.
+        \item Using Parts (1) and Part (2) together with Exercise 2.3.11, deduce that 
+        $(P + Q)R = P(Q + R)$.
+        \item Explain why $(P + Q)R = P(Q + R)$ implies that $(P + Q) + R = P + (Q + R)$.
+        Conclude that the addition of points on cubics is associative.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Show that $2 \cdot P = O$ if and only if $l(O, P)$ is tangent to $C$ at $P$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Show that if $P$ and $Q$ are two points on $C$ of order two, then $PQ$,
+    the third point of intersection of $C$ with $l(P, Q)$ is also a point of order two on $C$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Let $C$ be the cubic curve defined by $y^2 z = x^3 - x z^2$.
+    \begin{enumerate}
+        \item Show that $O = (0 : 1 : 0)$ is an inflection point.
+        \item Graph $G$ in the affine patch $z = 1$.
+        \item Show that lines through $(0 : 1 : 0)$ correspond to vertical lines in the affine patch $z = 1$.
+        \item Find three points of order two in the group $(C, O, +)$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    Let $P$ be any inflection point on $C$. Show that $3 \cdot P = O$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    Suppose $P$ is a point on $C$ and $3 \cdot P = 0$.
+    Conclude that $P P = P$. From this, deduce that $P$ is a point of inflection on $C$.
+\end{tcolorbox}
