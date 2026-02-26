@@ -585,12 +585,13 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
     \]
 \end{proof}
 
+
 \begin{tcolorbox}[title=Problem 10, breakable]
     Around 180 B.C.E., Diocles wrote the book \emph{On Burning Mirrors}.
     One of the curves he considered was the \emph{cissoid} and he used it to solve
     the problem of duplication of the cube [see part (c) below].
     The cissoid has the equation $y^2(a + x) = (a - x)^3$, where $a$
-    is a constraint. This gives the following curve in the plane:
+    is a constraint.
     \begin{enumerate}
         \item Find an algebraic parametrization of the cissoid.
         \item Diocles described the cissoid using the following geometric construction.
@@ -598,7 +599,6 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
                 pick $x$ between $a$ and $-a$, and draw the line $L$ connecting $(a, 0)$
                 to the point $P = (-x, \sqrt{a^2 - x^2})$ on the circle.
                 This determines a point $Q = (x, y)$ on $L$:
-                
                 Prove that the cissoid is the locus of all such points $Q$.
         \item The duplication of the cube is the classical Greek problem of trying to 
               construct $\sqrt[3]{2}$ using ruler and compass. It is known that this is 
@@ -609,4 +609,201 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
               \[2 = \left(\frac{a - x}{y}\right)^3,\]
               which shows how to construct $\sqrt[3]{2}$ using ruler, compass, and cissoid.
     \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x = t$, then
+    \[
+    y =
+    \begin{cases}
+    \pm \sqrt{\frac{(a - t)^3}{a + t}} & \text{if } t \ne -a, \\
+    0 & \text{if } t = -a.
+    \end{cases}
+    \]
+    We first compute the line between $P$ and $a$ to find 
+    \[y = \frac{\sqrt{a^2 - x^2}}{-x - a}(x - a).\]
+    Substituting into the cissoid we see 
+    \begin{align*}
+        y^2(a + x) &= (a - x)^3 \\
+        \left(\frac{\sqrt{a^2 - x^2}}{-x - a}(x - a)\right)^2 (a + x) 
+        &= \frac{(a^2 - x^2)(x - a)^2}{(-x - a)^2} (a + x) \\
+        &= \frac{(a - x)(a + x)(x - a)^2}{(a + x)^2} (a + x) \\
+        &= \frac{-(a - x)(a + x)(a - x)^2}{(a + x)^2} (a + x) \\
+        &= \frac{(a - x)^3 (a + x)}{a + x} \\
+        &= (a - x)^3.
+    \end{align*}
+    Thus the cissoid is the locus of all such points $Q$.
+
+    We first obtain the line between $(-a, 0)$ and $\left(0, \frac{-a}{2}\right)$
+    \[
+    y = -\frac{1}{2}(x - a).
+    \]
+    Substituting into the curve we find
+    \begin{align*}
+        y^2(a + x) &= (a - x)^3 \\
+        \left(-\frac{1}{2}(x - a)\right)^2 (a + x) &= (a - x)^3 \\
+        \frac{1}{4} (x - a)^2 (a + x) &= (a - x)^3 \\
+        \frac{1}{4} (a - x)^2 (a + x) &= (a - x)^3 \\
+        \frac{1}{4} (a + x) &= a - x
+    \end{align*}
+    To see that this point lies on the cissoid notice 
+    \begin{align*}
+        y^2(a + x) 
+        &= \left(-\frac{1}{2}(x - a)\right)^2 (a + x) \\
+        &= \frac{1}{4} (x - a)^2 (a + x) \\
+        &= (a - x)^2 \cdot \frac{1}{4} (a + x) \\
+        &= (a - x)^2 \cdot (a - x) \\
+        &= (a - x)^3.
+    \end{align*}
+    Then 
+    \begin{align*}
+        \left(\frac{a - x}{y}\right)^3 
+        &= \left(\frac{a - x}{-\frac{1}{2}(x - a)}\right)^3 \\
+        &= \left(\frac{a - x}{\frac{1}{2}(a - x)}\right)^3 \\
+        &= 2 \,.
+    \end{align*}
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    In this problem we will derive paramtrization 
+    \[x = t(u^2 - t^2),\]
+    \[y = u,\]
+    \[z = u^2 - t^2,\]
+    of the surface $x^2 - y^2 z^2 + z^3 = 0$ considered in the text.
+    \begin{enumerate}
+        \item Adapt the formulas in part (d) of Exercise 8 to show that the curve 
+        $x^2 = c z^2 - z^3$ is parametrized by 
+        \[z = c - t^2,\]
+        \[x = t(c - t^2).\]
+        \item Now replace the $c$ in part (a) by $y^2$, and explain how this leads to the 
+        above parametrization of $x^2 - y^2 z^2 + z^3 = 0$.
+        \item Explain why this parametrization covers the entire surface 
+        $\textbf{V}(x^2 - y^2 z^2 + z^3)$. Hint: See part (c) of Exercise 8.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Clearly from part (d) of Exercise 8 we have 
+    \[x = t(c - t^2), \quad z = c - t^2.\]
+    Now, replacing the constant $c$ with $y^2$ gives
+    \[x = t(y^2 - t^2), \quad z = y^2 - t^2.\]
+    Then
+    \begin{align*}
+    x^2 - y^2 z^2 + z^3
+    &= \big(t(u^2 - t^2)\big)^2 - u^2 (u^2 - t^2)^2 + (u^2 - t^2)^3 \\
+    &= t^2 (u^2 - t^2)^2 - u^2 (u^2 - t^2)^2 + (u^2 - t^2)^3 \\
+    &= (u^2 - t^2)^2 \big(t^2 - u^2 + (u^2 - t^2)\big) \\
+    &= (u^2 - t^2)^2 \cdot 0 \\
+    &= 0.
+    \end{align*}
+    Letting $y = u$, we obtain the parametrization
+    \[x = t(u^2 - t^2), \quad y = u, \quad z = u^2 - t^2.\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Consider the variety $V = \textbf{V}(y - x^2, z - x^4) \subseteq \mathbb{R}^3$.
+    \begin{enumerate}
+        \item Draw a picture of $V$.
+        \item Parametrize $V$ in a way similar to what we did with the twisted cube.
+        \item Parametrize the tangent surface of $V$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/chapter1/7.png}
+\end{figure}
+
+\begin{proof}
+    Let $x = t$ then 
+    \[x = t, \quad y = t^2, \quad z = t^4.\]
+    Now we have 
+    \[r(t) = (t, t^2, t^4), \quad r'(t) = (1, 2t, 4t^3).\]
+    Let $u$ be a parameter then the tangent curve is 
+    \begin{align*}
+        r(t) + u r'(t)
+        &= (t, t^2, t^4) + u(1, 2t, 4t^3) \\
+        &= (t + u, t^2 + 2tu, t^4 + 4t^3 u).
+    \end{align*}
+\end{proof}
+
+\subsection{Ideals}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $I \subseteq k[x_1, \ldots, x_n]$ be an ideal,
+    and let $f_1, \ldots, f_s \in k[x_1, \ldots, x_n]$.
+    Prove that the following statements are equivalent.
+    \begin{enumerate}
+        \item $f_1, \ldots, f_s \in I$.
+        \item $\langle f_1, \ldots, f_s \rangle \subseteq I$.
+    \end{enumerate}
+    This fact is useful when you want to show that one ideal is contained 
+    in another.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f_1, \ldots, f_s \in I$. Let $g \in \langle f_1, \ldots, f_s \rangle$.
+    There exist polynomials $a_1, \ldots, a_s \in k[x_1, \ldots, x_n]$ such that
+    \[
+    g = a_1 f_1 + \cdots + a_s f_s.
+    \]
+    Since $I$ is an ideal and $f_1, \ldots, f_s \in I$, it follows that $g \in I$.
+    Thus $\langle f_1, \ldots, f_s \rangle \subseteq I$.
+
+    Conversely, suppose $\langle f_1, \ldots, f_s \rangle \subseteq I$.
+    Since each $f_i \in \langle f_1, \ldots, f_s \rangle$, it follows that $f_i \in I$
+    for all $i = 1, \ldots, s$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Use the previous exercise to prove the following equalities of ideals in 
+        $\mathbb{Q}[x, y]$.
+    \begin{enumerate}
+        \item $\langle x + y, x - y \rangle = \langle x, y \rangle$.
+        \item $\langle x + xy, y + xy, x^2, y^2 \rangle = \langle x, y \rangle$.
+        \item $\langle 2x^3 + 3y^2 - 11, x^2 - y^2 - 3 \rangle = \langle x^2 - 4, y^2 - 1 \rangle$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
 \end{tcolorbox}
