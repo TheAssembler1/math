@@ -769,41 +769,423 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+\[
+x = \frac{1}{2}( (x+y) + (x-y) ), \quad 
+y = \frac{1}{2}( (x+y) - (x-y) ),
+\]
+\[
+x+y = 1\cdot x + 1\cdot y, \quad 
+x-y = 1\cdot x + (-1)\cdot y.
+\]
+\[
+x+xy = 1\cdot x + x\cdot y, \quad 
+y+xy = 1\cdot y + x\cdot y, \quad 
+x^2 = 1 \cdot x^2, \quad 
+y^2 = 1 \cdot y^2.
+\]
+\[
+f = 2x^3 + 3y^2 - 11, \quad 
+g = x^2 - y^2 - 3, \quad 
+h = x^2 - 4, \quad 
+k = y^2 - 1.
+\]
+\[
+g = 1\cdot h + (-1)\cdot k, \quad 
+f = 2x\cdot h + 3\cdot k + 8\cdot x + (-8)\cdot 1,
+\]
+\[
+h = 1\cdot g + 1\cdot k, \quad 
+k = (-1)\cdot g + 1 \cdot h.
+\]
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Prove proposition 4.
 \end{tcolorbox}
 
+\begin{theorem}
+    If $f_1, \ldots, f_s$ and $g_1, \ldots, g_t$ are bases of the same 
+    ideal in $k[x_1, \ldots, x_n]$, so that $\langle f_1, \ldots, f_s \rangle 
+    = \langle g_1, \ldots g_t \rangle$, then we have 
+    $\textbf{V}(f_1, \ldots, f_s) = \textbf{V}(g_1, \ldots, g_t)$.
+\end{theorem}
+
+\begin{proof}
+    Let $p$ be a point in $V(f_1, \ldots, f_s)$.
+    Then $f_i(p) = 0$ for $i \in \{1, \ldots, s\}$.
+    Since $\langle f_1, \ldots, f_s \rangle = \langle g_1, \ldots, g_t \rangle$,
+        we have $g_j = \sum_{i = 1}^{s} h_i f_i$ where $h_i \in k[x_1, \ldots, x_n]$
+        and $j \in \{1, \ldots, t\}$.
+    Evaluating at $p$, we obtain
+        \[
+        g_j(p) = \sum_{i = 1}^{s} h_i(p) f_i(p) = 0.
+        \]
+    Thus $\textbf{V}(f_1, \ldots, f_s) \subseteq \textbf{V}(g_1, \ldots, g_t)$.
+    The other inclusion follows similarly, thus 
+    $\textbf{V}(f_1, \ldots, f_s) = \textbf{V}(g_1, \ldots, g_t)$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Show that $\textbf{V}(x + xy, y + xy, x^2, y^2) = \textbf{V}(x, y)$.
+    Hint: See Exercise 3.
 \end{tcolorbox}
+
+\begin{proof}
+    By part (b) of Exercise 3 we have 
+    \[\langle x + xy, y + xy, x^2, y^2 \rangle = \langle x, y \rangle.\]
+    Then by Proposition 4 we have 
+        $\textbf{V}(x + xy, y + xy, x^2, y^2) = \textbf{V}(x, y)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    The word ``basis'' is used in various ways in mathematics.
+    In this exercise, we will see that 
+        ``a basis of an ideal,'' as used in this section, is quite 
+        different from ``a basis of a subspace,'' which is studied in linear algebra.
+    \begin{enumerate}
+        \item First, consider the ideal $I = \langle x \rangle \subseteq k[x]$.
+        As an ideal, $I$ has a basis consisting of the one element $x$.
+        But $I$ can also be regarded as a subspace of $k[x]$, which is a 
+        vector space over $k$. Prove that any vector space basis of $I$ over $k$
+        is infinite. Hint: It suffices to find one basis that is infinite.
+        Thus, allowing $x$ to be multiplied by elements of $k[x]$ instead of 
+        just $k$ is what enables $\langle x \rangle$ to have a finite basis.
+        \item In linear algebra, a basis must span and be linearly independent over $k$,
+        whereas for an ideal, a basis is concerned only with spanning - there is no 
+        mention of any sort of independence. The reason is that once we allow 
+        polynomial coefficients, no independence is possible. To see this, consider 
+        the ideal $\langle x, y \rangle  \subseteq k[x, y]$. Show that 
+        zero can be written as a linear combination of $y$ and $x$ with nonzero 
+        polynomial coefficients.
+        \item More generally, suppose that $f_1, \ldots, f_s$ is the basis of an 
+        ideal $I \subseteq k[x_1, \ldots, x_n]$. If $s \ge 2$ and $f_i \ne 0$
+        for all $i$, then show that for any $i$ and $j$, zero can be written 
+        as a linear combination of $f_i$ and $f_j$ with nonzero polynomial 
+        coefficients.
+        \item A consequence of the lack of independence is that when we write an element 
+        $f \in \langle f_1, \ldots, f_s \rangle$ as 
+        $f = \sum_{i = 1}^{s} h_i f_i$, the coefficients $h_i$ are not unique.
+        As an example, consider $f = x^2 + xy + y^2 \in \langle x, y \rangle$.
+        Express $f$ as a linear combination of $x$ and $y$ in two different ways.
+        (Even though the $h_i$'s are not unique, one can measure their lack 
+        of uniqueness, one can measure and their lack of uniquess. This leads 
+        to the interesting topic of syzgies.)
+        \item A basisc $f_1, \ldots, f_s$ of an ideal $I$ is said to be \emph{minimal}
+        if no proper subset of $f_1, \ldots f_s$ is a basis of $I$.
+        For example, $x, x^2$, is a basis of an ideal, but not a minimal basis 
+        since $x$ generates the same ideal. Unfortunately, an ideal can have
+        minimal bases consisting of different numbers of elements. To see this,
+        show that $x$ and $x + x^2, x^2$ are minimal basis of the same ideal 
+        $k[x]$. Explain how this contrasts with the situation in linear algebra.
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $V$ is a finite vector space basis of $\langle x \rangle$ over $k$.
+    Let $f$ be the polynomial of maximum degree in $V$.
+    Since addition by other polynomials will not increase the degree of $f$
+        and multiplication is only by scalars in $k$, we cannot generate $x^{\deg(f)+1} \in \langle x \rangle$.
+    Thus $V$ does not span all of $\langle x \rangle$ and is not a basis.
+\end{proof}
+
+\begin{proof}
+    We have 
+    \[(y)x + (-x)y = 0, \text{ and } (2y)x + (-2x)y = 0.\]
+\end{proof}
+
+\begin{proof}
+    Let $f_i, f_j$ be nonzero elements of the basis of $I$ with $i \ne j$.
+    Since multiplication in $k[x_1,\ldots,x_n]$ is commutative we have
+    \[
+    (f_j)f_i + (-f_i)f_j = f_j f_i - f_i f_j = 0.
+    \]
+\end{proof}
+
+\begin{proof}
+    We have
+    \[
+    x^2 + xy + y^2 = x(x+y) + y^2,
+    \]
+    and also
+    \[
+    x^2 + xy + y^2 = x^2 + y(x+y).
+    \]
+    Thus $f$ can be written as a linear combination of $x$ and $y$ in two different ways.
+\end{proof}
+
+\begin{proof}
+    Now we have $\langle x \rangle = \langle x+x^2, x^2 \rangle$ since
+    \[
+    x^2 \in \langle x \rangle
+    \quad \text{and} \quad
+    x+x^2 = x(1+x) \in \langle x \rangle,
+    \]
+    thus $\langle x+x^2, x^2 \rangle \subseteq \langle x \rangle$.
+    Similarly
+    \[
+    x = (x+x^2) - x^2 \in \langle x+x^2, x^2 \rangle,
+    \]
+    thus $\langle x \rangle \subseteq \langle x+x^2, x^2 \rangle$.
+    The basis $\{x\}$ is minimal since removing $x$ is the emptyset.
+    The basis $\{x+x^2, x^2\}$ is minimal since removing either results in $x$ not being generated.
+    In linear algebra all bases of a subspace have the same cardinality.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Show that $\textbf{I}(\textbf{V}(x^n, y^m)) = \langle x, y \rangle$
+    for any positive integers $n$ and $m$.
 \end{tcolorbox}
+
+\begin{proof}
+    Any point in $\textbf{V}(x^n, y^m)$ satisfies $x^n = 0$ and $y^m = 0$, 
+    thus $x = 0$ and $y = 0$.  
+    Thus $\textbf{I}(\textbf{V}(x^n, y^m))$ consists of all $f \in k[x, y]$ 
+    that vanish at the origin.  
+    These are exactly the polynomials in $\langle x, y \rangle$, so
+    \[
+        \textbf{I}(\textbf{V}(x^n, y^m)) = \langle x, y \rangle.
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
+    The ideal $\textbf{I}(V)$ of a variety has a special property 
+    not shared by all ideals. Specifically, we define an ideal $I$ 
+    to be \emph{radical} if whenever a power $f^m$ of a polynomial 
+    $f$ is in $I$, then $f$ itself is in $I$. More succintly,
+    $I$ is radical when $f \in I$ if and only if $f^m \in I$
+    for some positive integer $m$.
+    \begin{enumerate}
+        \item Prove that $\textbf{I}(V)$ is always a radical ideal.
+        \item Prove that $\langle x^2, y^2 \rangle$ is not radical ideal.
+        This implies that $\langle x^2, y^2 \rangle \ne \textbf{I}(V)$
+        for any variety $V \subseteq k^2$.
+    \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Let $f \in \textbf{I}(V)$ and $p \in V$. Then clearly $f(p) = 0$.
+    Conversely, suppose $f^m \in \textbf{I}(V)$ for some positive integer $m$. 
+    Then for all $p \in V$, $f^m(p) = 0$.
+    A power of a number is zero if and only if the number itself is zero thus
+    \[
+        f(p) = 0 \quad \text{for all } p \in V.
+    \]
+\end{proof}
+
+\begin{proof}
+    Consider the ideal $I = \langle x^2, y^2 \rangle \subseteq k[x,y]$. 
+    Then $x^2 \in I$ and $y^2 \in I$, but
+    \[
+        x \notin I \quad \text{and} \quad y \notin I.
+    \]
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 9, breakable]
+    Let $V = \textbf{V}(y - x^2, z - x^3)$ be the twisted cube.
+    In the text we showed that $\textbf{I}(V) = \langle y - x^2, z - x^3 \rangle$.
+    \begin{enumerate}
+        \item Use the Parametrization of the twisted cube to show that $y^2 - xz \in \textbf{I}(V)$,
+        \item Use the argument given in the text to express $y^2 - xt$ as a combination of $y - x^2$ and $z - x^3$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    From $y^2 - xz$ and our paramtrization we have 
+    \[y^2 - xz = (t^2)^2 - t t^3 = t^4 - t^4 = 0.\]
+    Also 
+    \begin{align*}
+    y^2 - xz
+    &= y^2 - x^4 + x^4 - xz \\
+    &= (y^2 - x^4) + x(x^3 - z) \\
+    &= (y - x^2)(y + x^2) - x(z - x^3).
+    \end{align*}
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
+    Use the argument given in the discussion of the twisted cube 
+    to show that $\textbf{I}(\textbf{V}(x - y)) = \langle x - y \rangle$.
+    Your argument should be valid for any infinite field $k$.
 \end{tcolorbox}
+
+\begin{proof}
+    First, we have $x - y \in \textbf{I}(V)$ and since $\textbf{I}(V)$
+    is an ideal it follows that $h_1(x - y) \in \textbf{I}(V)$.
+    Thus $\langle x - y \rangle \subseteq \textbf{I}(V)$.
+    We first note that the parametrization of $V(x - y)$ is 
+    \[(x, y) = (t, t) \text{ for } t \in k.\]
+    Now, we know a general polynomial $f \in k[x, y]$ can 
+    be expressed as 
+    \[
+    f = h(x,y)(x - y) + r(y),
+    \]
+    where $r(y)$ is a polynomial in $y$ alone.
+    We now suppose $f \in \textbf{I}(V)$ and use the parametrization to find 
+    \[
+    0 = f(t, t) = h(t,t)(t - t) + r(t) = r(t).
+    \]
+    Since $k$ is infinite, this implies $r = 0$.
+    Thus $f = h(x,y)(x - y)$ and therefore 
+    \[
+    \textbf{I}(\textbf{V}(x - y)) \subseteq \langle x - y \rangle.
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
+    Let $V \subseteq \mathbb{R}^3$ be the curve parametrized 
+    by $(t, t^3, t^4)$.
+    \begin{enumerate}
+        \item Prove that $V$ is an affine variety.
+        \item Adapt the method used in the case of the twisted cube to determine $\textbf{I}(V)$.
+    \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Consider $x^3 - y, x^4 - z$ and notice using the parametrization we have
+    \[x^3 - y = t^3 - t^3 = 0, \text{ and } x^4 - z = t^4 - t^4 = 0.\]
+    Thus $V$ is an affine variety. 
+
+    Conversely, suppose $(x,y,z) \in \mathbf{V}(x^3 - y, x^4 - z)$.
+    Then
+    \[
+    y = x^3, \quad z = x^4.
+    \]
+    Let $t = x$. Then
+    \[
+    (x,y,z) = (t,t^3,t^4),
+    \]
+    so $(x,y,z) \in V$.
+    Therefore,
+    \[
+    V = \mathbf{V}(x^3 - y, x^4 - z),
+    \]
+\end{proof}
+
+\begin{proof}
+    We already know that 
+    \[
+    \langle x^3 - y,\; x^4 - z \rangle \subseteq \mathbf{I}(V).
+    \]
+    Now, we know a general polynomial $f \in k[x,y,z]$ can be expressed as
+    \[
+    f =
+    h_1(x,y,z)(x^3 - y)
+    +
+    h_2(x,y,z)(x^4 - z)
+    +
+    r(x),
+    \]
+    where $r(x)$ is a polynomial in $x$ alone.
+    We now suppose $f \in \mathbf{I}(V)$ and use the parametrization to find
+    \[
+    0
+    =
+    f(t,t^3,t^4)
+    =
+    h_1(t,t^3,t^4)(t^3 - t^3)
+    +
+    h_2(t,t^3,t^4)(t^4 - t^4)
+    +
+    r(t)
+    =
+    r(t).
+    \]
+    Since $k$ is infinite, this implies $r = 0$.
+    Thus
+    \[
+    f =
+    h_1(x,y,z)(x^3 - y)
+    +
+    h_2(x,y,z)(x^4 - z),
+    \]
+    and therefore
+    \[
+    \mathbf{I}(V)
+    \subseteq
+    \langle x^3 - y,\; x^4 - z \rangle.
+    \]
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 14, breakable]
+    This exercise is concerned with Proposition 8.
+    \begin{enumerate}
+        \item Prove that part (ii) of the proposition follows from part (i).
+        \item Prove the following corollary of the proposition: if $V$ and $W$ 
+        are affine varieties in $k^n$, then $V \subseteq W$ if and only if $\textbf{I}(V) \supseteq \textbf{I}(W)$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{theorem}
+    Let $V$ and $W$ be affine varieties in $k^n$. Then:
+    \begin{enumerate}
+        \item $V \subseteq W$ if and only if $\textbf{I}(V) \supseteq \textbf{I}(W)$.
+        \item $V = W$ if and only if $\textbf{I}(V) = \textbf{I}(W)$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Suppose $V = W$.
+    Since $V \subseteq W$ by Part (1) we have $\textbf{I}(V) \supseteq \textbf{I}(W)$.
+    Similarly, since $W \subseteq V$ we have $\textbf{I}(W) \supseteq \textbf{I}(V)$.
+    Thus $\text{I}(V) = \textbf{I}(W)$.
+
+    Conversely, suppose $\text{I}(V) = \textbf{I}(W)$.
+    Since $\textbf{I}(V) \supseteq \textbf{I}(W)$ by Part (1), we have $V \subseteq W$.
+    Similarly, since $\textbf{I}(W) \supseteq \textbf{I}(V)$ we have $W \subseteq V$.
+    Thus $V = W$.
+\end{proof}
+
+\begin{proof}
+    This is Part (1) which is proven in the text.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 15, breakable]
+    In the text, we define $\textbf{I}(V)$ for a variety $V \subseteq k^n$.
+    We can generalize this as follows: if $S \subseteq k^n$ is any subset,
+    then we set 
+    \[\textbf{I}(S) = \{f \in k[x_1, \ldots, x_n] \mid f(a_1, \ldots, a_n) = 0 \text{ for all } (a_1, \ldots, a_n) \in S\}.\]
+    \begin{enumerate}
+        \item Prove that $\textbf{I}(V)$ is an ideal.
+        \item Let $X = \{(a, a) \in \mathbb{R}^2 \mid a \ne 1\}$.
+        By Exercise 8 of 2, we know that $X$ is not an affine variety.
+        Determine $\textbf{I}(X)$. Hint: What you proved in Exercise 8 of 2
+        will be useful. See also Exercise 10 of this section.
+        \item Let $\mathbb{Z}^n$ be the points of $\mathbb{C}^n$
+        with integer coordinates. Determin $\textbf{I}(\mathbb{Z}^n)$.
+        Hint: See Exercise 6 of 1.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 16, breakable]
+    Here is more practice with ideals. Let $I$ be an ideal in $k[x_1, \ldots, x_n]$.
+    \begin{enumerate}
+        \item Prove that $1 \in I$ if and only if $I = k[x_1, \ldots, x_n]$,
+        \item More generally, prove that $I$ contains a nonzero constant if and only if $i = k[x_1, \ldots, x_n]$.
+        \item Suppose $f, g \in k[x_1, \ldots, x_n]$ satisfy $f^2, g^2 \in I$. Prove that 
+        $(f + g)^3 \in I$. Hint: Expand $(f + g)^3$ using the binomial theorem.
+        \item Now suppose $f, g \in k[x_1, \ldots, x_n]$ satisfy $f^r, g^s \in I$.
+        Prove that $(f + g)^{r + s - 1} \in I$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
+    In the proof of Lemma 7, we showed that $x \notin \langle x^2, y^2 \rangle$ 
+        in $k[x, y]$.
+    \begin{enumerate}
+        \item Prove that $xy \notin \langle x^2, y^2 \rangle$.
+        \item Prove that $1, x, y, xy$ are not monomials not contained in $\langle x^2, y^2 \rangle$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 18, breakable]
+    In the text, we showed that $\textbf{I}(\{0, 0\}) = \langle x, y \rangle$ in $k[x, y]$.
+    \begin{enumerate}
+        \item Generalize this by proving that the origin $0 = (0, \ldots, 0) \in k^n$
+        has the property that $\textbf{I}(\{0\}) = \langle x_1, \ldots, x_n \rangle$
+        in $k[x_1, \ldots, x_n]$.
+        \item What does part (a) say about polynomials in $k[x_1, \ldots, x_n]$ with zero constant term?
+    \end{enumerate}
 \end{tcolorbox}

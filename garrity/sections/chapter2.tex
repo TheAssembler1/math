@@ -1332,7 +1332,6 @@ so the intersection corresponds to the root $(0 : 1)$.
 \textbf{Solution: } The third point of intersection of $V(p)$ and $V(l)$ is the same since the line between $P, Q$ 
 is equivalent to the line between $Q, P$. Therefore, the resulting point is the same, and thus $PQ = QP$.
 
-
 \begin{tcolorbox}[title=Problem 2, breakable]
     Consider the cubic curve  
     \[C = \{(x, y) \in \mathbb{C}^2 \mid y^2 = x^3 - x\},\]
@@ -1520,37 +1519,21 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
 \end{proof}
 
 \begin{proof}
-    The line through $P_3=(-1,0)$ and $P_4=(0,-1)$ is $y = -x - 1$.
-    Plugging into the curve $y^2 = x^3 + 1$ gives $x^3 - x^2 - 2x = 0$ with three intersection points $x=-1,0,2$.  
-    Two of them are $P_3$ and $P_4$, so the third intersection point is $P_5=(2,-3)$ thus
+    Will go through this one casually... 
+    We have 
+    \[P_1 + (P_3 + P_4)  = P_1 + O(P_3 P_4) = O(P_1 O(P_3 P_4)) = P_2(P_1 P_2 (P_3 P_4)),\]
+    and 
+    \[(P_1 + P_3) + P_4 = O(P_1 P_3) + P_4 = O(O(P_1 P_3)P_4) = P_2(P_2(P_1 P_3) P_4).\]
+    Then $P_3 P_4 = P_5$ and $P_1 P_3 = P_2$. Thus
     \[
-        P_3 + P_4 = P_5.
+    P_2(P_1 P_2 (P_3 P_4)) = P_2(P_1 P_2 P_5) = P_2(P_4).
     \]
-    Then
+    and 
     \[
-        P_1 + (P_3 + P_4) = P_1 + P_5.
+    P_2(P_2(P_1 P_3) P_4) = P_2(P_2(P_2) P_4) = P_2(P_4).
     \]
-    The line through $P_1=(2,3)$ and $P_5=(2,-3)$ is $x=2$
-     which intersects the curve at the point at infinity. 
-    This corresponds to the identity $P_2$ thus
-    \[
-        P_1 + (P_3 + P_4) = P_2.
-    \]  
-
-    The line through $P_1=(2,3)$ and $P_3=(-1,0)$ is $y = x + 1$.
-    Plugging into the curve gives three intersection points $x=-1,0,2$.  
-    Two of them are $P_1$ and $P_3$, so the third intersection point is $P_2=(0,1)$ thus
-    \[
-        P_1 + P_3 = P_2.
-    \]  
-    Then $(P_1 + P_3) + P_4 = P_2 + P_4$. The line through $P_2$ and $P_4$ has intersection points $P_2$, $P_4$, and $P_2$ thus
-    \[
-        (P_1 + P_3) + P_4 = P_2.
-    \]  
-    Thus
-    \[
-        P_1 + (P_3 + P_4) = (P_1 + P_3) + P_4.
-    \]
+    At $x = 0$ our curve is $z(z - y)(z + y)$ where $z = 0$ is our point of interest.
+    Both have the line equation $x = 0$ and thus intersect at the same point at infinity.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
@@ -1571,6 +1554,11 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
     This establishes that $+$ is a commutative binary operation.
 \end{tcolorbox}
 
+\begin{proof}
+    Notice $PQ = QP$ thus $O(PQ) = O(QP) = P + Q = Q + P$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 8, breakable]
     Let $C$ be a smooth cubic curve and let $O$ be one of its inflection points.
     Define $+$ of points on $C$ relative to $O$.
@@ -1579,20 +1567,76 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
     Thus $O$ is the idenity element for $+$ on $C$.
 \end{tcolorbox}
 
+\begin{proof}
+    We have 
+    \[P + O = O(PO).\]
+    First notice the third point of intersection of the line \(l(PO) = l(OP)\) with the curve is some point \(P'\).
+    Then 
+    \[O(PO) = O(P') = P.\]
+
+    Suppose \(O\) and \(O'\) both have this property.
+    Then \(O + O' = O\) and \(O + O' = O'\), so \(O = O'\).
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 9, breakable]
     Let $C$ be a smooth cubic curve and let $O$ be one of its inflection points.
     Define addition $+$ of points on $C$ relative to the idenity $O$.
     \begin{enumerate}
         \item Suppose that $P, Q, R$ are collinear points on $C$.
         Show that $P + (Q + R) = O$ and $(P + Q) + R = O$.
-        \item Let $P$ be anypoints on $C$. Assume that $P$ has an inverse element $P^{-1}$ on $C$.
-        Prove that the points $P, P^{-1}$, and $O$ muts be colinear.
+        \item Let $P$ be any point on $C$. Assume that $P$ has an inverse element $P^{-1}$ on $C$.
+        Prove that the points $P, P^{-1}$, and $O$ must be colinear.
         \item Use the results of Part (1) and Part (2) to show that for any $P$ there is an element $P'$ on $C$
         statisfying $P + P' = P' + P = O$, i.e., every element $P$ has an inverse $P^{-1}$.
         Then show this inverse is unique.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    $P, Q, R$ must lie on a line of inflection of $C$.  
+    Thus $PQ = R, QR = P, PR = Q$.
+    Let $O'$ be the third point of intersection of the line $OP$. 
+    Let $R'$ be the third point of intersection of the line $OR$. 
+    Then
+    \[
+        P + (Q + R) = O(P (Q + R)) = O(P O(QR)) = O(P O(P)) = O(PO') = OO = O,
+    \] 
+    and
+    \[
+        (P + Q) + R = O((P + Q) R) = O(O(PQ) R) = O(O(R) R) = O(R' R) = OO = O.
+    \]
+    Thus
+    \[
+        P + (Q + R) = (P + Q) + R = O.
+    \]
+\end{proof}
+
+\begin{proof}
+    We have
+    \[
+        P + P^{-1} = O \iff O(P P^{-1}) = O,
+    \]
+    where $P P^{-1}$ is the third point of intersection of the line through $P$ and $P^{-1}$.  
+    Thus the line through $P$ and $P^{-1}$ passes through $O$,  
+        so $P, P^{-1}, O$ are collinear.
+\end{proof}
+
+\begin{proof}
+    Let $P$ be an arbitrary point on $C$.  
+    Let $P'$ be the third point of intersection, $\ne P, O$, of the line $l(P, O)$ with $C$.  
+    Then
+    \[
+        P + P' = P' + P = O(P P') = OO = O.
+    \]
+    Thus $P' = P^{-1}$.
+
+    Suppose $P'$ is another inverse of $P$.
+    Then the line through $P$ and $P'$ must intersect $C$ at $O$ but so does the line between $P$ and $P^{-1}$.  
+    Since a line intersects a cubic in at most three points we have $P' = P^{-1}$.  
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 10, breakable]
     Start with two cubic curves, $C = V(f)$ and $D = V(g)$.
     By Theorem 1.2.37, there are exactly nine points of intersection,
@@ -1606,6 +1650,22 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
         $C_1 = V(\lambda_1 f + \mu_1 g)$ and $C_2 = V(\lambda_2 f + \mu_2 g)$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Let $P_i$ where $i \in \{1, \ldots, 9\}$.  Then 
+    \[
+        (\lambda f + \mu g)(P_i) = \lambda f(P_i) + \mu g(P_i) = \lambda \cdot 0 + \mu \cdot 0 = 0,
+    \]
+    so $P_i$ lies on the cubic curve $V(\lambda f + \mu g)$.
+    Also
+    \[
+        (\lambda_1 f + \mu_1 g)(P_i) = \lambda_1 f(P_i) + \mu_1 g(P_i) = 0,
+    \]
+    \[
+        (\lambda_2 f + \mu_2 g)(P_i) = \lambda_2 f(P_i) + \mu_2 g(P_i) = 0.
+    \]
+    Thus $P_i \in C_1 \cap C_2$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
     Consider eight distinct points $P_1, P_2, \ldots, P_8$ in $\mathbb{P}^2$,
@@ -1624,6 +1684,7 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
     \end{enumerate}
 \end{tcolorbox}
 
+\newpage
 \begin{tcolorbox}[title=Problem 12, breakable]
     Show that there are two linearly independent cubics 
     \[P_1(x, y, z) \text{ and } F_2(x, y, z)\]
@@ -1686,4 +1747,171 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
 \begin{tcolorbox}[title=Problem 18, breakable]
     Suppose $P$ is a point on $C$ and $3 \cdot P = 0$.
     Conclude that $P P = P$. From this, deduce that $P$ is a point of inflection on $C$.
+\end{tcolorbox}
+
+\subsection{Normal Forms of Cubics}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Consider the smooth cubic curve defined by 
+    $x^3 + y^3 - z^3 = 0$.
+    \begin{enumerate}
+        \item Show that $O = (1 : 0 : 1)$ is an inflection point of $C$.
+        \item Show that $x - z = 0$ is the equation of the tangent line to $C$ at $O$.
+        \item Find a $3 \times 3$ matrix $M$ such that, under the change of variables 
+        \[
+        \begin{bmatrix}
+            x \\ y \\ z
+        \end{bmatrix}
+        =
+        M^{-1}
+        \begin{bmatrix}
+            x_1 \\ y_1 \\ z_2
+        \end{bmatrix},
+        \]
+        we have $(1 : 0 : 1) \mapsto (0 : 1 : 0)$
+        and $l(x, y, z) = x - z$ becoming $l_1(x_1, y_1, z_1) = z_1$.
+        \item Find the equation $f_1(x_1, y_1, z_1) = 0$ for the curve $C_1$ that is associated to this projective change of coordinates.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[
+    \nabla C(x, y, z) = (3x^2, 3y^2, -3z^2).
+    \]
+    Then 
+    \[
+    \nabla C(1, 0, 1) = (3, 0, -3).
+    \]
+    Thus the tangent line is 
+    \[
+    l(x, y, z) = 3(x - 1) - 3(z - 1) = 3x - 3z = 0 \iff x - z = 0.
+    \]
+    Substituting $x = z$ into our curve we have 
+    \[
+    x^3 + y^3 - x^3 = y^3 = 0 \implies y = 0.
+    \]
+    Thus we have $y = 0$ with multiplicity $3$, and $(1 : 0 : 1)$ is an inflection point of $C$.
+    Let
+    \[
+    \begin{bmatrix} x \\ y \\ z \end{bmatrix} =
+    \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    1 & 0 & 1
+    \end{bmatrix}^{-1}
+    \begin{bmatrix} x_1 \\ y_1 \\ z_1 \end{bmatrix}.
+    \]
+    Then
+    \[
+    O = (1:0:1) \mapsto (0:1:0), \quad
+    l(x,y,z) = x-z \mapsto l_1(x_1,y_1,z_1) = z_1.
+    \]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    \begin{enumerate}
+        \item Explain why the homogeneous polynomial $f_1(x_1, y_1, z_1)$
+        can be expressed as 
+        \[f_1 (x_1, y_1, z_1) = \alpha x_1^3 + z_1 F(x_1, y_1, z_1),\]
+        where $\alpha \ne 0$ and $F(0, 1, 0) \ne 0$.
+        \item Explain why the highest power of $y_1$ in the homogeneous polynomial $f_1(x_1, y_1, z_1)$ is two.
+        \item Explain how by rescaling we can introduce new coordinates $(x_2 : y_2 : z_2)$
+        so that the coefficient of $x_2^3$ is $1$ and the coefficient of $y_2^2 z_2$ is $-1$
+        in the new homogeneous polynomial $f_2(x_2, y_2, z_2) = 0$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 24, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 25, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 26, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 27, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 28, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 29, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 30, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 31, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 32, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 33, breakable]
 \end{tcolorbox}
