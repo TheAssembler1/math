@@ -1823,7 +1823,49 @@ is equivalent to the line between $Q, P$. Therefore, the resulting point is the 
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    First, restrict the homogeneous polynomial to the line $z_1 = 0$ and we find 
+    \[
+    f_1(x_1, y_1, 0) = a x_1^3 + b x_1 y_1^2 + c x_1^2 y_1 + d y_1^3.
+    \]
+    Then plugging in the point on the tangent line $(0 : 1 : 0)$ we find 
+    \[
+    f_1(0, 1, 0) = d = 0.
+    \]
+    This shows why the highest power of $y_1$ in $f_1(x_1, y_1, z_1)$ is 2.
+    We can then factor $f_1$ to get 
+    \[
+    f_1(x_1, y_1, 0) = x_1(a x_1^2 + b y_1^2 + c x_1 y_1).
+    \]
+    But since $(0 : 1 : 0)$ has multiplicity three we must have $b = c = 0$,
+    thus $f_1(x_1, y_1, 0) = \alpha x_1^3$ where $\alpha \ne 0$.
+    The rest of the polynomial must have a factor of $z_1$,
+    thus $f_1(x_1, y_1, z_1) = \alpha x_1^3 + z_1 F(x_1, y_1, z_1)$.
+    Suppose $F(0, 1, 0) = 0$, then all partial derivatives would be zero,
+    contradicting that the curve is smooth.
+    Therefore $f_1(x_1, y_1, z_1) = \alpha x_1^3 + z_1 F(x_1, y_1, z_1)$
+    such that $\alpha \ne 0$ and $F(0, 1, 0) \ne 0$.
+
+    Let $x_2 = \alpha^{-1/3} x_1$, $y_2 = \beta y_1$, and $z_2 = \gamma z_1$,
+    where $\beta, \gamma \ne 0$ are constants chosen so that the coefficient
+    of $y_2^2 z_2$ is $-1$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Use the Fermat curve defined in Exercise 2.4.1 for 
+    the following.
+    \begin{enumerate}
+        \item Show that 
+        \[
+        M^{-1} = 
+        \begin{bmatrix}
+            0 & 1 & 0 \\
+            1 & 0 & 1 \\
+            0 & 1 & -1 
+        \end{bmatrix}
+        \]
+        is the desired matrix that solves Part (3) of Exercise 2.4.1.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 4, breakable]

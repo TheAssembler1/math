@@ -45,45 +45,201 @@
         \[[f(t)]^a [g(t)]^b,\]
         with $a + b \le m$ are linearly \emph{dependent}.
         \item Deduce form part (b) that if $C$ is a curve in $k^2$ given parametrically by $x = f(t), y = g(t)$
-        for $f(t), g(t) \in k[t],$ then $C$ is contained in $\textbf{V}(f)$ for some nonzero $F \in k[x, y]$
+        for $f(t), g(t) \in k[t],$ then $C$ is contained in $\textbf{V}(F)$ for some nonzero $F \in k[x, y]$
         \item Generalize parts (a), (b), and (c) to show that any polynomial parametric surface 
         \[x = f(t, u), \quad y = g(t, u), \quad z = h(t, u),\]
         is contained in an algebraic surface $\textbf{V}(f)$, where $F \in k[x, y, z]$ is nonzero.
     \end{enumerate}
 \end{tcolorbox}
 
-\begin{proof}
-    We must find all combinations of $(a, b)$ where $a + b \le m$.
-    Now, we first select $a$ and see there are $m - a + 1$ choices remaining for $b$
-        since $b = 0, 1, \dots, m - a$.
-    Thus, we have the series 
-    \[(0 + (m - 0 + 1) + (1 + (m - 1 + 1)) + \cdots + ((m - 1) + (m - (m - 1) + 1)) + (m + (m - m + 1)) ).\]
-    Then rearranging terms we see 
-    \[(1 + 2 + \cdots + (m+1)) = \frac{(m+1)(m+2)}{2}.\]
+\begin{proof}[Part 1]
+    The number of monomials $x^a y^b$ of total degree $\le m$ is the number of $(a,b)$ such that $a+b \le m$.
+    For each $a = 0, 1, \dots, m$, $b$ can range from $0$ to $m-a$, giving $m-a+1$ choices.
+    Thus
+    \[
+    \sum_{a=0}^{m} (m-a+1) = \sum_{a=0}^{m} (m+1) - \sum_{a=0}^{m} a = (m+1)(m+1) - \frac{m(m+1)}{2} = \frac{(m+1)(m+2)}{2}.
+    \]
+\end{proof}
+
+\begin{proof}[Part 2]
+    Suppose $f(t)$ and $g(t)$ are polynomials of degree $\le n$ in $t$.
+    Then $\deg(f(t)^a) \le an$ and $\deg(g(t)^b) \le bn$, so
+    \[
+    \deg([f(t)]^a [g(t)]^b) = \deg(f(t)^a) + \deg(g(t)^b) \le an + bn = n(a+b) \le nm.
+    \]
+    There are $\frac{(m+1)(m+2)}{2}$ such polynomials. 
+    For $m$ large enough, 
+    \[
+    \frac{(m+1)(m+2)}{2} > nm+1,
+    \]
+    so these polynomials are linearly dependent.
+\end{proof}
+
+\begin{proof}[Part 3]
+    By part 2, for sufficiently large $m$ there is some linear combination
+    \[
+    a_1 x^0 y^0 + a_2 x^1 y^0 + a_3 x^0 y^1 + \cdots = 0,
+    \]
+    with at least one $a_i \ne 0$.
+    Then taking $x = f(t)$ and $y = g(t)$, gives
+    \[
+    a_1 [f(t)]^0 [g(t)]^0 + a_2 [f(t)]^1 [g(t)]^0 + a_3 [f(t)]^0 [g(t)]^1 + \cdots = 0
+    \]
+    for all $t$. Let
+    \[
+    F(x,y) = a_1 x^0 y^0 + a_2 x^1 y^0 + a_3 x^0 y^1 + \cdots \in k[x,y].
+    \]
+    Then $F(f(t),g(t)) = 0$ for all $t$ thus $C \subset \textbf{V}(F)$.
+\end{proof}
+
+\begin{proof}[Part 4]
+    Consider all monomials
+    \[
+    [f(t,u)]^a [g(t,u)]^b [h(t,u)]^c
+    \]
+    of total degree $\le m$.
+    For $m$ large enough,
+    the number of such monomials exceeds the dimension of the vector space of polynomials in $t,u$ of that degree. 
+    Thus there exists a linear combination
+    \[
+    F(x,y,z) = \sum a_{a,b,c} x^a y^b z^c \in k[x,y,z]
+    \]
+    that vanishes when evaluated on the surface
+    \[
+    F(f(t,u), g(t,u), h(t,u)) = 0.
+    \]
+    Therefore, the surface is contained in $\textbf{V}(F)$.
 \end{proof}
 
 \subsection{Orderings on the Monomials in $k[x_1, \ldots, x_n]$}
 
+\newpage
 \begin{tcolorbox}[title=Problem 1, breakable]
+    Rewrite each of the following polynomials,
+    ordering the terms using lex order,
+    grlex order, and grevlex order,
+    giving $LM(f), LT(f)$, and $multideg(f)$
+    in each case.
+    \begin{enumerate}
+        \item $f_1(x, y, z) = 2x + 3y + z + x^2 - z^2 + x^3$.
+        \item $f_2(x, y, z) = 2x^2 y^8 - 3x^5 y z^4 + x y z^3 - x y^4$.
+    \end{enumerate}
 \end{tcolorbox}
+
+\textbf{Solution (lex order): }
+For $f_1$, we have the following exponent vectors 
+\[(1, 0, 0),\ (0, 1, 0),\ (0, 0, 1),\ (2, 0, 0),\ (0, 0, 2),\ (3, 0, 0).\]
+Reordering in lex order ($x > y > z$) gives 
+\[
+x^3 + x^2 + 2x + 3y - z^2 + z.
+\]
+So
+\[
+LM(f_1) = x^3, \quad LT(f_1) = x^3, \quad multideg(f_1) = (3,0,0).
+\]
+For $f_2$, the exponent vectors are
+\[(2, 8, 0),\ (5, 1, 4),\ (1, 1, 3),\ (1, 4, 0).\]
+Reordering in lex order gives
+\[
+-3x^5 y z^4 + 2x^2 y^8 - x y^4 + x y z^3.
+\]
+So:
+\[
+LM(f_2) = x^5 y z^4, \quad LT(f_2) = -3x^5 y z^4, \quad multideg(f_2) = (5,1,4).
+\]
+\textbf{Solution (grlex order): }
+For $f_1$, compute total degrees
+\[
+|2x| = 1,\ |3y| = 1,\ |z| = 1,\ |x^2| = 2,\ |-z^2| = 2,\ |x^3| = 3.
+\]
+Sort by total degree, breaking ties with lex order
+\[
+x^3 - x^2 - z^2 + 2x + 3y + z
+\]
+\[
+LM(f_1) = x^3, \quad LT(f_1) = x^3, \quad multideg(f_1) = (3,0,0)
+\]
+For $f_2$, total degrees
+\[
+2x^2 y^8 = 10, \quad -3x^5 y z^4 = 10, \quad x y z^3 = 5, \quad -x y^4 = 5
+\]
+Sorting by total degree, then lex to break ties
+\[
+-3x^5 y z^4 + 2x^2 y^8 - x y^4 + x y z^3
+\]
+\[
+LM(f_2) = x^5 y z^4, \quad LT(f_2) = -3x^5 y z^4, \quad multideg(f_2) = (5,1,4)
+\]
+\textbf{Solution (grevlex order): }
+For $f_1$, total degrees as before: 1,1,1,2,2,3  
+\[
+x^3 + x^2 + 2x - z^2 + z + 3y
+\]
+\[
+LM(f_1) = x^3, \quad LT(f_1) = x^3, \quad multideg(f_1) = (3,0,0)
+\]
+For $f_2$, total degrees as before: 10,10,5,5  
+\[
+ - 3x^5 y z^4 + 2x^2 y^8 + x y z^3 - x y^4
+\]
+\[
+LM(f_2) = x^2 y^8, \quad LT(f_2) = 2x^2 y^8, \quad multideg(f_2) = (2,8,0)
+\]
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Show that grlex is a monomial order according to Definition 1.
 \end{tcolorbox}
+
+\begin{proof}
+    Grlex compares monomials first by total degree, then by lex order to break ties.  
+    Since total degree is a total order on nonnegative integers, and lex order is a total order on exponent vectors,  
+    the composition of these two total orders is again a total order.  
+    Thus grlex is a monomial order.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Show that grevlex is a monomial order according to Definition 1.
 \end{tcolorbox}
 
+\begin{proof}
+    Grevle compares monomials first by total degree, then by reverse lex order to break ties.  
+    Again, total degree is a total order and reverse lex is a total order on exponent vectors, so their composition is a total order.  
+    Therefore, grevlex is a monomial order, just as in Problem 4.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Let $>$ be any monomial order.
+    \begin{enumerate}
+        \item Show that $\alpha \ge 0$ for all $\alpha \in \mathbb{Z}_{\ge 0}^n$. Hint: Proof by contradiction.
+        \item Show that if $x^\alpha$ divides $x^\beta$, then $\alpha \le \beta$. Is the converse true?
+        \item Show that if $\alpha \in \mathbb{Z}_{\ge 0}^n$, then $\alpha$ is the smallest element of $\alpha + \mathbb{Z}_{\ge 0}^n = \{\alpha + \beta \mid \beta \in \mathbb{Z}_{\ge 0}^n\}$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
+    In $\mathbb{Z}_{\ge 0}$ with the usual order, between any two integers,
+    there are only a finite number of other integers.
+    Is this necessarily true in $\mathbb{Z}_{\ge 0}^n$ for a monomial order? Is it true for grlex?
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
+    Let $>$ be a monomial order on $k[x_1, \ldots, x_n]$.
+    \begin{enumerate}
+        \item Let $f \in k[x_1, \ldots, x_n]$ and let $m$ be a monomial. Show that $LT(m \cdot f) = m \cdot LT(f)$.
+        \item Let $f, g \in k[x_1, \ldots, x_n]$. Is $LT(f \cdot g)$ necessarily the same as $LT(f) \cdot LT(g)$?
+        \item If $f_i, g_i \in k[x_1, \ldots, x_n]$, $1 \le i \le x$, is $LM(\sum_{i=1}^{s} f_i g_i)$ ncecessarily equal to $LM(f_i) \cdot LM(g_i)$ for some $i$?
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
+    Lemma 8 gives two properties of the multidegree.
+    \begin{enumerate}
+        \item Prove Lemma 8. Hint: The arguments used in Exercise 11 may be relevant.
+        \item Suppose that $multideg(f) = multideg(g)$ and $f + g \ne 0$.
+        Give examples to show that $multideg(f + g)$ may or may not equal $max(multideg(f), multideg(g))$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
+    Prove that $1 < x < x^2 < x^3 < \cdots$ is the unique monimial order on $k[x]$.
 \end{tcolorbox}
