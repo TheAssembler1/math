@@ -732,7 +732,7 @@ We can solve for $x, y$ and find $x = -\frac{1}{5}$, $y = \frac{7}{5}$.
 
 \subsection{Ideals}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 2, breakable]
     Let $I \subseteq k[x_1, \ldots, x_n]$ be an ideal,
     and let $f_1, \ldots, f_s \in k[x_1, \ldots, x_n]$.
@@ -826,7 +826,7 @@ k = (-1)\cdot g + 1 \cdot h.
     $\textbf{V}(f_1, \ldots, f_s) = \textbf{V}(g_1, \ldots, g_t)$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 5, breakable]
     Show that $\textbf{V}(x + xy, y + xy, x^2, y^2) = \textbf{V}(x, y)$.
     Hint: See Exercise 3.
@@ -982,7 +982,7 @@ k = (-1)\cdot g + 1 \cdot h.
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 9, breakable]
     Let $V = \textbf{V}(y - x^2, z - x^3)$ be the twisted cube.
     In the text we showed that $\textbf{I}(V) = \langle y - x^2, z - x^3 \rangle$.
@@ -1108,7 +1108,7 @@ k = (-1)\cdot g + 1 \cdot h.
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 14, breakable]
     This exercise is concerned with Proposition 8.
     \begin{enumerate}
@@ -1142,6 +1142,7 @@ k = (-1)\cdot g + 1 \cdot h.
     This is Part (1) which is proven in the text.
 \end{proof}
 
+
 \begin{tcolorbox}[title=Problem 15, breakable]
     In the text, we define $\textbf{I}(V)$ for a variety $V \subseteq k^n$.
     We can generalize this as follows: if $S \subseteq k^n$ is any subset,
@@ -1154,22 +1155,88 @@ k = (-1)\cdot g + 1 \cdot h.
         Determine $\textbf{I}(X)$. Hint: What you proved in Exercise 8 of 2
         will be useful. See also Exercise 10 of this section.
         \item Let $\mathbb{Z}^n$ be the points of $\mathbb{C}^n$
-        with integer coordinates. Determin $\textbf{I}(\mathbb{Z}^n)$.
+        with integer coordinates. Determine $\textbf{I}(\mathbb{Z}^n)$.
         Hint: See Exercise 6 of 1.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $f, g \in I(S)$ and $p \in S$. 
+    Then 
+    \[
+    (f + g)(p) = f(p) + g(p) = 0 + 0 = 0.
+    \] 
+    Let $r \in k[x_1, \ldots, x_n]$. Then 
+    \[
+    (r f)(p) = r(p) f(p) = r(p) \cdot 0 = 0.
+    \] 
+    Thus  $I(S)$ is an ideal.
+\end{proof}
+
+\begin{proof}
+    Suppose $f \in I(X)$. 
+    Then $f(a, a) = 0$ for all $a \ne 1$. 
+    But any polynomial in two variables that vanishes on all points of the form $(a, a)$ with $a \ne 1$ must vanish on the line $x = y$. 
+    Therefore, $f$ is divisible by $x - y$ thus $I(X) = \langle x - y \rangle$,
+\end{proof}
+
+\begin{proof}
+    Suppose $f \in I(\mathbb{Z}^n)$. 
+    Then $f(a_1, \ldots, a_n) = 0$ for all integers $a_1, \ldots, a_n$. 
+    But a nonzero polynomial in $n$ variables can only have finitely many zeros in any one variable if the others are fixed. 
+    Therefore, $I(\mathbb{Z}^n) = \{0\}$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 16, breakable]
     Here is more practice with ideals. Let $I$ be an ideal in $k[x_1, \ldots, x_n]$.
     \begin{enumerate}
         \item Prove that $1 \in I$ if and only if $I = k[x_1, \ldots, x_n]$,
-        \item More generally, prove that $I$ contains a nonzero constant if and only if $i = k[x_1, \ldots, x_n]$.
+        \item More generally, prove that $I$ contains a nonzero constant if and only if $I = k[x_1, \ldots, x_n]$.
         \item Suppose $f, g \in k[x_1, \ldots, x_n]$ satisfy $f^2, g^2 \in I$. Prove that 
         $(f + g)^3 \in I$. Hint: Expand $(f + g)^3$ using the binomial theorem.
         \item Now suppose $f, g \in k[x_1, \ldots, x_n]$ satisfy $f^r, g^s \in I$.
         Prove that $(f + g)^{r + s - 1} \in I$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $1 \in I$. Let $f$ be an arbitrary polynomial in $k[x_1, \ldots, x_n]$.
+    Since $I$ is closed under multiplication we have $1 \cdot f = f \in I$.
+    Thus $I = k[x_1, \ldots, x_n]$.
+
+    Conversely, suppose $I = k[x_1, \ldots, x_n]$.
+    Since $1 \in k[x_1, \ldots, x_n]$ we have $1 \in I$.
+\end{proof}
+
+\begin{proof}
+    Suppose $I$ contains a nonzero constant $c$.
+    Let $f$ be an arbitrarily polynomial in $k[x_1, \ldots, x_n]$.
+    Since $k$ is a field we have $\frac{f}{c^{-1}} \in k[x_1, \ldots, x_n]$.
+    Then, since $I$ is closed under multiplicaion we have $c \cdot \frac{f}{c^{-1}} = f \in I$.
+    Thus $I = k[x_1, \ldots, x_n]$.
+
+    Conversely, suppose $I = k[x_1, \ldots, x_n]$.
+    Let $c$ be a nonzero constant.
+    Since $c \in k[x_1, \ldots, x_n]$ we have $c \in I$.
+\end{proof}
+
+\begin{proof}
+    Notice 
+    \[(f + g)^3 = f^3 + 3 f^2 g + 3 f g^2 + g^3 = f f^2 + 3 g f^2 + 3 f g^2 + g^3,\]
+    which constists of scaling by polynomials in $k[x_1, \ldots, x_n]$ and addition in $I$.
+    Thus $(f + g)^3 \in I$.
+\end{proof}
+
+\begin{proof}
+    Consider the binomial expansion
+    \[
+    (f + g)^{r+s-1} = \sum_{k=0}^{r+s-1} \binom{r+s-1}{k} f^k g^{\,r+s-1-k}.
+    \]
+    For each term $f^k g^{\,r+s-1-k}$, either $k \ge r$ or $r+s-1-k \ge s$.  
+    If $k \ge r$, then $f^k = f^r \cdot f^{k-r} \in I$, since $f^r \in I$ and $I$ is closed under multiplication by polynomials.  
+    If $r+s-1-k \ge s$, then $g^{\,r+s-1-k} = g^s \cdot g^{\,r+s-1-k-s} \in I$, since $g^s \in I$.  
+    Each term is therefore in $I$, and since $I$ is closed under addition $(f + g)^{r+s-1} \in I$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 17, breakable]
     In the proof of Lemma 7, we showed that $x \notin \langle x^2, y^2 \rangle$ 
@@ -1180,6 +1247,54 @@ k = (-1)\cdot g + 1 \cdot h.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $xy \in \langle x^2, y^2 \rangle$. 
+    Then we must have 
+    \[
+    xy = f(x, y) x^2 + g(x, y) y^2,
+    \]
+    for some $f, g \in k[x, y]$. 
+    But $\deg_x(xy) = 1$ while $\deg_x(f(x, y)x^2 + g(x, y)y^2) \ge 2$, 
+    which is a contradiction. 
+    Thus $xy \notin \langle x^2, y^2 \rangle$.
+\end{proof}
+
+\begin{proof}
+    Suppose $1 \in \langle x^2, y^2 \rangle$. 
+      Then we must have 
+      \[
+      1 = f(x, y) x^2 + g(x, y) y^2,
+      \]
+      for some $f, g \in k[x, y]$. 
+      But $\deg_x(1) = 0$ while $\deg_x(f(x, y)x^2 + g(x, y)y^2) \ge 2$, 
+      a contradiction. Thus $1 \notin \langle x^2, y^2 \rangle$.
+
+    Suppose $x \in \langle x^2, y^2 \rangle$. 
+      Then we must have 
+      \[
+      x = f(x, y) x^2 + g(x, y) y^2.
+      \]
+      But $\deg_x(x) = 1$ while $\deg_x(f(x, y)x^2 + g(x, y)y^2) \ge 2$, 
+      a contradiction. Thus $x \notin \langle x^2, y^2 \rangle$.
+
+    Suppose $y \in \langle x^2, y^2 \rangle$. 
+      Then we must have 
+      \[
+      y = f(x, y) x^2 + g(x, y) y^2.
+      \]
+      But $\deg_y(y) = 1$ while $\deg_y(f(x, y)x^2 + g(x, y)y^2) \ge 2$, 
+      a contradiction. Thus $y \notin \langle x^2, y^2 \rangle$.
+
+    Suppose $xy \in \langle x^2, y^2 \rangle$. 
+      Then we must have 
+      \[
+      xy = f(x, y) x^2 + g(x, y) y^2.
+      \]
+      But $\deg_x(xy) = 1$ while $\deg_x(f(x, y)x^2 + g(x, y)y^2) \ge 2$, 
+      a contradiction. Thus $xy \notin \langle x^2, y^2 \rangle$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 18, breakable]
     In the text, we showed that $\textbf{I}(\{0, 0\}) = \langle x, y \rangle$ in $k[x, y]$.
     \begin{enumerate}
@@ -1189,3 +1304,352 @@ k = (-1)\cdot g + 1 \cdot h.
         \item What does part (a) say about polynomials in $k[x_1, \ldots, x_n]$ with zero constant term?
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    One direction is trivial. For any polynomial of the form 
+    \[
+    F_1(x_1, \ldots, x_n)x_1 + \cdots + F_n(x_1, \ldots, x_n)x_n,
+    \]
+    it clearly vanishes at the origin.
+    For the other direction, suppose
+    \[
+    f = \sum_{t_1, \ldots, t_n} a_{t_1, \ldots, t_n} x_1^{t_1} \cdots x_n^{t_n}
+    \]
+    vanishes at the origin. Then 
+    \[
+    a_{0, \ldots, 0} = f(0, \ldots, 0) = 0,
+    \]
+    and consequently
+    \begin{align*}
+        f &= a_{0, \ldots, 0} + \sum_{(t_1, \ldots, t_n) \ne (0, \ldots, 0)} a_{t_1, \ldots, t_n} x_1^{t_1} \cdots x_n^{t_n} \\
+          &= 0 + \sum_{(t_1, \ldots, t_n) \ne (0, \ldots, 0)} a_{t_1, \ldots, t_n} x_1^{t_1} \cdots x_n^{t_n} \in \langle x_1, \ldots, x_n \rangle.
+    \end{align*}
+    Thus, any polynomial vanishing at the origin lies in $\langle x_1, \ldots, x_n \rangle$, proving the claim.
+\end{proof}
+
+\textbf{Solution: } This says that any polynomial in $k[x_1, \ldots, x_n]$ 
+with zero constant term can be factored as a linear combination of $x_1, \ldots, x_n$, 
+and is in the ideal $\langle x_1, \ldots, x_n \rangle$.
+
+\subsection{Polynomials of One Variable}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Over the complex numbers $\mathbb{C}$, Corollary 3 can be stated 
+    in a stronger form. Namely, prove that if $f \in \mathbb{C}[x]$
+    is a polynomial of degree $n > 0$, then $f$ can be written in the form 
+    $f = c(x - a_1) \cdots (x - a_n)$, where $c, a_1, \ldots, a_n \in \mathbb{C}$
+    and $c \ne 0$. Hint: Use Theorem 7 of 1. Note that this results holds for any 
+    algebraically closed field.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f \in \mathbb{C}[x]$ is a polynomial of degree $n > 0$.
+    By Theorem 7, $f$ has a root in $\mathbb{C}$, say $a_1$.
+    Then $f$ can be written as $f = (x - a_1)g_1(x)$ where $g_1 \in \mathbb{C}[x]$.
+    Then $\deg(g_1) = \deg(f) - 1$. If $\deg(g_1) = 0$, then let $c = g_1(x)$ and we are done.
+    Otherwise, repeat the process of extracting a linear factor from $g_1$ using Theorem 7.
+    Continuing in this way, we eventually obtain
+    \[
+    f = c(x - a_1) \cdots (x - a_n),
+    \]
+    where $c \in \mathbb{C}$ and $c \ne 0$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    The fact that every ideal of $k[x]$ is principal 
+    (generated by one element) is special to the case of polynomials in 
+    one variable. In this exercise we will see why. Namely,
+    consider the ideal $I = \langle x, y \rangle \subseteq k[x, y]$.
+    Prove that $I$ is not principal ideal.
+\end{tcolorbox}
+
+\begin{proof}
+    For contradiction, suppose $I = \langle x,y \rangle = \langle f \rangle$ where $f \in \mathbb{C}[x, y]$.
+    Now, there must exist $g \in \mathbb{C}[x, y]$ such that $x = fg$.
+    Now since $\deg_x(x) = 1$ we must have either $\deg_x(f) = 1$ or $\deg_x(g) = 1$.
+    Suppose wlog $\deg_x(f) = 1$, since $\deg_x(x) = \deg_x(f) + \deg_x(g) = 1$,
+        we have $\deg_x(g) = 0$.
+    Clearly $\deg_y(g) = 0$ thus $g$ is a constant.
+    But then $f = \frac{x}{g}$, so $f$ is a constant multiple of $x$.
+    Therefore $\langle f \rangle = \langle x \rangle$, which cannot generate $y$.
+    Thus $I$ is not a principal ideal.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $h$ is the gcd of $f, g \in k[x]$, then prove that there 
+    are $A, B \in k[x]$ such that $Af + Bg = h$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $h$ is the gcd of $f, g \in k[x]$.
+    Consider the ideal $\langle f,g \rangle \subseteq k[x]$.
+    Since every ideal of $k[x]$ is principal, we have $\langle f,g \rangle = \langle d \rangle$
+    for some $d \in k[x]$.
+    Then there exist $A,B \in k[x]$ such that $Af + Bg = d$.
+    Since $d$ divides both $f$ and $g$, and $h$ is the greatest common divisor,
+        we must have $d = h$ up to multiplication by a nonzero constant.
+    Thus there exist $A,B \in k[x]$ such that $Af + Bg = h$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    If $f, g \in k[x]$, then prove that
+        $\langle f - qg, g \rangle = \langle f, g \rangle$
+        for any $q$ in $k[x]$.
+\end{tcolorbox}
+
+\begin{proof}
+    Notice that $g \in \langle f,g\rangle$ and
+    \[
+        f - qg = 1\cdot f + (-q)\cdot g \in \langle f,g\rangle.
+    \]
+    thus
+    \[
+        \langle f - qg, g\rangle \subseteq \langle f,g\rangle.
+    \]
+
+    Conversely, notice that
+    \[
+        f = (f - qg) + qg.
+    \]
+    Since $f - qg, g \in \langle f - qg, g\rangle$ we have
+    $f \in \langle f - qg, g\rangle$. Also, $g \in \langle f - qg, g\rangle$.
+    Thus
+    \[
+        \langle f,g\rangle \subseteq \langle f - qg, g\rangle.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Given $f_1, \ldots, f_s \in k[x]$, let $h = gcd(f_2, \ldots, f_s)$.
+    Then use the equality of $\langle h \rangle = \langle f_2, \ldots, f_2 \rangle$
+    to show that $\langle f_1, h \rangle = \langle f_1, f_2, \ldots, f_s \rangle$
+\end{tcolorbox}
+
+\begin{proof}
+    This is obvious since 
+    \[gcd(f_1, \ldots, f_s) = gcd(f_1, gcd(\ldots, f_s)).\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    If you are allowed to compute the gcd of two polynomials at a tie 
+    (which is true for some computer algebra systems), give pseudocode
+    for an algorithm that computes the gcd of polynomials 
+    $f_1, \ldots, f_s \in k[x]$, where $s > 2$. Prove that your 
+    algorithm works.
+\end{tcolorbox}
+
+\begin{proof}
+    Here is the program.
+    \begin{verbatim}
+    polynomial cur_gcd = f_1;
+
+    for (int i = 2; i <= s; i++) {
+        cur_gcd = gcd(cur_gcd, f_i);
+    }
+
+    return cur_gcd;
+    \end{verbatim}
+    Obviously works by problem 6.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    In this exercise we will study the one-variable case of the 
+    consistency problem from 2. Given $f_1, \ldots, f_s \in k[x]$,
+    this asks if there is an algorithm to decide whether 
+    $\textbf{V}(f_1, \ldots, f_s)$ is nonempty. We will see that hte answer is yes
+    when $k = \mathbb{C}$.
+    \begin{enumerate}
+        \item Let $f \in \mathbb{C}[x]$ be a nonzero polynomial.
+        Then use Theorem 7 of 1 to show that $\textbf{V}(f) = \emptyset$ if and only if $f$ is constant.
+        \item If $f_1, \ldots, f_s \in \mathbb{C}[x]$, prove $\textbf{V}(f_1, \ldots, f_s) = \emptyset$ if and only if 
+        $gcd(f_1, \ldots, f_s) = 1$.
+        \item Describe (in words, not pseudocode) an algorithm for determining whether or not 
+        $\textbf{V}(f_1, \ldots, f_s)$ is nonempty.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $\textbf{V}(f) = \emptyset$.  
+    For contradiction, suppose $f$ is not a nonzero constant.  
+    Then $\deg(f) > 0$ and by Theorem 7 can be written as $f = (x - a) g(x)$
+    where $g \in \mathbb{C}[x]$ and $a$ is a root.  
+    But then $f(a) = (a - a) g(a) = 0 \cdot g(a) = 0$.  
+    Thus $a \in \textbf{V}(f)$, which is a contradiction.
+
+    Suppose $f$ is a nonzero constant.  
+    For contradiction, suppose $\textbf{V}(f) \ne \emptyset$.  
+    Let $a \in \textbf{V}(f)$.  
+    Then $f(a) = 0$ and since $f \ne 0$ by Theorem 7 we must have $f = (x - a) g(x)$ where $g \in \mathbb{C}[x]$.  
+    But then $\deg(f) = \deg((x - a) g(x)) \ge 1$, which is a contradiction.
+\end{proof}
+
+\begin{proof}
+    Suppose $f_1, \ldots, f_s \in \mathbb{C}[x]$.
+
+    Furthermore, suppose $\textbf{V}(f_1, \ldots, f_s) = \emptyset$.  
+    If $\gcd(f_1, \ldots, f_s) \ne 1$, then there must be a polynomial $g$  
+    such that $\deg(g) \ge 1$ and $g \mid f_1, \ldots, f_s$.  
+    But then by Theorem 7, $g$ has $\deg(g)$ roots and therefore 
+    there are $\deg(g)$ points in $\textbf{V}(f_1, \ldots, f_s)$,
+    which is a contradiction.  
+    Thus $\gcd(f_1, \ldots, f_s) = 1$.
+
+    Conversely, suppose $\gcd(f_1, \ldots, f_s) = 1$.  
+    If $\textbf{V}(f_1, \ldots, f_s) \ne \emptyset$, then there is a linear factor, say $(x - a)$,
+    such that $(x - a) \mid f_1, \ldots, f_s$, contradicting $\gcd(f_1, \ldots, f_s) = 1$.  
+    Thus $\textbf{V}(f_1, \ldots, f_s) = \emptyset$.
+\end{proof}
+
+\textbf{Solution: } Repeatedly apply the $\gcd$ algorithm to the polynomials.  
+If it is $1$ in the end, then $\textbf{V}(f_1, \ldots, f_s) = \emptyset$.
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    This exercise will study the one-variable case of the \emph{Nullstellensatz problem} from 4,
+    which asks for the relation between $\textbf{I}(\textbf{V}(f_1, \ldots, f_s))$ and $\langle f_1, \ldots, f_s \rangle$
+    when $f_1, \ldots, f_s \in \mathbb{C}[x]$. By using gcd's, we can reduce to the case to a single
+    generator. So, in this problem, we will explicitly determine $\textbf{I}(\textbf{V}(f))$ where $f \in \mathbb{C}[x]$
+    is a nonconstant polynomial. Since we are working over the complex numbers, we know by Exercise 1 that $f$ 
+    factors completely, i.e.,
+    \[f = c(x - a_1)^{r_1} \cdots (x - a_1)^{r_l},\]
+    where $a_1, \ldots, a_l \in \mathbb{C}$ are distinct 
+    and $c \in \mathbb{C} - \{0\}$. Define the polynomial 
+    \[f_{red} = c(x - a_1) \cdots (x - a_l).\]
+    The polynomials $f$ and $f_{red}$ have the same roots but their \emph{multiplicities}
+    may differ. In particular, all roots of $f_{red}$ have multiplicity one.
+    We call $f_{red}$ the \emph{reduced} or \emph{square-free} part of $f$.
+    The latter name recognizes that $f_{red}$ is the square-free factor of $f$  of largest degree.
+    \begin{enumerate}
+        \item Show that $\textbf{V}(f) = \{a_1, \ldots, a_1\}$.
+        \item Show that $\textbf{I}(\textbf{V}(f)) = \langle f_{red} \rangle$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $p \in \textbf{V}(f)$.  
+    Then $p$ must be a root of $f$, so $p \in \{a_1, \ldots, a_l\}$.  
+    Conversely, let $a_i \in \{a_1, \ldots, a_l\}$.  
+    Then 
+    \[
+    f(a_i) = c(x - a_1)^{r_1} \cdots (x - a_i)^{r_i} \cdots (x - a_l)^{r_l} \Big|_{x = a_i} = 0.
+    \]  
+    Thus $a_i \in \textbf{V}(f)$.  
+    Therefore, $\textbf{V}(f) = \{a_1, \ldots, a_l\}$.
+\end{proof}
+
+\begin{proof}
+    Notice $f_{red}$ vanishes at all $a_1, \ldots, a_l$, so $f_{red} \in \textbf{I}(\textbf{V}(f))$.  
+    Conversely, let $g \in \textbf{I}(\textbf{V}(f))$.  
+    Since $g$ vanishes at all $a_1, \ldots, a_l$, each $(x - a_i)$ divides $g$.  
+    Thus $f_{red} \mid g$ and $g \in \langle f_{red} \rangle$.  
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    We will study the formal derivative of 
+    \[f = c_0 x^n + c_1 x^{n - 1} + \cdots + c_{n - 1} + 0.\]
+    Prove that the following rules of differentiation apply:
+    \[(af)' = a f' \text{ when } a \in \mathbb{C},\]
+    \[(f + g)' = f' + g',\]
+    \[(fg)' = f'g + f g'.\]
+\end{tcolorbox}
+
+\begin{proof}
+    These all follow from the basic properties of deriatives learned in calculus 1
+    \verb|¯\_(ツ)_/¯|.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    In this exercise we will use the differentation properties of Exercise 13 to compute 
+    $gcd(f, f')$ when $f \in \mathbb{C}[x]$.
+    \begin{enumerate}
+        \item Suppose $f = (x - a)^r \in \mathbb{C}[x]$, where $r \ge 1$ and $h(a) \ne 0$.
+        Then prove that $f' = (x - a)^{r - 1} h_1$, where $h_1 \in \mathbb{C}[x]$ does not vanish at 
+        $a$. Hint: use the product rule.
+        \item Let $f = c(x - a_1)^{r_1} \cdots (x - a)^{r_l}$ be the factorization of $f$, where $a_1, \cdots, a_l$
+        are distinct. Prove that $f'$ is a product $f' = (x - a_1)^{r_1 - 1} \cdots (x - a_l)^{r_l - 1} H$, where
+        $H \in \mathbb{C}[x]$ is a polynomial vanishing at none of $a_1, \ldots, a_l$.
+        \item Prove that $gcd(f, f') = (x - a_1)^{r_1 - 1} \cdots (x - a_1)^{r_l - 1}$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[
+    f' = r (x - a)^{r - 1}.
+    \] 
+    We can write $f' = (x - a)^{r - 1} h_1(x)$ with $h_1(x) = r$, and clearly $h_1(a) \ne 0$ since $r \ne 0$.
+\end{proof}
+
+\begin{proof}
+    Let 
+    \[
+    f = c(x - a_1)^{r_1} \cdots (x - a_l)^{r_l}.
+    \] 
+    Then by the product rule, $f'$ can be written as 
+    \[
+    f' = (x - a_1)^{r_1 - 1} \cdots (x - a_l)^{r_l - 1} H(x),
+    \] 
+    where $H(x) \in \mathbb{C}[x]$ does not vanish at any $a_i$.  
+    Thus, 
+    \[
+    \gcd(f, f') = (x - a_1)^{r_1 - 1} \cdots (x - a_l)^{r_l - 1}.
+    \]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Consider the square-free part of $f_{red}$ of a polynomial $f \in \mathbb{C}[x]$ defined in Exercise 12.
+    \begin{enumerate}
+        \item Use Exercise 14 to prove that $f_{red}$ is given by the formula 
+        \[f_{red} = \frac{f}{gcd(f, f')}.\]
+        The virtue of this formula is that it allows us to find the square-free part without factoring $f$.
+        This allows for much quicker computations.
+        \item Use a computer algebra system to find the square-free part of the polynomial 
+        \[x^{11} - x^{10} + 2 x^8 - 4 x^7 + 3 x^5 - 3 x^4 + x^3  + 3x^2 - x - 1.\]
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let 
+    \[
+    f = c (x - a_1)^{r_1} \cdots (x - a_l)^{r_l}
+    \] 
+    be the factorization of $f$ over $\mathbb{C}$.  
+    By Exercise 14, we have 
+    \[
+    f' = (x - a_1)^{r_1 - 1} \cdots (x - a_l)^{r_l - 1} H(x),
+    \] 
+    where for $a_1, \ldots, a_l$, we have $H(a_i) \ne 0$.
+    The greatest common divisor $\gcd(f, f')$ is then
+    \[
+    \gcd(f, f') = (x - a_1)^{r_1 - 1} \cdots (x - a_l)^{r_l - 1}.
+    \]
+    Thus dividing $f$ by $\gcd(f, f')$ gives
+    \[
+    \frac{f}{\gcd(f, f')} = (x - a_1) \cdots (x - a_l) = f_{red},
+    \] 
+    which is exactly the square-free part of $f$.
+\end{proof}
+
+\textbf{Solution (2): } I plugged it in and saw the answer but it was 
+too large to put in the margins...
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Use Exercise 12 and Exercise 15 to describe (in words, not in pseudocode) an algorithm
+    whose input consists of polynomials $f_1, \ldots, f_s \in \mathbb{C}[x]$ and whose output 
+    consists of a basis of $\textbf{I}(\textbf{V}(f_1, \ldots, f_s))$. It is more difficult to 
+    construct such an algorithm when dealing with polynomials of more than one variable.
+\end{tcolorbox}
+
+\textbf{Solution:} 
+Compute the gcd of $f_1, \ldots, f_s$.
+Using Exercise 15, compute the square-free part of $g$
+   \[
+   g_{red} = \frac{g}{\gcd(g, g')}.
+   \]
+By Exercise 12, the ideal of the variety is then
+   \[
+   \textbf{I}(\textbf{V}(f_1, \ldots, f_s)) = \langle g_{red} \rangle.
+   \]
