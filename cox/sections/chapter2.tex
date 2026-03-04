@@ -438,7 +438,7 @@ it is clear that they are necessarily the same.
 
 \textbf{Solution: } No, since the summation may cancel terms.
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 12, breakable]
     Lemma 8 gives two properties of the multidegree.
     \begin{enumerate}
@@ -587,7 +587,6 @@ f = x^2 + y,\quad g = -x^2 + 1
     as desired.
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
     We will study the division of $f = x^3 - x^2 y - x^2 z + x$
     by $f_1 = x^2 y - z$ and $f_2 = xy - 1$.
@@ -642,7 +641,6 @@ Both belong to $\langle f_1, f_2 \rangle$, yet the remainder on division by $(f_
 \textbf{Solution (5):} No, the division algorithm does not in general solve the ideal membership problem. 
 A nonzero remainder may occur depending on the order of divisor, even if the polynomial is in the ideal. 
 
-\newpage
 \begin{tcolorbox}[title=Problem 8, breakable]
     Try to formulate a general pattern that fits the examples in 
     Exercises 5(c)(d), 6, and 7.
@@ -657,7 +655,6 @@ If for all $i \in \{1, \ldots, s\}$ the leading term of $A_i f_i$ is not divisib
 then the division by $(f_1, \ldots, f_s)$ produces a nonzero remainder.  
 This means the division algorithm does not guarantee a solution to the ideal membership problem.
 
-\newpage
 \begin{tcolorbox}[title=Problem 9, breakable]
     The discussion around equation (2) of Chapter 1, 4 shows that every
     polynomial $f \in \mathbb{R}[x, y, z]$ can be written as 
@@ -674,6 +671,33 @@ This means the division algorithm does not guarantee a solution to the ideal mem
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Let $f \in \mathbb{R}[x, y, z]$.
+    Furthermore let $F = (y - x^2, z - x^3)$.
+    Now, we apply the division algorithm using reverse lex order to obtain $h_1, h_2, r$
+    \[f = h_1(y - x^2) + h_2(z - x^3) + r.\]
+    We know that $r \nmid y$ and $r \nmid z$ because $LT(y - x^2) = y$
+        and $LT(z - x^3) = z$. 
+    Thus, $r$ must be a polynomial in $x$ alone.
+\end{proof}
+
+\begin{proof}
+    We use the parametrization $(t, t^2, t^3)$ and see 
+    \[z^2 - x^4 y = (t^3)^2 - t^4 t^2 = t^6 - t^6 = 0.\]
+\end{proof}
+
+\begin{proof}
+    Applying the division algorithm with the same monomial order as above, we obtain
+    \[
+    z^2 - x^4 y
+    =
+    (-x^4)(y - x^2)
+    +
+    (z + x^3)(z - x^3).
+    \]
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 11, breakable]
     In this exercise, we will characterize completely the expression 
     \[f = q_1 f_1 + \cdots + q_s f_s + r,\]
@@ -684,19 +708,66 @@ This means the division algorithm does not guarantee a solution to the ideal mem
         \nabla_2 &= (\alpha(2) + \mathbb{Z}_{\ge 0}^n) \setminus \nabla_1, \\
         &\vdots \\
         \nabla_s &= (\alpha(s) + \mathbb{Z}_{\ge 0}^n) \setminus \left(\bigcup_{i = 1}^s \nabla_i\right), \\
-        \overline{\nabla}_1 &= \mathbb{Z}_{\ge 0}^n \setminus \left(\bigcup_{i = 1}^s \nabla_i\right).
+        \overline{\nabla} &= \mathbb{Z}_{\ge 0}^n \setminus \left(\bigcup_{i = 1}^s \nabla_i\right).
     \end{align*}
     (Note that $\mathbb{Z}_{\ge 0}^n$ is the disjoint union of the $\nabla_i$ and $\overline{\nabla}$.)
     \begin{enumerate}
         \item Show that $\beta \in \nabla_i$ if and only if $x^{\alpha(i)}$ divides $x^\beta$ and no $x^{\alpha(j)}$ with $j < i$ divides $x^\beta$.
-        \item Show that $\gamma \in \nabla$ if and only if no $x^{\alpha(i)}$ divides $x^\gamma$.
+        \item Show that $\gamma \in \overline{\nabla}$ if and only if no $x^{\alpha(i)}$ divides $x^\gamma$.
         \item Show that in the expression$f = q_1 f_1 + \cdots + q_s f_s + r$ computed by the division algorithm,
         for every $i$, every monomial $x^\beta$ in $q_i$ satisfies $\beta + \alpha(i) \in \nabla_i$, and every 
         monomial $x^\gamma$ in $r$ satisfies $\overline{\nabla}$.
-        \item Show that there is exactly one epxression $f = q_1 f_1 + \cdots + q_s f_s + r$ satisfying
-        the properties given in part (c).
+        \item Show that there is exactly one expression $f = q_1 f_1 + \cdots + q_s f_s + r$ satisfying
+        the properties given in part (3).
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $\beta \in \nabla_i$.
+    Then $\beta = \alpha(i) + \gamma$ for some $\gamma \in \mathbb{Z}_{\ge 0}^n$.
+    Clearly, $x^{\alpha(i)} \mid x^\beta$.
+    Now, suppose there exists $x^{\alpha(j)}$ such that $j < i$ and $x^{\alpha(j)} \mid x^\beta$.
+    So $\beta = \alpha(j) + \mu$ for some $\mu \in \mathbb{Z}_{\ge 0}^n$.
+    But then $\beta \in \left(\bigcup_{j = 1}^{i-1} \nabla_j\right)$ which is a contradiction.
+
+    Conversely, suppose $x^{\alpha(i)}$ divides $x^\beta$ and no $x^{\alpha(j)}$ with $j < i$ divides $x^\beta$.
+    Then $\beta = \alpha(i) + \gamma$ for some $\gamma \in \mathbb{Z}_{\ge 0}^n$.
+    Furthermore, since no $x^{\alpha(j)}$ with $j < i$ divides $x^\beta$,
+        we have $\beta \notin \left(\bigcup_{j = 1}^{i-1} \nabla_j\right)$.
+    Thus we have $\beta \in \nabla_i$.
+\end{proof}
+
+\begin{proof}
+    Suppose $\gamma \in \overline{\nabla}$.
+    Furthermore, suppose there exists $i$ such that $x^{\alpha(i)} \mid x^\gamma$.
+    Then $\gamma = \alpha(i) + \mu$ for some $\mu \in \mathbb{Z}_{\ge 0}^n$.
+    Now, let $i$ be the smallest such index with this property.
+    Clearly, $\gamma \in \nabla_i$, which contradicts $\gamma \in \overline{\nabla}$.
+
+    Conversely, suppose no $x^{\alpha(i)}$ divides $x^\gamma$.
+    Clearly $x^\gamma \notin \nabla_i$ for any $i$, thus 
+        $x^\gamma \in \overline{\nabla}$.
+\end{proof}
+
+\begin{proof}
+    Let $x^\beta$ be a monomial in $q_i$ for some $i$.
+    Now, $q_i$ is produced via the division algorithm, thus 
+        there was some $p'$ such that $LT(f_i) x^\beta$ is a term in $p'$.
+    Thus $\beta \in \nabla_i$.
+
+    Now let $x^\gamma$ be a monomial in $r$.
+    Since $x^\gamma \nmid LT(f_i)$ for any $i$,
+    we must have $x^\gamma \not= \alpha(i) + \beta$ for any $\beta \in \mathbb{Z}_{\ge 0}^n$.
+    Thus we have $\gamma \in \overline{\nabla}$.
+\end{proof}
+
+\begin{proof}
+    Suppose there are two expressions $f, f'$ satisfying
+        the properties given in part (3).
+    Clearly the division algorithm is deterministic under the same monomial ordering.
+    Thus we must have $f = f'$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 12, breakable]
     Show that the operation of computing remainders on division by $F = (f_1, \ldots, f_s)$
@@ -704,4 +775,71 @@ This means the division algorithm does not guarantee a solution to the ideal mem
     of $g_i$ by $F$ is $r_i, i = 1, 2$ then, for any 
     $c_1, c_2 \in k$, the remainder of the division of $c_1 g_1
     + c_2 g_2$ is $c_1 r_1  + c_2 r_2$. Hint: Use Exercise 11.
+\end{tcolorbox}
+
+\begin{proof}
+    We apply the division algorithm and find
+    \begin{align*}
+        c_1 g_1 + c_2 g_2 
+        &= c_1(q_{11} f_1 + \cdots + q_{1s} f_s + r_1)
+         + c_2(q_{21} f_1 + \cdots + q_{2s} f_s + r_2) \\
+        &= (c_1 q_{11} + c_2 q_{21}) f_1 + \cdots + (c_1 q_{1s} + c_2 q_{2s}) f_s
+         + (c_1 r_1 + c_2 r_2).
+    \end{align*}
+    Now, by Exercise 11, every monomial in $q_{ij}$ satisfies 
+    $\beta + \alpha(j) \in \nabla_j$, and every monomial in $r_i$ satisfies 
+    $\gamma \in \overline{\nabla}$. Multiplying by $c_1, c_2$ does not change which 
+    monomials appear, so $(c_1 q_{1j} + c_2 q_{2j})$ still satisfies 
+    $\beta + \alpha(j) \in \nabla_j$ and $c_1 r_1 + c_2 r_2$ still satisfies 
+    $\gamma \in \overline{\nabla}$.
+    By Exercise 11 part (4), this uniquely determines the remainder. 
+    Therefore, the remainder on division of $c_1 g_1 + c_2 g_2$ by $F$ is
+    \[
+        c_1 r_1 + c_2 r_2.
+    \]
+\end{proof}
+
+\subsection{Monomials Ideals and Dickson's Lemma}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $I \subseteq k[x_1, \ldots, x_n]$ be an ideal with the property 
+    that for every $f = \sum c_\alpha x^\alpha$, every monomial $x^\alpha$,
+    appearing in $f$ is also in $I$. Show that $I$ is a monomial ideal.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Complete the proof of Lemma 3 begun in the text.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Suppose that $I = \langle x^\alpha \mid \alpha \in A \rangle$
+    is a monomial ideal, and let $S$ be the set of all exponents 
+    that occur as monomials of $I$. For any monomial order $>$,
+    prove that the smallest element of $S$ with respect to $>$
+    must lie in $A$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $I = \langle x^\alpha \mid \alpha \in A \rangle$ be a monomial ideal,
+    and assume that we have a finite basis
+    $I = \langle x^{\beta(1)}, \ldots, x^{\beta(s)} \rangle$.
+    In the proof of Dickson's Lemma, we observed that each 
+    $x^{\beta(i)}$ is divisible by $x^{\alpha(i)}$ for some 
+    $\alpha(i)$ for some $\alpha(i) \in A$. Prove that 
+    $I = \langle x^{\alpha(i)}, \ldots, x^{\alpha(s)} \rangle$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Prove that Dickson's Lemma (Theorem 5) is equivalent to the 
+    following statement: given a nonempty subset $A \subseteq \mathbb{Z}_{\ge 0}^n$,
+    there are finitely many elements $\alpha(1), \ldots, \alpha(s) \in A$ such 
+    that for every $\alpha \in A$, there exists some $i$ and some $\gamma \in \mathbb{Z}_{\ge 0}^n$
+    such that $\alpha = \alpha(i) + \gamma$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    If $I = \langle x^{\alpha(1)}, \ldots, x^{\alpha(s)} \rangle$ is a monomial ideal,
+    prove that a polynomial $f$ is in $I$ if and only if the remainder of $f$ on 
+    division by $x^{\alpha(1)}, \ldots, x^{\alpha(s)}$ is zero.
+    Hint: Use Lemma 2 and Lemma 3.
 \end{tcolorbox}
