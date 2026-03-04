@@ -438,6 +438,7 @@ it is clear that they are necessarily the same.
 
 \textbf{Solution: } No, since the summation may cancel terms.
 
+\newpage
 \begin{tcolorbox}[title=Problem 12, breakable]
     Lemma 8 gives two properties of the multidegree.
     \begin{enumerate}
@@ -447,6 +448,260 @@ it is clear that they are necessarily the same.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{theorem}
+    Let $f, g \in k[x_1, \ldots, x_n]$ be nonzero polynomials.
+    Then:
+    \begin{enumerate}
+        \item $multideg(fg) = multideg(f) + multideg(g)$.
+        \item If $f + g \ne 0$, then $multideg(f + g) \le max(multideg(f), multideg(g))$.
+        If, in addition, $multideg(f) \ne multideg(g)$, then equality occurs.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Let $LT(f) = x^\alpha$, $LT(g) = x^\beta$, and $LT(fg) = x^\gamma$.
+    By Problem 11 we have 
+    \[
+    LT(fg) = LT(f)LT(g) = x^\alpha x^\beta = x^{\alpha + \beta}.
+    \]
+    Thus $\gamma = \alpha + \beta$. Therefore
+    \[
+    multideg(fg) = \gamma = \alpha + \beta 
+    = multideg(f) + multideg(g).
+    \]
+\end{proof}
+
+\begin{proof}
+    Suppose $f + g \ne 0$.
+    It is clear that the addition of two polynomials will not increase the multidegree 
+    of any monomial.
+    However, some leading terms of $f$ and $g$ may cancel each other.
+    Thus we have 
+    \[
+    multideg(f + g) \le \max(multideg(f), multideg(g)).
+    \]
+
+    Now suppose $f + g \ne 0$ and $multideg(f) \ne multideg(g)$.
+    Suppose without loss of generality that $LT(f) > LT(g)$.
+    Then $LT(f)$ cannot be cancelled by any monomial in $g$.
+    Thus $LT(f+g) = LT(f)$ and therefore
+    \[
+    multideg(f+g) = multideg(f) 
+    = \max(multideg(f), multideg(g)).
+    \]
+\end{proof}
+
+\textbf{Solution (2):}
+Example where equality occurs.
+\[
+f = x^2 + y,\quad g = x^2 + 1
+\]
+Example where they are not equal.
+\[
+f = x^2 + y,\quad g = -x^2 + 1
+\]
+
 \begin{tcolorbox}[title=Problem 13, breakable]
     Prove that $1 < x < x^2 < x^3 < \cdots$ is the unique monimial order on $k[x]$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose for some $i$ we have $x^i > x^{i+1}$.
+    Multiplying by $x$ repeatedly gives
+    \[
+    x^i > x^{i+1} > x^{i+2} > \cdots,
+    \]
+    an infinite strictly decreasing chain, contradicting that a monomial order
+    is a well-order. 
+\end{proof}
+
+\subsection{A Division Algorithm in $k[x_1, \ldots, x_n]$}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Compute the remainder on division of the given polynomial $f$ 
+    by the ordered set $F$ (by hand). Use grlex order,
+    then the lex order in each case.
+    \begin{enumerate}
+        \item $f = x^7 y^2 - y + 1, F = (x y^2 - x, x - y^3)$.
+        \item Repeat part (a) with the order of the pair $F$ revsersed.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{enumerate}
+    \item Original order $F = (xy^2 - x,\; x - y^3)$
+    \begin{itemize}
+        \item Grlex order
+        \[
+        \text{remainder} = x^7 - y + 1
+        \]
+        \item Lex order 
+        \[
+        \text{remainder} = x^7 - y + 1
+        \]
+    \end{itemize}
+
+    \item Reversed order $F = (x - y^3,\; xy^2 - x)$
+    \begin{itemize}
+        \item Grlex order
+        \[
+        \text{remainder} = x^7 - y + 1
+        \]
+        \item Lex order
+        \[
+        \text{remainder} = y^{21} - y + 1
+        \]
+    \end{itemize}
+\end{enumerate}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $f = q_1 f_1 + \cdots q_s f_s + r$ be the output of the division algorithm.
+    \begin{enumerate}
+        \item Complete the proof begun in the text that $multideg(f) \ge multideg(q_i f_i)$
+        provided that $q_i f_i \ne 0$.
+        \item Prove that $multideg(f) \ge multideg(r)$ when $r \ne 0$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    The text showed that during the course of the algorithm,
+        the multidegree of $p$ decreases.
+    At this point we have $LT(p) \le LT(f)$.
+    Now $q_i$ is of the form $\frac{LT(p)}{LT(f_i)}$ for some term in $p$.
+    So $q_i \cdot LT(f_i) = LT(p)$ and by Lemma 8 we have 
+    \[
+        LT(p) = LT(q_i) \cdot LT(f_i) \le LT(f)
+    \]
+    which implies
+    \[
+        multideg(q_i f_i) \le multideg(f).
+    \]
+\end{proof}
+
+\begin{proof}
+    Suppose $r \ne 0$.
+    $r$ is modified only via the addition of monomials from $p$.
+    Thus
+    \[
+        multideg(r) \le multideg(p) \le multideg(f),
+    \]
+    as desired.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 5, breakable]
+    We will study the division of $f = x^3 - x^2 y - x^2 z + x$
+    by $f_1 = x^2 y - z$ and $f_2 = xy - 1$.
+    \begin{enumerate}
+        \item Compute using grlex order 
+        \[r_1 = \text{remainder of $f$ on division by $(f_1, f_2)$}.\]
+        \[r_2 = \text{remainder of $f$ on division by $(f_2, f_1)$}.\]
+        Your results should be different. Where in the division algorithm did 
+        the difference occur? 
+        \item Is $r = r_1 - r_2$ in the ideal $\langle f_1, f_2 \rangle$?
+        If so, find an explicit expression $r = A f_1 + B f_2$.
+        If not, say why not.
+        \item Compute the remainder of $r$ on division of $(f_1, f_2)$.
+        Why could you have predicted your answer before doing the division?
+        \item Find another product $g \in \langle f_1, f_2 \rangle$ such that the remainder on division 
+        by $g$ by $(f_1, f_2)$ is nonzero. Hint: $(xy + 1) \cdot f_2 = x^2 y^2 - 1$, whereas $y \cdot f_1 = x^2 y^2 - yz$.
+        \item Does the division algorithm give us a solution for the ideal membership problem for the ideal $\langle f_1, f_2 \rangle$?
+        Explain your answer.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (2):} The remainder is 
+\[
+r = x - 2z
+\]
+since no term of $r$ is divisible by any leading term of the divisors.
+
+\begin{proof} 
+    We have \[r = r_1 - r_2 = (x^3 - x^2 z + x - z) - (x^3 - x^2z + z) = x - 2z.\] 
+    Now suppose $x - 2z = h(x^2 y - z) + g(xy - 1)$ where $h, g \in k[x, y, z]$. 
+    But then $deg_x(x - 2z) = 1$ and $deg_x(rhs) \ge 2$ which is a contradiction. 
+\end{proof}
+
+\textbf{Solution (3):} The remainder of $r$ on division by $(f_1, f_2)$ is
+\[
+r = x - 2z,
+\]
+because the leading term of $r$ is not divisible by any leading term of $f_1$ or $f_2$.
+We could have predicted this since the division algorithm stops immediately when no LT of $r$ is divisible.
+
+\textbf{Solution (4):}
+One example is
+\[
+g = (xy + 1) f_2 = x^2 y^2 - 1,
+\]
+or
+\[
+g = y f_1 = x^2 y^2 - yz.
+\]
+Both belong to $\langle f_1, f_2 \rangle$, yet the remainder on division by $(f_1,f_2)$ is nonzero.
+
+\textbf{Solution (5):} No, the division algorithm does not in general solve the ideal membership problem. 
+A nonzero remainder may occur depending on the order of divisor, even if the polynomial is in the ideal. 
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Try to formulate a general pattern that fits the examples in 
+    Exercises 5(c)(d), 6, and 7.
+    What condition on the leading term of the polynomial 
+    $g = A_1 f_1  + \cdots A_s f_s$ would guarantee that there was 
+    a nonzero remainder on division by $(f_1, \ldots, f_2)$?
+    What does your condition imply about the ideal membership problem?
+\end{tcolorbox}
+
+\textbf{Solution: }
+If for all $i \in \{1, \ldots, s\}$ the leading term of $A_i f_i$ is not divisible by the leading term of any $f_j$ in $(f_1, \ldots, f_s)$, 
+then the division by $(f_1, \ldots, f_s)$ produces a nonzero remainder.  
+This means the division algorithm does not guarantee a solution to the ideal membership problem.
+
+\newpage
+\begin{tcolorbox}[title=Problem 9, breakable]
+    The discussion around equation (2) of Chapter 1, 4 shows that every
+    polynomial $f \in \mathbb{R}[x, y, z]$ can be written as 
+    \[f = h_1(y - x^2) + h_2(z - x^3) + r,\]
+    where $r$ is a polynomial in $x$ alone and $\textbf{V}(y - x^2, z - x^3)$ is the twisted cubic curve in $\mathbb{R}^3$.
+    \begin{enumerate}
+        \item Give a proof of this fact using the division algorithm.
+        Hint: You need to specify carefully the monomial order to be used.
+        \item Use the parametrization of the twisted cube to show that $z^2 - x^4 y$
+        vanishes at every point of the twisted cube.
+        \item Find an explicit representation
+        \[z^2 - x^4 y = h_1(y - x^2) + h_2(z - x^3),\]
+        using the division algorithm.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    In this exercise, we will characterize completely the expression 
+    \[f = q_1 f_1 + \cdots + q_s f_s + r,\]
+    that is produced by the division algorithm (among all the possible 
+    expressions for $f$ of this form). Let $LM(f_i) = x^{\alpha(i)}$ and define 
+    \begin{align*}
+        \nabla_1 &= \alpha(1) + \mathbb{Z}_{\ge 0}^n, \\
+        \nabla_2 &= (\alpha(2) + \mathbb{Z}_{\ge 0}^n) \setminus \nabla_1, \\
+        &\vdots \\
+        \nabla_s &= (\alpha(s) + \mathbb{Z}_{\ge 0}^n) \setminus \left(\bigcup_{i = 1}^s \nabla_i\right), \\
+        \overline{\nabla}_1 &= \mathbb{Z}_{\ge 0}^n \setminus \left(\bigcup_{i = 1}^s \nabla_i\right).
+    \end{align*}
+    (Note that $\mathbb{Z}_{\ge 0}^n$ is the disjoint union of the $\nabla_i$ and $\overline{\nabla}$.)
+    \begin{enumerate}
+        \item Show that $\beta \in \nabla_i$ if and only if $x^{\alpha(i)}$ divides $x^\beta$ and no $x^{\alpha(j)}$ with $j < i$ divides $x^\beta$.
+        \item Show that $\gamma \in \nabla$ if and only if no $x^{\alpha(i)}$ divides $x^\gamma$.
+        \item Show that in the expression$f = q_1 f_1 + \cdots + q_s f_s + r$ computed by the division algorithm,
+        for every $i$, every monomial $x^\beta$ in $q_i$ satisfies $\beta + \alpha(i) \in \nabla_i$, and every 
+        monomial $x^\gamma$ in $r$ satisfies $\overline{\nabla}$.
+        \item Show that there is exactly one epxression $f = q_1 f_1 + \cdots + q_s f_s + r$ satisfying
+        the properties given in part (c).
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Show that the operation of computing remainders on division by $F = (f_1, \ldots, f_s)$
+    is linear over $k$. That is, if the remainder on division 
+    of $g_i$ by $F$ is $r_i, i = 1, 2$ then, for any 
+    $c_1, c_2 \in k$, the remainder of the division of $c_1 g_1
+    + c_2 g_2$ is $c_1 r_1  + c_2 r_2$. Hint: Use Exercise 11.
 \end{tcolorbox}
