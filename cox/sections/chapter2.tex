@@ -807,10 +807,39 @@ This means the division algorithm does not guarantee a solution to the ideal mem
     appearing in $f$ is also in $I$. Show that $I$ is a monomial ideal.
 \end{tcolorbox}
 
+
+\begin{proof}
+    Let $J = \langle \{x^\alpha \in k[x_1, \ldots, x_n] \mid x^\alpha \in I\} \rangle$.
+    Now, $J$ is clearly a monomial ideal and $J \subseteq I$.
+    Now, let $f \in I$ with $f = \sum c_\alpha x^\alpha$.
+    For each monomial $x^\alpha \in I$, we have $x^\alpha \in J$.
+    Since $J$ is closed under addition and scalar multiplication, it follows that $f \in J$.
+    Therefore $I \subseteq J$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 2, breakable]
     Complete the proof of Lemma 3 begun in the text.
 \end{tcolorbox}
 
+\begin{theorem}
+    Let $I$ be a monomial ideal, and let $f \in k[x_1, \ldots, x_n]$.
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item $f \in I$.
+        \item Every term of $f$ lies in $I$.
+        \item $f$ is a $k$-linear combination of monomials in $I$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    As the book states, we only need to show $(1) \implies (2)$.
+    Suppose $f \in I$ such that $f = \sum c_\alpha x^\alpha$.
+    Let $c_\alpha x^\alpha$ be any term in $f$. 
+    Since $I$ is a monomial ideal, it contains every monomial divisible by its generators
+        thus $x^\alpha \in I$. 
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 5, breakable]
     Suppose that $I = \langle x^\alpha \mid \alpha \in A \rangle$
     is a monomial ideal, and let $S$ be the set of all exponents 
@@ -818,6 +847,15 @@ This means the division algorithm does not guarantee a solution to the ideal mem
     prove that the smallest element of $S$ with respect to $>$
     must lie in $A$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $\alpha$ be the minimal vector in $S$ with respect to $>$.
+    Suppose, for contradiction, that $\alpha \notin A$.
+    Since $I$ is a monomial ideal, $x^\alpha \in I$ can be written as
+    $x^\alpha = \sum_i c_i x^{\gamma_i}$ with $x^{\gamma_i} \in I$ and $\gamma_i \in A$.
+    But by minimality of $\alpha$, each $\gamma_i \ge \alpha$, thus one of them must equal $\alpha$.
+    This contradicts $\alpha \notin A$ thus $\alpha \in A$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
     Let $I = \langle x^\alpha \mid \alpha \in A \rangle$ be a monomial ideal,
@@ -829,6 +867,25 @@ This means the division algorithm does not guarantee a solution to the ideal mem
     $I = \langle x^{\alpha(i)}, \ldots, x^{\alpha(s)} \rangle$.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $f \in I$. Since $I$ is a monomial ideal we have 
+    $f = \sum_{i = 1}^n h_i x^{\alpha_i}$ where $\alpha_i \in A$ and $h_i \in k[x_1, \ldots, x_n]$.
+    We can write 
+    \[f = \sum_{i=1}^n x^{\alpha_i} h_i,\]
+    so $x^{\alpha_i} \mid f$ for each $i$.
+    Thus $f \in \langle x^{\alpha(1)}, \ldots, x^{\alpha(s)} \rangle$,
+    so $I \subseteq \langle x^{\alpha(1)}, \ldots, x^{\alpha(s)} \rangle$.
+    
+    Now, let $f \in \langle x^{\alpha(1)}, \ldots, x^{\alpha(s)} \rangle$.
+    Then 
+    \[f = h_1 x^{\alpha(1)} + \cdots + h_s x^{\alpha(s)}\]
+    for some $h_i \in k[x_1, \ldots, x_n]$.
+    Since each $\alpha(i) \in I$ and $I$ is closed under multiplication and addition,
+    we have $f \in I$.
+    Therefore $I = \langle x^{\alpha(1)}, \ldots, x^{\alpha(s)} \rangle$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 7, breakable]
     Prove that Dickson's Lemma (Theorem 5) is equivalent to the 
     following statement: given a nonempty subset $A \subseteq \mathbb{Z}_{\ge 0}^n$,
@@ -837,9 +894,347 @@ This means the division algorithm does not guarantee a solution to the ideal mem
     such that $\alpha = \alpha(i) + \gamma$.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose Dickson's Lemma holds. Let $A \subseteq \mathbb{Z}_{\ge 0}^n$ be given, 
+        and consider the monomial ideal
+    \[
+        I = \langle x^\alpha \mid \alpha \in A \rangle \subseteq k[x_1, \dots, x_n].
+    \]
+    By Dickson's Lemma, $I$ has a finite generating set, say
+    \[
+        I = \langle x^{\alpha(1)}, \dots, x^{\alpha(s)} \rangle,
+    \]
+    with each $\alpha(i) \in A$. 
+    Then for any $\alpha \in A$, the monomial $x^\alpha \in I$,
+    so it is divisible by some $x^{\alpha(i)}$, 
+        meaning $x^\alpha = x^{\alpha(i)} x^\gamma$ for 
+    some $\gamma \in \mathbb{Z}_{\ge 0}^n$. 
+    Thus $\alpha = \alpha(i) + \gamma$.
+
+    Conversely, suppose the statement about the $\alpha(i)$ holds. 
+    Let $I = \langle x^\alpha \mid \alpha \in A \rangle$.
+    Then every $x^\alpha$ with $\alpha \in A$ is divisible by some $x^{\alpha(i)}$ thus 
+    \[
+        I = \langle x^{\alpha(1)}, \dots, x^{\alpha(s)} \rangle
+    \]
+    is finitely generated.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 8, breakable]
     If $I = \langle x^{\alpha(1)}, \ldots, x^{\alpha(s)} \rangle$ is a monomial ideal,
     prove that a polynomial $f$ is in $I$ if and only if the remainder of $f$ on 
     division by $x^{\alpha(1)}, \ldots, x^{\alpha(s)}$ is zero.
     Hint: Use Lemma 2 and Lemma 3.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $I = \langle x^{\alpha(1)}, \ldots, x^{\alpha(s)} \rangle$
+        is a monomial ideal.
+    Now let $f$ be an arbitrary element in $I$.
+    By Lemma 2, for each term $t \in f$ there exists some $x^{\alpha(i)}$ such that $x^{\alpha(i)} \mid t$.
+    Thus, no term of $f$ remains in the remainder, so the remainder $r = 0$.
+
+    Conversely, suppose the remainder of $f$ on 
+    division by $x^{\alpha(1)}, \ldots, x^{\alpha(s)}$ is zero.
+    Then every term of $f$ is divisible by some $x^{\alpha(i)}$, 
+    and by Lemma 3 this implies $f \in I$.
+\end{proof}
+
+\subsection{The Hilbert Basis Theorem and Grobner Bases}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $I = \langle g_1, g_2, g_3 \rangle \subseteq \mathbb{R}[x, y, z]$,
+        where $g_1 = x y^2 - xz + y$, $g_2 = xy - z^2$
+        and $g_3 = x - y z^4$.
+    Using the lex order, give an example of $g \in I$
+    such that $LT(g) \notin \langle LT(g_1), LT(g_2), LT(g_3) \rangle$.
+\end{tcolorbox}
+
+\begin{proof}
+    Notice $y(x - yz^4) - (xy - z^2) = z^2 - y^2 z^4 \in I$.
+    But clearly
+    \begin{align*}
+        LT(g_1) &= LT(x y^2 - xz + y) = x y^2 \nmid LT(y^2 z^4 - z^2) = y^2 z^4, \\
+        LT(g_2) &= LT(xy - z^2) = xy \nmid LT(y^2 z^4 - z^2) = y^2 z^4, \\
+        LT(g_3) &= LT(x - yz^4) = x \nmid LT(y^2 z^4 - z^2) = y^2 z^4.
+    \end{align*}
+    Thus $LT(g) \notin \langle LT(g_1), LT(g_2), LT(g_3) \rangle$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    To generalize the situation of the previous two 
+        exercises, suppose $I = \langle f_1, \ldots, f_s \rangle$
+        is an ideal such that $\langle LT(f_1), \ldots, LT(f_s) \rangle$ is 
+        strictly smaller than $\langle LT(I) \rangle$.
+    \begin{enumerate}
+        \item Prove that there is some $f \in I$ whose remainder 
+        on division by $f_1, \ldots, f_s$ is nonzero.
+        Hint: First show that $LT(f) \notin \langle LT(f_1), \ldots, LT(f_s) \rangle$
+        for some $f \in I$. Then use Lemma 2 of 4.
+        \item What does part (a) say about the ideal membership problem?
+        \item How does part (a) relate to the conjecture you were asked to make in Exercise 8 of 3.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Since $\langle LT(f_1), \ldots, LT(f_s) \rangle$ is 
+        strictly smaller than $\langle LT(I) \rangle$, we have 
+        $\langle LT(f_1), \ldots, LT(f_s) \rangle \subseteq \langle LT(I) \rangle$.
+    Suppose $LT(f) \in \langle LT(f_1), \ldots, LT(f_s) \rangle$ for all $f \in I$.
+    Then 
+    \[
+        \langle LT(I) \rangle \subseteq \langle LT(f_1), \ldots, LT(f_s) \rangle \subseteq \langle LT(I) \rangle,
+    \]
+    contradicting that $\langle LT(f_1), \ldots, LT(f_s) \rangle$ is 
+        strictly smaller than $\langle LT(I) \rangle$.
+    Thus there is some $f \in I$ such that $LT(f) \notin \langle LT(f_1), \ldots, LT(f_s) \rangle$.
+    Then by Lemma 2 there is some $f_i$ such that $LT(f_i) \nmid LT(f)$.
+    It then follows that the remainder of $f$ on division by $f_1, \ldots, f_s$ is nonzero.
+\end{proof}
+
+\textbf{Solution (2):} It says that if there exists $f \in I$ such that $LT(f) \notin \langle LT(f_1), \ldots, LT(f_s) \rangle$, 
+    then $f$ may have a nonzero remainder on division by $f_1, \ldots, f_s$. 
+    So solving the ideal membership problem requires a generating set whose leading terms generate $\langle LT(I) \rangle$.
+
+\textbf{Solution (3):} 
+If $LT(f) \notin \langle LT(f_1), \ldots, LT(f_s) \rangle$ for some $f \in I$, 
+then division by $f_1, \ldots, f_s$ gives a nonzero remainder. 
+This shows that the generators must form a Grobner basis for the division algorithm to behave ``nicely''.
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $I \subseteq k[x_1, \ldots, x_n]$ is an ideal,
+    prove that $\langle LT(g) \mid g \in I \setminus \{0\} \rangle = \langle LM(g) \mid g \in I \setminus \{0\} \rangle$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x \in \langle LT(g) \mid g \in I \setminus \{0\} \rangle$.
+    Then $g = c x^\alpha$ for some $c \in k$, $\alpha \in \mathbb{Z}_{\ge 0}^n$.
+    Since $c \ne 0$, we have $\frac{1}{c} \in k$.
+    Then $\frac{1}{c} (c x^\alpha) = x^\alpha \in \langle LM(g) \mid g \in I \setminus \{0\} \rangle$.
+
+    Conversely, let $x \in \langle LM(g) \mid g \in I \setminus \{0\} \rangle$.
+    Then $g = x^\alpha$ for some $\alpha \in \mathbb{Z}_{\ge 0}^n$.
+    Let $c \in k$ be the coefficient of $x^\alpha$ in some $h \in I$ with $LT(h) = c x^\alpha$.
+    Then $c x^\alpha = LT(h) \in \langle LT(g) \mid g \in I \setminus \{0\} \rangle$,
+        and multiplying by a nonzero scalar does not change the ideal.
+    Thus $x \in \langle LT(g) \mid g \in I \setminus \{0\} \rangle$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $I$ be an ideal of $k[x_1, \ldots, x_n]$.
+    Show that $G = \{g_1, \ldots, g_t\} \subseteq I$
+    is a Grobner basis of $I$ if and only if
+    the leading term of any element of $I$ is divisible 
+    by one of the $LT(g_i)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $G = \{g_1, \ldots, g_t\} \subseteq I$ is a Grobner basis of $I$.
+    If there exists $f \in I$ such that $LT(f)$ is not divisible by any $LT(g_i)$, 
+    then division of $f$ on $G$ would produce a nonzero remainder, 
+    contradicting that $G$ is a Grobner basis.
+
+    Conversely, suppose the leading term of any element of $I$ is divisible 
+        by one of the $LT(g_i)$. 
+    Then for any $f \in I$, division by all $g_i$ gives a zero remainder.
+    Thus $G$ is a Grobner basis.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $I \subseteq k[x_1, \ldots, x_n]$ be a principle 
+    ideal domain (that is, $I$ is generated by a single $f \in I$ -
+    see 5 of chapter 1). Show that any finite subset of $I$ 
+    containing a generator for $I$ is a grobner basis for $I$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $G \subseteq I$ be a finite set containing $f \in I$, where     
+        $f$ is a generator of $I$.
+    Let $f' \in I$ be arbitrary. Then $f \mid f'$,
+        so $G$ is a Grobner basis of $I$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Show that if we take as hypothesis that 
+    every ascending chain of ideals in $k[x_1, \ldots, x_n]$
+    stabilizes, then the conclusion of the Hilbert Basis 
+    Theorem is a consequence. Hint: Argue by contradiction,
+    assuming that some ideal $I \subseteq k[x_1, \ldots, x_n]$
+    has no finite generating set. Also, the argument
+    given should not make any special use of properties 
+    of polynomials. Indeed it is true that 
+    in any commutative ring $R$, the following two 
+    statements are equivalent:
+    \begin{enumerate}
+        \item Every ideal $I \subseteq R$ is finitely generated.
+        \item Every ascending chain of ideals of $R$ stabilizes.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose every ascending chain of ideals in $k[x_1, \ldots, x_n]$ stabilizes.
+    Assume, for contradiction, that some ideal $I \subseteq k[x_1, \ldots, x_n]$ 
+        has no finite generating set.
+    Suppose $\langle f_1, \ldots, f_s \rangle \subseteq I$ for some $s \in \mathbb{N}$.
+    There must exist $g_1 \in I$ not in $\langle f_1, \ldots, f_s \rangle$, 
+        otherwise $I$ would be finitely generated by the $f_i$. 
+    Appending $g_1$ to the list gives a strictly larger ideal.
+    Repeating this process, we choose $g_2, g_3, \dots \in I$ 
+        each not in the previous ideal, producing an ascending chain
+    \[
+        \langle f_1, \ldots, f_s \rangle \subsetneq 
+        \langle f_1, \ldots, f_s, g_1 \rangle \subsetneq 
+        \langle f_1, \ldots, f_s, g_1, g_2 \rangle \subsetneq \cdots
+    \]
+    This contradicts the assumption that every ascending chain of ideals in 
+        $k[x_1, \ldots, x_n]$ stabilizes.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Let
+    \[V_1 \supseteq V_2 \supseteq V_3 \supseteq \cdots\]
+    be a descending chain of affine varieties. Show 
+    that there is some $N \ge 1$ such that
+    $V_N = V_{N + 1} = V_{N = 2} + \cdots$.
+\end{tcolorbox}
+
+\begin{proof}
+    By Proposition 8, since 
+    \[V_1 \supseteq V_2 \supseteq V_3 \supseteq \cdots\]
+    we have 
+    \[\mathbf{I}(V_1) \subseteq \mathbf{I}(V_2) \subseteq \mathbf{I}(V_3) \subseteq \cdots,\]
+    which stabilizes by the ACC. Thus, there exists $N$ such that
+    \[\mathbf{I}(V_N) = \mathbf{I}(V_{N+1}) = \mathbf{I}(V_{N+2}) = \cdots,\]
+    and therefore
+    \[V_N = V_{N+1} = V_{N+2} = \cdots.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Let $f_1, f_2, \ldots \in k[x_1, \ldots, x_n]$ be 
+    an infinite collection of polynomials. Prove that 
+    there is an integer $N$ such that 
+    $f_i \in \langle f_1, \ldots, f_N \rangle$ for all 
+    $i \ge N + 1$. Hint: Use $f_1, f_2, \ldots$ to create 
+    an ascending chain of ideals.
+\end{tcolorbox}
+
+\begin{proof}
+    If not, the corresponding ascending chain of ideals
+    in $k[x_1,\dots,x_n]$ would not stabilize, 
+    contradicting that every ideal has a finite generating set.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Given polynomials $f_1, f_2, \ldots \in k[x_1, \ldots, x_n]$,
+    let $\textbf{V}(f_1, f_2, \ldots) \subseteq k^n$ be the 
+    solutions of the infinite system of equations 
+    $f_1 = f_2 = 0$. Show that there is some $N$ such 
+    that $\textbf{V}(f_1, f_2, \ldots) = \textbf{V}(f_1, \ldots, f_N)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $I = \langle f_1, f_2, \dots \rangle \subseteq k[x_1, \dots, x_n]$ 
+        be the ideal generated by all the $f_i$. 
+    By the Hilbert Basis Theorem, 
+        $I$ is finitely generated, say $I = \langle f_1, \dots, f_N \rangle$. 
+    Then by Proposition 9
+    \[\textbf{V}(f_1, f_2, \dots) = \textbf{V}(I) = \textbf{V}(f_1, \dots, f_N).\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    In Chapter 1, 4 we defined the ideal $\textbf{I}(V)$
+    of a variety $V \subseteq k^n$. In this section,
+    we defined the variety of an ideal (see Definition 8).
+    In particular, this means that $\textbf{V}(\textbf{I}(V))$
+    is a variety. Prove that $\textbf{V}(\textbf{I}(V)) = V$.
+    Hint: See the proof of Lemma 7 of Chapter 1, 4.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x$ be an arbitrary element in $\mathbf{V}(\mathbf{I}(V))$.
+    Then by definition, for all $f \in \mathbf{I}(V)$ we have $f(x) = 0$.
+    Since $\mathbf{I}(V)$ consists of all polynomials vanishing on $V$,
+    it follows that $x \in V$. Thus
+    \[\mathbf{V}(\mathbf{I}(V)) \subseteq V.\]
+
+    Conversely, let $x \in V$. Since
+        every polynomial in $\mathbf{I}(V)$ vanishes on $V$ we have
+        $f(x) = 0$ for all $f \in \mathbf{I}(V)$. Thus
+    \[x \in \mathbf{V}(\mathbf{I}(V)) \implies V \subseteq \mathbf{V}(\mathbf{I}(V)).\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    When an ideal has a basis where some of the elements 
+    can be factored we use the factorization to help 
+    understand the variety.
+    \begin{enumerate}
+        \item Show that if $g \in k[x_1, \ldots, x_n]$ factors 
+        as $g = g_1 g_2$, then for any $f$, we have $\textbf{V}(f, g) = \textbf{V}(f, g_1) \cup \textbf{V}(f, g_2)$.
+        \item Show that in $\mathbb{R}^3$, $\textbf{V}(y - x^2, xz - y^2) = \textbf{V}(y - x^2, xz - x^4)$.
+        \item Use part (a) to describe and/or sketch the variety from part (b).
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $g \in k[x_1, \ldots, x_n]$ factors as $g = g_1 g_2$,
+    and let $f$ be any polynomial in $k[x_1, \ldots, x_n]$.
+    If $x \in \mathbf{V}(f, g)$, then 
+    \[f(x) = 0 \quad \text{and} \quad g(x) = g_1(x) g_2(x) = 0,\] 
+    so either $g_1(x) = 0$ or $g_2(x) = 0$. Thus
+    \[x \in \mathbf{V}(f, g_1) \cup \mathbf{V}(f, g_2).\]
+
+    Conversely, if $x \in \mathbf{V}(f, g_1) \cup \mathbf{V}(f, g_2)$,
+    then wlog $x \in \mathbf{V}(f, g_2)$. 
+    Thus $f(x) = 0$ and $g_2(x) = 0$ therefore
+    \[g(x) = g_1(x) g_2(x) = g_1(x) \cdot 0 = 0,\] 
+    and thus $x \in \mathbf{V}(f, g)$.
+\end{proof}
+
+\textbf{Solution (2):}
+Substituting $y = x^2$ into $xz - y^2$ gives 
+$xz - (x^2)^2 = xz - x^4$ thus
+\[\mathbf{V}(y - x^2, xz - y^2) = \mathbf{V}(y - x^2, xz - x^4).\]
+
+\textbf{Solution (3):}
+Using part (a), we can factor $xz - x^4 = x(z - x^3)$ thus the variety 
+is the union of 
+\[\mathbf{V}(y - x^2, x) \cup \mathbf{V}(y - x^2, z - x^3).\] 
+Thus geometrically we have
+\begin{enumerate}
+    \item the parabola $y = x^2$.
+    \item the curve $y = x^2$, $z = x^3$.
+\end{enumerate}
+
+\subsection{Properties of Grobner Bases}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
 \end{tcolorbox}
