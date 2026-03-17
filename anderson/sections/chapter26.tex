@@ -67,11 +67,49 @@
     Therefore no $k < mn$ satisfies $(ab)^k = 1$, so the order of $ab$ is $mn$.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 6, breakable]
     If $a$ and $b$ are elements of a group whose orders are relatively prime,
     what can you say about $\langle a \rangle \cap \langle b \rangle$? Prove your assertion.
 \end{tcolorbox}
 
 \begin{proof}
-    Suppose $o(a) = m$ and $o(g) = n$ where $\gcd(m, n) = 1$.
+    Suppose $a$ and $b$ are elements of a group whose orders are relatively prime.
+    Let $o(a) = m$ and $o(b) = n$ such that $gcd(m, n) = 1$.
+    Now suppose $x \in \langle a \rangle \cap \langle b \rangle$.
+    Then $x = a^k \in \langle a \rangle$ and $x = b^{k'} \in \langle b \rangle$.
+    Thus, by Theorem 26.2, $o(x) \mid m$ and $o(x) \mid n$.
+    But since $gcd(m, n) = 1$, we have $o(x) = 1$.
+    Thus $x$ is the identity element.
+    So $\langle a \rangle \cap \langle b \rangle = \{1\}$.
 \end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    How many generators does an infinite cylic group have.
+\end{tcolorbox}
+
+\textbf{Solution: } There are two generators in an infinite cyclic group.
+Take $2, 4, 8, 16, \ldots$ in $\mathbb{Q}^*$ we see $2$ and $2^{-1}$ are the generators.
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Prove that if $G$ is a finite cyclic group with more than two elements, then $G$ has more than one generator.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $G$ is a finite cyclic group with more than two elements and let $G=\langle g\rangle$.
+    Let $o(g)=n>2$. Then $g^{-1}=g^{n-1}$.
+    Since $n>2$, we have $g^{-1}\neq g$.
+    Now let $x \in G$, so $x = g^k$ for some integer $k$.  
+    Then, since $g^n = e$ we have $x = (g^{-1})^{\,n-k}$.
+    Thus every element of $G$ can be written as a power of $g^{-1}$.
+    Therefore, $\langle g^{-1} \rangle = G$, and $G$ has more than one generator.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    \begin{enumerate}
+        \item Show that if $G$ is a cyclic group of order $m$ and $n$ divides $m$, then $G$
+        has a subgroup of order $n$. (This subgroup will itself be cyclic.)
+        \item If $G$ is an arbitrary group with order $m$ and $n$ divides $m$, then $G$
+        need not have a cyclic subgroup of order $n$. Find two such examples, one where $n = m$, and one where $n < m$.
+    \end{enumerate}
+\end{tcolorbox}

@@ -1210,31 +1210,477 @@ Thus geometrically we have
 \subsection{Properties of Grobner Bases}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    Show that Proposition 1 can be strengthened slightly as follows.
+    Fix a monomial order and let $I \subseteq k[x_1, \ldots, x_n]$ be an ideal.
+    Suppose that $f \in k[x_1, \ldots, x_n]$.
+    \begin{enumerate}
+        \item Show that $f$ can be written in the form $f = g + r$, where $g \in I$ and no 
+        term of $r$ is divisible by any element of $LT(I)$.
+        \item Given two expressions $f = g + r = g' + r'$ as in part (1), prove that $r = r'$.
+        thus, $r$ and $g$ are uniquely determined.
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    By Corollary 6, $I$ has a Grobner basis.
+    Then by Proposition 1 we obtain $g, r$ such that $f = g + r$ and $g \in I$.
+    Additionally, as shown in the text, $r$ is unique.
+    Thus, if $f = g + r = g' + r'$, since $r = r'$ we have $g = g'$ as required.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
+    In 5, we showed that $G = \{x + z, y - z\}$ is a Grobner basis for lex order.
+    Let us use this basis to study the uniqueness of the division algorithm.
+    \begin{enumerate}
+        \item Divide $xy$ by $x + z, y - z$.
+        \item Now interchange the polynomials and divide $xy$ by $y - z, x + z$.
+    \end{enumerate}
 \end{tcolorbox}
 
+\textbf{Solution (1):}
+\begin{align*}
+xy &= y(x+z) - z(y-z) - z^2.
+\end{align*}
+\textbf{Solution (2):}
+\begin{align*}
+xy &= x(y - z) + z(x + z) - z^2.
+\end{align*}
+
+\newpage
 \begin{tcolorbox}[title=Problem 3, breakable]
+    In Corollary 2, we showed that if $I = \langle g_1, \ldots, g_t \rangle$ and if 
+    $G = \{g_1, \ldots, g_t\}$ is a Grobner basis for $I$, then $\overline{f}^G = 0$
+    for all $f \in I$. Prove the converse of this statement. Namely,
+    show that if $G$ is a basis for $I$ with the property that $\overline{f}^G = 0$
+    for all $f \in I$, then $G$ is a grobner basis for $I$. 
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $G$ is a basis for $I$ with the property that $\overline{f}^G = 0$
+    for all $f \in I$. We must show $\langle LT(I) \rangle = \langle LT(g_1), \ldots, LT(g_t) \rangle$.
+
+    Let $LT(f) \in \langle LT(I) \rangle$ for some $f \in I$.
+    Since $\overline{f}^G = 0$, the division algorithm gives
+    $f = h_1 g_1 + \cdots + h_t g_t$ for some $h_1, \ldots, h_t \in k[x_1,\ldots,x_n]$.
+    Thus the leading term $LT(f)$ must be divisible by $LT(g_i)$ for some $i$.
+    Thus $LT(f) \in \langle LT(g_1), \ldots, LT(g_t) \rangle$ so
+    \[
+    \langle LT(I) \rangle \subseteq \langle LT(g_1), \ldots, LT(g_t) \rangle.
+    \]
+    Conversely, since $g_i \in I$ for each $i$, we have $LT(g_i) \in \langle LT(I) \rangle$.
+    Thus
+    \[
+    \langle LT(g_1), \ldots, LT(g_t) \rangle \subseteq \langle LT(I) \rangle.
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Let $G$ and $G'$ be Grobner bases for an ideal $I$ with respect to the 
+    same monomial order in $k[x_1, \ldots, x_n]$. Show that 
+    $\overline{f}^G = \overline{f}^{G'}$ for all $f \in k[x_1, \ldots, x_n]$.
+    Hence, the remainder on division by a Grobner basis is even independent of 
+    which Grobner basis we use, as long as we use one particular monomial order.
+    Hint: See Exercise 1.
 \end{tcolorbox}
 
+\begin{proof}
+    We can first fix a monomial order.
+    Then by Exercise 1 we can divide $f$ by $G, G'$ to get  
+        two expressions $f = g + r$ and $f = g' + r'$.
+    But since $r$ is unique we have $r = r'$.
+    Thus $\overline{f}^G = \overline{f}^{G'}$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Prove that $multideg(S(f, g)) < \gamma$, where $x^\gamma = lcm(LM(f), LM(g))$.
+    Explain why this inequality is a precise version of the claim that S-polynomials 
+    are designed to produce cancellation.
 \end{tcolorbox}
+
+
+\begin{proof}
+    We can write 
+    \[
+    S(f, g) = \frac{x^\gamma}{LT(f)} \cdot \left(LT(f) + \text{ other terms }\right) 
+             - \frac{x^\gamma}{LT(g)} \cdot \left(LT(g) + \text{ other terms}\right).
+    \]
+    When distributed it is clear that $\frac{x^\gamma}{LT(f)} \cdot LT(f)$ and 
+    $\frac{x^\gamma}{LT(g)} \cdot LT(g)$ both produce the term $x^\gamma$.
+    So when $\frac{x^\gamma}{LT(f)}$ is distributed the $multideg(\textsl{other terms}) < multideg(LM(f))$.
+    Then distributing we get 
+    \[
+    x^\gamma + \frac{x^\gamma}{LT(f)}\left(\text{ other terms}\right) 
+    - \left(x^\gamma + \frac{x^\gamma}{LT(g)}\left(\text{ other terms}\right)\right)
+    \]
+    and cancelling we find 
+    \[
+    \frac{x^\gamma}{LT(f)}\left(\text{other terms}\right) 
+    - \frac{x^\gamma}{LT(g)}\left(\text{other terms}\right).
+    \]
+    Since the other terms of $f$ and $g$ have multidegree strictly less than 
+    $multideg(LM(f))$ and $multideg(LM(g))$, multiplying by 
+    $\frac{x^\gamma}{LT(f)}$ or $\frac{x^\gamma}{LT(g)}$ gives terms of multidegree strictly less than $\gamma$.
+    Thus we have 
+    \[
+    multideg(S(f, g)) < \gamma.
+    \]
+    Clearly this construction cancels the leading term.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]
+    As in the proof of Theorem 6, suppose that 
+    $c_i x^{\alpha(i)} g_i$ and $c_j x^{\alpha(j)} g_j$ have multidegree $\delta$.
+    Prove that 
+    \[S(x^{\alpha(i)} g_i, x^{\alpha (j)} g_j) = x^{\delta  - \gamma_{i j}} S(g_i, g_j),\]
+    where $x^{\gamma_{i, j}} = lcm(LM(g_I), LM(g_j))$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f = c_i x^{\alpha(i)} g_i$ and $g = c_j x^{\alpha(j)} g_j$.
+    Then 
+    \[
+    S(f, g) = \frac{x^\gamma}{LT(f)} \cdot f - \frac{x^\gamma}{LT(g)} \cdot g 
+    = \frac{x^\gamma}{LT(c_i x^{\alpha(i)} g_i)} \cdot (c_i x^{\alpha(i)} g_i) 
+    - \frac{x^\gamma}{LT(c_j x^{\alpha(j)} g_j)} \cdot (c_j x^{\alpha(j)} g_j).
+    \]
+    Now since $c_i x^{\alpha(i)} g_i$ and $c_j x^{\alpha(j)} g_j$ have multidegree $\delta$ we have 
+    $x^\gamma = x^\delta$. Also,
+    \[
+    LT(c_i x^{\alpha(i)} g_i) = c_i x^{\alpha(i)} LT(g_i), \qquad
+    LT(c_j x^{\alpha(j)} g_j) = c_j x^{\alpha(j)} LT(g_j).
+    \]
+    Substituting gives
+    \[
+    S(f,g)
+    =
+    \frac{x^\delta}{c_i x^{\alpha(i)} LT(g_i)} (c_i x^{\alpha(i)} g_i)
+    -
+    \frac{x^\delta}{c_j x^{\alpha(j)} LT(g_j)} (c_j x^{\alpha(j)} g_j)
+    =
+    \frac{x^\delta}{LT(g_i)} g_i
+    -
+    \frac{x^\delta}{LT(g_j)} g_j.
+    \]
+    Since $x^{\gamma_{ij}} = lcm(LM(g_i), LM(g_j))$, we can write
+    $x^\delta = x^{\delta - \gamma_{ij}} x^{\gamma_{ij}}$. Thus
+    \[
+    S(f,g)
+    =
+    x^{\delta - \gamma_{ij}}
+    \left(
+    \frac{x^{\gamma_{ij}}}{LT(g_i)} g_i
+    -
+    \frac{x^{\gamma_{ij}}}{LT(g_j)} g_j
+    \right)
+    =
+    x^{\delta - \gamma_{ij}} S(g_i,g_j)\].
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Show that $\{y - x^2, z - x^3\}$ is not a Grobner basis for a lex order with $x > y > z$.
+\end{tcolorbox}
+
+\textbf{Solution: }
+\[
+S(g_1,g_2)
+=
+\frac{x^3}{x^2}(y-x^2)-\frac{x^3}{x^3}(z-x^3)
+=
+x(y-x^2)-(z-x^3)
+=
+xy-z
+\]
+\[
+\overline{S(g_1,g_2)}^{\{g_1,g_2\}} = xy - z \neq 0
+\]
+
+\newpage
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Let $f, g \in k[x_1, \ldots, x_n]$ be polynomials such that $LM(f)$ and $LM(g)$ are 
+    relatively prime monomials and $LC(f) = LC(g) = 1$. 
+    Assume that $f$ or $g$ has at least two terms.
+    \begin{enumerate}
+        \item Show that $S(f, g) = -(g - LT(g))f + (f - LT(f))g$.
+        \item Deduce that $S(f, g) \ne 0$ and that the leading monomial of $S(f, g)$
+        is a multiple of either $LM(f)$ and $LM(g)$ in this case.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[S(f, g) 
+        = \frac{x^\gamma}{LT(f)} \cdot f - \frac{x^\gamma}{LT(g)} \cdot g 
+        = \frac{x^\gamma}{LC(f) LM(f)} \cdot f - \frac{x^\gamma}{LC(g) LM(g)} \cdot g.\]
+    Then $LC(f) = LC(g) = 1$ so $LT(f) = LM(f)$ and $LT(g) = LM(g)$. Also, since 
+        $gcd(LM(f), LM(g)) = 1$ we have $x^\gamma = LM(f) LM(g)$. 
+    Thus 
+    \[\frac{x^\gamma}{LC(f) LM(f)} \cdot f - \frac{x^\gamma}{LC(g) LM(g)} \cdot g 
+        = \frac{LM(f) LM(g)}{LT(f)} \cdot f - \frac{LM(f) LM(g)}{LT(g)} \cdot g = LT(g) \cdot f - LT(f) \cdot g.\]
+
+    Now write $f = LT(f) + (f - LT(f))$ and $g = LT(g) + (g - LT(g))$. Substituting gives
+    \[
+    S(f,g) = LT(g)(LT(f) + (f-LT(f))) - LT(f)(LT(g) + (g-LT(g))).
+    \]
+    Expanding and canceling $LT(g)LT(f)$ gives
+    \[
+    S(f,g) = LT(g)(f-LT(f)) - LT(f)(g-LT(g))
+           = -(g-LT(g))f + (f-LT(f))g.
+    \]
+\end{proof}
+
+\begin{proof}
+    Suppose wlog $f$ has more than one term.
+    Then $f - LT(f) \ne 0$ so 
+    \[
+    S(f,g) = -(g-LT(g))f + (f-LT(f))g \ne 0.
+    \]
+    Also every term of $(f-LT(f))g$ is divisible by $LM(g)$, 
+        and every term of $(g-LT(g))f$ is divisible by $LM(f)$.
+    Therefore the leading monomial of $S(f,g)$ is a multiple of either $LM(f)$ or $LM(g)$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Let $f, g \in k[x_1, \ldots, x_n]$ be a nonzero and $x^\alpha, x^\beta$ be monomials.
+    Verify that 
+    \[S(x^\alpha f, x^\beta g) = x^\gamma S(f, g),\]
+    where 
+    \[x^\gamma = \frac{lcm(x^\gamma LM(f), x^\beta LM(g))}{lcm(LM(f), LM(g))}.\]
+    Be sure to prove that $x^\gamma$ is a monomial. 
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[
+        S(x^\alpha f, x^\beta g) = \frac{x^\gamma}{LT(x^\alpha f)} \cdot (x^\alpha f) - \frac{x^\gamma}{LT(x^\beta g)} \cdot (x^\beta g),
+    \]
+    where $x^\gamma = lcm(x^\alpha LM(f), x^\beta LM(g))$.  
+    Then 
+    \[
+        \frac{x^\gamma}{LT(x^\alpha f)} \cdot (x^\alpha f) = x^\gamma \frac{f}{LT(f)}, \quad 
+        \frac{x^\gamma}{LT(x^\beta g)} \cdot (x^\beta g) = x^\gamma \frac{g}{LT(g)}.
+    \]
+    Therefore,
+    \[
+        S(x^\alpha f, x^\beta g) = x^\gamma \left(\frac{f}{LT(f)} - \frac{g}{LT(g)}\right) = x^\gamma S(f, g),
+    \]
+    showing that $x^\gamma$ is a monomial.  
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 13, breakable]
+    Let $I \subseteq k[x_1, \ldots, x_n]$ be an ideal,
+    and let $G$ be a grobner basis of $I$.
+    \begin{enumerate}
+        \item Show that $\overline{f}^G = \overline{g}^G$ if and only if $f - g \in I$. Hint: See Exercise 1.
+        \item Use Exercise 1 to show that 
+        \[\overline{f + g}^G = \overline{f}^G + \overline{g}^G.\]
+        \item Deduce that 
+        \[\overline{fg}^G = \overline{\overline{f}^G \cdot \overline{g}^G}^G.\]
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $\overline{f}^G = \overline{g}^G$.  
+    By Exercise 1, write $f = t + r$ and $g = t' + r$.
+    with $t, t' \in I$ and $r = \overline{f}^G = \overline{g}^G$.  
+    Then $f - g = (t + r) - (t' + r) = t - t' \in I$.
+
+    Conversely, suppose $f - g \in I$. Then by Exercise 1 
+    we can write $f = t + r$ and $g = t' + r'$ where $t, t' \in I$ and $r, r' \in k[x_1, \ldots, x_n]$.
+    Then $f - g = (t - t') + (r - r') \in I$.
+    Then we see  $(f - g) - (t - t') = r - r' \in I$.
+    Now since $LT(g_i) \nmid r, r'$ for any $i$,
+        we must have $r - r' = 0$, thus $r = r'$.
+    Thus $\overline{f}^G = \overline{g}^G$.
+\end{proof}
+
+\begin{proof}
+    By Exercise 1, we have $f = t_1 + r_1$ and $g = t_2 + r_2$
+    where $t_1, t_2 \in I$ and $r_1 = \overline{f}^G, \quad r_2 = \overline{g}^G$.
+    Then $f + g = (t_1 + r_1) + (t_2 + r_2) 
+              = (t_1 + t_2) + (r_1 + r_2)$.
+    Since $I$ is an ideal and $t_1, t_2 \in I$, we have $t_1 + t_2 \in I$.
+    Thus $f + g = t + (r_1 + r_2)$
+    for some $t \in I$. Therefore by Exercise 1, $\overline{f+g}^G = r_1 + r_2 = \overline{f}^G + \overline{g}^G$.
+\end{proof}
+
+\begin{proof}
+    By Exercise 1, $f = t_1 + r_1$ and $g = t_2 + r_2$
+    where $t_1, t_2 \in I$ and  $r_1 = \overline{f}^G$ and $r_2 = \overline{g}^G$.
+    Then $fg = (t_1 + r_1)(t_2 + r_2)
+           = t_1t_2 + t_1r_2 + t_2r_1 + r_1r_2$.
+    Since $I$ is an ideal, $t_1t_2 + t_1r_2 + t_2r_1 \in I$.
+    Thus $fg = t + r_1r_2$.
+    for some $t \in I$. 
+    Therefore $\overline{fg}^G = \overline{r_1r_2}^G$.
+    Substituting $r_1 = \overline{f}^G$ and $r_2 = \overline{g}^G$, 
+        we obtain $\overline{fg}^G = \overline{\overline{f}^G \cdot \overline{g}^G}^G$.
+\end{proof}
+
+\subsection{Buchberger's Algorithm}
+
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Use the result of Exercise 7 of 4
+    to give an alternate proof that 
+    Buchberger's algorithm will always terminate after 
+    a finite number of steps.
+\end{tcolorbox}
+
+\begin{theorem}[Exercise 7]
+    Dickson's Lemma is equivalent to the following statement: given a 
+    nonempty subset $A \subseteq \mathbb{Z}_{\ge 0}^n$, there are finitely many 
+    elements $\alpha(1), \ldots, \alpha(s) \in A$ such that 
+    for every $\alpha \in A$, there exists some $i$ and some $\gamma \in \mathbb{Z}_{\ge 0}^n$ such that $\alpha = \alpha(i) + \gamma$.
+\end{theorem}
+
+\begin{theorem}[Dickson's Lemma]
+    Let $I = \langle x^\alpha \mid \alpha \in A \rangle \subseteq k[x_1, \ldots, x_n]$
+    be a monomial ideal. Then I can be written in the form 
+    $I = \langle x^{\alpha(1)}, \ldots, x^{\alpha(s)} \rangle$, where 
+    $\alpha(1), \ldots, \alpha(s) \in A$. In particular $I$ has a finite basis.
+\end{theorem}
+
+\begin{proof}
+    For contradiction, suppose Buchberger's algorithm does not terminate.
+    Let $G = \{x^{\beta(1)}, x^{\beta(2)}, \ldots\}$ be the set of generated remainders.
+    Take an arbitrary element $x^{\beta(i)} \in G$.
+    By the construction of the algorithm, for all $x^{\beta(j)} \in G$ such that $i \ne j$,
+        $x^{\beta(j)} \nmid x^{\beta(i)}$.
+    Thus there does not exist $\gamma \in \mathbb{Z}_{\ge 0}^n$ such that 
+        $\beta(i) = \beta(j) + \gamma$,
+        contradicting the statement of Exercise 7 (Dickson's Lemma).
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $G$ be a Grobner basis of an ideal $I$
+    with the property that $LC(g) = 1$ for all $g \in G$.
+    Prove that $G$ is a minimal Grobner basis if and only if
+    no proper subset of $G$ is a grobner basis of $I$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $G$ is a minimal Grobner basis.
+    For contradiction, suppose there exists a Grobner basis $G'$ such that $G' \subset G$.
+    Since $G \setminus G' \ne \emptyset$, let $x \in G \setminus G'$. 
+    We must have $x = \sum_{i = 1}^{n} h_i g_i$ where $g_i \in G'$ and $h_i \in k[x_1, \ldots, x_n]$,
+        contradicting that $G$ is a minimal Grobner basis.
+
+    Conversely, suppose no proper subset of $G$ is a Grobner basis of $I$.
+    For contradiction, suppose $G$ is not a minimal Grobner basis.
+    Then there exists $p \in G$ such that $LT(p) \in \langle LT(G \setminus \{p\}) \rangle$.
+    Let $G' = G \setminus \{p\}$. By Lemma 3, $G'$ is a Grobner basis and $G' \subset G$, which is a contradiction.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    The minimal basis of a monomial ideal was introduced 
+    in Proposition 7 of 4. Show that a Grobner basis 
+    of $I$ is minimal if and only if $LC(g) = 1$ for all 
+    $g$ in $G$ and $LT(G)$ is the minimal basis of the 
+    monomial ideal $\langle LT(I) \rangle$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $G$ is a minimal Grobner basis.
+    By definition, for all $g \in G$, $LC(g) = 1$.
+    For contradiction, suppose $LT(G)$ is not the minimal basis of the monomial ideal $\langle LT(I) \rangle$.
+    Then there exist $g_i, g_j \in G$ with $i \ne j$ such that $LT(g_i) \mid LT(g_j)$, contradicting the minimality of $G$.
+
+    Conversely, suppose $LC(g) = 1$ for all $g \in G$ and $LT(G)$ is the minimal basis of the monomial ideal 
+        $\langle LT(I) \rangle$.
+    For contradiction, suppose $G$ is not a minimal Grobner basis.
+    Then there exist $g_i, g_j \in G$ where $i \ne j$ such that $LT(g_i) \mid LT(g_j)$.
+    But since $LT(g_i), LT(g_j) \in LT(G)$ we have $LT(g_i) \mid LT(g_j)$, contradicting that $LT(G)$ is the minimal basis of the monomial ideal 
+        $\langle LT(I) \rangle$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Fix a monomial order, and let $G$ and $\tilde{G}$
+    be minimal Grobner bases for the ideal $I$.
+    \begin{enumerate}
+        \item Prove that $LT(G) = LT(\tilde{G})$.
+        \item Conclude that $G$ and $\tilde{G}$ have the same number of elements.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
+    Develop an algorithm that produces a reduced Grobner 
+    basis (see Definition 4) for an ideal $I$,
+    given as input an arbitrary Grobner basis for $I$.
+    Prove that your algorithm works.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
-\end{tcolorbox}
-
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $A = (a_{i j})$ be an $n \times m$ matrix with entries in $k$
+    and let $f_i = a_{i 1} x_1 + \cdots + a_{i m} x_m$ be the linear 
+    polynomials in $k[x_1, \ldots, x_m]$ determined by the rows of $A$.
+    Then we get the ideal $I = \langle f_1, \ldots, f_n \rangle$. We 
+    will use lex order with $x_1 > \cdots > x_m$. Now let 
+    $B = (b_{i j})$ be the reduced row echelon matrix determined by $A$ and let 
+    $g_1, \ldots g_t$ be the linear polynomials coming from the nonzero 
+    rows of $B$ (so that $t \le n$). We want to prove that $g_1, \ldots, g_t$
+    form the reduced Grobner basis of $I$.
+    \begin{enumerate}
+        \item Show that $I = \langle g_1, \ldots, g_t \rangle$.
+        Hint: Show that the result of applying a row operation to 
+        $A$ gives a matrix whose rows generate teh same ideal.
+        \item Use Theorem 6 to show that $g_1, \ldots, g_t$ form a Grobner basis of $I$.
+        Hint: If the leading $1$ in the $i$th row of $B$ is in the $s$th column,
+        we can write $g_i = x_s + C$, where $C$ is a linear polynomial involving 
+        none of the variables corresponding to leading $1$'s.
+        If $g_j = x_l + D$ is written similiarly, then you need to divide 
+        $S(g_i, g_j) = x_l C - x_s D$ by $g_1, \ldots, g_t$. Note that you 
+        will use only $g_i$ and $g_j$ in the division.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 12, breakable]
+    Fix $F = \{f_1, \ldots, f_s\}$ and let $r = \overline{f}^F$.
+    Since dividing $f$ by $F$ gives $r$ as remainder, adding $r$
+    to the polynomials we divide by should reduce the remainder 
+    to zero. In other words, we should have 
+    $\overline{f}^{F \cup \{r\}} = 0$ when $r$ comes last. Prove this as follows.
+    \begin{enumerate}
+        \item When you divide $f$ by $F \cup \{r\}$, consider the first place 
+        in the division algorithm where the intermediate dividend $p$ has leading 
+        term not divisible by any $LT(f_i)$. Explain why $LT(p) = LT(r)$ and 
+        why the next intermediate dividend is $p - r$.
+        \item From here on in the division algorithm, explain why the leading term 
+        of the intermediate dividend is always divisible by one of the 
+        $LT(f_i)$. Hint: If this were false, consider the first time it fails.
+        Remember that the terms of $r$ are not divisible by any $LT(f_i)$.
+        \item Conclude that the remainder is zero, as desired.
+        \item Given an alternate proof of $\overline{f}^{F \cup \{r\}} = 0$ using 
+        Exercise 11 of 3.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
+    In the discussion following the proof of Theorem 2, we commented that 
+    if $\overline{S(f, g)}^{G'} = 0$, then remainder stays zero when we enlarge $G'$.
+    More generally, if $\overline{f}^F = 0$ and $F'$ is obtained from $F$
+    by adding elements at the end, then $\overline{f}^{F'} = 0$. Prove this.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Suppose we have $n$ points $V = \{(a_1, b_1), \cdots, (a_n, b_n)\} \subseteq k^2$
+    where $a_1, \ldots, a_n$ are distinct. This exercise will study the 
+    Langrange interpolation polynomial defined by 
+    \[h(x) = \sum_{i = 1}^{n} b_i \prod_{j \ne 1} \frac{x - a_j}{a_i - a_j} \in k[x].\]
+    We will also explain how $h(x)$ related to the reduced Grobner basis of 
+    $\textbf{I}(V) \subseteq k[x, y]$.
+    \begin{enumerate}
+        \item Show that $h(a_i) = b_i$ for $i = 1, \ldots, n$ and explain why $h$ has degree $\le n - 1$.
+        \item Prove that $h(x)$ is the unique polynomial of degree $\le n - 1$ satisfying $h(a_i) = b_i$ for $i = 1, \ldots, n$.
+        \item Prove that $\textbf{I}(V) = \langle f(x), y - h(x) \rangle$, where $f(x) = \prod_{i = 1}^{n} (x - a_i)$. Hint: Divide $g \in \textbf{I}(V)$ by $f(x)$, $y - h(x)$ using lex order with $y > x$.
+        \item Prove that $\{f(x), y - h(x)\}$ is the reduced Grobner basis for $\textbf{I}(V) \subseteq k[x, y]$ for lex order with $y > x$. 
+    \end{enumerate}
 \end{tcolorbox}
