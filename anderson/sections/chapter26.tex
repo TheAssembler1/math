@@ -106,10 +106,80 @@ Take $2, 4, 8, 16, \ldots$ in $\mathbb{Q}^*$ we see $2$ and $2^{-1}$ are the gen
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
-    \begin{enumerate}
-        \item Show that if $G$ is a cyclic group of order $m$ and $n$ divides $m$, then $G$
-        has a subgroup of order $n$. (This subgroup will itself be cyclic.)
-        \item If $G$ is an arbitrary group with order $m$ and $n$ divides $m$, then $G$
-        need not have a cyclic subgroup of order $n$. Find two such examples, one where $n = m$, and one where $n < m$.
-    \end{enumerate}
+    Show that if $G$ is a cyclic group of order $m$ and $n$ divides $m$, then $G$
+    has a subgroup of order $n$. (This subgroup will itself be cyclic.)
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $G$ is a cyclic group of order $m$ and $n$ divides $m$.
+    Now 
+    \[G = \langle g \rangle = \{ g^0, g^1, \ldots, g^{m-1} \}.\]
+    Since $m = n k$ for some $k \in \mathbb{Z}$, consider 
+    \[G' = \{g^{m/n \cdot i} \mid i = 0, 1, \dots, n-1\} = \{ g^0, g^k, \ldots, g^{(n - 1)k} \}.\]
+    Clearly, with $i = 0$, we have $g^0 = e \in G' \ne \emptyset$.
+    Now, for any $g^{m/n \cdot i} \in G'$, its inverse is $g^{-m/n \cdot i} = g^{m - m/n \cdot i} \in G'$. 
+    Finally, let $f, r \in G'$. Then $f = g^{m/n \cdot i}$ and $r = g^{m/n \cdot j}$ for some $i, j$.
+    So 
+    \[f \cdot r = g^{m/n \cdot (i+j)} = g^{m/n \cdot ((i+j) \bmod n)} \in G'.\]
+    Therefore, $G'$ is a subgroup of $G$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Generalizing the group given in Exerciwse 24.7, let $\rho_{i, n}$ be the 
+    rotation of the circle counterclockwise through an angle of $2 \pi i / n$,
+    for $i = 1, 2, \ldots, n - 1$ and all $n \ge 2$. Let $e$ be the `identity'
+    rotation. Show that this set of rotations forms a group under composition.
+    Show that all elements in this group are torsion (even though the group is infinite).
+    Show that each finite subgroup is cyclic.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $\rho_{i, n}$ be the rotation of the circle counterclockwise through an angle $2 \pi i / n$, for $i = 0,1, \dots, n-1$, and let $e = \rho_{0,n}$ be the identity rotation. Consider any 
+    \(\rho = \rho_{k,n}, \ \mu = \rho_{k',n'}, \ \psi = \rho_{k'',n''}\).  
+    Clearly, composition is associative
+    \[
+        \rho \circ (\mu \circ \psi) = (\rho \circ \mu) \circ \psi.
+    \]
+    For closure, note that
+    \[
+        \rho_{k,n} \circ \rho_{k',n'} = \rho_{i/N, N}, \quad N = \mathrm{lcm}(n,n'), \ i = k \frac{N}{n} + k' \frac{N}{n'},
+    \]
+    so the composition is still a rotation by a rational multiple of $2\pi$.  
+    For inverses, each $\rho_{k,n}$ has
+    \[
+        \rho_{k,n}^{-1} = \rho_{n-k,n},
+    \]
+    which is also a rational rotation.
+    Each element is torsion, since for any $\rho_{k,n}$,
+    \[
+        (\rho_{k,n})^n = \rho_0 = e.
+    \]
+    Finally, any finite subgroup consists of rotations with a common denominator. 
+    Choosing the rotation with the smallest positive angle in the subgroup, all other elements are powers of this rotation. Thus, each finite subgroup is cyclic.
+\end{proof}
+\begin{tcolorbox}[title=Problem 13, breakable]
+    If $G$ is a finite group where every non-identity element is a generator of $G$,
+    what can you say about the order of $G$? Prove your assertion.
+\end{tcolorbox}
+
+\begin{theorem}
+    If $G$ is a finite group where every non-identity element is a generator of $G$,
+        then $|G|$ is prime.
+\end{theorem}
+
+\begin{proof}
+    Suppose $G$ is a finite group where every non-identity element is a generator of $G$.
+    Let $\langle g \rangle = G$ so 
+    \[
+        G = \langle g \rangle = \{g^0, g^1, \ldots, g^{n - 1}\}.
+    \]
+    For contradiction, suppose $n$ is not prime, so there exists a divisor $p$ with $1 < p < n$.
+    Write $n = p k$ for some integer $k > 1$.
+    Then 
+    \[
+        o(g^p) = \frac{n}{p} = k < n,
+    \]
+    so $g^p$ cannot generate $G$, which is a contradiction.
+    Therefore, there is no divisor $p$ with $1 < p < n$, and thus $n$ is prime.
+\end{proof}

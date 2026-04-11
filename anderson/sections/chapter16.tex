@@ -1,0 +1,45 @@
+\newpage
+\begin{tcolorbox}[title=Problem 28, breakable]
+    Let $R$ and $S$ be rings, with $\rho: R \longrightarrow S$ 
+    a ring homomorphism. Suppose that $T$ is a subring of $S$.
+    Let 
+    \[\rho^{-1}(T) = \{r \in R \mid \rho(r) \in T\}.\]
+    Prove that $\rho^{-1}(T)$ is a subring of $R$.
+    When is $\rho^{-1}(T)$ the whole ring $R$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $r, r' \in \rho^{-1}(T)$.  
+    Then $\rho(r), \rho(r') \in T$.  
+    Since $T$ is a subring, $\rho(r) + \rho(r') \in T$ and $\rho(r)\rho(r') \in T$.  
+    Then
+    \[
+        \rho(r + r') = \rho(r) + \rho(r') \in T, \quad 
+        \rho(rr') = \rho(r)\rho(r') \in T.
+    \]
+    Thus $r + r' \in \rho^{-1}(T)$ and $rr' \in \rho^{-1}(T)$.  
+    Since $0 \in T$, $0 \in \rho^{-1}(T)$.  
+    $\rho^{-1}(T)$ is the whole ring $R$ iff $\rho(R) \subseteq T$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 31, breakable]
+    In this exercise we extend Theorem 16.2 to ideals.
+    Suppose that $R$ and $S$ are commutative rings and $\rho : R \longrightarrow S$
+    is an onto ring homomorphism. Let $I$ be an ideal of $R$. Prove that $\rho(I)$ is an ideal of $S$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $y, y' \in \rho(I)$ and $s \in S$.  
+    Since $\rho$ is onto, there exist $x, x' \in I$ such that $\rho(x) = y$ and $\rho(x') = y'$.  
+    Then since $I$ is an ideal we have $x - x' \in I$ thus
+    \[
+        y - y' = \rho(x) - \rho(x') = \rho(x - x') \in \rho(I).
+    \]
+    But then since $I$ is an ideal for any $r \in R$ we have $r x \in I$.  
+    Since $\rho$ is onto there exists $r \in R$ such that $\rho(r) = s$ so
+    \[
+        s y = \rho(r) \rho(x) = \rho(r x) \in \rho(I).
+    \]
+    Thus $\rho(I)$ is an ideal of $S$.
+\end{proof}
