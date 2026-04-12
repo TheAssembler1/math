@@ -413,6 +413,26 @@
     Conversely, the validity of (*) implies that $x_1, \ldots, x_n$ are lienarly independent.
 \end{tcolorbox}
 
+\begin{proof}
+    \underline{\textbf{($\longrightarrow$)}}
+    Suppose $x_1, \ldots, x_n$ are linearly independent.
+    Suppose 
+    \[\sum a_i x_i = \sum b_i x_i.\]
+    Then
+    \[\sum (a_i - b_i)x_i = 0.\]
+    Since the vectors are linearly independent it follows that 
+    \[a_i - b_i = 0 \text{ for all } i,\]
+    thus $a_i = b_i$ for all $i$.
+
+    \underline{\textbf{($\longleftarrow$)}}
+    Suppose (*) holds. Now suppose
+    \[\sum a_i x_i = 0.\]
+    Then
+    \[\sum a_i x_i = \sum 0 \cdot x_i.\]
+    By (*) it follows that $a_i = 0$ for all $i$. Thus $x_1, \ldots, x_n$
+    are linearly independent.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 6, breakable]
     If $T : V \longrightarrow W$ is a linear mapping and 
     $x_1, \ldots, x_n$ are vectors in $V$ such that 
@@ -420,8 +440,12 @@
     $x_1, \ldots, x_n$ are linearly independent.
 \end{tcolorbox}
 
+\begin{proof}
+    This is exactly Problem 5 in the previous section written in its contrapositive form.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 9, breakable]
-    IN the vector space $\mathcal{F}(\mathbb{R})$ of all 
+    In the vector space $\mathcal{F}(\mathbb{R})$ of all 
     functions $\mathbb{R} \longrightarrow \mathbb{R}$ (Example 1.3.4),
     $\sin$ and $\cos$ are linearly independent; so are the functions 
     $\sin, \cos, p$ where $p$ is any nonzero polynomial function 

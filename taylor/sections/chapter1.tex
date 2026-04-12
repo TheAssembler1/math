@@ -1,0 +1,96 @@
+\subsection{Space and Time}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    \begin{enumerate}
+        \item Use the definition (1.7) to prove that the scalar product 
+        is distributive, that is $\vec{r} \cdot (\vec{u} + \vec{v}) = \vec{r} \cdot \vec{u} + \vec{r} \cdot \vec{v}$. 
+        \item If $\vec{r}$ and $\vec{s}$ are vectors that depend on time, prove that the product rule for differentiating 
+        products applies to $\vec{r} \cdot \vec{s}$, that is, that 
+        \[\frac{d}{ds} (\vec{r} \cdot \vec{s}) = \vec{r} \cdot \frac{d \vec{s}}{dt} + \frac{d \vec{r}}{dt} \cdot \vec{s}.\]
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[
+        \vec{r} \cdot (\vec{u} + \vec{v}) 
+        = \sum_{i = 1}^3 r_i (u_i + v_i) 
+        = \sum_{i = 1}^3 (r_i u_i + r_i v_i) 
+        = \sum_{i = 1}^3 r_i u_i + \sum_{i = 1}^3 r_i v_i 
+        = \vec{r} \cdot \vec{u} + \vec{r} \cdot \vec{v}.
+    \]
+\end{proof}
+
+\begin{proof}
+    Suppose $\vec{r}$ and $\vec{s}$ depend on time $t$. Then
+    \[
+        \frac{d}{dt} (\vec{r} \cdot \vec{s}) 
+        = \frac{d}{dt} \left( \sum_{i=1}^3 r_i s_i \right)
+        = \sum_{i=1}^3 \frac{d}{dt}(r_i s_i)
+        = \sum_{i=1}^3 \left( \frac{d r_i}{dt} s_i + r_i \frac{d s_i}{dt} \right)
+        = \frac{d \vec{r}}{dt} \cdot \vec{s} + \vec{r} \cdot \frac{d \vec{s}}{dt}.
+    \]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 10, breakable]
+    A particle moves in a circle (center $O$ and radius $R$)
+    with constant angular velocity $\omega$ counterclockwise.
+    The circle lies in the $xy$ plane and the particle is on the $x$
+    axis at time $t = 0$. Show that the particle's position is given by 
+    \[\vec{r}(t) = \hat{x} R \cos(\omega t) + \hat{y} R \sin(\omega t).\]
+    Find the particle's velocity and acceleration. 
+    What are the magnitude and direction of the acceleration?
+    Relate your results to well-known properties of uniform circular motion.
+\end{tcolorbox}
+
+\begin{proof}
+    We begin with the position of a point $P$ lying on the unit circle 
+    \[
+        P = (\cos x, \sin x).
+    \]
+    Now we scale the radius of the circle by $R$ such that the point $P$ lies $R$ away from $O$
+    \[
+        P = (R\cos x, R\sin x).
+    \]
+    We let $x = \omega t$ be the position at time $t$ for angular velocity $\omega$, giving 
+    \[
+        \vec{r}(t) = (R\cos(\omega t), R\sin(\omega t)) 
+        = \hat{x} R \cos(\omega t) + \hat{y} R \sin(\omega t).
+    \]
+    The velocity vector is obtained by differentiating
+    \[
+        \vec{v}(t) = \frac{d\vec{r}}{dt}
+        = (-R\omega \sin(\omega t), R\omega \cos(\omega t)).
+    \]
+    The acceleration vector is obtained by differentiating again
+    \[
+        \vec{a}(t) = \frac{d\vec{v}}{dt}
+        = (-R\omega^2 \cos(\omega t), -R\omega^2 \sin(\omega t))
+        = -\omega^2 \vec{r}(t).
+    \]
+    The force vector is pulling the point towards the center of the circle.
+    The acceleration vector is in the same direction as the force vector,
+    so it points toward the origin.
+    Thus the magnitude is 
+    \[
+        \|\vec{a}(t)\| = \omega^2 R,
+    \]
+    and the direction is toward the center (opposite to the position vector $\vec{r}(t)$).
+\end{proof}
+
+\textbf{Solution:}
+Imagine you have a string with a ball tied to the end.
+As you increase the velocity of the ball you feel a greater force as the ball tries to escape its path.
+This corresponds to the $\omega^2$ term in the force magnitude formula.
+Now imagine you half the length of the string and spin with equivalent velocity.
+You will feel less force corresponding to $\frac{1}{R}$ in the magnitude $\omega^2 R$.
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+\end{tcolorbox}
