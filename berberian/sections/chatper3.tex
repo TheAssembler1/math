@@ -217,7 +217,7 @@
     \]
 \end{proof}
 
-\subsection{Linear Independence}
+\subsection{Linear Dependence}
 
 
 \begin{tcolorbox}[title=Problem 1, breakable]
@@ -452,6 +452,56 @@
     (Hint: Differentiate.); so are $\sin, \cos, p, exp$ (the base $e$ exponential function).
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $\sin$ and $\cos$ are linearly dependent
+    thus there exists scalars $c_1, c_2$ not both zero such that 
+    \[
+        c_1 \cos(x) + c_2 \sin(x) = 0.
+    \]
+    At $x = 0$ we have
+    \[
+        c_1 \cos(0) + c_2 \sin (0) = 0 \implies c_1 = 0.
+    \]
+    But then at $x = \pi / 2$ we have 
+    \[
+        c_1 \cos(\pi/2) + c_2 \sin (\pi/2) = 0 \implies c_2 = 0.
+    \]
+    Thus contradicting that $c_1, c_2$ are not both zero.
+
+    Suppose $\sin, \cos,$ and $p$ are linearly dependent where $p$ is any nonzero polynomial function.
+    There exists scalars $c_1, c_2, c_3$ not all zero such that 
+    \[
+        c_1 \cos(x) + c_2 \sin(x) + c_3 p(x) = 0.
+    \]
+    If $c_3 = 0$ then we have the previous case.
+    Therefore suppose $c_3 \ne 0$ and we find 
+    \[
+        p(x) = -\frac{c_1}{c_3} \cos(x) - \frac{c_2}{c_3} \sin(x).
+    \]
+    If $p$ is not constant, the rhs is bounded, while a nonzero polynomial is unbounded, giving a contradiction.
+    If $p$ is constant, then the rhs would have to be constant, but a nontrivial linear combination of $\sin$ and $\cos$ is not constant, also giving a contradiction.
+
+    Suppose $\sin, \cos, \exp$ and $p$ are linearly dependent where $p$ is any nonzero polynomial function.
+    There exists scalars $c_1, c_2, c_3, c_4$ not all zero such that 
+    \[
+        c_1 \cos(x) + c_2 \sin(x) + c_3 p(x) + c_4 e^x = 0.
+    \]
+    If $c_4 = 0$ we have the previous case.
+    Therefore suppose $c_4 \ne 0$.
+    Let $p$ have degree $n$. Differentiating $n+1$ times gives
+    \[
+        A \cos(x) + B \sin(x) + C e^x = 0
+    \]
+    for some constants $A,B,C$ with $C \ne 0$.
+    Solving for $e^x$ we obtain
+    \[
+        e^x = -\frac{A}{C} \cos(x) - \frac{B}{C} \sin(x).
+    \]
+    The rhs is bounded, while $e^x$ is unbounded as $x \to \infty$,
+        giving a contradiction.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 12, breakable]
     Let $V = \mathbb{C}^2$ and regard $V$ as a real vector space by restriction
     of scalars (1.3, Exercise 3). Let $x_1 = (1, i), x_2 = (i, -1)$.
@@ -459,9 +509,142 @@
     linearly dependent in $V_{\mathbb{C}}$.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $c_1 = -i$ and $c_2 = 1$. Then
+    \[
+        c_1 x_1 + c_2 x_2 = (-i)(1,i) + 1(i,-1)
+        = (-i + i,\,-i^2 - 1)
+        = (0,0).
+    \]
+    Thus $x_1, x_2$ are linearly dependent in $V_{\mathbb{C}}$.
+
+    Now suppose $a_1 x_1 + a_2 x_2 = 0$ with $a_1, a_2 \in \mathbb{R}$.
+    Then
+    \[
+        a_1 (1, i) + a_2 (i, -1) = (a_1 + i a_2,\, i a_1 - a_2) = 0
+    \]
+    so
+    \[
+        a_1 + i a_2 = 0, \quad i a_1 - a_2 = 0.
+    \]
+    From $a_1 + i a_2 = 0$, we get $a_1 = -i a_2$. Since $a_1 \in \mathbb{R}$,
+    we have $a_2 = 0$ so $a_1 = 0$ which is a contradiction.
+    Therefore $x_1, x_2$ are linearly independent in $V_{\mathbb{R}}$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 14, breakable]
     With $V = \mathcal{D}$ as in Exercise 13, let $D \in \mathcal{L}(V)$
     be the linear mapping defined by $Dp = p'$ (the derivative of $p$).
-    Prove that every positive integer $n$, the elements $I$,
-    $D, D^2, \ldots, D^n$ of $\mathcal{L}(V)$ are linearly dependent.
+    Prove that for every positive integer $n$, the elements $I$,
+    $D, D^2, \ldots, D^n$ of $\mathcal{L}(V)$ are linearly independent.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $p$ be a polynomial of degree $n$.
+    Suppose $I, D, D^2, \ldots, D^n$ are linearly dependent.
+    To simplify notation, let $I = D^0$.
+    Let $c_0, c_1, \ldots, c_n$ be scalars not all zero such that 
+    \[\sum c_i D^i = 0.\]
+    Let $j$ be the largest value $i$ such that $c_i \ne 0$.
+    Then
+    \[c_j D^j(p) = -\sum_{i < j} c_i D^i(p).\]
+    Now $\deg(D^j p) = \deg(p) - j$, while for $i<j$ we have
+    $\deg(D^i p) = \deg(p) - i > \deg(p) - j$.
+    Thus $I, D, D^2, \ldots, D^n$ are linearly independent in $\mathcal{L}(V)$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 15, breakable]
+    A set $A$ of vectors is said to be linearly independent
+    if every finite list $x_1, \ldots, x_n$ of distinct 
+    vectors in $A$ is linearly independent (in other words,
+    $A$ is not linearly dependent in the sense of 3.2, Exercise 8)
+    \begin{enumerate}
+        \item $A$ is linearly independent if and only if no vector $A$ is 
+        linear combination of remaining vectors of $A$, that is, for every 
+        vector $x \in A$, $x \ne [A - \{x\}]$.
+        \item The empty set $\emptyset$ is linearly independent `by default'.
+        {Hint: Independence of $A$ means $x \in A \implies x \notin [A - \{x\}]$
+        Remember `vacuous implication' (Appendix A.1.5)?}
+        \item If $A$ is linearly independent and $B \subset A$, then $B$ is linearly independent.
+        \item If $T : V \longrightarrow W$ is an injective linear mapping and $A$
+        is linearly independent subset of $V$, then $T(A)$ is linearly independent subset of $W$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    \underbar{\textbf{(1)}} \\
+    \underbar{($\longrightarrow$)}
+    Suppose $A$ is linearly independent. Let $x \in A$. If $x \in [A - \{x\}]$, then
+    \[
+        x = \sum c_i x_i \quad (x_i \in A \setminus \{x\}),
+    \]
+    so
+    \[
+        x - \sum c_i x_i = 0,
+    \]
+    a linear dependence in $A$ which is a contradiction. Thus $x \notin [A - \{x\}]$.
+
+    \underbar{\textbf{($\longleftarrow$)}}\
+    Suppose no $x \in A$ satisfies $x \in [A - \{x\}]$. If
+    \[
+        \sum c_i x_i = 0
+    \]
+    with some $c_j \ne 0$, then
+    \[
+        x_j = -\sum_{i \ne j} \frac{c_i}{c_j} x_i \in [A - \{x_j\}],
+    \]
+    a contradiction. Thus $A$ is linearly independent.
+
+    \medskip
+    \underbar{\textbf{(2)}} \\
+    The condition is vacuously true for $A = \emptyset$, so $\emptyset$ is linearly independent.
+
+    \medskip
+    \underbar{\textbf{(3)}} \\
+    Let $B \subset A$. Any finite list in $B$ is also a finite list in $A$, 
+        so it is linearly independent since $A$ is. Thus $B$ is linearly independent.
+
+    \medskip
+    \underbar{\textbf{(4)}}\\
+    Let $T: V \to W$ be injective and let $A$ be linearly independent. If
+    \[
+    \sum c_i T(x_i) = 0,
+    \]
+    then
+    \[
+    T\left(\sum c_i x_i\right) = 0.
+    \]
+    Since $T$ is injective, $\sum c_i x_i = 0$, so all $c_i = 0$. 
+    Thus $T(A)$ is linearly independent.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Let $V$ be a vector space over $F$, $f$ a nonzero 
+    linear form on $V$ (2.1.11), $N$ the kernel of $f$,
+    and $y$ a vector such that $f(y) = 0$. Prove;
+    \begin{enumerate}
+        \item $V = N \oplus Fy$ (in the sense of 1.)
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 24, breakable]
 \end{tcolorbox}

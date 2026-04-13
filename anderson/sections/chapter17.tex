@@ -16,9 +16,23 @@
 \end{tcolorbox} 
 
 \begin{proof}
-    For contradiction, suppose the cosets are not equal and not disjoint.
-    Suppose there is an element $x$ such that $x \in (I + a) \cap (I + b)$.
-    That is, $x$ belongs to both equivalence classes.
+    Suppose $I+a \cap I+b \neq \emptyset$. Then there exists $x \in R$ such that
+    \[
+        x \in I+a \quad \text{and} \quad x \in I+b.
+    \]
+    Thus there exist $i_1, i_2 \in I$ such that
+    \[
+        x = a + i_1 = b + i_2.
+    \]
+    Rearranging shows
+    \[
+        a - b = i_2 - i_1.
+    \]
+    Since $I$ is an ideal, it is closed under subtraction, so $i_2 - i_1 \in I$.
+    Thus $a - b \in I$, which implies $a \in b + I$, so $I+a = I+b$.
+
+    In terms of an equivalence relation, define $a \sim b$ if $a-b \in I$.
+    Then the equivalence classes under $\sim$ are exactly the cosets of $I$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 16, breakable]
@@ -26,3 +40,10 @@
     Suppose that $I$ is an ideal of $R$ with $m$ elements.
     Prove that $m$ divides $n$.
 \end{tcolorbox} 
+
+\begin{proof}
+    Notice $R / I$ divides $R$ into partitions 
+        of equivalent cardinality because each coset has the same cardinality as $I$.
+    By Problem 16 these partitions are disjoint and their union is $R$.
+    Thus $|I| x = |R|$ for some $x = |R/I|$.
+\end{proof}
