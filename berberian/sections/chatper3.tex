@@ -405,7 +405,7 @@
     Contradicting that $x_1, \ldots, x_n, x_{n + 1}$ are linearly independent.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 3, breakable]
     If $x_1, \ldots, x_n$ are linearly independent,
     then the following implication is true:
@@ -501,7 +501,7 @@
         giving a contradiction.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 12, breakable]
     Let $V = \mathbb{C}^2$ and regard $V$ as a real vector space by restriction
     of scalars (1.3, Exercise 3). Let $x_1 = (1, i), x_2 = (i, -1)$.
@@ -553,7 +553,7 @@
     Thus $I, D, D^2, \ldots, D^n$ are linearly independent in $\mathcal{L}(V)$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 15, breakable]
     A set $A$ of vectors is said to be linearly independent
     if every finite list $x_1, \ldots, x_n$ of distinct 
@@ -619,32 +619,369 @@
     Thus $T(A)$ is linearly independent.
 \end{proof}
 
+
 \begin{tcolorbox}[title=Problem 16, breakable]
     Let $V$ be a vector space over $F$, $f$ a nonzero 
     linear form on $V$ (2.1.11), $N$ the kernel of $f$,
-    and $y$ a vector such that $f(y) = 0$. Prove;
+    and $y$ a vector such that $f(y) \ne 0$. Prove;
     \begin{enumerate}
-        \item $V = N \oplus Fy$ (in the sense of 1.)
+        \item $V = N \oplus Fy$ (in the sense of 1.6 Exercise 12).
+        {Hint: 2.2, Exercise 2.}
+        \item A linear form $g$ on $V$ is proportional to $f$ if and only if 
+        $g(x) = 0$ for all $x \in N$.
+        {Hint: Assuming $g = 0$ on $N$, the problem is to find a scalar $c$ such that 
+        $g = cf$. Try $c = g(y) / f(y)$.}
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    By 1.6 Exercise 12 every vector $v \in V$ can be written 
+    \[v = n + cy \in N + Fy \text{ with } n \in N, c \in F.\]
+    Suppose $v \in N \cap Fy$.
+    Then $v = cy$ and $v = n$ for some $c \in F, n \in N$.
+    Since $v \in N$, we have
+    \[
+        0 = f(v) = f(cy) = c f(y).
+    \]
+    Because $f(y) \ne 0$, it follows that $c = 0$ thus $v = 0$.
+    Thus $V = N \oplus Fy$.
+\end{proof}
+
+\begin{proof}
+    \underline{\textbf{($\longrightarrow$)}}
+    Suppose a linear form $g$ on $V$ is proportional to $f$.
+    Let $x \in N$, since $x \in \ker F$ we have  
+    \[c f(x) = g(x) = 0.\]
+
+    \underline{\textbf{($\longleftarrow$)}} 
+    Suppose $g(x) = 0$ for all $x \in N$.
+    Since $f(y) \ne 0$, define
+    \[
+    c = \frac{g(y)}{f(y)}.
+    \]
+    Let $x \in V$. Write $x = n + ay$ with $n \in N$.
+    Then
+    \[
+    g(x) = g(n + ay) = g(n) + a g(y) = a g(y),
+    \]
+    since $g(n)=0$, and
+    \[
+    f(x) = f(n + ay) = f(n) + a f(y) = a f(y),
+    \]
+    since $f(n)=0$.
+    Thus
+    \[
+    c f(x) = \frac{g(y)}{f(y)} \cdot a f(y) = a g(y) = g(x).
+    \]
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 18, breakable]
+    Let $V$ and $W$ be vector spaces over $F$
+    and let $M$, $N$ be linear subspaces of $V$
+    such that $V = M \oplus N$ (1.6, Exercise 2). Prove:
+    \begin{enumerate}
+        \item If $R : M \longrightarrow W$ and $S : N \longrightarrow W$
+        are linear mappings, there exists a unique linear mapping $T : V \longrightarrow W$
+        such that $T$ agrees with $R$ on $M$ and with $S$ on $N$.
+        \item Every linear mapping $M \longrightarrow W$ 
+        may be extended to a linear mapping $V \longrightarrow W$
+        (if we like, with the same range).
+    \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $R : M \longrightarrow W$ and $S : N \longrightarrow W$
+    are linear mappings.
+    Consider the mapping 
+    \[T : V \longrightarrow W \text{ defined by } T(v) = R(m) + S(n),\]
+    where $v = m + n$ with $m \in M, n \in N$.
+
+    Write $v_1, v_2 \in V = M \oplus N$ such that 
+    $v_1 = m_1 + n_1$, $v_2 = m_2 + n_2$.
+    Let $c$ be a scalar in $F$.
+    Then 
+    \begin{align*}
+        T(v_1 + v_2) 
+        &= T((m_1 + m_2) + (n_1 + n_2)) \\
+        &= R(m_1 + m_2) + S(n_1 + n_2) \\
+        &= R(m_1) + R(m_2) + S(n_1) + S(n_2) \\
+        &= T(v_1) + T(v_2),
+    \end{align*}
+    and
+    \begin{align*}
+        T(cv_1) 
+        &= T(cm_1 + cn_1) \\
+        &= R(cm_1) + S(cn_1) \\
+        &= cR(m_1) + cS(n_1) \\
+        &= cT(v_1).
+    \end{align*}
+    Thus $T$ is linear.
+
+    For uniqueness, suppose $T' : V \to W$ is linear with 
+    $T'|_M = R$ and $T'|_N = S$.
+    Let $v \in V$ such that $v = m + n$ then
+    \[
+        T'(v) = T'(m+n) = T'(m) + T'(n) = R(m) + S(n) = T(v),
+    \]
+    so $T' = T$.
+\end{proof}
+
+\begin{proof}
+    Let $R : M \longrightarrow W$ be linear and write $V = M \oplus N$.
+    Define $T : V \longrightarrow W$ by
+    \[
+        T(m+n) = R(m) \text{ such that } m \in M,\, n \in N.
+    \]
+    Then for $v_1 = m_1+n_1$, $v_2 = m_2+n_2$ and scalar $c$,
+    \begin{align*}
+        T(v_1+v_2) &= T((m_1+m_2)+(n_1+n_2)) \\
+                   &= R(m_1+m_2) \\
+                   &= R(m_1)+R(m_2) \\
+                   &= T(v_1)+T(v_2),
+    \end{align*}
+    and
+    \begin{align*}
+        T(cv_1) &= T(cm_1+cn_1) \\
+                &= R(cm_1) \\
+                &= cR(m_1) \\
+                &= cT(v_1).
+    \end{align*}
+    Thus $T$ is linear. Let $m \in M$ then
+    \[
+        T(m) = T(m+0) = R(m),
+    \]
+    so $T$ extends $R$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 19, breakable]
+    Let $M_1, \ldots, M_n$ be linear 
+    subspaces of a vector space $V$ and let 
+    $M_1 \times \cdots \times M_n$ be the 
+    product vector space (1.3.11). The mapping 
+    $T : M_1 \times \cdots \times M_n \longrightarrow V$
+    defined by $T(x_1, \ldots, x_n) = x_1 + \cdots + x_n$
+    is linear. If $T$ is injective, the linear 
+    subspaces $M_1, \ldots, M_n$ are 
+    said to be (linearly independent).
+    \begin{enumerate}
+        \item $M_1, M_2$ are linearly independent independent if and only if $M_1 \cap M_2 = \{0\}$.
+        \item $M_1, M_2, M_3$ are independent if and only if $M \cap (M_2 + M_3) = M_2 \cap (M_1 + M_3) = M_3 \cap (M_1 + M_2) = \{\emptyset\}$.
+        \item Generalize the statement (ii).
+        \item If $x_1, \ldots, x_n$ are nonzero vectors and $M_i$ is the set of all scalar 
+        multiples of $x_i$, then the linear subspaces of $M_1, \ldots, M_n$ are independent
+        if and only if the vectors $x_1, \ldots, x_n$ are linearly independent.
+    \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    \underbar{\textbf{($\longrightarrow$)}}
+    Suppose $M_1, M_2$ are linearly independent.
+    For contradiction, suppose $M_1 \cap M_2 \ne \{0\}$.
+    Then let $x \in M_1 \cap M_2$ such that $x \ne 0$.
+    Now we know $-x \in M_2$, and then
+    \[
+    T(x,-x)=x+(-x)=0.
+    \]
+    But $(x,-x)\ne (0,0)$, contradicting that $T$ is injective.
+
+    \underbar{\textbf{($\longleftarrow$)}}
+    Suppose $M_1 \cap M_2 = \{0\}$.
+    Now suppose for some $(x_1,x_2)\in M_1\times M_2$ we have
+    \[
+    T(x_1,x_2)=0.
+    \]
+    Thus $x_1+x_2=0$. Therefore $x_1=-x_2$, so $x_1=x_2\in M_1\cap M_2$. Thus $x_1=x_2=0$.
+    Therefore $T$ is injective, and it follows that $M_1,M_2$ are linearly independent.
+\end{proof}
+
+\begin{proof}
+\underbar{\textbf{($\longrightarrow$)}} 
+    Suppose $M_1, M_2, M_3$ are linearly independent.
+    We show $M_1 \cap (M_2 + M_3)=\{0\}$ the others are similar.
+    Let $x \in M_1 \cap (M_2 + M_3)$. Then $x \in M_1$ and $x = m_2 + m_3$ for some $m_2 \in M_2$, $m_3 \in M_3$.
+    Then
+    \[
+    T(x, -m_2, -m_3) = x - m_2 - m_3 = 0.
+    \]
+    Since $T$ is injective, it follows that
+    \[
+    (x, -m_2, -m_3) = (0,0,0).
+    \]
+    Thus $x=0$, so $M_1 \cap (M_2 + M_3)=\{0\}$.
+    Similarly,
+    \[
+    M_2 \cap (M_1 + M_3)=\{0\}, \quad
+    M_3 \cap (M_1 + M_2)=\{0\}.
+    \]
+
+    \underbar{\textbf{($\longleftarrow$)}} 
+    Suppose
+    \[
+    M_1 \cap (M_2 + M_3)
+    =
+    M_2 \cap (M_1 + M_3)
+    =
+    M_3 \cap (M_1 + M_2)
+    =
+    \{0\}.
+    \]
+    Let $(x_1,x_2,x_3) \in M_1 \times M_2 \times M_3$ such that
+    \[
+    T(x_1,x_2,x_3)=0.
+    \]
+    Then
+    \[
+    x_1 + x_2 + x_3 = 0.
+    \]
+    So
+    \[
+    x_1 = -(x_2 + x_3) \in M_1 \cap (M_2 + M_3),
+    \]
+    therefore $x_1=0$.
+    Similarly,
+    \[
+    x_2 = x_3=0.
+    \]
+    Thus $(x_1,x_2,x_3)=(0,0,0)$, so $T$ is injective.
+\end{proof}
+
+
+\begin{proof}
+    We proceed via induction on $n$.
+
+    \underline{\textbf{Base Case:}} $n=2$ and $n=3$ are exactly parts (i) and (ii).
+
+    \underline{\textbf{Inductive Step:}} 
+    Assume the statement holds for $n-1$ subspaces.
+    Let $M_1,\ldots,M_n$ be subspaces of $V$, and let
+    \[
+    T(x_1,\ldots,x_n)=x_1+\cdots+x_n.
+    \]
+
+    \underline{\textbf{($\longrightarrow$)}} Suppose $M_1,\ldots,M_n$ are linearly independent.
+    Fix $k$. Let
+    \[
+    x \in M_k \cap \sum_{i\neq k} M_i.
+    \]
+    Then $x = \sum_{i\neq k} m_i$ with $m_i \in M_i$. So
+    \[
+    T(0,\ldots,0,x,0,\ldots,0,-m_1,\ldots,-m_{k-1},-m_{k+1},\ldots,-m_n)=0.
+    \]
+    By injectivity, all components are zero, so $x=0$. Thus
+    \[
+    M_k \cap \sum_{i\neq k} M_i = \{0\}.
+    \]
+
+    \underline{\textbf{($\longleftarrow$)}} Suppose for each $k$
+    \[
+    M_k \cap \sum_{i\neq k} M_i = \{0\}.
+    \]
+    Let $(x_1,\ldots,x_n)$ such that $T(x_1,\ldots,x_n)=0$.
+    Then
+    \[
+    x_1 = -(x_2+\cdots+x_n) \in M_1 \cap \sum_{i\neq 1} M_i,
+    \]
+    so $x_1=0$. Repeating this argument gives $x_k=0$ for all $k$.
+    Thus $T$ is injective.
+\end{proof}
+
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ are nonzero vectors and $M_i$ is the set of all scalar multiples of $x_i$.
+
+    \textbf{($\longrightarrow$)}
+    Suppose the linear subspaces $M_1, \ldots, M_n$ are independent.
+    If $x_1, \ldots, x_n$ are linearly dependent then there exist scalars $c_1,\ldots,c_n$, not all zero, such that 
+    \[
+    \sum c_i x_i = 0.
+    \]
+    But then each $c_i x_i \in M_i$, contradicting that $M_1,\ldots,M_n$ are independent.
+
+    \textbf{($\longleftarrow$)}
+    Suppose the vectors $x_1, \ldots, x_n$ are linearly independent.
+    If $M_1, \ldots, M_n$ are linearly dependent then there exist vectors
+    $v_i \in M_i$, not all zero, such that 
+    \[
+    \sum v_i = 0.
+    \]
+    Since each $v_i = c_i x_i$ for some scalars $c_i$, we get
+    \[
+    \sum c_i x_i = 0,
+    \]
+    with not all $c_i$ zero, contradicting that $x_1,\ldots,x_n$ are linearly independent.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 20, breakable]
+    With notations as in the preceeding exercise, if 
+    $M_1, \ldots, M_n$ are independent
+    and $M_1 + \cdots + M_n = V$, then $V$ is said to be 
+    the direct sum (or `internal direct sum') of the linear 
+    subspaces $(M_1, \ldots, M_n)$, written 
+    $V = M_1 \oplus \cdots \oplus M_n$.
+    (The case $n = 2$ is covered by 1.6, Exercise 12.)
+    This is equivalent to saying that $T$ is bijective,
+    and it implies that 
+    $M_1 \times \cdots \times M_n \cong M_1 \oplus \cdots \oplus M_n = V$.
 \end{tcolorbox}
+
+\textbf{Alrighty then.}
 
 \begin{tcolorbox}[title=Problem 21, breakable]
+    Let $V_1, \ldots, V_n$ be vector spaces over the same field 
+    of scalars and let $V - V_1 \times \cdots \times V_n$ 
+    be the product vector space (Definition 1.3.11).
+    For each index $j$, let $M_j$  be the linear subspace of $V$ 
+    consisting of all vectors $(x_1, \ldots, x_n) \in V$ such that 
+    $x_i = 0$ for all $i \ne j$. {For example, $M_2$ is the set 
+    of all vectors $(0, x_2, 0, \ldots, 0)$ with $x_2 \in V_2$.}
+    Prove:
+    \begin{enumerate}
+        \item $M_j \cong V_j$ for all $j = 1, \ldots, n$.
+        \item $V = M_1 \oplus \cdots \oplus M_n$ in the sense of 
+        Exercise 20. {For this reason $V_1 \times \cdots \times V_n$ 
+        is also called the `direct sum' of $V_1, \ldots, V_n$ (
+            or `external direct sum', to distinguish if from the situation 
+            in Exercise 20).
+        }
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 22, breakable]
+    Suppose $V = M_1 \oplus \cdots \oplus M_n$ as in Exercise 20.
+    Prove:
+    \begin{enumerate}
+        \item $V = (M_1 \oplus \cdots \oplus M_{n - 1}) \oplus M_n$.
+        \item $V / M_n \cong M_1 \oplus \cdots \oplus M_{n - 1}$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 23, breakable]
+    Let $M_1, \ldots, M_n$ be linear subspaces of $V$. 
+    Prove that the following conditions are equivalent:
+    \begin{enumerate}
+        \item $M_1, \ldots, M_n$ are independent (in the sense of Exercise 19);
+        \item $(M_1 + \cdots + M_i) \cap M_{i + 1} = \{\emptyset\}$ for $i = 1, \ldots, n - 1$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 24, breakable]
+    Let $V$ be a vector space over $F$ and let $x_1, \ldots, x_n$
+    be vectors in $V$. For $k = 1, \ldots, n$ let $M_k$ be the 
+    linear subspace of $V$ generated by $\{x_1, \ldots, x_k\}$ (3.1.4):
+    \begin{align*}
+        M_1   &= [\{x_1\}] = F x_1 \\
+        M_2   &= [\{x_1, x_2\}] \\
+        &\cdots \\
+        M_k   &= [\{x_1, \ldots, x_k\}] \\
+        &\cdots \\
+        M_n   &= [\{x_1, \ldots, x_n\}].
+    \end{align*}
+    Define $M_0 = \{0\}$. Thus 
+    \[\{0\} = M_0 \subset M_1 \subset M_2 \ldots \subset M_n.\]
+    Prove the following conditions are equivalent:
+    \begin{enumerate}
+        \item $x_1, \ldots, x_n$ are linearly independent;
+        \item $M_{k - 1} \subset M_k$ properly, for $k = 1, \ldots, n$.
+    \end{enumerate}
 \end{tcolorbox}
