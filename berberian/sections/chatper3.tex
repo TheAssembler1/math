@@ -927,9 +927,10 @@
 
 \textbf{Alrighty then.}
 
+\newpage
 \begin{tcolorbox}[title=Problem 21, breakable]
     Let $V_1, \ldots, V_n$ be vector spaces over the same field 
-    of scalars and let $V - V_1 \times \cdots \times V_n$ 
+    of scalars and let $V = V_1 \times \cdots \times V_n$ 
     be the product vector space (Definition 1.3.11).
     For each index $j$, let $M_j$  be the linear subspace of $V$ 
     consisting of all vectors $(x_1, \ldots, x_n) \in V$ such that 
@@ -941,12 +942,39 @@
         \item $V = M_1 \oplus \cdots \oplus M_n$ in the sense of 
         Exercise 20. {For this reason $V_1 \times \cdots \times V_n$ 
         is also called the `direct sum' of $V_1, \ldots, V_n$ (
-            or `external direct sum', to distinguish if from the situation 
+            or `external direct sum', to distinguish it from the situation 
             in Exercise 20).
         }
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Consider the bijection $\rho : M_j \longrightarrow V_j$ defined 
+    \[\rho (0, \ldots, x_j, \ldots, 0) = x_j.\]
+\end{proof}
+
+\begin{proof}
+    Let $x \in V$. Then $x = (x_1,\ldots,x_n)$ such that
+    \[
+    x = (x_1,0,\ldots,0) + \cdots + (0,\ldots,0,x_n),
+    \]
+    where each $(0,\ldots,x_j,\ldots,0) \in M_j$.
+    It is clear from the definition that $M_i \cap M_j = \{0\}$ for $i \ne j$ thus
+    $M_1 \cap \cdots \cap M_n = \{0\}$.
+    Thus $x \in M_1 + \cdots + M_n$.
+
+    Now let $x \in M_1 \oplus \cdots \oplus M_n$. Then $x$ can be written  as
+    \[
+    x = m_1 + \cdots + m_n \text{ such that } m_j \in M_j.
+    \]
+    Each $m_j$ has the form $(0,\ldots,x_j,\ldots,0)$, so their sum is
+    \[
+    (x_1,\ldots,x_n) \in V.
+    \]
+    Thus $V = M_1 \oplus \cdots \oplus M_n$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 22, breakable]
     Suppose $V = M_1 \oplus \cdots \oplus M_n$ as in Exercise 20.
     Prove:
@@ -956,6 +984,40 @@
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Let $x \in V$.
+    Then 
+    \[
+    x = m_1 + \cdots + m_n = [(x_1, \ldots, 0_n) + \cdots + (0_1, \ldots, x_{n - 1})] + (0_1, \ldots, x_n)
+    \]
+    \[
+    = (m_1 + \cdots + m_{n - 1}) + m_n \in (M_1 \oplus \cdots \oplus M_{n - 1}) + M_n.
+    \]
+    Thus $x \in (M_1 \oplus \cdots \oplus M_{n - 1}) + M_n$.
+
+    Conversely, let $x \in (M_1 \oplus \cdots \oplus M_{n - 1}) \oplus M_n$.
+    Then $x = y + m_n$ where $y \in M_1 \oplus \cdots \oplus M_{n - 1}$ and $m_n \in M_n$.
+    Write $y = m_1 + \cdots + m_{n-1}$ with $m_i \in M_i$.
+    Then
+    \[
+    x = m_1 + \cdots + m_n \in V.
+    \]
+    Thus $V = (M_1 \oplus \cdots \oplus M_{n - 1}) \oplus M_n$.
+\end{proof}
+
+\begin{proof}
+    Consider the linear mapping $\rho : V \longrightarrow M_1 \oplus \cdots \oplus M_{n - 1}$ defined by
+    \[
+    \rho(x_1, \ldots, x_n) = (x_1, \ldots, x_{n-1}).
+    \]
+    Clearly $\ker(\rho) = M_n$ and $\operatorname{ran}(\rho) = M_1 \oplus \cdots \oplus M_{n - 1}$.
+    By the first isomorphism theorem we have
+    \[
+    V / M_n \cong M_1 \oplus \cdots \oplus M_{n - 1}.
+    \]
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 23, breakable]
     Let $M_1, \ldots, M_n$ be linear subspaces of $V$. 
     Prove that the following conditions are equivalent:
@@ -964,6 +1026,10 @@
         \item $(M_1 + \cdots + M_i) \cap M_{i + 1} = \{\emptyset\}$ for $i = 1, \ldots, n - 1$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    This is exactly problem 19.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 24, breakable]
     Let $V$ be a vector space over $F$ and let $x_1, \ldots, x_n$
@@ -984,4 +1050,670 @@
         \item $x_1, \ldots, x_n$ are linearly independent;
         \item $M_{k - 1} \subset M_k$ properly, for $k = 1, \ldots, n$.
     \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ are linearly independent.
+    If $M_i = M_{i+1}$ then
+    \[
+    [\{x_1, \ldots, x_i\}] = [\{x_1, \ldots, x_{i+1}\}].
+    \]
+    This would imply $x_{i+1} \in M_i$, so
+    \[
+    x_{i+1} = \sum_{j=1}^i c_j x_j
+    \]
+    for some scalars $c_j$.
+    Then
+    \[
+    \sum_{j=1}^i (-c_j)x_j + 1\cdot x_{i+1} = 0,
+    \]
+    contradicting linear independence of $x_1, \ldots, x_n$.
+    Thus $M_{k-1} \subset M_k$ properly for all $k$.
+
+    Conversely, suppose $M_{k-1} \subset M_k$ properly for $k=1,\ldots,n$.
+    Assume $x_1,\ldots,x_n$ are not linearly independent. Then there exist scalars
+    $c_1,\ldots,c_n$, not all zero, such that
+    \[
+    \sum_{i=1}^n c_i x_i = 0.
+    \]
+    Let $k$ be the largest index such that $c_k \neq 0$. Then
+    \[
+    x_k = -\sum_{i=1}^{k-1} \frac{c_i}{c_k} x_i,
+    \]
+    so $x_k \in M_{k-1}$.
+    But then $M_k = M_{k-1}$, contradicting the assumption that the inclusion is proper.
+    Therefore $x_1,\ldots,x_n$ are linearly independent.
+\end{proof}
+
+\subsection{Finitely Generated Vector Spaces}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    True or false (explain): The vectors 
+    $x_1 = (1, 2, -3), x_2 = (2, -1, 2), x_3 = (5, 10, -15), x_4 = (6, -3, 6)$
+    generate $\mathbb{R}^3$.
+\end{tcolorbox}
+
+\textbf{Solution: }
+False because $5(1, 2, -3) = (5, 10, -5)$
+    and $3(2, -1, 2) = (6, -3, 6)$.
+Thus, these vectors cover a plane in $\mathbb{R}^3$.
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $V$ and $W$ be vector spaces over $F$,
+    $V \times W$ the product vector space 
+    (1.3.11). Prove: $V \times W$ is finitely generated 
+    if and only if both $V$ and $W$ are finitely generated.
+    {Hint: Remark 2.3.8 3.4.12 and 3.1, Exercise 6.}
+\end{tcolorbox}
+
+\begin{proof}
+    \underline{\textbf{($\longrightarrow$)}}
+    Suppose $V \times W$ is finitely generated.
+    So there is a finite list of vectors 
+    $(v_1,w_1), \ldots, (v_n,w_n) \in V \times W$ such that 
+    \[
+    V \times W = [\{(v_1,w_1), \ldots, (v_n,w_n)\}].
+    \]
+    Let $v \in V$. Then $(v,0) \in V \times W$ so 
+    $(v,0)$ is a linear combination of 
+    $(v_1,w_1), \ldots, (v_n,w_n)$. Thus 
+    $v$ is a linear combination of $v_1,\ldots,v_n$ and thus
+    \[
+    V=[\{v_1,\ldots,v_n\}].
+    \]
+    Similarly
+    \[
+    W=[\{w_1,\ldots,w_n\}].
+    \]
+    Thus both $V$ and $W$ are finitely generated.
+
+    \underline{\textbf{($\longleftarrow$)}}
+    Suppose both $V$ and $W$ are finitely generated. Then 
+    \[
+    V = [\{v_1, \ldots, v_n\}] \text{ and } W = [\{w_1, \ldots, w_m\}].
+    \]
+    We have 
+    \[
+    V \times W = [\{v_1, \ldots, v_n\}] \times [\{w_1, \ldots, w_m\}].
+    \]
+    Then
+    \[
+    V \times W
+    =
+    [\{(v_1,0),\ldots,(v_n,0),(0,w_1),\ldots,(0,w_m)\}],
+    \]
+    thus $V \times W$ is finitely generated.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $V$ be a vector space of all function 
+    $\mathbb{R} \longrightarrow \mathbb{R}$ having 
+    derivatives of all orders (see Example 2.3.8) and let 
+    \[M = \{f \in V : f'' = f\},\]
+    where $f''$ is the second derivative of $f$.
+    Prove that $M$ is the linear subspace of $V$ generated 
+    by the two functions $t \longrightarrow e^t$ and $t \longrightarrow e^{-t}$.
+    {Hint: if $f'' = f$, look at $f = \frac{1}{2}(f + f') + \frac{1}{2}(f - f')$.}
+\end{tcolorbox}
+
+\begin{proof}
+    It is clear that $A e^t + B e^{-t} \in M$.
+    Let $f$ be an arbitrary element in $M$.
+    Thus 
+    \[f'' = f.\]
+    Thus 
+    \[f = \frac{1}{2}(f + f') + \frac{1}{2}(f - f').\]
+    Let $g = \frac{1}{2}(f + f')$ and $h =  \frac{1}{2}(f - f')$.
+    Then $f = g + h$.
+    Then 
+    \[g' = \frac{1}{2}(f' + f'') = \frac{1}{2}(f' + f) = g,\]
+    so $g = A e^t$ for some constant $A$.
+    Similarly
+    \[h' = \frac{1}{2}(f' - f'') = \frac{1}{2}(f' - f) = -h,\]
+    so $h = B e^{-t}$ for some constant $B$.
+    Thus $f = A e^t + B e^{-t}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    With notations as in Exercise 4, $M$ is also generated 
+    by the function $sinh$, $cosh$.
+\end{tcolorbox}
+
+\begin{proof}
+    Simply note 
+    \[\sinh(t) = \frac{e^t - e^{-t}}{2} \text{ and } \cosh(t) = \frac{e^t + e^{-t}}{2}.\]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    With $V$ as in Exercise 4, let 
+    \[N = \{f \in V \mid f'' = -f\}.\]
+    Prove that $N$ is generated by the function $\sin, \cos$.
+    {Hint: If $f'' = -f,$ calculate the derivative of $f \sin + f' \cos$ 
+    and of $f\cos - f'\sin$.}
+\end{tcolorbox}
+
+\begin{proof}
+    It is clear that $A\sin t + B\cos t \in N$.
+    Let $f$ be an arbitrary element in $N$. Thus $f'' = -f$.
+    Now
+    \[
+    \frac{d}{dt}(f \sin t + f' \cos t)
+    = f' \sin t + f \cos t + f'' \cos t - f' \sin t
+    = f \cos t + f'' \cos t = 0.
+    \]
+    Thus $f \sin t + f' \cos t = A$ for some constant $A$.
+    Then
+    \[
+    \frac{d}{dt}(f \cos t - f' \sin t)
+    = f' \cos t - f \sin t - f'' \sin t - f' \cos t
+    = -f \sin t - f'' \sin t = 0.
+    \]
+    Thus $f \cos t - f' \sin t = B$ for some constant $B$.
+    Solving these two equations gives $f = A \sin t + B \cos t$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    If $V$ is a vector space and $M$ is linear subspace 
+    such that both $M$ and $V/M$ are finitely generated,
+    then $V$ is finitely generated. More precisely,
+    if $x_1, \ldots, x_m$ generate $M$ and if 
+    $Q y_1, \ldots, Q y_r$ generate $V/M$ (where 
+    $Q : V \longrightarrow V/M$ is the quotient mapping),
+    then $V$ is generated by $x_1, \ldots, x_m, y_1, \ldots, y_r$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x_1, \ldots, x_m$ generate $M$ and 
+    $Q y_1, \ldots, Q y_r$ generate $V/M$.
+    Let $v$ be an arbitrary element in $V$.
+    Since $Qy_1, \ldots, Qy_r$ generate $V/M$, there exist scalars 
+    $c_1, \ldots, c_r$ such that 
+    \[Qv = \sum c_i Qy_i.\]
+    Thus
+    \[Qv = Q\left(\sum c_i y_i\right) \implies v - \sum c_i y_i \in M.\]
+    Thus 
+    \[\sum c_i y_i = v + m \text{ where } m \in M.\]
+    Since $M$ is finitely generated there exist 
+    $x_1, \ldots, x_m$ and scalars $c'_1, \ldots, c'_m$ such that 
+    \[m = \sum c'_i x_i.\]
+    So 
+    \[\sum c_i y_i = v + \sum c'_i x_i \implies v = \sum c_i y_i - \sum c'_i x_i.\]
+\end{proof}
+
+\subsection{Basis, Dimension}
+
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Prove that $(1, 2, 3), (2, 1, 0), (-3, 2, 0)$
+    is a basis of $\mathbb{R}^3$. Then find a shorter proof.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $(a, b, c) \in \mathbb{R}^3$.
+    We require $c_1, c_2, c_3$ such that 
+    \[c_1 (1, 2, 3) + c_2 (2, 1, 0) + c_3 (-3, 2, 0) = (a, b, c).\]
+    Thus 
+    \[(c_1, 2 c_1, 3 c_1) + (2 c_2, c_2, 0) + (-3 c_3, 2 c_3, 0) = (a, b, c).\]
+    From this we get three equations 
+    \[c_1 + 2 c_2 - 3 c_3 = a, \quad 2 c_1 + c_2 + 2 c_3 = b, \quad 3 c_1 = c.\]
+    So we have 
+    \[c_1 = \frac{c}{3}, \quad c_2 = \frac{2a + 3b - 8c}{21}, \quad c_3 = \frac{2b - a - c}{7}.\]
+    Verifying,
+    \[
+    c_1 (1, 2, 3) + c_2 (2, 1, 0) + c_3 (-3, 2, 0)
+    =
+    \frac{c}{3} (1, 2, 3)
+    + \frac{2a + 3b - 8c}{21} (2, 1, 0)
+    + \frac{2b - a - c}{7} (-3, 2, 0)
+    = (a, b, c).
+    \]
+    Therefore, $(1, 2, 3), (2, 1, 0), (-3, 2, 0)$ generate $\mathbb{R}^3$.
+    Now suppose there exists $c_1, c_2, c_3$ not all zero such that 
+    \[c_1 (1, 2, 3) + c_2 (2, 1, 0) + c_3 (-3, 2, 0) = 0.\]
+    We get three equations
+    \[
+    c_1 + 2c_2 - 3c_3 = 0, \quad
+    2c_1 + c_2 + 2c_3 = 0, \quad
+    3c_1 = 0.
+    \]
+    From $3c_1 = 0$ we have $c_1 = 0$. Substituting into the first two equations gives
+    \[
+    2c_2 - 3c_3 = 0, \quad c_2 + 2c_3 = 0.
+    \]
+    From the second equation $c_2 = -2c_3$. Substituting into the first gives
+    \[
+    2(-2c_3) - 3c_3 = -7c_3 = 0,
+    \]
+    so $c_3 = 0$ thus $c_2 = 0$. Therefore
+    \[
+    c_1 = c_2 = c_3 = 0.
+    \]
+    Thus the vectors are linearly independent.
+    Since $(1, 2, 3), (2, 1, 0), (-3, 2, 0)$ are generating and linearly independent
+        they form a basis of $\mathbb{R}^3$.
+\end{proof}
+
+\begin{proof}
+    Let $(a, b, c) \in \mathbb{R}^3$ and 
+    \[c_1 = \frac{c}{3}, \quad c_2 = \frac{2a + 3b - 8c}{21}, \quad c_3 = \frac{2b - a - c}{7}.\]
+    Then,
+    \[
+    c_1 (1, 2, 3) + c_2 (2, 1, 0) + c_3 (-3, 2, 0)
+    = (a, b, c).
+    \]
+    Thus $(1, 2, 3), (2, 1, 0), (-3, 2, 0)$ generate $\mathbb{R}^3$.
+    Since $\hat{x}, \hat{y}, \hat{z}$ are linearly independent, and
+    \[
+    |\{(1, 2, 3), (2, 1, 0), (-3, 2, 0)\}| = |\{\hat{x}, \hat{y}, \hat{z}\}|,
+    \]
+    by Theorem 3.5.8 both lists are bases of $\mathbb{R}^3$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $F$ be any field.
+    Explain why $dim_F F^n = n$.
+\end{tcolorbox}
+
+\begin{proof}
+    We know that $\{e_1, \ldots, e_n\}$ forms a basis of $F^n$ and $|\{e_1, \ldots, e_n\}| = n$.
+    By Corollary 3.5.11, every basis has $n$ elements.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Prove that $F^m \cong F^n$
+    if and only if $m = n$.
+\end{tcolorbox}
+
+\begin{proof}
+    \underbar{\textbf{($\longrightarrow$)}}
+    Suppose $F^m \cong F^n$.
+    There exists a bijective linear mapping $L : F^m \longrightarrow F^n$.
+    Then $L(\{e_1, \ldots, e_m\}) = \{L e_1, \ldots, L e_m\}$.
+    Since $L$ is surjective, $\{L e_1, \ldots, L e_m\}$ generates $F^n$, and since $L$ is injective, these vectors are linearly independent.
+    Thus $m = n$.
+
+    \underbar{\textbf{($\longleftarrow$)}}
+    Suppose $m = n$.
+    Consider the bijective linear mapping $L : F^n \longrightarrow F^n$ defined by $L(e_i) = e_i$.
+    Then $L$ is an isomorphism, so $F^m \cong F^n$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $V$ be a vector space, $V \ne \{0\}$.
+    Prove that $V$ is finitely generated if 
+    and only if $V \cong F^n$ for some 
+    positive integer $n$; if $V \cong F^n$
+    then $n = dim_F V$ (in particular, $n$ is unique).
+\end{tcolorbox}
+
+\begin{proof}
+    \underbar{\textbf{($\longrightarrow$)}}
+    Suppose $V$ is finitely generated.
+    Say $\{x_1, \ldots, x_n\}$ is a basis for $V$.
+    Consider the bijective linear mapping $L: F^n \longrightarrow V$ defined 
+    \[L(a_1, \ldots, a_n) = \sum a_i x_i.\]
+    Thus $V \cong F^n$.
+
+    \underbar{\textbf{($\longleftarrow$)}}
+    Suppose $V \cong F^n$ for some positive integer $n$.
+    Thus there exists a bijective linear mapping $L: F^n \longrightarrow V$.
+    Let $\{e_1, \ldots, e_n\}$ be the standard basis of $F^n$.
+    Then $\{L(e_1), \ldots, L(e_n)\}$ spans $V$ and is linearly independent thus is a basis of $V$.
+    Therefore $V$ is finitely generated.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $\alpha$ be a real number. Prove that the vectors 
+    \[u = (\cos \alpha, \sin \alpha), v = (-\sin \alpha, \cos \alpha),\]
+    are a basis of $\mathbb{R}^2$
+\end{tcolorbox}
+
+\begin{proof}
+    We have shown in a previous problem that $\cos^2\alpha + \sin^2\alpha = 1$ are linearly independent.
+    Since $\dim \mathbb{R}^2 = 2$ and $\{u, v\}$ 
+        contains two linearly independent vectors in $\mathbb{R}^2$ it forms a basis of $\mathbb{R}^2$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Let $x_1, \ldots, x_n$ be a basis of $V$.
+    For each $x \in V$, there exist unique scalars 
+    $a_1, \ldots, a_n$ such that $x = a_1 x_1 + \cdots + a_n x_n$
+    (Theorem 3.5.5); one calls $a_1, \ldots, a_n$ the 
+    coordinates of $x$ with respect to the basis 
+    $x_1, \ldots, x_n$.
+    \begin{enumerate}
+        \item In $\mathbb{R}^2$, find the coordinates of the vector $(2, 3)$ with respect to the basis $(\frac{1}{2} \sqrt{3}, \frac{1}{2}), (-\frac{1}{2}, \frac{1}{2} \sqrt{3})$.
+        \item In $\mathbb{R}^n$, find the coordinates of the vector $(a_1, \ldots, a_n)$ with respect to the canonical basis $e_1, \ldots, e_n$ (3.5.2).
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We must find $a_1, a_2$ such that 
+    \[(2, 3) = a_1 \left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right) + a_2 \left(-\frac{1}{2}, \frac{\sqrt{3}}{2}\right).\]
+    This gives the system
+    \[
+    \frac{\sqrt{3}}{2}a_1 - \frac{1}{2}a_2 = 2, \quad \frac{1}{2}a_1 + \frac{\sqrt{3}}{2}a_2 = 3.
+    \]
+    Thus
+    \[
+    a_1 = \sqrt{3} + 1, \quad a_2 = 3 - \sqrt{3}.
+    \]
+\end{proof}
+
+\begin{proof}
+    Clearly the coordinates of $(a_1, \ldots, a_n)$ with respect to the canonical basis $e_1, \ldots, e_n$ are $a_1, \ldots, a_n$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $V$ be a finite-dimensional vector space and let $M$ be a linear subspace of $V$. Prove:
+    \begin{enumerate}
+        \item $V/M$ is finite-dimensional, and $dim(V/M) \le dim V$;
+        \item $dim(V/M) = dim V \iff M = \{0\}$;
+        \item $dim(V/M) = 0 \iff M = V$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    By 3.5.14 $M$ is finite-dimensional.
+    
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Let $x_1, \ldots, x_n$ be a basis of $V$ and let $1 \le m < n$.
+    Let $M$ be the linear subspace of $V$ generated by $x_1, \ldots, x_m$, 
+    and $N$ the linear subspace generated by $x_{m + 1}, \ldots, x_n$. Prove that 
+    $V = M \oplus N$ (in the sense of 1.6, Exercise 12).
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Let $V$  be a vector space over $F$,
+    let $x_1, \ldots, x_n$ be nonzero vectors in $V$,
+    and let $M_i = F x_i$ for $i = 1, \ldots, n$.
+    Prove that the following two conditions are equivalent:
+    \begin{enumerate}
+        \item $x_1, \ldots, x_n$ is a basis of $V$;
+        \item $V = M_1 \oplus \cdots \oplus M_n$ (in the sense of 3.3, Exercise 20).
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+    Let $V$ be any vector space (not necessarily finitely generated).
+    A subset $B$ of $V$ is said to be a basis of $V$ if it has the following two properties:
+    \begin{enumerate}
+        \item $B$ is generating, that is $[B] = V$ (3.1.4);
+        \item $B$ is linearly independent, that is, for every vector $x \in B$, $x \notin [B - \{x\}]$ (3.3, Exercise 15).
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    Prove that if $B$ is a basis of $V$ (in the sense 
+    of Exercise 16), then $B$ is `minimal-generating' and `maximal-independent' in the following sense:
+    \begin{enumerate}
+        \item If $A$ is a proper subset of $B$ (that is, $A \subset B$ and $A \ne B$) then $A$ is not generating;
+        \item If $B \subset C \subset V$ and $B$ is a properf subset of $C$, then $C$ is not linearly independent.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    Let $\mathcal{D}$ be the vector space of real polynomial functions (Example 1.3.5).
+    For $n = 0, 1, 2, \ldots$ let $p_n$ be the monomial function 
+    $p_n(t) = t^n$, and let $B = \{p_0, p_1, p_2, \ldots\}$. Prove that $B$ 
+    is a basis of $\mathcal{D}$ in the sense of Exercise 16.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    Let $V$ be the vector space of finitely nonzero 
+    sequences of real numbers (1.3.9). Find a 
+    basis $B$ of $V$ (in the sense of Exercise 16).
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+    Let $V$ be a finite-dimensional complex vector space.
+    Regard $V$ also as a real vector space by restriction of scalars (1.3, Exercise 3).
+    Prove that $dim_R V = 2 \cdot dim_C V$. {Hint: $V_C \cong \mathbb{C}^n$ for some $n$.}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+    If $V$ is a finite-dimensional real vector space and $W$
+    is its complexification (1.3, Exercise 4), 
+    prove that $dim_C W = dim_R V$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 22, breakable]
+    Let $x_1, \ldots, x_n$ be vectors in $\mathbb{R}^n$.
+    Prove that $x_1, \ldots, x_n$ is a basis of the real vector 
+    space $\mathbb{R}^n$ if and only if it is a basis of the complex 
+    vector space $\mathbb{C}^n$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+    Let $V$ and $W$ be finite-dimensional vector spaces,
+    $V \times W$ the product vector space (1.3.11). Prove:
+    \[dim(V \times W) = dim V + dim W.\]
+    {Hint: If $x_1, \ldots, x_n$ is a basis of $V$ and 
+    $y_1, \ldots, y_m$ is a basis of $W$, show that the vectors 
+    \[(x_1, 0), \ldots, (x_n, 0), (0, y_1), \ldots, (0, y_m),\]
+    are a basis of $V \times W$, cf. 3.1, Exercise 6.}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 24, breakable]
+    If $V$ is a finite-dimensional vector space and $M$ 
+    is a linear subspace of $V$, then there exists a linear subspace $N$ of $V$ 
+    such that $V = M \oplus N$ in the sense of 1.6 Exercise 12. {Hint: Corollary 3.5.16.}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 25, breakable]
+    As in Theorem 3.4.8, let $V$ be a vector space,
+    $x_1, \ldots, x_r$, $x_{r + 1}, \ldots, x_n \in V$,
+    $M = [\{x_{r + 1}, \ldots, x_n\}]$ and $Q : V \longrightarrow V / M$
+    the quotient mapping. The following conditions are equivalent:
+    \begin{enumerate}
+        \item $x_1, \ldots, x_n$ is a basis of $V$;
+        \item $Q x_1, \ldots, Q x_n$ is a basis of $V / M$ and $x_{r + 1}, \ldots, x_n$ is a basis of $M$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 26, breakable]
+    Let $V$ be a finite-dimensional vector space,
+    $M$ and $N$ linear subspace of $V$ such that 
+    $dim M + dim N = dim V$. Prove: $M + N = V \iff M \cap N = \{0\}$.
+    {Hint: Corollary 3.5.14, (ii) and Theorem 3.5.13 (2).}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 27, breakable]
+    Let $V$ be a finite-dimensional vector space over a field $F$,
+    $V \times V$ the product vector space (1.3.11), Prove:
+    If $dim(V \times V) = (dim V)^2$, then either $V = \{0\}$ or $V \cong F^2$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $\dim(V \times V) = (\dim V)^2$.
+    There are two cases.
+    If $V = \{0\}$ then this is trivial.
+    Thus suppose $V \ne \{0\}$.
+    By Problem 4 $V \cong F^n$ for some integer $n$ so $\dim V = n$.
+    By Problem 23 $\dim(V \times V) = \dim V + \dim V$, we have
+    \[
+    \dim(V \times V) = 2n.
+    \]
+    Thus the hypothesis gives
+    \[
+    2n = n^2.
+    \]
+    Thus $n=2$.
+    Therefore $V \cong F^2$.
+\end{proof}
+
+\subsection{Rank + Nullity = Dimension}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+\end{tcolorbox}
+
+\subsection{Applications of $R + N = D$}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\subsection{Dimensions of $\mathcal{L}(V, W)$}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+\end{tcolorbox}
+
+\subsection{Duality in Vector Spaces}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 20, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
 \end{tcolorbox}
