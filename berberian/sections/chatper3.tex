@@ -911,7 +911,7 @@
     with not all $c_i$ zero, contradicting that $x_1,\ldots,x_n$ are linearly independent.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 20, breakable]
     With notations as in the preceeding exercise, if 
     $M_1, \ldots, M_n$ are independent
@@ -927,7 +927,7 @@
 
 \textbf{Alrighty then.}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 21, breakable]
     Let $V_1, \ldots, V_n$ be vector spaces over the same field 
     of scalars and let $V = V_1 \times \cdots \times V_n$ 
@@ -974,7 +974,7 @@
     Thus $V = M_1 \oplus \cdots \oplus M_n$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 22, breakable]
     Suppose $V = M_1 \oplus \cdots \oplus M_n$ as in Exercise 20.
     Prove:
@@ -1017,7 +1017,7 @@
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 23, breakable]
     Let $M_1, \ldots, M_n$ be linear subspaces of $V$. 
     Prove that the following conditions are equivalent:
@@ -1145,7 +1145,7 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     thus $V \times W$ is finitely generated.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 4, breakable]
     Let $V$ be a vector space of all function 
     $\mathbb{R} \longrightarrow \mathbb{R}$ having 
@@ -1185,7 +1185,7 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     \[\sinh(t) = \frac{e^t - e^{-t}}{2} \text{ and } \cosh(t) = \frac{e^t + e^{-t}}{2}.\]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 6, breakable]
     With $V$ as in Exercise 4, let 
     \[N = \{f \in V \mid f'' = -f\}.\]
@@ -1244,7 +1244,7 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
 
 \subsection{Basis, Dimension}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 1, breakable]
     Prove that $(1, 2, 3), (2, 1, 0), (-3, 2, 0)$
     is a basis of $\mathbb{R}^3$. Then find a shorter proof.
@@ -1371,12 +1371,27 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
 \end{tcolorbox}
 
 \begin{proof}
-    We have shown in a previous problem that $\cos^2\alpha + \sin^2\alpha = 1$ are linearly independent.
+    Suppose there exists $c$ such that 
+    \[(\cos \alpha, \sin \alpha) = c(-\sin \alpha, \cos \alpha).\]
+    We get two equations 
+    \[\cos\alpha = -c \sin \alpha \text{ and } \sin \alpha = c \cos \alpha.\]
+
+    Multiplying these equations gives
+    \[
+    \cos\alpha \sin\alpha = -c^2 \sin\alpha \cos\alpha.
+    \]
+    Thus
+    \[
+    (1+c^2)\sin\alpha\cos\alpha = 0.
+    \]
+    Since $1+c^2 \neq 0$ we have $\sin\alpha =0$ or $\cos\alpha=0$.
+    In either case both give $\sin\alpha=0$ and $\cos\alpha=0$,
+    a contradiction.
     Since $\dim \mathbb{R}^2 = 2$ and $\{u, v\}$ 
         contains two linearly independent vectors in $\mathbb{R}^2$ it forms a basis of $\mathbb{R}^2$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 7, breakable]
     Let $x_1, \ldots, x_n$ be a basis of $V$.
     For each $x \in V$, there exist unique scalars 
@@ -1407,7 +1422,7 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     Clearly the coordinates of $(a_1, \ldots, a_n)$ with respect to the canonical basis $e_1, \ldots, e_n$ are $a_1, \ldots, a_n$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 9, breakable]
     Let $V$ be a finite-dimensional vector space and let $M$ be a linear subspace of $V$. Prove:
     \begin{enumerate}
@@ -1418,8 +1433,43 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
 \end{tcolorbox}
 
 \begin{proof}
-    By 3.5.14 $M$ is finite-dimensional.
-    
+    By 3.5.14, $M$ is finite-dimensional.
+    Furthermore, by 3.5.16 we can write
+    \[[\{x_1, \ldots, x_r, x_{r+1}, \ldots, x_n\}] = V \text{ with } [\{x_{r+1}, \ldots, x_n\}] = M.\]
+    By 3.4.8, $Qx_1, \ldots, Qx_r$ generate $V/M$, 
+        so $V/M$ is finite-dimensional with $\dim(V/M) \le r \le n = \dim V$.
+\end{proof}
+
+\begin{proof}
+    \underline{\textbf{($\longrightarrow$)}}
+    Suppose $\dim(V/M) = \dim V = n$.
+    Suppose $Qx_1, \ldots, Qx_r$ and $x_{r+1}, \ldots, x_n$ generate $V/M$ and $M$ respectively.
+    We know that $x_1, \ldots, x_r, x_{r+1}, \ldots, x_n$ generate $V$ by Problem 7.
+    Then $\dim V = r + \dim M = n$, thus $\dim M = n - r$. But $\dim(V/M) = r = n$,
+    so $\dim M = 0 \implies M = \{0\}$.
+
+    \underline{\textbf{($\longleftarrow$)}}
+    Suppose $M = \{0\}$.
+    Suppose $Qx_1, \ldots, Qx_r$ and $x_{r+1}, \ldots, x_n$ generate $V/M$ and $M$ respectively.
+    We know that $x_1, \ldots, x_r, x_{r+1}, \ldots, x_n$ generate $V$ by Problem 7.
+    But $\dim M = 0$, so there are no $x_{r+1}, \ldots, x_n$, thus $\dim(V/M) = r = n = \dim V$.
+\end{proof}
+
+\begin{proof}
+    \underline{\textbf{($\longrightarrow$)}}
+    Suppose $\dim(V/M) = 0$.
+    Suppose $Qx_1, \ldots, Qx_r$ and $x_{r+1}, \ldots, x_n$ generate $V/M$ and $M$ respectively.
+    Let $v \in V$. Then
+    \[v = \sum_{i=1}^r a_i x_i + \sum_{i=r+1}^n b_i x_i.\]
+    But since $\dim(V/M) = 0$ there are no terms in $\sum_{i=1}^r a_i x_i$.
+    Thus $v = \sum_{i=r+1}^n b_i x_i$ where each $x_i \in M$, thus $v \in M$.
+    So $V \subset M$. We know $M \subset V$, thus $V = M$.
+
+    \underline{\textbf{($\longleftarrow$)}}
+    Suppose $M = V$.
+    Suppose $Qx_1, \ldots, Qx_r$ and $x_{r+1}, \ldots, x_n$ generate $V/M$ and $M$ respectively.
+    But since $M = V$, every $x_i \in M$, so $Qx_i = 0$ for all $i$.
+    Thus $V/M$ is generated by $\{0\}$, thus $\dim(V/M) = 0$.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
@@ -1428,6 +1478,36 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     and $N$ the linear subspace generated by $x_{m + 1}, \ldots, x_n$. Prove that 
     $V = M \oplus N$ (in the sense of 1.6, Exercise 12).
 \end{tcolorbox}
+
+\begin{proof}
+    Let $x \in V$. We can write 
+    \[x = \sum_{i=1}^n c_i x_i,\]
+    for suitable $c_i \in F$.
+    So 
+    \[
+    x = \sum_{i=1}^m c_i x_i + \sum_{i=m+1}^n c_i x_i \in M + N.
+    \]
+    Thus $V = M + N$.
+
+    It remains to show that $M \cap N = \{0\}$.
+    Suppose $x \in  M \cap N$ such that 
+    \[
+    x=\sum_{i=1}^m a_i x_i
+    \]
+    and
+    \[
+    x=\sum_{i=m+1}^n b_i x_i.
+    \]
+    Then
+    \[
+    \sum_{i=1}^m a_i x_i-\sum_{i=m+1}^n b_i x_i=0.
+    \]
+    Since $x_1,\ldots,x_n$ is a basis, it is linearly independent, so all
+    coefficients are zero. Thus $a_i=0$ and $b_i=0$ for all $i$, and thus
+    $x=0$.
+    Therefore $M \cap N=\{0\}$, so $V=M\oplus N$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 12, breakable]
     Let $V$  be a vector space over $F$,
@@ -1440,6 +1520,35 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    \underbar{\textbf{($\longrightarrow$)}}
+    Suppose $x_1, \ldots, x_n$ is a basis of $V$.
+    Let $M_i = [\{x_i\}]$. We have mapping $T : M_1 \times \cdots \times M_n \longrightarrow V$ defined 
+    \[T(v_1, \ldots, v_n) = \sum v_i.\]
+
+    Suppose $v \in V$ we have 
+    \[v = \sum c_i x_i,\]
+    for appropriate $c_1, \ldots, c_n \in F$, so $c_i x_i \in M_i$.
+    Since $x_1, \ldots, x_n$ are linearly independent
+        we have $\ker T = \{0\}$. Thus $M_1, \ldots, M_n$ are linearly independent.
+    Thus $v \in  M_1 \oplus \cdots \oplus M_n$.
+
+    Since $M_i \subseteq V$ for each $i$, we have 
+    $M_1 + \cdots + M_n \subseteq V$.
+
+    Thus $V = M_1 \oplus \cdots \oplus M_n$.
+
+    \underbar{\textbf{($\longleftarrow$)}}
+    Suppose $V = M_1 \oplus \cdots \oplus M_n$.
+    Now, suppose $v \in V$.
+    Then $v = v_1 + \cdots + v_n$ with $v_i \in M_i$.
+    Then for scalars $c_1, \ldots, c_n \in F$ we have 
+    $v_i = c_i x_i$.
+    Clearly the $x_1, \ldots, x_n$ are generating.
+    By definition of $\oplus$ the $x_i$ are linearly independent.
+    Thus $x_1, \ldots, x_n$ is a basis of $V$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 16, breakable]
     Let $V$ be any vector space (not necessarily finitely generated).
     A subset $B$ of $V$ is said to be a basis of $V$ if it has the following two properties:
@@ -1449,14 +1558,32 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     \end{enumerate}
 \end{tcolorbox}
 
+\textbf{Solution: Alrighty then.}
+
 \begin{tcolorbox}[title=Problem 17, breakable]
     Prove that if $B$ is a basis of $V$ (in the sense 
     of Exercise 16), then $B$ is `minimal-generating' and `maximal-independent' in the following sense:
     \begin{enumerate}
         \item If $A$ is a proper subset of $B$ (that is, $A \subset B$ and $A \ne B$) then $A$ is not generating;
-        \item If $B \subset C \subset V$ and $B$ is a properf subset of $C$, then $C$ is not linearly independent.
+        \item If $B \subset C \subset V$ and $B$ is a proper subset of $C$, then $C$ is not linearly independent.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $B$ is a basis of $V$.
+    Now, suppose $A$ is a proper subset of $B$.
+    For contradiction, suppose $[A] = V$.
+    Let $x \in B - A$. Since $x \in V$ we have $x = \sum c_i a_i$
+    for some $c_i \in F$ and $a_i \in A$.
+    But since $A \subset B$ we have $x = \sum c_i b_i$ where $b_i \in B$.
+    This contradicts that $B$ is linearly independent.
+
+    Now, suppose $B \subset C \subset V$ and $B$ is a proper subset of $C$.
+    Let $x \in C - B$. Since $x \in V$ we have $x = \sum c_i b_i$ where $b_i \in B$.
+    But since $B \subset C$ we have $b_i \in C$, so $x$ is a linear combination of elements of $C$.
+    Thus $C$ is not linearly independent.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 18, breakable]
     Let $\mathcal{D}$ be the vector space of real polynomial functions (Example 1.3.5).
@@ -1465,17 +1592,80 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     is a basis of $\mathcal{D}$ in the sense of Exercise 16.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $f$ be an arbitrary polynomial in $\mathcal{D}$.
+    Let $\deg(f) = m$. By definition $f$ can be written 
+    \[f = \sum_{i=0}^m c_i t^i = \sum_{i=0}^m c_i p_i(t) \in [B].\]
+    Thus $B$ is generating.
+
+    Now suppose $C \subset B$ and $C \ne B$.
+    Let $g \in B - C$. Then $g = p_k$ for some $k$, and $p_k \notin C$.
+    Since every element of $[C]$ is a linear combination of elements of $C$,
+    it cannot equal $p_k$. Thus $[C] \ne [B] = \mathcal{D}$, so $C$ is not generating.
+
+    It follows that $B$ is a basis of $\mathcal{D}$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 19, breakable]
     Let $V$ be the vector space of finitely nonzero 
     sequences of real numbers (1.3.9). Find a 
     basis $B$ of $V$ (in the sense of Exercise 16).
 \end{tcolorbox}
 
+\begin{proof}
+    For $n = 0, 1, 2, \ldots$ let $p_n$ be the sequence
+        $p_n = (0, \ldots, 0, 1, 0, \ldots)$ where the $1$ is in the $n$-th position, and let 
+        $B = \{p_0, p_1, p_2, \ldots\}$.
+
+    Let $x$ be an arbitrary element of $V$. Since $x$ is a finitely nonzero sequence, we have
+    \[x = (c_0, c_1, \ldots, c_m, 0, 0, \ldots).\]
+    Then
+    \[x = \sum_{i=0}^m c_i p_i \in [B].\]
+    Thus $B$ is generating.
+
+    Suppose $C \subset B$ and $C \ne B$.
+    Let $g \in B - C$. Then $g = p_k$ for some $k$.
+    Since every element of $[C]$ has zero in the $k$-th position,
+    it cannot equal $p_k$. Thus $[C] \ne V$, so $C$ is not generating.
+
+    It follows that $B$ is a basis of $V$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 20, breakable]
     Let $V$ be a finite-dimensional complex vector space.
     Regard $V$ also as a real vector space by restriction of scalars (1.3, Exercise 3).
-    Prove that $dim_R V = 2 \cdot dim_C V$. {Hint: $V_C \cong \mathbb{C}^n$ for some $n$.}
+    Prove that $dim_{\mathbb{R}} V = 2 \cdot dim_{\mathbb{C}} V$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $\{v_1, \ldots, v_n\}$ be a basis of $V$ over $\mathbb{C}$.
+    Let $v \in V$ such that
+    \[
+    v = \sum_{k=1}^n z_k v_k
+    \]
+    where $z_k \in \mathbb{C}$.
+    We can write $z_k = a_k + b_k i$ for $a_k, b_k \in \mathbb{R}$.
+    Then
+    \[
+    v = \sum_{k=1}^n (a_k + b_k i)v_k
+    = \sum_{k=1}^n a_k v_k + \sum_{k=1}^n b_k (i v_k).
+    \]
+    Consider the set
+    \[
+    B = \{v_1, iv_1, \ldots, v_n, iv_n\}.
+    \]
+    Now, consider the bijection $T : \mathbb{R}^{2n} \to V$ defined 
+    \[
+    T(a_1, b_1, \ldots, a_n, b_n)
+    = \sum_{k=1}^n a_k v_k + \sum_{k=1}^n b_k (i v_k).
+    \]
+    It follows that $B$ is a basis of $V$ over $\mathbb{R}$.
+    Therefore
+    \[
+    \dim_{\mathbb{R}} V = 2 \cdot \dim_{\mathbb{C}} V.
+    \]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 21, breakable]
     If $V$ is a finite-dimensional real vector space and $W$
@@ -1483,12 +1673,53 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     prove that $dim_C W = dim_R V$.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $\{v_1, \ldots, v_n\}$ be a basis of $V$ over $\mathbb{R}$.
+    Since $W$ is the complexification of $V$, every element of $W$ can be written as
+    \[
+    w = \sum_{i=1}^n c_i v_i
+    \]
+    where $c_1, \ldots, c_n \in \mathbb{C}$.
+    Consider the map $T : \mathbb{C}^n \longrightarrow W$ defined by
+    \[
+    T(c_1, \ldots, c_n) = \sum_{i=1}^n c_i v_i.
+    \]
+    $T$ is a bijection so $\{v_1, \ldots, v_n\}$ is a basis of $W$ over $\mathbb{C}$.
+    Therefore
+    \[
+    \dim_{\mathbb{C}} W = n = \dim_{\mathbb{R}} V.
+    \]
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 22, breakable]
     Let $x_1, \ldots, x_n$ be vectors in $\mathbb{R}^n$.
     Prove that $x_1, \ldots, x_n$ is a basis of the real vector 
     space $\mathbb{R}^n$ if and only if it is a basis of the complex 
     vector space $\mathbb{C}^n$.
 \end{tcolorbox}
+
+\begin{proof}
+    \underbar{\textbf{($\longrightarrow$)}}
+    Suppose $x_1, \ldots, x_n$ is a basis of $\mathbb{R}^n$.
+    Let $v \in \mathbb{C}^n$. Then $v = u + iw$ where $u, w \in \mathbb{R}^n$.
+    Since $x_1, \ldots, x_n$ span $\mathbb{R}^n$ we can write $u = \sum a_i x_i$ and $w = \sum b_i x_i$ with $a_i, b_i \in \mathbb{R}$, so
+    \[v = \sum a_i x_i + i \sum b_i x_i = \sum (a_i + b_i i) x_i,\]
+    thus $x_1, \ldots, x_n$ span $\mathbb{C}^n$.
+    Now let $\sum_{i=1}^n c_i x_i = 0$ with $c_i \in \mathbb{C}$. Writing $c_i = a_i + b_i i$,
+    \[\sum_{i=1}^n a_i x_i + i \sum_{i=1}^n b_i x_i = 0 \implies \sum_{i=1}^n a_i x_i = 0 \text{ and } \sum_{i=1}^n b_i x_i = 0.\]
+    Since $x_1, \ldots, x_n$ are linearly independent over $\mathbb{R}$, all $a_i = b_i = 0$, thus all $c_i = 0$.
+    Thus $x_1, \ldots, x_n$ is a basis of $\mathbb{C}^n$.
+
+    \underbar{\textbf{($\longleftarrow$)}}
+    Suppose $x_1, \ldots, x_n$ is a basis of $\mathbb{C}^n$.
+    Let $\sum_{i=1}^n a_i x_i = 0$ with $a_i \in \mathbb{R} \subset \mathbb{C}$.
+    Since $x_1, \ldots, x_n$ are linearly independent over $\mathbb{C}$, all $a_i = 0$.
+    Since $x_1, \ldots, x_n$ generate $\mathbb{C}^n$ over $\mathbb{C}$ and each $x_i \in \mathbb{R}^n$,
+    for any $v \in \mathbb{R}^n \subset \mathbb{C}^n$ we have $v = \sum_{i=1}^n c_i x_i$ with $c_i \in \mathbb{C}$.
+    Taking real parts gives $v = \sum_{i=1}^n a_i x_i$ with $a_i \in \mathbb{R}$, so $x_1, \ldots, x_n$ generate $\mathbb{R}^n$.
+    Thus $x_1, \ldots, x_n$ is a basis of $\mathbb{R}^n$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 23, breakable]
     Let $V$ and $W$ be finite-dimensional vector spaces,
@@ -1500,11 +1731,52 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     are a basis of $V \times W$, cf. 3.1, Exercise 6.}
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ is a basis of $V$ and 
+    $y_1, \ldots, y_m$ is a basis of $W$.
+    Consider the set
+    \[(x_1, 0), \ldots, (x_n, 0), (0, y_1), \ldots, (0, y_m).\]
+    Let $(v,w) \in V \times W$. Then
+    \[v = \sum a_i x_i \text{ and } w = \sum b_j y_j.\]
+    Thus
+    \[(v,w) = \sum a_i (x_i, 0) + \sum b_j (0, y_j),\]
+    so the set is generating.
+    Now suppose
+    \[\sum a_i (x_i, 0) + \sum b_j (0, y_j) = (0,0).\]
+    Then
+    \[(\sum a_i x_i, \sum b_j y_j) = (0,0).\]
+    Thus $\sum a_i x_i = 0$ and $\sum b_j y_j = 0$.
+    Since $x_1, \ldots, x_n$ and $y_1, \ldots, y_m$ are bases,
+    all $a_i, b_j = 0$.
+    Thus the set is linearly independent.
+    Therefore it is a basis of $V \times W$, so
+    \[dim(V \times W) = dim V + dim W.\]
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 24, breakable]
     If $V$ is a finite-dimensional vector space and $M$ 
     is a linear subspace of $V$, then there exists a linear subspace $N$ of $V$ 
     such that $V = M \oplus N$ in the sense of 1.6 Exercise 12. {Hint: Corollary 3.5.16.}
 \end{tcolorbox}
+
+\begin{proof}
+    Let $x_1, \ldots, x_r$ be a basis for $M$.
+    By Corollary 3.5.16, $x_1, \ldots, x_r$ can be expanded 
+    to be a basis of $V$. Suppose the expanded basis is 
+    \[x_1, \ldots, x_r, x_{r+1}, \ldots, x_n.\]
+    Let $N = \operatorname{span}(x_{r+1}, \ldots, x_n)$.
+    Now, let $v \in V$.
+    Then for chosen $c_1, \ldots, c_n$ we have 
+    \[v = \sum_{i=1}^{n} c_i x_i = \sum_{i=1}^{r} c_i x_i + \sum_{i=r+1}^{n} c_i x_i \in M + N.\]
+    Now suppose $v \in M \cap N$.
+    Then 
+    \[v = \sum_{i=1}^{r} c_i x_i \text{ and } v = \sum_{i=r+1}^{n} c_i x_i \implies \sum_{i=1}^{r} c_i x_i - \sum_{i=r+1}^{n} c_i x_i = 0.\]
+    Since $x_1, \ldots, x_n$ are linearly independent we must have $c_1 = \cdots = c_n = 0$.
+    Thus $v = 0$, so $M \cap N = \{0\}$.
+    It follows that $V = M \oplus N$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 25, breakable]
     As in Theorem 3.4.8, let $V$ be a vector space,
@@ -1512,10 +1784,39 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     $M = [\{x_{r + 1}, \ldots, x_n\}]$ and $Q : V \longrightarrow V / M$
     the quotient mapping. The following conditions are equivalent:
     \begin{enumerate}
-        \item $x_1, \ldots, x_n$ is a basis of $V$;
-        \item $Q x_1, \ldots, Q x_n$ is a basis of $V / M$ and $x_{r + 1}, \ldots, x_n$ is a basis of $M$.
+        \item \textcircled{a} $x_1, \ldots, x_n$ is a basis of $V$;
+        \item \textcircled{b} $Q x_1, \ldots, Q x_n$ is a basis of $V / M$ and $x_{r + 1}, \ldots, x_n$ is a basis of $M$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    \underbar{\textbf(\textcircled{a}$\longrightarrow$\textcircled{b})}
+    Suppose $x_1, \ldots, x_n$ is a basis of $V$.
+    By 3.4.8, $Qx_1, \ldots, Qx_r$ generate $V/M$.
+    For contradiction suppose for some $i$ with $1 \le i \le r$
+    we have $Qx_i = \sum_{j \ne i} c_j Qx_j$.
+    Then
+    \[Qx_i - \sum_{j \ne i} c_j Qx_j = 0 \implies Q\!\left(x_i - \sum_{j \ne i} c_j x_j\right) = 0 \implies x_i - \sum_{j \ne i} c_j x_j \in \ker Q = M.\]
+    So $x_i - \sum_{j \ne i} c_j x_j = \sum_{k=r+1}^{n} d_k x_k$ for some scalars $d_k$,
+    which contradicts that $x_1, \ldots, x_n$ are linearly independent.
+    It follows that $Qx_1, \ldots, Qx_r$ is a basis of $V/M$.
+    Since $x_1, \ldots, x_n$ is a basis of $V$ and $M = [\{x_{r+1}, \ldots, x_n\}]$,
+    it is clear that $x_{r+1}, \ldots, x_n$ is a basis of $M$.
+
+    \underbar{\textbf(\textcircled{a}$\longleftarrow$\textcircled{b})}
+    Suppose $Qx_1, \ldots, Qx_r$ is a basis of $V/M$ and $x_{r+1}, \ldots, x_n$ is a basis of $M$.
+    Let $v \in V$. Since $Qx_1, \ldots, Qx_r$ generate $V/M$, we have
+    \[Qv = \sum_{i=1}^{r} c_i Qx_i = Q\!\left(\sum_{i=1}^{r} c_i x_i\right),\]
+    so $v - \sum_{i=1}^{r} c_i x_i \in \ker Q = M$.
+    Since $x_{r+1}, \ldots, x_n$ generate $M$, we have $v - \sum_{i=1}^{r} c_i x_i = \sum_{i=r+1}^{n} c_i x_i$,
+    thus $v = \sum_{i=1}^{n} c_i x_i$ and $x_1, \ldots, x_n$ span $V$.
+    Now suppose $\sum_{i=1}^{n} c_i x_i = 0$. Then
+    \[Q\!\left(\sum_{i=1}^{n} c_i x_i\right) = 0 \implies \sum_{i=1}^{r} c_i Qx_i = 0.\]
+    Since $Qx_1, \ldots, Qx_r$ are linearly independent we must have $c_1 = \cdots = c_r = 0$.
+    Thus $\sum_{i=r+1}^{n} c_i x_i = 0$, and since $x_{r+1}, \ldots, x_n$ are linearly independent
+    we must have $c_{r+1} = \cdots = c_n = 0$.
+    Thus $x_1, \ldots, x_n$ are linearly independent and are thus a basis of $V$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 26, breakable]
     Let $V$ be a finite-dimensional vector space,
@@ -1523,6 +1824,29 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     $dim M + dim N = dim V$. Prove: $M + N = V \iff M \cap N = \{0\}$.
     {Hint: Corollary 3.5.14, (ii) and Theorem 3.5.13 (2).}
 \end{tcolorbox}
+
+\begin{proof}
+    Note that $M + N$ is a subspace of $V$ with $\dim(M + N) \le \dim V$.
+
+    \underline{\textbf{($\longrightarrow$)}}
+    Suppose $M + N = V$. Let $x_1, \ldots, x_r$ be a basis of $M \cap N$.
+    By 3.5.16, extend to a basis $x_1, \ldots, x_r, m_1, \ldots, m_s$ of $M$
+    and a basis $x_1, \ldots, x_r, n_1, \ldots, n_t$ of $N$.
+    Then $x_1, \ldots, x_r, m_1, \ldots, m_s, n_1, \ldots, n_t$ generate $M + N = V$,
+    so $r + s + t \ge \dim V = \dim M + \dim N = (r + s) + (r + t)$.
+    Thus $r \le 0$ thus $r = 0$ and $M \cap N = \{0\}$.
+
+    \underline{\textbf{($\longleftarrow$)}}
+    Suppose $M \cap N = \{0\}$. Let $m_1, \ldots, m_s$ and $n_1, \ldots, n_t$
+    be bases of $M$ and $N$ respectively.
+    Then $s + t = \dim V$.
+    Then $m_1, \ldots, m_s, n_1, \ldots, n_t$ generate $M + N$.
+    These vectors are linearly independent so suppose $\sum a_i m_i + \sum b_j n_j = 0$
+        then $\sum a_i m_i = -\sum b_j n_j \in M \cap N = \{0\}$,
+        so all $a_i = b_i = 0$.
+    Thus $m_1, \ldots, m_s, n_1, \ldots, n_t$ is a basis of $M + N$ of size $\dim V$,
+        so by 3.5.14 (ii) $M + N = V$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 27, breakable]
     Let $V$ be a finite-dimensional vector space over a field $F$,
@@ -1551,36 +1875,124 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
 \subsection{Rank + Nullity = Dimension}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    Does there exist a linear mapping $T : \mathbb{R}^7 \longrightarrow \mathbb{R}^3$
+    whose kernel is 3-dimensional?
 \end{tcolorbox}
 
+\begin{proof}
+    Here, $R = 3$ and $D = 7$ so $N = 4$ so no.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 2, breakable]
+    Let $V$ be a finite-dimensional vector space, $M$ and $N$ linear 
+    subspaces of $V$. Prove that $dim M + dim N = dim(M + N) + dim(M \cap N)$.
 \end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping $T : M \longrightarrow (M + N) / N$ defined 
+    \[Tx = x + N \text{ for all } x \in M.\]
+    By 2.7 Problem 1 we know $ran T = (M + N) / N$ and $\ker T = M \cap N$.
+    Clearly $dom T = M$. Applying the rank-nullity theorem 
+    \[\dim((M + N) / N) + \dim(M \cap N) = \dim(M).\]
+    Then since $\dim((M + N) / N) = \dim(M + N) - \dim(N)$ we have 
+    \[\dim(M + N) - \dim(N) + \dim(M \cap N) = \dim(M),\]
+    so 
+    \[\dim(M + N) + \dim(M \cap N) = \dim(M) + \dim(N).\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Let $V$ be a vector space over $F$, $f : V \longrightarrow F$ a linear form on $V$,
+    $N$ the kernel of $f$. Prove that if $f$ is not identically zero, then 
+    $V / N \cong F$.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $f$ is not identically zero, so there exists $z \in V$ with $f(z) \ne 0$.
+    Let $c = f(z) \in F$. Then $f(c^{-1} z) = c^{-1} f(z) = 1$, so $f$ is surjective.
+    By the First Isomorphism Theorem 
+    \[V / \ker f = V / N \cong ran f = F.\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Let $V$ be a finite-dimensional vector space, $M$ and $N$ 
+    linear subspaces of $V$ such that the dimensions of 
+    \[(M + N)/N, (M + N)/M, M \cap N,\]
+    are $2, 3, 4$, respectively. Find the dimensions of $M, N$ and $M + N$.
 \end{tcolorbox}
+
+\begin{proof}
+    From the given dimensions we have the relations
+    \[\dim(M + N) - \dim(N) = 2, \quad \dim(M + N) - \dim(M) = 3, \quad \dim(M \cap N) = 4.\]
+    By Problem 2,
+    \[\dim(M + N) + \dim(M \cap N) = \dim(M) + \dim(N),\]
+    and substituting $\dim(M + N) = \dim(N) + 2$ and $\dim(M \cap N) = 4$ gives
+    \[(\dim(N) + 2) + 4 = \dim(M) + \dim(N),\]
+    so $\dim(M) = 6$. Substituting back,
+    \[\dim(M + N) = \dim(M) + 3 = 9, \qquad \dim(N) = \dim(M + N) - 2 = 7. \qquad \qedhere\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Let $V$ be a vector space of infinite sequences of real numbers.
+    Define linear mappings $T : V \longrightarrow V$ and $S : V \longrightarrow V$
+    as follows: if $x = (a_1, a_2, a_3, \ldots) \in V$, then $Tx = (0, a_1, a_2, a_3, \ldots)$
+    and $Sx = (a_2, a_3, a_4, \ldots) \in V$. Show that $ST = I$ but $TS \ne I$. ($T$ 
+    is called the \emph{shift operator} on $V$.)
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $x = (a_1, a_2, a_3, \ldots) \in V$. Then 
+    \[(ST)x = S(0, a_1, a_2, a_3, \ldots) = (a_1, a_2, a_3, \ldots) = Ix,\]
+    so $ST = I$. To see that $TS \ne I$, note that
+    \[(TS)x = T(a_2, a_3, a_4, \ldots) = (0, a_2, a_3, a_4, \ldots) \ne (a_1, a_2, a_3, \ldots) = Ix.\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    The converse of Theorem 3.6.4 is true: If a product space $V \times W$
+    is finite-dimensional, then so are the factor spaces $V$ and $W$.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose a product space $V \times W$ is finite-dimensional.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Let $V$ be an $n$-dimensional vector space and let $f$ 
+    be a nonzero linear form on $V$, that is, a nonzero element of the 
+    dual space $V'$ of $V$. Prove that the kernel of $f$ is $(n - 1)$-dimensional.
+    Conversely, every $(n - 1)$-dimensional linear subspace of $V$ is the kernel of a linear form.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
+    If $V$ is an $n$-dimensional vector space and if $f, g$ are linear forms on $V$
+    that are not proportional (neither is a multiple of the other), prove that 
+    $(\ker f) \cap (\ker g)$ is $(n - 2)$-dimensional.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
+    Let $V$ be a vector space and suppose $f_1, \ldots, f_n$ are linear forms 
+    on $V$ such that 
+    \[(\ker f_1) \cap \ldots \cap (\ker f_n) = \{0\}.\]
+    Prove: $V$ is a finite-dimensional and $\dim V \le n$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
+    Let $T V \longrightarrow W$ and $S : W \longrightarrow U$ be linear mappings,
+    with $V$ finite-dimensional.
+    \begin{enumerate}
+        \item If $S$ is injective, then $\ker ST = \ker T$ and $\rho (ST) = \rho(T)$.
+        \item If $T$ is surjective, then $im ST = im S$ and $v(ST) - v(S) = \dim V - \dim W$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 15, breakable]
+    Let $V$ be a finite-dimensional vector space, $T \in \mathcal{L}(V)$.
+    The following are equivalent:
+    \begin{enumerate}
+        \item $V + \ker T + im T$;
+        \item $\ker T \cap im T = \{0\}$;
+        \item $V = \ker T \oplus im T$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \subsection{Applications of $R + N = D$}
