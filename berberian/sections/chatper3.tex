@@ -1691,7 +1691,7 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 22, breakable]
     Let $x_1, \ldots, x_n$ be vectors in $\mathbb{R}^n$.
     Prove that $x_1, \ldots, x_n$ is a basis of the real vector 
@@ -1883,7 +1883,7 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     Here, $R = 3$ and $D = 7$ so $N = 4$ so no.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 2, breakable]
     Let $V$ be a finite-dimensional vector space, $M$ and $N$ linear 
     subspaces of $V$. Prove that $dim M + dim N = dim(M + N) + dim(M \cap N)$.
@@ -1953,7 +1953,10 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
 \end{tcolorbox}
 
 \begin{proof}
-    Suppose a product space $V \times W$ is finite-dimensional.
+    Suppose $V \times W$ is finite-dimensional. Since $V \times \{0\}$ and 
+    $\{0\} \times W$ are subspaces of $V \times W$, they are also finite-dimensional.
+    Since $V \cong V \times \{0\}$ and $W \cong \{0\} \times W$, it follows that 
+    $V$ and $W$ are finite-dimensional.
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
@@ -1963,11 +1966,36 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     Conversely, every $(n - 1)$-dimensional linear subspace of $V$ is the kernel of a linear form.
 \end{tcolorbox}
 
+\begin{proof}
+    Since $f$ is a nonzero linear form, $\ran f = F$ and so $\dim \ran f = 1$.
+    By the First Isomorphism Theorem,
+    \[V / \ker f \cong \ran f \implies \dim V - \dim \ker f = \dim \ran f = 1 \implies \dim \ker f = n - 1.\]
+    
+    Conversely, let $N \subseteq V$ be an $(n-1)$-dimensional subspace. 
+    Let $\{e_1, \ldots, e_{n-1}\}$ be a basis for $N$ and extend it to a basis 
+    $\{e_1, \ldots, e_{n-1}, e_n\}$ of $V$. Define $f : V \to F$ by 
+    \[f\left(\sum_{i=1}^n a_i e_i\right) = a_n.\]
+    Then $f$ is a nonzero linear form with $\ker f = N$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 8, breakable]
     If $V$ is an $n$-dimensional vector space and if $f, g$ are linear forms on $V$
     that are not proportional (neither is a multiple of the other), prove that 
     $(\ker f) \cap (\ker g)$ is $(n - 2)$-dimensional.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $V$ is an $n$-dimensional vector space and $f, g$ are linear forms on $V$
+    that are not proportional.
+    By Problem 7, we know that $\dim \ker f = \dim \ker g = n - 1$.
+    By Problem 16, $g$ is proportional to $f$ if and only if $g(x) = 0$ for all $x \in \ker f$.
+    Thus there exists $x \in \ker f$ such that $g(x) \ne 0$, so the restriction 
+    $g|_{\ker f} : \ker f \to F$ is a nonzero linear form on the $(n-1)$-dimensional 
+    space $\ker f$. By Problem 7,
+    \[\dim \ker(g|_{\ker f}) = (n - 1) - 1 = n - 2.\]
+    But $\ker(g|_{\ker f}) = \ker f \cap \ker g$, so $\dim(\ker f \cap \ker g) = n - 2$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
     Let $V$ be a vector space and suppose $f_1, \ldots, f_n$ are linear forms 
@@ -1976,156 +2004,420 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     Prove: $V$ is a finite-dimensional and $\dim V \le n$.
 \end{tcolorbox}
 
+\begin{proof}
+    Define $T : V \to F^n$ by $Tx = (f_1(x), \ldots, f_n(x))$. Then $T$ is linear and 
+    $\ker T = (\ker f_1) \cap \ldots \cap (\ker f_n) = \{0\}$, so $T$ is injective.
+    Thus $V \cong \ran T \subseteq F^n$, so $V$ is finite-dimensional and $\dim V \le n$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Problem 14, breakable]
-    Let $T V \longrightarrow W$ and $S : W \longrightarrow U$ be linear mappings,
+    Let $T : V \longrightarrow W$ and $S : W \longrightarrow U$ be linear mappings,
     with $V$ finite-dimensional.
     \begin{enumerate}
         \item If $S$ is injective, then $\ker ST = \ker T$ and $\rho (ST) = \rho(T)$.
-        \item If $T$ is surjective, then $im ST = im S$ and $v(ST) - v(S) = \dim V - \dim W$.
+        \item If $T$ is surjective, then $\ran ST =\ran S$ and $v(ST) - v(S) = \dim V - \dim W$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $S$ is injective.
+    Let $v \in \ker ST$, then $(ST)(v) = S(T(v)) = 0$.
+    Since $S$ is injective, $T(v) = 0$, so $v \in \ker T$.
+    Conversely, if $v \in \ker T$ then $(ST)(v) = S(T(v)) = S(0) = 0$, so $v \in \ker ST$.
+    Thus $\ker ST = \ker T$, and by rank-nullity $\rho(ST) = \rho(T)$.
+
+    Suppose $T$ is surjective. For any $u \in \ran S$, there exists $w \in W$ such that 
+    $u = S(w)$. Since $T$ is surjective, there exists $v \in V$ such that $T(v) = w$, 
+    so $u = S(T(v)) = (ST)(v) \in \ran ST$. Thus $\ran ST = \ran S$.
+    By rank-nullity applied to $ST$ and $S$,
+    \[v(ST) = \dim V - \rho(ST) = \dim V - \rho(S) = \dim V - (\dim W - v(S)),\]
+    so $v(ST) - v(S) = \dim V - \dim W$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 15, breakable]
     Let $V$ be a finite-dimensional vector space, $T \in \mathcal{L}(V)$.
     The following are equivalent:
     \begin{enumerate}
-        \item $V + \ker T + im T$;
-        \item $\ker T \cap im T = \{0\}$;
-        \item $V = \ker T \oplus im T$.
+        \item \textcircled{a} $V = \ker T +\ran T$;
+        \item \textcircled{b} $\ker T \cap \ran T = \{0\}$;
+        \item \textcircled{c} $V = \ker T \oplus\ran T$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    \underbar{\textbf{(\textcircled{a}$\longrightarrow$\textcircled{b})}}
+    Suppose $V = \ker T + \ran T$.
+    \[\dim V = \dim \ker T + \dim \ran T,\]
+    and since $V = \ker T + \ran T$ by the dimension formula from Problem 2
+    \[\dim V = \dim \ker T + \dim \ran T - \dim(\ker T \cap \ran T),\]
+    so $\dim(\ker T \cap \ran T) = 0$ thus $\ker T \cap \ran T = \{0\}$.
+
+    \underbar{\textbf{(\textcircled{b}$\longrightarrow$\textcircled{c})}}
+    Suppose $\ker T \cap \ran T = \{0\}$. By rank-nullity
+    \[\dim(\ker T + \ran T) = \dim \ker T + \dim \ran T - \dim(\ker T \cap \ran T) = \dim V - 0 = \dim V,\]
+    so $\ker T + \ran T = V$. Since $\ker T \cap \ran T = \{0\}$ we have 
+    $V = \ker T \oplus \ran T$.
+
+    \underbar{\textbf{(\textcircled{c}$\longrightarrow$\textcircled{a})}}
+    This is immediate since $V = \ker T \oplus \ran T$ implies $V = \ker T + \ran T$
+    by definition of the direct sum.
+\end{proof}
 
 \subsection{Applications of $R + N = D$}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+    Suppose that the homogeneous system
+    \[(*) \quad \begin{cases} a_{11}x_1 + a_{12}x_2 + \ldots + a_{1n}x_n = 0 \\ a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n = 0 \\ \quad \vdots \\ a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nn}x_n = 0 \end{cases}\]
+    ($n$ equations in $n$ unknowns) has only the trivial solution. Prove that for 
+    any given scalars $c_1, \ldots, c_n$, the system
+    \[(**) \quad \begin{cases} a_{11}x_1 + a_{12}x_2 + \ldots + a_{1n}x_n = c_1 \\ a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n = c_2 \\ \quad \vdots \\ a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nn}x_n = c_n \end{cases}\]
+    has a unique solution. (Hint: Theorem 3.7.4.)
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
+    Prove that for any scalars $a, b, c$, the system
+    \begin{align*}
+        x_1 + 2x_2 - 3x_3 &= a \\
+        2x_1 + x_2 + 2x_3 &= b \\
+        3x_1 \phantom{{}+ x_2} \phantom{{}- 3x_3} &= c
+    \end{align*}
+    has a unique solution. (Hint: \S 3.5, Exercise 1.)
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 3, breakable]
+    Let $V$ be a vector space and let $S, T \in \mathcal{L}(V)$. Prove:
+    \begin{enumerate}
+        \item[(i)] $\rho(S + T) \le \rho(S) + \rho(T)$. (Hint: \S 3.6, Exercise 2.)
+        \item[(ii)] $\rho(ST) \le \rho(S)$ and $\rho(ST) \le \rho(T)$.
+        \item[(iii)] $\nu(S + T) \ge \nu(S) + \nu(T) - \dim V$.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+    Let $V$ be a finite-dimensional vector space, $T \in \mathcal{L}(V)$. Prove:
+    \begin{enumerate}
+        \item[(i)] If $T$ and $T^2$ have the same rank, then $V = (\ker T) \oplus T(V)$ 
+        in the sense of \S 1.6, Exercise 12. (Hint: $T$ and $T^2$ also have the same 
+        nullity; use $\ker T \subseteq \ker T^2$ in the light of Corollary 3.5.14.)
+        \item[(ii)] Prove that if $k$ is a nonnegative integer such that $T^k$ and 
+        $T^{k+1}$ have the same rank, then $V = (\ker T^k) \oplus T^k(V)$.
+        \item[(iii)] Review \S 2.3, Exercise 13.
+    \end{enumerate}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 5, breakable]
+    Let $V$ be the vector space of infinite sequences of real numbers (Example 1.3.7).
+    Define linear mappings $T : V \to V$ and $S : V \to V$ as follows: if 
+    $x = (a_1, a_2, a_3, \ldots) \in V$, then $Tx = (0, a_1, a_2, a_3, \ldots)$ and 
+    $Sx = (a_2, a_3, a_4, \ldots)$. Show that $ST = I$ but $TS \ne I$. ($T$ is called 
+    the \emph{shift operator} on $V$.)
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+    Let $\mathcal{D}$ be the vector space of all real polynomial functions (Example 1.3.5).
+    As in Examples 2.1.4 and 2.1.5, let $S, T \in \mathcal{L}(V)$ be the linear mappings 
+    such that $Tp = p'$ and $Sp$ is the prederivative of $p$ with constant term $0$. 
+    Then $TS = I$. Is $ST$ bijective?
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
+    Let $V$ be any vector space (not necessarily finite-dimensional) and suppose 
+    $R, S, T \in \mathcal{L}(V)$ are such that $ST = I$ and $TR = I$. Prove that 
+    $T$ is bijective and $R = S = T^{-1}$. (Hint: Look at $S(TR)$.)
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
+    With $V$ as in Example 1.3.7, let $S, T \in \mathcal{L}(V)$ be the linear mappings 
+    such that $M(a_1, 2a_2, 3a_3, \ldots) = (a_1, 2a_2, 3a_3, \ldots)$. Show that $M$ 
+    is bijective and find the formula for $M^{-1}$.
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
+    Let $V$ be a finite-dimensional vector space and let $S, T \in \mathcal{L}(V)$. Prove:
+    \begin{enumerate}
+        \item[(i)] If there exists a nonzero vector $x$ such that $STx = \theta$, then 
+        there exists a nonzero vector $y$ such that $TSy = \theta$.
+        \item[(ii)] $ST$ is bijective $\Leftrightarrow$ $S$ and $T$ are bijective $\Leftrightarrow$ $TS$ is bijective.
+    \end{enumerate}
+    (Hint: Exercise 3.)
 \end{tcolorbox}
 
 \subsection{Dimensions of $\mathcal{L}(V, W)$}
 
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{tcolorbox}[title=Exercise 1, breakable]
+    Hiding in the proof of Corollary 3.8.3 is the proof that if $V$ is 
+    1-dimensional then every $S \in \mathcal{L}(V)$ is a scalar multiple of the identity.
+    Can you find it?
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{tcolorbox}[title=Exercise 2, breakable]
+    True or false (explain): $\mathcal{L}(\mathbb{R}^2, \mathbb{R}^3) \cong \mathbb{R}^6$.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{tcolorbox}[title=Exercise 3, breakable]
+    If $V$ and $W$ are finite-dimensional vector spaces, prove that 
+    $\mathcal{L}(V, W) \cong \mathcal{L}(W, V)$. (Hint: Don't look for a mapping 
+    $\mathcal{L}(V, W) \to \mathcal{L}(W, V)$.)
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{tcolorbox}[title=Exercise 4, breakable]
+    Let $V$ be a finite-dimensional vector space, $V'$ its dual space (\S 2.3, 
+    Exercise 5). Prove: $V'$ is also finite-dimensional and $\dim V' = \dim V$.
+    (Hint: Corollary 3.8.2.)
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{tcolorbox}[title=Exercise 5, breakable]
+    Here is an alternate approach to Exercise 4: If $F$ is the field of scalars 
+    and $n = \dim V$, prove that $V' \cong F^n$. (Hint: If $x_1, \ldots, x_n$ is 
+    a basis of $V$, then the mapping $V' \to F^n$ defined by 
+    $f \mapsto (f(x_1), \ldots, f(x_n))$ is surjective by Theorem 3.8.1.)
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{tcolorbox}[title=Exercise 6, breakable]
+    Here is a sketch of an alternate proof of $\mathcal{L}(V, W) \cong \mathcal{L}(V, W)$, 
+    based on constructing an explicit basis for $\mathcal{L}(V, W)$. Let $x_1, \ldots, x_n$ 
+    be a basis of $V$ and $y_1, \ldots, y_m$ a basis of $W$. For each $i \in \{1, \ldots, m\}$ 
+    and each $j \in \{1, \ldots, n\}$, there exists (by Theorem 3.8.1) a linear mapping 
+    $E_{ij} : V \to W$ such that
+    \[E_{ij} x_k = y_i \quad \text{and} \quad E_{ij} x_k = \theta \quad \text{for } k \ne j.\]
+    Show that the $mn$ linear mappings constructed in this way are a basis of 
+    $\mathcal{L}(V, W)$. (Verify that the $E_{ij}$ are linearly independent and that every 
+    $T \in \mathcal{L}(V, W)$ is a linear combination of them.)
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{tcolorbox}[title=Exercise 7, breakable]
+    Prove: If $V$ is a finite-dimensional vector space and $T \in \mathcal{L}(V)$, then 
+    there exist scalars $a_0, a_1, \ldots, a_t$, not all 0, such that 
+    \[a_0 t + a_1 Tx + a_2 T^2 x + \ldots + a_t T^t x = 0\]
+    for all $x \in V$. (Hint: The powers of $T$ are defined following 2.3.13. 
+    Consider $I, T, T^2, T^3, \ldots$ in the finite-dimensional vector space $\mathcal{L}(V)$.)
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{tcolorbox}[title=Exercise 8, breakable]
+    Let $x_1, \ldots, x_n$ be a basis of $V$ and, for each pair of indices 
+    $i, j \in \{1, \ldots, n\}$, let $E_{ij} \in \mathcal{L}(V)$ be the linear mapping such that 
+    $E_{ij} x_j = x_i$ and $E_{ij} x_k = 0$ when $j \ne k$ (cf. Exercise 6). Show that 
+    (1) $E_{ij} E_{hk} = \delta_{jh} E_{ik}$, (2) $E_{ij} E_{jk} = E_{ik}$, and 
+    (3) $E_{11} + E_{22} + \ldots + E_{nn} = I$.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{tcolorbox}[title=Exercise 9, breakable]
+    Let $T : V \to W$ be a linear mapping such that $W$ is finite-dimensional 
+    with $\dim W = m$, and let $y_1, \ldots, y_m$ be a basis of $W$. For each 
+    $x \in V$, $Tx$ is uniquely a linear combination of $y_1, \ldots, y_m$; denote 
+    the coefficient of $y_j$ by $f_j(x)$, thus
+    \[Tx = \sum_{i=1}^m f_i(x) y_i \quad (x \in V).\]
+    Prove: The $f_i$ are linear forms on $V$ and, in the notation of Example 
+    2.3.4, $T = \sum_{i=1}^m f_i \otimes y_i$.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{tcolorbox}[title=Exercise 10, breakable]
+    If $V$ and $W$ are finite-dimensional vector spaces such that 
+    $\dim \mathcal{L}(V, W) = 7$, then $\mathcal{L}(V, W)$ is isomorphic to either $V$ or $W$.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{tcolorbox}[title=Exercise 11, breakable]
+    If $V$ and $W$ are finite-dimensional vector spaces over the same field, then 
+    there exists a natural isomorphism
+    \[\mathcal{L}(U, W) \times \mathcal{L}(V, W) \cong \mathcal{L}(U \times V, W).\]
+    (Hint: If $R : U \to W$ and $S : V \to W$ are linear mappings, consider 
+    the mapping $(x, y) \mapsto Rx + Sy$.)
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{tcolorbox}[title=Exercise 12, breakable]
+    If $V$ is a finite-dimensional vector space and $x$ is a nonzero vector in $V$, 
+    then there exists a linear form $f$ on $V$ such that $f(x) \ne 0$. (Hint:
+    Expand $x$ to a basis of $V$ (3.5.15) and apply Theorem 3.8.1. Alternate 
+    solution: If $\dim V = n$, compose an isomorphism $T : V \to F^n$ with an 
+    appropriate coordinate function $F^n \to F$.)
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{tcolorbox}[title=Exercise 13, breakable]
+    Let $V$ be a finite-dimensional vector space, $M$ a linear subspace of $V$, 
+    and $x$ a vector in $V$ such that $x \notin M$. Prove that there exists a linear 
+    form $f$ on $V$ such that $f(x) \ne 0$ and $f(y) = 0$ for all $y \in M$. 
+    (Hint: Adjoin $x$ to a basis of $M$, expand to a basis of $V$ (3.5.15), then apply 
+    Theorem 3.8.1. Alternate solution: apply Exercise 12 in the quotient 
+    space $V/M$ and compose the linear form so obtained with the quotient 
+    mapping $V \to V/M$.)
 \end{tcolorbox}
 
 \subsection{Duality in Vector Spaces}
 
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{tcolorbox}[title=Exercise 1, breakable]
+    Simplify the proof of Theorem 3.9.6 by citing \S 2.3, Exercise 2.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{tcolorbox}[title=Exercise 2, breakable]
+    If $V$ is a finite-dimensional vector space, $M$ is a linear subspace of $V$, 
+    and $Q : V \to V/M$ is the quotient mapping, then $Q' : (V/M)' \to V'$ is an 
+    injective linear mapping with range $M^\circ$. In particular, $(V/M)' \cong M^\circ$.
+    \{Hint: By Corollary 3.9.13, $Q'$ is injective. Show that $\operatorname{Im} Q'$ and $M^\circ$ 
+    have the same dimension (cf. Theorems 3.9.12, 3.9.11) and that 
+    $\operatorname{Im} Q' \subset M^\circ$, therefore $\operatorname{Im} Q' = M^\circ$.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{tcolorbox}[title=Exercise 3, breakable]
+    If $V$ and $W$ are finite-dimensional vector spaces and $T : V \to W$ is a 
+    linear mapping, prove that $T$ and $T'$ have the same nullity if and only if 
+    $\dim V = \dim W$.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{tcolorbox}[title=Exercise 4, breakable]
+    If $V$ and $W$ are finite-dimensional vector spaces, then 
+    $(V \times W)' \cong V' \times W'$ on grounds of dimensionality (Theorems 3.9.2 and 
+    3.6.4). There is also a `natural' isomorphism $T : V' \times W' \to (V \times W)'$, 
+    defined as follows: if $f \in V'$ and $g \in W'$, let $T(f, g)$ be the linear form 
+    $(x, y) \mapsto f(x) + g(y)$ on $V \times W$. \{Shortcut: \S 3.8, Exercise 11.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{tcolorbox}[title=Exercise 5, breakable]
+    Let $V = \mathcal{D}$ be the vector space of real polynomial functions (1.3.5).
+    Every nonnegative integer $k$ defines a linear form $\varphi_k$ on $V$ by the 
+    formula $\varphi_k(p) = p^{(k)}(0)$, where $p^{(0)} = p$, $p^{(1)} = p'$, 
+    $p^{(2)} = p''$, etc. If $D : V \to V$ is the differentiation mapping $Dp = p'$ 
+    (2.1.4), show that $D'\varphi_k = \varphi_{k+1}$. 
+    \{Hint: $\varphi_k(p) = (D^k p)(0)$.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{tcolorbox}[title=Exercise 6, breakable]
+    Let $V$ be a vector space of dimension $n$ and let $f_1, \ldots, f_n$ be a basis of 
+    $V'$ (Theorem 3.9.2). Prove that the mapping $x \mapsto (f_1(x), \ldots, f_n(x))$ is a 
+    vector space isomorphism $V \to F^n$. \{Hint: \S 3.8, Exercise 12.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{tcolorbox}[title=Exercise 7, breakable]
+    If $V$ and $W$ are finite-dimensional vector spaces, $T : V \to W$ is a linear 
+    mapping, and $T' : W' \to V'$ is the transpose of $T$, then $T$ is bijective if 
+    and only if $T'$ is bijective. \{Hint: Corollary 3.9.13.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{tcolorbox}[title=Exercise 8, breakable]
+    It is an exercise in concentration to calculate the transpose of a linear 
+    form $f : V \to F$.
+    \begin{enumerate}
+        \item[(i)] For each $a \in F$, the formula $a'(c) = ac$ defines a linear form $a'$ on 
+        $F$, and $a \mapsto a'$ is an isomorphism $F \to F'$.
+        \item[(ii)] $a'f$ (the composite of $a'$ and $f$) is equal to $af$ (the scalar multiple 
+        of $f$ by the scalar $a$).
+        \item[(iii)] $f'a' = af$ for all $a \in F$.
+    \end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{tcolorbox}[title=Exercise 9, breakable]
+    Let $x_1, \ldots, x_n$ be a basis of $V$ and let $f_1, \ldots, f_n$ be the basis of $V'$ 
+    dual to $x_1, \ldots, x_n$. Show that $x_1'', \ldots, x_n''$ is the basis of $V''$ dual to 
+    $f_1, \ldots, f_n$. \{See Definition 3.9.15 for the notations.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{tcolorbox}[title=Exercise 10, breakable]
+    Let $V$ and $W$ be finite-dimensional vector spaces. Show that the mapping 
+    $\mathcal{L}(V, W) \to \mathcal{L}(W', V')$ defined by $T \mapsto T'$ is linear and bijective.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{tcolorbox}[title=Exercise 11, breakable]
+    If $V$ and $W$ are finite-dimensional, then the mapping 
+    $\mathcal{L}(V, W) \to \mathcal{L}(V'', W'')$ defined by $T \mapsto T''$ is linear and bijective.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{tcolorbox}[title=Exercise 12, breakable]
+    Let $V$ be a finite-dimensional vector space and let $f_1, \ldots, f_n$ be a basis 
+    of $V'$ (3.9.2). Prove that there exists a basis $x_1, \ldots, x_n$ of $V$ such that 
+    $f_1, \ldots, f_n$ is the basis of $V'$ dual to $x_1, \ldots, x_n$. \{Hint: Apply 3.9.3 with 
+    $V$ and $V'$ replaced by $V'$ and $V''$, then cite 3.9.17. Alternate proof: cf. 
+    Exercise 6 and the proof of 3.9.3.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{tcolorbox}[title=Exercise 13, breakable]
+    Let $V$ be a finite-dimensional vector space, $M$ a linear subspace of $V$, 
+    $M^\circ$ the annihilator of $M$ in $V'$ (3.9.10). Prove:
+    \begin{enumerate}
+        \item[(i)] $M^\circ = \{0\} \Leftrightarrow M = V$.
+        \item[(ii)] $M^\circ = V' \Leftrightarrow M = \{\theta\}$.
+    \end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{tcolorbox}[title=Exercise 14, breakable]
+    Let $V$ be a finite-dimensional vector space, $V'$ its dual, $N$ a linear 
+    subspace of $V'$. Define
+    \[{}^\circ N = \{x \in V : f(x) = 0 \text{ for all } f \in N\},\]
+    that is, ${}^\circ N$ is the intersection of the kernels of all the $f \in N$. \{This is a 
+    sort of `backward annihilator', analogous to the `forward annihilator' $M^\circ$ 
+    of Definition 3.9.10; the effect on subspaces is that $M \mapsto M^\circ$ moves us 
+    forward in the list $V, V', V'', V''', \ldots$ and $N \mapsto {}^\circ N$ moves us backward.\}
+    Prove that ${}^\circ(M^\circ) = M$ for every linear subspace $M$ of $V$.
+    \{Hint: The inclusion $M \subset {}^\circ(M^\circ)$ is trivial; for the reverse inclusion, see 
+    \S 3.8, Exercise 13. Alternate proof: With $S : V \to V''$ as in 3.9.15, let 
+    $(M^\circ)^\circ$ be the annihilator of $M^\circ$ in $V''$; show that $S(M) \subset (M^\circ)^\circ$ then 
+    argue that $S(M) = (M^\circ)^\circ$ on the grounds of dimensionality (3.9.11), and 
+    finally observe that ${}^\circ(M^\circ) = S^{-1}((M^\circ)^\circ)$.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 15, breakable]
+\begin{tcolorbox}[title=Exercise 15, breakable]
+    Let $V$ be a finite-dimensional vector space, $M$ and $N$ linear subspaces 
+    of $V$, and $M^\circ$, $N^\circ$ their annihilators in $V'$ (3.9.10). Prove:
+    \begin{enumerate}
+        \item[(i)] If $M^\circ = N^\circ$ then $M = N$. \{Hint: $S(M) = S(N)$ by the hint for 
+        Exercise 14.\}
+        \item[(ii)] $(M + N)^\circ = M^\circ \cap N^\circ$.
+        \item[(iii)] $(M \cap N)^\circ = M^\circ + N^\circ$. \{Hint: $S(M \cap N) = S(M) \cap S(N)$, that is, 
+        $((M \cap N)^\circ)^\circ = (M^\circ)^\circ \cap (N^\circ)^\circ$; cite (ii) to conclude that $((M \cap N)^\circ)^\circ$ 
+        $= (M^\circ + N^\circ)^\circ$, then cite (i).\}
+    \end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{tcolorbox}[title=Exercise 16, breakable]
+    Let $V$ be a finite-dimensional vector space, $N$ a linear subspace of $V'$. 
+    The `backward annihilator' ${}^\circ N$ of $N$ is a linear subspace of $V$ (Exercise 
+    14); the `forward annihilator' $N^\circ$ of $N$ is a linear subspace of $V''$ 
+    (3.9.10). Prove:
+    \begin{enumerate}
+        \item[(i)] $S({}^\circ N) = N^\circ$.
+        \item[(ii)] $({}^\circ N)^\circ = N$. \{Hint: If $M = {}^\circ N$ then $N^\circ = S(M) = (M^\circ)^\circ$; cite (i) of 
+        Exercise 15.\}
+    \end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{tcolorbox}[title=Exercise 17, breakable]
+    Let $V$ be a finite-dimensional vector space and let $f$ and $f_1, \ldots, f_n$ be 
+    linear forms on $V$. The following conditions are equivalent:
+    \begin{enumerate}
+        \item[(a)] $f$ is a linear combination of $f_1, \ldots, f_n$;
+        \item[(b)] $f$ vanishes on the intersection of the null spaces of the $f_i$, that is, if 
+        $x$ is a vector in $V$ such that $f_i(x) = 0$ for $i = 1, \ldots, n$ then $f(x) = 0$.
+    \end{enumerate}
+    \{Hint: Let $N$ be the linear span of $f_1, \ldots, f_n$ and look at Exercise 16.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 18, breakable]
+\begin{tcolorbox}[title=Exercise 18, breakable]
+    Let $T : V \to W$ be a linear mapping, $M$ a linear subspace of $V$, $N$ a 
+    linear subspace of $W$. Prove:
+    \begin{enumerate}
+        \item[(i)] If $T(M) \subset N$ then $T'(N^\circ) \subset M^\circ$.
+        \item[(ii)] $T'(W') \subset (\ker T)^\circ$. \{Hint: In (i), consider $M = \ker T$, $N = \{\theta\}$.\}
+        \item[(iii)] If $V$ and $W$ are finite-dimensional, then $T'(W') = (\ker T)^\circ$. \{Hint: 
+        In (ii), calculate dimensions.\}
+    \end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 19, breakable]
+\begin{tcolorbox}[title=Exercise 19, breakable]
+    Let $V$ be a finite-dimensional vector space, $M$ a linear subspace of $V$, 
+    and $T : M \to V$ the insertion mapping $Tx = x$ ($x \in M$). Show that 
+    $T' : V' \to M'$ is the mapping $R$ in the proof of Theorem 3.9.11.
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 20, breakable]
+\begin{tcolorbox}[title=Exercise 20, breakable]
+    If $V$ is a vector space and $f_1, \ldots, f_n$ are linearly independent linear 
+    forms on $V$ such that 
+    \[(\ker f_1) \cap \ldots \cap (\ker f_n) = \{\theta\}\]
+    then $V$ is $n$-dimensional. \{Hint: Cite \S 3.6, Exercise 9, then argue that 
+    $\dim V \ge n$. Shortcut: Exercise 17.\}
 \end{tcolorbox}
 
-\begin{tcolorbox}[title=Problem 21, breakable]
+\begin{tcolorbox}[title=Exercise 21, breakable]
+    Let $V$ and $W$ be finite-dimensional vector spaces, $T : V \to W$ a linear 
+    mapping. If $W$ is 12-dimensional and the kernel of $T'$ is 4-dimensional, 
+    find the rank of $T$.
 \end{tcolorbox}
