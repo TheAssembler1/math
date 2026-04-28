@@ -1932,21 +1932,6 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     \[\dim(M + N) = \dim(M) + 3 = 9, \qquad \dim(N) = \dim(M + N) - 2 = 7. \qquad \qedhere\]
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
-    Let $V$ be a vector space of infinite sequences of real numbers.
-    Define linear mappings $T : V \longrightarrow V$ and $S : V \longrightarrow V$
-    as follows: if $x = (a_1, a_2, a_3, \ldots) \in V$, then $Tx = (0, a_1, a_2, a_3, \ldots)$
-    and $Sx = (a_2, a_3, a_4, \ldots) \in V$. Show that $ST = I$ but $TS \ne I$. ($T$ 
-    is called the \emph{shift operator} on $V$.)
-\end{tcolorbox}
-
-\begin{proof}
-    Suppose $x = (a_1, a_2, a_3, \ldots) \in V$. Then 
-    \[(ST)x = S(0, a_1, a_2, a_3, \ldots) = (a_1, a_2, a_3, \ldots) = Ix,\]
-    so $ST = I$. To see that $TS \ne I$, note that
-    \[(TS)x = T(a_2, a_3, a_4, \ldots) = (0, a_2, a_3, a_4, \ldots) \ne (a_1, a_2, a_3, \ldots) = Ix.\]
-\end{proof}
-
 \begin{tcolorbox}[title=Problem 6, breakable]
     The converse of Theorem 3.6.4 is true: If a product space $V \times W$
     is finite-dimensional, then so are the factor spaces $V$ and $W$.
@@ -2076,6 +2061,16 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     has a unique solution. (Hint: Theorem 3.7.4.)
 \end{tcolorbox}
 
+\begin{proof}
+    Define $T : F^n \to F^n$ by 
+    \[T(x_1, \ldots, x_n) = \left(\sum_{j=1}^n a_{1j}x_j, \ldots, \sum_{j=1}^n a_{nj}x_j\right).\]
+    The system $(*)$ having only the trivial solution means $\ker T = \{0\}$
+        so $T$ is injective. 
+    By Theorem 3.7.4 $T$ is bijective.
+    Thus for any $(c_1, \ldots, c_n) \in F^n$, the equation $Tx = (c_1, \ldots, c_n)$ 
+        has a unique solution, which is precisely the system $(**)$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 2, breakable]
     Prove that for any scalars $a, b, c$, the system
     \begin{align*}
@@ -2086,6 +2081,17 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     has a unique solution. (Hint: \S 3.5, Exercise 1.)
 \end{tcolorbox}
 
+\begin{proof}
+    Define $T : F^3 \to F^3$ by 
+    \[T(x_1, x_2, x_3) = (x_1 + 2x_2 - 3x_3, \ 2x_1 + x_2 + 2x_3, \ 3x_1).\]
+    Suppose $T(x_1, x_2, x_3) = (0, 0, 0)$. 
+    Clearly $\ker T = \{0\}$ so the 
+    homogeneous system has only the trivial solution. 
+    By Problem 1, the system 
+        has a unique solution for any scalars $a, b, c$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 3, breakable]
     Let $V$ be a vector space and let $S, T \in \mathcal{L}(V)$. Prove:
     \begin{enumerate}
@@ -2095,6 +2101,28 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    We have 
+    \[\rho(S) + \rho(T) = \dim(\ran S + \ran T) + \dim(\ran S \cap \ran T).\]
+    So $\rho(S + T) = \rho(S) + \rho(T) - \dim(\ran S \cap \ran T)$.
+    Then 
+    \[\rho(S) + \rho(T) - \rho(S + T) = \rho(S) + \rho(T) - [\rho(S) + \rho(T) - \dim(\ran S \cap \ran T)] = \dim(\ran S \cap \ran T) \ge 0.\]
+    Thus $\rho(S + T) \le \rho(S) + \rho(T)$.
+\end{proof}
+
+\begin{proof}
+    Since $(ST)(x) = S(T(x)) \in \ran S$ for any $x \in V$, we have 
+    $\ran(ST) \subseteq \ran S$, so $\rho(ST) \le \rho(S)$.
+    Since $\ran(ST) = S(\ran T)$ and $S|_{\ran T} : \ran T \to V$ is linear,
+    we have $\rho(ST) = \dim S(\ran T) \le \dim \ran T = \rho(T)$.
+\end{proof}
+
+\begin{proof}
+    By rank-nullity $\nu(S) = \dim V - \rho(S)$ and $\nu(T) = \dim V - \rho(T)$. Then
+    \[\nu(S + T) = \dim V - \rho(S + T) \ge \dim V - \rho(S) - \rho(T) = \nu(S) + \nu(T) - \dim V.\]
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     Let $V$ be a finite-dimensional vector space, $T \in \mathcal{L}(V)$. Prove:
     \begin{enumerate}
@@ -2107,13 +2135,30 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $T$ and $T^2$ have the same rank.
+\end{proof}
+
+\begin{proof}
+    Suppose $k$ is a nonnegative integer such that $T^k$ and $T^{k + 1}$ have the same rank.
+\end{proof}
+
+\textbf{Solution: } OK.
+
 \begin{tcolorbox}[title=Problem 5, breakable]
-    Let $V$ be the vector space of infinite sequences of real numbers (Example 1.3.7).
-    Define linear mappings $T : V \to V$ and $S : V \to V$ as follows: if 
-    $x = (a_1, a_2, a_3, \ldots) \in V$, then $Tx = (0, a_1, a_2, a_3, \ldots)$ and 
-    $Sx = (a_2, a_3, a_4, \ldots)$. Show that $ST = I$ but $TS \ne I$. ($T$ is called 
-    the \emph{shift operator} on $V$.)
+    Let $V$ be a vector space of infinite sequences of real numbers.
+    Define linear mappings $T : V \longrightarrow V$ and $S : V \longrightarrow V$
+    as follows: if $x = (a_1, a_2, a_3, \ldots) \in V$, then $Tx = (0, a_1, a_2, a_3, \ldots)$
+    and $Sx = (a_2, a_3, a_4, \ldots) \in V$. Show that $ST = I$ but $TS \ne I$. ($T$ 
+    is called the \emph{shift operator} on $V$.)
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $x = (a_1, a_2, a_3, \ldots) \in V$. Then 
+    \[(ST)x = S(0, a_1, a_2, a_3, \ldots) = (a_1, a_2, a_3, \ldots) = Ix,\]
+    so $ST = I$. To see that $TS \ne I$, note that
+    \[(TS)x = T(a_2, a_3, a_4, \ldots) = (0, a_2, a_3, a_4, \ldots) \ne (a_1, a_2, a_3, \ldots) = Ix.\]
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
     Let $\mathcal{D}$ be the vector space of all real polynomial functions (Example 1.3.5).
@@ -2122,17 +2167,39 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     Then $TS = I$. Is $ST$ bijective?
 \end{tcolorbox}
 
+\begin{proof}
+    $ST$ is not bijective. Consider any nonzero constant polynomial $f = c_0 \ne 0$.
+    Then $T(f) = f' = 0$, so $ST(f) = S(0) = 0$.
+    Thus $f \ne 0$ but $ST(f) = 0$, so $ST$ is not injective and thus not bijective.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 7, breakable]
     Let $V$ be any vector space (not necessarily finite-dimensional) and suppose 
     $R, S, T \in \mathcal{L}(V)$ are such that $ST = I$ and $TR = I$. Prove that 
     $T$ is bijective and $R = S = T^{-1}$. (Hint: Look at $S(TR)$.)
 \end{tcolorbox}
 
+\begin{proof}
+    We have 
+    \[TR = I \implies S(TR) = S \implies (ST)R = S \implies IR = S \implies R = S.\]
+    Since $R = S$ and $TR = I$, we have $TS = I$. Combined with $ST = I$, 
+    we have $ST = TS = I$, so $T$ is bijective and $R = S = T^{-1}$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 8, breakable]
-    With $V$ as in Example 1.3.7, let $S, T \in \mathcal{L}(V)$ be the linear mappings 
-    such that $M(a_1, 2a_2, 3a_3, \ldots) = (a_1, 2a_2, 3a_3, \ldots)$. Show that $M$ 
+    With $V$ as in Exercise 5, define $M(a_1, a_2, a_3, \ldots) = (a_1, 2a_2, 3a_3, \ldots)$. Show that $M$ 
     is bijective and find the formula for $M^{-1}$.
 \end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping $T \in \mathcal{L}(V)$ defined 
+    \[T(a_1, a_2, a_3, \ldots) = (a_1, a_2/2, a_3/3, \ldots).\]
+    Consider $(a_1, a_2, a_3, \ldots) \in V$ then 
+    \[MT(a_1, a_2, a_3, \ldots) = M(a_1, a_2/2, a_3/3, \ldots) = (a_1, a_2, a_3, \ldots)\]
+    also 
+    \[TM(a_1, a_2, a_3, \ldots) = T(a_1, 2a_2, 3a_3, \ldots) = (a_1, a_2, a_3, \ldots).\]
+    Thus $MT = TM = I$, so $T = M^{-1}$ and $M$ is bijective.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
     Let $V$ be a finite-dimensional vector space and let $S, T \in \mathcal{L}(V)$. Prove:
@@ -2144,6 +2211,30 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     (Hint: Exercise 3.)
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose there exists a nonzero vector $x$ such that $STx = \theta$.
+    There are two cases.
+    If $Tx = \theta$, then $x \ne \theta$ implies $\nu(T) \ge 1$, and by Exercise 3, 
+    $\nu(TS) \ge \nu(T) \ge 1$.
+    If $Tx \ne \theta$, then since $S(Tx) = \theta$ with $Tx \ne \theta$, 
+    we have $\nu(S) \ge 1$, and by Exercise 3, $\nu(TS) \ge \nu(S) \ge 1$.
+\end{proof}
+
+\begin{proof}
+    Suppose $ST$ is bijective.
+    If $T$ is not injective, there exist $x_1 \ne x_2$ with $T(x_1) = T(x_2)$,
+    so $ST(x_1) = ST(x_2)$, contradicting injectivity of $ST$.
+    If $S$ is not surjective, there exists $y \in V$ with $y \notin \ran S$,
+    so $y \notin \ran(ST)$, contradicting surjectivity of $ST$.
+    Thus $T$ is injective and $S$ is surjective. Since $V$ is finite-dimensional,
+    both $S$ and $T$ are bijective.
+
+    Conversely, suppose $S$ and $T$ are bijective. Then $(ST)^{-1} = T^{-1}S^{-1}$,
+    so $ST$ is bijective.
+
+    Thus $TS$ is bijective $\Leftrightarrow$ $T$ and $S$ are bijective $\Leftrightarrow$ $ST$ is bijective.
+\end{proof}
+
 \subsection{Dimensions of $\mathcal{L}(V, W)$}
 
 \begin{tcolorbox}[title=Exercise 1, breakable]
@@ -2152,9 +2243,23 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     Can you find it?
 \end{tcolorbox}
 
+\textbf{Solution: } When $\dim V = 1$, every two nonzero vectors are linearly dependent, 
+so the independence of $x$ and $Sx$ assumed for contradiction in the proof doesn't occur.
+Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
+
 \begin{tcolorbox}[title=Exercise 2, breakable]
     True or false (explain): $\mathcal{L}(\mathbb{R}^2, \mathbb{R}^3) \cong \mathbb{R}^6$.
 \end{tcolorbox}
+
+\begin{proof}
+    True:
+    The dimensions are equal.
+    Note that $\dim \mathcal{L}(\mathbb{R}^2, \mathbb{R}^3) = 2 \cdot 3 = 6 = \dim \mathbb{R}^6$.
+    We know there is a linear mapping sending the basis of 
+        $\mathcal{L}(\mathbb{R}^2, \mathbb{R}^3)$ to the basis 
+        of $\mathbb{R}^6$.
+    Thus they are isomorphic.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 3, breakable]
     If $V$ and $W$ are finite-dimensional vector spaces, prove that 
@@ -2162,11 +2267,28 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     $\mathcal{L}(V, W) \to \mathcal{L}(W, V)$.)
 \end{tcolorbox}
 
+\begin{proof}
+    The dimensions are equal.
+    Note that $\dim \mathcal{L}(V, W) = (\dim V)(\dim W) = (\dim W)(\dim V) = \dim \mathcal{L}(W, V)$.
+    We know there is a linear mapping sending the basis of 
+        $\mathcal{L}(V, W)$ to the basis 
+        of $\mathcal{L}(W, V)$.
+    Thus they are isomorphic.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 4, breakable]
     Let $V$ be a finite-dimensional vector space, $V'$ its dual space (\S 2.3, 
     Exercise 5). Prove: $V'$ is also finite-dimensional and $\dim V' = \dim V$.
     (Hint: Corollary 3.8.2.)
 \end{tcolorbox}
+
+\begin{proof}
+    Let $x_1, \ldots, x_n$ be a basis of $V$.
+    Consider the mapping $T : V' \longrightarrow F^n$ defined by
+    \[T(f) = (f(x_1), \ldots, f(x_n)).\]
+    $T$ is an isomorphism, so $V' \cong F^n$.
+    Thus $V'$ is finite-dimensional and $\dim V' = n = \dim V$.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 5, breakable]
     Here is an alternate approach to Exercise 4: If $F$ is the field of scalars 
@@ -2175,17 +2297,55 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     $f \mapsto (f(x_1), \ldots, f(x_n))$ is surjective by Theorem 3.8.1.)
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ is a basis of $V$.
+    Consider the mapping $T : V' \longrightarrow F^n$ defined by
+    \[T(f) = (f(x_1), \ldots, f(x_n)).\]
+    $T$ is surjective by Theorem 3.8.1.
+    Since $\dim V' = \dim V = n = \dim F^n$ and $T$ is surjective, $T$ is an isomorphism by Theorem 3.7.4.
+    Thus $V' \cong F^n$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Exercise 6, breakable]
-    Here is a sketch of an alternate proof of $\mathcal{L}(V, W) \cong \mathcal{L}(V, W)$, 
+    Here is a sketch of an alternate proof of Corollary 3.8.2, 
     based on constructing an explicit basis for $\mathcal{L}(V, W)$. Let $x_1, \ldots, x_n$ 
     be a basis of $V$ and $y_1, \ldots, y_m$ a basis of $W$. For each $i \in \{1, \ldots, m\}$ 
     and each $j \in \{1, \ldots, n\}$, there exists (by Theorem 3.8.1) a linear mapping 
     $E_{ij} : V \to W$ such that
-    \[E_{ij} x_k = y_i \quad \text{and} \quad E_{ij} x_k = \theta \quad \text{for } k \ne j.\]
+    \[E_{ij} x_j = y_i \quad \text{and} \quad E_{ij} x_k = \theta \quad \text{for } k \ne j.\]
     Show that the $mn$ linear mappings constructed in this way are a basis of 
     $\mathcal{L}(V, W)$. (Verify that the $E_{ij}$ are linearly independent and that every 
     $T \in \mathcal{L}(V, W)$ is a linear combination of them.)
 \end{tcolorbox}
+
+\begin{proof}
+    Let $x_1, \ldots, x_n$ 
+    be a basis of $V$ and $y_1, \ldots, y_m$ a basis of $W$. For each $i \in \{1, \ldots, m\}$ 
+    and each $j \in \{1, \ldots, n\}$, there exists (by Theorem 3.8.1) a linear mapping 
+    $E_{ij} : V \to W$ such that
+    \[E_{ij} x_j = y_i \quad \text{and} \quad E_{ij} x_k = \theta \quad \text{for } k \ne j.\]
+    We first show linear independence.
+    Suppose, for contradiction, there exist scalars $c_{ij}$, not all zero, such that 
+    \[\sum_{i,j} c_{ij} E_{ij} = \sum_{i=1}^m \sum_{j=1}^n c_{ij} E_{ij} = 0.\]
+    Let $x_l$ be a basis element of $V$.
+    Applying this transformation to $x_l$ gives
+    \[\sum_{i=1}^m \sum_{j=1}^n c_{ij} E_{ij}(x_l) = \theta.\]
+    Since $E_{ij}(x_l) = \theta$ for $j \ne l$, all terms with $j \ne l$ vanish, so we can simplify to
+    \[\sum_{i=1}^m c_{il} E_{il}(x_l) = \sum_{i=1}^m c_{il}\, y_i = \theta.\]
+    Since $y_1, \ldots, y_m$ is a basis of $W$, they are linearly independent, so $c_{il} = 0$ for all $i$.
+    Since $l$ was arbitrary, $c_{ij} = 0$ for all $i, j$, a contradiction.
+    
+    We now show generation.
+    Let $T \in \mathcal{L}(V, W)$.
+    Now, $T$ is completely determined by where it sends $x_1, \ldots, x_n$.
+    For each basis element $x_j$, since $Tx_j \in W$, we can write
+    \[T x_j = \sum_{i=1}^m a_{ij}\, y_i\]
+    for some scalars $a_{ij}$. Consider the map $\sum_{i,j} a_{ij} E_{ij}$.
+    Applying it to any basis element $x_l$ gives
+    \[\sum_{i=1}^m \sum_{j=1}^n a_{ij} E_{ij}(x_l) = \sum_{i=1}^m a_{il}\, y_i = T x_l.\]
+    Since $T$ and $\sum_{i,j} a_{ij} E_{ij}$ agree on every basis element of $V$ they are equal.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 7, breakable]
     Prove: If $V$ is a finite-dimensional vector space and $T \in \mathcal{L}(V)$, then 
@@ -2195,6 +2355,15 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     Consider $I, T, T^2, T^3, \ldots$ in the finite-dimensional vector space $\mathcal{L}(V)$.)
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $V$ is a finite-dimensional vector space and $T \in \mathcal{L}(V)$.
+    Since $V$ is finite-dimensional $\mathcal{L}(V)$ is also finite-dimensional.
+    Thus the infinite sequence $I, T, T^2, T^3, \ldots$ in $\mathcal{L}(V)$ must be 
+    linearly dependent, so there exist scalars $a_0, a_1, \ldots, a_t$, not all zero, such that
+    \[a_0 I + a_1 T + a_2 T^2 + \ldots + a_t T^t = 0.\]
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Exercise 8, breakable]
     Let $x_1, \ldots, x_n$ be a basis of $V$ and, for each pair of indices 
     $i, j \in \{1, \ldots, n\}$, let $E_{ij} \in \mathcal{L}(V)$ be the linear mapping such that 
