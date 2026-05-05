@@ -2091,7 +2091,7 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
         has a unique solution for any scalars $a, b, c$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 3, breakable]
     Let $V$ be a vector space and let $S, T \in \mathcal{L}(V)$. Prove:
     \begin{enumerate}
@@ -2121,29 +2121,6 @@ Thus, these vectors cover a plane in $\mathbb{R}^3$.
     By rank-nullity $\nu(S) = \dim V - \rho(S)$ and $\nu(T) = \dim V - \rho(T)$. Then
     \[\nu(S + T) = \dim V - \rho(S + T) \ge \dim V - \rho(S) - \rho(T) = \nu(S) + \nu(T) - \dim V.\]
 \end{proof}
-
-\newpage
-\begin{tcolorbox}[title=Problem 4, breakable]
-    Let $V$ be a finite-dimensional vector space, $T \in \mathcal{L}(V)$. Prove:
-    \begin{enumerate}
-        \item[(i)] If $T$ and $T^2$ have the same rank, then $V = (\ker T) \oplus T(V)$ 
-        in the sense of \S 1.6, Exercise 12. (Hint: $T$ and $T^2$ also have the same 
-        nullity; use $\ker T \subseteq \ker T^2$ in the light of Corollary 3.5.14.)
-        \item[(ii)] Prove that if $k$ is a nonnegative integer such that $T^k$ and 
-        $T^{k+1}$ have the same rank, then $V = (\ker T^k) \oplus T^k(V)$.
-        \item[(iii)] Review \S 2.3, Exercise 13.
-    \end{enumerate}
-\end{tcolorbox}
-
-\begin{proof}
-    Suppose $T$ and $T^2$ have the same rank.
-\end{proof}
-
-\begin{proof}
-    Suppose $k$ is a nonnegative integer such that $T^k$ and $T^{k + 1}$ have the same rank.
-\end{proof}
-
-\textbf{Solution: } OK.
 
 \begin{tcolorbox}[title=Problem 5, breakable]
     Let $V$ be a vector space of infinite sequences of real numbers.
@@ -2306,7 +2283,7 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     Thus $V' \cong F^n$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Exercise 6, breakable]
     Here is a sketch of an alternate proof of Corollary 3.8.2, 
     based on constructing an explicit basis for $\mathcal{L}(V, W)$. Let $x_1, \ldots, x_n$ 
@@ -2363,14 +2340,35 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     \[a_0 I + a_1 T + a_2 T^2 + \ldots + a_t T^t = 0.\]
 \end{proof}
 
-\newpage
 \begin{tcolorbox}[title=Exercise 8, breakable]
     Let $x_1, \ldots, x_n$ be a basis of $V$ and, for each pair of indices 
     $i, j \in \{1, \ldots, n\}$, let $E_{ij} \in \mathcal{L}(V)$ be the linear mapping such that 
-    $E_{ij} x_j = x_i$ and $E_{ij} x_k = 0$ when $j \ne k$ (cf. Exercise 6). Show that 
-    (1) $E_{ij} E_{hk} = \delta_{jh} E_{ik}$, (2) $E_{ij} E_{jk} = E_{ik}$, and 
+    $E_{ij} x_j = x_i$ and $E_{ij} x_k = 0$ when $k \ne j$ (cf. Exercise 6). Show that 
+    (1) $E_{ij} E_{jk} = E_{ik}$, (2) $E_{ij} E_{hk} = 0$ when $j \ne h$, and 
     (3) $E_{11} + E_{22} + \ldots + E_{nn} = I$.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $x_l \in \{x_1, \ldots, x_n\}$.
+
+    We have
+    \[E_{ij} E_{jk}(x_l) = E_{ij}(E_{jk}(x_l)).\]
+    Suppose $l \ne k$ then $E_{jk}(x_l) = 0$ so $E_{ij}(E_{jk}(x_l)) = 0 = E_{ik}(x_l)$.
+    Suppose $l = k$ then $E_{jk}(x_l) = x_j$ so $E_{ij}(E_{jk}(x_l)) = E_{ij}(x_j) = x_i = E_{ik}(x_l)$.
+    Thus $E_{ij} E_{jk} = E_{ik}$.
+
+    We have
+    \[E_{ij} E_{hk}(x_l) = E_{ij}(E_{hk}(x_l)).\]
+    Suppose $l \ne k$ then $E_{hk}(x_l) = 0$ so $E_{ij}(E_{hk}(x_l)) = 0$.
+    Suppose $l = k$ then $E_{hk}(x_l) = x_h$.
+    Then since $j \ne h$ we have $E_{ij}(x_h) = 0$.
+    Thus $E_{ij} E_{hk} = 0$.
+
+    We have
+    \[(E_{11} + E_{22} + \cdots + E_{nn})(x_l) = \sum_{i=1}^n E_{ii}(x_l) = E_{ll}(x_l) = x_l = I(x_l)\]
+    since $E_{ii}(x_l) = 0$ for $i \ne l$ and $E_{ll}(x_l) = x_l$.
+    Thus $E_{11} + E_{22} + \cdots + E_{nn} = I$.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 9, breakable]
     Let $T : V \to W$ be a linear mapping such that $W$ is finite-dimensional 
@@ -2382,10 +2380,29 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     2.3.4, $T = \sum_{i=1}^m f_i \otimes y_i$.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $f_i \in \{f_1, \ldots, f_m\}$.
+    Let $x, y \in V$ and let $c \in F$.
+    Then
+    \[\sum_i f_i(x + y) y_i = T(x + y) = Tx + Ty = \sum_i f_i(x) y_i + \sum_i f_i(y) y_i = \sum_i (f_i(x) + f_i(y)) y_i\]
+    so $f_i(x + y) = f_i(x) + f_i(y)$.
+    Similarly
+    \[\sum_i f_i(cx) y_i = T(cx) = cTx = \sum_i cf_i(x) y_i\]
+    so $f_i(cx) = cf_i(x)$.
+    Thus $f_i$ is a linear form on $V$.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 10, breakable]
     If $V$ and $W$ are finite-dimensional vector spaces such that 
     $\dim \mathcal{L}(V, W) = 7$, then $\mathcal{L}(V, W)$ is isomorphic to either $V$ or $W$.
 \end{tcolorbox}
+
+\begin{proof}
+    Since $\dim \mathcal{L}(V, W) = \dim V \cdot \dim W = 7$ and 7 is prime,
+    either $\dim V = 1, \dim W = 7$ or $\dim V = 7, \dim W = 1$.
+    WLOG $\dim V = 1, \dim W = 7$.
+    Then $W \cong F^7 \cong \mathcal{L}(V, W)$.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 11, breakable]
     If $V$ and $W$ are finite-dimensional vector spaces over the same field, then 
@@ -2395,6 +2412,14 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     the mapping $(x, y) \mapsto Rx + Sy$.)
 \end{tcolorbox}
 
+\begin{proof}
+    Simply note that,
+    \[\dim \mathcal{L}(U, W) \times \mathcal{L}(V, W) = \dim \mathcal{L}(U, W) + \dim \mathcal{L}(V, W) = \dim U \cdot \dim W + \dim V \cdot \dim W.\]
+    Similarly,
+    \[\dim \mathcal{L}(U \times V, W) = \dim(U \times V) \cdot \dim W = (\dim U + \dim V) \cdot \dim W = \dim U \cdot \dim W + \dim V \cdot \dim W.\]
+    So the two spaces have the same dimension and are therefore isomorphic.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 12, breakable]
     If $V$ is a finite-dimensional vector space and $x$ is a nonzero vector in $V$, 
     then there exists a linear form $f$ on $V$ such that $f(x) \ne 0$. (Hint:
@@ -2402,6 +2427,17 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     solution: If $\dim V = n$, compose an isomorphism $T : V \to F^n$ with an 
     appropriate coordinate function $F^n \to F$.)
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ is a basis of $V$ and let $x \in V$ be nonzero.
+    Then there exist scalars $c_1, \ldots, c_n$, not all zero, such that 
+    \[x = \sum_{i=1}^n c_i x_i.\]
+    WLOG suppose $c_1 \ne 0$.
+    By Theorem 3.8.1, there exists a linear map $f : V \to F$ such that $f(x_1) = 1$ 
+    and $f(x_k) = 0$ for $k \ne 1$.
+    Then $f(x) = \sum_{i=1}^n c_i f(x_i) = c_1 \ne 0$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Exercise 13, breakable]
     Let $V$ be a finite-dimensional vector space, $M$ a linear subspace of $V$, 
@@ -2413,11 +2449,55 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     mapping $V \to V/M$.)
 \end{tcolorbox}
 
+\begin{proof}
+    Let $y_1, \ldots, y_m$ be a basis of $M$. Since $x \notin M$, the vectors
+    $y_1, \ldots, y_m, x$ are linearly independent we can create a basis
+    $y_1, \ldots, y_m, x, z_1, \ldots, z_k$ of $V$ by Theorem 3.5.15.
+    By Theorem 3.8.1 there exists a linear map $f : V \to F$ such that 
+    \[f(x) = 1, \quad f(y_i) = 0 \text{ for } i = 1, \ldots, m, \quad f(z_j) = 0 \text{ for } j = 1, \ldots, k.\]
+    Then $f(x) = 1 \ne 0$ and any $y \in M$ there exist scalars $c_1, \ldots, c_m$ such that
+    $y = \sum_{i=1}^m c_i y_i$ then
+    \[f(y) = \sum_{i=1}^m c_i f(y_i) = 0.\]
+\end{proof}
+
 \subsection{Duality in Vector Spaces}
 
 \begin{tcolorbox}[title=Exercise 1, breakable]
     Simplify the proof of Theorem 3.9.6 by citing \S 2.3, Exercise 2.
 \end{tcolorbox}
+
+\begin{theorem}
+    If $T : V \longrightarrow W$ is a linear mapping then, for every linear form 
+    $g$ on $W$, the composite mapping $gT$ is a linear form on $V$; the mapping 
+    $T : W' \longrightarrow V'$ defined by $Tg = gT$ is linear.
+\end{theorem}
+
+\begin{proof}
+The first statement is obvious (2.3.13). To see that $T'$ is linear, let $g$ and $h$ be linear forms on $W$ and let $c$ be a scalar. For every vector $x \in V$,
+\begin{align*}
+(T'(g + h))(x) &= ((g + h)T)(x) \\
+&= (g + h)(Tx) \\
+&= g(Tx) + h(Tx) \\
+&= (gT)(x) + (hT)(x) \\
+&= (T'g)(x) + (T'h)(x) \\
+&= (T'g + T'h)(x)
+\end{align*}
+(the justification for each equality is a definition: for the first equality, the definition of $T'$; what definitions are involved in the other equalities?). Therefore $T'(g + h) = T'g + T'h$; similarly $T'(cg) = c(T'g)$.
+\end{proof}
+
+\begin{proof}
+The first statement is obvious (2.3.13). To see that $T'$ is linear, recall 
+that $T'g = gT$ for every linear form $g \in W'$. Then for any $g, h \in W'$ 
+and scalar $c$:
+\[
+    T'(g + h) = (g+h)T = gT + hT = T'g + T'h
+\]
+\[
+    T'(cg) = (cg)T = c(gT) = c(T'g)
+\]
+where the middle equality in each line follows from \S 2.3, Exercise 2(ii) 
+and 2(iv), respectively. Therefore $T'$ is linear.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 2, breakable]
     If $V$ is a finite-dimensional vector space, $M$ is a linear subspace of $V$, 
@@ -2428,11 +2508,46 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     $\operatorname{Im} Q' \subset M^\circ$, therefore $\operatorname{Im} Q' = M^\circ$.\}
 \end{tcolorbox}
 
+\begin{proof}
+    We first show $\dim \operatorname{ran} Q' = \dim M^\circ$.
+    By Corollary 3.9.13, $Q'$ is injective, so $\nu(Q') = 0$ and thus
+    $\dim \operatorname{ran} Q' = \dim(V/M)'$.
+    By Theorem 3.9.11 and Theorem 3.9.12,
+    \[\dim M^\circ = \dim V - \dim M = \dim(V/M) = \dim (V/M)'.\]
+    Thus $\dim \operatorname{ran} Q' = \dim M^\circ$.
+    We now show $\operatorname{ran} Q' \subset M^\circ$.
+    Let $f$ be an element of $\operatorname{ran} Q'$.
+    There exists $q \in (V/M)'$ such that $Q'(q) = q \circ Q = f$.
+    Let $x$ be an element of $M$.
+    Then 
+    \[f(x) = (q \circ Q)(x) = q(Q(x)) = q(0) = 0.\]
+    Thus $f \in M^\circ$ so $\operatorname{ran} Q' \subset M^\circ$.
+    Since $\operatorname{ran} Q'$ is a subspace of $M^\circ$ and $\dim \operatorname{ran} Q' = \dim M^\circ$,
+    we must have $\operatorname{ran} Q' = M^\circ$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Exercise 3, breakable]
     If $V$ and $W$ are finite-dimensional vector spaces and $T : V \to W$ is a 
     linear mapping, prove that $T$ and $T'$ have the same nullity if and only if 
     $\dim V = \dim W$.
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $V$ and $W$ are finite-dimensional vector spaces and $T : V \to W$ is a linear mapping.
+    Now, suppose $T$ and $T'$ have the same nullity.
+    By rank-nullity 
+    \[\dim V = \rho(T) + \nu(T) \text{ and } \dim W' = \rho(T') + \nu(T').\]
+    By Theorem 3.9.12 we have $\rho(T) = \rho(T')$
+        and since $\nu(T) = \nu(T')$ we must have $\dim V = \dim W' = \dim W$.
+    Conversely, suppose $\dim V = \dim W = \dim W'$.
+    By rank-nullity 
+    \[\dim V = \rho(T) + \nu(T) \text{ and } \dim W' = \rho(T') + \nu(T').\]
+    So 
+    \[\rho(T) + \nu(T) = \rho(T') + \nu(T').\]
+    By Theorem 3.9.12 we have $\rho(T) = \rho(T')$
+        so $\nu(T) = \nu(T')$.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 4, breakable]
     If $V$ and $W$ are finite-dimensional vector spaces, then 
@@ -2441,6 +2556,16 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     defined as follows: if $f \in V'$ and $g \in W'$, let $T(f, g)$ be the linear form 
     $(x, y) \mapsto f(x) + g(y)$ on $V \times W$. \{Shortcut: \S 3.8, Exercise 11.\}
 \end{tcolorbox}
+
+\begin{proof}
+    Section 3.8 Exercise 11 states if $U, V, W$ are vector spaces over the same field, 
+    then there exists a natural isomorphism
+    \[\mathcal{L}(U, W) \times \mathcal{L}(V, W) \cong \mathcal{L}(U \times V, W).\]
+    Setting $W = F$ we have $\mathcal{L}(U, F) = U'$ and 
+    $\mathcal{L}(V, F) = V'$ and $\mathcal{L}(U \times V, F) = (U \times V)'$,
+    so
+    \[U' \times V' \cong (U \times V)'.\]
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 5, breakable]
     Let $V = \mathcal{D}$ be the vector space of real polynomial functions (1.3.5).
@@ -2451,17 +2576,41 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     \{Hint: $\varphi_k(p) = (D^k p)(0)$.\}
 \end{tcolorbox}
 
+\begin{proof}
+    For any $p \in V$ we have
+    \[(D'\varphi_k)(p) = \varphi_k(Dp) = \varphi_k(p') = (D^k p')(0) = (D^{k+1}p)(0) = \varphi_{k+1}(p).\]
+\end{proof}
+
+
 \begin{tcolorbox}[title=Exercise 6, breakable]
     Let $V$ be a vector space of dimension $n$ and let $f_1, \ldots, f_n$ be a basis of 
     $V'$ (Theorem 3.9.2). Prove that the mapping $x \mapsto (f_1(x), \ldots, f_n(x))$ is a 
     vector space isomorphism $V \to F^n$. \{Hint: \S 3.8, Exercise 12.\}
 \end{tcolorbox}
 
+\begin{proof}
+    Let $T: V \to F^n$ be defined by
+    \[T(x) = (f_1(x), \ldots, f_n(x)).\]
+    $T$ is linear since each $f_i$ is linear.
+    Suppose $T(x) = (0, \ldots, 0)$ for some $x \in V$.
+    Then $f_i(x) = 0$ for all $i = 1, \ldots, n$.
+    Since $f_1, \ldots, f_n$ is a basis of $V'$, every $f \in V'$ is a linear combination 
+    of the $f_i$, so $f(x) = 0$ for all $f \in V'$.
+    By \S 3.8 Exercise 12, this implies $x = 0$, so $T$ is injective.
+    Since $\dim V = n = \dim F^n$, $T$ is an isomorphism.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 7, breakable]
     If $V$ and $W$ are finite-dimensional vector spaces, $T : V \to W$ is a linear 
     mapping, and $T' : W' \to V'$ is the transpose of $T$, then $T$ is bijective if 
     and only if $T'$ is bijective. \{Hint: Corollary 3.9.13.\}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $V$ and $W$ are finite-dimensional vector spaces, $T : V \to W$ is a linear 
+    mapping, and $T' : W' \to V'$ is the transpose of $T$.
+    Follows directly from Corollary 3.9.13 that $T$ is bijective iff $T'$ is bijective.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 8, breakable]
     It is an exercise in concentration to calculate the transpose of a linear 
@@ -2475,21 +2624,87 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    \begin{enumerate}
+        \item[(i)] $a'$ is linear since $a'(c + d) = a(c+d) = ac + ad = a'(c) + a'(d)$ 
+        and $a'(\lambda c) = a(\lambda c) = \lambda(ac) = \lambda a'(c)$.
+        The map $a \mapsto a'$ is linear since $(a+b)'(c) = (a+b)c = ac + bc = a'(c) + b'(c)$
+        and $(\lambda a)'(c) = (\lambda a)c = \lambda(ac) = (\lambda a')(c)$.
+        It is injective since $a' = 0$ implies $a'(1) = a = 0$.
+        Since $\dim F = \dim F' = 1$ it is an isomorphism.
+
+        \item[(ii)] For any $x \in V$
+        \[(a'f)(x) = a'(f(x)) = a \cdot f(x) = (af)(x).\]
+        Thus $a'f = af$.
+
+        \item[(iii)] $f' : F' \to V'$ so for any $a' \in F'$ and $x \in V$
+        \[(f'a')(x) = a'(f(x)) = a \cdot f(x) = (af)(x).\]
+        Thus $f'a' = af$.
+    \end{enumerate}
+\end{proof}
+
+ 
 \begin{tcolorbox}[title=Exercise 9, breakable]
     Let $x_1, \ldots, x_n$ be a basis of $V$ and let $f_1, \ldots, f_n$ be the basis of $V'$ 
     dual to $x_1, \ldots, x_n$. Show that $x_1'', \ldots, x_n''$ is the basis of $V''$ dual to 
     $f_1, \ldots, f_n$. \{See Definition 3.9.15 for the notations.\}
 \end{tcolorbox}
 
+\begin{proof}
+    We first show independence.
+    Suppose there exists scalars $c_1, \ldots, c_n$, not all zero, such that 
+    \[\sum c_i x_i'' = 0.\]
+    Then for each $j$,
+    \[0 = \sum c_i x_i''(f_j) = \sum c_i f_j(x_i) = \sum c_i \delta_{ij} = c_j,\]
+    a contradiction.
+    Since $x_1'', \ldots, x_n''$ are $n$ linearly independent elements of $V''$ 
+    and $\dim V'' = n$, they form a basis of $V''$.
+    Finally we show $x_1'', \ldots, x_n''$ is dual to $f_1, \ldots, f_n$.
+    For each $i, j$,
+    \[x_i''(f_j) = f_j(x_i) = \delta_{ij}.\]
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 10, breakable]
     Let $V$ and $W$ be finite-dimensional vector spaces. Show that the mapping 
     $\mathcal{L}(V, W) \to \mathcal{L}(W', V')$ defined by $T \mapsto T'$ is linear and bijective.
 \end{tcolorbox}
 
+\begin{proof}
+    Consider the mapping 
+    $G : \mathcal{L}(V, W) \longrightarrow \mathcal{L}(W', V')$ defined by $G(T) = T'$.
+    Let $f, g \in \mathcal{L}(V, W)$ and $c$ be a scalar in $F$.
+    Then 
+    \[G(f + g) = (f + g)' = f' + g' = G(f) + G(g).\]
+    Similarly 
+    \[G(cf) = (cf)' = cf' = cG(f).\]
+    Thus $G$ is linear. Now let $G^{-1} : \mathcal{L}(W', V') \longrightarrow \mathcal{L}(V, W)$ 
+    be defined by $G^{-1}(T') = T$. Then
+    \[G^{-1}G(T) = G^{-1}(T') = T\]
+    and
+    \[GG^{-1}(T') = G(T) = T'.\]
+    Thus $G$ is bijective.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 11, breakable]
     If $V$ and $W$ are finite-dimensional, then the mapping 
     $\mathcal{L}(V, W) \to \mathcal{L}(V'', W'')$ defined by $T \mapsto T''$ is linear and bijective.
 \end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping 
+    $G : \mathcal{L}(V, W) \longrightarrow \mathcal{L}(W'', V'')$ defined by $G(T) = T''$.
+    Let $f, g \in \mathcal{L}(V, W)$ and $c$ be a scalar in $F$.
+    Then 
+    \[G(f + g) = (f + g)'' = f'' + g'' = G(f) + G(g).\]
+    Similarly 
+    \[G(cf) = (cf)'' = cf'' = cG(f).\]
+    Thus $G$ is linear. Now let $G^{-1} : \mathcal{L}(W'', V'') \longrightarrow \mathcal{L}(V, W)$ 
+    be defined by $G^{-1}(T'') = T$. Then
+    \[G^{-1}G(T) = G^{-1}(T'') = T\]
+    and
+    \[GG^{-1}(T'') = G(T) = T''.\]
+    Thus $G$ is bijective.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 12, breakable]
     Let $V$ be a finite-dimensional vector space and let $f_1, \ldots, f_n$ be a basis 
@@ -2499,6 +2714,17 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     Exercise 6 and the proof of 3.9.3.\}
 \end{tcolorbox}
 
+\begin{proof}
+    Since $f_1, \ldots, f_n$ is a basis of $V'$, by 3.9.3 applied to $V'$ and $V''$
+    there exists a basis $F_1, \ldots, F_n$ of $V''$ dual to $f_1, \ldots, f_n$ so
+    \[F_i(f_j) = \delta_{ij}.\]
+    By 3.9.17, the canonical map $\phi : V \to V''$ defined by $\phi(x)(f) = f(x)$ 
+    is an isomorphism. Thus for each $i$ there exists a unique $x_i \in V$ such that 
+    $\phi(x_i) = F_i$. Then $x_1, \ldots, x_n$ is a basis of $V$ and
+    \[f_j(x_i) = \phi(x_i)(f_j) = F_i(f_j) = \delta_{ij}\]
+    so $f_1, \ldots, f_n$ is the basis of $V'$ dual to $x_1, \ldots, x_n$.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 13, breakable]
     Let $V$ be a finite-dimensional vector space, $M$ a linear subspace of $V$, 
     $M^\circ$ the annihilator of $M$ in $V'$ (3.9.10). Prove:
@@ -2507,6 +2733,20 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
         \item[(ii)] $M^\circ = V' \Leftrightarrow M = \{\theta\}$.
     \end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    We know all that $\dim M^\circ = \dim V - \dim M$.
+
+    \textit{(i)} Suppose $M = V$. Then $\dim M^\circ = \dim V - \dim V = 0$, so $M^\circ = \{0\}$.
+    Conversely, suppose $M^\circ = \{0\}$. Then $\dim M^\circ = 0$, so $\dim V - \dim M = 0$, 
+    thus $\dim M = \dim V$ and thus $M = V$.
+
+    \textit{(ii)} Suppose $M = \{\theta\}$. Then $\dim M^\circ = \dim V - 0 = \dim V = \dim V'$, 
+    so $M^\circ = V'$.
+    Conversely, suppose $M^\circ = V'$. Then $\dim V' = \dim V - \dim M$, 
+    so $\dim M = 0$ and thus $M = \{\theta\}$.
+\end{proof}
+
 
 \begin{tcolorbox}[title=Exercise 14, breakable]
     Let $V$ be a finite-dimensional vector space, $V'$ its dual, $N$ a linear 
@@ -2524,6 +2764,20 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     finally observe that ${}^\circ(M^\circ) = S^{-1}((M^\circ)^\circ)$.\}
 \end{tcolorbox}
 
+\begin{proof}
+    Let $x \in M$. For all $f \in M^\circ$ we have $f(x) = 0$ by definition
+    of $M^\circ$, so $x \in {}^\circ(M^\circ)$. Thus $M \subseteq {}^\circ(M^\circ)$.
+
+    Conversely, let $x \in {}^\circ(M^\circ) \setminus M$.
+    By \S 3.8, Exercise 13, there exists a linear form $f \in V'$ such that
+    $f|_M = 0$ and $f(x) \ne 0$.
+    Since $f|_M = 0$, we have $f \in M^\circ$.
+    But then $f(x) \ne 0$ contradicts $x \in {}^\circ(M^\circ)$.
+    Thus ${}^\circ(M^\circ) \subseteq M$.
+
+    Therefore ${}^\circ(M^\circ) = M$.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 15, breakable]
     Let $V$ be a finite-dimensional vector space, $M$ and $N$ linear subspaces 
     of $V$, and $M^\circ$, $N^\circ$ their annihilators in $V'$ (3.9.10). Prove:
@@ -2537,6 +2791,32 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $M^\circ = N^\circ$.
+    By the hint of Exercise 14, $S(M) = (M^\circ)^\circ$ and $S(N) = (N^\circ)^\circ$.
+    But $M^\circ = N^\circ$ implies $(M^\circ)^\circ = (N^\circ)^\circ$ implies $M = N$.
+\end{proof}
+
+\begin{proof}
+    Let $f \in (M + N)^\circ$.
+    For all $m \in M$ we have $f(m) = f(m + 0) = 0$ where $0 \in N$,
+    so $f \in M^\circ$. Similarly $f \in N^\circ$, so $f \in M^\circ \cap N^\circ$.
+    Conversely, suppose $f \in M^\circ \cap N^\circ$.
+    For all $m \in M$ and $n \in N$ we have $f(m + n) = f(m) + f(n) = 0 + 0 = 0$,
+    so $f \in (M + N)^\circ$.
+\end{proof}
+
+\begin{proof}
+    By Exercise 14, ${}^\circ(M^\circ) = M$ and ${}^\circ(N^\circ) = N$, so
+    $(M^\circ)^\circ = S(M)$ and $(N^\circ)^\circ = S(N)$.
+    Thus $((M \cap N)^\circ)^\circ = S(M \cap N) = S(M) \cap S(N) = (M^\circ)^\circ \cap (N^\circ)^\circ$.
+    By (ii) applied to $M^\circ$ and $N^\circ$ in $V'$, we have
+    $(M^\circ + N^\circ)^\circ = (M^\circ)^\circ \cap (N^\circ)^\circ$,
+    so $((M \cap N)^\circ)^\circ = (M^\circ + N^\circ)^\circ$.
+    By (i) applied in $V'$, $(M \cap N)^\circ = M^\circ + N^\circ$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Exercise 16, breakable]
     Let $V$ be a finite-dimensional vector space, $N$ a linear subspace of $V'$. 
     The `backward annihilator' ${}^\circ N$ of $N$ is a linear subspace of $V$ (Exercise 
@@ -2549,6 +2829,21 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Let $x \in {}^\circ N$, so $f(x) = 0$ for all $f \in N$.
+    Then $S(x) \in V''$ satisfies $S(x)(f) = f(x) = 0$ for all $f \in N$,
+    so $S(x) \in N^\circ$. Thus $S({}^\circ N) \subseteq N^\circ$.
+    Conversely, by 3.9.11
+    \[\dim S({}^\circ N) = \dim {}^\circ N = \dim V - \dim N = \dim N^\circ,\]
+    so $S({}^\circ N) = N^\circ$.
+\end{proof}
+
+\begin{proof}
+    Let $M = {}^\circ N$. By (i), $S(M) = N^\circ$, and by the alternate proof
+    of Exercise 14, $S(M) = (M^\circ)^\circ$. Thus $(M^\circ)^\circ = N^\circ$,
+    and by Exercise 15(i) applied in $V'$, $M^\circ = N$ so $({}^\circ N)^\circ = N$.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 17, breakable]
     Let $V$ be a finite-dimensional vector space and let $f$ and $f_1, \ldots, f_n$ be 
     linear forms on $V$. The following conditions are equivalent:
@@ -2559,6 +2854,17 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     \end{enumerate}
     \{Hint: Let $N$ be the linear span of $f_1, \ldots, f_n$ and look at Exercise 16.\}
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose $f = \sum_{i=1}^n c_i f_i$.
+    If $f_i(x) = 0$ for all $i$, then $f(x) = \sum c_i f_i(x) = 0$.
+
+    Let $N$ be the linear span of $f_1, \ldots, f_n$ in $V'$.
+    So $f$ vanishes on ${}^\circ N$.
+    Thus $f \in ({}^\circ N)^\circ$.
+    By Exercise 16(ii), $({}^\circ N)^\circ = N$.
+    Thus $f \in N$ so $f$ is a linear combination of $f_1, \ldots, f_n$.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 18, breakable]
     Let $T : V \to W$ be a linear mapping, $M$ a linear subspace of $V$, $N$ a 
@@ -2571,11 +2877,39 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Let $f \in N^\circ$, so $f(y) = 0$ for all $y \in N$.
+    Then for all $x \in M$, $(T'f)(x) = f(Tx) = 0$ since $Tx \in T(M) \subset N$.
+    Thus $T'f \in M^\circ$, so $T'(N^\circ) \subset M^\circ$.
+\end{proof}
+
+\begin{proof}
+    Apply (i) with $M = \ker T$ and $N = \{\theta\}$.
+    Since $T(\ker T) = \{\theta\} \subset \{\theta\}$ we have $T'(\{\theta\}^\circ) \subset (\ker T)^\circ$.
+    But $\{\theta\}^\circ = W'$ so $T'(W') \subset (\ker T)^\circ$.
+\end{proof}
+
+\begin{proof}
+    By (ii) we have $T'(W') \subset (\ker T)^\circ$.
+    By 3.9.11, $\dim(\ker T)^\circ = \dim V - \dim \ker T = \dim T(V)$.
+    By 3.9.11 applied to $T'$, $\dim T'(W') = \dim W' - \dim \ker T' = \dim W - \dim \ker T'$.
+    By 3.9.11, $\dim \ker T' = \dim W - \dim T(V)$, so $\dim T'(W') = \dim T(V) = \dim (\ker T)^\circ$.
+    Thus $T'(W') = (\ker T)^\circ$.
+\end{proof}
+
+
 \begin{tcolorbox}[title=Exercise 19, breakable]
     Let $V$ be a finite-dimensional vector space, $M$ a linear subspace of $V$, 
     and $T : M \to V$ the insertion mapping $Tx = x$ ($x \in M$). Show that 
     $T' : V' \to M'$ is the mapping $R$ in the proof of Theorem 3.9.11.
 \end{tcolorbox}
+
+\begin{proof}
+    For $f \in V'$ and $x \in M$, $(T'f)(x) = f(Tx) = f(x)$,
+    so $T'f$ is the restriction of $f$ to $M$.
+    This is precisely the mapping $R : V' \to M'$ in the proof of 3.9.11,
+    which sends each $f \in V'$ to its restriction $f|_M \in M'$.
+\end{proof}
 
 \begin{tcolorbox}[title=Exercise 20, breakable]
     If $V$ is a vector space and $f_1, \ldots, f_n$ are linearly independent linear 
@@ -2585,8 +2919,27 @@ Thus we conclude that $Sx = cx$ for all $x \in V$ with $ST = TS$ not needed.
     $\dim V \ge n$. Shortcut: Exercise 17.\}
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose $V$ is a vector space and $f_1, \ldots, f_n$ are linearly independent linear
+    forms on $V$ such that
+    \[(\ker f_1) \cap \ldots \cap (\ker f_n) = \{\theta\}.\]
+    By Section 3.6 Exercise 9 we know $\dim V \le n$.
+    Now we show $\dim V \ge n$.
+    Since $f_1, \ldots, f_n$ are linearly independent elements of $V'$ and $\dim V' = \dim V$,
+    we have $\dim V = \dim V' \ge n$.
+    Thus $\dim V = n$.
+\end{proof}
+
 \begin{tcolorbox}[title=Exercise 21, breakable]
     Let $V$ and $W$ be finite-dimensional vector spaces, $T : V \to W$ a linear 
     mapping. If $W$ is 12-dimensional and the kernel of $T'$ is 4-dimensional, 
     find the rank of $T$.
 \end{tcolorbox}
+
+\begin{proof}
+    We know $\dim \ker T' = 4$ and $\dim W = 12$.
+    By rank-nullity applied to $T'$
+    \[\dim W' = \rho(T') + \nu(T')\]
+    \[12 = \rho(T') + 4\]
+    so $\rho(T') = 8$. Since $\rho(T) = \rho(T')$, the rank of $T$ is $8$.
+\end{proof}

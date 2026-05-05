@@ -32,7 +32,7 @@
     \]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 10, breakable]
     A particle moves in a circle (center $O$ and radius $R$)
     with constant angular velocity $\omega$ counterclockwise.
@@ -86,6 +86,7 @@ This corresponds to the $\omega^2$ term in the force magnitude formula.
 Now imagine you half the length of the string and spin with equivalent velocity.
 You will feel less force corresponding to $\frac{1}{R}$ in the magnitude $\omega^2 R$.
 
+
 \begin{tcolorbox}[title=Problem 11, breakable]
     The position of a moving particle is given as a function 
     of time $t$ to be 
@@ -94,14 +95,57 @@ You will feel less force corresponding to $\frac{1}{R}$ in the magnitude $\omega
 \end{tcolorbox}
 
 \begin{proof}
-    
+    This is the standard form for an ellipse.
+    At $\omega t = 0$ we have $r(t) = (b, 0)$
+    and at $\omega t = \pi / 2$ we have $r(t) = (0, c)$.
+    The following is the shape.
+    \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+        % Axes
+        \draw[->] (-3,0) -- (3,0) node[right] {$x$};
+        \draw[->] (0,-3) -- (0,3) node[above] {$y$};
+
+        % Ellipse
+        \draw[thick] (0,0) ellipse (2 and 1.5);
+
+        % Points
+        \fill (2,0) circle (2pt) node[below right] {$(b,0)$};
+        \fill (0,1.5) circle (2pt) node[above left] {$(0,c)$};
+    \end{tikzpicture}
+    \end{center}
+    The particles position changes with angular velocity $\omega$.
 \end{proof}
+
 
 \begin{tcolorbox}[title=Problem 12, breakable]
     The position of a moving particle given as a function of time $t$ to be 
     \[\vec{r}(t) = \hat{x} b \cos(\omega t) + \hat{y} c \sin (\omega t) + \hat{z} v_o t,\]
     where $b, c, v_o$ and $w$ are constants. Describe the particle's orbit.
 \end{tcolorbox}
+
+\begin{proof}
+    When $v_0 = 0$ we have Problem 11.
+    Therefore suppose $v_0 \ne 0$.
+    Take $z$ to be the `height' axis.
+    If $v_0 > 0$ ($v_0 < 0$) the particle continuously increases (decreases) in height over time.
+    If we take two velocities equal but opposite in sign then the path traced is equivalent 
+    but the direction they go in terms of height changes.
+    The following is the shape.
+    \begin{center}
+    \begin{tikzpicture}[scale=1.1]
+        % Axes
+        \draw[->] (-3,0,0) -- (3,0,0) node[right] {$x$};
+        \draw[->] (0,-3,0) -- (0,3,0) node[above] {$y$};
+        \draw[->] (0,0,0) -- (0,0,4) node[above] {$z$};
+
+        % Helix (projected ellipse + upward motion)
+        \draw[domain=0:6*pi, samples=100, smooth, variable=\t]
+            plot ({2*cos(\t r)}, {1.5*sin(\t r)}, {\t/3});
+
+    \end{tikzpicture}
+    \end{center}
+\end{proof}
+
 
 \begin{tcolorbox}[title=Problem 17, breakable]
     \begin{enumerate}
@@ -110,4 +154,649 @@ You will feel less force corresponding to $\frac{1}{R}$ in the magnitude $\omega
         \item Prove the product rule 
         \[\frac{d}{dt} (\vec{r} \times \vec{s}) = \vec{r} \times \frac{d \vec{s}}{dt} + \frac{d \vec{r}}{dt} \times \vec{s}.\]
     \end{enumerate}
+    Be careful with the order of the factors.
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[\vec{r} \times (\vec{u} + \vec{v}) 
+        = \begin{vmatrix}
+            \hat{x} & \hat{y} & \hat{z} \\
+            r_x & r_y & r_z \\
+            u_x + v_x & u_y + v_y & u_z + v_z
+        \end{vmatrix} = \begin{vmatrix}
+            \hat{x} & \hat{y} & \hat{z} \\
+            r_x & r_y & r_z \\
+            u_x & u_y & u_z
+        \end{vmatrix}
+        +
+        \begin{vmatrix}
+            \hat{x} & \hat{y} & \hat{z} \\
+            r_x & r_y & r_z \\
+            v_x & v_y & v_z
+        \end{vmatrix}.
+    \]
+    Thus
+    \[
+        \vec{r} \times (\vec{u} + \vec{v})
+        = (\vec{r} \times \vec{u}) + (\vec{r} \times \vec{v}).
+    \] 
+\end{proof}
+
+\begin{proof}
+    We have
+    \[
+        \vec{r} \times \vec{s}
+        =
+        \begin{vmatrix}
+            \hat{x} & \hat{y} & \hat{z} \\
+            r_x & r_y & r_z \\
+            s_x & s_y & s_z
+        \end{vmatrix}.
+    \]
+    Differentiating componentwise
+    \[
+        \frac{d}{dt} (\vec{r} \times \vec{s})
+        =
+        \begin{vmatrix}
+            \hat{x} & \hat{y} & \hat{z} \\
+            \dot{r}_x & \dot{r}_y & \dot{r}_z \\
+            s_x & s_y & s_z
+        \end{vmatrix}
+        +
+        \begin{vmatrix}
+            \hat{x} & \hat{y} & \hat{z} \\
+            r_x & r_y & r_z \\
+            \dot{s}_x & \dot{s}_y & \dot{s}_z
+        \end{vmatrix}.
+    \]
+    Therefore
+    \[
+        \frac{d}{dt} (\vec{r} \times \vec{s})
+        = \frac{d \vec{r}}{dt} \times \vec{s}
+        + \vec{r} \times \frac{d \vec{s}}{dt}.
+    \]
+\end{proof}
+
+\subsection{Newton's First and Seconds Laws; Intertial Frames}
+
+\begin{tcolorbox}[title=Problem 24, breakable]
+    Find the general solution of the first-order equation $df/dt = f$
+    for an unknown function $f(t)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f(t) = C e^t$ where $C$ is an arbitrary constant.
+    Then 
+    \[
+    \frac{df}{dt} = \frac{d}{dt}(C e^t) = C \frac{d}{dt} e^t = C e^t = f(t).
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 25, breakable]
+    Answer the same question as before, but for the differential equation $df/dt = -3 f$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f(t) = C e^{-3t}$ where $C$ is an arbitrary constant. Then 
+    \[
+        \frac{df}{dt} = \frac{d}{dt}(C e^{-3t}) = C(-3)e^{-3t} = -3Ce^{-3t} = -3f(t).
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 26, breakable]
+    Consider the following: I am standing on a level floor 
+    at the origin of an inertial reference frame $S$ and kick a frictionless puck 
+    due north across the floor. 
+    \begin{enumerate}
+        \item Write down the $x$ and $y$ coordinates of the puck as functions of time as seen from my inertial 
+        frame.
+        \item Now consider two more observers, the first at rest in a frame $S'$ that travels with constant velocity 
+        $v$ due east relative to $S$, the second at rest in a frame $S''$ that travels with constant acceleration due east relative to $S$.
+        Find the coordinates $x', y'$ of the puck and describe the puck's path as seen from $S'$.
+        \item Do the same for $S''$. Which of the frames is inertial.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+The position of the puck is $r(t) = (0, v' t)$ where $v'$ is the velocity of the puck.
+This is certainly a straight line, and since there are no forces acting on the puck,
+Newton's first law holds in $S$.
+
+\textbf{Solution (b):}
+$S'$ will observe the puck getting farther away at a constant velocity $v$.
+Thus the position of the puck relative to $S'$ is $r'(t) = (-v t, v' t)$.
+This is certainly a straight line, and since there are no forces acting on the puck,
+Newton's first law holds in $S'$.
+
+\textbf{Solution (c):}
+$S''$ will observe the puck moving with an accelerating motion at rate $a$.
+Thus the position of the puck relative to $S''$ is
+$r''(t) = \left(-\tfrac{1}{2} a t^2 - v t,\, v' t\right)$.
+This is indeed not a straight line, and since there are no forces acting on the puck,
+Newton's first law does not hold in $S''$.
+
+
+\begin{tcolorbox}[title=Problem 27, breakable]
+    I am standing on the ground (which we shall take to be an inertial frame)
+    beside a perfectly flat horizontal turntable, rotating with constant angular 
+    velocity $\omega$. I lean over and shove a frictionless puck so that 
+    it slides across the turntable, straight through the center.
+    The puck is subject to zero net force and, as seen 
+    from my inertial frame, travels in a straight line. Describe the 
+    puck's path as observed by someone sitting at rest on the turntable.
+    This requires careful thought, but you should be able to get a qualitative
+    picture. 
+\end{tcolorbox}
+
+\textbf{Solution: } 
+Place the noninertial reference frame at the center of the turntable 
+    with angular velocity $\omega$.
+Place the inertial reference frame at the center of the turntable 
+    with the same direction as the noninertial frame but without having an angular velocity.
+Have the table spin counterclockwise
+    and suppose the table has turned $\pi$ radians when the puck reaches the center.
+We find that the two reference frames agree on the position of the puck 
+at the start, middle, and end.
+
+\begin{tikzpicture}[scale=3]
+
+% Turntable (circle)
+\draw[thick] (0,0) circle (1);
+
+% Center point
+\fill (0,0) circle (0.015);
+
+% Rotating frame axes
+\draw[->, gray] (-1.2,0) -- (1.2,0) node[right] {x};
+\draw[->, gray] (0,-1.2) -- (0,1.2) node[above] {y};
+
+% Key points
+\coordinate (start) at (-1,-0.2);
+\coordinate (center) at (0,0);
+\coordinate (end) at (1,0.2);
+
+% Straight inertial path
+\draw[dashed, blue] (start) -- (end);
+
+% Rotating frame path (forced through start, center, end)
+\draw[thick, red]
+(start)
+.. controls (-0.6,0.6) and (-0.2,0.2) .. (center)
+.. controls (0.2,-0.2) and (0.6,-0.6) .. (end);
+
+% Points
+\fill[black] (start) circle (0.02);
+\node[left] at (start) {start};
+
+\fill[black] (center) circle (0.02);
+
+\fill[black] (end) circle (0.02);
+
+\end{tikzpicture}
+
+\subsection{The Third Law and Conservation of Momentum}
+
+\begin{tcolorbox}[title=Problem 30, breakable]
+    Two objects of masses $m_1$ and $m_2$
+    are subject to no external forces. Object $1$
+    is traveling with velocity $\vec{v}$ when 
+    it collides with a stationary object $2$.
+    The two objects stick together and move off 
+    with common velocity $\vec{v'}$.
+    Use conservation of momentum to find $v'$ in terms of $\vec{v},
+    m_1,$ and $m_2$.
+\end{tcolorbox}
+
+\begin{proof}
+    The final momentum is 
+    \[\vec{p'} = (m_1 + m_2) \vec{v'} = m_1 \vec{v} + m_2 0 = m_1 \vec{v}.\]
+    So 
+    \[\vec{v'} = \frac{m_1 \vec{v}}{m_1 + m_2}.\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 31, breakable]
+    Prove that if the law of conservation of momentum applies 
+    to every possible group of particles, then the interparticle forces 
+    must obey the third law.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider two particles $1,2$ and write 
+    \[p_1 = m_1 \vec{v}_1 \text{ and } p_2 = m_2 \vec{v}_2.\]
+    Let $p = p_1 + p_2 = m_1 \vec{v}_1 + m_2 \vec{v}_2$.
+    Taking derivatives we find 
+    \[0 = m_1 \vec{a}_1 + m_2 \vec{a}_2 = \vec{F}_{12} + \vec{F}_{21}.\]
+    Thus $\vec{F}_{12} = -\vec{F}_{21}$.
+\end{proof}
+
+\subsection{Newton's Second Law in Cartesian Coordinates}
+
+
+\begin{tcolorbox}[title=Problem 35, breakable]
+    A golf ball is hit from ground level with speed $v_0$
+    in a direction that is due east and at an angle $\theta$
+    above the horizontal. Neglecting air resistance, use Newton'S
+    second law (1.35) to find the position as a function of time,
+    using coordinates with $x$ measured east, $y$ north, and $z$ vertically up.
+    Find the time for the golf ball to return to the ground and how far it travels in that time.
+\end{tcolorbox}
+
+\begin{proof}
+    We first analyze the motion in the $z$-direction.
+    Naturally, we place our coordinate system at the golf ball 
+    when it is on the ground.
+    Now, we know 
+    \[F_z = m a_z.\]
+    Since the only force is gravity, $a_z = -g$.
+    We integrate twice to find 
+    \[\frac{1}{2}(-g)t^2 + v_0 \sin(\theta)\, t.\]
+
+    For the $x$ direction there is no acceleration and the  
+    solution is simply 
+    \[x(t) = v_0 \cos(\theta)\, t.\]
+
+    For the $y$-direction, there is no motion, so 
+    \[y(t) = 0.\]
+
+    Combining these we find the position function 
+    \[r(t) = \bigl(v_0 \cos(\theta)\, t,\; 0,\; \tfrac{1}{2}(-g)t^2 + v_0 \sin(\theta)\, t\bigr).\]
+
+    To find the time until it hits the ground we set the $z$ position to $0$ and solve 
+    \[\frac{1}{2}(-g)t^2 + v_0 \sin(\theta)\, t = 0.\]
+    This is a quadratic with two solutions:
+    $t = 0$ and $t = \frac{2 v_0 \sin(\theta)}{g}$.
+    Discarding $t = 0$, we take 
+    \[t' = \frac{2 v_0 \sin(\theta)}{g}.\]
+
+    Then the distance the ball travels is simply 
+    \[x(t') = v_0 \cos(\theta)\, t' = \frac{2 v_0^2 \sin(\theta)\cos(\theta)}{g}.\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 36, breakable]
+    A plane, which is flying horizontally at a constant speed $v_o$
+    and a height $h$ above the sea, must drop a bundle of supplies to a 
+    castaway on a small raft. 
+    \begin{enumerate}
+        \item Write down Newton's second law for the bundle as it falls from the plane,
+        assuming you can neglect air resistance. Solve your equations  to give the bundle's
+        position in flight as a function of time $t$.
+        \item How far before the raft (measured horizontally) must the pilot drop 
+        the bundle if it is to hit the raft? What is this distance if $v_o = 50 m/s$,
+        $h = 100m$, and $g \approx 10 m/s^2$?
+        \item Within what interval of time ($\pm \nabla t$) must the pilot drop 
+        the bundle if it is to land withing $\pm 10 m$ of the raft?
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    In the $y$-direction we have 
+    \[
+    F_y = m a_y = -m g.
+    \]
+    so $a_y = -g$.
+    Integrating once gives velocity
+    \[
+    v_y(t) = v_{y0} - gt.
+    \]
+    Since the bundle is dropped, $v_{y0} = 0$, so
+    \[
+    v_y(t) = -gt.
+    \]
+    Integrating again we find position
+    \[
+    y(t) = -\frac{1}{2} g t^2 + v_{y0} t + y_0.
+    \]
+    We have $y_0 = h$ and $v_{y0} = 0$, thus
+    \[
+    y(t) = h - \frac{1}{2} g t^2.
+    \]
+    In the $x$-direction there is no force, so
+    \[
+    x(t) = v_0 t.
+    \]
+\end{proof}
+
+\begin{proof}
+    Let $r_r$ be the position of the raft.
+    We require 
+    \[
+    r_r = x(t) = v_0 t.
+    \]
+    Thus we need
+    \[
+    t = \frac{r_r}{v_0}.
+    \]
+    Since the bundle is dropped, $v_{y0} = 0$ and $y_0 = h$.
+    The bundle hits the sea when $y(t)=0$, so
+    \[
+    0 = h - \frac{1}{2}gt^2
+    \quad \Rightarrow \quad
+    t = \sqrt{\frac{2h}{g}}.
+    \]
+    Therefore
+    \[
+    \frac{r_r}{v_0} = \sqrt{\frac{2h}{g}}.
+    \]
+    Thus the horizontal distance is
+    \[
+    r_r = v_0 \sqrt{\frac{2h}{g}}.
+    \]
+\end{proof}
+
+\textbf{Solution (b):}
+Suppose $v_0 = 50\,\mathrm{m/s}$,
+$h = 100\,\mathrm{m}$, and $g \approx 10\,\mathrm{m/s^2}$.
+Then
+\[
+r_r = v_0 \sqrt{\frac{2h}{g}}
+= 50 \sqrt{\frac{2(100)}{10}}
+= 50 \sqrt{20} \approx 224\,\mathrm{m}.
+\]
+
+\begin{proof}
+    From the horizontal motion we have
+    \[
+    x(t) = v_0 t.
+    \]
+    Taking differentials,
+    \[
+    \Delta x = v_0 \Delta t.
+    \]
+    We require the landing accuracy
+    \[
+    |\Delta x| \le 10\,\mathrm{m},
+    \]
+    so
+    \[
+    |\Delta t| \le \frac{10}{v_0}.
+    \]
+    Thus the allowed release-time interval is
+    \[
+    t = \sqrt{\frac{2h}{g}} \pm \frac{10}{v_0}.
+    \]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 37, breakable]
+    A student kicks a frictionless puck with 
+    initial speed $v_o$, so that it slides 
+    straight up a plane that is inclined 
+    at an angle $\theta$ above the horizontal.
+    \begin{enumerate}
+        \item Write down Newton's second law for 
+        the puck and solve to give its position 
+        as a function of time.
+        \item How long will the puck take to 
+        return to its starting point.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We ignore friction here.
+    Take the $y$-axis along the incline.
+    In the $y$ direction we have 
+    \[F_y = m a_y = - m g \sin(\theta).\]
+    Mass cancels, so
+    \[a_y = - g \sin(\theta).\]
+    Integrating twice we find 
+    \[y(t) = v_0 t - \frac{1}{2} g \sin(\theta) t^2.\]
+    The puck will intersect the origin twice, once at the start 
+    and once on its way back down.
+    Thus we set $y(t) = 0$ and ignore the $t = 0$ root to find 
+    \[t = \frac{2 v_0}{g \sin(\theta)}.\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 38, breakable]
+    You lay a rectangular board on the horizontal 
+    floor and then tilt the board about one edge 
+    until it slopes at angle $\theta$ with the 
+    horizontal.
+    Choose your origin at one of the two corners 
+    that touch the floor, the $x$ axis pointing
+    along the bottom edge of the board, the $y$ axis 
+    pointing up the slope, and the $z$ axis 
+    normal to the board. You now kick a frictionless 
+    puck that is resting at $O$ so that it slides 
+    across the board with initial velocity 
+    ($v_{ox}, v_{oy}, 0$). Write down Newton's 
+    second law using the given coordinates and 
+    then find how long the puck takes to return to 
+    the floor level and how far it is from $O$ 
+    when it does so.
+\end{tcolorbox}
+
+\begin{proof}
+    We ignore friction here.
+    We have 
+    \[F_y = m a_y = - m g \sin(\theta), \qquad F_z = -mg\cos\theta, \qquad F_x = 0.\]
+    Mass cancels and integrating twice we find 
+    \[r_y(t) = v_{oy} t - \frac{1}{2} g \sin(\theta) t^2.\]
+    Then we set $r_y(t) = 0$ and find 
+    \[t = \frac{2v_{oy}}{g\sin\theta}.\]
+    The distance from the origin when it hits the floor is 
+    \[r_x(t) = v_{ox} t = v_{ox}\frac{2v_{oy}}{g\sin\theta}.\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 39, breakable]
+    A ball is thrown with initial speed $v_o$
+    up an inclined plane. The plane is inclined 
+    at an angle $\phi$ above the horizontal,
+    and the ball's initial velocity  is at 
+    an angle $\theta$ above the plane.
+    Choose axes with $x$ measured up the 
+    slop, $y$ normal to the slope, and $z$ across it.
+    Write down newton's second law 
+    using these axes and find the ball's position 
+    as a function of time. Show that the ball 
+    lands a distance $R = 2 v_o^2 \sin \theta \cos(\theta + \phi)/(g \sin^2 \phi)$
+    from its launch point. Show that for given 
+    $v_o$ and $\phi$, the maximum possible range up the 
+    inclined plane is 
+    $R_{max} = v_o^2 /[g(1 + \sin \phi)]$.
+\end{tcolorbox}
+
+\begin{proof}
+    We first identify the $x, y$ components of the gravity force vector in our chosen coordinate system.
+    Draw the gravity force vector such that it makes a right triangle with the $x, y$ axes.
+    Now the plane is at angle $\psi$ with the horizontal.
+    Label the triangle $P Q R$ where $\angle PQR = \pi / 2$.
+    Then $\angle Q R P = \pi / 2 - \psi$ (we assume here $\psi \le 90$).
+    Thus $\angle R P Q = \psi$.
+    Thus, in our chosen coordinate system, the components of gravity are
+    \[
+    \mathbf{g} = (-g \sin \psi,\,-g \cos \psi).
+    \]
+
+    We now identify the $x, y$ components of our velocity vector in our chosen coordinate system.
+    Draw the initial velocity vector such that it makes an angle $\theta$ with the $x$-axis (along the incline).
+    Since the axes are chosen with $x$ along the slope and $y$ normal to the slope, 
+    we resolve the velocity into components of a right triangle with the $x, y$ axes.
+    Label the triangle $PQR$ where $\angle PQR = \pi/2$.
+    Then the velocity vector makes angle $\theta$ with the $x$-axis, so $\angle RPQ = \theta$.
+    Thus the components in our chosen coordinate system are
+    \[
+    \mathbf{v}(0) = (v_0 \cos\theta,\; v_0 \sin\theta).
+    \]
+
+    Integrating twice in the $x, y$ axes gives the position function
+    \[
+    r(t) = \left(v_0 \cos \theta \, t - \frac{1}{2} g \sin \psi \, t^2,\; 
+    v_0 \sin \theta \, t - \frac{1}{2} g \cos \psi \, t^2\right).
+    \]
+
+    To find the intersection of the point with the plane we set the $y$-component equal to zero,
+    and noting that the plane corresponds to $y=0$, we ignore the root at $t = 0$ and find
+    \[
+    t = \frac{2 v_0 \sin \theta}{g \cos \psi}.
+    \]
+    We can plug $t$ into $r(t)$ to get the position of the ball at its intersection with the plane
+
+    To get the maximum distance up the plane at a fixed $v_0, \psi$,
+    we analyze the $x$ component of the position function.
+    \[
+    x(t) = v_0 \cos \theta \, t - \frac{1}{2} g \sin \psi \, t^2.
+    \]
+
+    The range along the plane is $R = x(t)$, so substituting the time of flight
+    \[
+    t = \frac{2 v_0 \sin \theta}{g \cos \psi},
+    \]
+    we obtain
+    \[
+    R = v_0 \cos \theta \left(\frac{2 v_0 \sin \theta}{g \cos \psi}\right)
+    - \frac{1}{2} g \sin \psi \left(\frac{2 v_0 \sin \theta}{g \cos \psi}\right)^2.
+    \]
+
+    Maximizing with respect to $\theta$, we find the maximum range to be
+    \[
+    R_{\max} = \frac{v_0^2}{g(1 + \sin \phi)}.
+    \]
+\end{proof}
+
+\subsection{Two-Dimensional Polar Coordinates}
+
+\begin{tcolorbox}[title=Problem 41, breakable]
+    An astronaut in gravity-free space is 
+    twirling a mass $m$ on the end of a string 
+    of length $R$ in a circle, with constant 
+    velocity $\omega$. Write down Newton's 
+    second law (1.48) in polar coordinates 
+    and find the tension in the string.
+\end{tcolorbox}
+
+\begin{proof}
+    In the the radial direction
+    \[F_r = m a_r = m\left(\frac{d^2 r}{dt^2} - r \left(\frac{d\theta}{dt}\right)^2\right).\]
+    Since $\frac{d^2 r}{dt^2} = 0$ and $r = R$, this gives
+    \[F_r = -mR\omega^2.\]
+    But the only radial force is the tension $T$, so
+    \[F_r = -T.\]
+    Therefore,
+    \[T = mR\omega^2.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 42, breakable]
+    Prove that the transformations from rectangular 
+    to polar coordinates and vice versa are given 
+    by the four equations (1.37). Explain why the 
+    equation for $\psi$ is not quite complete and give 
+    a complete version.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 43, breakable]
+    \begin{enumerate}
+        \item Prove that the unit vector $\hat{r}$ of two-dimensional 
+        polar coordinates is equal to 
+        \[\hat{r} = \hat{x} \cos \psi + \hat{y} \sin \psi,\]
+        and find a corresponding expression for $\hat{psi}$.
+        \item Assuming that $\psi$ depends on time $t$, differentiate 
+        your answers in part (a) to give an alternative proof 
+        of the results (1.42) and (1.46) for the time 
+        derivatives $\hat{r}$ and $\hat{\psi}$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 44, breakable]
+    Verify by direct substitution that the function 
+    $\psi(t) = A \sin(\omega t) + B \cos(\omega t)$
+    of (1.56) is a solution of the second-order differential
+    equation (1.55), $\frac{d}{dt^2} \psi = - \omega^2 \psi$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 45, breakable]
+    Prove that if $\vec{v}(t)$ is any vector that depends 
+    on time (for example the velocity of a moving particle)
+    but which has a constant magnitutde, 
+    then $\frac{d}{dt} \vec{t}$ is orthogonal to $\vec{v}(t)$.
+    Prove the converse that if $\frac{d}{dt} \vec{v}(t)$
+    is orthogonal to $\vec{v}(t)$, then $|\vec{v}(t)|$ is constant.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 46, breakable]
+    Consider the experiment of Problem 1.27,
+    in which a frictionless puck is slid straight 
+    across a rotating turntable through the center $O$.
+    \begin{enumerate}
+        \item Write down the polar coordinates $r, \psi$ of hte puck 
+        as functions of time, as measured in the inertial frame $S$ of an 
+        observer on the ground. (Assume that the puck was launched 
+        along the axis $\psi = 0$ at $t = 0$)
+        \item Now write down the polar coordinates $r', \psi'$
+        of the puck as measured by an observer (frame $S'$) at rest 
+        on the turntable. (Choose these coordinates so that $\psi$ 
+        and $\psi'$ coincide at $t = 0$.) Describe and sketch the path 
+        seen by this second observer. Is the frame $S'$ inertial?
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 47, breakable]
+    Let the position of a point $P$ in three dimensions 
+    be given by the vector $\vec{r} = (x, y, z)$ in 
+    rectangular (or Cartesian) coordinates. The same position 
+    can be specified by cylindrical polar coordinates,
+    $\rho, \psi, z$, which are defined as follows: Let $P'$
+    denote the projection of $P$ onto the $xy$ plane; that is,
+    $P'$ has Cartesian coordinates $(x, y, 0)$. Then $\rho$ and $\psi$
+    are defined as the two-dimensional polar coordinates of $P'$
+    in the $xy$ plane, while $z$ is the third Cartesian coordinate,
+    unchanged.
+    \begin{enumerate}
+        \item Make a sketch to illustrate the three cylindrical coordinates.
+        Give expressions for $\rho, \psi, z$ in terms of the 
+        Cartesian coordinates $x, y, z$. Explain in words what $\rho$ is 
+        (``$\rho$ is the distance of $P$ from...'').
+        Explain why this use of $r$ is unfortunate.
+        \item Describe the three unit vectors $\hat{\rho}, \hat{\psi}, \hat{z}$ and 
+        write the expansion of the position vector $r$ in terms of these vectors.
+        \item Differentiate your last answer twice to find the 
+        cylindrical components of the acceleration $\vec{a} = \frac{d}{dt^2} \vec{r}$ of the particle.
+        To do this, you will need to know the time derivative of $\hat{\rho}$
+        and $\hat{\psi}$. You could get these from corresponding results (1.42)
+        and (1.46), or you could derive them directly as in Problem 1.48.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 48, breakable]
+    Find expressions for the unit vectors 
+    $\hat{\rho}, \hat{\psi}$ and $\hat{z}$ of cylindrical
+    polar coordiantes (Problem 1.47) in terms of the Cartesian 
+    $\hat{x}, \hat{y}, \hat{z}$. Differentiate these 
+    expressions with respect to time to find $\frac{d \vec{\rho}}{dt}, \frac{d \hat{\psi}}{dt}$, and $\frac{d \hat{z}}{dt}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 49, breakable]
+    Imagine two concentric cylinders, centered on the 
+    vertical $z$ axis, with radii $R \pm \epsilon$, 
+    where $\epsilon$ is very small. A small frictionless 
+    puck of thickness $2 \epsilon$ is inserted between the two cylinders,
+    so that it can be considered a point mass that can move freely
+    at a fixed distance from the vertical axis.
+    then $\rho$ is fixed at $\rho = R$, while $\psi$ and $z$
+    can vary at will. Write down and solve Newton's second law for the 
+    general motion of the puck, including the effects of gravity.
+    Describe the puck's motion.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 50, breakable]
+    The differential equation (1.51) for the skateboard 
+    of Example 1.2 cannot be solved in terms of elementary functions,
+    but is easily solved numerically.
+    \begin{enumerate}
+        \item If you have access to software, such as Mathematica, Maple, or Matlab, that can 
+        solve differential equations numerically, solve the differential equation for the case that the board 
+        is relased from $\psi_o = 20$ degrees, using the values $R = 5m$ and $g = 9.8 m/s^2$.
+        Make a plot of $\psi$ against time for two or three periods.
+        \item On the same picture, plot the approximate solution (1.57) with the same $\psi_o = 20$ degrees.
+        Comment on your two graphs. 
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 51, breakable]
+    Repeat all of Problem 1.50 but using the 
+    intial value $\psi_o = \pi/2$.
 \end{tcolorbox}

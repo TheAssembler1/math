@@ -1,0 +1,785 @@
+\subsection{Matrices}
+
+
+\begin{tcolorbox}[title=Exercise 3, breakable]
+    If the column vectors of the matrix 
+    \[A = \begin{bmatrix}
+        a & c \\
+        b & d
+    \end{bmatrix}\]
+    are linearly dependent, prove that $ad - bc = 0$.
+    Then prove the converse. What about rows?
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x = (a, b), y = (c, d)$.
+    Suppose $x, y$ are dependent.
+    There exists $k \in F$ such that $a = kc$ and $b = kd$.
+    Then $ad - bc = kcd - kcd = 0$.
+
+    Conversely, suppose $ad - bc = 0$.
+    If $x = 0$ then $x = 0y$ so suppose $x \ne 0$.
+    Either $a \ne 0$ or $b \ne 0$. WLOG suppose $a \ne 0$.
+    Then $d = (c/a)b$ and 
+    \[y = (c, d) = (c, (c/a)b) = (c/a)(a, b) = kx,\]
+    with $k = c/a$. Similarly, if $b \ne 0$ then $y = kx$ with $k = d/b$.
+\end{proof}
+
+\subsection{Matrices of Linear Mappings}
+
+\begin{tcolorbox}[title=Exercise 2, breakable]
+    Let $E_{ij}$ be the linear mapping of $\sec 3.8$, Exercise 6, that is,
+    $E_{ij} x_k = \delta_{jk} y_i$ for all $i \in \{1, \ldots, m\}$ and 
+    all $j, k \in \{1, \ldots, n\}$. 
+    Describe the matrix $E_{ij}$ relative 
+    to the bases $x_1, \ldots, x_n$ and 
+    $y_1, \ldots, y_m$.
+\end{tcolorbox}
+
+\begin{proof}
+    The matrix of $E_{ij}$ is the $m \times n$ matrix 
+        with a $1$ in row $i$, column $j$, and $0$ everywhere else. 
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 3, breakable]
+    Let $T : \mathbb{R}^2 \longrightarrow \mathbb{R}^3$
+    be the linear mapping defined by 
+    \[T(x, y) = (2x - y, x + 4y, 3x - 2y).\]
+    Find the matrix of $T$ relative to the 
+        canonical bases of $\mathbb{R}^2$
+        and $\mathbb{R}^3$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[T(1, 0) = (2(1) - 0, 1 + 4(0), 3(1) - 2(0)) = (2, 1, 3) = 2e_1 + e_2 + 3e_3,\]
+    and 
+    \[T(0, 1) = (2(0) - 1, 0 + 4(1), 3(0) - 2(1)) = (-1, 4, -2) = -e_1 + 4e_2 - 2e_3.\]
+    So we obtain the matrix 
+    \[
+    \begin{bmatrix}
+    2 & -1 \\
+    1 & 4 \\
+    3 & -2   
+    \end{bmatrix}
+    .\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Exercise 4, breakable]
+    Let $V = \mathcal{D}_3$ be the vector space 
+    of real polynomials of degree $\le 3$ (1.3.6)
+    and let $D : V \longrightarrow V$ be the 
+    linear mapping $Dp = p'$ (the derivative of $p$).
+    Find the matrix of $D$ relative to the 
+    basis $1, t, t^2, t^3$ of $V$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[D(1) = 0 = 0(1) + 0(t) + 0(t^2) + 0(t^3),\]
+    \[D(t) = 1 = 1(1) + 0(t) + 0(t^2) + 0(t^3),\]
+    \[D(t^2) = 2t = 0(1) + 2(t) + 0(t^2) + 0(t^3),\]
+    \[D(t^3) = 3t^2 = 0(1) + 0(t) + 3(t^2) + 0(t^3).\]
+    Thus we have the matrix
+    \[
+    \begin{bmatrix}
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 2 & 0 \\
+    0 & 0 & 0 & 3 \\
+    0 & 0 & 0 & 0
+    \end{bmatrix}
+    .\]
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 5, breakable]
+    Fix $y \in \mathbb{R}^3$ and let 
+    $T : \mathbb{R}^3 \longrightarrow \mathbb{R}^3$ 
+    be the linear mapping $Tx = x \times y$.
+    Find the matrix of $T$ relative to the canonical basis of $\mathbb{R}^3$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $y = (y_1, y_2, y_3) \in \mathbb{R}^3$.
+    We have 
+    \[T(x_1, x_2, x_3) = (x_2 y_3 - x_3 y_2, x_3 y_1 - x_1 y_3, x_1 y_2 - x_2 y_1).\]
+    Then we have 
+    \[T(1, 0, 0) = (0, -y_3, y_2) = 0(e_1) - y_3(e_2) + y_2(e_3),\]
+    \[T(0, 1, 0) = (y_3, 0, -y_1) = y_3(e_1) + 0(e_2) - y_1(e_3),\]
+    \[T(0, 0, 1) = (-y_2, y_1, 0) = -y_2(e_1) + y_1(e_2) + 0(e_3).\]
+    Thus we have the matrix
+    \[
+    \begin{bmatrix}
+    0 & y_3 & -y_2 \\
+    -y_3 & 0 & y_1 \\
+    y_2 & -y_1 & 0
+    \end{bmatrix}
+    .\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Exercise 6, breakable]
+    Let $V$ be a finite-dimensional vector space,
+    $S \in \mathcal{L}(V)$ a linear mapping whose 
+    matrix is the same for every basis of $V$.
+    Prove that $S = c I$ for some scalar $c$.
+\end{tcolorbox}
+
+\begin{proof}
+    We must show that if $x$ is any nonzero
+    vector, then $Sx$ is proportional to $x$.
+    Suppose $Sx$ and $x$ are independent.
+    $V$ has a basis $x, Sx, x_3, \ldots, x_n$
+    and $Sx = 0x + 1(Sx) + 0x_3 + \cdots + 0x_n$.
+    The first column of $A$ is
+    \[
+    \begin{bmatrix}
+        0 \\ 1 \\ 0 \\ \vdots \\ 0
+    \end{bmatrix}
+    .\]
+    Thus for any two independent vectors $y, z$ we have $Sy = z$.
+    Consider the independent vectors $y$ and $y + z$.
+    We have $z = Sy = y + z$, contradicting $y \ne 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 7, breakable]
+    If $A = (a_{ij})$ is an $n \times n$
+    matrix, the trace of $A$, denoted $tr A$,
+    is defined to be the sum of the (principal)
+    diagnol elements of $A$:
+    \[tr A = \sum_{i = 1}^n a_{ii}.\]
+    Prove that $tr : M_a (F) \longrightarrow F$
+    is a linear form on the vector space $M_n (F)$
+    of all $n \times n$ matrices over the field $F$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $A, B \in M_n(F)$ and $c \in F$.
+    Then 
+    \[\tr(A + B) = \sum_{i = 1}^{n} (a_{ii} + b_{ii}) = \sum_{i = 1}^{n} a_{ii} + \sum_{i = 1}^{n} b_{ii} = \tr A + \tr B.\]
+    Similarly 
+    \[\tr cA = \sum_{i = 1}^{n} c a_{ii} = c \sum_{i = 1}^{n} a_{ii} = c \tr A.\]
+    Thus $\tr$ is a linear form on $M_n(F)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 8, breakable]
+    Let $V$ be an $n$-dimensional vector space over $F$ and let
+    $f : V \to F$ be a linear form on $V$. Describe the matrix of
+    $f$ relative to a basis $x_1, \ldots, x_n$ of $V$ and the
+    basis $1$ of $F$.
+\end{tcolorbox}
+
+\begin{proof}
+    The matrix of $f$ is a $1 \times n$ row matrix.
+    The $i$-th entry is $f(x_i)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 9, breakable]
+    If $A = (a_{ij})$ is an $m \times n$ matrix over $F$, the
+    \emph{transpose} of $A$, denoted $A'$, is the $n \times m$
+    matrix $(b_{ij})$ for which $b_{ji} = a_{ij}$. (Thus, the
+    columns of $A'$ are the rows of $A$.) Prove that $A \mapsto A'$
+    is a vector space isomorphism $M_{m,n}(F) \to M_{n,m}(F)$.
+\end{tcolorbox}
+
+\begin{proof}
+    The transpose map $A \mapsto A'$ is linear since
+    $(A + B)' = A' + B'$ and $(cA)' = cA'$.
+    It is an isomorphism because its inverse is itself.
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 11, breakable]
+    Find the column rank of each of the matrices in Exercises 3--5.
+\end{tcolorbox}
+
+\begin{proof}
+    For Exercise 3, the two columns are not proportional, so the column rank is $2$.
+
+    For Exercise 4, the first column is zero and the remaining three columns
+    are linearly independent, so the column rank is $3$.
+
+    For Exercise 5, if $y = 0$ the matrix is zero so the column rank is $0$.
+    If $y \ne 0$, the third column is $(-y_2, y_1, 0)$, which equals
+    $\frac{y_2}{y_3}$ times the first plus $\frac{-y_1}{y_3}$ times the second
+    when $y_3 \ne 0$, so the columns are linearly dependent. Since $y \ne 0$
+    two of the columns are independent, so the column rank is $2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 12, breakable]
+    \begin{enumerate}[(i)]
+        \item Let $V$ be a finite-dimensional vector space,
+        $T \in \mathcal{L}(V)$. Prove that $T$ is bijective if
+        and only if there exists a pair of bases of $V$ relative
+        to which the matrix of $T$ is the identity matrix $I$.
+        \{Hint: If $x_1, \ldots, x_n$ and $Tx_1, \ldots, Tx_n$
+        are both bases of $V$, what is the matrix of $T$ relative
+        to these bases?\}
+
+        \item Generalize (i) to the case that $T \in \mathcal{L}(V, W)$,
+        where $V$ and $W$ have the same dimension.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $T$ is bijective. Let $\mathcal{B} = \{x_1, \ldots, x_n\}$ be any basis of $V$.
+    Since $T$ is injective, $Tx_1, \ldots, Tx_n$ are linearly independent, and since
+    there are $n = \dim V$ of them, $\mathcal{B}' = \{Tx_1, \ldots, Tx_n\}$ is also a basis of $V$.
+
+    The $j$-th column of the matrix of $T$ relative to $(\mathcal{B}, \mathcal{B}')$
+    consists of the coordinates of $T(x_j)$ in $\mathcal{B}'$. Since $T(x_j)$ is
+    exactly the $j$-th element of $\mathcal{B}'$, these coordinates are $1$ in
+    position $j$ and $0$ elsewhere. Thus the matrix of $T$ relative to $(\mathcal{B}, \mathcal{B}')$ is
+    \[
+    \begin{bmatrix} 1 & & 0 \\ & \ddots & \\ 0 & & 1 \end{bmatrix}.
+    \]
+
+    Conversely, suppose there exist two bases of $V$, say
+    $\mathcal{B} = \{x_1, \ldots, x_n\}$ and $\mathcal{B}' = \{y_1, \ldots, y_n\}$,
+    such that the matrix of $T$ relative to $(\mathcal{B}, \mathcal{B}')$ is the identity.
+    This means $T(x_i) = y_i$ for all $i$.
+
+    Since $\mathcal{B}'$ is a basis, $T(x_1), \ldots, T(x_n)$ span $V$, so $T$ is surjective.
+    Now suppose $T(x) = 0$. Writing $x = \sum c_i x_i$, we get
+    $T(x) = \sum c_i T(x_i) = \sum c_i y_i = 0$.
+    Since $\mathcal{B}'$ is linearly independent, $c_i = 0$ for all $i$, so $x = 0$.
+    Thus $T$ is injective.
+\end{proof}
+
+\begin{proof}
+    Suppose $T$ is bijective. Let $\mathcal{B} = \{x_1, \ldots, x_n\}$ be any basis of $V$.
+    Since $T$ is injective, $Tx_1, \ldots, Tx_n$ are linearly independent, and since
+    there are $n = \dim W$ of them, $\mathcal{B}' = \{Tx_1, \ldots, Tx_n\}$ is a basis of $W$.
+
+    The $j$-th column of the matrix of $T$ relative to $(\mathcal{B}, \mathcal{B}')$
+    consists of the coordinates of $T(x_j)$ in $\mathcal{B}'$. Since $T(x_j)$ is
+    exactly the $j$-th element of $\mathcal{B}'$, these coordinates are $1$ in
+    position $j$ and $0$ elsewhere. Thus the matrix of $T$ relative to $(\mathcal{B}, \mathcal{B}')$ is
+    \[
+    \begin{pmatrix} 1 & & 0 \\ & \ddots & \\ 0 & & 1 \end{pmatrix}.
+    \]
+
+    Conversely, suppose there exist a basis $\mathcal{B} = \{x_1, \ldots, x_n\}$ of $V$
+    and a basis $\mathcal{B}' = \{y_1, \ldots, y_n\}$ of $W$
+    such that the matrix of $T$ relative to $(\mathcal{B}, \mathcal{B}')$ is the identity.
+    This means $T(x_i) = y_i$ for all $i$.
+
+    Since $\mathcal{B}'$ is a basis of $W$, $T(x_1), \ldots, T(x_n)$ span $W$, so $T$ is surjective.
+    Now suppose $T(x) = 0$. Writing $x = \sum c_i x_i$, we get
+    $T(x) = \sum c_i T(x_i) = \sum c_i y_i = 0$.
+    Since $\mathcal{B}'$ is linearly independent, $c_i = 0$ for all $i$, so $x = 0$.
+    Thus $T$ is injective.
+\end{proof}
+
+\subsection{Matrix Multiplication}
+
+\begin{tcolorbox}[title=Exercise 1, breakable]
+    Prove that the inclusion $M_{2,1}(F) \cdot M_{1,2}(F) \subset M_2(F)$ is proper.
+    \{Hint: Show that the $2 \times 2$ identity matrix is not a product $AB$ of the indicated sort.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose there exists
+    $A = \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} \in M_{2,1}(F)$
+    and
+    $B = \begin{bmatrix} b_1 & b_2 \end{bmatrix} \in M_{1,2}(F)$
+    such that
+    \[
+    AB = \begin{bmatrix} a_1 b_1 & a_1 b_2 \\ a_2 b_1 & a_2 b_2 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}.
+    \]
+    But $a_1 b_2 = 0$ and $a_2 b_1 = 0$ imply $a_1 = 0$ or $b_2 = 0$ and $a_2 = 0$ or 
+    $b_1 = 0$ so in either case $a_1 b_1 = 0$ or $a_2 b_2 = 0$ contradicting the 
+    $a_1 b_2$, $a_2 b_1$ being $1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 2, breakable]
+    \begin{enumerate}[(i)]
+        \item Check that
+        \[
+        \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}
+        \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 0 \end{pmatrix}
+        =
+        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+        \]
+        but the product in the reverse order is \textit{not} the $3 \times 3$ identity matrix.
+
+        \item Let $A$ be an $m \times n$ matrix, $B$ an $n \times p$ matrix, and suppose
+        that $AB = I$ with $I$ an identity matrix. Prove that $m = p \leq n$.
+        \{Hint: Let $U$, $V$, $W$ and their bases be as in the proof of Theorem 4.3.3
+        and let $S: V \to W$, $T: U \to V$ be the linear mappings with matrices $A$ and
+        $B$, respectively, relative to these bases. From $m = p$ we can suppose that
+        $U = W$ with the same basis. Infer that $ST = I$.\}
+
+        \item If, as in (ii), $AB = I$, and if $m = n$, conclude that $BA = I$.
+        \{Hint: With the preceding notations, cite Corollary 3.7.5.\}
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 0 \end{pmatrix}
+=
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+\]
+and 
+\[
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 0 \end{pmatrix}
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}
+=
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0  \end{pmatrix}
+\]
+
+\begin{proof}
+    First note that $I$ is an $x \times x$ matrix for some $x$.
+    Since $AB$ has size $m \times p$ and $AB = I$, we must have $m = p$.
+    Let $U$, $V$, $W$ be vector spaces with $\dim U = p$, $\dim V = n$, $\dim W = m$,
+    and let $S: V \to W$, $T: U \to V$ be the linear mappings with matrices $A$ and
+    $B$, respectively, relative to chosen bases.
+    Since $m = p$, we may take $U = W$ with the same basis, so that $ST: U \to U$.
+    The condition $AB = I$ then implies $ST = I_U$.
+    Since $ST = I_U$, $T$ is injective, and therefore
+    $m = p = \dim U \leq \dim V = n$,
+    so $m = p \leq n$ as required.
+\end{proof}
+
+\begin{proof}
+    Suppose as in (ii), $AB = I$, and $m = n$.
+    Since $m = p \leq n$ by (ii) and $m = n$, we have $m = n = p$.
+    So we may take $U = V = W$ with the same basis, and $S, T: V \to V$.
+    Since $ST = I_V$ we know $S$ is surjective. By Theorem 3.7.4 (a) we know $S$ is bijective 
+        (since $\dim \dom S = \dim \ran S$).
+    Thus $S^{-1}$ exists and $ST = I_V \implies T = S^{-1}$.
+    Thus $TS = S^{-1}S = I_V$ so $BA = I$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Exercise 3, breakable]
+    If $A$ is an $m \times n$ matrix and $I$ is the $n \times n$ identity matrix, show
+    that $AI = A$. \{Hint: Refer the matter back to linear mappings, as in the hints
+    for Exercise 2.\} Show similarly that $IA = A$, where this time $I$ stands for
+    the $m \times m$ identity matrix. (So to speak, the symbol $I$ is `neutral' for
+    matrix multiplication.)
+\end{tcolorbox}
+
+\begin{proof}
+    Let $T: U \to V$ be the linear mapping with matrix $A$, and let $I_U: U \to U$
+    and $I_V: V \to V$ be the identity mappings, with matrices the $n \times n$ and
+    $m \times m$ identity matrices respectively.
+    Clearly composing with the identity mapping does not modify the original linear transformation,
+    so $T I_U = T$ and $I_V T = T$.
+    In terms of matrices, $AI = A$ and $IA = A$.
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 4, breakable]
+    Let $A \in M_{m,n}(F)$ and $B \in M_{n,m}(F)$ (thus both $AB$ and $BA$ are
+    defined). Say $AB = (c_{hi})$, $BA = (d_{jk})$. Prove that
+    \[
+        \sum_{i=1}^{m} c_{ii} = \sum_{j=1}^{n} d_{jj},
+    \]
+    that is, $\operatorname{tr}(AB) = \operatorname{tr}(BA)$ (for the notation, see \S4.2, Exercise 7).
+\end{tcolorbox}
+
+\begin{proof}
+    We use the notation of Theorem 4.3.3.
+    Let $p = \dim U$, $n = \dim V$, $m = \dim W$ and we have bases
+    \begin{enumerate}
+        \item $z_1, \ldots, z_p$ of $U$,
+        \item $x_1, \ldots, x_n$ of $V$,
+        \item $y_1, \ldots, y_m$ of $W$.
+    \end{enumerate}
+    and we suppose
+    \begin{enumerate}
+        \item $S x_j = \sum_{i=1}^m a_{ij} y_i$ \quad ($j = 1, \ldots, n$),
+        \item $T z_k = \sum_{j=1}^n b_{jk} x_j$ \quad ($k = 1, \ldots, p$),
+        \item $(ST) z_k = \sum_{i=1}^m c_{ik} y_i$ \quad ($k = 1, \ldots, p$),
+    \end{enumerate}
+    and we deduced that
+    \[c_{ik} = \sum_{j=1}^n a_{ij} b_{jk}.\]
+    For $\text{tr}(ST)$ we need $m = p$, and we sum the
+    diagonal entries $c_{kk}$ and get
+    \[\text{tr}(ST) = \sum_{k=1}^m c_{kk} = \sum_{k=1}^m \sum_{j=1}^n a_{kj} b_{jk}.\]
+    Similarly,
+    \[\text{tr}(TS) = \sum_{j=1}^n (TS)_{jj} = \sum_{j=1}^n \sum_{k=1}^m b_{jk} a_{kj}.\]
+    Thus $\text{tr}(ST) = \text{tr}(TS)$.
+\end{proof}
+
+\subsection{Algebra of Matrices}
+
+\begin{tcolorbox}[title=Exercise 1, breakable]
+    If $T \in \mathcal{L}(V)$ and $A$ is a matrix of $T$ relative to a basis of $V$ then,
+    for $i = 0, 1, 2, \ldots,$ $A^i$ is the matrix of $T^i$ relative to the same basis.
+\end{tcolorbox}
+
+\textbf{Solution: } Alrighty then.
+
+\begin{tcolorbox}[title=Exercise 2, breakable]
+    If $A$ is a square matrix, prove that there exists a finite list of scalars 
+    $c_0, c_1, c_2, \ldots, c_r$, not all $0$, such that $c_0 I + c_1 A + c_2 A^2 + \cdots + c_r A^r = 0$.
+    {Hint: section 3.8, Exercise 7.}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $T \in \mathcal{L}(V)$ correspond to $A$ under the isomorphism 
+    $\mathcal{L}(V) \cong M_{n \times n}$. By Exercise 7, there exist scalars 
+    $c_0, c_1, \dots, c_r$, not all $0$, such that
+    \[
+        c_0 I + c_1 T + \cdots + c_r T^r = 0.
+    \]
+    Translating back to matrices gives
+    \[
+        c_0 I + c_1 A + \cdots + c_r A^r = 0.
+    \]
+\end{proof}
+
+\begin{tcolorbox}[title=Exercise 5, breakable]
+    Let $J \in M_2(\mathbb{R})$ be the matrix 
+    \[
+    J = 
+    \begin{bmatrix}
+        0 & -1 \\ 1 & 0
+    \end{bmatrix},
+    \]
+    and let $\mathcal{C}$ be the the set of all matrices of the form 
+    \[a I + b J = 
+    \begin{bmatrix}
+        a & 0 \\ 0 & a
+    \end{bmatrix} + 
+    \begin{bmatrix}
+        0 & -b \\ b & 0
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        a & -b \\ b & a
+    \end{bmatrix}
+    ,\]
+    where $a, b \in \mathbb{R}$; thus $\mathcal{C}$
+    is the ($2$-dimensional) linear span of the set 
+    $\{I, J\}$ in the $4$-dimensional vector space $M_2(\mathbb{R})$.
+    Show that $J^2 = -I$ and that the product of two elements $\mathcal{C}$ 
+    belongs to $\mathcal{C}$; persuade yourself that sums and products 
+    of such matrices $a I + b J$ mimic the familiar sum and product for complex 
+    numbers $a + bi$, so that the correspondence 
+    $a I + b J \mapsto a + bi$ can be used to `identify'
+    $\mathcal{C}$ with the field $\mathbb{C}$ of complex numbers.
+\end{tcolorbox}
+
+\begin{proof}
+    \[
+    J^2 = 
+    \begin{bmatrix}
+        0 & -1 \\ 1 & 0
+    \end{bmatrix},
+    \begin{bmatrix}
+        0 & -1 \\ 1 & 0
+    \end{bmatrix}
+    = 
+    -\begin{bmatrix}
+        1 & 0 \\ 0 & 1
+    \end{bmatrix}.
+    \]
+\end{proof}
+
+\textbf{Solution: } I'm convinced.
+
+\subsection{A Model for Linear Mappings}
+
+
+\begin{tcolorbox}[title=Exercise 1, breakable]
+    Let $x_1, x_2, x_3$ be a basis of a 
+    $3$-dimensional vector space $V$,
+    $T \in \mathcal{L}(V)$ the linear mapping 
+    such that 
+    \[T x_1 = x_1, T x_2 = x_1 + x_2, T x_3 = x_1 + x_2 + x_3,\]
+    and $A$ the matrix of $T$ relative to the basis $x_1, x_2, x_3$.
+    Find the formula for the linear mapping $T^{\#}$ of Theorem 4.5.1
+    (constructed for this choise of basis of $V$).
+\end{tcolorbox}
+
+\begin{proof}
+    We construct the matrix of $T$ relative to the basis $x_1, x_2, x_3$.
+    The columns are given by the coordinates of $T x_j$ in this basis, so
+    \[
+    A = 
+    \begin{bmatrix}
+    1 & 1 & 1 \\
+    0 & 1 & 1 \\
+    0 & 0 & 1
+    \end{bmatrix}.
+    \]
+    From the section text we know $T^{\#}$ acts by matrix multiplication on
+    coordinate vectors, thus for $(c_1,c_2,c_3)\in \mathbb{F}^3$,
+    \[
+    T^{\#}(c_1,c_2,c_3)
+    =
+    \begin{pmatrix}
+    c_1 + c_2 + c_3 \\
+    c_2 + c_3 \\
+    c_3
+    \end{pmatrix}.
+    \]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Exercise 2, breakable]
+    Suppose $m = n$ in Corollary 4.5.2. Prove that $T$ is bijective 
+    if and only if the column vectors of $A$ are linearly independent.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $T$ is bijective.
+    Suppose there exist scalars $c_1, \ldots, c_n$ not all zero such that
+    \[
+    c_1 T(x_1) + \cdots + c_n T(x_n) = 0,
+    \]
+    then by linearity
+    \[
+    T(c_1 x_1 + \cdots + c_n x_n) = 0,
+    \]
+    contradicting injectivity. Thus the column vectors of $A$ are linearly independent.
+
+    Conversely, suppose now that the column vectors of $A$ are linearly independent.
+    Then $T(x_1), \ldots, T(x_n)$ are linearly independent, so $\ker T = \{0\}$.
+    Since $\dim \mathrm{dom}\, T = \dim \mathrm{ran}\, T$, $T$ is bijective.
+\end{proof}
+
+\subsection{Transpose of a Matrix}
+
+
+\begin{tcolorbox}[title=Exercise 1, breakable]
+    \begin{enumerate}
+        \item With notations as in Definition 4.1.5, prove that the mapping $M_{m, n}(F) \longrightarrow M_{n, m}(F)$ defined $A \longrightarrow A'$ is linear and bijective, and that $(A')' = A$ for all $A \in M_{m, n}(F)$.
+        \item Prove that if $A$ and $B$ are matrices over $F$ such that the product $AB$ is defined, then so is $B'A'$, and $(AB)' = B'A'$. {Hint: First show that $(ST)' = T'S'$ for linear mappings $S, T$, then exploit Theorems 4.6.6 and 4.3.3.}
+        \item For every matrix $A$, the products $A'A$ and $AA'$ are defined and are square matrices.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping $T : M_{m, n}(F) \longrightarrow M_{n, m}(F)$ defined
+    \[T(A) = A'.\]
+    Let $M_A, M_B \in M_{m, n}(F)$ and $c \in F$.
+    Then
+    \[T(M_A + M_B) = (M_A + M_B)' = M_A' + M_B'.\]
+    Similarly,
+    \[T(cM_A) = (cM_A)' = cM_A'.\]
+    Thus $T$ is linear.
+    Consider the mapping $S : M_{n, m}(F) \longrightarrow M_{m, n}(F)$ defined
+    \[S(A') = A.\]
+    Then $(T \circ S)(A') = T(A) = A'$ and $(S \circ T)(A) = S(A') = A$, thus $S = T^{-1}$.
+    It follows that $T$ is bijective. So $(A')' = S(T(A)) = A$ for all $A \in M_{m,n}(F)$.
+\end{proof}
+
+\begin{proof}
+    Suppose $A$ and $B$ are matrices over $F$ such that the product $AB$ is defined.
+    Let $S$ be the linear mapping corresponding to $A$ and $T$ be the linear mapping corresponding to $B$.
+    By Theorem 4.3.3, $\text{mat}(ST) = (\text{mat}\, S)(\text{mat}\, T) = AB$, so $ST$ corresponds to $AB$.
+    By Theorem 4.6.6, $\text{mat}((ST)') = (\text{mat}(ST))' = (AB)'$.
+    Then, again by Theorem 4.6.6, $\text{mat}(T') = B'$ and $\text{mat}(S') = A'$,
+    and by Theorem 4.3.3, $\text{mat}(T'S') = (\text{mat}\, T')(\text{mat}\, S') = B'A'$.
+    Since $(ST)' = T'S'$ we have
+    $(AB)' = B'A'$.
+\end{proof}
+
+\begin{proof}
+    Suppose $A$ is an $m \times n$ matrix.
+    Then $A'$ is an $n \times m$ matrix.
+    Thus $AA'$ is $(m \times n)(n \times m) = m \times m$
+        and $A'A$ is $(n \times m)(m \times n) = n \times n$.
+    So $AA'$ and $A'A$ are defined and square matrices.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Exercise 2, breakable]
+    Let $A \in M_{2, 3}(F)$, say 
+    \[A =
+    \begin{bmatrix}
+        a & b & c \\
+        d & e & f
+    \end{bmatrix}.
+    \]
+    \begin{enumerate}
+        \item Calculate $A'A$, then calculate its trace.
+        \item Prove that if $F = \mathbb{R}$ and $A'A = 0$ then $A = 0$.
+                What if $A A' = 0$?
+        \item If $F = \mathbb{C}$ show that $A'A = 0$ is possible even if $A \ne 0$.
+        \item Generalize (ii) to real matrices of any size.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+\[
+A'A = \begin{bmatrix}
+    a^2 + d^2 & ab + de & ac + df \\
+    ab + de & b^2 + e^2 & bc + ef \\
+    ac + df & bc + ef & c^2 + f^2
+\end{bmatrix}
+\]
+So
+\[\operatorname{tr}(A'A) = (a^2 + d^2) + (b^2 + e^2) + (c^2 + f^2).\]
+
+\begin{proof}
+    Suppose $F = \mathbb{R}$ and $A'A = 0$.
+    Looking at the principal diagonal, since $a^2 + d^2 = 0$ and $a, d \in \mathbb{R}$,
+    we must have $a = d = 0$.
+    Similarly, $b = e = 0$ and $c = f = 0$. Thus $A = 0$.
+    The same argument applied to $AA' = 0$ again gives $A = 0$.
+\end{proof}
+
+\begin{proof}
+    Suppose $F = \mathbb{C}$.
+    Let $a = 1$, $d = i$, and $b = c = e = f = 0$, so $A \ne 0$. Then
+    \[
+    A'A = \begin{bmatrix}
+        a^2 + d^2 & 0 & 0 \\
+        0 & 0 & 0 \\
+        0 & 0 & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 + i^2 & 0 & 0 \\
+        0 & 0 & 0 \\
+        0 & 0 & 0
+    \end{bmatrix}
+    = 0.
+    \]
+    Thus $A'A = 0$ is possible even if $A \ne 0$.
+\end{proof}
+
+\begin{proof}
+    Let $A \in M_{m,n}(\mathbb{R})$ and suppose $A'A = 0$.
+    The diagonal entries of $A'A$ are of the form $\sum_{i=1}^{m} a_{ij}^2$ for each column $j$.
+    Since $F = \mathbb{R}$, each such sum equals zero only if $a_{ij} = 0$ for all $i$.
+    As this holds for every column $j$, we conclude $A = 0$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Exercise 3, breakable]
+    If $A = (a_{ij}) \in M_{m, n}(\mathbb{C})$ one defines 
+    \[A^* = (b_{ji}) \in M_{n, m}(\mathbb{C}),\]
+    where $b_{ji} = \overline{a_{ij}}$ is the complex conjugate of $A_{ij}$.
+    The matrix $A^*$ is called the conjugate-transpose of $A$.
+    \begin{enumerate}
+        \item Prove that the mapping $M_{m, n}(\mathbb{C}) \longrightarrow M_{n, m}(\mathbb{C})$
+            defined by $A \mapsto A^*$ has the properties 
+        \[(A + B)^* = A^* + B^*, (cA)^* = \overline{c}A^*, (A^*)^* = A.\]
+        \item If $A$ and $B$ are matrices over $\mathbb{C}$ such that the product $AB$ is defined,
+        then so is $B^* A^*$ and $(AB)^* = B^* A^*$.
+        \item For every $A \in M_{m, n}(\mathbb{C})$, the products $A^* A$ and $A A^*$ are defined.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $A, B \in M_{m,n}(\mathbb{C})$ and $c \in \mathbb{C}$.
+    For $(A + B)^*$, the $(j,i)$-entry is $\overline{a_{ij} + b_{ij}} = \overline{a_{ij}} + \overline{b_{ij}}$,
+    which is the $(j,i)$-entry of $A^* + B^*$. Thus $(A+B)^* = A^* + B^*$.
+    For $(cA)^*$, the $(j,i)$-entry is $\overline{ca_{ij}} = \overline{c}\,\overline{a_{ij}}$,
+    which is the $(j,i)$-entry of $\overline{c}A^*$. Thus $(cA)^* = \overline{c}A^*$.
+    For $(A^*)^*$, the $(i,j)$-entry is $\overline{\overline{a_{ij}}} = a_{ij}$,
+    which is the $(i,j)$-entry of $A$. Thus $(A^*)^* = A$.
+\end{proof}
+
+\begin{proof}
+    Suppose $A$ and $B$ are matrices over $\mathbb{C}$ such that $AB$ is defined.
+    The $(i,k)$-entry of $AB$ is $\sum_j a_{ij} b_{jk}$, so the $(k,i)$-entry of $(AB)^*$ is
+    $\overline{\sum_j a_{ij} b_{jk}} = \sum_j \overline{b_{jk}}\,\overline{a_{ij}}$,
+    which is the $(k,i)$-entry of $B^* A^*$.
+    Thus $B^* A^*$ is defined and $(AB)^* = B^* A^*$.
+\end{proof}
+
+\begin{proof}
+    Suppose $A$ is an $m \times n$ matrix.
+    Then $A^*$ is an $n \times m$ matrix.
+    Thus $AA^*$ is $(m \times n)(n \times m) = m \times m$
+        and $A^*A$ is $(n \times m)(m \times n) = n \times n$.
+    So $AA^*$ and $A^*A$ are defined and square matrices.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Exercise 4, breakable]
+    \begin{enumerate}
+        \item Suppose $A \in M_{2, 3}(\mathbb{C})$, say 
+        \[A = 
+        \begin{bmatrix}
+            a & b & c \\
+            d & e & f
+        \end{bmatrix}.
+        \]
+        Calculate $A^* A$, then calculate its trace.
+        \item Prove that if $A^* A = 0$ then $A = 0$.
+        \item If $A \in M_{m, n}(\mathbb{C})$, find a formula for $tr(A^*, A)$.
+        \item Generalize (ii) to complex matrices of any size.
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Solution (a):}
+We have $A^* = \begin{bmatrix} \bar{a} & \bar{d} \\ \bar{b} & \bar{e} \\ \bar{c} & \bar{f} \end{bmatrix}$, so
+\[
+A^*A = \begin{bmatrix}
+    |a|^2 + |d|^2 & \bar{a}b + \bar{d}e & \bar{a}c + \bar{d}f \\
+    \bar{b}a + \bar{e}d & |b|^2 + |e|^2 & \bar{b}c + \bar{e}f \\
+    \bar{c}a + \bar{f}d & \bar{c}b + \bar{f}e & |c|^2 + |f|^2
+\end{bmatrix}
+\]
+So
+\[\operatorname{tr}(A^*A) = |a|^2 + |d|^2 + |b|^2 + |e|^2 + |c|^2 + |f|^2.\]
+
+\begin{proof}
+    Suppose $A^*A = 0$.
+    Looking at the principal diagonal, since $|a|^2 + |d|^2 = 0$ and $|a|^2, |d|^2 \geq 0$
+    for all $a, d \in \mathbb{C}$, we must have $a = d = 0$.
+    Similarly, $b = e = 0$ and $c = f = 0$. Thus $A = 0$.
+\end{proof}
+
+\begin{proof}
+    For $A \in M_{m,n}(\mathbb{C})$, the diagonal entries of $A^*A$ are $\sum_{i=1}^m |a_{ij}|^2$
+    for each $j$, so
+    \[\operatorname{tr}(A^*A) = \sum_{i=1}^{m}\sum_{j=1}^{n} |a_{ij}|^2.\]
+\end{proof}
+
+\begin{proof}
+    Let $A \in M_{m,n}(\mathbb{C})$ and suppose $A^*A = 0$.
+    The diagonal entries of $A^*A$ are of the form $\sum_{i=1}^{m} |a_{ij}|^2$ for each column $j$.
+    Since $|a_{ij}|^2 \geq 0$ for all $a_{ij} \in \mathbb{C}$, each such sum equals zero only if
+    $a_{ij} = 0$ for all $i$.
+    As this holds for every column $j$, we conclude $A = 0$.
+\end{proof}
+
+\subsection{Calculating the Rank}
+
+\begin{tcolorbox}[title=Exercise 1, breakable]
+    Find the rank of the matrix
+    \[
+    \begin{pmatrix}
+        2 & 1 & -5 & -3 \\
+        1 & 2 & 4 & 8 \\
+        3 & 3 & -1 & 5
+    \end{pmatrix}.
+    \]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Exercise 2, breakable]
+    Find the rank of the matrix
+    \[
+    \begin{pmatrix}
+        2 & 4 & -3 \\
+        0 & 5 & 6 \\
+        0 & 0 & 4
+    \end{pmatrix}.
+    \]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Exercise 4, breakable]
+    Why does the word `other' appear in the statement of Lemma 4.7.4?
+    \{Hint: There are fields in which $2 = 0$ (cf.\ Appendix A.4.2).
+    Imagine the effect of adding a column to itself.\}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Exercise 5, breakable]
+    Call \textit{operation of type} II$'$ the following operation on a matrix: add one column (or row) to another.
+    An operation of type II involving a nonzero scalar $k$ can be obtained by performing three successive operations,
+    of types III, II$'$ and III, where the scalars in the first and third operations are $k$ and $k^{-1}$, respectively.
+\end{tcolorbox}
+
+\subsection{When is a Linear System Solvable?}
+
+\subsection{An Example}
+
+\subsection{Change of Basis, Similar Matrices}
