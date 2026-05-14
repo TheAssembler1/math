@@ -1,0 +1,182 @@
+\subsection{Inner Product Spaces, Euclidean Spaces}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Show that if $x$ and $y$ are vectors in an inner product
+        space such that $||x||^2 = ||y||^2 = (x|y)$ then $x = y$.
+    What does this mean for the inner product space of Example 5.1.3?
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x$ and $y$ are vectors in an inner product space.
+    We have 
+    \[(x|x) = (y|y) = (x|y).\]
+    Now
+    \begin{align*}
+        \|x - y\|^2 &= (x - y \mid x - y) \\
+        &= (x \mid x) - (x \mid y) - (y \mid x) + (y \mid y).
+    \end{align*}
+    Since $(x|y) = (y|x)$
+    \[\|x - y\|^2 = (x \mid x) - (x \mid y) - (x \mid y) + (y \mid y) = 2(x \mid y) - 2(x \mid y) = 0.\]
+    Therefore $x - y = 0$, so $x = y$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    (\emph{Bessel's Inequality}) In an inner product space, if $x_1, \ldots, x_n$
+    are pairwise orthogonal unit vectors $(||x_i|| = 1$ for all $i$,
+    and $x_i \perp x_j$ when $i \ne j$), then 
+    \[\sum_{i = 1}^{n} |(x | x_i)|^2 \le ||x||^2.\]
+    (For $n = 1$ this is essentially the Cauchy-Schwarz inequality.)
+    {Hint: Define $c_i = (x|x_i), y = c_1 x_1 + \cdots + c_n x_n$ and 
+    $z = x - y$. Show that $y \perp z$ and apply the Pythagorean formula to 
+    $x = y + z$ to conclude that $||x||^2 \ge ||y||^2$.}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose in an inner product space, $x_1, \ldots, x_n$ are pairwise orthogonal unit vectors.
+    Define $c_i = (x|x_i), y = \sum c_i x_i$ and 
+        $z = x - y$.
+    So $y = \sum (x|x_i) x_i$ and $z = x - \sum (x|x_i) x_i$
+    We have 
+    \[(y|z) = \left(\sum_i c_i x_i \,\Big|\, x - \sum_i c_i x_i\right) = \left(\sum_i c_i x_i \,\Big|\, x\right) - \left(\sum_i c_i x_i \,\Big|\, \sum_i c_i x_i\right).\]
+    Now,
+    \[\left(\sum_i c_i x_i \,\Big|\, \sum_i c_i x_i\right) = \sum_i c_i^2 \left(x_i|x_i\right) = \sum_i c_i^2.\]
+    Then 
+    \[\left(\sum_i c_i x_i \,\Big|\, x\right) - \left(\sum_i c_i x_i \,\Big|\, \sum_i c_i x_i\right) = \sum_i c_i (x_i | x) - \sum_i c_i^2 = \sum_i c_i^2 - \sum_i c_i^2 = 0.\]
+    Thus $y \perp z$. So 
+    \[\|x\|^2 = \|y + z\|^2 = \|y\|^2 + \|z\|^2 \geq \|y\|^2 = \sum_i c_i^2\].
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    For nonzero vectors $x, y$ in an inner product space 
+    $||x + y|| = ||x|| + ||y||$ if and only if $y = cx$ with $c > 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $\|x + y\| = \|x\| + \|y\|$.
+    Squaring both sides we have $\|x + y\|^2 = \|x\|^2 + \|y\|^2 + 2(x|y)$.
+    Also $(\|x\| + \|y\|)^2 = \|x\|^2 + \|y\|^2 + 2\|x\|\|y\|$, so $(x|y) = \|x\|\|y\|$.
+    By the Cauchy-Schwarz equality condition, this holds if and only if $y = cx$ for some scalar $c$,
+    and since $(x|y) = c\|x\|^2 \geq 0$ we need $c > 0$.
+
+    Conversely, suppose $y = cx$ with $c > 0$.
+    Then $\|x + y\| = \|x + cx\| = (1+c)\|x\|$ and $\|x\| + \|y\| = \|x\| + c\|x\| = (1+c)\|x\|$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Vectors $x, y$ in a (real) inner product space are orthogonal if and only if 
+    $||x + y|| = ||x - y||$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y$ be vectors in a real inner product space. Then 
+    \begin{align*}
+        \|x + y\| = \|x - y\| &\iff \|x + y\|^2 = \|x - y\|^2 \\
+        &\iff \|x\|^2 + 2(x|y) + \|y\|^2 = \|x\|^2 - 2(x|y) + \|y\|^2 \\
+        &\iff 4(x|y) = 0 \iff (x|y) = 0.
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    In an inner product space, let $x_1, \ldots, x_n$ be vectors that are 
+    `pairwise orthogonal', that is, $(x_i|x_j) = 0$ whenever $i \ne j$.
+    \begin{enumerate}
+        \item Prove that $|| \sum_{i = 1}^{n} x_i ||^2 = \sum_{i = 1}^{n} ||x_i||^2$.
+        \item Deduce an alternative proof of Theorem 5.1.12.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Expanding the lhs we reveal 
+    \[\sum_{i = 1}^{n} ||x_i||^2 + \text{ cross terms.}\]
+    Since $(x_i|x_j) = 0$ where $i \ne j$ the cross terms are all $0$.
+\end{proof}
+
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ are pairwise orthogonal nonzero vectors in an inner product space.
+    Suppose $\sum_{i=1}^{n} \lambda_i x_i = 0$. By (1),
+    \[\sum_{i = 1}^{n} ||\lambda_i x_i||^2 = \left\|\sum_{i = 1}^{n} \lambda_i x_i\right\|^2 = 0.\]
+    Since each $||x_i|| \ne 0$, we have $\lambda_i = 0$ for all $i$, so the vectors are linearly independent.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    If $r_1, \ldots r_n$ are real numbers $>0$, then the formula 
+    \[[x|y] = \sum_{i = 1}^{n} r_i a_i b_i,\]
+    for $x = (a_1, \ldots, a_n), y = (b_1, \ldots, b_n)$, defines an inner 
+    product on $\mathbb{R}^n$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x = (a_1, \ldots, a_n), y = (b_1, \ldots, b_n), z = (c_1, \ldots, c_n) \in \mathbb{R}^n$.
+    Let $c$ be a scalar.
+    Suppose $x \ne 0$ then 
+    \[[x|x] = \sum_{i = 1}^{n} r_i a_i a_i \ne 0\]
+    since some $a_i \ne 0$ and $r_i \ne 0$.
+    Clearly 
+    \[[x|y] = \sum_{i = 1}^{n} r_i a_i b_i = \sum_{i = 1}^{n} r_i b_i a_i = [y|x],\]
+    since $\mathbb{R}$ is a field.
+    Also 
+    \[[x + y|z] = \sum_{i=1}^{n} r_i (a_i + b_i) c_i = \sum_{i=1}^{n} r_i a_i c_i + \sum_{i=1}^{n} r_i b_i c_i = [x|z] + [y|z],\]
+    and 
+    \[[cx|y] = \sum_{i=1}^{n} r_i (c a_i) b_i = c \sum_{i=1}^{n} r_i a_i b_i = c[x|y].\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    In the inner product space of Example 5.1.3, if $x$ and $y$ are continuously 
+    differentiable then 
+    \[(x|y') + (x'|y) = x(b)y(b) - x(a)y(a).\]
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[(x|y') = \int_{a}^{b} x(t) y'(t) \, dt \text{ and } (x'|y) = \int_{a}^{b} x'(t) y(t) \, dt,\]
+    so 
+    \[(x|y') + (x'|y) = \int_{a}^{b} x(t) y'(t) + x'(t) y(t) \, dt = \int_{a}^{b} \frac{d}{dt}[x(t)y(t)] \, dt = \Big[x(t)y(t)\Big]_{a}^{b} = x(b)y(b) - x(a)y(a). \qedhere\]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Prove that, in a (real) inner product space, $||x|| = ||y||$ if and only if 
+    $x + y$ and $x - y$ are orthogonal. Geometric Interpretations?
+\end{tcolorbox}
+
+\begin{proof}
+    We have 
+    \[\|x\| = \|y\| \iff (x|x) = (y|y) \iff (x|x) - (y|y) = 0 \iff (x+y|x-y) = 0 \iff x+y \perp x-y,\]
+    where the third equivalence uses $(x+y|x-y) = (x|x) + (y|x) - (x|y) - (y|y) = (x|x) - (y|y)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    If $T$ is a linear mapping in a (real) inner product space, then 
+    \[(Tx|Ty) = \frac{1}{4}\{||T(x + y)||^2 - ||T(x - y)||^2\}\]
+    for all $x, y$ by $x + y, x - y$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $T$ is a linear mapping in a (real) inner product space.
+    Notice 
+    \[||T(x + y)||^2 = ||Tx + Ty||^2 = (Tx + Ty | Tx + Ty) = (Tx|Tx) + 2(Tx|Ty) + (Ty|Ty),\]
+    and similarly,
+    \[||T(x - y)||^2 = (Tx - Ty | Tx - Ty) = (Tx|Tx) - 2(Tx|Ty) + (Ty|Ty).\]
+    Subtracting and dividing by $4$ gives
+    \[\frac{1}{4}\{||T(x+y)||^2 - ||T(x-y)||^2\} = \frac{1}{4} \cdot 4(Tx|Ty) = (Tx|Ty). \qedhere\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    For subsets $A, B$ of an inner product space, (i) $A \perp B \iff A \subset B^\perp$,
+    and (ii) $(A + B)^\perp = (A \cup B)^\perp = A^\perp \cap B^\perp$. (iii) In general,
+    $(A \cap B)^\perp \ne A^\perp + B^\perp$.
+\end{tcolorbox}
+
+\begin{proof}
+    (i) For all $x \in A$ and $y \in B$,
+    \[A \perp B \iff (x|y) = 0 \text{ for all } x \in A, y \in B \iff x \in B^\perp \text{ for all } x \in A \iff A \subset B^\perp.\]
+\end{proof}
+
+\subsection{Duality in Inner Product Spaces}
+
+\subsection{The Adjoint of a Linear Mapping}
+
+\subsection{Orthogonal Mappings and Matrices}
