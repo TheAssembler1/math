@@ -20,7 +20,7 @@
     Therefore $x - y = 0$, so $x = y$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 2, breakable]
     (\emph{Bessel's Inequality}) In an inner product space, if $x_1, \ldots, x_n$
     are pairwise orthogonal unit vectors $(||x_i|| = 1$ for all $i$,
@@ -63,7 +63,7 @@
     Then $\|x + y\| = \|x + cx\| = (1+c)\|x\|$ and $\|x\| + \|y\| = \|x\| + c\|x\| = (1+c)\|x\|$.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 4, breakable]
     Vectors $x, y$ in a (real) inner product space are orthogonal if and only if 
     $||x + y|| = ||x - y||$.
@@ -100,7 +100,7 @@
     Since each $||x_i|| \ne 0$, we have $\lambda_i = 0$ for all $i$, so the vectors are linearly independent.
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 6, breakable]
     If $r_1, \ldots r_n$ are real numbers $>0$, then the formula 
     \[[x|y] = \sum_{i = 1}^{n} r_i a_i b_i,\]
@@ -136,7 +136,7 @@
     \[(x|y') + (x'|y) = \int_{a}^{b} x(t) y'(t) + x'(t) y(t) \, dt = \int_{a}^{b} \frac{d}{dt}[x(t)y(t)] \, dt = \Big[x(t)y(t)\Big]_{a}^{b} = x(b)y(b) - x(a)y(a). \qedhere\]
 \end{proof}
 
-\newpage
+
 \begin{tcolorbox}[title=Problem 8, breakable]
     Prove that, in a (real) inner product space, $||x|| = ||y||$ if and only if 
     $x + y$ and $x - y$ are orthogonal. Geometric Interpretations?
@@ -171,12 +171,755 @@
 \end{tcolorbox}
 
 \begin{proof}
-    (i) For all $x \in A$ and $y \in B$,
+    For all $x \in A$ and $y \in B$,
     \[A \perp B \iff (x|y) = 0 \text{ for all } x \in A, y \in B \iff x \in B^\perp \text{ for all } x \in A \iff A \subset B^\perp.\]
 \end{proof}
 
+\begin{proof}
+    Since $A, B \subset A \cup B \subset A + B$ by Theorem 5.1.14 (iii) we have 
+    \[(A + B)^\perp \subset (A \cup B)^\perp \subset A^\perp \cap B^\perp.\]
+    Now let $x \in A^\perp \cap B^\perp$. So for all $y \in A$, $(x|y) = 0$, and for all $y \in B$, $(x|y) = 0$.
+    Thus if $y \in A \cup B$, $(x|y) = 0$ thus $x \in (A \cup B)^\perp$.
+    Suppose $c = a + b \in A + B$. Then $(x|a + b) = (x|a) + (x|b) = 0 + 0 = 0$
+        thus $c \in (A + B)^\perp$ completing the proof.
+\end{proof}
+
+\textbf{Solution (iii): }
+In $\mathbb{R}^2$ consider $A = \{e_1, e_2\}$ and $B = \{e_1, e_1 + e_2\}$.
+Then $A \cap B = \{e_1\}$, so
+\[A^\perp + B^\perp = \{0\} + \{0\} = \{0\}\]
+but 
+\[(A \cap B)^\perp = \{e_1\}^\perp = \operatorname{span}\{e_2\} \ne \{0\}.\]
+
 \subsection{Duality in Inner Product Spaces}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+Let $E$ be the inner product space of 5.1.3 (the space of continuous real-valued functions on a closed interval $[a, b]$, with inner products defined by means of the integral).
+\begin{enumerate}[(i)]
+    \item Fix a point $c \in [a, b]$ and let $f$ be the linear form on $E$ defined by $f(x) = x(c)$ for all $x \in E$ ($f$ is `pointwise evaluation at $c$'). Prove that there does \textit{not} exist a function $y \in E$ such that $f = y'$ in the sense of Definition 5.2.1. \{Hint: Note that $f \neq 0$. Show that if $y \in E$, $y \neq 0$, then there exists $x \in E$ such that $x(c) = 0$ but $\int_a^b x(t)y(t)\,dt > 0$.\}
+
+    \item Let $f$ be the linear form on $E$ defined by
+    \[
+        f(x) = \int_a^b x(t)\,dt \quad \text{for } x \in E.
+    \]
+    True or false (explain): There exists $y \in E$ such that $f = y'$.
+
+    \item Fix a point $c$, $a < c < b$, and let $f$ be the linear form on $E$ defined by
+    \[
+        f(x) = \int_a^c x(t)\,dt \quad \text{for } x \in E.
+    \]
+    Same question as in (ii). (Different answer!)
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+Consider $x \in E$ defined by $x(t) = 1$, then $f(x) = x(c) = 1$.
+Thus $f \neq 0$. Suppose, for contradiction, there exists $y \in E$ such
+that $f = y'$. That is, for all $x \in E$, we have $f(x) = y'(x) =
+(y \mid x)$. So,
+\[
+    f(x) = x(c) = y'(x) = (y \mid x) = \int_a^b x(t)y(t)\,dt.
+\]
+Consider the function $x(t) = (t-c)^2 y(t)$. We have $x(c) = 0 = f(x)$.
+But
+\[
+    \int_a^b x(t)y(t)\,dt = \int_a^b (t-c)^2 y(t)^2\,dt.
+\]
+Since $y \neq 0$ we must have $\int_a^b x(t)y(t)\,dt > 0$. Thus
+$(x \mid y) \neq f(x)$, which is a contradiction.
+\end{proof}
+
+\begin{proof}
+Let $y = 1 \in E$. Then for all $x \in E$,
+\[
+    (y \mid x) = \int_a^b x(t)y(t)\,dt = \int_a^b x(t)\,dt = f(x).
+\]
+Thus $f = y'$ with $y = 1$.
+\end{proof}
+
+
+\begin{proof}
+Suppose, for contradiction, there exists $y \in E$ such that $f = y'$ so
+\[
+    \int_a^c x(t)\,dt = \int_a^b x(t)y(t)\,dt \quad \text{for all } x \in E.
+\]
+Consider the function
+\[
+    x(t) = \begin{cases} 0 & t \in [a, c] \\ (t-c)y(t) & t \in [c, b]. \end{cases}
+\]
+Then
+$f(x) = 0$, so we require
+\[
+    \int_c^b (t-c)y(t)^2\,dt = 0.
+\]
+Since $(t-c) > 0$ on $(c,b]$ so $y = 0$ on $[c,b]$, thus
+$y(c) = 0$. Now consider
+\[
+    x(t) = \begin{cases} (t-c)^2 & t \in [a, c] \\ 0 & t \in [c, b]. \end{cases}
+\]
+Then
+\[
+    \int_a^c (t-c)^2\,dt = \int_a^c (t-c)^2 y(t)\,dt,
+\]
+so $\int_a^c (t-c)^2(1 - y(t))\,dt = 0$. Since $(t-c)^2 > 0$ on $[a,c)$,
+we have $y = 1$ on $[a,c]$ thus $y(c) = 1$. This contradicts
+$y = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+Let $V$ be the vector space of all functions $x : \mathbf{P} \to \mathbf{R}$ 
+with the pointwise linear operations (cf.\ 1.3.7) 
+and let $E$ be the set of all functions $x \in V$ whose `support'
+\[
+    \{n \in \mathbf{P} : x(n) \neq 0\}
+\]
+is a finite subset of $\mathbf{P}$. Prove:
+\begin{enumerate}[(i)]
+    \item $E$ is a linear subspace of $V$;
+    \item the formula
+    \[
+        (x \mid y) = \sum_n x(n)y(n)
+    \]
+    defines an inner product on $E$ ($n$ runs over $\mathbf{P}$, but the sum has at most finitely many nonzero terms).
+    \item The formula
+    \[
+        f(x) = \sum_n x(n)
+    \]
+    defines a linear form on $E$.
+    \item There does not exist a vector $y \in E$ such that $f = y'$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f, g \in E$ and let $c$ be a scalar.
+    We want to show that $cf$ and $f + g$ have supports with finite cardinalities.
+    If $c = 0$, then $cf$ is the zero function, whose support is empty, thus finite.
+    If $c \ne 0$, then $(cf)(n) \ne 0 \iff f(n) \ne 0$, so $cf$ has the same support as $f$, which is finite by assumption.
+    Notice that if $(f + g)(n) \ne 0$, then at least one of $f(n)$ or $g(n)$ is nonzero.
+    Therefore
+    \[
+        \operatorname{supp}(f + g) \subseteq \operatorname{supp}(f) \cup \operatorname{supp}(g).
+    \]
+    Since $\operatorname{supp}(f)$ and $\operatorname{supp}(g)$ are both finite by assumption, their union is finite, and so $\operatorname{supp}(f + g)$ is finite.
+\end{proof}
+
+\begin{proof}
+    Consider $f, g, t \in E$.
+    \[(f \mid f) = \sum_n f(n)f(n).\]
+    Since $f(n) \ne 0$ for $n$ in the support we have $f(n)f(n) = (f(n))^2 > 0$,
+    and all other terms are $0$, so $(f \mid f) \ge 0$ with equality iff $f = 0$.
+    Then 
+    \[(f \mid g) = \sum_n f(n) g(n) = \sum_n g(n) f(n) = (g \mid f).\]
+    Then 
+    \[(f + g \mid t) = \sum_n [f(n) + g(n)]t(n) = \sum_n f(n)t(n) + g(n)t(n) = \sum_n f(n)t(n) + \sum_n g(n)t(n) = (f\mid t) + (g \mid t).\]
+    Finally
+    \[(cf \mid g) = \sum_n ((cf)(n))g(n) = c \sum_n f(n)g(n) = c(f \mid g).\]
+\end{proof}
+
+\begin{proof}
+    We must show $f$ is additive and homogeneous.
+    Let $x, y \in E$ and $c \in \mathbb{R}$, then
+    \[f(x + y) = \sum_n (x + y)(n) = \sum_n [x(n) + y(n)] = \sum_n x(n) + \sum_n y(n) = f(x) + f(y).\]
+    Then
+    \[f(cx) = \sum_n (cx)(n) = c \sum_n x(n) = cf(x).\]
+    Thus $f$ is a linear form on $E$.
+\end{proof}
+
+\begin{proof}
+    For contradiction, suppose there exists a vector $y \in E$ such that $f = y'$, for all $x \in E$.
+    Since $y \in E$, its support is finite. Let $N = \max\operatorname{supp}(y)$ (or $N = 0$ if $y = 0$).
+    Define $x \in E$ as the function with $x(N+1) = 1$ and $x(n) = 0$ otherwise.
+    Then $x \in E$ and
+    \[f(x) = \sum_n x(n) = 1,\]
+    but
+    \[(x \mid y) = \sum_n x(n)y(n) = y(N+1) = 0,\]
+    since $N+1 > N \ge \max\operatorname{supp}(y)$.
+    This contradicts $f(x) = (x \mid y)$, so no such $y \in E$ exists.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+If $E$ is any inner product space (not necessarily finite-dimensional), then $M = M^{\perp\perp}$ for every finite-dimensional linear subspace $M$. \{Hint: The proof of Corollary 5.2.11 is not applicable here. The problem is to show that $M^{\perp\perp} \subset M$. If $x \in M^{\perp\perp}$ and $x = y + z$ as in the proof of Theorem 5.2.7, then $z = x - y \in M^{\perp\perp}$, so $z \perp z$.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $E$ is any inner product space. Let $M$ be a finite-dimensional linear subspace of $E$.
+    We know by Theorem 5.1.14, $M \subset M^{\perp \perp}$.
+    Furthermore, let $x \in M^{\perp \perp}$.
+    Since $M$ is a finite-dimensional subspace of $E$, by Theorem 5.2.7 we can write $x = y + z$
+        for some $y \in M$ and $z \in M^{\perp}$.
+    So $z = x - y$ where $x \in M^{\perp \perp}$ and $y \in M \subset M^{\perp\perp}$,
+        thus $z \in M^{\perp\perp}$.
+    By Theorem 5.1.14 (v), $z \in M^{\perp} \cap M^{\perp\perp} \subset \{0\}$ so 
+    \[z = 0 \implies z = 0 \implies x = y \in M.\]
+    Thus $M^{\perp\perp} \subset M$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+It can be shown that in the inner product space of continuous functions on $[a, b]$ (Example 5.1.3), the polynomial functions form a linear subspace $M$ such that $M^\perp = \{0\}$ (the proof is not easy!), therefore $M \neq M^{\perp\perp}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+If $M$ and $N$ are linear subspaces of a Euclidean space, then
+\[
+    (M + N)^\perp = M^\perp \cap N^\perp \quad \text{and} \quad (M \cap N)^\perp = M^\perp + N^\perp.
+\]
+\{Hint: Corollary 5.2.11.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Since $M, N$ are subsets of an inner product space,
+    by Section 5.1 Exercise 10 we have $(M + N)^\perp = M^\perp \cap N^\perp$.
+\end{proof}
+\begin{proof}
+    We have 
+    \begin{align*}
+    (M \cap N)^\perp &= (M^{\perp \perp} \cap N^{\perp \perp})^\perp && \text{Corollary 5.2.11} \\
+                     &= ((M^\perp + N^\perp)^\perp)^\perp && \text{Part 1} \\
+                     &= M^\perp + N^\perp && \text{Corollary 5.2.11}
+    \end{align*}
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{enumerate}[(i)]
+    \item Let $E$ be an inner product space and let $x_1, \ldots, x_n, x$ be vectors such that $x$ is not a linear combination of $x_1, \ldots, x_n$. Prove that there exists a vector $y$ such that
+    \[
+        [\{x_1, \ldots, x_n, x\}] = [\{x_1, \ldots, x_n, y\}]
+    \]
+    and such that $y$ is orthogonal to every $x_i$. \{Hint: Exercise 3, part (ii).\}
+
+    \item If $x_1, \ldots, x_n$ are linearly independent vectors in $E$, use the idea of (i) to construct orthonormal vectors $y_1, \ldots, y_n$ such that $[\{x_1, \ldots, x_k\}] = [\{y_1, \ldots, y_k\}]$ for $k = 1, \ldots, n$. (See Exercise 12 for a more explicit construction.)
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $M = [\{x_1, \ldots, x_n\}]$, $N = [\{x_1, \ldots, x_n, x\}]$.
+    Since $x$ is not a linear combination of $x_1, \ldots, x_n$ we have $M \subsetneq N$.
+    By Exercise 3 part (ii) we have $N \cap M^\perp \ne \{0\}$.
+    Let $y \in N \cap M^\perp$ be nonzero. Then $y \in N$ and $y \perp x_i$ for all $i$, and since $y \notin M$ we have
+    \[[\{x_1, \ldots, x_n, y\}] = [\{x_1, \ldots, x_n, x\}] = N.\]
+\end{proof}
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ are linearly independent vectors in $E$.
+    We construct $y_1, \ldots, y_n$ inductively.
+    Set $y_1 = x_1 / \|x_1\|$, so $[\{y_1\}] = [\{x_1\}]$.
+    Given orthonormal $y_1, \ldots, y_k$ with $[\{y_1, \ldots, y_k\}] = [\{x_1, \ldots, x_k\}]$,
+    apply part (i) with $x_1, \ldots, x_k$ replaced by $y_1, \ldots, y_k$ and $x$ replaced by $x_{k+1}$
+    to obtain a nonzero $z \in [\{y_1, \ldots, y_k, x_{k+1}\}] \cap [\{y_1, \ldots, y_k\}]^\perp$.
+    Set $y_{k+1} = z / \|z\|$. Then $y_1, \ldots, y_{k+1}$ are orthonormal and
+    \[[\{y_1, \ldots, y_{k+1}\}] = [\{y_1, \ldots, y_k, x_{k+1}\}] = [\{x_1, \ldots, x_{k+1}\}].\]
+    By induction, the construction gives orthonormal $y_1, \ldots, y_n$ with $[\{y_1, \ldots, y_k\}] = [\{x_1, \ldots, x_k\}]$ for $k = 1, \ldots, n$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+Given a system of homogeneous linear equations
+\begin{align*}
+    a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= 0 \\
+    a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= 0 \\
+    &\vdots \\
+    a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n &= 0
+\end{align*}
+with real coefficients $a_{ij}$. If $m < n$, we know from Theorem 3.7.1 that there exist nonzero solution-vectors $x = (x_1, \ldots, x_n)$; deduce another proof of this from Corollary 5.2.8. \{Hint: Let $A = (a_{ij})$ be the $m \times n$ matrix of coefficients and let $M$ be the row space of $A$ (4.2.9).\}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $m < n$.
+    Let $A = (a_{ij})$ be the $m \times n$ matrix of coefficients and let $M$ be the row space of $A$, a subspace of $\mathbb{R}^n$.
+    By Corollary 5.2.8 we have
+    \[\dim M^\perp = n - \dim M.\]
+    Since $M$ is spanned by $m$ row vectors, $\dim M \leq m < n$, thus
+    \[\dim M^\perp = n - \dim M \geq n - m > 0.\]
+    So $M^\perp \ne \{0\}$; let $x \in M^\perp$ be nonzero.
+    Then $x$ is orthogonal to every row of $A$ so $Ax = 0$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+A \textit{unitary space} is a finite-dimensional complex vector space $E$ with an `inner product' $(x, y) \mapsto (x \mid y)$ taking complex values, satisfying (1) and (3) of Definition 5.1.1, (4) for complex scalars, and, instead of (2), the identity $(x \mid y) = \overline{(y \mid x)}$, where the overbar denotes complex-conjugate (cf.\ \S5.1, Exercise 11).
+\begin{enumerate}[(i)]
+    \item Show that $(x \mid cy) = \bar{c}(x \mid y)$ for all vectors $x$, $y$ and all complex numbers $c$.
+    \item If $y \in E$ define $y'(x) = (x \mid y)$ for all $x \in E$. Show that $y' \in E' = \mathcal{L}(E, \mathbf{C})$ and that $(y + z)' = y' + z'$, $(cy)' = \bar{c}y'$.
+    \item Prove the unitary space analogue of Theorem 5.2.5, with `isomorphism' replaced by `conjugate-isomorphism' in the sense suggested by (ii).
+    \item Prove the unitary space analogues of the remaining results in this section.
+    \item Verify the `Polarization identity'
+    \[
+        (x \mid y) = \tfrac{1}{4}\{\|x + y\|^2 - \|x - y\|^2 + i\|x + iy\|^2 - i\|x - iy\|^2\}.
+    \]
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We have
+    \[\bar{c}(x \mid y) 
+        = \bar{c}\,\overline{(y \mid x)} 
+        = \overline{c(y \mid x)} 
+        = \overline{(cy \mid x)} = (x \mid cy).\]
+\end{proof}
+
+\begin{proof}
+    Suppose $y \in E$ and define $y'(x) = (x \mid y)$ for all $x \in E$. 
+    Additivity still holds so
+    Then
+    \[(y+z)'(x) = (x \mid y+z) = (x \mid y) + (x \mid z) = y'(x) + z'(x).\]
+    Then
+    \[(cy)'(x) = (x \mid cy) = \bar{c}(x \mid y) = \bar{c}\,y'(x).\]
+\end{proof}
+
+\begin{proof}
+    The map $y \mapsto y'$ is linear by (ii). 
+    Suppose $y' = 0$ then $(x \mid y) = 0$ for all $x \in E$, 
+        so taking $x = y$ gives $(y \mid y) = 0$, thus $y = 0$. 
+    Since $\dim E' = \dim E$ (3.9.2), the injective map 
+        $y \mapsto y'$ is bijective, thus an isomorphism $E \to E'$.
+\end{proof}
+
+\textbf{Solution (iv): Skip, very boring.}
+
+\begin{proof}
+    We use $(x \mid x) = \|x\|^2$:
+    \begin{align*}
+        \|x+y\|^2 &= \|x\|^2 + (x\mid y) + (y \mid x) + \|y\|^2,\\
+        \|x-y\|^2 &= \|x\|^2 - (x\mid y) - (y \mid x) + \|y\|^2,\\
+        \|x+iy\|^2 &= \|x\|^2 + (x\mid iy) + (iy\mid x) + \|y\|^2 = \|x\|^2 - i(x\mid y) + i(y\mid x) + \|y\|^2,\\
+        \|x-iy\|^2 &= \|x\|^2 + i(x\mid y) - i(y\mid x) + \|y\|^2.
+    \end{align*}
+    Thus
+    \begin{align*}
+        \|x+y\|^2 - \|x-y\|^2 &= 2(x\mid y) + 2(y\mid x),\\
+        i\|x+iy\|^2 - i\|x-iy\|^2 &= 2(x\mid y) - 2(y\mid x).
+    \end{align*}
+    Summing and multiplying by $\tfrac{1}{4}$ gives $(x \mid y)$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+If $E$ is a unitary space (Exercise 10) and $T : E \to E$ is a linear mapping such that $(Tx \mid x) = 0$ for all vectors $x$, then (in contrast with the example in 5.2.4) $T = 0$. \{Hint: Adapt the argument for (v) of Exercise 10 to express $(Tx \mid y)$ as a linear combination of numbers $(Tz \mid z)$.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $E$ is a unitary space (Exercise 10)
+        and $T : E \to E$ is a linear mapping
+        such that $(Tx \mid x) = 0$ for all vectors $x$.
+    For $x, y \in E$
+    \[(Tx \mid y) = \tfrac{1}{4}\{(T(x+y)\mid x+y) - (T(x-y)\mid x-y) + i(T(x+iy)\mid x+iy) - i(T(x-iy)\mid x-iy)\},\]
+    Since $(Tz \mid z) = 0$ for all $z$ we have $(Tx \mid y) = 0$ for all $x, y \in E$. 
+    Suppose $y = Tx$ then $(Tx \mid Tx) = \|Tx\|^2 = 0$.
+    Thus $Tx = 0$ for all $x$, so $T = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+Let $E$ be a Euclidean space.
+\begin{enumerate}[(i)]
+    \item If $u$, $x$ are vectors in $E$ such that $\|u\| = 1$ and $x$ is not a multiple of $u$, find a nonzero vector $z$ such that $u \perp z$ and $x = au + z$ for a suitable scalar $a$.
+
+    \item If $x_1$, $x_2$ are linearly independent vectors, find orthonormal vectors $u_1$, $u_2$ such that $u_1$ is a multiple of $x_1$, and $u_2$ is a linear combination of $x_1$, $x_2$.
+
+    \item If $x_1, \ldots, x_n$ are linearly independent, then there exist orthonormal vectors $u_1, \ldots, u_n$ such that $[\{x_1, \ldots, x_k\}] = [\{u_1, \ldots, u_k\}]$ for $k = 1, \ldots, n$. (\textit{Gram--Schmidt orthogonalization process})
+
+    \item Infer an alternate proof of 5.2.16: Every Euclidean space has an orthonormal basis.
+\end{enumerate}
+\{Hints:
+\begin{enumerate}[(i)]
+    \item If such $a$, $z$ exist, then $(x \mid u) = a$ and $z = x - au$.
+    \item Let $u_1 = \|x_1\|^{-1}x_1$, apply (i) with $u = u_1$, $x = x_2$ and normalize the resulting vector $z$.
+    \item Induction.\}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Set $a = (x \mid u)$ and $z = x - au$. 
+    Then $z \neq 0$ since $x$ is not a multiple of $u$, 
+        and $(u \mid z) = (u \mid x) - a(u \mid u) = a - a = 0$.
+\end{proof}
+
+\begin{proof}
+    Set $u_1 = \|x_1\|^{-1}x_1$. 
+    Apply (i) with $u = u_1$, $x = x_2$ 
+        to get nonzero $z = x_2 - (x_2 \mid u_1)u_1$ with $u_1 \perp z$. 
+    Set $u_2 = \|z\|^{-1}z$.
+\end{proof}
+
+\begin{proof}
+    By induction. 
+    The base case $k=1$ is $u_1 = \|x_1\|^{-1}x_1$. 
+    Given orthonormal $u_1,\ldots,u_k$ 
+        with $[\{u_1,\ldots,u_k\}]=[\{x_1,\ldots,x_k\}]$, 
+        set $z = x_{k+1} - \sum_{i=1}^k (x_{k+1}\mid u_i)u_i$ 
+        and $u_{k+1} = \|z\|^{-1}z$.
+\end{proof}
+
+\begin{proof}
+    Every Euclidean space has a 
+        (finite) basis of linearly independent vectors, then apply (iii).
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+If $u_1, \ldots, u_k$ are orthonormal vectors in a Euclidean space $E$ of dimension $n > k$, then $E$ has an orthonormal basis $u_1, \ldots, u_k, u_{k+1}, \ldots, u_n$. \{Hint: Consider $M^\perp$ for the appropriate linear subspace $M$.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $u_1, \ldots, u_k$
+        are orthonormal vectors in a Euclidean space $E$ of dimension $n > k$.
+    Since $u_1, \ldots, u_k$ are linearly independent,
+        we can expand the list to a basis $u_1, \ldots, u_k, a_{k+1}, \ldots, a_n$ of $E$.
+    Applying Problem 8 to $a_{k+1}, \ldots, a_n$ with respect to the already orthonormal $u_1, \ldots, u_k$ gives orthonormal $u_{k+1}, \ldots, u_n$.
+    thus $u_1, \ldots, u_k, u_{k+1}, \ldots, u_n$ is an orthonormal basis of $E$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+If $M$ is a linear subspace of a 
+Euclidean space $E$ then $\dim M + \dim M^\perp = \dim E$ 
+by the `alternate proof' of Corollary 5.2.8. 
+Infer from $M \cap M^\perp = \{\theta\}$ that $E = M + M^\perp$. \{Hint: \S3.5, Exercise 26 or \S3.6, Exercise 5.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $M$ is a linear subspace of a Euclidean space $E$.
+    We know that $M \cap M^\perp = \{\theta\}$.
+    Since $M, M^\perp$ are linear subspaces of $E$ and $\dim M + \dim M^\perp = \dim E$, 
+    it follows directly from Section 3.5 Exercise 26 that $E = M + M^\perp$.
+\end{proof}
 
 \subsection{The Adjoint of a Linear Mapping}
 
+\begin{tcolorbox}[title=Problem 2, breakable]
+    If $E$ and $F$ are Euclidean spaces, 
+    then the mapping $T \mapsto T^*$ 
+    is a linear bijection $\mathcal{L}(E,F) \to \mathcal{L}(F,E)$. 
+    What is the inverse mapping?
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $E$ and $F$ are Euclidean spaces. Consider the diagram below
+    \[
+        \begin{tikzcd}
+        E \arrow[d, "J_E"'] & F \arrow[l, "T^*"'] \arrow[d, "J_F"] \\
+        E' & F' \arrow[l, "T'"]
+        \end{tikzcd}
+    \]
+    Since $J_E$, $T'$, $J_F$ are linear isomorphisms, 
+    $T^* = J_E^{-1} T' J_F$ is a linear bijection. 
+    The inverse mapping is $J^{-1} _FT'^{-1} J_E$.
+\end{proof}
+
+\begin{proof}
+    By Theorem 5.3.3, $(T^*)^* = T$, so the mapping $T \mapsto T^*$ is its own inverse, thus a bijection. Linearity follows from Theorem 5.3.3 as well. Thus $T \mapsto T^*$ is a linear bijection with inverse $S \mapsto S^*$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    If $E$ and $F$ are inner product spaces 
+        and if $T:E \to F$, $S:F \to E$ 
+        are mappings such that $(Tx \mid y) = (x \mid Sy)$ 
+        for all $x \in E$ and $y \in F$, 
+        then $S$ and $T$ are linear
+         (and $S = T^*$ when $E$ and $F$ are Euclidean spaces).
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $E$ and $F$ are inner product spaces
+    and $T:E \to F$, $S:F \to E$
+    are mappings such that $(Tx \mid y) = (x \mid Sy)$
+    for all $x \in E$ and $y \in F$.
+    Let $x_1, x_2 \in E$ and $y \in F$.
+    Then
+    \[(T(x_1 + x_2) \mid y) = (x_1 + x_2 \mid Sy) = (x_1 \mid Sy) + (x_2 \mid Sy).\]
+    Also
+    \[(Tx_1 + Tx_2 \mid y) = (Tx_1 \mid y) + (Tx_2 \mid y) = (x_1 \mid Sy) + (x_2 \mid Sy).\]
+    So
+    \[(T(x_1 + x_2) - (Tx_1 + Tx_2) \mid y) = 0 \text{ for all } y \in F.\]
+    Thus $T(x_1 + x_2) = Tx_1 + Tx_2$. Similarly, $T(cx) = cTx$. Thus $T$ is linear.
+    The argument for $S$ is symmetrical. When $E$ and $F$ are Euclidean spaces,
+    $(Tx \mid y) = (x \mid Sy)$ is precisely the condition of Theorem 5.3.2 (4) to conclude $S = T^*$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+For $A$, $B$ in the vector space $\mathrm{M}_n(\mathbf{R})$ of $n \times n$ real matrices (4.1.5), define
+\[
+    (A \mid B) = \mathrm{tr}(AB').
+\]
+Prove that $\mathrm{M}_n(\mathbf{R})$ is a Euclidean space (of dimension $n^2$) and find the formula for $\|A\|$ if $A = (a_{ij})$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have $\mathrm{tr}(AB') = \mathrm{tr}((AB')') = \mathrm{tr}(BA')$, 
+        so $(A\mid B) = (B\mid A)$. 
+    Linearity follows from linearity of the trace and transpose. 
+    If $A \ne 0$ we have
+    \[(A \mid A) = \mathrm{tr}(AA') = \sum_{i,j} a_{ij}^2 \geq 0.\]
+    Thus $\mathrm{M}_n(\mathbf{R})$ is a Euclidean space. 
+    Suppose $A$ is the matrix over the linear transformation $T : V \longrightarrow W$.
+    We have $\dim V = \dim W = n$ so $\dim A = (\dim V)(\dim W) = n^2$. Finally,
+    \[\|A\| = \left(\sum_{i,j=1}^n a_{ij}^2\right)^{\frac{1}{2}}.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+The converse of Theorem 5.3.6 is also true, thus $T(M) \subset N$ if and only if $T^*(N^\perp) \subset M^\perp$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $E$ and $F$ be Euclidean spaces, $T: E \to F$ a linear mapping,
+    $M$ a linear subspace of $E$, and $N$ a linear subspace of $F$.
+    Furthermore, suppose $T^*(N^\perp) \subset M^\perp$.
+    Let $x \in M$. We must show $Tx \in N$.
+    It suffices to show $(Tx \mid y) = 0$ for all $y \in N^\perp$.
+    For any $y \in N^\perp$, we have $T^*y \in M^\perp$ by hypothesis, so
+    \[(Tx \mid y) = (x \mid T^*y) = 0,\]
+    since $x \in M$ and $T^*y \in M^\perp$. Thus $Tx \in N^{\perp\perp} = N$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+Theorem 5.3.6 looks suspiciously like \S3.9, Exercise 18 in disguise. Can you unmask it?
+\end{tcolorbox}
+
+\begin{theorem}[Theorem 5.3.6]
+    Let $E$ and $F$ be Euclidean spaces, $T : E \longrightarrow F$
+    a linear mapping, $M$ a linear subspace of $E$, and $N$ a linear subspace 
+    of $F$. 
+
+    If $T(M) \subset N$ then $T^*(N^\perp) \subset M^\perp$.
+\end{theorem}
+
+\begin{theorem}[Exercise 18]
+    Let $T : V \longrightarrow W$ be a linear mapping, $M$ a linear subspace 
+    of $V$, $N$ a linear subspace of $W$. 
+
+    If $T(M) \subset N$ then $T'(N^\circ) \subset M^\circ$.
+\end{theorem}
+
+\begin{proof}
+    The annihilator 
+    $N^\circ = \{ f \in W' : f(n) = 0 \ \forall\, n \in N \}$ corresponds to 
+    $N^\perp = \{ v \in F : (v \mid n) = 0 \ \forall\, n \in N \}$.
+    $T'$ takes a linear form on $W$ and produces a linear form on $V$,
+    whereas $T^*$ takes a vector in $F$ and produces a vector in $E$,
+    with the inner product $(w \mid \cdot)$ playing the role of the linear form.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+Let $E$ and $F$ be Euclidean spaces, $T:E \to F$ a linear mapping, $A$ a subset of $E$, and $B$ a subset of $F$. Prove:
+\begin{enumerate}[(i)]
+    \item $(T(A))^\perp = (T^*)^{-1}(A^\perp)$;
+    \item[(i')] $(T^*(B))^\perp = T^{-1}(B^\perp)$;
+    \item[(ii)] $(T(E))^\perp = \ker T^*$, therefore $F = T(E) \oplus \ker T^*$;
+    \item[(ii')] $(T^*(F))^\perp = \ker T$, therefore $E = T^*(F) \oplus \ker T$;
+    \item[(iii)] $T(A) \subset B \Rightarrow T^*(B^\perp) \subset A^\perp$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+\textbf{(i)} $v \in (T(A))^\perp \iff (v \mid T(a)) = 0\ \forall a \in A 
+\iff (T^*v \mid a) = 0\ \forall a \in A \iff T^*v \in A^\perp 
+\iff v \in (T^*)^{-1}(A^\perp)$.
+
+\textbf{(i')} $v \in (T^*(B))^\perp \iff (v \mid T^*b) = 0\ \forall b \in B
+\iff (Tv \mid b) = 0\ \forall b \in B \iff Tv \in B^\perp
+\iff v \in T^{-1}(B^\perp)$.
+
+\textbf{(ii)} Set $A = E$ in (i): $(T(E))^\perp = (T^*)^{-1}(E^\perp) = (T^*)^{-1}(\{0\}) = \ker T^*$.
+Since $T(E)$ is a subspace of $F$, we have $F = T(E) \oplus (T(E))^\perp = T(E) \oplus \ker T^*$.
+
+\textbf{(ii')} Set $B = F$ in (i'): $(T^*(F))^\perp = T^{-1}(F^\perp) = T^{-1}(\{0\}) = \ker T$.
+Since $T^*(F)$ is a subspace of $E$, we have $E = T^*(F) \oplus (T^*(F))^\perp = T^*(F) \oplus \ker T$.
+
+\textbf{(iii)} Let $v \in B^\perp$ and $a \in A$. Since $T(a) \in T(A) \subset B$,
+$(T^*v \mid a) = (v \mid T(a)) = 0$, so $T^*v \in A^\perp$.
+\end{proof}
+
 \subsection{Orthogonal Mappings and Matrices}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+Let $E$ be a Euclidean space, $T \in \mathcal{L}(E)$. Show the following conditions are equivalent:
+\begin{enumerate}[(a)]
+    \item $T$ is orthogonal (that is, $T$ preserves inner products);
+    \item $\|Tx - Ty\| = \|x - y\|$ for all vectors $x, y$ (that is, $T$ preserves distances).
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $T$ is orthogonal. Let $x, y \in E$. Then
+    \[\|Tx - Ty\|^2 = (Tx - Ty \mid Tx - Ty) = (T(x-y) \mid T(x-y)) = (x-y \mid x-y) = \|x-y\|^2.\]
+    Thus $\|Tx - Ty\| = \|x - y\|$.
+
+    Conversely, suppose $\|Tx - Ty\| = \|x - y\|$ for all $x, y \in E$. Squaring both sides,
+    \[(T(x-y) \mid T(x-y)) = (x-y \mid x-y)\]
+    and since $x - y$ ranges over all of $E$, $T$ preserves inner products.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+Let $x_1, \ldots, x_n$ be an orthonormal basis of a Euclidean space $E$, let $r_1, \ldots, r_n$ be real numbers whose squares are equal, and let $T \in \mathcal{L}(E)$ be the linear mapping such that $Tx_i = r_i x_i$ for all $i$. Prove that $T$ preserves orthogonality, in the sense that $(x \mid y) = 0 \Rightarrow (Tx \mid Ty) = 0$, and that $T$ is a scalar multiple of an orthogonal mapping, but $T$ is not orthogonal unless $r_i = \pm 1$ for all $i$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x = \sum_i a_i x_i$ and $y = \sum_i b_i x_i$ and suppose $(x \mid y) = 0$, so $\sum_i a_i b_i = 0$. Then
+    \[(Tx \mid Ty) = \left(\sum_i a_i r_i x_i \,\middle|\, \sum_i b_i r_i x_i\right) = \sum_i a_i b_i r_i^2 = r^2 \sum_i a_i b_i = 0\]
+    where $r^2 = r_i^2$ is the common value. Thus $T$ preserves orthogonality.
+
+    Since $r^2$ is common, $T = rU$ where $U x_i = \frac{r_i}{r} x_i$ with $\frac{r_i}{r} = \pm 1$,
+    so $U$ is orthogonal and $T$ is a scalar multiple of an orthogonal mapping.
+
+    Finally, $T$ is orthogonal iff $(Tx_i \mid Tx_i) = (x_i \mid x_i) = 1$, thus \ $r_i^2 = 1$,
+    so \ $r_i = \pm 1$ for all $i$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+If $E$ is a Euclidean space and $T \in \mathcal{L}(E)$ 
+is a linear mapping that preserves orthogonality (in the sense of Problem 2), 
+prove that $T$ is a scalar multiple of an orthogonal mapping:
+\begin{enumerate}[(i)]
+    \item If $\|x\| = \|y\|$ then $\|Tx\| = \|Ty\|$.
+    \item Let $x_1, \ldots, x_n$ be an orthonormal basis of $E$ 
+    and let $r$ be the common value of $\|Tx_i\|$. Show that $T^*T = r^2 I$.
+    \item If $r \neq 0$ then $r^{-1}T$ is orthogonal.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $\|x\| = \|y\|$.
+    Then $x + y \perp x - y$ since
+    \[(x+y \mid x-y) = \|x\|^2 - \|y\|^2 = 0.\]
+    Since $T$ preserves orthogonality, $T(x+y) \perp T(x-y)$. Then
+    \[0 = (T(x+y) \mid T(x-y)) = \|Tx\|^2 - \|Ty\|^2,\]
+    so $\|Tx\| = \|Ty\|$.
+\end{proof}
+
+\begin{proof}
+    For all $i, j$ we have
+    \[(T^* Tx_i \mid x_j) = (Tx_i \mid Tx_j).\]
+    Sifnce $x_i \perp x_j$ for $i \ne j$, $T$ preserves orthogonality gives $Tx_i \perp Tx_j$,
+    so $(Tx_i \mid Tx_j) = 0$ for $i \ne j$.
+    For $i = j$, $(Tx_i \mid Tx_i) = \|Tx_i\|^2 = r^2$.
+    Thus $(T^*T x_i \mid x_j) = r^2 \delta_{ij} = (r^2 I x_i \mid x_j)$
+    for all $i, j$, so $T^*T = r^2 I$.
+\end{proof}
+
+\begin{proof}
+    Suppose $r \ne 0$.
+    Let $x, y \in E$. Then
+    \[(r^{-1} Tx \mid r^{-1} Ty) = r^{-2}(Tx \mid Ty) = r^{-2}(T^*Tx \mid y) = r^{-2} \cdot r^2(x \mid y) = (x \mid y).\]
+    Thus $r^{-1} T$ is orthogonal.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+Let $A$ and $B$ be $n \times n$ real matrices, $I$ the $n \times n$ identity matrix. Prove:
+\begin{enumerate}[(i)]
+    \item $I$ is an orthogonal matrix;
+    \item if $A$ and $B$ are orthogonal, then so is $AB$;
+    \item if $A$ is orthogonal then it is invertible and $A^{-1}$ is orthogonal.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Clearly $I^T I = I$, so $I$ is orthogonal.
+    
+    Suppose $A$ and $B$ are orthogonal, so $A^T A = I$ and $B^T B = I$. Then
+    \[(AB)^T(AB) = B^T A^T A B = B^T I B = B^T B = I,\]
+    so $AB$ is orthogonal.
+
+    Suppose $A$ is orthogonal, so $A^T A = I$, meaning $A^{-1} = A^T$. Then
+    \[(A^{-1})^T A^{-1} = (A^T)^T A^T = A A^T = I,\]
+    so $A^{-1}$ is orthogonal.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+State and prove the analogue of Problem 4 for linear mappings.
+\end{tcolorbox}
+
+\begin{proof}
+    Clearly $I'I = I$, so $I$ is orthogonal.
+
+    Suppose $S$ and $T$ are orthogonal, so $T'T = I$ and $S'S = I$. Then
+    \[(ST)'(ST) = T' S' S T = T' I T = T' T = I,\]
+    so $ST$ is orthogonal.
+
+    Suppose $T$ is orthogonal, so $T'T = I$, meaning $T^{-1} = T'$. Then
+    \[(T^{-1})' T^{-1} = (T')' T' = T T' = I,\]
+    so $T^{-1}$ is orthogonal.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+If $T \in \mathcal{L}(\mathbb{R}^2)$ is orthogonal, show that $T$ may be interpreted as either a rotation or a reflection in the Euclidean plane.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $T \in \mathcal{L}(\mathbb{R}^2)$ is orthogonal.
+    Let $A$ be the matrix of $T$ and suppose 
+    \[A = \begin{pmatrix}
+        a & b \\ c & d
+    \end{pmatrix}.\]
+    Since $A^T A = I$ we have 
+    \[\begin{pmatrix}a&b\\c&d\end{pmatrix}^T\begin{pmatrix}a&b\\c&d\end{pmatrix} 
+    = \begin{pmatrix}a^2+c^2 & ab+cd \\ ab+cd & b^2+d^2\end{pmatrix} = I\]
+    So $a^2 + c^2 = 1$, $ab + cd = 0$, $b^2 + d^2 = 1$.
+    From $a^2 + c^2 = 1$ so $a = \cos\theta$, $c = \sin\theta$ for some $\theta$,
+    and combined with $b^2 + d^2 = 1$ we have two cases.
+
+    \textit{Case 1:} $b = -\sin\theta$, $d = \cos\theta$. Then
+    \[A = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix},\]
+    which is a rotation by $\theta$.
+
+    \textit{Case 2:} $b = \sin\theta$, $d = -\cos\theta$. Then
+    \[A = \begin{pmatrix}\cos\theta & \sin\theta \\ \sin\theta & -\cos\theta\end{pmatrix},\]
+    which is a reflection through the line at angle $\theta/2$.
+
+    Conversely, for any rotation by $\theta$ or reflection through a line at angle $\theta/2$
+    so
+    \[\begin{pmatrix}\cos\theta & \sin\theta \\ -\sin\theta & \cos\theta\end{pmatrix}
+    \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}
+    = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix} = I,\]
+    \[\begin{pmatrix}\cos\theta & \sin\theta \\ \sin\theta & -\cos\theta\end{pmatrix}
+    \begin{pmatrix}\cos\theta & \sin\theta \\ \sin\theta & -\cos\theta\end{pmatrix}
+    = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix} = I.\]
+    Thus every rotation and every reflection is orthogonal.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+Let $E$ be a Euclidean space, $T \in \mathcal{L}(E)$ an orthogonal linear mapping, and $M$ a linear subspace of $E$ such that $T(M) \subset M$. Prove that $T(M) = M$ and $T(M^\perp) = M^\perp$.
+\end{tcolorbox}
+
+\begin{proof}
+    Since $T$ is an orthogonal linear mapping, $\dim T(M) = \dim M$.
+    Since $T(M) \subset M$ we have $T(M) = M$.
+
+    Now let $x \in M^\perp$ and $y \in M$. Since $T(M) = M$ there exists $m \in M$ such that $y = Tm$, and so
+    \[(Tx \mid y) = (Tx \mid Tm) = (x \mid m) = 0,\]
+    where we used that $T$ is orthogonal. Thus $Tx \in M^\perp$, so $T(M^\perp) \subset M^\perp$.
+    Applying the same argument to $M^\perp$ gives $T(M^\perp) = M^\perp$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+Show that the matrix
+\[\frac{1}{3}\begin{pmatrix} 1 & -2 & 2 \\ 2 & 2 & 1 \\ 2 & -1 & -2 \end{pmatrix}\]
+is orthogonal.
+\end{tcolorbox}
+
+\[\frac{1}{9}\begin{pmatrix}1&-2&2\\2&2&1\\2&-1&-2\end{pmatrix}\begin{pmatrix}1&2&2\\-2&2&-1\\2&1&-2\end{pmatrix} = \frac{1}{9}\cdot 9I = I\]
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+In unitary spaces, linear mappings satisfying the condition of Definition 5.4.1 are called \textit{unitary}. A square complex matrix $A$ is said to be \textit{unitary} if $A^*A = I$, where $A^*$ is the conjugate-transpose of $A$. Extend the results of this section to unitary spaces.
+\end{tcolorbox}
+
+\begin{proof}
+    Trivial.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+Let $e_1, e_2$ be the canonical basis of $E^2$, $x_1 = e_1 + e_2$, $x_2 = e_1 - e_2$, and let $A = \{x_1, x_2, -x_1, -x_2\}$; interpret $A$ as the set of vertices of a square, centered at the origin, with edge length 2. Let $O = \{T \in \mathcal{L}(E^2) : T(A) = A\}$, the set of all linear mappings of Euclidean 2-space that preserve the vertices of the square. Prove:
+\begin{enumerate}[(i)]
+    \item Every $T \in O$ is bijective.
+    \item $O$ contains 8 elements.
+    \item $I \in O$; if $S, T \in O$ then $ST \in O$ and $T^{-1} \in O$.
+    \item Every $T \in O$ is orthogonal.
+    \item Find the matrices of the $T \in O$ relative to the canonical basis; relative to the basis $x_1, x_2$.
+    \item Interpret the elements of $O$ as $I, R, R^2, R^3, H, V, D, E$, where $R$ is counter-clockwise rotation of $90^\circ$, $H$ is reflection in the $x$-axis, $V$ is reflection in the $y$-axis, $D$ is reflection in the diagonal containing $\pm x_1$, and $E$ is reflection in the other diagonal.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Trivial.
+\end{proof}
