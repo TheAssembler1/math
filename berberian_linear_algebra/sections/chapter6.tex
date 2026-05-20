@@ -1,0 +1,190 @@
+\subsection{Determinant of a $2 \times 2$ matrix}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    If 
+    \[A = 
+    \begin{bmatrix}
+        a & c \\ b & d
+    \end{bmatrix}, \text{define } B = 
+    \begin{bmatrix}
+        d & -c \\
+        -b & a
+    \end{bmatrix}.\]
+    Show that $AB = |A| \cdot I$. If $A$ is invertible,
+        deduce a formula for $A^{-1}$.
+\end{tcolorbox}
+
+\begin{proof}
+    We have
+    \[AB =
+    \begin{bmatrix}
+        ad - bc & -ac + ca \\
+        bd - db & -bc + ad
+    \end{bmatrix} =
+    \begin{bmatrix}
+        ad - bc & 0 \\
+        0 & ad - bc
+    \end{bmatrix} = |A|I.\]
+    Now suppose $A$ is invertible. Then $|A| \ne 0$, and from $AB = |A|I$ we get
+    \[A \cdot \frac{1}{|A|}B = I,\]
+    so $A^{-1} = \dfrac{1}{|A|}B$.
+\end{proof}
+
+\subsection{Cross Product of Vectors in $\mathbb{R}^3$}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Show that $\|x \times y\|^2 = \|x\|^2 \|y\|^2 - (x \mid y)^2$
+    for all vectors $x, y$ in $\mathbb{R}^3$.
+\end{tcolorbox}
+
+\begin{proof}
+Let $x = (x_1, x_2, x_3),\ y = (y_1, y_2, y_3) \in \mathbb{R}^3$. We have
+\begin{align*}
+\|x\|^2\|y\|^2 - (x\mid y)^2
+    &= (x_1^2+x_2^2+x_3^2)(y_1^2+y_2^2+y_3^2) - (x_1 y_1 + x_2 y_2 + x_3 y_3)^2 \\
+    &= x_1^2 y_2^2 - 2x_1 x_2 y_1 y_2 + x_2^2 y_1^2 \\
+    &\quad + x_1^2 y_3^2 - 2x_1 x_3 y_1 y_3 + x_3^2 y_1^2 \\
+    &\quad + x_2^2 y_3^2 - 2x_2 x_3 y_2 y_3 + x_3^2 y_2^2 \\
+    &= (x_1 y_2 - x_2 y_1)^2 + (x_1 y_3 - x_3 y_1)^2 + (x_2 y_3 - x_3 y_2)^2 \\
+    &= \|x \times y\|^2. \qedhere
+\end{align*}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    If $u_1, u_2$ are orthonormal vectors in $\mathbb{R}^3$
+    (5.2.13), prove that $u_1, u_2$, $u_1 \times u_2$ is an orthonormal 
+    basis of $\mathbb{R}^3$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $u_1, u_2$ are orthonormal vectors in $\mathbb{R}^3$.
+    Since $u_1, u_2$ are are linearly independent,
+        by Corollary 6.2.6 $u_1, u_2, u_1 \times u_2$ form a basis of $\mathbb{R}^3$.
+    By Theorem 6.2.5, $u_1, u_2$ are both orthogonal to $u_1 \times u_2$.
+    It follows that $u_1, u_2, u_1 \times u_2$ is an orthonormal basis of $\mathbb{R}^3$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Calculate $9$ vectors $e_1 \times e_2$, where $e_1, e_2, e_3$
+    is the canonical basis of $\mathbb{R}^3$. 
+    (For example, $e_1 \times e_2 = e_3$.)
+\end{tcolorbox}
+
+\begin{proof}
+    We have
+\begin{enumerate}
+    \item $e_1 \times e_1 = 0$
+    \item $e_1 \times e_2 = e_3$
+    \item $e_1 \times e_3 = -e_2$
+    \item $e_2 \times e_1 = -e_3$
+    \item $e_2 \times e_2 = 0$
+    \item $e_2 \times e_3 = e_1$
+    \item $e_3 \times e_1 = e_2$
+    \item $e_3 \times e_2 = -e_1$
+    \item $e_3 \times e_3 = 0$
+\end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $x, y \in \mathbb{R}^3$ are linearly dependent,
+    show that $[\{x, y\}]^\perp \ne [\{x \times y\}]$ (cf. 6.2.7).
+    Conclude that $[\{x, y\}]^\perp = [\{x \times y\}]$ if and only if 
+    $x, y$ are independent.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x, y \in \mathbb{R}^3$ are linearly dependent.
+    Then $x \times y = \theta$, so $[\{x \times y\}] = \{\theta\}$.
+    If $x = y = \theta$, then $[\{x, y\}]^\perp = \mathbb{R}^3 \ne \{\theta\} = [\{x \times y\}]$.
+    Otherwise, WLOG $x \ne \theta$, so $[\{x, y\}]$ is a nonzero subspace,
+    thus $[\{x, y\}]^\perp \ne \mathbb{R}^3$, and thus
+    $[\{x, y\}]^\perp \ne \{\theta\} = [\{x \times y\}]$.
+
+    Conversely, suppose $x, y$ are linearly independent.
+    Then by Corollary 6.2.7, $[\{x, y\}]^\perp = [\{x \times y\}]$.
+
+    Therefore $[\{x, y\}]^\perp = [\{x \times y\}]$ if and only if $x, y$ are linearly independent.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Vectors $x, y$ in an inner product space are linearly dependent
+    if and only if $|(x \mid y)| = \|x\| \cdot \|y\|$ (Theorem 5.1.8).
+    Give a lightning proof for vectors in $\mathbb{R}^3$. (Hint: Exercise 1.)
+\end{tcolorbox}
+
+\begin{proof}
+    By the Cauchy-Schwarz inequality, $|(x \mid y)| \le \|x\| \cdot \|y\|$.
+    Equality holds if and only if $x$ and $y$ are linearly dependent.
+\end{proof}
+
+\begin{proof}
+    By Exercise 1, $\|x \times y\|^2 = \|x\|^2\|y\|^2 - (x \mid y)^2$. Then
+    \[x, y \text{ are dependent} \iff x \times y = \theta \iff \|x \times y\|^2 = 0 \iff \|x\|^2\|y\|^2 - (x \mid y)^2 = 0 \iff |(x \mid y)| = \|x\| \cdot \|y\|.\]
+\end{proof}
+
+\subsection{Determinant of a $3 \times 3$ matrix}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Calculate the determinant of the matrix 
+    \[
+    A = 
+    \begin{bmatrix}
+        2 & 3 & 7 \\
+        0 & 4 & 5 \\
+        0 & 0 & -1
+    \end{bmatrix}
+    \]
+\end{tcolorbox}
+
+\begin{proof}
+    Since $A$ is upper triangular, $\det(A) = 2 \cdot 4 \cdot (-1) = -8$.
+\end{proof}
+
+\subsection{Characteristic Polynomial of a Matrix ($2 \times 2$ or $3 \times 3$)}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+\end{tcolorbox}
+
+\subsection{Diagnolizing $2 \times 2$ Symmetric Real Matrices}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\subsection{Diagnolizing $3 \times 3$ Symmetric Real Matrices}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+\end{tcolorbox}
+
+\subsection{A Geometric Application}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+\end{tcolorbox}

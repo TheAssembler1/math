@@ -900,14 +900,7 @@ is orthogonal.
 
 \[\frac{1}{9}\begin{pmatrix}1&-2&2\\2&2&1\\2&-1&-2\end{pmatrix}\begin{pmatrix}1&2&2\\-2&2&-1\\2&1&-2\end{pmatrix} = \frac{1}{9}\cdot 9I = I\]
 
-\begin{tcolorbox}[title=Problem 11, breakable]
-In unitary spaces, linear mappings satisfying the condition of Definition 5.4.1 are called \textit{unitary}. A square complex matrix $A$ is said to be \textit{unitary} if $A^*A = I$, where $A^*$ is the conjugate-transpose of $A$. Extend the results of this section to unitary spaces.
-\end{tcolorbox}
-
-\begin{proof}
-    Trivial.
-\end{proof}
-
+\newpage
 \begin{tcolorbox}[title=Problem 12, breakable]
 Let $e_1, e_2$ be the canonical basis of $E^2$, $x_1 = e_1 + e_2$, $x_2 = e_1 - e_2$, and let $A = \{x_1, x_2, -x_1, -x_2\}$; interpret $A$ as the set of vertices of a square, centered at the origin, with edge length 2. Let $O = \{T \in \mathcal{L}(E^2) : T(A) = A\}$, the set of all linear mappings of Euclidean 2-space that preserve the vertices of the square. Prove:
 \begin{enumerate}[(i)]
@@ -921,5 +914,54 @@ Let $e_1, e_2$ be the canonical basis of $E^2$, $x_1 = e_1 + e_2$, $x_2 = e_1 - 
 \end{tcolorbox}
 
 \begin{proof}
-    Trivial.
+    Since $\dim T(A) = \dim A$, $T$ is surjective and thus bijective.
+\end{proof}
+
+\begin{proof}
+    $T$ is determined by where it sends $x_1$ and $x_2$. We need $T(x_1) \in A$ and $T(x_2) \in A$ with $\{T(x_1), T(\-x_1), T(x_2), T(-x_2)\} = A$. There are 4 choices for $T(x_1)$ and then 2 remaining choices for $T(x_2)$, giving $4 \times 2 = 8$ elements.
+\end{proof}
+
+\begin{proof}
+    Clearly $I(A) = A$ so $I \in O$. 
+    Suppose $S, T \in O$
+    Then $ST(A) = S(T(A)) = S(A) = A$, so $ST \in O$. 
+    Since $T$ is bijective, $T^{-1}(A) = A$, so $T^{-1} \in O$.
+\end{proof}
+
+\begin{proof}
+    Every $T \in O$ permutes $\{x_1, x_2, -x_1, -x_2\}$, 
+    so it maps $\{x_1, -x_1\}$ and $\{x_2, -x_2\}$ 
+    to pairs of orthogonal vertices. 
+    We have $\|Tx_i\| = \|x_i\| = \sqrt{2}$ 
+        and $Tx_1 \perp Tx_2$. 
+    Thus $T$ preserves norms and orthogonality, thus is orthogonal.
+\end{proof}
+
+\begin{proof}
+    Relative to the canonical basis $e_1, e_2$, using $x_1 = e_1 + e_2$, $x_2 = e_1 - e_2$
+    \[
+    I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
+    R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad
+    R^2 = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}, \quad
+    R^3 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
+    \]
+    \[
+    H = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \quad
+    V = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
+    D = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad
+    E = \begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}.
+    \]
+    Relative to the basis $x_1, x_2$
+    \[
+    I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
+    R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad
+    R^2 = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}, \quad
+    R^3 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
+    \]
+    \[
+    H = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad
+    V = \begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}, \quad
+    D = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \quad
+    E = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}.
+    \]
 \end{proof}
