@@ -145,36 +145,150 @@ Let $x = (x_1, x_2, x_3),\ y = (y_1, y_2, y_3) \in \mathbb{R}^3$. We have
 \subsection{Characteristic Polynomial of a Matrix ($2 \times 2$ or $3 \times 3$)}
 
 \begin{tcolorbox}[title=Problem 1, breakable]
+Find the characteristic polynomial and characteristic roots of each of the following matrices $A$:
+\[
+\text{(i) } A = \begin{pmatrix}2 & 6\\6 & -3\end{pmatrix}, \quad
+\text{(ii) } A = \begin{pmatrix}3 & 0\\0 & 5\end{pmatrix},
+\]
+\[
+\text{(iii) } A = \begin{pmatrix}3 & 0\\0 & 3\end{pmatrix}, \quad
+\text{(iv) } A = \begin{pmatrix}3 & 1\\0 & 3\end{pmatrix}.
+\]
 \end{tcolorbox}
+
+\begin{proof}
+\textbf{(i)} $p(\lambda)=\lambda^2+\lambda-42=(\lambda-6)(\lambda+7)$; roots $\lambda=6,-7$.\\
+\textbf{(ii)} $p(\lambda)=(\lambda-3)(\lambda-5)$; roots $\lambda=3,5$.\\
+\textbf{(iii)} $p(\lambda)=(\lambda-3)^2$; root $\lambda=3$ (multiplicity 2).\\
+\textbf{(iv)} $p(\lambda)=(\lambda-3)^2$; root $\lambda=3$ (multiplicity 2).
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
+Find the characteristic polynomial and characteristic roots of the matrix
+\[
+A = \begin{pmatrix}2 & 3 & 7\\0 & 4 & 5\\0 & 0 & -1\end{pmatrix}.
+\]
 \end{tcolorbox}
+
+\begin{proof}
+$p(\lambda)=(\lambda-2)(\lambda-4)(\lambda+1)$; roots $\lambda=2,4,-1$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 4, breakable]
+Give an example of a $3 \times 3$ matrix over $\mathbf{R}$ that has one real and two non-real characteristic roots.
 \end{tcolorbox}
+
+\begin{proof}
+Consider $p(\lambda) = (\lambda-1)(\lambda^2+1)$, which gives one real root $\lambda=1$ and two non-real roots $\lambda=\pm i$. We see
+\[
+A = \begin{pmatrix}1 & 0 & 0\\0 & 0 & -1\\0 & 1 & 0\end{pmatrix}
+\]
+has this characteristic polynomial.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 6, breakable]
+Show that the matrices
+\[
+A = \begin{pmatrix}1 & 0\\0 & 1\end{pmatrix}, \quad B = \begin{pmatrix}1 & 1\\0 & 1\end{pmatrix}
+\]
+have the same characteristic polynomial, but are not similar.
 \end{tcolorbox}
+
+\begin{proof}   
+    The characteristic polynomial for both is $(1 - \lambda)^2$.
+    Suppose there exists an invertible matrix $C$ such that 
+    \[A = C^{-1} B C.\]
+    But $A = I$, so $C^{-1}BC = I$ so $B = I$, a contradiction. 
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 7, breakable]
+If $A$ is a $3 \times 3$ real matrix and $p$ 
+is its characteristic polynomial,
+show that the constant term of $p$ is $-|A|$ 
+and the coefficient of the term of second degree is $-\operatorname{tr} A$ 
+(\S4.2, Exercise 7).
 \end{tcolorbox}
 
+\begin{proof}
+Suppose $A$ is a $3\times 3$ real matrix and $p$ is its characteristic polynomial. Let
+\[
+A = \begin{pmatrix} a_{11} & a_{12} & a_{13}\\ a_{21} & a_{22} & a_{23}\\ a_{31} & a_{32} & a_{33} \end{pmatrix}.
+\]
+First, notice $-|A| = -\det(A)$ and $\operatorname{tr} A = a_{11}+a_{22}+a_{33}$. Then the characteristic polynomial is
+\[
+p(\lambda) = -\lambda^3 + (a_{11}+a_{22}+a_{33})\lambda^2 - (\cdots)\lambda + (-1)^3\det(A).
+\]
+So the constant term is $-\det(A) = -|A|$, and the coefficient of $\lambda^2$ is $-(a_{11}+a_{22}+a_{33}) = -\operatorname{tr} A$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 8, breakable]
+Let $T \in \mathcal{L}(\mathbf{R}^3)$ be an orthogonal linear mapping in Euclidean 3-space (5.4.1) and let $A$ be the matrix of $T$ relative to some orthonormal basis of $\mathbf{R}^3$, so that $A$ is an orthogonal matrix (Theorem 5.4.3). Prove:
+\begin{enumerate}[(i)]
+    \item There exists a nonzero vector $u$ such that $Tu = \pm u$.
+    \item The matrix $A$ has either $+1$ or $-1$ as a characteristic root.
+    \item If $|A| = 1$ then the orthogonal matrix $A$ has $+1$ as a characteristic root.
+    \item If $|A| = 1$ then $T$ may be regarded as a rotation in $\mathbf{R}^3$.
+    \item $|A| = \pm 1$.
+    \item If $|A| = -1$ then $-T$ is a rotation, so $T = (-1)(-T)$ is composed of a rotation followed by reflection in the origin.
+\end{enumerate}
 \end{tcolorbox}
+
+\begin{proof}
+    Since $A$ is orthogonal we have $|A| = 1$,
+        but then $|A|^2 = |A||A| = |A'||A| = 1$
+    So $|A| = \pm 1$. That is, there is an eigen vector $x$
+        with eigen value $\pm 1$ such that $Tx = \pm x$.
+\end{proof}
+
+\begin{proof}
+    All eigen values are produced by solving $|A - rI| = 0$
+        which gives a degre three polynomial with one root being $\pm 1$.
+    Thus $p_A(1) = 0$ or $p_A(-1) = 0$.
+\end{proof}
+
+\begin{proof}
+    Suppose $|A| = 1$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
+In the Euclidean plane $\mathbf{R}^2$, let $x_1 = (1,0)$, $x_2 = (1,1)$, and let $T \in \mathcal{L}(\mathbf{R}^2)$ be the linear mapping such that $Tx_1 = x_2$, $Tx_2 = x_1$. Prove that the matrix of $T$ relative to the basis $x_1$, $x_2$ is symmetric, but $T$ is not self-adjoint. Does this contradict Theorem 6.4.5? \{Hint: Calculate the matrix of $T$ relative to the canonical basis $e_1, e_2$.\}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 10, breakable]
+Prove that the matrix
+\[
+A = \begin{pmatrix}1 & 1\\0 & 1\end{pmatrix}
+\]
+is not similar to a diagonal matrix. \{Hint: Corollary 6.4.20 and Exercise 6.\}
 \end{tcolorbox}
 
 \begin{tcolorbox}[title=Problem 11, breakable]
+Let $T$ be a self-adjoint linear mapping in a Euclidean space. Show that:
+\begin{enumerate}[(i)]
+    \item $(T(x+y)\mid x+y) - (T(x-y)\mid x-y) = 4(Tx\mid y)$ for all vectors $x$ and $y$.
+    \item If $(Tx\mid x) = 0$ for all vectors $x$, then $T = 0$ (cf.\ \S5.2, Exercise 11).
+\end{enumerate}
 \end{tcolorbox}
 
 \subsection{Diagnolizing $2 \times 2$ Symmetric Real Matrices}
 
 \begin{tcolorbox}[title=Problem 2, breakable]
+    If $T \in \mathbb{L}(\mathbb{R}^2)$ and if, relative to some 
+    basis of $\mathbb{R}^2$ (not necessarily orthonormal), the matrix of 
+    $T$ is symmetric, prove that there exists a basis of 
+    $\mathbb{R}^2$ consisting of eigenvectors of $T$. 
 \end{tcolorbox}
+
+\begin{proof}
+    Let $A$ be the matrix of $T$ relative to some basis of $\mathbb{R}^2$. Since $A$ is symmetric,
+    by Corollary 6.5.3, there exists a $2 \times 2$
+    orthogonal matrix $C$ such that $C'AC$ is diagonal.
+    Let $x_1, x_2$ be the original basis and $y_1, y_2$ be the basis corresponding to the columns of $C$.
+    Let $B = C'AC$ be the matrix of $T$ relative to $y_1, y_2$.
+    By Theorem 4.10.4, $B$ is the matrix of $T$ relative to $y_1, y_2$. Since $B$ is diagonal,
+    by Theorem 6.4.17, $y_1, y_2$ are eigenvectors of $T$, and thus form a basis of $\mathbb{R}^2$ consisting of eigenvectors of $T$.
+\end{proof}
 
 \subsection{Diagnolizing $3 \times 3$ Symmetric Real Matrices}
 
