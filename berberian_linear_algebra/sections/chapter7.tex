@@ -1,0 +1,99 @@
+\subsection{Alternate Multilinear Forms}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $f \in \mathcal{A}(V)$ then $f(x_1, \ldots, x_n) = 0$
+    whenever $x_1, \ldots, x_n$ are linearly dependent.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ are linearly dependent.
+    There exists scalars $c_1, \ldots, c_n$, not all zero, such that 
+    $\sum c_i x_i = 0$. Suppose WLOG $c_j \ne 0$ then 
+    \[x_j = -\sum_{i \ne j} \frac{c_i}{c_j} x_i.\]
+    Then 
+    \[
+    f(x_1, \ldots, x_j, \ldots, x_n)
+    =
+    f\left(x_1, \ldots, -\sum_{i \ne j} \frac{c_i}{c_j} x_i, \ldots, x_n\right).
+    \]
+    By multilinearity,
+    \[
+    f(x_1, \ldots, x_n)
+    =
+    -\sum_{i \ne j} \frac{c_i}{c_j}
+    f(x_1, \ldots, x_i, \ldots, x_n),
+    \]
+    where in each term $x_i$ appears in both the $i$th and $j$th positions.
+    Since $f$ is alternating, each such term is $0$. Thus
+    \[
+    f(x_1, \ldots, x_n)=0.
+    \]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{enumerate}[(i)]
+    \item If $f_1, \ldots, f_n$ are linear forms on $V$, then the function $f: V^n \to F$ defined by
+    \[
+        f(x_1, \ldots, x_n) = f_1(x_1) \cdots f_n(x_n)
+    \]
+    is multilinear.
+
+    \item If $n = 2$ and $f_1, f_2$ are nonzero linear forms on $V$, then the bilinear form $f$ of (i) is not alternate. 
+    \{Hint: \S1.6, Exercise 18.\}
+
+    \item If $n = 2$ and $f_1, f_2$ are linearly independent linear forms on $V$, then the bilinear form $f$ defined by
+    \[
+        f(x_1, x_2) = f_1(x_1)f_2(x_2) - f_1(x_2)f_2(x_1)
+    \]
+    is alternate and not identically zero. \{Hint: $\ker f_1$ is not contained in $\ker f_2$.\}
+
+    \item If $x_1, \ldots, x_n$ is a basis of $V$, and $f_1, \ldots, f_n$ is the dual basis of $V'$, then the function $f$ defined by the formula
+    \[
+        (*) \qquad f(y_1, \ldots, y_n) = \sum_{\sigma \in S_n} (\operatorname{sgn} \sigma) f_{\sigma(1)}(y_1) \cdots f_{\sigma(n)}(y_n)
+    \]
+    is the nonzero alternate multilinear form constructed in Lemma 7.1.13.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $f_1, \ldots, f_n$ are linear forms on $V$.
+    Multilinearity follows from the linearity of each $f_i$.
+\end{proof}
+
+\begin{proof}
+    Suppose $n = 2$ and $f_1, f_2$ are nonzero linear forms on $V$.
+    Since $f_1, f_2 \ne 0$ there exist $x, y \in V$ such that
+    $f_1(x) \ne 0$ and $f_2(y) \ne 0$.
+    Let $v = x + y$. Then
+    \[
+        f(v, v) = f_1(v)f_2(v) \ne 0,
+    \]
+    which contradicts $f$ being alternate.
+\end{proof}
+
+\begin{proof}
+    Suppose $n = 2$ and $f_1, f_2$ are linearly independent linear forms on $V$.
+    If $\ker f_1 \subseteq \ker f_2$ then $f_2$ is a scalar multiple of $f_1$,
+        contradicting linear independence.
+    Thus there exists $x \in \ker f_1 \setminus \ker f_2$.
+    Similarly there exists $y \in \ker f_2 \setminus \ker f_1$.
+    Then
+    \[f(x, y) = f_1(x)f_2(y) - f_1(y)f_2(x) = -f_1(y)f_2(x) \ne 0,\]
+    so $f$ is not identically zero. For any $x \in V$,
+    \[f(x, x) = f_1(x)f_2(x) - f_1(x)f_2(x) = 0,\]
+    so $f$ is alternate.
+\end{proof}
+
+\begin{proof}
+    Suppose $x_1, \ldots, x_n$ is a basis of $V$
+        and $f_1, \ldots, f_n$ is the dual basis of $V'$.
+    We show $f(x_1, \ldots, x_n) = 1$, after which Lemma 7.1.12 guarantees uniqueness.
+    Since $f_i(x_j) = \delta_{ij}$, the only permutation $\sigma$ for which
+    $f_{\sigma(1)}(x_1) \cdots f_{\sigma(n)}(x_n) \ne 0$ is $\sigma = \iota$,
+    giving $(\operatorname{sgn} \iota) \cdot 1 \cdots 1 = 1$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    
+\end{tcolorbox}
