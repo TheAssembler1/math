@@ -1,0 +1,35 @@
+\subsection{Equinumerous Sets}
+
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Show that the following sets are denumerable.
+    \begin{enumerate}
+        \item $\mathbb{N}$.
+        \item The set of all even integers.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the mapping $f : \mathbb{Z}^+ \longrightarrow \mathbb{N}$ defined 
+    \[f(x) = x - 1.\]
+    Let $a, b \in \mathbb{Z+}$ and suppose 
+    $f(a) = f(b)$. Then 
+    \[f(a) = f(b) = a - 1 = b - 1 \iff a = b.\]
+    Let $c \in \mathbb{N}$ and notice $c + 1 \in \mathbb{Z}^+$, then 
+    \[f(c + 1) = (c + 1) - 1 = c.\]
+    Thus $\mathbb{N}$ is denumerable.
+\end{proof}
+
+\begin{proof}
+    Consider the mapping $f : \mathbb{Z}^+ \longrightarrow 2\mathbb{Z}$ defined 
+    \[f(x) = \begin{cases} x - 1 & x \text{ odd} \\ -x & x \text{ even} \end{cases}\]
+    Let $a, b \in \mathbb{Z}^+$ and suppose $f(a) = f(b)$. If both are odd, 
+        $a - 1 = b - 1 \iff a = b$. If both are even, $-a = -b \iff a = b$. 
+    If they have opposite parity, one output is $\geq 0$ and the other 
+        is $< 0$, so $f(a) = f(b)$ is impossible. 
+    Thus $f$ is injective.
+    Let $c \in 2\mathbb{Z}$. 
+    If $c \geq 0$ then $x = c + 1$ 
+        is odd and $f(c + 1) = c$. If $c < 0$ then $x = -c$ is even and $f(-c) = c$. 
+    Thus $f$ is surjective, and $2\mathbb{Z}$ is denumerable.
+\end{proof}

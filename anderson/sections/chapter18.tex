@@ -1,0 +1,55 @@
+\begin{tcolorbox}[title=Problem 8, breakable]
+    The ring $\mathbb{Z}$ is a subring of $\mathbb{Q}$
+        but is not an ideal. Therefore, it makes no sense to speak 
+        of the ring of cosets $\mathbb{Q}/\mathbb{Z}$.
+    Show by explicit example that multiplication makes no sense for $\mathbb{Q}/\mathbb{Z}$.
+\end{tcolorbox} 
+
+\begin{proof}
+    Cosets have the form $\mathbb{Z} + q$ for $q \in \mathbb{Q}$. Note that $\mathbb{Z} + \frac{1}{3} = \mathbb{Z} + \frac{4}{3}$ since $\frac{4}{3} - \frac{1}{3} = 1 \in \mathbb{Z}$. However,
+    \[
+        \left(\mathbb{Z} + \frac{1}{3}\right)\left(\mathbb{Z} + \frac{1}{3}\right) = \mathbb{Z} + \frac{1}{9}
+        \quad \text{but} \quad
+        \left(\mathbb{Z} + \frac{1}{3}\right)\left(\mathbb{Z} + \frac{4}{3}\right) = \mathbb{Z} + \frac{4}{9}
+    \]
+    Since $\frac{4}{9} - \frac{1}{9} = \frac{1}{3} \notin \mathbb{Z}$, these are distinct cosets, so multiplication is not well-defined.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 10, breakable]
+    Let $R$ be a commutative ring; recall from Exercise 7.15 that the nilradical $N(R)$ of $R$ is a subring.
+    \begin{enumerate}
+        \item Prove that $N(R)$ is an ideal of $R$.
+        \item Prove that the ring $R/N(R)$ has no non-zero nilpotent elements.
+        \item Check explicitly that part b is true for the ring $R = \mathbb{Z}_8$. To what rings is $\mathbb{Z}_8 / N(\mathbb{Z_8})$ isomorphic?
+    \end{enumerate}
+\end{tcolorbox} 
+
+\begin{proof}
+    By Exercise 7.15 we know $N(R)$ is a subring of $R$.
+    It suffices to show that it satisfies the multiplicative absorption property.
+    Now, let $x \in N(R)$ and $r \in R$.
+    Since $x \in N(R)$ there exists $n \in \mathbb{N}$ such that $x^n = 0$.
+    Now $(xr)^n = x^n r^n = 0 \cdot r^n = 0$ thus $xr \in N(R)$.
+    It follows that $N(R)$ is an ideal of $R$.
+\end{proof}
+
+\begin{proof}
+    The cosets of $R/N(R)$ are of the form $N(R) + r$ for some $r \in R$.
+    Suppose $N(R) + r$ is a nilpotent element in $R/N(R)$, so there exists $n \in \mathbb{N}$ such that
+    \[
+        (N(R) + r)^n = N(R) + r^n = N(R).
+    \]
+    Thus $r^n \in N(R)$, meaning $r^n$ is nilpotent, 
+        so there exists $m \in \mathbb{N}$ 
+        such that $(r^n)^m = r^{nm} = 0$. Thus $r \in N(R)$ so we have $N(R) + r = N(R) = 0$ in $R/N(R)$.
+\end{proof}
+
+\begin{proof}
+    The elements of $\mathbb{Z}_8 = \{0,1,2,3,4,5,6,7\}$ satisfy $2^3 = 0$, $4^2 = 0$, $6^3 = 0$, and $0^1 = 0$,
+    so $N(\mathbb{Z}_8) = \{0,2,4,6\}$. The cosets of $\mathbb{Z}_8/N(\mathbb{Z}_8)$ are
+    \[
+        N(\mathbb{Z}_8) + 0 = \{0,2,4,6\}, \quad N(\mathbb{Z}_8) + 1 = \{1,3,5,7\}
+    \]
+    so $\mathbb{Z}_8/N(\mathbb{Z}_8)$ has exactly two elements and is thus isomorphic to $\mathbb{Z}_2$.
+    Since $\mathbb{Z}_2$ has no nonzero nilpotent elements, part (b) is confirmed.
+\end{proof}

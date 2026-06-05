@@ -1,0 +1,212 @@
+\subsection{Similarly}
+
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+    If $n$ is an even integer and $A \in M_n(\mathbb{R})$
+        such that $AB = BA$ for all $B \in M_n(\mathbb{R})$, 
+        then $|A| \ge 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    For all invertible matrices $C$ we have 
+    \[AC = CA \iff A = CAC^{-1}.\]
+    So $A$ is a scalar multiple of the identity $cI$ (Theorem 8.1.6).
+    Then $|A| = |cI| = c^n$.
+    Since $n$ is even, $c^n \ge 0$, so $|A| \ge 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $A, B \in M_n(F)$.
+    \begin{enumerate}
+        \item If either $A$ or $B$ is invertible, then $AB$ and $BA$ are similar.
+        \item Can the invertibilitly assumption be dropped?
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose, WLOG, $A$ is invertible.
+    Then
+    \[A^{-1}(AB)A = (A^{-1}A)(BA) = BA,\]
+    so $AB$ and $BA$ are similar.
+
+    The invertibility assumption cannot be dropped.
+    Let $n = 2$ and
+    \[A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \qquad
+      B = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}.\]
+    Then
+    \[AB = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \qquad
+      BA = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    \begin{enumerate}
+        \item If $A, B \in M_n(F)$ are similar, then $p(A)$ and $p(B)$ are similar for every polynomial $p \in F[t]$.
+        \item If $A^2$ and $B^2$ are similar, does it follows that $A$ and $B$ are similar?
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $A, B \in M_n(F)$ are similar.
+    There exists an invertible matrix $C$ such that $A = C B C^{-1}$.
+    Let $p \in F[t]$ and write 
+    \[p(t) = \sum_{i=0}^{m} a_i t^i, \qquad a_i \in F.\]
+    Since $A^i = (C B C^{-1})^i = C B^i C^{-1}$ for every $i \geq 0$, we have
+    \[p(A) = \sum_{i=0}^{m} a_i A^i = \sum_{i=0}^{m} a_i C B^i C^{-1} = C \left( \sum_{i=0}^{m} a_i B^i \right) C^{-1} = C\, p(B)\, C^{-1}.\]
+    Thus $p(A)$ and $p(B)$ are similar.
+
+    No. Take
+    \[A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \qquad B = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}.\]
+    Then $A^2 = 0 = B^2$, so $A^2$ and $B^2$ are similar. But $A$ and $B$ are not similar, since similar matrices have equal rank and $\operatorname{rank} A = 1 \neq 0 = \operatorname{rank} B$.
+\end{proof}
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $A$ and $B$ are similar, then so are $A'$ and $B'$ (easy).
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $A$ and $B$ are similar.
+    There exists an invertible matrix $C$ such that 
+    \[A = C^{-1} B C.\]
+    Taking transposes gives $A' = (C^{-1} B C)' = C' B' (C^{-1})' = C' B' (C')^{-1}$.
+    Setting $D = (C')^{-1}$, which is invertible, we have $A' = D^{-1} B' D$.
+    Thus $A'$ is similar to $B'$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Define the \emph{trace} (denoted $\tr T$) of a linear mapping $T \in \mathcal{L}(V)$.
+    (Hint: Theorem 8.1.4.)
+\end{tcolorbox}
+
+\begin{proof}
+    Let $A = (a_{ij})$ be the matrix of $T$ with respect some basis.
+    Define the trace as 
+    \[\tr A = \sum a_{ii},\]
+    by Theorem 8.1.4., if $B$ is similar to $A$ then $\tr B = \tr A$.
+\end{proof}
+
+\subsection{Eigenvalues and Eigenvectors}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $c$ be an eigevalue of $T \in \mathcal{L}(V)$ and let $M = \ker(T - cI)$.
+    If $S \in \mathcal{L}(V)$ and $ST = TS$, then $S(M) \subset M$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $S \in \mathcal{L}(V)$ and $ST = TS$.
+    Let $y \in S(M)$.
+    There exists $x \in M$ such that $Sx = y$.
+    Then $(T - cI)(y) = Ty - cIy = Ty - cy = TSx - cSx = (TS - cS)x = S(T - cI)x = S\big((T - cI)x\big) = S(0) = 0$,
+    where $(T - cI)x = 0$ since $x \in M = \ker(T - cI)$.
+    Thus $y \in \ker(T - cI) = M$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Let $T \in \mathcal{L}(V)$, $p \in F[t]$ a nonconstant polynomial.
+    \begin{enumerate}
+        \item If $c$ is an eigenvalue of $T$, then $p(c)$ is an eigenvalue of $p(T)$.
+        \item If $F$ is algebraically closed and $d$ is an eigenvalue of $p(T)$, then $d = p(c)$ for 
+        some eigenvalue $c$ of $T$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $c$ is an eigenvalue of $T$.
+    Let $x$ be a nonzero vector in $V$ such that $Tx = cx$.
+    Now, notice that $T^k x = c^k x$.
+    Let $p \in F[t]$ and write 
+    \[p(t) = \sum_{i = 0}^m a_i t^i \text{ so } p(c) = \sum_{i = 0}^{m} a_i c^i.\]
+    Then 
+    \[(p(T))(x) = \left(\sum_{i = 0}^m a_i T^i\right)x = \sum_{i = 0}^m a_i T^i x = \sum_{i = 0}^m a_i c^i x = \left(\sum_{i = 0}^m a_i c^i \right) x = p(c) x.\]
+    Since $x \neq 0$, $p(c)$ is an eigenvalue of $p(T)$.
+\end{proof}
+
+\begin{proof}
+    Suppose $F$ is algebraically closed and $d$ is an eigenvalue of $p(T)$.
+    Let $x \in V$ be a nonzero eigenvector with respect to the eigenvalue $d$, so $p(T)x = dx$.
+    Let $p \in F[t]$ have degree $m \geq 1$ with leading coefficient $a_m$.
+    Since $F$ is algebraically closed, the polynomial $p(t) - d$ factors as
+    \[p(t) - d = a_m \prod_{i = 1}^{m} (t - c_i),\]
+    for some $c_i \in F$.
+    Then 
+    \[(p(T) - dI)(x) = a_m \prod_{i = 1}^{m} (T - c_i I)(x) = 0.\]
+    Since $x \neq 0$, $a_m \prod_{i=1}^{m}(T - c_i I)$ is not injective, so some factor $T - c_j I$ is not injective.
+    Thus $c_j$ is an eigenvalue of $T$.
+    For that $c_j$, $p(c_j) - d = a_m \prod_{i=1}^m (c_j - c_i) = 0$, so $d = p(c_j)$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Suppose $V = M_1 \oplus \cdots \oplus M_r$ (in the sense of \S3.3, Exercise 20). For $i = 1, \ldots, r$ let $P_i \in \mathcal{L}(V)$ be the linear mapping such that $P_i = I$ on $M_i$ and $P_i = 0$ on $M_j$ for $j \neq i$.
+    \begin{enumerate}
+        \item[(i)] $P_i^2 = P_i$, $P_i P_j = 0$ when $i \neq j$.
+        \item[(ii)] $P_1 + \cdots + P_r = I$.
+        \item[(iii)] For $T \in \mathcal{L}(V)$, $TP_i = P_i T$ for all $i$ if and only if $T(M_i) \subset M_i$ for all $i$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x \in V$ so $x = \sum_j m_j$ for $m_j \in M_j$.
+    Then 
+    \[P_i^2 x = P_i^2 \sum_j m_j = P_i^2 m_i = P_i(P_i(m_i)) = P_i(m_i) = m_i = P_i(x),\]
+    so $P_i^2 = P_i$.
+    Also 
+    \[(P_i P_j)x = (P_i P_j)\sum_k m_k = P_i(m_j) = 0 \quad (i \neq j),\]
+    since $P_j \sum_k m_k = m_j \in M_j$ and $P_i = 0$ on $M_j$. Thus $P_i P_j = 0$.
+\end{proof}
+
+\begin{proof}
+    Let $x \in V$, so $x = \sum_{j=1}^r m_j$ with $m_j \in M_j$. Then
+    \[\left(\sum_{i=1}^r P_i\right)x = \sum_{i=1}^r P_i\left(\sum_{j=1}^r m_j\right) = \sum_{i=1}^r m_i = x.\]
+\end{proof}
+
+\begin{proof}
+    Suppose $TP_i = P_iT$ for all $i$. Let $m \in M_i$. Then $P_i m = m$, so
+    \[T(m) = T(P_i m) = P_i(T m) \in M_i,\]
+    since $\operatorname{ran} P_i = M_i$. Thus $T(M_i) \subset M_i$.
+
+    Conversely, suppose $T(M_i) \subset M_i$ for all $i$. Let $x \in V$, $x = \sum_j m_j$ with $m_j \in M_j$. Then
+    \[(TP_i)x = T(m_i).\]
+    Then
+    \[(P_iT)x = P_i\left(\sum_j T(m_j)\right) = T(m_i).\]
+    It follows that $TP_i = P_iT$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Let $T \in \mathcal{L}(V)$. The set of all $S \in \mathcal{L}(V)$ such that $ST = TS$ is called the \emph{commutant} of $T$, written $\{T\}'$; thus,
+    \[\{T\}' = \{S \in \mathcal{L}(V) : ST = TS\}.\]
+    The set of all $R \in \mathcal{L}(V)$ such that $RS = SR$ for every $S \in \{T\}'$ is called the \emph{bicommutant} of $T$, written $\{T\}''$; thus
+    \[\{T\}'' = \{R \in \mathcal{L}(V) : ST = TS \Rightarrow RS = SR\}.\]
+    With notations as in Exercise 3, suppose $T(M_i) \subset M_i$ for all $i$. Prove that $R(M_i) \subset M_i$ for every $R \in \{T\}''$. \{Hint: $P_i \in \{T\}'$ for all $i$.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $y \in R(M_i)$ then there exists $x \in V$ such that $R(x) = y$ where $x \in M_i$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $T \in \mathcal{L}(V)$ be a linear mapping such that $V$ has a basis consisting of eigenvectors for $T$ (it is the same to say that the matrix of $T$ relative to any basis of $V$ is similar to a diagonal matrix); such mappings are called \emph{diagonalizable}. Let $c_1, \ldots, c_r$ be the distinct eigenvalues of $T$ and let $M_i = \ker(T - c_i I)$ for $i = 1, \ldots, r$.
+    \begin{enumerate}
+        \item[(i)] $V = M_1 \oplus \cdots \oplus M_r$ (in the sense of \S3.3, Exercise 20).
+        \item[(ii)] For $S \in \mathcal{L}(V)$, $ST = TS$ if and only if $S(M_i) \subset M_i$ for all $i$.
+        \item[(iii)] For $R \in \{T\}''$, $R \in \{T\}'$ if and only if, for every $i$, $R(M_i) \subset M_i$ and $R|M_i$ is a scalar multiple of the identity.
+        \item[(iv)] For every polynomial $p \in F[t]$, $p(T) \in \{T\}''$ (this does not require that $T$ be diagonalizable).
+        \item[(v)] For any scalars $d_1, \ldots, d_r \in F$, there exists a polynomial $p \in F[t]$ such that $p(c_i) = d_i$ for all $i$.
+        \item[(vi)] Every $R \in \{T\}''$ has the form $R = p(T)$ for a suitable polynomial $p \in F[t]$. (This is true without assuming $T$ diagonalizable, but the proof is much harder.)
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $T \in \mathcal{L}(V)$ be a linear mapping such that $V$ has a basis $x_1, \ldots, x_n$ consisting of eigenvectors for $T$, say $Tx_i = c_i x_i$ for all $i$. Prove that every eigenvalue of $T$ is equal to one of the $c_i$. \{Hint: If $Tx = cx$, express $x$ as a linear combination of the $x_i$, then apply $T$.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $Tx = cx$ with $x \neq 0$.
+    Then $x = \sum_i a_i x_i$ for some $a_i \in F$.
+    So
+    \[Tx = T\left( \sum_i a_i x_i \right) = \sum_i a_i T x_i = \sum_i a_i c_i x_i = cx = c\left( \sum_i a_i x_i \right).\]
+    Since the $x_i$ are linearly independent, comparing coefficients gives $a_i c_i = c\, a_i$ so $a_i(c_i - c) = 0$ for all $i$.
+    As $x \neq 0$, some $a_j \neq 0$, so $c_j - c = 0$ and therefore $c = c_j$.
+    Thus every eigenvalue $c$ equals some $c_j$.
+\end{proof}

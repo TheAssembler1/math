@@ -1,0 +1,199 @@
+\subsection{Axioms for $\mathbb{R}$}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    \begin{enumerate}
+        \item If $\rho : F \longrightarrow G$ is an isomorphism of fields, then the inverse mapping $\rho^{-1}: G \longrightarrow F$ is also an isomorphism. Thus $F \cong G \implies G \cong F$.
+        \item If $\rho : F \longrightarrow G$ is a monomorphism of fields, then $\rho(1) = 1$.
+        \item The field $\mathbb{Q}$ of rational numbers is not isomorphic to the field $\mathbb{Q}(t)$ of rational forms over $\mathbb{Q}$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $\rho : F \longrightarrow G$ is an isomorphism of fields.
+    Let $a, b \in G$. Since $\rho$ is bijective, there exists unique $x, y \in F$ such that $\rho(x) = a, \rho(y) = b$,
+        so $\rho^{-1}(a) = x, \rho^{-1}(b) = y$.
+    Now 
+    \[\rho^{-1}(a + b) = \rho^{-1}(\rho(x) + \rho(y)) = (\rho^{-1} \circ \rho)(x + y) = x + y = \rho^{-1}(a) + \rho^{-1}(b).\]
+    Similarly,
+    \[\rho^{-1}(ab) = \rho^{-1}(\rho(x)\rho(y)) = (\rho^{-1} \circ \rho)(xy) = xy = \rho^{-1}(a)\rho^{-1}(b).\]
+    Thus $\rho^{-1}$ is a homomorphism, and it is bijective since $\rho$ is, so $\rho^{-1}$ is an isomorphism.
+\end{proof}
+
+\begin{proof}
+    Suppose $\rho : F \longrightarrow G$ is a monomorphism of fields.
+    Since $\rho$ is injective and $\rho(0) = 0$, we have $\rho(1) \neq 0$.
+    Then 
+    \[1^2 = 1 \iff \rho(1^2) = \rho(1) \iff \rho(1)\rho(1) = \rho(1).\]
+    Cancelling $\rho(1) \neq 0$ gives $\rho(1) = 1$.
+\end{proof}
+
+\begin{proof}
+    Suppose $\rho : \mathbb{Q} \longrightarrow \mathbb{Q}(t)$ is a monomorphism.
+    By (ii) we have $\rho(1) = 1$, then $\rho(n) = n$ for all $n \in \mathbb{Z}_{>0}$ by induction.
+    Since $\rho(-1) + \rho(1) = \rho(0) = 0$, we have $\rho(-1) = -1$, so $\rho(n) = n$ for all $n \in \mathbb{Z}$.
+    For $p/q \in \mathbb{Q}$, we have $q \cdot (p/q) = p$, so $\rho(q)\rho(p/q) = \rho(p)$, giving $\rho(p/q) = p/q$.
+    Thus $\rho(x) = x$ for all $x \in \mathbb{Q}$, so $\rho$ is not surjective, a contradiction.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 2, breakable]
+    In the field $F = \mathbb{Q} + i\mathbb{Q}$ of Gaussian rationals, if $\alpha = r + is$
+    define $\overline{\alpha} = r - is$. Show that the mapping $\rho: F \longrightarrow F$
+    defined $\rho(\alpha) = \overline{\alpha}$ is an automorphism of $F$, and that,
+    for every nonzero element $\alpha, \alpha^{-1} = (r^2 + s^2)^{-1} \overline{\alpha}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $\alpha, \beta \in F$ and suppose $\alpha = a + ib, \beta = x + iy$.
+    Then 
+    \[\rho(\alpha + \beta) = \rho((a + x) + i(b + y)) = (a + x) - i(b + y) = a - ib + x - iy = \rho(\alpha) + \rho(\beta).\]
+    Similarly,
+    \[\rho(\alpha\beta) = \rho((a + ib)(x + iy)) = \rho((ax - by) + i(ay + xb)) = (ax - by) - i(ay + xb) = \rho(\alpha)\rho(\beta).\]
+    Since $\rho(\rho(\alpha)) = \overline{\overline{\alpha}} = \alpha$, $\rho$ is its own inverse and thus bijective, so $\rho$ is an automorphism.
+    For the second part, we verify directly
+    \[\alpha \cdot (r^2 + s^2)^{-1}\overline{\alpha} = (r+is)(r-is)(r^2+s^2)^{-1} = (r^2+s^2)(r^2+s^2)^{-1} = 1.\]
+    Thus $\alpha^{-1} = (r^2+s^2)^{-1}\overline{\alpha}$.
+\end{proof}
+
+\subsection{The Order Axioms}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    In an ordered field, $0 < a < b \iff b^{-1} < a^{-1}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $0 < a < b$.
+    \[a^{-1} - b^{-1} = a^{-1}(b - a)b^{-1}.\]
+    On the rhs, $b - a > 0$ by hypothesis. Since $b > a > 0$, by Theorem 1.2.3 (12)
+    we have $a^{-1} > 0$ and $b^{-1} > 0$. Then by $O_2$ the product on the rhs is in
+    $P$, thus $b^{-1} < a^{-1}$.
+
+    Conversely, suppose $b^{-1} < a^{-1}$. If $a \le 0$ then $a^{-1} \le 0$,
+    and if $b \le 0$ then $b^{-1} \le 0$, so $b^{-1} < a^{-1} \le 0$, contradicting
+    $b^{-1} < a^{-1}$. Thus $a > 0$ and $b > 0$. If $0 < b < a$, then by the forward
+    direction $a^{-1} < b^{-1}$, contradicting $b^{-1} < a^{-1}$. Thus $0 < a < b$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    In an ordered field, $a^2 + b^2 = 0 \implies a = b = 0$.
+    Similarly, for a sum of $n$ squares ($n = 3, 4, 5, \ldots$).
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a^2 + b^2 = 0$. Suppose for contradiction that $a \ne 0$ or $b \ne 0$,
+    WLOG $a \ne 0$. Then $a^2 > 0$ by Theorem 1.2.3 (9) and $b^2 \ge 0$, so
+    $a^2 + b^2 > 0$ by $O_1$. This contradicts $a^2 + b^2 = 0$. Thus $a = b = 0$.
+    For a sum of $n$ squares $x_1^2 + \cdots + x_n^2 \ge x_1^2 \ge 0$.
+    But $x_1^2 + \cdots + x_n^2 = 0$ thus $x_1 = 0$ and for each $x_i$ it follows similarly.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    In an ordered field, $a > b > c \ge 0$ and $a \le b + c$, then 
+    \[\frac{a}{1 + a} \le \frac{b}{1 + b} + \frac{c}{1 + c}.\]
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a > b > c \ge 0$ and $a \le b + c$.
+    Then 
+    \begin{align*}
+    \frac{b}{1 + b} + \frac{c}{1 + c} - \frac{a}{1 + a} 
+    &= \frac{b(1 + a)(1 + c) + c(1 + b)(1 + a) - a(1 + b)(1 + c)}{(1 + a)(1 + b)(1 + c)} \\
+    &= \frac{b + ab + bc + abc + c + ac + bc + abc - a - ab - ac - abc}{(1+a)(1+b)(1+c)} \\
+    &= \frac{b + c - a + 2bc + abc}{(1+a)(1+b)(1+c)} \\
+    &= \frac{(b + c - a) + bc(2 + a)}{(1+a)(1+b)(1+c)}.
+    \end{align*}
+    Since $a \le b + c$ we have $b + c - a \ge 0$, and since $a > b > c \ge 0$ all of
+    $b, c, a$ are non-negative so $bc(2 + a) \ge 0$. Thus the numerator is $\ge 0$
+    and the denominator is $> 0$, giving
+    \[\frac{b}{1+b} + \frac{c}{1+c} - \frac{a}{1+a} \ge 0. \qedhere\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Let $F$ be an ordered field, $a$ and $b$ any elements of $F$,
+        and $n$ an odd positive integer. Prove:
+    \begin{enumerate}
+        \item $a < b \iff a^n < b^n$;
+        \item $a = b \iff a^n = b^n$;
+        \item $a > b \iff a^n > b^n$;
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    (i) Suppose $a < b$. If $a \ge 0$ we have Theorem 1.2.8.
+    Thus suppose $a < 0$. There are three cases.
+    Suppose $b = 0$.
+    Since $n$ is odd $a^n < 0$ thus $a^n < b^n$.
+    Suppose $b > 0$.
+    Since $n$ is odd $a^n < 0$ thus $a^n < b^n$.
+    Suppose $b < 0$.
+    We have $-a > -b$ and by Theorem 1.2.8 
+        $(-a)^n > (-b)^n \iff (-1)^n a^n > (-1)^n b^n$.
+    Since $n$ is odd $(-1)^n = -1$ so we have $-(a^n) > -(b^n)$.
+    Multiplying by $-1$ gives $a^n < b^n$.
+    The converse follows by trichotomy. If $a^n < b^n$ then $a = b$ 
+    is impossible and $a > b$ is impossible so $a < b$.
+
+
+    (ii) is trivial.
+    (iii) is (i) with the roles of $a$ and $b$ reversed.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $\mathbb{Q}(t)$ be the field of rational forms over $\mathbb{Q}$ 
+        and let $S$ be the set of all nonzero elements $r(t) = p(t)/q(t)$ of $\mathbb{Q}(t)$
+        such that the leading coefficients of the polynomials $p$ and $q$ have the same sign,
+        that is, such that $p(t) = a_0 + a_1 t + \cdots + a_m t^m$, $q(t) = b_0 + b_1 t + \cdots + b_n t^n$
+        with $a_m b_n > 0$.
+    \begin{enumerate}
+        \item $\mathbb{Q}(t)$ is an ordered field, with $S$ as a set of positive elements.
+        \item For the ordering defined in (i), $n1 < t$ for every positive integer $n$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f, g \in \mathbb{Q}(t)$.
+    Write $f = \frac{p_1}{q_1}$, $g = \frac{p_2}{q_2}$
+        where $p_1, p_2, q_1, q_2 \in \mathbb{Q}[t]$,
+        with leading coefficients $a_m, c_k$ of $p_1, p_2$
+        and $b_n, d_\ell$ of $q_1, q_2$ respectively.
+
+    \textbf{(i)} We verify the three axioms for $S$ to be a set of positive elements.
+
+    \textbf{Trichotomy.} Let $f \in \mathbb{Q}(t)$, $f \neq 0$.
+    Then $f = p_1/q_1$ with $p_1 \neq 0$, so $a_m b_n \neq 0$.
+    Either $a_m b_n > 0$, in which case $f \in S$,
+    or $a_m b_n < 0$, in which case $(-a_m) b_n > 0$ so $-f \in S$.
+    These are mutually exclusive since $a_m b_n > 0$ and $a_m b_n < 0$ cannot both hold.
+
+    \textbf{Closure under addition.} Suppose $f, g \in S$, so $a_m b_n > 0$ and $c_k d_\ell > 0$.
+    Then
+    \[
+        f + g = \frac{p_1}{q_1} + \frac{p_2}{q_2} = \frac{p_1 q_2 + p_2 q_1}{q_1 q_2}.
+    \]
+    The leading coefficient of $q_1 q_2$ is $b_n d_\ell$.
+    The leading coefficient of $p_1 q_2 + p_2 q_1$ is determined by the highest-degree term;
+    since $\deg(p_1 q_2) = m + \ell$ and $\deg(p_2 q_1) = k + n$,
+    if $m + \ell \neq k + n$ the leading coefficient is $a_m d_\ell$ or $c_k b_n$ respectively,
+    both of which are positive (as products of same-sign pairs);
+    if $m + \ell = k + n$ the leading coefficient is $a_m d_\ell + c_k b_n > 0$.
+    In all cases the numerator's leading coefficient times $b_n d_\ell > 0$, so $f + g \in S$.
+
+    \textbf{Closure under multiplication.} Suppose $f, g \in S$, so $a_m b_n > 0$ and $c_k d_\ell > 0$.
+    Then
+    \[
+        fg = \frac{p_1 p_2}{q_1 q_2}.
+    \]
+    The leading coefficient of $p_1 p_2$ is $a_m c_k$ and of $q_1 q_2$ is $b_n d_\ell$.
+    Then $(a_m c_k)(b_n d_\ell) = (a_m b_n)(c_k d_\ell) > 0$, so $fg \in S$.
+
+    Hence $S$ makes $\mathbb{Q}(t)$ an ordered field.
+
+    \textbf{(ii)} Fix a positive integer $n$. We must show $t - n \cdot 1 \in S$,
+    i.e.\ $t - n \in S$ (identifying $n \cdot 1$ with the constant polynomial $n$).
+    We have $t - n = \frac{t - n}{1}$.
+    The leading coefficient of the numerator $t - n$ is $1 > 0$
+    and the leading coefficient of the denominator $1$ is $1 > 0$,
+    so $(1)(1) > 0$ and thus $t - n \in S$, giving $n < t$.
+\end{proof}

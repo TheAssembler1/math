@@ -1,0 +1,81 @@
+\begin{tcolorbox}[title=Problem 2, breakable]
+Show that the rings $\mathbb{Z}_8$, $\mathbb{Z}_4 \times \mathbb{Z}_2$, and $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_2$ are all non-isomorphic, even though each of these rings has the same number of elements.
+\end{tcolorbox}
+
+\begin{proof}
+    Looking at the additive orders of elements in each ring,
+    the maximum additive order of any element 
+        is $8$ in $\mathbb{Z}_8$, $4$ in $\mathbb{Z}_4 \times \mathbb{Z}_2$, 
+        and $2$ in $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_2$.
+    Suppose for contradiction there exists a ring isomorphism 
+        $\varphi : \mathbb{Z}_8 \to \mathbb{Z}_4 \times \mathbb{Z}_2$. 
+    We have $x = 1 \in \mathbb{Z}_8$ with $o(x) = 8$. Now, we know $o(\varphi(x)) < 8$, so for some $n < 8$
+    \[
+    0 = \underbrace{\varphi(x) + \cdots + \varphi(x)}_{n} = \varphi(\underbrace{x + \cdots + x}_{n})
+    \]
+    and since $\varphi$ is an isomorphism it is injective,
+    so $\underbrace{x + \cdots + x}_{n} = 0$, 
+    contradicting the fact that $x$ has order $8$. 
+    The same argument applies to the other pairs.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 9, breakable]
+Let $X$ be a set with $n$ elements; consider the power set ring $P(X)$ of subsets of $X$ (described in Exercise 6.20). Consider also the ring
+\[
+\mathbb{Z}_2 \times \mathbb{Z}_2 \times \cdots \times \mathbb{Z}_2
+\]
+of $n$-tuples whose entries are taken from $\mathbb{Z}_2$. Prove that these two rings are isomorphic.
+\end{tcolorbox}
+
+\begin{proof}
+    Label the elements of $X$ as $x_1, \ldots, x_n$. Define $\varphi: P(X) \to \mathbb{Z}_2^n$ by
+    \[
+    \varphi(A) = (a_1, \ldots, a_n), \quad a_i = \begin{cases} 1 & x_i \in A \\ 0 & x_i \notin A \end{cases}
+    \]
+    We know $A + B = (A \cup B) \setminus (A \cap B)$, 
+        the symmetric difference. 
+    Then $x_i \in A + B$ iff exactly one of $a_i, b_i$ is $1$, 
+        which is addition mod $2$. So $\varphi(A + B) = \varphi(A) + \varphi(B)$.
+    We know $AB = A \cap B$. Then $x_i \in A \cap B$ iff $a_i = b_i = 1$, 
+        which is multiplication mod $2$. So $\varphi(AB) = \varphi(A)\varphi(B)$.
+    Now, the binary $n$-tuple $(a_1, \ldots, a_n)$
+         corresponds to exactly one subset $A = \{x_i \mid a_i = 1\}$, so $\varphi$ is a bijection.
+    Thus $\varphi$ is a ring isomorphism.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+In this problem you will prove that the fields $\mathbb{R}$ and $\mathbb{C}$ are \textit{not} isomorphic. Suppose by way of contradiction that there exists a ring isomorphism $\varphi : \mathbb{C} \to \mathbb{R}$. Now answer the following questions (justifying your answers, of course): What is $\varphi(1)$? What is $\varphi(-1)$? What does this tell you about $\varphi(i)$?
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+In this problem you will prove that the fields $\mathbb{R}$ and $\mathbb{Q}$ are \textit{not} isomorphic. Suppose by way of contradiction that there exists a ring isomorphism $\varphi : \mathbb{R} \to \mathbb{Q}$. Now answer the following questions (justifying your answers, of course): What is $\varphi(1)$? What is $\varphi(2)$? What does this tell you about $\varphi(\sqrt{2})$?
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+Use the ideas of Exercise 13 (or Exercise 14) to prove that $\mathbb{Q}$ and $\mathbb{C}$ are not isomorphic.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 16, breakable]
+If you have encountered the ideas of \textit{countably infinite} and \textit{uncountably infinite} sets, another proof of Exercise 14 (and 15) is possible. What is it?
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+Suppose that the commutative rings $R$ and $S$ are isomorphic, via the isomorphism $\varphi : R \to S$. Let $r \in R$. Use the Fundamental Isomorphism Theorem to prove that the rings $R/\langle r \rangle$ and $S/\langle \varphi(r) \rangle$ are isomorphic.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+Extend Exercise 18. Suppose that the commutative rings $R$ and $S$ are isomorphic via the isomorphism $\varphi : R \to S$. Let $I$ be an ideal of $R$; by Exercise 16.31 we know that $\varphi(I)$ is an ideal of $S$. Prove that the rings $R/I$ and $S/\varphi(I)$ are isomorphic.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 21, breakable]
+Suppose that $R$ is a commutative ring, with ideals $A$ and $I$, where $I \subseteq A$.
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that $A/I$ is an ideal in the ring $R/I$.
+    \item Prove that $(R/I)/(A/I)$ is isomorphic to $R/A$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 23, breakable]
+Let $R$ be a commutative ring with ideals $I$ and $J$. Then $I \cap J$ and $I + J$ are also ideals of $R$. (See Exercises 11.12 and 11.14.) Furthermore, $I \cap J$ is an ideal of $I$ and $J$ is an ideal of $I + J$. (See Exercise 11.13.) Prove that the rings $I/(I \cap J)$ and $(I + J)/J$ are isomorphic.
+\end{tcolorbox}

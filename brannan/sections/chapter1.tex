@@ -1,0 +1,131 @@
+\subsection{Conic Sections and Conics}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Determine the equation of each of the circles with the following centre and radius.
+\end{tcolorbox}
+\begin{proof}[Solution]
+    \textbf{(a)} Centre the origin, radius $1$:
+    \[x^2 + y^2 = 1.\]
+
+    \textbf{(b)} Centre the origin, radius $4$:
+    \[x^2 + y^2 = 16.\]
+
+    \textbf{(c)} Centre $(3,1)$, radius $2$:
+    \[(x-3)^2 + (y-1)^2 = 4.\]
+
+    \textbf{(d)} Centre $(3,4)$, radius $3$:
+    \[(x-3)^2 + (y-4)^2 = 9.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Determine the condition on the numbers $f$, $g$, and $h$ in the equation
+    \[x^2 + y^2 + fx + gy + h = 0\]
+    for the circle to pass through the origin.
+\end{tcolorbox}
+\begin{proof}[Solution]
+    Clearly $(0,0)$ must be a solution, so we require
+    \[0^2 + 0^2 + f(0) + g(0) + h = 0,\]
+    which gives $h = 0$. Thus the condition is $h = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Determine the centre and radius of the circles given by the following equations.
+\end{tcolorbox}
+\begin{proof}[Solution]
+    \textbf{(a)} $x^2 + y^2 - 2x - 6y + 1 = 0$.
+    By Theorem 2 we have centre
+    \[\left(-\tfrac{1}{2}(-2),\, -\tfrac{1}{2}(-6)\right) = (1, 3)\]
+    and radius
+    \[\sqrt{\tfrac{1}{4}(-2)^2 + \tfrac{1}{4}(-6)^2 - 1} = \sqrt{1 + 9 - 1} = 3.\]
+
+    \textbf{(b)} $3x^2 + 3y^2 - 12x - 48y = 0$. Dividing through by $3$ gives $x^2 + y^2 - 4x - 16y = 0$.
+    By Theorem 2 we have centre
+    \[\left(-\tfrac{1}{2}(-4),\, -\tfrac{1}{2}(-16)\right) = (2, 8)\]
+    and radius
+    \[\sqrt{\tfrac{1}{4}(-4)^2 + \tfrac{1}{4}(-16)^2} = \sqrt{4 + 64} = \sqrt{68} = 2\sqrt{17}.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Determine the set of points $(x,y)$ in $\mathbb{R}^2$ that satisfies each of the following equations.
+\end{tcolorbox}
+\begin{proof}[Solution]
+    \textbf{(a)} $x^2 + y^2 + x + y = 1$.
+    By Theorem 2 we have centre $\left(-\tfrac{1}{2}, -\tfrac{1}{2}\right)$ and radius
+    \[\sqrt{\tfrac{1}{4} + \tfrac{1}{4} + 1} = \sqrt{\tfrac{3}{2}}.\]
+    So the set is all points $(x,y) \in \mathbb{R}^2$ with distance $\sqrt{\tfrac{3}{2}}$ from $\left(-\tfrac{1}{2}, -\tfrac{1}{2}\right)$, i.e.\ a circle.
+
+    \textbf{(b)} $x^2 + y^2 - 2x + 4y + 5 = 0$.
+    By Theorem 2 we have centre
+    \[\left(-\tfrac{1}{2}(-2),\, -\tfrac{1}{2}(4)\right) = (1, -2)\]
+    and radius
+    \[\sqrt{\tfrac{1}{4}(-2)^2 + \tfrac{1}{4}(4)^2 - 5} = \sqrt{1 + 4 - 5} = 0.\]
+    So the set is the single point $(1, -2)$.
+
+    \textbf{(c)} $2x^2 + 2y^2 + x - 3y - 5 = 0$. Dividing through by $2$ gives
+    \[x^2 + y^2 + \tfrac{1}{2}x - \tfrac{3}{2}y - \tfrac{5}{2} = 0.\]
+    By Theorem 2 we have centre
+    \[\left(-\tfrac{1}{2}\left(\tfrac{1}{2}\right),\, -\tfrac{1}{2}\left(-\tfrac{3}{2}\right)\right) = \left(-\tfrac{1}{4}, \tfrac{3}{4}\right)\]
+    with radius
+    \[\sqrt{\tfrac{1}{4}\left(\tfrac{1}{2}\right)^2 + \tfrac{1}{4}\left(\tfrac{3}{2}\right)^2 + \tfrac{5}{2}}
+    = \sqrt{\tfrac{1}{16} + \tfrac{9}{16} + \tfrac{40}{16}} = \sqrt{\tfrac{50}{16}} = \tfrac{5\sqrt{2}}{4}.\]
+    So the set is all points $(x,y) \in \mathbb{R}^2$ with distance $\tfrac{5\sqrt{2}}{4}$ from $\left(-\tfrac{1}{4}, \tfrac{3}{4}\right)$, i.e.\ a circle.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Determine which, if any, of the following pairs of intersecting circles are mutually orthogonal.
+\end{tcolorbox}
+\begin{proof}[Solution]
+    \textbf{(a)} $C_1 = \{(x,y) \mid x^2 + y^2 - 4x - 4y + 7 = 0\}$ and
+    $C_2 = \{(x,y) \mid x^2 + y^2 + 2x - 8y + 5 = 0\}$.
+    Notice
+    \[(-4)(2) + (-4)(-8) = -8 + 32 = 24, \qquad 2(7 + 5) = 2(12) = 24.\]
+    So by Theorem 3, $C_1$ and $C_2$ are orthogonal.
+
+    \textbf{(b)} $C_1 = \{(x,y) \mid x^2 + y^2 + 3x - 6y + 5 = 0\}$ and
+    $C_2 = \{(x,y) \mid 3x^2 + 3y^2 + 4x + y - 15 = 0\}$.
+    Dividing through by $3$ on $C_2$ gives
+    \[C_2 = \left\{(x,y) \mid x^2 + y^2 + \tfrac{4}{3}x + \tfrac{1}{3}y - 5\right\}.\]
+    Notice
+    \[(3)\!\left(\tfrac{4}{3}\right) + (-6)\!\left(\tfrac{1}{3}\right) = 4 - 2 = 2,
+    \qquad 2\bigl(5 + (-5)\bigr) = 2(0) = 0.\]
+    Since $2 \neq 0$, by Theorem 3, $C_1$ and $C_2$ are not orthogonal.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Find the equation of the line through the points of intersection of the circles
+    \[x^2 + y^2 - 3x + 4y - 1 = 0, \qquad x^2 + y^2 + 5x - 6y + 3 = 0.\]
+\end{tcolorbox}
+\begin{proof}[Solution]
+    By Theorem 4 the equation of the line is the difference of the two circle equations:
+    \[\bigl(x^2 + y^2 - 3x + 4y - 1\bigr) - \bigl(x^2 + y^2 + 5x - 6y + 3\bigr) = 0,\]
+    which simplifies to
+    \[-8x + 10y - 4 = 0, \qquad \text{i.e.} \qquad 4x - 5y + 2 = 0.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    This question concerns the parabola $E$ with equation $y^2 = x$ and parametric equations
+    $x = t^2$, $y = t$ where $t \in \mathbb{R}$.
+
+    \textbf{(a)} Write down the focus, vertex, axis, and directrix of $E$.
+\end{tcolorbox}
+\begin{proof}[Solution]
+    Writing $y^2 = 4ax = x$, so $4a = 1 \implies a = \tfrac{1}{4}$.
+    So it has focus $\left(\tfrac{1}{4}, 0\right)$ and directrix $x = -\tfrac{1}{4}$.
+    Its vertex is $(0,0)$ and its axis is the $x$-axis.
+
+    \medskip
+    Let $P$ and $Q$ be coordinates on $E$ so that
+    \[P = (t_1^2, t_1), \qquad Q = (t_2^2, t_2).\]
+    If $t_1 \neq t_2$ then the chord $PQ$ has slope
+    \[\frac{t_2 - t_1}{t_2^2 - t_1^2} = \frac{1}{t_2 + t_1}.\]
+    Since $(t_1^2, t_1)$ lies on the line we have
+    \[(y - t_1) = \left(\frac{t_2 - t_1}{t_2^2 - t_1^2}\right)(x - t_1^2)
+    \implies (y - t_1)(t_2^2 - t_1^2) = (t_2 - t_1)(x - t_1^2)
+    \implies (y - t_1)(t_2 + t_1) = (x - t_1^2).\]
+    It passes through the focus $\left(\tfrac{1}{4}, 0\right)$ iff
+    \[(0 - t_1)(t_2 + t_1) = \left(\tfrac{1}{4} - t_1^2\right)
+    \implies -t_1 t_2 - t_1^2 = \tfrac{1}{4} - t_1^2
+    \implies -t_1 t_2 = \tfrac{1}{4}
+    \implies t_1 t_2 = -\tfrac{1}{4}.\]
+    So the chord $PQ$ is a focal chord precisely when $t_1 t_2 = -\tfrac{1}{4}$.
+\end{proof}
