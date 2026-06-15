@@ -12,7 +12,7 @@
 No example exists. In any domain every prime element is irreducible.
 
 \textbf{Solution (b):}
-\[2 in \mathbb{Z}[\sqrt{-5}]\]
+\[2 \in \mathbb{Z}[\sqrt{-5}]\]
 
 \textbf{Solution (c):}
 No example exists. Every non-unit is either irreducible or a product of irreducibles.
@@ -28,6 +28,15 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
     \end{enumerate}
 \end{tcolorbox} 
 
+\textbf{Solution (a):} $\langle 2 \rangle \subset \mathbb{Z}$.
+
+\textbf{Solution (b):} $\langle 4 \rangle \subset \mathbb{Z}$.
+
+\textbf{Solution (c):} $\langle 2, x \rangle \subset \mathbb{Z}[x]$.
+
+\textbf{Solution (d):} $\langle 4, x \rangle \subset \mathbb{Z}[x]$.
+
+\newpage
 \begin{tcolorbox}[title=Warmup (c), breakable]
     Translate the following statements into statements about principal ideals:
     \begin{enumerate}
@@ -39,16 +48,45 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
     \end{enumerate}
 \end{tcolorbox} 
 
+
+\textbf{Solution (a):} $\langle 12 \rangle \subseteq \langle 3 \rangle$ in $\mathbb{Z}$.
+
+\textbf{Solution (b):} $\langle 2 + \sqrt{3} \rangle = \mathbb{Z}[\sqrt{3}]$.
+
+\textbf{Solution (c):} $\langle 2 + i \rangle = \langle -1 + 2i \rangle$ in $\mathbb{Z}[i]$.
+
+\textbf{Solution (d):} $\langle 2x + 1 \rangle$ is maximal in $\mathbb{Q}[x]$.
+
+\textbf{Solution (e):} $\langle 2x + 1 \rangle$ is maximal among the
+proper principal ideals of $\mathbb{Z}[x]$.
+
 \begin{tcolorbox}[title=Warmup (d), breakable]
     Why is the following statement silly?
     Every commutative ring has exactly one maximal ideal because the whole ring is an ideal,
         which is obviously as large as possible.
 \end{tcolorbox} 
 
+\textbf{Solution: } Because its wrong.
+
 \begin{tcolorbox}[title=Problem 1, breakable]
     Prove Theorem 13.1: In any domain, prime elements are irreducible.
 \end{tcolorbox} 
 
+\begin{proof}
+    Let $R$ be an integral domain.
+    Let $p \in R$ be a prime element.
+    By definition, $p$ is nonzero and not a unit.
+    Suppose $p$ has been factored such that $p = ab$ where $a, b \in R$.
+    Then $p \mid ab$, so WLOG, $p \mid a$.
+    Thus $a = px$ for some $x \in R$, so $p = pxb$.
+    Since $R$ is a domain and $p \ne 0$ we cancel $p$
+        to get $1 = xb$.
+    Then $b$ is a unit.
+    Thus the factorization of $p$ is trivial,
+        and $p$ is irreducible.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 2, breakable]
     Complete the proof of Theorem 13.2.
     That is, suppose we have a domain in which all non-zero non-units are irreducible,
@@ -57,6 +95,38 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
         (up to order and unit factors).
 \end{tcolorbox} 
 
+\begin{proof}
+    Let $R$ be an integral domain in which all non-zero non-units are irreducible,
+        or a product of irreducibles.
+    Furthermore, suppose all irreducible elements are prime.
+    Let $y \in R$ be a non-zero non-unit and suppose
+    \[
+        y = \prod_{i=1}^{m} x_i = \prod_{j=1}^{n} z_j
+    \]
+    are two factorizations of $y$ into irreducibles $x_i$ and $z_j$,
+        with $m \le n$.
+    We proceed via induction on $m$.
+
+    If $m = 1$, then $x_1 = \prod_j z_j$.
+    Since $x_1$ is irreducible, it has no nontrivial factorization,
+        so $n = 1$ and $x_1 = z_1$.
+
+    Now suppose $m > 1$ and the result holds for factorizations
+        of length $m - 1$.
+    Since $x_1$ is irreducible, it is prime by our hypothesis.
+    Now $x_1 \mid \prod_j z_j$, so $x_1 \mid z_j$ for some $j$.
+    Then, after reordering, say $x_1 \mid z_1$.
+    Then $z_1 = u x_1$ for some $u \in R$.
+    Since $z_1$ is irreducible and $x_1$ is not a unit,
+        $u$ must be a unit, so $x_1$ and $z_1$ are associates.
+    Substituting and cancelling $x_1$, we get $x_2 \cdots x_m = (u z_2) z_3 \cdots z_n$,
+    where $u z_2$ is irreducible, being a unit multiple of an irreducible.
+    By our hypothesis, $m - 1 = n - 1$ and after reordering
+        each $x_i$ is an associate of the corresponding factor.
+    Thus $m = n$ and the two factorizations agree up to order
+        and unit factors.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 3, breakable]
     Exhibit in the ring $\mathbb{Z}_6$ a non-unit $a$ for which $a^n = a$,
         for all positive integers $n$. Why does this mean that there is 
@@ -64,9 +134,42 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
     Now repeat this exercise for $\mathbb{Z} \times \mathbb{Z}$.
 \end{tcolorbox} 
 
+\begin{proof}
+    Consider the element $3 \in \mathbb{Z}_6$.
+    Note $3$ is not a unit, since $3 \cdot k \equiv 0$ or $3 \pmod 6$
+        for all $k$, so $3k \not\equiv 1$.
+    If $n = 1$ then $3^1 = 3$.
+    Suppose it holds for $n - 1$ so that $3^{n - 1} = 3$. Then
+    \[3^n = 3 \cdot 3^{n - 1} = 3 \cdot 3 = 9 \equiv 3 \pmod 6.\]
+    Thus $3^n = 3$ for all positive integers $n$.
+
+    Since $3 = 3 \cdot 3$ with $3$ a non-unit, the element $3$
+        is not irreducible.
+    Notice
+    \[3 = 3 \cdot 3 = 3 \cdot 3 \cdot 3 = \cdots\]
+    give factorizations of $3$ of every length, which do not agree
+        up to order and unit factors.
+
+    For $\mathbb{Z} \times \mathbb{Z}$ let $a = (1, 0)$.
+    It is not a unit, since $(1,0)(x,y) = (x, 0) \ne (1,1)$.
+    Furthermore $(1,0)^n = (1^n, 0^n) = (1, 0)$ for all positive integers $n$,
+        so the same argument applies. $(1,0) = (1,0)(1,0)$ shows
+        $(1,0)$ is neither irreducible nor a product of irreducibles,
+        and gives factorizations of arbitrary length.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 4, breakable]
     Prove that $x$ is a prime element of $\mathbb{Z}[x]$.
 \end{tcolorbox} 
+
+\begin{proof}
+    Suppose $x \mid ab$ for $a, b, \in \mathbb{Z}[x]$.
+    If $x \mid b$ then we are done.
+    Thus, suppose $x \nmid b$ so that $deg(b) = 0$.
+    Since $x \mid ab$ there exists $f \in \mathbb{Z}[x]$
+        such that $x = fab$.
+    Now, counting degrees it is clear that either $deg(f) = 1$ or $deg(a) = 1$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 8, breakable]
     Describe the elements of the ideal $\langle 3, x \rangle$ in $\mathbb{Z}[x]$.
@@ -102,6 +205,10 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
     Show that this ideal is not maximal.
 \end{tcolorbox} 
 
+\begin{proof}
+    Clearly $\langle x \rangle \subset \langle x, y \rangle$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 17, breakable]
     Consider the element $x + y$ in $\mathbb{Q}[x, y]$; see Exercise 12.12
     for more about this ring. Argue that $x + y$ is irreducible, and so 
@@ -117,3 +224,9 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
     by considering the ideal 
     \[\langle 2x + 1, 3 \rangle.\]
 \end{tcolorbox} 
+
+\begin{proof}
+    Clearly $\langle 2x + 1 \rangle \subset \langle 2x + 1, 3 \rangle$
+        and $3 \notin \langle 2x + 1 \rangle$ thus $\langle 2x + 1 \rangle$
+        is not maximal among all ideals in $\mathbb{Z}[x]$.
+\end{proof}

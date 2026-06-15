@@ -45,29 +45,99 @@ of $n$-tuples whose entries are taken from $\mathbb{Z}_2$. Prove that these two 
 \end{proof}
 
 \begin{tcolorbox}[title=Problem 13, breakable]
-In this problem you will prove that the fields $\mathbb{R}$ and $\mathbb{C}$ are \textit{not} isomorphic. Suppose by way of contradiction that there exists a ring isomorphism $\varphi : \mathbb{C} \to \mathbb{R}$. Now answer the following questions (justifying your answers, of course): What is $\varphi(1)$? What is $\varphi(-1)$? What does this tell you about $\varphi(i)$?
+Prove that the fields $\mathbb{R}$ and $\mathbb{C}$ are \textit{not} isomorphic. 
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose there exists a ring isomorphism  $\varphi : \mathbb{C} \to \mathbb{R}$.
+    Since $\varphi(1)^2 = \varphi(1 \cdot 1) = \varphi(1)$, we have $\varphi(1)(\varphi(1) - 1) = 0$.
+    As $\varphi$ is injective with $\varphi(0) = 0$, we have $\varphi(1) \ne 0$, so $\varphi(1) = 1$.
+    Then $\varphi(-1)^2 = \varphi((-1)(-1)) = \varphi(1) = 1$, and $\varphi(-1) \ne \varphi(1) = 1$
+        by injectivity, thus $\varphi(-1) = -1$.
+    We see that 
+    \[[\varphi(i)]^2 = \varphi(i)\varphi(i) = \varphi(i^2) = \varphi(-1) = -1\]
+    But with $\varphi(i) \in \mathbb{R}$ this is a contradiction.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 14, breakable]
-In this problem you will prove that the fields $\mathbb{R}$ and $\mathbb{Q}$ are \textit{not} isomorphic. Suppose by way of contradiction that there exists a ring isomorphism $\varphi : \mathbb{R} \to \mathbb{Q}$. Now answer the following questions (justifying your answers, of course): What is $\varphi(1)$? What is $\varphi(2)$? What does this tell you about $\varphi(\sqrt{2})$?
+Prove that the fields $\mathbb{R}$ and $\mathbb{Q}$ are \textit{not} isomorphic. 
 \end{tcolorbox}
+
+\begin{proof}
+    Suppose there exists a ring isomorphism  $\varphi : \mathbb{R} \to \mathbb{Q}$.
+    Since $\varphi(1)^2 = \varphi(1 \cdot 1) = \varphi(1)$, we have $\varphi(1)(\varphi(1) - 1) = 0$.
+    As $\varphi$ is injective with $\varphi(0) = 0$, we have $\varphi(1) \ne 0$, so $\varphi(1) = 1$.
+    Then $\varphi(2) = \varphi(1 + 1) = \varphi(1) + \varphi(1) = 1 + 1 = 2$.
+    But then $\varphi(\sqrt{2})\varphi(\sqrt{2}) = \varphi(\sqrt{2}\sqrt{2}) = \varphi(2) = 2$,
+        so $\varphi(\sqrt{2}) \in \mathbb{Q}$ satisfies $\varphi(\sqrt{2})^2 = 2$.
+    This contradicts the irrationality of $\sqrt{2}$.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 15, breakable]
-Use the ideas of Exercise 13 (or Exercise 14) to prove that $\mathbb{Q}$ and $\mathbb{C}$ are not isomorphic.
+Prove that the fields $\mathbb{Q}$ and $\mathbb{C}$ are not isomorphic.
 \end{tcolorbox}
 
+\begin{proof}
+    Suppose there exists a ring isomorphism  $\varphi : \mathbb{C} \to \mathbb{Q}$.
+    Since $\varphi(1)^2 = \varphi(1 \cdot 1) = \varphi(1)$, we have $\varphi(1)(\varphi(1) - 1) = 0$.
+    As $\varphi$ is injective with $\varphi(0) = 0$, we have $\varphi(1) \ne 0$, so $\varphi(1) = 1$.
+    Then $\varphi(2) = \varphi(1 + 1) = \varphi(1) + \varphi(1) = 1 + 1 = 2$.
+    But then $\varphi(\sqrt{2})\varphi(\sqrt{2}) = \varphi(\sqrt{2}\sqrt{2}) = \varphi(2) = 2$,
+        so $\varphi(\sqrt{2}) \in \mathbb{Q}$ satisfies $\varphi(\sqrt{2})^2 = 2$.
+    This contradicts the irrationality of $\sqrt{2}$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 16, breakable]
 If you have encountered the ideas of \textit{countably infinite} and \textit{uncountably infinite} sets, another proof of Exercise 14 (and 15) is possible. What is it?
 \end{tcolorbox}
+
+\textbf{Solution: } Have not.
 
 \begin{tcolorbox}[title=Problem 18, breakable]
 Suppose that the commutative rings $R$ and $S$ are isomorphic, via the isomorphism $\varphi : R \to S$. Let $r \in R$. Use the Fundamental Isomorphism Theorem to prove that the rings $R/\langle r \rangle$ and $S/\langle \varphi(r) \rangle$ are isomorphic.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $\pi : S \to S/\langle \varphi(r) \rangle$ be the quotient map, and consider the
+        composite $\psi = \pi \circ \varphi : R \to S/\langle \varphi(r) \rangle$.
+    As a composite of homomorphisms, $\psi$ is a ring homomorphism.
+    Since $\varphi$ is surjective and $\pi$ is surjective, $\psi$ is surjective, so $\psi(R) = S/\langle \varphi(r) \rangle$.
+   Then for $x \in R$,
+    \[
+        x \in \ker\psi \iff \varphi(x) \in \langle \varphi(r) \rangle
+            \iff \varphi(x) = \varphi(r)\,s \text{ for some } s \in S.
+    \]
+    Since $\varphi$ is an isomorphism, let $s = \varphi(t)$ with $t \in R$, then
+        $\varphi(x) = \varphi(r)\varphi(t) = \varphi(rt)$, and injectivity gives $x = rt$.
+    Thus $x \in \langle r \rangle$. Conversely every $x = rt \in \langle r \rangle$ is in $\ker\psi$.
+    Therefore $\ker\psi = \langle r \rangle$.
+    By the First Isomorphism Theorem,
+    \[
+        R/\langle r \rangle = R/\ker\psi \;\cong\; \psi(R) = S/\langle \varphi(r) \rangle. \qedhere
+    \]
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 19, breakable]
 Extend Exercise 18. Suppose that the commutative rings $R$ and $S$ are isomorphic via the isomorphism $\varphi : R \to S$. Let $I$ be an ideal of $R$; by Exercise 16.31 we know that $\varphi(I)$ is an ideal of $S$. Prove that the rings $R/I$ and $S/\varphi(I)$ are isomorphic.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $\psi : R \longrightarrow S/\varphi(I)$ be defined by $\psi(r) = (q \circ \varphi)(r)$,
+    where $q : S \longrightarrow S/\varphi(I)$ is the quotient mapping.
+    Then $\psi$ is a ring homomorphism, being a composition of ring homomorphisms.
+    Now suppose for $r \in R$ we have $\psi(r) = \varphi(I)$.
+    Then $\varphi(r) \in \varphi(I)$, so $\varphi(r) = \varphi(i)$ for some $i \in I$.
+    Since $\varphi$ is injective, $r = i \in I$.
+    Conversely, if $r \in I$ then $\varphi(r) \in \varphi(I)$, so $\psi(r) = \varphi(I)$.
+    Thus $\ker \psi = I$.
+    Now let $y \in S/\varphi(I)$, so that $y = k + \varphi(I)$ for some $k \in S$. Then
+    \[\psi(\varphi^{-1}(k)) = q(\varphi(\varphi^{-1}(k))) = q(k) = k + \varphi(I) = y.\]
+    Thus $\operatorname{ran} \psi = S/\varphi(I)$. It follows by the First Isomorphism Theorem that
+    $R/I \cong S/\varphi(I)$.
+\end{proof}
+
+\newpage
 \begin{tcolorbox}[title=Problem 21, breakable]
 Suppose that $R$ is a commutative ring, with ideals $A$ and $I$, where $I \subseteq A$.
 \begin{enumerate}[label=(\alph*)]
@@ -76,6 +146,43 @@ Suppose that $R$ is a commutative ring, with ideals $A$ and $I$, where $I \subse
 \end{enumerate}
 \end{tcolorbox}
 
+\begin{proof}
+    Clearly $I = I + 0 \in A/I$ so $A/I \ne \emptyset$.
+    Now, suppose $X, Y \in A/I$. So $X = I + a_1, Y = I + a_2$
+        for $a_1, a_2 \in A$.
+    Then $X - Y = (I + a_1) - (I + a_2) = I + (a_1 - a_2) \in A/I$,
+        since $a_1 - a_2 \in A$.
+    Now suppose $Z \in R/I$ so $Z = I + r$ for $r \in R$.
+    Then $XZ = (I + a_1)(I + r) = I + a_1 r \in A/I$,
+        since $a_1 r \in A$ because $A$ is an ideal of $R$.
+    Thus $A/I$ is an ideal of $R/I$.
+
+    Define $\varphi : R/I \to R/A$ by $\varphi(I + r) = A + r$.
+    We first show this is well defined.
+    Notice if $I + r = I + r'$ then $r - r' \in I \subseteq A$,
+        so $A + r = A + r'$.
+    It is a ring homomorphism since $\varphi\big((I + r) + (I + s)\big) = \varphi(I + (r+s)) = A + (r + s)
+            = (A + r) + (A + s)$.
+    and similarly $\varphi\big((I+r)(I+s)\big) = A + rs = (A+r)(A+s)$.
+    $\varphi$ is surjective since $A + r \in R/A$ is the image
+        of $I + r$.
+    Now, $I + r \in \ker \varphi$ if and only if $A + r = A$ thus $\ker \varphi = A/I$.
+    By the first isomorphism theorem $(R/I)/(A/I) \cong R/A$.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 23, breakable]
 Let $R$ be a commutative ring with ideals $I$ and $J$. Then $I \cap J$ and $I + J$ are also ideals of $R$. (See Exercises 11.12 and 11.14.) Furthermore, $I \cap J$ is an ideal of $I$ and $J$ is an ideal of $I + J$. (See Exercise 11.13.) Prove that the rings $I/(I \cap J)$ and $(I + J)/J$ are isomorphic.
 \end{tcolorbox}
+
+\begin{proof}
+    Let $\psi : I \longrightarrow (I + J)/J$ be defined by $\psi(i) = q(i)$,
+    where $q : (I + J) \longrightarrow (I + J)/J$ is the quotient mapping.
+    Then $\psi$ is a ring homomorphism, being the restriction of $q$ to $I$.
+    Now, for $i \in I$,
+    $\psi(i) = 0 \iff i \in \ker q \iff i \in J \iff i \in I \cap J$.
+    Thus $\ker \psi = I \cap J$.
+    Let $y \in (I + J)/J$. Then $y = (i + j) + J$ for some $i \in I$, $j \in J$,
+    so $y = i + (j + J) = i + J = \psi(i)$.
+    So $\operatorname{ran} \psi = (I + J)/J$. It follows by the First Isomorphism Theorem that
+    $I/(I \cap J) \cong (I + J)/J$, as required.
+\end{proof}

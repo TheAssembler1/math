@@ -129,3 +129,118 @@
     \implies t_1 t_2 = -\tfrac{1}{4}.\]
     So the chord $PQ$ is a focal chord precisely when $t_1 t_2 = -\tfrac{1}{4}$.
 \end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $P$ be an arbitrary point on the ellipse with equation
+    \[\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\]
+    and focus $F(ae, 0)$. Let $M$ be the midpoint of $FP$. Prove that $M$ lies on an
+    ellipse whose center is midway between the origin and $F$.
+\end{tcolorbox}
+\begin{proof}[Solution]
+    We now prove $M$ lies on the ellipse
+    \[\frac{\left(x - \tfrac{ae}{2}\right)^2}{\left(\tfrac{a}{2}\right)^2}
+    + \frac{y^2}{\left(\tfrac{b}{2}\right)^2} = 1,\]
+    which is centered at $\left(\tfrac{ae}{2}, 0\right)$, the midpoint of the origin and $F$.
+    Parametrize the original ellipse by $P = (a\cos t,\, b\sin t)$ with $t \in \mathbb{R}$,
+    so every point $P$ on it has this form. With $F = (ae, 0)$, the midpoint of $FP$ is
+    \[M = \left(\frac{ae + a\cos t}{2},\ \frac{b\sin t}{2}\right).\]
+    Substituting the coordinates of $M$ into the left-hand side, we have
+    \[x - \frac{ae}{2} = \frac{ae + a\cos t}{2} - \frac{ae}{2} = \frac{a\cos t}{2},\]
+    so
+    \[\frac{\left(x - \tfrac{ae}{2}\right)^2}{\left(\tfrac{a}{2}\right)^2}
+    = \frac{\left(\tfrac{a\cos t}{2}\right)^2}{\left(\tfrac{a}{2}\right)^2} = \cos^2 t,
+    \qquad
+    \frac{y^2}{\left(\tfrac{b}{2}\right)^2}
+    = \frac{\left(\tfrac{b\sin t}{2}\right)^2}{\left(\tfrac{b}{2}\right)^2} = \sin^2 t.\]
+    Adding these gives
+    \[\frac{\left(x - \tfrac{ae}{2}\right)^2}{\left(\tfrac{a}{2}\right)^2}
+    + \frac{y^2}{\left(\tfrac{b}{2}\right)^2} = \cos^2 t + \sin^2 t = 1.\]
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 9, breakable]
+    Let $P$ be a point $\left(\sec t,\ \tfrac{1}{\sqrt{2}}\tan t\right)$, where
+    $t \in \left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right) \cup \left(\tfrac{\pi}{2}, \tfrac{3\pi}{2}\right)$,
+    on the hyperbola $E$ with equation $x^2 - 2y^2 = 1$.
+    \\[2pt]
+    \textbf{(a)} Determine the foci $F$ and $F'$ of $E$.\\
+    \textbf{(b)} Determine the gradients $FP$ and $F'P$, when these lines are not parallel to the $y$-axis.\\
+    \textbf{(c)} Determine the point $P$ in the first quadrant on $E$ for which $FP$ is perpendicular to $F'P$.
+\end{tcolorbox}
+
+\begin{proof}
+    We compare $x^2 - 2y^2 = 1$ with
+    $\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1$. The vertices occur at $y = 0$, where
+    $x^2 = 1$, so $a^2 = 1$ and $a = 1$. Matching the $y$-term,
+    \[2y^2 = \frac{y^2}{b^2} \implies b^2 = \frac{1}{2}.\]
+    For a hyperbola $b^2 = a^2(e^2 - 1)$, so
+    \[\frac{1}{2} = 1\cdot(e^2 - 1) \implies e^2 = \frac{3}{2}
+    \implies e = \sqrt{\tfrac{3}{2}} = \frac{\sqrt{6}}{2}.\]
+    The foci are at $(\pm ae, 0) = \left(\pm\dfrac{\sqrt{6}}{2},\, 0\right)$. Write
+    \[F = \left(\frac{\sqrt{6}}{2}, 0\right), \qquad F' = \left(-\frac{\sqrt{6}}{2}, 0\right).\]
+\end{proof}
+
+\begin{proof}
+    With $P = \left(\sec t,\ \tfrac{1}{\sqrt 2}\tan t\right)$, the gradient of $FP$ is
+    \[m_{FP} = \frac{\tfrac{1}{\sqrt{2}}\tan t - 0}{\sec t - \tfrac{\sqrt{6}}{2}}
+    = \frac{\tfrac{1}{\sqrt{2}}\tan t}{\sec t - \tfrac{\sqrt{6}}{2}},\]
+    and the gradient of $F'P$ is
+    \[m_{F'P} = \frac{\tfrac{1}{\sqrt{2}}\tan t - 0}{\sec t + \tfrac{\sqrt{6}}{2}}
+    = \frac{\tfrac{1}{\sqrt{2}}\tan t}{\sec t + \tfrac{\sqrt{6}}{2}}.\]
+\end{proof}
+
+\newpage
+\begin{proof}
+    The lines $FP$ and $F'P$ are perpendicular iff the vectors $\vec{FP}$ and $\vec{F'P}$
+    With
+    $P = \left(\sec t,\ \tfrac{1}{\sqrt{2}}\tan t\right)$,
+    $F = \left(\tfrac{\sqrt{6}}{2}, 0\right)$, and $F' = \left(-\tfrac{\sqrt{6}}{2}, 0\right)$,
+    \[\vec{FP} = \left(\sec t - \frac{\sqrt{6}}{2},\ \frac{1}{\sqrt{2}}\tan t\right),
+    \qquad
+    \vec{F'P} = \left(\sec t + \frac{\sqrt{6}}{2},\ \frac{1}{\sqrt{2}}\tan t\right).\]
+    Their dot product is
+    \[\vec{FP} \cdot \vec{F'P}
+    = \left(\sec t - \frac{\sqrt{6}}{2}\right)\left(\sec t + \frac{\sqrt{6}}{2}\right)
+    + \frac{1}{2}\tan^2 t
+    = \sec^2 t - \frac{3}{2} + \frac{1}{2}\tan^2 t.\]
+    Setting this equal to $0$ and using $\tan^2 t = \sec^2 t - 1$,
+    \[\sec^2 t - \frac{3}{2} + \frac{1}{2}\left(\sec^2 t - 1\right) = 0
+    \implies \frac{3}{2}\sec^2 t - 2 = 0
+    \implies \frac{3}{2}\sec^2 t = 2,\]
+    so $\sec^2 t = \tfrac{4}{3}$. In the first quadrant $\sec t > 0$, giving
+    \[x = \sec t = \frac{2}{\sqrt{3}}, \qquad \tan^2 t = \sec^2 t - 1 = \frac{1}{3},\]
+    so with $\tan t > 0$,
+    \[y = \frac{1}{\sqrt{2}}\tan t = \frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{3}} = \frac{1}{\sqrt{6}}.\]
+    Thus
+    \[P = \left(\frac{2}{\sqrt{3}},\ \frac{1}{\sqrt{6}}\right).\]
+\end{proof}
+
+\subsection{Properties of Conics}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Determine the gradient of the tangent to the curve in $\mathbb{R}^2$
+    with parametric equations 
+    \[x = 2 \cos t + \cos 2t + 1, y = 2 \sin t + \sin 2t\]
+    at the point with paramter $t$, where $t$ is not a multiple of $pi$
+    Hence determine the equation of the tangent to this curve at the points 
+    with parameter $t = \pi/3$ and $t = \pi/2$.
+\end{tcolorbox}
+
+\begin{proof}
+    By Theorem 1, the gradient of the tangent is 
+    \[\frac{y'(t)}{x'(t)} = \frac{2\cos t + 2\cos(2t)}{-2\sin t - 2 \sin 2t}
+    = -\frac{\cos t + \cos 2t}{\sin t + \sin 2t}.\]
+    Then plugging in $t = \pi/3$ we have, since $\cos(\pi/3)+\cos(2\pi/3) = \tfrac12 - \tfrac12 = 0$,
+    that the gradient is $0$, while $x = 3/2$ and $y = 3\sqrt{3}/2$, so the tangent is 
+    \[y = \frac{3\sqrt{3}}{2}.\]   
+    and plugging in $t = \pi/2$ we have, since $\cos(\pi/2)+\cos(\pi) = 0 - 1 = -1$ and $\sin(\pi/2)+\sin(\pi) = 1 + 0 = 1$, that the gradient is $1$, while $x = 0$ and $y = 2$, so the tangent is 
+    \[y = x + 2.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    \begin{enumerate}
+        \item Determine the equation of the tangent at a point $P$ on the rectangular parabola with 
+        paramteric equations $x = t, y = 1/t$.
+        \item Hence determine the equations of the two tangents to the rectangular hyperbola from the point $(1, -1)$.
+    \end{enumerate}
+\end{tcolorbox}

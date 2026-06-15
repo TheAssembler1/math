@@ -1,0 +1,400 @@
+\subsection{Functions Between Sets}
+
+\begin{tcolorbox}[title=Problem 1, breakable] 
+    Prove that if $\sim$ is an equivalence relation on a set $S$,
+    then the corresponding family of $\mathcal{P}_{\sim}$ define in $\sec 1.5$
+    is indeed a paritition of $S$: that is, its elements are nonempty,
+    disjoint, and their union is $S$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $\sim$ is an equivalence relation on a set $S$.
+
+    Let $[a] \in \mathcal{P}_{\sim}$.
+    We have $a \in [a]$ by reflexivity, so $[a] \ne \emptyset$.
+
+    Let $a \in S$.
+    We have $a \in [a] \in \mathcal{P}_{\sim}$, so $S \subseteq \bigcup \mathcal{P}_{\sim}$. 
+    Since every equivalence class is a subset of $S$, we have $\bigcup \mathcal{P}_{\sim} \subseteq S$. 
+    Thus $\bigcup \mathcal{P}_{\sim} = S$.
+
+    Suppose $[a], [b] \in \mathcal{P}_{\sim}$ with $[a] \cap [b] \ne \emptyset$, say $c \in [a] \cap [b]$.
+    Then $a \sim c$ and $b \sim c$, so $a \sim b$ by symmetry and transitivity.
+    For any $x \in [a]$, we have $x \sim a \sim b$, so $x \in [b]$. 
+    Thus $[a] \subseteq [b]$.
+    By symmetry $[b] \subseteq [a]$, so $[a] = [b]$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable] 
+    Given a partition $\mathcal{P}$ on a set $S$, show how to define 
+        a relation $\sim$ on $S$ such that $\mathcal{P}$ is the corresponding partition.
+\end{tcolorbox}
+
+\begin{proof}
+    We define $\sim$ by 
+    \[a \sim b \iff \exists\, A, B \in \mathcal{P} \text{ such that } a \in A,\ b \in B,\ A \cap B \ne \emptyset.\]
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 5, breakable] 
+    Give an example of a relation that is reflexive and symmetric but not transitive.
+    What happens if you try to use this relation to define a partition on the set?
+\end{tcolorbox}
+
+\begin{proof}[Solution]
+    Let $S = \{1, 2, 3\}$ and $R = \{(1,1),(2,2),(3,3),(1,2),(2,1),(1,3),(3,1)\}$.
+    This is reflexive and symmetric, but not transitive. Notice $(2,1),(1,3) \in R$ but $(2,3) \notin R$.
+
+    If we attempt to define a partition via equivalence classes, 
+    the classes $[2] = \{1,2\}$ and $[3] = \{1,3\}$ overlap but are not equal,
+    so the resulting family is not a partition of $S$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 6, breakable]   
+    Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers by setting $a \sim b
+        \iff b - a \in \mathcal{Z}$. 
+    Prove that this is an equivalence relation, and find a `compelling' description 
+        for $\mathbb{R}/\sim$. Do the same for the relation $\approx$ on the plane $\mathbb{R} \times \mathbb{R}$
+        defined by declaring $(a_1, a_2) \approx (b_1, b_2) \iff b_1 - a_1 \in \mathbb{Z}$ and $b_2 - a_2 \in \mathbb{Z}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y, z \in \mathbb{R}$.
+    First, notice $x - x = 0 \in \mathbb{Z}$ so $x \sim x$.
+    Next, suppose $x \sim y$ so $y - x \in \mathbb{Z}$.
+    So $y - x = c$ for some $c \in \mathbb{Z}$.
+    But then $x - y = -c \in \mathbb{Z}$ so $y \sim x$.
+    Finally, suppose $x \sim y$ and $y \sim z$.
+    So $y - x = c_1$ and $z - y = c_2$ for some $c_1, c_2 \in \mathbb{Z}$.
+    Then $z - x = c_1 + c_2 \in \mathbb{Z}$.
+    It follows that $x \sim z$ as required.
+\end{proof}
+
+\begin{proof}
+    We now show $\approx$ is an equivalence relation on $\mathbb{R} \times \mathbb{R}$.
+    Let $(x_1, x_2), (y_1, y_2), (z_1, z_2) \in \mathbb{R} \times \mathbb{R}$.
+    First, notice $x_1 - x_1 = 0 \in \mathbb{Z}$ and $x_2 - x_2 = 0 \in \mathbb{Z}$ so $(x_1, x_2) \approx (x_1, x_2)$.
+    Next, suppose $(x_1, x_2) \approx (y_1, y_2)$ so $y_1 - x_1 \in \mathbb{Z}$ and $y_2 - x_2 \in \mathbb{Z}$.
+    So $y_1 - x_1 = c_1$ and $y_2 - x_2 = c_2$ for some $c_1, c_2 \in \mathbb{Z}$.
+    But then $x_1 - y_1 = -c_1 \in \mathbb{Z}$ and $x_2 - y_2 = -c_2 \in \mathbb{Z}$ so $(y_1, y_2) \approx (x_1, x_2)$.
+    Finally, suppose $(x_1, x_2) \approx (y_1, y_2)$ and $(y_1, y_2) \approx (z_1, z_2)$.
+    So $y_1 - x_1 = c_1$, $y_2 - x_2 = c_2$, $z_1 - y_1 = d_1$, and $z_2 - y_2 = d_2$ for some $c_1, c_2, d_1, d_2 \in \mathbb{Z}$.
+    Then $z_1 - x_1 = c_1 + d_1 \in \mathbb{Z}$ and $z_2 - x_2 = c_2 + d_2 \in \mathbb{Z}$.
+    It follows that $(x_1, x_2) \approx (z_1, z_2)$ as required.
+\end{proof}
+
+\subsection{Functions Between Sets}
+
+\begin{tcolorbox}[title=Problem 1, breakable]   
+    How many different bijections are there between a set $S$ with $n$ elements and itself.
+\end{tcolorbox}
+
+\begin{proof}
+    \[n!.\]
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]   
+    Prove statement (2) of Proposition 2.1. You may assume that given a family 
+    of disjoint subsets of a set, there is a way to choose one element in each member of the family.
+\end{tcolorbox}
+
+\begin{theorem}[Proposition 2.1]
+    Assume $A \ne \emptyset$, and let $f: A \longrightarrow B$ be a function. Then 
+    $f$ has a right inverse if and only if it is surjective.
+\end{theorem}
+
+\begin{proof}
+    Suppose $f$ has a right inverse $g$.
+    For $b \in B$, $f(g(b)) = (f \circ g)(b) = \text{id}_B(b) = b$,
+    where $g(b) \in A$, so $b$ is in the image of $f$.
+    Thus $f$ is surjective.
+
+    Conversely, suppose $f$ is surjective.
+    Since $A \ne \emptyset$, fix some $s \in A$.
+    For each $b \in B$, since $f$ is surjective there exists at least one $a \in A$ with $f(a) = b$;
+    define $g(b)$ to be any such $a$.
+    This is defined for all $b \in B$ since $f$ is surjective.
+    Then for all $b \in B$,
+    \[(f \circ g)(b) = f(g(b)) = b = \text{id}_B(b),\]
+    so $f \circ g = \text{id}_B$, meaning $g$ is a right inverse of $f$.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 4, breakable]   
+    Prove that `isomorphism' is an equivalence relation (on any set of sets).
+\end{tcolorbox}
+
+\begin{proof}
+    $\text{id}_A : A \longrightarrow A$ is a bijection, so $A \cong A$.
+
+    Suppose $A \cong B$, so there exists a bijection $f : A \longrightarrow B$.
+    Since $f$ is a bijection it has an inverse $f^{-1} : B \longrightarrow A$, which is itself a bijection.
+    Thus $B \cong A$.
+
+    Suppose $A \cong B$ and $B \cong C$, so there exist bijections
+    $f : A \longrightarrow B$ and $g : B \longrightarrow C$.
+    Then $g \circ f : A \longrightarrow C$ is a bijection, since the composition of bijections is a bijection.
+    Thus $A \cong C$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]   
+    Formulate a notion of \emph{epimorphism}, in the style of the notion of 
+    \emph{monomorphism} seen in $\sec 2.6$, and prove a result analogous to Proposition 2.3,
+    for epimorphisms and surjections.
+\end{tcolorbox}
+
+\begin{theorem}
+    A function $f : A \longrightarrow B$ is an \emph{epimorphism} if for all sets $Z$ 
+    and all functions $\alpha, \beta : B \longrightarrow Z$,
+    \[
+        \alpha \circ f = \beta \circ f \implies \alpha = \beta.
+    \]
+    A function is surjective if and only if it is an epimorphism.
+\end{theorem}
+
+\begin{proof}
+    Suppose $f$ is surjective.
+    It follows that $f(A) = B$ so 
+        if $(\alpha \circ f)(A) = (\beta \circ f)(A)$
+        then $\alpha(B) = \beta(B)$ so $\alpha = \beta$.
+
+    Conversely, suppose $f$ is not surjective.
+    Let $b_0 \in B \setminus f(A)$. 
+    Let $\alpha, \beta : B \longrightarrow \{0,1\}$ be defined $\alpha = 0$ and 
+        $\beta(b) = 0$ for $b \neq b_0$, $\beta(b_0) = 1$. 
+    Then $\alpha \circ f = \beta \circ f$ but $\alpha \neq \beta$, 
+    so $f$ is not an epimorphism.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]   
+    Show that if $A' \cong A''$ and $B' \cong B''$, and futher $A' \cap B' = \emptyset$
+    and $A'' \cap B'' = \emptyset$, then $A' \cup B' \cong A'' \cup B''$. Conclude 
+    that the operation $A \coprod B$ is well-defined up to isomorphism.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f : A' \longrightarrow A''$ and $g : B' \longrightarrow B''$ 
+        be bijections.
+    Now, consider the mapping $t: A' \cup B' \longrightarrow A'' \cup B''$ defined by
+    \[t(x) = \begin{cases} f(x) & \text{if } x \in A', \\ g(x) & \text{if } x \in B'. \end{cases}\]
+    Let $x \in A' \cup B'$; since $A' \cap B' = \emptyset$, either $x \in A'$
+        or $x \in B'$, but not both.
+    Thus $t(x)$ is a single well-defined element in $A'' \cup B''$, so $t$ is a function.
+
+    To see that $t$ is injective, suppose $t(x) = t(y)$.
+    Since $A'' \cap B'' = \emptyset$, both $t(x)$ and $t(y)$ lie in the same subset,
+    so either both $x, y \in A'$ (giving $f(x) = f(y)$, thus $x = y$ by injectivity of $f$)
+    or both $x, y \in B'$ (giving $g(x) = g(y)$, thus $x = y$ by injectivity of $g$).
+    Thus $t$ is injective.
+
+    To see that $t$ is surjective, let $z \in A'' \cup B''$.
+    If $z \in A''$, then since $f$ is surjective there exists $x \in A'$ with $f(x) = t(x) = z$.
+    If $z \in B''$, then since $g$ is surjective there exists $x \in B'$ with $g(x) = t(x) = z$.
+    Thus $t$ is surjective.
+
+    Since $t$ is a bijection, $A' \cup B' \cong A'' \cup B''$.
+
+    Suppose $A \cong A'$ and $B \cong B'$ with $A \cap B = \emptyset$
+    and $A' \cap B' = \emptyset$.
+    By the above, $A \cup B \cong A' \cup B'$ so $A \coprod B \cong A' \coprod B'$.
+    Thus the disjoint union $A \coprod B$ is well-defined up to isomorphism.
+\end{proof}
+
+
+\begin{tcolorbox}[title=Problem 10, breakable]   
+    Show that if $A$ and $B$ are finite sets, then $|B^A| = |B|^{|A|}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $A$ and $B$ are finite sets.
+    Let $|A| = m$ and $|B| = n$.
+    Then $|B^A| = |B_1 \times B_m| = |B_1| \cdot \cdots \cdot  |B_m| = n_1 \cdots n_m = n^m = |B|^{|A|}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]  
+    In view of Exercise 2.10, it is not unreasonable to use $2^A$ to denote the set 
+    of functions from an arbitrary set $A$ to a set with $2$ elements. Prove that there is 
+    a bijection between $2^A$ and the powerset of $A$. 
+\end{tcolorbox}
+
+\begin{proof}
+    Simply identify each element of $\mathcal{P}(A)$ with a binary string of length $|A|$,
+    where the $i$-th bit is $1$ if the $i$-th element of $A$ is present and $0$ if absent.
+    This correspondence is clearly a bijection between $\mathcal{P}(A)$ and $2^A$.
+\end{proof}
+
+\subsection{Categories}
+
+\begin{tcolorbox}[title=Problem 1, breakable]  
+    Let $C$ be a category. Consider a structure $C^{op}$ with 
+    \begin{itemize}
+        \item $Obj(C^{op}) := Obj(C)$;
+        \item for $A, B$ objects of $C^{op}$ (hence objects of $C$), $Hom_{C^{op}}(A, B) := Hom_C(B, A)$.
+    \end{itemize}
+    Show how to make this into a category.
+\end{tcolorbox}
+
+\begin{proof}
+    We can use the $1_A \in Hom_C(A, A) = Hom_{C^{op}}(A, A)$ for all $A$ as our identity morphism in $C^{op}$ as well.
+    We define composition in $C^{op}$ as follows. 
+    
+    Given $f \in Hom_{C^{op}}(A, B)$ and $g \in Hom_{C^{op}}(B, C)$,
+        by definition $f \in Hom_C(B, A)$ and $g \in Hom_C(C, B)$, so $f \circ g \in Hom_C(C, A) = Hom_{C^{op}}(A, C)$,
+    and we set $g \circ^{op} f := f \circ g$.
+
+    The composition law is associative because it is associative in $C$.
+    Clearly, the identities respect composition.
+    Thus $C^{op}$ is a category.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable] 
+    Formulate precisely what it means to say that $1_a$ is an identity with respect to composition in Example 3.3,
+        and prove this assertion. 
+\end{tcolorbox}
+
+\begin{proof}
+    For all $a, b \in S$, $1_a$ is an identity if for all $f \in Hom(a, b)$ we have $1_b \circ f = f$ and $f \circ 1_a = f$.
+    Let $f \in Hom(a, b)$, so $a \sim b$ and $f = (a, b)$.
+    Since $\sim$ is reflexive, $1_a = (a, a)$ and $1_b = (b,b)$.
+    Then $f \circ 1_a = (a,b) \circ (a,a) = (a,b) = f$
+        and $1_b \circ f = (b,b) \circ (a,b) = (a,b) = f$.
+    That is, the identity respects composition from the left and right.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]  
+    Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3
+\end{tcolorbox}
+
+\begin{proof}
+    We take the elements $A \subset S$ to be objects in the category.
+    Then $\subset$ corresponds to a relation $\sim$ which is reflexive and transitive.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 6, breakable]  
+    Define a category $V$ by taking $Obj(V) = \mathbb{N}$ and letting 
+        $Hom_V(n, m) = \text{ the set of } m \times n$ matrices with real entries,
+        for all $n, m \in \mathbb{N}$.
+    Use product of matrices to define composition. 
+    Does this category `feel' familiar?
+\end{tcolorbox}
+
+\begin{proof}
+    Let $M_{n,m} \in Hom_V(n, m)$. We take $1_n$ to be the $n \times n$ identity matrix $I_n$.
+    Then notice 
+    \[I_m M_{n,m} = M_{n,m} \quad \text{and} \quad M_{n,m} I_n = M_{n,m}.\]
+    Composition is defined by matrix multiplication.
+    Given $M_{n,m} \in Hom_V(n,m)$ and 
+    $M_{m,k} \in Hom_V(m,k)$, their composite $M_{m,k} \circ M_{n,m} \in Hom_V(n,k)$ 
+    is well-defined since the dimensions are compatible. 
+    Associativity follows from 
+    associativity of matrix multiplication.
+    This category feels like the category of 
+        finite-dimensional real vector spaces with linear maps, since a morphism $n \to m$ 
+        corresponds exactly to a linear map $\mathbb{R}^n \to \mathbb{R}^m$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 7, breakable]  
+    Define carefully objects and morphisms in Example 3.7,
+    and darw the diagram corresponding to composition.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $C$ be a category and fix an object $A \in Obj(C)$.
+    We will name our constructed category $C_{A}$.
+    Now define $Obj(C_{A})$ to be all morphisms from $A$ to any object of $C$.
+    Thus, an object of $C_{A}$ is a morphism $f \in Hom_C(A, Z)$ for some object $Z \in C$.
+    Pictorially, an object of $C_{A}$ is an arrow $A \xrightarrow{f} Z$ which we can draw top-down
+    \[
+    \begin{tikzcd}
+      A \arrow[d, "f"] \\
+      Z
+    \end{tikzcd}
+    \]
+    Now, let $f_1, f_2$ be objects of $C_A$, that is, two arrows
+    \[
+    \begin{tikzcd}
+    A \arrow[d, "f_1"] \\
+    Z_1
+    \end{tikzcd}
+    \quad\quad
+    \begin{tikzcd}
+    A \arrow[d, "f_2"] \\
+    Z_2
+    \end{tikzcd}
+    \]
+    in $C$. Morphisms $f_1 \longrightarrow f_2$ are defined to be commutative diagrams
+    \[
+    \begin{tikzcd}
+    & A \arrow[dl, "f_1"'] \arrow[dr, "f_2"] & \\
+    Z_1 \arrow[rr, "\sigma"'] & & Z_2
+    \end{tikzcd}
+    \]
+    in the `ambient' category $C$.
+    That is, a morphism $f_1 \longrightarrow f_2$ corresponds precisely to a morphism $\sigma : Z_1 \longrightarrow Z_2$
+    in $C$ such that $\sigma \circ f_1 = f_2$.
+
+    Given composable morphisms $f_1 \xrightarrow{\sigma} f_2 \xrightarrow{\tau} f_3$, that is, morphisms $\sigma : Z_1 \to Z_2$ and $\tau : Z_2 \to Z_3$ in $C$ satisfying
+    $\sigma \circ f_1 = f_2$ and $\tau \circ f_2 = f_3$, their composition corresponds to
+    the diagram
+    \[
+    \begin{tikzcd}
+    Z_1 \arrow[rr, "\sigma"] \arrow[drr, "f_1"'] & & Z_2 \arrow[rr, "\tau"] \arrow[d, "f_2"] & & Z_3 \arrow[dll, "f_3"] \\
+    & & A & &
+    \end{tikzcd}
+    \]
+    The composite morphism $f_1 \longrightarrow f_3$ is then $\tau \circ \sigma : Z_1 \longrightarrow Z_3$,
+    corresponding to the commutative diagram
+    \[
+    \begin{tikzcd}
+      Z_1 \arrow[rr, "\tau \circ \sigma"] \arrow[dr, "f_1"'] & & Z_3 \arrow[dl, "f_3"] \\
+      & A &
+    \end{tikzcd}
+    \]
+    which commutes since $(\tau \circ \sigma) \circ f_1 = \tau \circ (\sigma \circ f_1) = \tau \circ f_2 = f_3$.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]  
+    A \emph{subcategory} $C'$ of a category $C$ consists of a collection of objects of $C$,
+    with morphisms $Hom_{C'}(A, B) \subseteq Hom_C(A, B)$ for all objects $A, B$ in $Obj(C')$,
+    such that identities and compositions in $C$ make $C'$ into a category.
+    A subcategory $C'$ is full if $Hom_{C'}(A, B) = Hom_C(A, B)$ for all $A, B$ in $Obj(C')$.
+    Construct a category of infinite sets and explain how it may be viewed as a full subcategory of $Set$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $Set_{\infty}$ denote the category whose objects are all infinite sets,
+    with morphisms 
+    \[Hom_{Set_{\infty}}(A, B) = Hom_{Set}(A, B)\] for all infinite sets $A, B$.
+    Clearly, it's a full subcategory of $Set$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]  
+    An alternative to the notion of \textit{multiset} introduced in \S2.2
+    is obtained by considering sets endowed with equivalence relations; equivalent elements are taken
+    to be multiple instances of elements `of the same kind'. Define a notion of morphism between such
+    enhanced sets, obtaining a category \textsf{MSet} containing (a `copy' of) \textsf{Set} as a full
+    subcategory. (There may be more than one reasonable way to do this! This is intentionally an
+    open-ended exercise.) Which objects in \textsf{MSet} determine ordinary multisets as defined in
+    \S2.2 and how? Spell out what a morphism of multisets would be from this point of view. (There
+    are several natural notions of morphisms of multisets. Try to define morphisms in \textsf{MSet}
+    so that the notion you obtain for ordinary multisets captures your intuitive understanding of these
+    objects.)
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 11, breakable] 
+    Draw the relevant diagrams and define composition and identities
+    for the category $\mathsf{C}^{A,B}$ mentioned in Example 3.9. Do the same for the category
+    $\mathsf{C}^{\alpha,\beta}$ mentioned in Example 3.10. 
+\end{tcolorbox}
+
+\subsection{Morphisms}
+
+\begin{tcolorbox}[title=Problem 1, breakable] 
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 2, breakable] 
+\end{tcolorbox}
