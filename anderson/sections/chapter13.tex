@@ -158,6 +158,7 @@ proper principal ideals of $\mathbb{Z}[x]$.
         and gives factorizations of arbitrary length.
 \end{proof}
 
+\newpage
 \begin{tcolorbox}[title=Problem 4, breakable]
     Prove that $x$ is a prime element of $\mathbb{Z}[x]$.
 \end{tcolorbox} 
@@ -175,6 +176,21 @@ proper principal ideals of $\mathbb{Z}[x]$.
     Describe the elements of the ideal $\langle 3, x \rangle$ in $\mathbb{Z}[x]$.
     Show that $\langle 3, x \rangle$ is not a principal ideal. (See Exercise 12.2.)
 \end{tcolorbox} 
+
+\begin{proof}
+    Notice $f \in \langle 3, x \rangle$ can be written in the form 
+    \[f = x g(x) + 3 t(x), \text{ where } g, t \in \mathbb{Z}[x].\]
+    These are the polynomials in $\mathbb{Z}[x]$ whose constant term is divisible by $3$.
+
+    Suppose $\langle 3, x \rangle = \langle f \rangle$ where $f \in \mathbb{Z}[x]$.
+    Since $3 \in \langle f \rangle$, we have $3 = g(x)f(x)$ for some $g \in \mathbb{Z}[x]$.
+    Comparing degrees, we must have $\deg(f) = 0$, so $f(x) = c$ for some $c \in \mathbb{Z}$ with $c \mid 3$.
+    Since $x \in \langle f \rangle = \langle c \rangle$, we have $x = c \cdot h(x)$ for some $h \in \mathbb{Z}[x]$,
+    so $c \in \{\pm 1\}$.
+    But then $\langle f \rangle = \langle 1 \rangle = \mathbb{Z}[x]$, which would require $1 \in \langle 3, x \rangle$.
+    However every element of $\langle 3, x \rangle$ has constant term divisible by $3$, and $1$ does not.
+    This is a contradiction, thus $\langle 3, x \rangle$ is not a principal ideal.
+\end{proof}
 
 \begin{tcolorbox}[title=Problem 9, breakable]
     Show that $\langle 4, x \rangle$ is a maximal ideal in $\mathbb{Z}[x]$.

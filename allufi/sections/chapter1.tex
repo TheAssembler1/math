@@ -393,8 +393,24 @@
 
 \subsection{Morphisms}
 
+\newpage
 \begin{tcolorbox}[title=Problem 1, breakable] 
+    Composition is defined for two morphisms. If more than two morphisms are given, e.g.,
+    \[A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D \xrightarrow{i} E,\]
+    then one may compose them in several ways, for example:
+    \[(ih)(gf), (i(hg))f, (i(hg)f), \text{etc.}\]
+    so that at every step one is only composing two morphisms. Prove that 
+    the result of any such nested composition is independent of the placement of the 
+    parenthesis.
 \end{tcolorbox}
 
+\begin{proof}
+    We proceed by induction on $n$, the number of composable morphisms.
+    The base case $n = 2$ is immediate from the definition of composition.
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 2, breakable] 
+    In Example 3.3 we have seen how to construct  a category from a set endowed with a relation,
+    provided this latter is reflexive and transitive. For what types of  relations is the 
+    corresponding category a groupoid.
 \end{tcolorbox}
