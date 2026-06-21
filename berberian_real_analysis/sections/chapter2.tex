@@ -1,0 +1,620 @@
+\subsection{Dual of the Completeness Axiom}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    If $A$ and $B$ are nonempty subsets of $\mathbb{R}$
+    such that $a \le b$ for all $a \in A$ and $b \in B$, then 
+    $A$ is bounded above, $B$ is bounded below,
+    and $\sup A \le \inf B$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $A$ and $B$ are nonempty subsets of $\mathbb{R}$
+        such that $a \le b$ for all $a \in A$ and $b \in B$.
+    Take $b \in B$, then for all $a \in A$, $a \le b$ thus $A$ is bounded above.
+    Take $a \in A$, then for all $b \in B$, $a \le b$ thus $B$ is bounded below.
+    For contradiction, suppose $\sup A > \inf B$.
+    Take $x$ such that $\inf B < x < \sup A$.
+    Since $x < \sup A$ and $\sup A$ is the least upper bound of $A$,
+        $x$ is not an upper bound of $A$, so there exists $a \in A$ with $a > x$.
+    Since $x > \inf B$ and $\inf B$ is the greatest lower bound of $B$,
+        $x$ is not a lower bound of $B$, so there exists $b \in B$ with $b < x$.
+    But then $b < x < a$, contradicting $a \le b$ for all $a \in A$, $b \in B$.
+    Thus $\sup A \le \inf B$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    If $A$ is a nonempty subset of $\mathbb{R}$
+        that is bounded above, then $\sup A = -\inf(-A)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $A$ is a nonempty subset of $\mathbb{R}$
+        that is bounded above.
+    By Theorem 2.1.1, $\inf(-A) = -\sup(-(-A)) = -\sup(A)$.
+    Multiplying by $-1$ gives $-\inf(-A) = \sup(A)$, as desired.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    If $A \subset \mathbb{R}$ is nonempty and bounded above, and if $B$
+    is the set of all upper bounds for $A$, show that $\sup A = \inf B$, then state and prove 
+    the `dual' result.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $A \subset \mathbb{R}$ is nonempty and bounded above, and $B$
+    is the set of all upper bounds for $A$.
+    Since $A$ is bounded above, $B$ is nonempty.
+    For all $a \in A$ and $b \in B$, $a \le b$ since $b$ is an upper bound for $A$,
+        so by Problem 1, $A$ is bounded above, $B$ is bounded below, and $\sup A \le \inf B$.
+    For contradiction, suppose $\sup A \ne \inf B$, so $\sup A < \inf B$.
+    Take $x$ such that $\sup A < x < \inf B$.
+    Since $x > \sup A$ and $\sup A$ is an upper bound for $A$, $x$ is also an upper bound for $A$,
+        thus $x \in B$.
+    But then $x \ge \inf B$, contradicting $x < \inf B$.
+    Thus $\sup A = \inf B$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    If $a$ is a postive real number then 
+    $\inf \{a/n : n \in \mathbb{P}\} = 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a$ is a positive real number.
+    Let $A = \{a/n : n \in \mathbb{P}\}$.
+    By (12) of 1.2.3, $A$ is bounded by $0$, so $A$ has a greatest lower bound $a'$.
+        and $0 \le a'$. 
+    On the other hand $a' \le a/2 n$ for all positive integers $N$, so 
+        $2a'$ is also a lower bound of $A$;
+        it follows that $2a' \le a'$, therefore $a' \le a$ and finally $a' = 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $S$ be any set of intervals $I$ of $\mathbb{R}$
+    and let $J = \cap S$ be their intersection.
+    Prove that there exists real numbers $\alpha$ and $\beta$
+        with $\alpha \le \beta$, such that 
+        $(\alpha, \beta) \subset J \subset [\alpha, \beta]$.
+        in particular, $J$ is an interval.
+\end{tcolorbox}
+
+\begin{proof}
+    If $J = \emptyset$, take $\alpha = \beta$ any real number.
+    Then $(\alpha, \beta) = \emptyset = J = [\alpha, \beta]$ and we are done.
+    Assume $J$ is nonempty, and let $x \in J$.
+    Let $A$ be the set of all left endpoints of intervals $I \in S$,
+        and $B$ the set of all right endpoints.
+    If $I \in S$ has left endpoint $a$ and right endpoint $b$,
+        then $(a, b) \subset I \subset [a, b]$.
+    For all $x \in J \subset I$ we have $a \le x \le b$,
+        so every element of $J$ is an upper bound for $A$
+        and a lower bound for $B$.
+    Set $\alpha = \sup A$ and $\beta = \inf B$.
+
+    For any $x \in J$ and any $I \in S$ with endpoints $a, b$,
+        we have $a \le x \le b$,
+        thus $\alpha = \sup A \le x \le \inf B = \beta$,
+        so $x \in [\alpha, \beta]$.
+
+    Let $y \in (\alpha, \beta)$.
+    For any $I \in S$ with endpoints $a \le b$,
+        we have $a \le \alpha < y < \beta \le b$,
+        so $y \in (a, b) \subset I$.
+    Thus $y \in I$ for all $I \in S$, thus $y \in J$.
+
+    Thus $(\alpha, \beta) \subset J \subset [\alpha, \beta]$ as required.
+\end{proof}
+
+\subsection{Archimedean Property}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Give an elementry proof of the Archimedean property for $\mathbb{Q}$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x, y \in \mathbb{Q}$
+    Suppose $x > 0$ and $y > 0$.
+    Write $x = a/b, y = c/d$ with $a,b,c,d \in \mathbb{Z}^+$.
+    The inequality $nx > y$ is equivalent to $nad > bc$.
+    Set $n = 1 + bc$ then 
+    \[nad - bc > 0\]
+    as required.
+    The other cases for $x, y$ follow trivially.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Show that for every real number $y > 0$,
+    \[\bigcap_{n = 1}^\infty (0, y/n] = \emptyset.\]
+\end{tcolorbox}
+
+\begin{proof}
+    Take $y > 0$.
+    Suppose there is some element $x$ in the set.
+    Then $0 < x \le y/n$ for all $n \in \mathbb{N}$.
+    So $0 < xn \le y$ for all $n \in \mathbb{N}$, but $\mathbb{R}$ is Archimedean,
+    thus there exists $n \in \mathbb{N}$ such that $xn > y$, a contradiction.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Show that the subset $\mathcal{P} = \{1, 2, 3, \ldots\}$ of $\mathbb{R}$ is not bounded above.
+\end{tcolorbox}
+
+\begin{proof}
+    Same as Section 1.3 Problem 2 since $\mathbb{Q} \subset \mathbb{R}$.
+\end{proof}
+
+\subsection{Bracket Function}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Calculate $[2.3]$, $[-2.3]$ and $[-2]$.
+\end{tcolorbox}
+
+\textbf{Solution: } $[2.3] = 2, [-2.3] = -3, [-2] = -2$.
+
+\subsection{Density of the Rationals}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    If $x$ is any real number, prove that 
+    \[x = \sup\{r \in \mathbb{Q} : r < x\} = \inf \{s \in \mathbb{Q} : x < s\}.\]
+\end{tcolorbox} 
+
+\begin{proof}
+    Let $x \in \mathbb{R}$.
+    Let $A = \{r \in \mathbb{Q} : r < x\}$.
+    It is clear that $x$ is an upper bound of $A$.
+    We must establish that it is the \emph{least upper bound}.
+    Suppose $x' < x$ is an upper bound of $A$.
+    Now, by the density of the rationals, there exists $y \in \mathbb{Q}$ such that
+        $x' < y < x$.
+    But then $y \in A$, contradicting that $x'$ is an upper bound.
+    Thus $x = \sup A$.
+    The infimum follows similarly.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    (i) True or false (explain): If $x$ is rational and $y$ is irrational, then 
+    $x + y$ is irrational.
+
+    (ii) True or false (expain): If $x$ and $y$ are both irrational, then so is
+    $x + y$.
+
+    (iii) True or false (explain): If $x$ is irrational and $y$ is a nonzero rational,
+    then $xy$ is irrational.
+\end{tcolorbox}
+
+\begin{proof}
+    (i) True. Suppose $x$ is rational and $y$ is irrational.
+    If $x + y = c$ for some $c \in \mathbb{Q}$, then $y = c - x$.
+    But $\mathbb{Q}$ is closed under addition so $y \in \mathbb{Q}$, a contradiction.
+
+    (ii) False. Take $x = \sqrt{2}$ and $y = -\sqrt{2}$, both irrational, yet $x + y = 0 \in \mathbb{Q}$.
+
+    (iii) True. Suppose $x$ is irrational and $y$ is a nonzero rational.
+    If $xy = c$ for some $c \in \mathbb{Q}$, then $x = c y^{-1} \in \mathbb{Q}$,
+    a contradiction.
+\end{proof}
+
+\newpage
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Show that if $x$ and $y$ are real numbers with $x < y$, then there exists 
+    an irrational number $t$ such that $x < t < y$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $x$ and $y$ are real numbers with $x < y$, so $y - x > 0$.
+    Consider the real numbers $x - \sqrt{2}$ and $y - \sqrt{2}$, which also
+    satisfy $(y - \sqrt{2}) - (x - \sqrt{2}) = y - x > 0$.
+
+    By the Archimedean property, there exists $n \in \mathbb{Z}^+$ such that
+    $n(y - x) > 1$, that is, $1/n < y - x$. By Theorem 2.3.1 applied to the
+    real number $n(x - \sqrt{2})$, there exists an integer $m$ such that
+    $m \le n(x - \sqrt{2}) < m + 1$, so $m/n \le x - \sqrt{2}$ and
+    \[
+        x - \sqrt{2} < \frac{m+1}{n} = \frac{m}{n} + \frac{1}{n}
+        \le (x - \sqrt{2}) + \frac{1}{n} < (x - \sqrt{2}) + (y - x)
+        = y - \sqrt{2}.
+    \]
+    Thus $x - \sqrt{2} < (m+1)/n < y - \sqrt{2}$, and setting
+    $t = (m+1)/n + \sqrt{2}$ gives $x < t < y$. Since $(m+1)/n \in \mathbb{Q}$
+    and $\sqrt{2} \in \mathbb{R} \setminus \mathbb{Q}$, we have
+    $t \in \mathbb{R} \setminus \mathbb{Q}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    (i)  Give an example of a set of rational numbers whose supremum is irrational.
+
+    (ii) Give an example of a set of irrational numbers supremum is rational.
+\end{tcolorbox}
+
+\textbf{Solution (i):} $\{x \in \mathbb{Q} : x^2 < 2\}$.
+
+\textbf{Solution (ii):} $\{-1/\sqrt{x} \in \mathbb{R} \setminus \mathbb{Q}: x \in \mathbb{Z^+}\}$
+
+\subsection{Monotone Sequences} 
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    If $a_n \downarrow a$ and $b_n \downarrow b$
+    then $a_n + b_n \downarrow a + b$.
+\end{tcolorbox}
+
+\begin{proof}
+    This is the dual of Theorem 2.5.6 (iii).
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    If $a_n \uparrow a$, $b_n \uparrow b$ and $a_n \ge 0$, $b_n \ge 0$ for all $n$,
+        then $a_n b_n \uparrow ab$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a_n \uparrow a$, $b_n \uparrow b$ and $a_n \ge 0$, $b_n \ge 0$
+    for all $n$. Since $(a_n)$ and $(b_n)$ are increasing and nonneg, so is
+    $(a_n b_n)$, as $a_{n+1}b_{n+1} \ge a_n b_n$ follows from
+    $a_{n+1} \ge a_n \ge 0$ and $b_{n+1} \ge b_n \ge 0$.
+    It is clear that $ab$ is an upper bound of $(a_n b_n)$ since
+    $a_n \le a$ and $b_n \le b$ for all $n$.
+    The problem is to show it is the least upper bound.
+    Suppose $c$ is an upper bound of $(a_n b_n)$ for all $n$.
+    We wish to show $ab \le c$.
+
+    If $a = 0$ or $b = 0$ then $ab = 0 \le c$, so we are done.
+    Thus suppose $a > 0$ and $b > 0$.
+    Since $c \ge a_n b_n \ge 0$ for all $n$, we have $c \ge 0$.
+    Suppose for contradiction that $c < ab$, so $c/a < b$.
+    Since $b_n \uparrow b$, there exists some $b' \in (b_n)$ such that
+    $c/a < b'$.
+    Then $c < a b'$, so $c/b' < a$.
+    Since $a_n \uparrow a$, there exists some $a' \in (a_n)$ such that
+    $c/b' < a'$, giving $c < a'b'$.
+    But $a'b'$ is a term of $(a_n b_n)$, contradicting $c$ being an upper
+    bound. Thus $ab \le c$, and so $a_n b_n \uparrow ab$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    If $(d_n)$ is a sequence in the set
+        $\{0,1,2,\ldots,9\}$, interpret the `decimal'
+        $d_1 d_2 d_3\ldots$ as a real number in the interval $[0, 1]$.
+\end{tcolorbox}
+
+\textbf{Solution: } Interpreted.
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Suppose $a_n \uparrow a$ and $b_n \uparrow b$.
+    Let $c = \max\{a, b\}$, $c_n = \max\{a_n, b_n\}$.
+    Prove that $c_n \uparrow c$.
+\end{tcolorbox}
+
+\begin{proof}
+    Trivial.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Suppose $a_n \uparrow a$ and $b_n \uparrow b$.
+    If $a_n \le b_n$ for all $n$ then $a \le b$;
+    is the converse true?
+\end{tcolorbox}
+
+\begin{proof}
+    Trivial, converse is false.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    If $a_n \downarrow 0$ and $b > 0$ then $a_n b \downarrow 0$.
+\end{tcolorbox}
+
+\begin{proof}
+    Apply the dual of Problem 2 where $b$ is the sequence $b_n = b$
+        for all $n$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    If $A = \{(-1)^n + 1/n : n \in \mathbb{P}\}$,
+    find $\inf A$ and $\sup A$.
+\end{tcolorbox}
+
+\begin{proof}
+    Notice $A = \{1 + 1/n : n = 2k\} \cup \{-1 + 1/n : n = 2k + 1\}$.
+    Clearly $\inf \{1 + 1/n : n = 2k\} = 1$
+        and $\inf\{-1 + 1/n : n = 2k + 1\} = -1$.
+    Thus $\inf A = -1$.
+    Also $\sup \{1 + 1/n : n = 2k\} = 2$
+        and $\sup\{-1 + 1/n : n = 2k + 1\} = 0$.
+    Thus $\sup A = 2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    If $a_n \downarrow a$, $b_n \downarrow b$
+     and $a \ge 0$, $b \ge 0$, then $a_n b_n \downarrow ab$.
+\end{tcolorbox}
+
+\begin{proof}
+    This is the dual of Problem 2.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 9, breakable]
+    (i) If $r$ is a real number such that $0 \le r \le 1$,
+    then there exists a unique real number $s$ such that $0 \le s \le 1$
+    and $s^2 = r$.
+
+    (ii) Infer from (i) that if $a \in \mathbb{R}$,
+    $a \ge 0$, then there exists a unique $b \in \mathbb{R}$,
+    such that $b^2 = a$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $r$ is a real number such that $0 \le r \le 1$.
+    We first prove existence.
+    Write $y = 1 - r, x = 1 - s$, we have $0 \le y \le 1$,
+        and the problem is to find a real number $x$, $0 \le x \le 1$,
+        such that $(1 - x)^2 = 1 - y$, that is, $(*) x = \frac{1}{2}(y + x^2)$.
+    The formulas $x_1 = 0, x_{n + 1} = \frac{1}{2}(y + x_n^2)$ define recursively an
+        increasing sequence $(x_n)$ such that $0 \le x_n \le 1$.
+    Since $(x_n)$ is increasing and bounded above, $x_n \uparrow L$ for some $L$.
+    By Problem 2, $x_n^2 \uparrow L^2$,
+        and so taking limits in the recursion gives $L = \frac{1}{2}(y + L^2)$,
+        which is $(*)$. Setting $s = 1 - L$ gives the desired solution.
+    Uniqueness follows since if $s, s' \ge 0$ and $s^2 = s'^2 = r$, then
+    $(s - s')(s + s') = 0$, so $s = s'$ or $s = s' = 0$. In either case $s = s'$.
+\end{proof}
+
+\begin{proof}
+    Suppose $a \in \mathbb{R}$ and $a \ge 0$.
+    If $a \le 1$ we have part (i). So, suppose $a > 1$.
+    Take $m > a$ and consider $0 \le a/m^2 \le 1$.
+    By part (i), there exists $s$ such that $s^2 = a/m^2$ so $s^2 m^2 = (sm)^2 = a$ 
+        and set $b = sm$ as desired.    
+    Uniqueness follows similarly to part (i).
+\end{proof}
+
+\subsection{Theorem on Nested Intervals}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    \begin{enumerate}[(i)]
+        \item The set of all rational numbers can be listed in a sequence
+            $r_1, r_2, r_3, \ldots$ (in other words, there exists a surjection $\mathbb{P} \to \mathbb{Q}$).
+        \item There exists a nested sequence of closed intervals $[a_n, b_n]$ such that
+            for every $n$, $r_n \notin [a_n, b_n]$.
+        \item With notations as in (ii), necessarily
+            \[
+                \bigcap_{n=1}^{\infty} [a_n, b_n] = \{a\}
+            \]
+            with $a$ irrational.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Consider
+\[
+    \psi(n)=
+    \frac{
+    \displaystyle
+    \sum_{i=1}^{\infty}\sum_{j=1}^{i} j
+    -
+    \sum_{i=1}^{\infty}\sum_{\substack{j=1\\ \frac{i(i-1)}{2}+j\neq n}}^{i} j
+    }{
+    \displaystyle
+    \sum_{i=1}^{\infty}\sum_{j=1}^{i} (i-j+1)
+    -
+    \sum_{i=1}^{\infty}\sum_{\substack{j=1\\ \frac{i(i-1)}{2}+j\neq n}}^{i} (i-j+1)
+    }.
+\]
+\end{proof}
+
+\begin{proof}
+    Since $r_1$ cannot belong to both the left third and the right third
+    of $[0,1]$, let $I_1$ be a third that excludes it. Let $I_2$ be a
+    third of $I_1$ that excludes $r_2$. Continuing, let $I_{n+1}$ be a
+    third of $I_n$ that excludes $r_{n+1}$. This gives a nested sequence
+    of closed intervals $[a_n, b_n]$ with $r_n \notin [a_n, b_n]$ for
+    every $n$.
+\end{proof}
+
+\begin{proof}
+    By 2.6.1, the intersection $\bigcap_{n=1}^{\infty} [a_n, b_n] = [a,b]$
+    is a closed interval. Since $r_n \notin [a_n, b_n]$ for every $n$,
+    the intersection excludes every rational number. Thus $a < b$ is
+    impossible by 2.4.1, so $a = b$, and $a$ is irrational.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    Let $(a_n, b_n)$ be a nested sequence of open intervals where $a_n < b_n$
+    for all $n$, and let $A = \bigcap(a_n, b_n)$ be their intersection.
+    \begin{enumerate}
+        \item It can happen that $A = \emptyset$. (Example?)
+        \item If $(a_n)$ is strictly increasing and $(b_n)$ is strictly decreasing,
+        then $A$ is a closed interval.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the intervals
+    \[(0, 1) \supseteq (0, 1/2) \supseteq (0, 1/3) \supseteq \cdots\]
+    Clearly the intersection is empty, since $1/n \downarrow 0$.
+
+    Applying 2.6.1 to the closed intervals $[a_n, b_n]$ gives
+    $a = \sup(a_n)$, $b = \inf(b_n)$ such that $\bigcap [a_n, b_n] = [a, b]$.
+    Since $(a_n)$ is strictly increasing and $(b_n)$ is strictly decreasing,
+    every $a_n < a_{n+1} \leq x$ and $x \leq b_{n+1} < b_n$ for any
+    $x \in [a,b]$, so $x \in (a_n, b_n)$ for all $n$. Thus $A = [a, b]$.
+\end{proof}
+
+\subsection{Square Roots}
+
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $A = \{x \in \mathbb{R} : x \ge 0\}$.
+    Prove that the mapping $f : A \longrightarrow A$
+    defined by $f(x) = x^2$ is bijective.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $x \in A$.
+    Notice $f(\sqrt{x}) = x$ thus $f$ is surjective.
+    Suppose $f(a) = f(b) \iff a^2 = b^2 \iff \sqrt{a^2} = \sqrt{b^2} \iff a = b$.
+    Thus $f$ is injective.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Infer the existence of irrational numbers from $2.8.1$.
+\end{tcolorbox}
+
+\begin{proof}
+    Consider $2 \in A$, by Problem $1$, there is some $x \in A$
+    such that $f(x) = x^2 = 2$.
+    But $x$ is irrational.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    If $0 < a < b$ in $\mathbb{R}$, then $\sqrt{a} < \sqrt{b}$.
+\end{tcolorbox}
+
+\begin{proof}
+    We show the contrapositive.
+    Let $a, b \in \mathbb{R}$ with $a, b \ge 0$.
+    Suppose $\sqrt{a} \ge \sqrt{b}$. Then since $\sqrt{a}, \sqrt{b} \ge 0$,
+    we have $a = (\sqrt{a})^2 \ge (\sqrt{b})^2 = b$, so $a \ge b$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    If $\varphi : \mathbb{R} \to \mathbb{R}$ is a monomorphism of fields
+    then $\varphi$ must be the identity mapping: $\varphi(x) = x$ for all
+    $x \in \mathbb{R}$.
+    \begin{enumerate}
+        \item $\varphi(r) = r$ for every rational number $r$.
+        \item $x \leq y \implies \varphi(x) \leq \varphi(y)$.
+        \item $\varphi(x) = x$ for every $x \in \mathbb{R}$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    (i) Since $\varphi(1)^2 = \varphi(1^2) = \varphi(1)$, we have
+    $\varphi(1)(\varphi(1) - 1) = 0$, so $\varphi(1) = 0$ or $\varphi(1) = 1$.
+    Since $\varphi$ is injective and $\varphi(0) = 0$, we have $\varphi(1) \neq 0$,
+    thus $\varphi(1) = 1$. By induction $\varphi(n) = n$ for all $n \in \mathbb{N}$,
+    and since $\varphi$ preserves negation and inverses, $\varphi(r) = r$
+    for all $r \in \mathbb{Q}$.
+
+    (ii) Suppose $x \leq y$. Write $y - x = z^2$ for some $z \in \mathbb{R}$.
+    Then
+    \[\varphi(y) - \varphi(x) = \varphi(y - x) = \varphi(z^2) = \varphi(z)^2 \geq 0,\]
+    so $\varphi(x) \leq \varphi(y)$.
+
+    (iii)  Let $x \in \mathbb{R}$ and let $r, s \in \mathbb{Q}$ with $r < x < s$.
+    By (1) and (2), $r = \varphi(r) \leq \varphi(x) \leq \varphi(s) = s$.
+    So $\varphi(x)$ belongs to every interval $(r, s)$ containing $x$,
+    which defines the same Dedekind cut as $x$, thus $\varphi(x) = x$.
+\end{proof}
+
+\subsection{Absolute Value}
+
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+For any real numbers $a$ and $b$,
+\[
+    \sup\{a,b\} = \tfrac{1}{2}(a + b + |a - b|),
+\]
+\[
+    \inf\{a,b\} = \tfrac{1}{2}(a + b - |a - b|),
+\]
+where $\sup\{a,b\} = \max\{a,b\}$ is the larger of $a$ and $b$, and $\inf\{a,b\} = \min\{a,b\}$ is the smaller.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $a \ge b$, then $|a - b| = a - b$, so
+    \[\tfrac{1}{2}(a + b + |a - b|) = \tfrac{1}{2}(2a) = a = \max\{a,b\}.\]
+    Now suppose $b > a$, then $|a - b| = b - a$, so
+    \[\tfrac{1}{2}(a + b + |a - b|) = \tfrac{1}{2}(2b) = b = \max\{a,b\}.\]
+    The formula for $\inf$ follows similarly by replacing $+|a-b|$ with $-|a-b|$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+Let $A$ be a nonempty set of real numbers. Prove that $A$ is bounded in the sense of 1.3.1 if and only if there exists a positive real number $K$ such that $|x| \leq K$ for all $x \in A$. \{Hint: If $A \subset [a,b]$ try $K = \max\{|a|,|b|\}$.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $A$ is bounded. Then there exist $x, y$ such that $x \leq a \leq y$ for all $a \in A$.
+    Let $K = \max\{|x|, |y|\}$. For any $a \in A$ we have $x \leq a \leq y$, so $-K \leq x \leq a \leq y \leq K$, thus $|a| \leq K$.
+
+    Conversely, suppose there exists $K > 0$ such that $|a| \leq K$ for all $a \in A$. 
+    Then $-K \leq a \leq K$ for all $a \in A$, so $A \subset [-K, K]$, thus $A$ is bounded.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+Show that $|a + b| = |a| + |b|$ if and only if $ab \geq 0$. \{Hint: After squaring, the equation is equivalent to $ab = |ab|$.\} Note that if $a$ and $b$ are nonzero, then $ab > 0$ means that $a$ and $b$ have the same sign.
+\end{tcolorbox}
+
+\begin{proof}
+    Squaring both sides, $|a+b|^2 = (|a|+|b|)^2$ expands to
+    \[a^2 + 2ab + b^2 = a^2 + 2|a||b| + b^2,\]
+    which simplifies to $ab = |a||b| = |ab|$. Since $|ab| \geq 0$, the equation $ab = |ab|$ holds if and only if $ab \geq 0$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+With notations as in 2.9.3, verify the following properties of the distance function $d$:
+\begin{enumerate}[(i)]
+    \item $d(a,b) \geq 0$; $d(a,b) = 0 \Leftrightarrow a = b$.
+    \item $d(a,b) = d(b,a)$.
+    \item $d(a,c) \leq d(a,b) + d(b,c)$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    We have $d(a,b) = |a - b|$.
+    \begin{enumerate}[(i)]
+        \item $|a - b| \geq 0$ since absolute values are nonnegative,
+         and $|a - b| = 0 \Leftrightarrow a - b = 0 \Leftrightarrow a = b$.
+        \item $d(a,b) = |a - b| = |-(b-a)| = |b - a| = d(b,a)$.
+        \item By the triangle inequality
+        \[d(a,c) = |a - c| = |(a-b)+(b-c)| \leq |a-b| + |b-c| = d(a,b) + d(b,c). \qedhere\]
+    \end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+If $X$ is any nonempty set, a function $d : X \times X \to \mathbb{R}$ with the properties (i)--(iii) of Exercise 4 is called a \textbf{metric} (or `distance function') on $X$. These properties are called, respectively, \textit{strict positivity}, \textit{symmetry}, and the \textit{triangle inequality}. Verify that the function $D : \mathbb{R} \times \mathbb{R} \to \mathbb{R}$ defined by the formula
+\[
+    D(a,b) = \frac{|a-b|}{1 + |a-b|}
+\]
+is also a metric on $\mathbb{R}$. \{Hint: \S1.2, Exercise 3.\}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $f(t) = \frac{t}{1+t}$, which is increasing on $[0,\infty)$. Note $D(a,b) = f(|a-b|)$.
+    \begin{enumerate}[(i)]
+        \item $D(a,b) \geq 0$ since $|a-b| \geq 0$, and $D(a,b) = 0 \Leftrightarrow |a-b| = 0 \Leftrightarrow a = b$.
+        \item $D(a,b) = f(|a-b|) = f(|b-a|) = D(b,a)$.
+        \item Let $p = |a-b|$, $q = |b-c|$. By the triangle inequality for $d$, $|a-c| \leq p + q$. Since $f$ is increasing,
+        \[D(a,c) \leq \frac{p+q}{1+p+q} = \frac{p}{1+p+q} + \frac{q}{1+p+q} \leq \frac{p}{1+p} + \frac{q}{1+q} = D(a,b) + D(b,c). \qedhere\]
+    \end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+Let $X$ be any nonempty set. For every pair of points $x, y$ of $X$, define
+\[
+    d(x,y) = \begin{cases} 1 & \text{if } x \neq y, \\ 0 & \text{if } x = y. \end{cases}
+\]
+Prove that $d$ is a metric on $X$ in the sense of Exercise 5 (it is called the \textit{discrete metric} on $X$).
+\end{tcolorbox}
+
+\begin{proof}
+    Veryfing each
+    \begin{enumerate}
+        \item $d(x,y) \in \{0,1\}$ so $d(x,y) \geq 0$, and $d(x,y) = 0 \Leftrightarrow x = y$ by definition.
+        \item $d(x,y) = 1 \Leftrightarrow x \neq y \Leftrightarrow y \neq x \Leftrightarrow d(y,x) = 1$, and similarly $d(x,y) = 0 \Leftrightarrow d(y,x) = 0$, so $d(x,y) = d(y,x)$.
+        \item If $x = z$ then $d(x,z) = 0 \leq d(x,y) + d(y,z)$. If $x \neq z$ then $y$ cannot equal both $x$ and $z$, so at least one of $d(x,y), d(y,z)$ equals $1$, giving $d(x,z) = 1 \leq d(x,y) + d(y,z)$. \qedhere
+    \end{enumerate}
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+If $d$ is a metric on the set $X$ (Exercise 5), deduce from the triangle inequality that
+\[
+    |d(x,y) - d(x',y')| \leq d(x,x') + d(y,y')
+\]
+for all $x, y, x', y' \in X$. \{Hint: $d(x,y) \leq d(x,x') + d(x',y) \leq d(x,x') + d(x',y') + d(y',y)$.\}
+\end{tcolorbox}
+
+
+\begin{proof}
+    We have
+    \[|d(x,y) - d(x',y')| \le |d(x,x') + d(x',y') + d(y',y) - d(x',y')| = |d(x, x') + d(y, y')|.\]
+    Clearly, $d(x, x') \ge 0$ and $d(y, y') \ge 0$ so $d(x, x') + d(y, y') \ge 0$ so 
+    $|d(x, x') + d(y, y')| = d(x, x') + d(y, y')$ as required.
+\end{proof}
