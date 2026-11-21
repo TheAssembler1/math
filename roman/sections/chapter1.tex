@@ -1,0 +1,335 @@
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $\mathcal{V}$ be a vector space over $\mathcal{F}$.
+    Prove that $0v = 0$ and $r0 = 0$ for all $v \in \mathcal{V}$.
+    Describe the different $0$'s in these equations. Prove that if 
+    $rv = 0$, then $r = 0$ or $v = 0$. Prove that $rv = v$ implies $v = 0$ or $r = 1$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $v \in \mathcal{V}$ and $r \in \mathcal{F}$.
+    Then 
+    \[0v = (0 + 0)v = 0v + 0v.\]
+    Adding $-0v$ to both sides gives $0 = 0v$ as required.
+    Similarly,
+    \[r0 = r(0 + 0) = r0 + r0.\]
+    Adding $-r0$ to both sides gives $0 = r0$ as required.
+    Thus $0v = 0$ and $r0 = 0$ for all $v \in \mathcal{V}$ and $r \in \mathcal{F}$.
+
+    Now, suppose $rv = 0$. 
+    If $r = 0$ we are done, so suppose $r \ne 0$.
+    Then $r^{-1}$ exists in $\mathcal{F}$, and using $r0 = 0$ as shown earlier,
+    \[v = 1v = (r^{-1}r)v = r^{-1}(rv) = r^{-1}0 = 0.\]
+    Thus $r = 0$ or $v = 0$.
+
+    Next, suppose $rv = v$. Then
+    \[0 = rv - v = rv - 1v = (r - 1)v.\]
+    By the previous result, $r - 1 = 0$ or $v = 0$.
+
+    In the equation $0v = 0$, the $0$ on the lhs is the $0$ scalar in the field $\mathcal{F}$.
+    The $0$ on the rhs is the $0$ vector in the vector space $\mathcal{V}$.
+    In the equation $r0 = 0$, both $0$'s are the $0$ vector in the vector space $\mathcal{V}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    Prove Theorem 1.3.
+\end{tcolorbox}
+
+\begin{theorem}[Theorem 1.3]
+    The set $\mathcal{S}(\mathcal{V})$ of all subspaces of a vector space $\mathcal{V}$ is 
+        a complete lattice under set inclusion, with smallest element $\{0\}$, largest 
+        element $\mathcal{V}$, meet
+    \[\textbf{glb}\{S_i \mid i \in K\} = \bigcap_{i \in K} S_i\]
+    and join 
+    \[\textbf{lub}\{S_i \mid i \in K\} = \sum_{i \in K} S_i.\]
+\end{theorem}
+
+\begin{proof}
+    It is well known that set inclusion is a partial order relation.
+    Since every subspace contains $0$ and is contained in $\mathcal{V}$, we have 
+        $\{0\} \subseteq S \subseteq \mathcal{V}$ for all $S \in \mathcal{S}(\mathcal{V})$, 
+        so $\{0\}$ is the smallest element and $\mathcal{V}$ is the largest.
+    Now, let $\{S_i \mid i \in K\} \subseteq \mathcal{S}(\mathcal{V})$.
+
+    Since $0 \in S_i$ for all $i$, $0 \in \bigcap_{i \in K} S_i$.
+    If $u, v \in \bigcap_{i \in K} S_i$ and $r, s \in \mathcal{F}$, then $ru + sv \in S_i$ 
+        for all $i$, since each $S_i$ is a subspace, so $ru + sv \in \bigcap_{i \in K} S_i$.
+    Thus $\bigcap_{i \in K} S_i \in \mathcal{S}(\mathcal{V})$.
+    Clearly $\bigcap_{i \in K} S_i \subseteq S_i$ for all $i$, so it is a lower bound.
+    Suppose $B \in \mathcal{S}(\mathcal{V})$ with $B \subseteq S_i$ for all $i$.
+    Then $B \subseteq \bigcap_{i \in K} S_i$.
+    Thus $\textbf{glb}\{S_i \mid i \in K\} = \bigcap_{i \in K} S_i$.
+
+    Now, $\sum_{i \in K} S_i$ is the set of all finite sums $s_{i_1} + \cdots + s_{i_n}$ 
+        with $s_{i_j} \in S_{i_j}$.
+    It contains $0$, and if $u, v \in \sum_{i \in K} S_i$ and $r, s \in \mathcal{F}$,
+        then $ru + sv$ is again a finite sum of elements of the $S_i$'s, since each $S_i$ is 
+        closed under scalar multiplication.
+    Thus $\sum_{i \in K} S_i \in \mathcal{S}(\mathcal{V})$.
+    Clearly $S_i \subseteq \sum_{i \in K} S_i$ for all $i$, so it is an upper bound.
+    Suppose $B \in \mathcal{S}(\mathcal{V})$ with $S_i \subseteq B$ for all $i$.
+    Since $B$ is closed under addition, every finite sum $s_{i_1} + \cdots + s_{i_n}$ lies in $B$,
+        so $\sum_{i \in K} S_i \subseteq B$.
+    Thus $\textbf{lub}\{S_i \mid i \in K\} = \sum_{i \in K} S_i$.
+
+    Since every subset of $\mathcal{S}(\mathcal{V})$ has a glb and a lub, 
+        $\mathcal{S}(\mathcal{V})$ is a complete lattice.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Suppose that $V$ is a vector space with a basis $\mathcal{B} = \{b_i \mid i \in I\}$ and $S$ is a subspace of $V$.
+    Let $\{B_1, \ldots, B_k\}$ be a partition of $\mathcal{B}$. Then is it true that 
+    \[S = \bigoplus_{i = 1}^k (S \cap \langle B_i \rangle)?\]
+    What if $S \cap \langle B_i \rangle \ne \{0\}$ for all $i$.
+\end{tcolorbox}
+
+\begin{proof}
+    No. Let $V = F^2$, $B_1 = \{e_1\}$, $B_2 = \{e_2\}$, $S = \langle e_1 + e_2 \rangle$. Then $S \cap \langle B_i \rangle = \{0\}$ for both $i$, so the sum is $\{0\} \ne S$.
+
+    Still no. Let $V = F^4$, $B_1 = \{e_1, e_2\}$, $B_2 = \{e_3, e_4\}$, $S = \langle e_1, e_3, e_2 + e_4 \rangle$. Then the sum is $\langle e_1 \rangle \oplus \langle e_3 \rangle \ne S$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove Theorem 1.8.
+\end{tcolorbox}
+
+\begin{theorem}
+    A finite set $S = \{v_1, \ldots, v_n\}$ of vectors in $V$
+    is a basis for $V$ if and only if 
+    \[V = \langle v_1 \rangle \oplus \cdots \oplus \langle v_n \rangle.\]
+\end{theorem}
+
+\begin{proof}
+    Suppose a finite set $S = \{v_1, \ldots, v_n\}$ of vectors in $V$
+    is a basis for $V$. Since $S$ spans $V$, every $v \in V$ can be written
+    as $v = \sum_{i=1}^n a_i v_i$ with $a_i v_i \in \langle v_i \rangle$, so
+    $V = \langle v_1 \rangle + \cdots + \langle v_n \rangle$.
+    Now let $x \in \langle v_i \rangle \cap \sum_{j \ne i} \langle v_j \rangle$.
+    Then $x = a v_i = \sum_{j \ne i} a_j v_j$ for some scalars, so
+    \[a v_i - \sum_{j \ne i} a_j v_j = 0,\]
+    and linear independence of $S$ gives $a = 0$, thus $x = 0$.
+    Therefore the sum is direct.
+
+    Conversely, suppose 
+    \[V = \langle v_1 \rangle \oplus \cdots \oplus \langle v_n \rangle.\]
+    Clearly $\operatorname{span}(v_1, \ldots, v_n) = V$.
+    Now, suppose $\sum_{i=1}^n a_i v_i = 0$ with not all $a_i = 0$; 
+    WLOG $a_1 \ne 0$, so that
+    \[v_1 = -a_1^{-1} \sum_{i=2}^n a_i v_i.\]
+    Let $S_i = \{c v_i \mid c \in F\}$.
+    Then we have $0 \ne v_1 \in S_1 \cap ( \sum_{j \ne 1} S_j ) = \{0\}$
+        which is clearly a contradiction. Thus $S$ is linearly independent,
+        and therefore a basis for $V$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $S, T, U \in \mathcal{S}(V)$. Show that if $U \subseteq S$, then
+    \[
+        S \cap (T + U) = (S \cap T) + U
+    \]
+    This is called the \textbf{modular law} for the lattice $\mathcal{S}(V)$.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose if $U \subseteq S$.
+    Let $v \in S \cap (T + U)$.
+    For some $s_1, t, u \in S, T, U$ we have $v = c_1 s_1 = c_2 t + c_3 u$.
+    Since $U \subset S$ we have $u \in S$.
+    Let $u = s_2$ so we have $v = c_1 s_1 = c_2 t + c_3 s_2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    Prove that the first two statements in Theorem 1.7 are equivalent.
+\end{tcolorbox}
+
+\begin{theorem}
+    Let $S$ be a set of vectors in $V$. The following are equivalent:
+    \begin{enumerate}
+        \item $S$ is linearly independent and spans $V$.
+        \item Every vector $v \in V$ is an essentially unique linear combination of vectors in $S$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    We prove the contrapositive of both.
+
+    Suppose not every vector $v \in V$ is an essentially unique linear combination of vectors in $S$.
+    If some $v \in V$ is not a linear combination of vectors in $S$ at all, then $S$ does not span $V$.
+    Otherwise, there exists some $v \in V$ such that 
+    \[v = \sum r_i s_i = \sum t_i s_i,\]
+    where the $s_i \in S$ are distinct and for some $i$ we have $r_i \ne t_i$.
+    WLOG, suppose $r_1 \ne t_1$.
+    Then $0 = \sum (r_i - t_i) s_i$ with $r_1 - t_1 \ne 0$, so $S$ is not linearly independent.
+    
+    Suppose either $S$ is not linearly independent or does not span $V$.
+    If $S$ does not span $V$ then there exists $v \in V$ such that for all $r_i \in F$ and $s_i \in S$,
+        $v \ne \sum r_i s_i$ and thus cannot be written as a unique linear combination of vectors in $S$.
+    Now, suppose $S$ is not linearly independent.
+    Then $\sum a_i s_i = 0$ for some distinct $s_i \in S$ and $a_i \in F$ not all zero.
+    So $0 = \sum a_i s_i = \sum 0 \cdot s_i$ are two different representations of $0$, and thus $0$ is not an essentially unique linear combination of vectors in $S$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 11, breakable]
+    Show that if $S$ is a subspace of a vector space $V$, then $dim(S) \le dim(V)$.
+    Furthermore, if $dim(S) = dim(V) < \infty$ then $S = V$. Give an example to show that 
+    the finiteness is required in the second statement.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $S$ is a subspace of a vector space $V$, and let $\mathcal{B}_S$ be a basis of $S$.
+    Since $\mathcal{B}_S$ is a linearly independent subset of $V$, it can be extended to a basis
+        $\mathcal{B}_V$ of $V$ with $\mathcal{B}_S \subseteq \mathcal{B}_V$.
+    Since all bases of $V$ have the same cardinality, $dim(S) = |\mathcal{B}_S| \le |\mathcal{B}_V| = dim(V)$.
+
+    Suppose, for contradiction, that $dim(S) = dim(V) = n < \infty$ but $S \ne V$.
+    Let $\{s_1, \ldots, s_n\}, \{v_1, \ldots, v_n\}$ be bases of $S, V$ respectively.
+    There are two cases, either $S \setminus V \ne \emptyset$ or $V \setminus S \ne \emptyset$.
+    Suppose $v \in S \setminus V$.
+    But $S \subset V$ which is a contradiction.
+    Now, suppose $v \in V \setminus S$.
+    Then $v \notin \operatorname{span}\{s_1, \ldots, s_n\}$, so $\{s_1, \ldots, s_n, v\}$ is linearly independent.
+    Its span is a subspace of $V$ of dimension $n + 1 > dim(V)$, contradicting the first part.
+    Thus $S = V$.
+
+    Let $F^\infty$ denote the vector space of sequences in $F$ with finitely many nonzero entries,
+        with standard basis $e_1, e_2, \dots$, and consider the subspaces
+        $V = \operatorname{span}\{e_{2k} : k \in \mathbb{N}\}$,
+           $S = \operatorname{span}\{e_{4k} : k \in \mathbb{N}\}$.
+    Since every $e_{4k} = e_{2(2k)} \in V$, $S$ is a subspace of $V$.
+    Both $\{e_{2k}\}$ and $\{e_{4k}\}$ are countably infinite bases, so $dim(S) = dim(V) = \infty$.
+    Then, notice $e_2 \in V$ but $e_2 \notin S$, so $S \neq V$.
+    Thus the finiteness assumption is required in the second statement.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 12, breakable]
+    Let $\dim(V) < \infty$ and suppose that $V = U \oplus S_1 = U \oplus S_2$. What can you
+    say about the relationship between $S_1$ and $S_2$? What can you say if
+    $S_1 \subset S_2$?
+\end{tcolorbox}
+
+\begin{proof}
+    By Theorem 1.14, we know 
+        \[\dim(V) = \dim(U \oplus S_1) = \dim(U) + \dim(S_1) = \dim(U \oplus S_2) = \dim(U) + \dim(S_2).\]
+    Subtracting by $\dim(U)$ gives $\dim(S_1) = \dim(S_2)$, so $S_1 \cong S_2$.
+    Now, suppose $S_1 \subseteq S_2$.
+    Then $S_1$ is a subspace of $S_2$ with $\dim(S_1) = \dim(S_2) < \infty$, so a basis of
+    $S_1$ is a linearly independent set of $\dim(S_2)$ vectors in $S_2$, thus a basis of $S_2$.
+    Therefore $S_1 = S_2$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 13, breakable]
+    What is the relationship between $S \oplus T$ and $T \oplus S$? Is the direct sum
+    operation commutative? Formulate and prove a similar statement concerning
+    associativity. Is there an ``identity'' for direct sum? What about ``negatives''?
+\end{tcolorbox}
+
+\begin{proof}
+    Let $\mathcal{B}_S, \mathcal{B}_T, \mathcal{B}_U$ be bases of $S, T, U$.
+    Recall $S \oplus T$ has basis $\mathcal{B}_S \cup \mathcal{B}_T$.
+
+    Since $\mathcal{B}_S \cup \mathcal{B}_T = \mathcal{B}_T \cup \mathcal{B}_S$, clearly
+    $S \oplus T = T \oplus S$, so the direct sum is commutative.
+
+    Similarly, $(S \oplus T) \oplus U = S \oplus (T \oplus U)$ since both have basis
+    $\mathcal{B}_S \cup \mathcal{B}_T \cup \mathcal{B}_U$, so the direct sum is associative.
+
+    The identity is $\{0\}$, since it has basis $\emptyset$ and
+    $\mathcal{B}_S \cup \emptyset = \mathcal{B}_S$, so $S \oplus \{0\} = S$.
+
+    If $S \oplus T = \{0\}$ then $\mathcal{B}_S \cup \mathcal{B}_T = \emptyset$, so
+    $S = T = \{0\}$. Thus only $\{0\}$ has a negative.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 14, breakable]
+    Let $V$ be a finite-dimensional vector space over an infinite field $F$. Prove that if
+    $S_1, \dots, S_k$ are subspaces of $V$ of equal dimension, then there is a subspace $T$
+    of $V$ forW which $V = S_i \oplus T$ for all $i = 1, \dots, k$. In other words, $T$ is a
+    common complement of the subspaces $S_i$.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $V$ be a finite-dimensional vector space over an infinite field $F$.
+    Suppose $S_1, \dots, S_k$ are subspaces of $V$ of equal dimension.
+    Suppose $\dim(S_1) = \cdots = \dim(S_k) = m$ and $\dim(V) = n$.
+    If $m = n$, take $T = \{0\}$, so suppose $m < n$.
+    Let $T_1 = S_1 \cup \ldots \cup S_k$.
+    By Theorem 1.2 we can choose $v_1 \in V \setminus T_1$.
+    Then continue this method: for the $j$th iteration, $2 \le j \le n - m$, let
+        $T_j = \bigcup_{i=1}^{k} \big(S_i + \operatorname{span}(v_1, \dots, v_{j-1})\big)$
+    and choose $v_j \in V \setminus T_j$ by Theorem 1.2.
+    This is possible since each $v_j \notin S_i + \operatorname{span}(v_1, \dots, v_{j-1})$,
+    so $\dim\big(S_i + \operatorname{span}(v_1, \dots, v_{j})\big) = m + j$, and thus each
+    $S_i + \operatorname{span}(v_1, \dots, v_{j-1})$ is a proper subspace for $j \le n - m$.
+
+    Let $T = \operatorname{span}(v_1, \dots, v_{n-m})$. Then for each $i$,
+    $\dim(S_i + T) = n$, so $S_i + T = V$. Also $v_1, \dots, v_{n-m}$ are linearly
+    independent, so $\dim(T) = n - m$, and thus
+    $\dim(S_i \cap T) = \dim(S_i) + \dim(T) - \dim(S_i + T) = 0$.
+    Therefore $V = S_i \oplus T$ for all $i$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 15, breakable]
+    Prove that the vector space $\mathcal{C}$ of all continuous functions from $\mathbb{R}$
+    to $\mathbb{R}$ is infinite-dimensional.
+\end{tcolorbox}
+
+\begin{proof}
+    The polynomials $\mathcal{P}$ form a subspace of $\mathcal{C}$.
+    Suppose $\mathcal{P}$ has a finite basis $\mathcal{B}$, and let $p \in \mathcal{B}$
+    have the largest degree $d$. Then $x\,p(x)$ is a continuous polynomial of degree $d+1$,
+    so $x\,p(x) \in \mathcal{P}$ but $x\,p(x) \notin \operatorname{span}(\mathcal{B})$,
+    a contradiction. So $\mathcal{P}$, and thus $\mathcal{C}$, is infinite-dimensional.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 17, breakable]
+    Let $S$ be a subspace of $V$. The set $v + S = \{v + s \mid s \in S\}$ is called an
+    \textbf{affine subspace} of $V$.
+    \begin{enumerate}
+        \item Under what conditions is an affine subspace of $V$ a subspace of $V$?
+        \item Show that any two affine subspaces of the form $v + S$ and $w + S$ are
+            either equal or disjoint.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Let $v + S$ be an affine subspace of $V$.
+    Let $\mathcal{B}_S$ be a basis of $S$.
+    If $v \in \operatorname{span}(\mathcal{B}_S)$ then $v + S$ is a subspace of $V$.
+
+    Let $v + S$ and $w + S$ be any two affine subspaces of $V$.
+    Either $(v + S) \cap (w + S) = \emptyset$  or $(v + S) \cap (w + S) \ne \emptyset$.
+    Now, if $(v + S) \cap (w + S) = \emptyset$ then we have nothing to show, so,
+    suppose $(v + S) \cap (w + S) \ne \emptyset$.
+    If $v = w$ then clearly $(v + S)$ and $(w + S)$ are equal, so,
+        suppose $v \ne w$.
+    Let $x \in (v + S) \cap (w + S)$, so $x = v + s_1 = w + s_2$ for some $s_1, s_2 \in S$.
+    Then $v - w = s_2 - s_1 \in S$.
+    For $v + s \in v + S$, we have $v + s = w + \big((v - w) + s\big) \in w + S$,
+    so $v + S \subseteq w + S$.
+    Similarly, for $w + s \in w + S$, we have $w + s = v + \big((w - v) + s\big) \in v + S$,
+    so $w + S \subseteq v + S$.
+    Therefore $v + S = w + S$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 18, breakable]
+    If $V$ and $W$ are vector spaces over $F$ for which $|V| = |W|$, then does it
+    follow that $dim(V) = dim(W)$?
+\end{tcolorbox}
+
+\begin{proof}
+    No. Let $F = \mathbb{Q}$, $V = \mathbb{Q}$, and $W = \mathbb{Q}^2$.
+    Then $dim(V) = 1$ and $dim(W) = 2$.
+    Since $\mathbb{Q}^2 = \mathbb{Q} \times \mathbb{Q}$ is a product of countable sets, it is countable, so $|V| = |W|$.
+    Thus $|V| = |W|$ but $dim(V) \neq dim(W)$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 19, breakable]
+    Let $V$ be an $n$-dimensional real vector space and suppose that $S$ is a subspace of
+    $V$ with $\dim(S) = n - 1$. Define an equivalence relation $\equiv$ on the set
+    $V \setminus S$ by $v \equiv w$ if the ``line segment''
+    \[
+        L(v, w) = \{rv + (1 - r)w \mid 0 \le r \le 1\}
+    \]
+    has the property that $L(v, w) \cap S = \emptyset$. Prove that $\equiv$ is an
+    equivalence relation and that it has exactly two equivalence classes.
+\end{tcolorbox}
+

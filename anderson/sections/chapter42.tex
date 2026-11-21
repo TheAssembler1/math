@@ -1,0 +1,143 @@
+\newpage
+\begin{tcolorbox}[title=Problem 1, breakable]
+    Let $F$ be a field and $f \in F[x]$ a polynomial of degree at least 1.
+    Prove that there exists a field extension $E$ of $F$ in which $f$ can be
+    factored into linear factors. Such a field extension is called a
+    \textbf{splitting extension for $f$}.
+\end{tcolorbox}
+
+\begin{proof}
+    Let $n = \deg f \geq 1$.
+    By Kronecker's
+    Theorem there exists an extension field $E_1$ of $F$ such that
+    $\alpha_1 \in E_1$ and $f(\alpha_1) = 0$. That is, by the Factor Theorem,
+    in the field $E_1$, $f$ can be factored
+    \[
+        f = (x - \alpha_1)\, g(x), \qquad g \in E_1[x],
+    \]
+    where $\deg(g) = \deg(f) - 1$. Now repeat this for $g(x)$, applying
+    Kronecker's Theorem to $g$ over the field $E_1$ (as long as
+    $\deg g \geq 1$), and so on. Since the degree drops by one at each step,
+    after finitely many steps we obtain a finite list of extension fields
+    \[
+        F \subseteq E_1 \subseteq E_2 \subseteq \cdots \subseteq E_n
+    \]
+    where, in $E_n[x]$,
+    \[
+        f = c\,(x - \alpha_1)(x - \alpha_2)\cdots(x - \alpha_n),
+    \]
+    with $\alpha_i \in E_n$ and $c \in F$ the leading coefficient of $f$.
+    This $E_n$ is an extension field of $F$. 
+    We have thus counstructed an extension field of $F$ wherein $f$ can be 
+        factored into linear factors as required.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 2, breakable]
+    In the proof of Kronecker's Theorem 42.1, we prove that the function
+    $\psi : F \to F[x]/\langle p \rangle$ is a one-to-one ring homomorphism.
+    Show that $\psi$ is onto if and only if the irreducible polynomial $p$
+    is linear.
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose $\psi$ is onto. Then $\langle p \rangle + x = \psi(c) = \langle p \rangle + c$
+    for some $c \in F$, so $x - c \in \langle p \rangle$, so $p$ divides $x - c$.
+    Since $x - c \neq 0$, this gives $\deg p \leq \deg(x - c) = 1$, and since $p$ is
+    irreducible, $\deg p \geq 1$. Thus $\deg p = 1$, so $p$ is linear.
+
+    Conversely, suppose the irreducible polynomial $p$ is linear, say
+    $p = ax + b$ with $a, b \in F$ and $a \neq 0$.
+    Take $f \in F[x]/\langle p \rangle$, so $f = \langle p \rangle + g$ for some $g \in F[x]$.
+    By the division algorithm, $g = qp + r$ where $q \in F[x]$ and either $r = 0$
+    or $\deg r < \deg p = 1$, so $r \in F$.
+    Since $qp \in \langle p \rangle$,
+    \[f = \langle p \rangle + (qp + r) = \langle p \rangle + r = \psi(r).\]
+    Thus $\psi$ is onto.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 3, breakable]
+    If $R$ is a commutative ring with unity, and $R$ is a subring of a field
+    $F$, we can speak of the elements in $F$ that are \textbf{algebraic} over
+    $R$, meaning simply those elements of the field which are roots of
+    polynomials from $R[x]$.
+    \begin{enumerate}
+        \item[(a)] Explain why all rational numbers are algebraic over $\mathbb{Z}$.
+        \item[(b)] Prove that the set of elements of $\mathbb{R}$ that are
+        algebraic over $\mathbb{Z}$ is the same as the set of elements of
+        $\mathbb{R}$ which are algebraic over $\mathbb{Q}$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Take $c = a/b \in \mathbb{Q}$ where $a, b \in \mathbb{Z}$, $b \ne 0$ and $f = bx - a \in \mathbb{Z}[x]$.
+    Then $f(c) = f(a/b) = b(a/b) - a = a - a = 0$ thus $c$ is algebraic over $\mathbb{Z}$.
+
+    Let $r \in \mathbb{R}$ and $c_i = a_i/b_i \in \mathbb{Q}$ where $a_i, b_i \in \mathbb{Z}$, $b_i \neq 0$,
+    and not all $c_i = 0$.
+    Let $B = b_0 b_1 \cdots b_n$, then
+    \[\sum c_i r^i = 0 \iff \sum \frac{a_i}{b_i} r^i = 0 \iff \sum a_i \frac{B}{b_i} r^i = B \cdot 0 \iff \sum a_i \frac{B}{b_i} r^i = 0,\]
+    where each $a_i B / b_i \in \mathbb{Z}$ and not all are $0$.
+    Thus the set of elements of $\mathbb{R}$ that are
+        algebraic over $\mathbb{Z}$ is the same as the set of elements of
+        $\mathbb{R}$ which are algebraic over $\mathbb{Q}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 4, breakable]
+    Suppose that $\alpha \in \mathbb{C}$ is an algebraic number over
+    $\mathbb{Q}$, and $r \in \mathbb{Q}$. Prove that $\alpha + r$ and
+    $r\alpha$ are also algebraic over $\mathbb{Q}$. (Actually, this exercise
+    is a special case of Exercise 44.10, where you will show that the set
+    $\mathbb{A}$ of complex numbers algebraic over $\mathbb{Q}$ is a field,
+    called the \textbf{field of algebraic numbers}. Why is our exercise a
+    special case?)
+\end{tcolorbox}
+ 
+\begin{proof}
+    Since $\alpha \in \mathbb{C}$ is an algebraic number over
+    $\mathbb{Q}$ there exists a nonzero $f \in \mathbb{Q}[x]$ such that $f(\alpha) = 0$.
+    We can suppose $r \ne 0$ (since if $r = 0$ then $r \alpha = 0$, which is a root of $x \in \mathbb{Q}[x]$).
+    Let $g(x) = f(r^{-1}x) \in \mathbb{Q}[x]$, which is nonzero since it has the same degree as $f$
+    and its leading coefficient is $r^{-n}$ times that of $f$, where $n = \deg f$. Then
+    \[g(r \alpha) = f(r^{-1} r \alpha) = f(\alpha) = 0.\]
+    Thus $r \alpha$ is algebraic over $\mathbb{Q}$.
+
+    Similarly, let $h(x) = f(x - r) \in \mathbb{Q}[x]$, which is nonzero since it has the same
+    degree and leading coefficient as $f$. Then
+    \[h(\alpha + r) = f(\alpha + r - r) = f(\alpha) = 0.\]
+    Thus $\alpha + r$ is algebraic over $\mathbb{Q}$.
+
+    This is a special case of Exercise 44.10 since every $r \in \mathbb{Q}$ is algebraic over
+    $\mathbb{Q}$ (it is a root of $x - r$), so $r, \alpha \in \mathbb{A}$, and since $\mathbb{A}$ is a
+    field it is closed under addition and multiplication, so $\alpha + r, r\alpha \in \mathbb{A}$.
+\end{proof}
+
+\begin{tcolorbox}[title=Problem 5, breakable]
+    Prove that $\sin 1^\circ$ is algebraic over $\mathbb{Q}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 6, breakable]
+    Let $F$ be a field with characteristic $p$. Prove that the function
+    $\iota : \mathbb{Z}_p \to F$ discussed in Section 42.3 is a one-to-one
+    ring homomorphism.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 7, breakable]
+    \begin{enumerate}
+        \item[(a)] For a field $F$ with characteristic zero, we defined in
+        Section 42.3 a one-to-one ring homomorphism
+        $\iota : \mathbb{Q} \to F$. Prove that $\iota(\mathbb{Q})$ is the
+        smallest subfield of $F$.
+        \item[(b)] For a field $F$ with characteristic $p$, we defined in
+        Section 42.3 a one-to-one ring homomorphism
+        $\iota : \mathbb{Z}_p \to F$. (You completed the proof of this in
+        Exercise 6.) Prove that $\iota(\mathbb{Z}_p)$ is the smallest
+        subfield of $F$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $K$ be a field, and consider the set of all subfields of $K$ (this
+    set may well have infinitely many elements). Consider the intersection
+    of all these subfields. Prove that the result is a field, by checking
+    explicitly the field axioms.
+\end{tcolorbox}
