@@ -22,6 +22,7 @@
 \newcounter{probidx}[section]
 \newcounter{ps@total}
 \newcounter{ps@solved}
+\newcounter{ps@written}
 
 % \probentry{chapter}{index}{kind}{label}{status}, read back from the .aux
 \def\ps@chapters{}
@@ -56,10 +57,19 @@
   \ifx\ps@pending\relax\else
     \immediate\write\@auxout{\string\probentry\ps@pending{#1}}%
     \global\let\ps@pending\relax
+    \stepcounter{ps@written}
   \fi}
 \newcommand\solved{\ps@write{solved}}
 \newcommand\unsolved{\ps@write{unsolved}}
-\AtEndDocument{\ps@write{unsolved}}
+% The overview is drawn from the previous run's .aux. If what this run
+% wrote differs from what was read, ask for another pass; latexmk and
+% editor build recipes rerun on this warning.
+\AtEndDocument{%
+  \ps@write{unsolved}%
+  \ifnum\value{ps@written}=\value{ps@total}\else
+    \@latex@warning@no@line{Problem status changed.
+      Rerun to get cross-references right}%
+  \fi}
 
 \newcommand\ps@statuscolor[1]{\ifcsdef{ps@col@#1}{\csuse{ps@col@#1}}{pendinggray}}
 \newcommand\ps@statustext[1]{\ifcsdef{ps@st@#1}{\csuse{ps@st@#1}}{}}
@@ -138,6 +148,10 @@
   \begin{tcolorbox}[enhanced, colback=white, colframe=black!70,
       fonttitle=\sffamily\large, title={Progress}]
     \sffamily
+    \ifnum\value{ps@total}=0
+      {\color{unsolvedred}Compile once more to fill in this page
+      (it is built from the previous run).}\par\smallskip
+    \fi
     {\Large \arabic{ps@solved}}\,/\,\arabic{ps@total}\ problems solved
     \ifnum\value{ps@total}>0
       \ (\the\numexpr 100*\value{ps@solved}/\value{ps@total}\relax\%)%
