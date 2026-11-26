@@ -1,8 +1,55 @@
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}[Warmup]{(a)}
+    Write out the three residue classes modulo 3 (as we did for $\mathbb{Z}_4$). Write out the addition and multiplication tables for $\mathbb{Z}_3$. Which elements of $\mathbb{Z}_3$ have multiplicative inverses?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Does $\{47, 100, -3, 29, -9\}$ contain a representative from every residue class of $\mathbb{Z}_5$? Does $\{-14, -21, -10, -3, -2\}$? Does $\{10, 21, 32, 43, 54\}$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    What is the additive inverse of $[13]$ in $\mathbb{Z}_{28}$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    What is the relationship between `clock arithmetic' and modular arithmetic?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    \begin{enumerate}
+        \item[(a)] What time is it 100 hours after 3 o'clock?
+        \item[(b)] What day of the week is it 100 days after Monday?
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Solve the following equations, or else argue that they have no solutions:
+    \begin{enumerate}
+        \item[(a)] $[4] + X = [3]$, in $\mathbb{Z}_6$.
+        \item[(b)] $[4]X = [3]$, in $\mathbb{Z}_6$.
+        \item[(c)] $[4] + X = [3]$, in $\mathbb{Z}_9$.
+        \item[(d)] $[4]X = [3]$, in $\mathbb{Z}_9$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Repeat Warm-up Exercise a for modulo 8. (Warm-up a: Write out the residue classes
+    modulo 3. Write out the addition and multiplication tables for $\mathbb{Z}_3$.
+    Which elements of $\mathbb{Z}_3$ have multiplicative inverses?)
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
     Determine the elements of $\mathbb{Z}_{15}$ that have multiplicative inverses.
     Give an example of an equation of the form $[a]X = [b]$ ($[a] \not = 0$)
     that has no solution in $\mathbb{Z}_{15}$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution}
 
@@ -34,10 +81,17 @@ Example of an equation of the form $[a]X = [b]$ ($[a] \not = 0$)
     that has no solution.
 \[[3]X = [5]\]
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{3}
+    In Exercise c you determined the additive inverse of $[13]$ in $\mathbb{Z}_{28}$.
+    Now determine its multiplicative inverse.
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
     Find an example in $\mathbb{Z}_6$ where $[a][b] = [a][c]$, but $[b] \not = [c]$.
     How is this related to the existence of  multiplicative inverses in $\mathbb{Z}_6$?
-\end{tcolorbox}
+\end{problem}
+\solved
 
 Example where $[a][b] = [a][c]$, but $[b] \not = [c]$:
 \[[2][2] = [2][5] = [4]\]
@@ -45,11 +99,12 @@ Example where $[a][b] = [a][c]$, but $[b] \not = [c]$:
 You cannot assume that if  $[a][b] = [a][c]$ then $[b] = [c]$.
 This is only true if $[a]$ has a multiplicative inverse.
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}{5}
     If $\gcd(a, b) = 1$ then the GCD identity $2.4$ garuntees that there exists 
     integers $u$ and $v$ such that $1 = au + mv$. Show that in this case, 
     $[u]_m$ is the multiplicate inverse of $[a]_m$ in $\mathbb{Z}_m$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     By Theorem $3.2$ if $x - y = km$ for some integer $k$ then $x$,$y$ are in the same residue (mod $m$).
@@ -58,11 +113,12 @@ This is only true if $[a]$ has a multiplicative inverse.
     Thus ${[au]}_m = {[1]}_m$ and therefore $[a]_m \cdot [u]_m = [1]$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{6}
     Now use essentially the reverse of the argument from Excersize $5$
     to show that if $[a]$ has a multiplicative inverse in $\mathbb{Z}_m$,
     then $\gcd(a, m) = 1$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $[a]_m$ has a multiplicative inverse $[b]_m$ in $\mathbb{Z}_m$.
@@ -72,11 +128,12 @@ This is only true if $[a]$ has a multiplicative inverse.
     Therefore $\gcd(a, m) = 1$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{7}
     According to what you have shown in Excersize $5$ and $6$, which 
     elements of $\mathbb{Z}_{24}$ have multiplicative inverses?
     What are the inverses for each of those elements? (The answer is somewhat suprising.)
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution:}
 
@@ -93,10 +150,18 @@ The following have multiplicate inverses in $\mathbb{Z}_{24}$.
     \item $[23]_{24}$
 \end{enumerate}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{8}
+    Repeat the previous exercise for $\mathbb{Z}_{10}$. Give the multiplication table for
+    those elements in $\mathbb{Z}_{10}$ that have multiplicative inverses and find an
+    $[n]$ such that all these elements are powers of $[n]$.
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
     Prove that the multiplication on $\mathbb{Z}_m$ as defined in the text 
     is well defined, as claimed in Section $3.2$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Consider $[a]$ and $[b]$.
@@ -115,11 +180,12 @@ The following have multiplicate inverses in $\mathbb{Z}_{24}$.
     Showing that $[xb]=[yc]$
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{10}
     Prove that if all non-zero $\mathbb{Z}_m$ have multiplicative inverses,
     then multiplicative cancellation holds: that is, if $[a][b] = [a][c]$, 
     then $[b] = [c]$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose all non-zero $\mathbb{Z}_m$ have multiplicative inverses.
@@ -127,13 +193,32 @@ The following have multiplicate inverses in $\mathbb{Z}_{24}$.
     Then $[a][b] = [a][c] \iff [t][a][b] = [t][a][c] \iff [b] = [c]$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{11}
+    Consider the following alternate definition of addition of residue classes in
+    $\mathbb{Z}_m$, by defining the set
+    \[S = \{x + y : x \in [a], y \in [b]\}.\]
+    Prove that $S = [a] + [b]$ (as defined in Section 3.2); thus, we could have used the
+    definition above to define addition in $\mathbb{Z}_m$.
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
+    By way of analogy with Exercise 11, one might try to define the multiplication of
+    residue classes in $\mathbb{Z}_m$ by considering the set
+    \[M = \{xy : x \in [a], y \in [b]\}.\]
+    Prove that $M \subseteq [a][b]$. Then choose particular $m, a, b$ to show by example
+    that this containment can be proper (that is, $M \subset [a][b]$).
+\end{problem}
+\unsolved
+
+\begin{problem}{13}
     In the integers, the equation $x^2 = a$ has a solution only when $a$
     is a positive perfect square or zero. For which $[a]$ does the equation 
     $[X]^2 = [a]$ have a solution in $\mathbb{Z}_7$?
     What about in $\mathbb{Z}_8$?
     What about in $\mathbb{Z}_9$?
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution:}
 
@@ -144,9 +229,10 @@ Elements with square roots in $\mathbb{Z}_8$:
 Elements with square roots in $\mathbb{Z}_9$: 
 \[[0], [1], [4], [7]\]
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{14}
     Explain what $a \equiv b (mod\ 1)$ means.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution:}
 

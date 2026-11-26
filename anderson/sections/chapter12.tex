@@ -1,4 +1,47 @@
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}[Warmup]{(a)}
+    What is the ideal $\langle 35, 15 \rangle$ in $\mathbb{Z}$? What about $\langle 12, 20, 15 \rangle$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    What is the ideal $\langle 4, x \rangle$ in $\mathbb{Z}[x]$? What about $\langle 4, x^2 \rangle$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    What is the ideal $\langle x^2 - 3x + 2, x^2 - 2x + 1 \rangle$ in $\mathbb{Q}[x]$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    What is the ideal $\langle (1, 0), (0, 1) \rangle$ in $\mathbb{Z} \times \mathbb{Z}$? What about $\langle (1, 1) \rangle$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Why is a field always a PID, practically by default?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Give examples of the following (or explain why they don't exist):
+    \begin{enumerate}
+        \item[(a)] A domain that is not a PID.
+        \item[(b)] Elements $f, g \in \mathbb{Z}[x]$, so that $f \neq g$, but $\langle f \rangle = \langle g \rangle$.
+        \item[(c)] Elements $f, g \in \mathbb{Q}[x]$, so that $\langle f, g \rangle = \langle f \rangle$ but $\langle f, g \rangle \neq \langle g \rangle$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Let $R$ be a commutative ring with unity and $a, b \in R$. Prove that
+    \[\langle a, b \rangle = \{ax + by : x, y \in R\}\]
+    is an ideal; furthermore, show that it is the smallest ideal of $R$ that contains
+    $a$ and $b$.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
     Let $R$ be a commutative ring with unity and $a_1, a_2, \ldots, a_n \in R$.
     Prove that 
     \[I = \langle a_1, a_2, a_3, \ldots, a_n \rangle = \]
@@ -8,7 +51,8 @@
     of the ideal; we say that the ideal is \textbf{finitely generated}.
     Note that each element of the ideal can be expressed as a \emph{linear combination}
     of its generators.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $c$ be an arbitrary element in $R$.
@@ -29,8 +73,7 @@
     It follows that $I$ is the smallest ideal containing the $a_i$'s.
 \end{proof}
 
-
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Let $n$ be a postive integer and consider the ideals 
     \[\langle x^n \rangle,\]
     in $\mathbb{Q}[x]$. Describe succintly the elements of $\langle x^n \rangle$.
@@ -38,7 +81,8 @@
     Explain why $\mathbb{Q}[x]$ is Noetherian. Explain 
     why the ideals $\langle x^n \rangle$ do not contradiction that $\mathbb{Q}[x]$
     is Noetherian.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution: }
 Elements in $\mathbb{Q}[x]$ with a factor of $x^n$.
@@ -47,7 +91,15 @@ We see
 Now, $\mathbb{Q}[x]$ is a PID and is thus Noetherian.
 $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $\mathbb{Q}[x]$ being Noetherian.
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}{4}
+    Consider the ideal $I = \langle 3, 1 - \sqrt{-5} \rangle$ in $\mathbb{Z}[\sqrt{-5}]$.
+    Prove that
+    \[I = \{x + y\sqrt{-5} : 3 \text{ divides } (x + y)\}.\]
+    Show that $I$ is not principal. (See Example 12.3.)
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
     Let $X$ be an arbitrary set, and consider the power set ring $\mathcal{P}(X)$.
     (See Exercise 6.20, where we made $\mathcal{P}(X)$ a ring, by equipping it with an addition (symmetric difference).)
     In Exercise 11.17 we discussed a principal ideal of $\mathcal{P}(X)$; that exercise is relevant to the present 
@@ -60,7 +112,8 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
         Prove that $I$ is an ideal of $\mathcal{P}(X)$. 
         Show that $I$ is not a principal ideal.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution: } $x \in \mathcal{P}(X)$ such that $x \subseteq a$.
 
@@ -89,8 +142,19 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
     Thus $I$ is not principle.
 \end{proof}
 
+\begin{problem}{6}
+    Consider the domain $\mathbb{Z}[\sqrt{3}]$. Prove that in this ring,
+    \[\langle 1 + \sqrt{3} \rangle = \{x + y\sqrt{3} : x + y \text{ is an even integer}\}.\]
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{7}
+    Consider the ring $\mathbb{Z}[\sqrt{2}]$. Prove that
+    \[\langle 3 + 8\sqrt{2}, 7 \rangle = \langle 3 + \sqrt{2} \rangle.\]
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
     Consider the ring $S$ of real-valued sequences considered in Exercise 6.19.
     \begin{enumerate}
         \item Let $n$ be a fixed positive integer, and let 
@@ -104,7 +168,8 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
         \[\sum \ne \langle \vec{s_1}, \vec{s_2}, \cdots, \vec{s_n} \rangle,\]
         for any finite set of sequences $\vec{s_i}$.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $c$ be an arbitrary element in $S$.
@@ -135,16 +200,16 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
         which is non-zero at the  $n + 1$'th index.
     Thus $\langle \vec{s_1}, \vec{s_2}, \cdots, \vec{s_n} \rangle$ does not finitely generate $\sum$.
 \end{proof}
- 
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{9}
     Consider again the ring $S$ of real-valued sequences. Let 
     \[B = \{\{s_n\} \in S \mid \text{ there exists $M \in \mathbb{R}$ with $|s_n| \le M$, for all $n$}\}.\]
     These are the \textbf{bounded} sequences.
     Note that $M$ is not fixed in the definition of   $B$; that is,
         different sequences may require different bounds.
         Prove that $B$ is a subring, but is nonetheless \emph{not} an ideal of $S$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x, y$ be arbitrary elements in $B$ with bounds $X, Y$ respectively.
@@ -158,7 +223,30 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
     Thus $B$ is not an ideal of $S$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{10}
+    Let $I$ be an ideal of $\mathbb{Z}[\sqrt{n}]$, where $n$ is a square-free integer.
+    Define
+    \[\bar{I} = \{a + b\sqrt{n} : a - b\sqrt{n} \in I\}.\]
+    \begin{enumerate}
+        \item[(a)] Prove that $\bar{I}$ is an ideal of $\mathbb{Z}[\sqrt{n}]$.
+        \item[(b)] Provide particular examples of such ideals, where $I \neq \bar{I}$, and
+        where $I = \bar{I}$.
+        \item[(c)] Prove that $I$ is a principal ideal if and only if $\bar{I}$ is a
+        principal ideal.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{11}
+    In this exercise we generalize an argument used in the proof of Theorem 12.1. Let
+    $R$ be a commutative ring with unity, and suppose that $I_n$ is a proper ideal for
+    all positive integers $n$. Suppose further that
+    \[I_1 \subseteq I_2 \subseteq \cdots \subseteq I_n \subseteq I_{n + 1} \subseteq \cdots.\]
+    Let $I = \bigcup I_n$. Prove that $I$ is a proper ideal.
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
     Consider $\mathbb{Q}[x, y]$ the set of all polynomials with coefficients from
     $\mathbb{Q}$, in the two indeterminates $x$ and $y$.
     In Exercise 6.23, you showed that the ring of polynomials $\mathbb{R}[x]$ with coefficients 
@@ -174,7 +262,8 @@ $\langle x^n \rangle$ forms a finite ascending chain which does not contradict $
         \item Provide a nice description of the elements in the ideal $\langle x, y \rangle$.
         \item Show that the ideal $\langle x, y \rangle$ is not principal, thus showing that $\mathbb{Q}[x, y]$ is not a PID.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution (a): }
 \[\langle x, y \rangle = \{f(x, y)x + g(x, y)y \mid f(x, y), g(x, y) \in \mathbb{Q}[x, y]\}.\] 

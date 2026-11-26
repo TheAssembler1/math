@@ -1,10 +1,43 @@
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}[Warmup]{(a)}
+    Compute the sum, difference, and product of the polynomials \[1 - 2x + x^3 - \frac{2}{3}x^4 \quad\text{and}\quad 2 + 2x^2 - \frac{3}{2}x^3\] in $\mathbb{Q}[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Give the quotient and remainder when the polynomial $2 + 4x - x^3 + 3x^4$ is divided by $2x + 1$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Give two polynomials $f$ and $g$, where the degree of $f + g$ is strictly less than either the degree of $f$ or the degree of $g$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Use the Root Theorem 4.3 to answer the following for polynomials in $\mathbb{Q}[x]$. Does $x - 2$ divide $x^5 - 4x^4 - 4x^3 - x^2 + 4$? Does $x + 1$ divide $x^6 + 2x^5 + x^4 - x^3 + x$? Does $x + 5$ divide $2x^3 + 10x^2 - 2x - 10$? Does $2x - 1$ divide $x^5 + 2x^4 - 3x^2 + 1$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    We started this chapter with a list of theorems true about $\mathbb{Z}$. For how many of them have we stated and proved an analogue for $\mathbb{Q}[x]$?
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Find the gcd of the polynomials $x^6 + x^5 - 2x^4 - x^3 - x^2 + 2x$ and
+    $3x^6 + 4x^5 - 3x^3 - 4x^2$ in $\mathbb{Q}[x]$, and express them as $af + bg$, for
+    some polynomials $a, b$.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
     Divide the polynomial $x^2 - 3x + 2$ by the polynomial $2x + 1$,
     to obtain a quotient and remainder as garunteed by the Division 
     Theorem $4.2$. Note that although $x^2 - 3x + 2$ and $2x + 1$ are 
     elements of $\mathbb{Z}[x]$, the quotient and remainder are not.
     Argue that this means that there is not Division Theorem for $\mathbb{Z}[x]$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution:}
 
@@ -20,12 +53,13 @@ Clearly, in this example the remainder is not in $\mathbb{Z}[x]$.
 Therefore, the Division Theorem does not hold in $\mathbb{Z}[x]$.
 Moreover, the quotient and remainder are unique as guaranteed by the Division Theorem in $\mathbb{Q}[x]$.
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     By Corollary $4.4$ we know that a third-degree polynomial in $\mathbb{Q}[x]$
     has at most three roots. Give four examples of third-degree polynomials in 
     $\mathbb{Q}[x]$ that have $0$, $1$, $2$, and $3$ roots, respectively; justify
     your assertions. (Recall that here a root must be a rational number!)
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{enumerate}
      \item $0$ roots: $x^3 - 2 = 0$. $x$ would have to satisfy $x^3 = 2$.
@@ -39,13 +73,14 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
      \item $3$ roots: $(x - 1)(x - 2)(x - 3) = 0$. Justification is obvious by root theorem.
 \end{enumerate}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Your example in the previous exercise of a third-degree polynomial with 
     exactly $2$ roots had one repeated root; that is, a root $a$ where $(x - a)^2$
     is a factor of the polynomial. (Roots may have multiplicity greater than two 
     of course.) Why can't a third-degree polynomial in $\mathbb{Q}[x]$ have 
     exactly $2$ roots where neither is a multiple root.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $f$ be a degree $3$ polynomial with two roots, $a, b$
@@ -58,11 +93,20 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
     Therefore, $c = a$ or $c = b$, meaning one of the roots is repeated.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{5}
+    Let $n$ be an odd integer and consider the polynomial
+    \[\Phi_n = x^n + x^{n - 1} + \cdots + x + 1.\]
+    Use the Root Theorem 4.3 to argue that $\Phi_n$ has a linear factor. We call
+    $\Phi_n$ a \textbf{cyclotomic} polynomial; see Exercise 5.17 for more information.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
     Suppose that $f \in \mathbb{Q}[x]$, $q \in \mathbb{Q}$,
     and $deg(f) > 0$. Use the Root Theorem $4.3$ to prove that
     the equation $f(x) = q$ has at most finitely many solutions.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Solving $f(x) = q$ is equivalent to solving $l = f - q = 0$.
@@ -73,11 +117,22 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
         finite.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{7}
+    Let $f \in \mathbb{Q}[x]$. Recall from Exercise 4 above that a rational number $a$ is
+    a repeated root of $f$ if ${(x - a)}^2$ is a factor of $f$. Given
+    $f = a_0 + a_1x + \cdots + a_nx^n$, we define the \textbf{formal derivative} of $f$
+    as $f' = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + a_1$. Prove that $a$ is
+    a repeated root of $f$ if and only if $a$ is a root of both $f$ and $f'$. Conclude
+    that if $f$ is irreducible, then $f$ has no repeated roots.
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
     Prove Theorem $4.7$: the GCD identity for $\mathbb{Q}[x]$.
     Use Euclid's Algorithm $4.5$, and the relationship we know 
     between the $\gcd$ produced by the algorithm and an arbitrary $\gcd$ (Theorem $4.6$).
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{theorem}[GCD Identity $4.7$]
     If $d$ is a $gcd$  of polynomials $f$ and $g$,
@@ -100,11 +155,12 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
         as a linear combination of $f$ and $g$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{9}
     One can also prove the GCD identity for $\mathbb{Q}[x]$ with an argument 
     similar to the existential proof of the GCD identity for integers,
     found in Section $2.3$. Try this approach.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Consider the set of all linear combinations of the polynomials $f, g$:
@@ -140,12 +196,13 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
     Thus $d$ is the $\gcd$ of $f$ and $g$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{10}
     We say that $p \in \mathbb{Q}[x]$ has a multiplicative inverse 
     if there exists $q \in \mathbb{Q}[x]$ such that $pq = 1$.
     Prove that $p \in \mathbb{Q}[x]$ has a multiplicative inverse 
     if and only if $\deg(p) = 0$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     ($\rightarrow$) Suppose $p \in \mathbb{Q}[x]$ has a multiplicative inverse.
@@ -160,10 +217,11 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
     Let $q = \frac{b}{a}$, then $p q = \frac{a}{b} \cdot \frac{b}{a} = 1$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{problem}{11}
     Suppose that $g \in \mathbb{Q}[x]$, and $g$ divides all elements 
     of $\mathbb[Q][x]$. Prove that $g$ is a non-zero constant polynomial.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Clearly $g \ne 0$ since division by $0$ is undefined.  
@@ -176,10 +234,11 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
     Thus $g$ is a non-zero constant polynomial.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{12}
     Find two different polynomials in $\mathbb{Z}_3[x]$ that are equal 
     as functions from $\mathbb{Z}_3 = \mathbb{Z}_3$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $f(x) = x^3$ and $g(x) = x$.
@@ -191,10 +250,11 @@ Moreover, the quotient and remainder are unique as guaranteed by the Division Th
     Thus $f(a) \equiv g(a) \pmod{3}$ for all $a \in \mathbb{Z}_3$, so $f$ and $g$ are equal as functions.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{13}
     Find a non-zero polynomial in $\mathbb{Z}_4[x]$ for which $f(a) = 0$,
     for all $a \in \mathbb{Z}_4$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 
 \begin{proof}

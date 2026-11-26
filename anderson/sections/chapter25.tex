@@ -1,4 +1,43 @@
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{problem}[Warmup]{(a)}
+    Which of the following are subgroups? (The operation on the larger group is always the obvious one.)
+    \begin{enumerate}
+        \item[(a)] The subset of even integers in $\mathbb{Z}$.
+        \item[(b)] The subset $\{0, 2, 4\}$ in $\mathbb{Z}_7$.
+        \item[(c)] The subset $\{2^n : n \in \mathbb{Z}\}$ in $\mathbb{Q}$.
+        \item[(d)] The subset $\{2^n : n \in \mathbb{Z}\}$ in $\mathbb{Q}^*$.
+        \item[(e)] The subset $\{\iota, \rho\}$ in $D_3$.
+        \item[(f)] The subset $\mathbb{N}$ of $\mathbb{Z}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Is every subring also a subgroup?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Is the group of units of a ring a subgroup of the ring?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    How many identity elements can a group have? How many inverses can a given element of a group have?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Provide the (unique) solution to the following group equations:
+    \begin{enumerate}
+        \item[(a)] $\mu_1 x = \rho_2$, in the group of symmetries of the cube.
+        \item[(b)] $x\mu_1 = \rho_2$, in the group of symmetries of the cube.
+        \item[(c)] $11 + x = 4$, in $\mathbb{Z}_{15}$.
+        \item[(d)] $4x = 11$, in $U(\mathbb{Z}_{15})$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
     Consider the set 
     \[i \mathbb{R} = \{a_i \mid a \in \mathbb{R}\} \subseteq \mathbb{C}\]
     these are the \textbf{imaginary} numbers.
@@ -7,7 +46,8 @@
     Similarly, show that $i\mathbb{Z} = \{ni \mid n \in \mathbb{Z}\}$
         is a subgroup of the additive group of the Gaussian
         integers $\mathbb{Z}[i]$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 
 \begin{proof}
@@ -27,23 +67,25 @@ not closed under multiplication.
     By Theorem 35.2, $i\mathbb{Z}$ is a subgroup of $\mathbb{Z}[i]$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}{2}
     Prove Theorem 25.1c. That is, suppose that $G$ 
     is a group and $g, h \in G$. Prove that $gx = h$
     has a unique solution; likewise, prove that 
     $xg = h$ has a unique solution. (We have 
     written the equations multiplicatively.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Notice $gx = h \iff g^{-1}gx = g^{-1}h \iff x = g^{-1}h$.
     Similarly $xg = h \iff xgg^{-1} = hg^{-1} \iff x = h g^{-1}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Prove Theorem 25.1d. That is, prove that in a group,
     every element has exactly one inverse.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $G$ is a group and let $x \in G$.
@@ -52,10 +94,11 @@ not closed under multiplication.
     Then by the cancellation property $x^{-1}_1 = x^{-1}_2$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Prove the subgroup Theorem 25.2: A non-empty subset $H$ of a group $G$
     is a subgroup if and only if whenever $h, k \in H$, then $h k^{-1} \in H$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $H$ is a nonempty subset of a group $G$.
@@ -82,12 +125,13 @@ not closed under multiplication.
     Since $1, h \in H$, it follows that $1h^{-1} = h^{-1} \in H$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}{5}
     Show that if $H$ and $K$ are subgroups of the group $G$,
     then $H \cap K$ is also a subgroup of $G$. Show by example
     that $H \cup K$ need not be a subgroup. (This exercise 
     and should be compared to Exercises 7.9 and 7.10.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $H$ and $K$ are subroups of the group $G$.
@@ -110,27 +154,29 @@ not closed under multiplication.
     Thus $H \cup K$ is not closed under addition and therefore is not a subgroup.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{6}
     Suppose that $G$ is a group, written multiplicatively.
     Let $g \in G$, and suppose that $g^2 = g$.
     Prove that $g$ is the identity.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     We have $g^2 = gg = g = g1$.
     Cancellation on the left shows $g = 1$, as required.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{7}
     Let $G$ be a group, and $a, b, c \in G$.
     Prove that the equation $axc = b$ has a unique solution in $G$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Notice $axc = b \iff axcc^{-1} = bc^{-1} \iff ax = bc^{-1} \iff a^{-1}ax = a^{-1}bc^{-1} \iff x = a^{-1}bc^{-1}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{8}
     \textcircled{1} Suppose that $G$ is equipped with an associative operation $*$.
     \textcircled{2} Suppose that $G$ has an element $e$ so that $g * e = g$,
         for all $g \in G$; \textcircled{3} futhermore, for all $g \in G$,
@@ -139,7 +185,8 @@ not closed under multiplication.
         than decreeing that $G$ be a group? Prove, however,
         that these assumptions are sufficient to force $G$ to 
         be a group.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution: } A group requires the Rule 2 and 3 to commute.
 
@@ -152,10 +199,11 @@ not closed under multiplication.
     (\textbf{Rule 3}) 
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{9}
     Show that if $(xy)^{-1} = x^{-1} y^{-1}$ for all $x$ and $y$
         in the group $G$. Then $G$ is abelian.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Notice 
@@ -165,7 +213,7 @@ not closed under multiplication.
     Thus $yx = \bigl((xy)^{-1}\bigr)^{-1} = xy$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{10}
     Complete the following multiplicaiton table so that the following 
     will be a group.
     \[
@@ -177,7 +225,8 @@ not closed under multiplication.
     d        &  &  &  &  \\
     \end{array}
     \]
-\end{tcolorbox} 
+\end{problem}
+\solved
 \[
 \begin{array}{c|cccc}
     & a & b & c & d \\ \hline
@@ -188,10 +237,16 @@ d & c & d & a & b
 \end{array}
 \]
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{11}
+    Find all subgroups of $U(\mathbb{Z}_8)$; of $\mathbb{Z}_7^*$; of $U(\mathbb{Z}_{15})$.
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
     Show that $n \mathbb{Z}$ is a subgroup of the additive group 
     of integers $\mathbb{Z}$, for all integers $n$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Clearly $n \mathbb{Z}$ is nonempty (consider $5n \in \mathbb{Z}$).
@@ -202,25 +257,27 @@ d & c & d & a & b
     It follows from Theorem 35.2 that $n \mathbb{Z}$ is a subgroup of $\mathbb{Z}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{13}
     Find all finite subgroups of the additive group $\mathbb{C}$.
     What can you say about all finite subgroups of the multiplicative 
     group $\mathbb{C}^*$?
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution: } $\mathbb{C}$ has no nontrivial finite subgroups.
 The elements in $\mathbb{C}^*$ formed using the roots of unity are finite subgroups.
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{14}
     Argue \emph{geometrically} that the dihedral group, $D_n$,
     has a subgroup of order $n$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     There are $n$ rotations of the $n$-gon which form a subgroup of $D_n$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 15, breakable]
+\begin{problem}{15}
     Let $G$ be a group and $a \in G$. Define the \textbf{centralizer}
     of $a$ to be 
     \[C(a) = \{g \in G \mid ga = ag\}\]
@@ -236,7 +293,8 @@ The elements in $\mathbb{C}^*$ formed using the roots of unity are finite subgro
         \[C(H) = \{g \in G \mid gh = hg \text{ for all } h \in H\}\]
         call $C(H)$ the \textbf{centralizer} of $H$. 
         Show that $C(H)$ is a subgroup of $G$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution (a):}
 \[\{e,\rho,\rho^2\}\]
@@ -260,7 +318,7 @@ The elements in $\mathbb{C}^*$ formed using the roots of unity are finite subgro
     Therefore $C(H)$ is a subgroup of $G$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{problem}{16}
     Let $Z(G)$, the \textbf{center of} $G$, be the set of elements of $G$
         that commute with all elements of $G$.
 
@@ -271,14 +329,50 @@ The elements in $\mathbb{C}^*$ formed using the roots of unity are finite subgro
     (c) Show that $Z(G)$ is a subgroup of $G$.
 
     (d) If $Z(G) = G$, what can you say about the group $G$.
-\end{tcolorbox}
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{problem}{17}
     If $H$ is a subgroup of $G$, then show that $Z(G) \cap H$
         is a subgroup of $Z(H)$.
-\end{tcolorbox} 
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 23, breakable]
+\begin{problem}{18}
+    Recall that the elements of $U(M_2(\mathbb{R}))$ are the real-valued $2 \times 2$
+    matrices with non-zero determinants. (See Exercise 8.2.) Show that the collection of
+    such matrices with determinants equal to one is a subgroup of $U(M_2(\mathbb{R}))$.
+\end{problem}
+\unsolved
+
+\begin{problem}{19}
+    Consider the elements of $U(M_2(\mathbb{R}))$ of the form
+    \[\begin{pmatrix} a & 0 \\ b & 1 \end{pmatrix},\]
+    where $a \neq 0$. Prove that this is a subgroup.
+\end{problem}
+\unsolved
+
+\begin{problem}{20}
+    Show that the group given in Exercise 24.7 is a subgroup of $\mathbb{S}$, the group
+    given in Example 24.13.
+\end{problem}
+\unsolved
+
+\begin{problem}{21}
+    Suppose $a$ and $b$ are non-identity elements of a group $G$, that $ab = ba$ and
+    $b^2 = 1$. Show that $\{a^n, ba^n : n \in \mathbb{Z}\}$ is a subgroup of $G$.
+\end{problem}
+\unsolved
+
+\begin{problem}{22}
+    We generalize Exercise 21: Suppose that $a$ and $b$ are non-identity elements of a
+    group $G$, that $ab = ba$ and $b^3 = 1$. Show that
+    $\{a^n, ba^n, b^2a^n : n \in \mathbb{Z}\}$ is a subgroup.
+\end{problem}
+\unsolved
+
+\begin{problem}{23}
     Generalize the situtation in the previous two exercises,
         replacing $2$ and $3$ by some positive integer $m$.
-\end{tcolorbox} 
+\end{problem}
+\unsolved

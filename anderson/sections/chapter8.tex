@@ -1,8 +1,95 @@
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{problem}[Warmup]{(a)}
+    Determine the units and the zero divisors in the following rings: \[\mathbb{Z} \times \mathbb{Z}, \quad \mathbb{Z}_{20}, \quad \mathbb{Z}_4 \times \mathbb{Z}_2, \quad \mathbb{Z}_{11}, \quad \mathbb{Z}[x].\]
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Suppose that $a$ is a unit in a ring. Is $-a$ a unit? Why or why not?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Find two non-zero matrices $A$ and $B$ in $M_2(\mathbb{Z})$ so that $AB = 0$; that is, find some zero divisors.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Find a non-zero matrix $A$ in $M_2(\mathbb{Z})$ so that $A^2 = 0$. Then $A$ is a zero divisor. (A ring element $a$ so that $a^n = 0$, for some positive integer $n$ is called \emph{nilpotent}. See Exercise 7.15.)
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Suppose that $D$ is a domain. Show that the direct product $D \times D$ is not a domain.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Compute the argument, modulus, and multiplicative inverse of the complex number $3 - 4i$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    What is the argument of a (non-zero) real number?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(h)}
+    A complex number with modulus 1 is said to lie on the unit circle. Why?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(i)}
+    Choose two complex numbers on the unit circle (see Exercise h). Why is their product also on the unit circle?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(j)}
+    Consider the complex numbers $1 - \sqrt{3}i$ and $2 + 2i$.
+    \begin{enumerate}
+        \item[(a)] Compute their product twice: First do the arithmetic directly; then determine the arguments and moduli of these numbers, and compute the product using Theorems 8.3 and 8.4.
+        \item[(b)] Compute their multiplicative inverses twice: First do the arithmetic directly, and then use Theorems 8.3 and 8.4 instead.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(k)}
+    Write out the following complex numbers in the form $a + bi$, giving exact values for $a$ and $b$ if possible, or by using a calculator if necessary: \[e^{\pi i}, \quad e^{\frac{\pi i}{4}}, \quad e^{i}, \quad 2e^{\frac{2\pi i}{3}}.\]
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(l)}
+    Give examples of the following, or explain why they don't exist:
+    \begin{enumerate}
+        \item[(a)] A finite field.
+        \item[(b)] A finite field that isn't a domain.
+        \item[(c)] A finite domain that isn't a field.
+        \item[(d)] An infinite field.
+        \item[(e)] An infinite domain that isn't a field.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(m)}
+    Does there exist an integer $m$ for which $\mathbb{Z}_m$ is a domain, but not a field? Explain.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(n)}
+    Use Euclid's Algorithm to compute the multiplicative inverse of $[2]$ in $\mathbb{Z}_9$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(o)}
+    Use Fermat's Little Theorem 8.7 to compute the multiplicative inverse of $[2]$ in $\mathbb{Z}_5$.
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
     Prove that if $R$ is a commutative ring 
     and $a \in R$ is a zero divisor, then $ax$
     is also a zero divisor or $0$, for all $x \in R$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $R$ is a commutative ring and $a \in R$ is a zero divisor.
@@ -14,10 +101,43 @@
     Since $b \ne 0$, it follows that $ax$ is a zero divisor.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{2}
+    Consider the set $M_2(\mathbb{R})$ of all $2 \times 2$ matrices with entries from the
+    real numbers $\mathbb{R}$; by Exercise 6.8, we know this is a ring. Prove that the
+    units of $M_2(\mathbb{R})$ are precisely those matrices
+    \[\begin{pmatrix} a & b \\ c & d \end{pmatrix}\]
+    such that $ad - bc \neq 0$. In this case, you can find a formula for the
+    multiplicative inverse of the matrix. We call $ad - bc$ the \textbf{determinant} of
+    the matrix. And so the units of $M_2(\mathbb{R})$ are those matrices with non-zero
+    determinant; we will explore the notion of determinant further in Example 27.4.
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    Find two non-commuting units $A, B$ in $M_2(\mathbb{R})$, and check that
+    ${(AB)}^{-1} = B^{-1}A^{-1}$ and ${(AB)}^{-1} \neq A^{-1}B^{-1}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    Generalizing Example 7.9, consider the subring $D_2(\mathbb{R})$ of diagonal matrices
+    with real entries. What are the units of $D_2(\mathbb{R})$?
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Let $\alpha = e^i = \cos 1 + i \sin 1$. (Note that the argument here is 1
+    \emph{radian}.) What is the modulus of $\alpha^n$, where $n$ is a positive integer?
+    Prove that $\alpha^n \neq \alpha^m$, whenever $n$ and $m$ are positive integers and
+    $n \neq m$.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
     Use Fermat's Little Theorem 8.7 to find 
     $[6]^{-1}$ in $\mathbb{Z}_{19}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     In $\mathbb{Z}_{19}$ the theorem asserts that 
@@ -25,9 +145,10 @@
     But then $[6][6]^{17} = [1]$ so $[6]^{-1} = [6]^{17} = [16]$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{7}
     Use Euclid's Algorithm to find $[36]^{-1}$ in $\mathbb{Z}_{101}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     First notice $1 = 5 \cdot 101 - 14 \cdot 36$.
@@ -35,20 +156,34 @@
     Therefor $[36]^{-1} = [-14] = [87]$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{8}
+    Verify explicitly the key idea in the proof of Fermat's Little Theorem 8.7 for
+    $x = 3$ and $p = 17$; that is, check that the set $S$ consists of the 16 non-zero
+    elements of $\mathbb{Z}_{17}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
     Suppose that $b \in R$, a non-commutative ring 
     with unity. Suppose that $ab = bc = 1$;
     that is, $b$ has a \textbf{right inverse} $c$
     and a \textbf{left inverse} $a$. Prove that 
     $a = c$ and that $b$ is a unit.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Now $a = a \cdot 1 = a(bc) = (ab)c = 1 \cdot c = c$ as required.
     It directly follows that $b$ is a unit.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{problem}{10}
+    Try to apply the proof that every finite integral domain is a field to the integral
+    domain $\mathbb{Z}$. Where does it go awry?
+\end{problem}
+\unsolved
+
+\begin{problem}{11}
     Let $R$ be a commutative ring with unity.
     Suppose that $n$ is the least postivive integer 
     for which we get $0$ when we add $1$ to itself $n$
@@ -68,7 +203,8 @@
 
     (c) Prove that if a field $F$ has characteristic $n$, where $n > 0$, 
         then $n$ is a prime integer.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Notice
@@ -94,7 +230,7 @@ Finally, $\mathbb{Z}_{17}$ has characteristic $17$.
     Now either $a \cdot 1 = 0$ or $b \cdot 1 = 0$ either of which is a contradiction.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{12}
     Consider the commutative ring $F = \{0, 1, \alpha, 1 + \alpha\}$,
     where $0$ is the additive identity, $1$ is the mutliplicative identity,
     $x + x = 0$, for all $x \in F$, and $\alpha^2 = 1 + \alpha$.
@@ -106,7 +242,8 @@ Finally, $\mathbb{Z}_{17}$ has characteristic $17$.
     (c) Because $F$ has four elements, you might expect $F$ would be the ``same''
         as the ring $\mathbb{Z}_4$. Show this is false, by computing the characteristics 
         of $F$ and $\mathbb{Z}_4$ (see the previous exercise).
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution (a):}
 \[
@@ -141,11 +278,19 @@ Finally, $\mathbb{Z}_{17}$ has characteristic $17$.
 \textbf{Solution (c):}
 In $F$, $1 + 1 = 0$ but in $\mathbb{Z}_4$, $1 + 1 + 1 + 1 = 0$ and $1 + 1 \ne 0$. So they are not the same ring.
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{13}
+    Suppose that $R$ is a commutative ring and $a$ is a non-zero nilpotent element. (See
+    Exercise 7.15; this means that $a^n = 0$ for some positive integer $n$.) Prove that
+    $1 - a$ is a unit. \emph{Hint:} You can actually obtain a formula for the inverse.
+\end{problem}
+\unsolved
+
+\begin{problem}{14}
     Prove that $\mathbb{Z}_m$ is the union of three mutually disjoint subsets: its 
     zero divisors, its units, and $\{0\}$. Show by example that this is false 
     for an arbitrary commutative ring.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     $\{0\}$ is clearly not a zero divisor or a unit in $\mathbb{Z}_m$.
@@ -163,3 +308,41 @@ In $F$, $1 + 1 = 0$ but in $\mathbb{Z}_4$, $1 + 1 + 1 + 1 = 0$ and $1 + 1 \ne 0$
 
     A counterexample is the trivial ring.
 \end{proof}
+
+\begin{problem}{15}
+    Prove that if $p$ is prime, then $[(p - 1)!] = [-1]$ in $\mathbb{Z}_p$.
+    \emph{Note:} In number theory, this result is known as Wilson's Theorem.
+\end{problem}
+\unsolved
+
+\begin{problem}{16}
+    Suppose that
+    \[A = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in M_2(\mathbb{R})\]
+    is a non-zero element, which is not a unit. Show that $A$ is actually a zero divisor.
+    (You might want to look at Exercise 2.) What is the relationship of this result to
+    Exercise 14?
+\end{problem}
+\unsolved
+
+\begin{problem}{17}
+    Consider the ring $C[0, 1]$. (See Example 6.14.)
+    \begin{enumerate}
+        \item[(a)] What are the units in this ring? (You need a theorem from calculus to
+        prove your answer is correct.)
+        \item[(b)] Given $f \in C[0, 1]$, define $Z(f) = \{x \in [0, 1] : f(x) = 0\}$.
+        Prove that if $f, g$ are associates, then $Z(f) = Z(g)$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{18}
+    Recall the Taylor series expansions centered at 0 for the three functions
+    $\sin x, \cos x, e^x$. (These are also called the MacLaurin series for these
+    functions.) In calculus we discover that these series converge to their functions
+    absolutely for all real numbers $x$. Let's assume that these series also make sense
+    for imaginary numbers $ix$. By replacing $x$ in $e^x$ by $ix$, and rearranging terms
+    of the series, verify that $e^{ix} = \cos x + i \sin x$, for all real numbers $x$.
+    (This verification can be made rigorous, using analytic techniques we will avoid
+    here.)
+\end{problem}
+\unsolved

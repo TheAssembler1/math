@@ -1,6 +1,66 @@
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{problem}[Warmup]{(a)}
+    Explain why our definition of a binary operation guarantees that the set is closed under the operation.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Are the following binary operations?
+    \begin{enumerate}
+        \item[(a)] $a * b = 1$, on the set $\mathbb{Z}$.
+        \item[(b)] $a * b = a/b$, on the set $\mathbb{Q}$.
+        \item[(c)] $a * b = a + bi$, on the set $\mathbb{R}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Give examples of binary operations satisfying the following:
+    \begin{enumerate}
+        \item[(a)] A non-commutative binary operation.
+        \item[(b)] A non-associative binary operation.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Give examples of rings satisfying the following:
+    \begin{enumerate}
+        \item[(a)] A ring with finitely many elements.
+        \item[(b)] A non-commutative ring.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Are the following rings?
+    \begin{enumerate}
+        \item[(a)] $3\mathbb{Z}$, the set of all integers divisible by 3, together with ordinary addition and multiplication.
+        \item[(b)] The set of all irreducible integers, together with ordinary addition and multiplication.
+        \item[(c)] $\mathbb{R}$, with the operations of addition and division.
+        \item[(d)] The set $\mathbb{R}^*$ of non-zero real numbers, with the operations of multiplication, and the operation $a \circ b = 1$. \emph{Note:} We are trying to use ordinary multiplication as the `addition' in this set!
+        \item[(e)] The set of polynomials in $\mathbb{Q}[x]$, where the constant term is an integer, with the usual addition and multiplication of polynomials.
+        \item[(f)] The set of all matrices in $M_2(\mathbb{Z})$, whose lower left-hand entry is zero, with the usual matrix addition and multiplication.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Compute $4a$ and $a^4$ for the following elements $a$ of the following rings:
+    \begin{enumerate}
+        \item[(a)] $1/2 \in \mathbb{Q}$.
+        \item[(b)] $2 \in \mathbb{Z}_8$.
+        \item[(c)] $2 \in \mathbb{Z}_{16}$.
+        \item[(d)] $2 \in \mathbb{Z}_3$.
+        \item[(e)] $1 + 3x^2 \in \mathbb{Q}[x]$.
+        \item[(f)] $\begin{pmatrix} 1 & 2 \\ -1 & 3 \end{pmatrix} \in M_2(\mathbb{Z})$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
     Show that in a ring, $0a = a0 = 0$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be a ring and $a$ be an arbitrary element in $R$.
@@ -25,12 +85,13 @@
     Thus $a0 = 0a = 0$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}{2}
     Prove part d of Theorem 6.1:
     Show that in a ring the additive identity is unique,
         by supposing $0$ and $0'$ satisfy Rule 3
         and proving that $0 = 0'$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be a ring and suppose there exists $0 \in R$
@@ -40,9 +101,10 @@
     By Additive Cancellation $0 = 0'$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Show that in a ring $(-a)b = a(-b) = -(ab)$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be a ring and $a, b \in R$. Then
@@ -70,9 +132,10 @@
     Thus $(-a)b = a(-b) = -(ab)$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Show that in a ring $(-a)(-b) = ab$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     \begin{align*}
@@ -84,7 +147,7 @@
     Thus $(-a)(-b) = ab$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}{5}
     Prove the following facts about subtraction in a ring $R$,
     where $a, b, c \in R$.
 
@@ -93,7 +156,8 @@
     (b) $a(b - c) = ab - ac$.
 
     (c) $(b - c)a = ba - ca$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be a ring and $a, b, c \in R$.
@@ -104,7 +168,29 @@
     Then, $ba + (-c)a = ba + -(ca) \text{ Problem 3 } = ba - ca$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{6}
+    Given two matrices in $M_2(\mathbb{Z})$,
+    \[A = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}
+    \quad\text{and}\quad
+    B = \begin{pmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{pmatrix},\]
+    define their \textbf{matrix sum} to be the matrix
+    \[A + B = \begin{pmatrix} a_{11} + b_{11} & a_{12} + b_{12} \\ a_{21} + b_{21} & a_{22} + b_{22} \end{pmatrix}.\]
+    Verify that this is a binary operation, which is associative, commutative, has an
+    additive identity, and has additive inverses.
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Given two matrices $A$, $B$ in $M_2(\mathbb{Z})$ as in Exercise 6, define their
+    \textbf{matrix product} to be the matrix
+    \[AB = \begin{pmatrix} a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+    a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22} \end{pmatrix}.\]
+    Verify that this is a binary operation, which is associative and distributes over
+    matrix addition, but is not commutative.
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
     We generalize Exercises 6 and 7: Let $R$
     be any commutative ring (other than the zero ring).
     Define $M_2(R)$ as the set of $2 \times 2$
@@ -112,7 +198,8 @@
     is a ring which is not commutative. (Note that 
     for the most part the proofs in Exercises 6 and 
     7 life over without change.)
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be a ring and 
@@ -404,7 +491,7 @@ AB = \begin{bmatrix} a^2 & 0 \\ 0 & 0 \end{bmatrix} \neq
 BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
 \]
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{9}
     Check that Example 6.14 is indeed a ring; that is,
     let $C[0, 1]$ be a set of functions defined from the closed 
     unit interval $[0, 1]$ to the real numbers that 
@@ -412,7 +499,8 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
     functions point-wise: $(f + g)(x) = f(x) + g(x)$
     and $(fg)(x) = f(x)g(x)$. Show that $C[0, 1]$ is a 
     commutative ring. (You may use theorems from calculus).
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x \in [0, 1]$ and $f, g, l : [0, 1] \longrightarrow \mathbb{R}$.
@@ -451,7 +539,15 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
     \]
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{problem}{10}
+    Let $\mathcal{D}$ be the set of functions defined from the real numbers to the real
+    numbers that are differentiable. Define addition and multiplication of functions
+    point-wise, as in the previous exercise. Show that $\mathcal{D}$ is a commutative
+    ring. (You may use theorems from calculus.)
+\end{problem}
+\unsolved
+
+\begin{problem}{11}
     Let $\mathbb{C}$ be the complex numbers. That inverse
     \[\mathbb{C} = \{a + bi \mid a, b, \in \mathbb{R}\}\]
     where $i$ is the square root of $-1$ (that is, $i \cdot i = 1$).
@@ -460,7 +556,8 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
     and 
     \[(a + bi)(c + di) = (ac - bd) + (ad + bc)i\]
     Show that $\mathbb{C}$ is a commutative ring.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $a+bi,\; c+di,\; e+fi \in \mathbb{C}$.
@@ -530,7 +627,36 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
     \]
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 15, breakable]
+\begin{problem}{12}
+    Let
+    \[\mathbb{Z}[i] = \{a + bi \in \mathbb{C} : a, b \in \mathbb{Z}\}.\]
+    Show that $\mathbb{Z}[i]$ is a commutative ring (see Exercise 11). This is called
+    the ring of \textbf{Gaussian integers}.
+\end{problem}
+\unsolved
+
+\begin{problem}{13}
+    Verify that Example 6.9 is a ring. That is, let $\mathbb{Z} \times \mathbb{Z}$ be the
+    set of ordered pairs with integer entries. That is,
+    \[\mathbb{Z} \times \mathbb{Z} = \{(a, b) : a, b \in \mathbb{Z}\}.\]
+    Define addition and multiplication coordinate-wise; that is,
+    \begin{align*}
+        (n, m) + (r, s) &= (n + r, m + s) \\
+        (n, m) \cdot (r, s) &= (nr, ms).
+    \end{align*}
+    Show that $\mathbb{Z} \times \mathbb{Z}$ is a commutative ring.
+\end{problem}
+\unsolved
+
+\begin{problem}{14}
+    We generalize Exercise 13: Let $\mathbb{Z}^n$ be the set of ordered $n$-tuples with
+    integer entries. Define addition and multiplication on $\mathbb{Z}^n$
+    coordinate-wise and show $\mathbb{Z}^n$ is a commutative ring. Similarly, define
+    $R^n$ for any ring $R$. Show $R^n$ is a ring and is commutative if $R$ is.
+\end{problem}
+\unsolved
+
+\begin{problem}{15}
     Verify that 6.10 is a ring.
     Namely, let $R$ and $S$ be arbitrary rings.
     Define addition and subtraction appropriately
@@ -542,7 +668,8 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
     of $n$-tuples with entries from the rings $R_i$.
     This new ring is called the \textbf{direct product}
     of the rings $R_i$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{definition}
     Let $R, S$ be arbitrary rings.
@@ -633,13 +760,14 @@ BA = \begin{bmatrix} 0 & 0 \\ 0 & a^2 \end{bmatrix}
     $R_1 \times R_2 \times \cdots \times R_n \times R_{n + 1}$ is a ring.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{problem}{16}
     Find an example of $M_2(\mathbb{Z})$ to show that 
     $(a + b)^2$ is not necessarily equal to 
     $a^2 + 2ab + b^2$. (Recall that $2ab = ab + ab$.) What is 
     the correct expansion of $(a + b)^2$ for an arbitrary ring?
     What can you say of the ring is commutative.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution:}
 \[
@@ -703,13 +831,14 @@ The correct expansion is
 If the ring is commutative then $ab = ba$
     thus $(a + b)^2 = a^2 + 2ab + b^2$.
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{problem}{17}
     (This exercise extends the discussion of Exercise 16.)
     Let $R$ be a commutative ring and $a, b \in R$.
     Then prove the \emph{binomial theorem}
     for $R$, by induction on $n$: Namely, show that 
     \[(a + b)^n = \sum_{k = 0}^{n} \binom{n}{k} a^{n - k}b^k.\]
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     (\textbf{Base Case:}) Trivial.
@@ -729,14 +858,15 @@ If the ring is commutative then $ab = ba$
     \end{align*}
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 18, breakable]
+\begin{problem}{18}
     Suppose $a \cdot a = a$ for every element $a$ in a ring $R$.
     (Elements $a$ in a ring where $a^2 = a$ are called \textbf{idempotent}.)
 
     (a) Show that $a = -a$.
 
     (b) Now show that $R$ is commutative.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Since every element of $R$ is idempotent, we have $a^2 = a$.
@@ -757,12 +887,13 @@ If the ring is commutative then $ab = ba$
     Hence $ab = ba$, and $R$ is commutative.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 19, breakable]
+\begin{problem}{19}
     Let $S = \{(x_2, x_2, x_3, \ldots) \mid x_i \in \mathbb{R}\}$,
     the real-valued sequences. Define addition and multiplication 
     on $S$ coordinate-wise (see Exercise $13$ and $14$). Show that 
     $S$ is a commutative ring.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     We know from problem $14$ that $S$ is a ring.
@@ -771,7 +902,7 @@ If the ring is commutative then $ab = ba$
     Thus $S$ is a commutative ring.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 20, breakable]
+\begin{problem}{20}
     Let $X$ be some arbitrary set, an $P(X)$ the 
     set of all subsets of $X$.
     In Example 1.1 we proved that if $X$ has $n$
@@ -785,7 +916,8 @@ If the ring is commutative then $ab = ba$
     \textbf{symmetric difference} of the two sets $a, b$.)
     Prove that $P(X)$ is commutative ring.
     ($P(X)$ is called the \textbf{power set} for the set $X$.)
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $a, b, c \in P(X)$.
@@ -827,12 +959,33 @@ If the ring is commutative then $ab = ba$
     \]
 \end{proof}
 
+\begin{problem}{21}
+    Prove that multiplication is associative in $\mathbb{Q}[x]$, as claimed in
+    Example 6.6. Suppose that
+    \begin{align*}
+        f &= a_0 + a_1x + \cdots + a_nx^n, \\
+        g &= b_0 + b_1x + \cdots + b_mx^m,
+    \end{align*}
+    and
+    \[h = c_0 + c_1x + \cdots + c_rx^r.\]
+    Compute the $x^k$ coefficient in $f(gh)$ and $(fg)h$. In each case these will be
+    double summations. Argue that these double summations actually include the same
+    terms and are therefore the same.
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 23, breakable]
+\begin{problem}{22}
+    Prove that multiplication is distributive in $\mathbb{Q}[x]$, as claimed in
+    Example 6.6.
+\end{problem}
+\unsolved
+
+\begin{problem}{23}
     Let $R$ be any commuatative ring.
     Let $R[x]$ be the collection of polynomials with 
     coefficients from $R$. Show that $R[x]$ is a ring.
-\end{tcolorbox} 
+\end{problem}
+\solved
 \begin{proof}
     Since addition and multiplication in $R[x]$ are defined coefficient-wise
     using the operations in the ring $R$, and since $R$ satisfies the ring axioms,

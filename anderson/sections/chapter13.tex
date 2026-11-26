@@ -1,4 +1,4 @@
-\begin{tcolorbox}[title=Warmup (a), breakable]
+\begin{problem}[Warmup]{(a)}
     Give examples of the following (or explain why no example exists).
     You should specify both a domain and an element of it:
     \begin{enumerate}
@@ -6,7 +6,8 @@
         \item An irreducible element that isn't prime.
         \item A non-unit that is neither prime nor irreducible.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution (a), :} 
 No example exists. In any domain every prime element is irreducible.
@@ -17,7 +18,7 @@ No example exists. In any domain every prime element is irreducible.
 \textbf{Solution (c):}
 No example exists. Every non-unit is either irreducible or a product of irreducibles.
 
-\begin{tcolorbox}[title=Warmup (b), breakable]
+\begin{problem}[Warmup]{(b)}
     Give examples of the following (that is,
     specify both a domain and an ideal of it):
     \begin{enumerate}
@@ -26,7 +27,8 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
         \item A maximal ideal that is not principal.
         \item An ideal that is neither maximal nor principal.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution (a):} $\langle 2 \rangle \subset \mathbb{Z}$.
 
@@ -37,7 +39,8 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
 \textbf{Solution (d):} $\langle 4, x \rangle \subset \mathbb{Z}[x]$.
 
 \newpage
-\begin{tcolorbox}[title=Warmup (c), breakable]
+
+\begin{problem}[Warmup]{(c)}
     Translate the following statements into statements about principal ideals:
     \begin{enumerate}
         \item $3$ divides $12$ in $\mathbb{Z}$.
@@ -46,7 +49,8 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
         \item $2x + 1$ is irreducible in $\mathbb{Q}[x]$.
         \item $2x + 1$ is irreducible in $\mathbb{Z}[x]$.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 
 \textbf{Solution (a):} $\langle 12 \rangle \subseteq \langle 3 \rangle$ in $\mathbb{Z}$.
@@ -60,17 +64,34 @@ No example exists. Every non-unit is either irreducible or a product of irreduci
 \textbf{Solution (e):} $\langle 2x + 1 \rangle$ is maximal among the
 proper principal ideals of $\mathbb{Z}[x]$.
 
-\begin{tcolorbox}[title=Warmup (d), breakable]
+\begin{problem}[Warmup]{(d)}
     Why is the following statement silly?
     Every commutative ring has exactly one maximal ideal because the whole ring is an ideal,
         which is obviously as large as possible.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution: } Because its wrong.
 
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{problem}[Warmup]{(e)}
+    Why do we care whether all irreducible elements of a domain are prime?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Explain which implies which: UFD and PID.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    What does the GCD identity have to do with the fact that in $\mathbb{Z}$, $\langle 9, 50 \rangle = \mathbb{Z}$?
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
     Prove Theorem 13.1: In any domain, prime elements are irreducible.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be an integral domain.
@@ -87,13 +108,15 @@ proper principal ideals of $\mathbb{Z}[x]$.
 \end{proof}
 
 \newpage
-\begin{tcolorbox}[title=Problem 2, breakable]
+
+\begin{problem}{2}
     Complete the proof of Theorem 13.2.
     That is, suppose we have a domain in which all non-zero non-units are irreducible,
         or a product of irreducibles. Furthermore, suppose all irreducible elements 
         are prime. Prove that the factorization of any non-unit into irreducibles is unique
         (up to order and unit factors).
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be an integral domain in which all non-zero non-units are irreducible,
@@ -127,12 +150,13 @@ proper principal ideals of $\mathbb{Z}[x]$.
         and unit factors.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Exhibit in the ring $\mathbb{Z}_6$ a non-unit $a$ for which $a^n = a$,
         for all positive integers $n$. Why does this mean that there is 
         no unique factorization into irreducibles for this ring? 
     Now repeat this exercise for $\mathbb{Z} \times \mathbb{Z}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Consider the element $3 \in \mathbb{Z}_6$.
@@ -159,9 +183,11 @@ proper principal ideals of $\mathbb{Z}[x]$.
 \end{proof}
 
 \newpage
-\begin{tcolorbox}[title=Problem 4, breakable]
+
+\begin{problem}{4}
     Prove that $x$ is a prime element of $\mathbb{Z}[x]$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $x \mid ab$ for $a, b, \in \mathbb{Z}[x]$.
@@ -172,10 +198,37 @@ proper principal ideals of $\mathbb{Z}[x]$.
     Now, counting degrees it is clear that either $deg(f) = 1$ or $deg(a) = 1$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{5}
+    Consider $1 + i \in \mathbb{Z}[i]$.
+    \begin{enumerate}
+        \item[(a)] Show that
+        \begin{align*}
+            \langle 1 + i \rangle &= \{a + bi : a + b \text{ is even}\} \\
+            &= \{\alpha \in \mathbb{Z}[i] : N(\alpha) \text{ is even}\}.
+        \end{align*}
+        \item[(b)] Use part a to prove that $1 + i$ is a prime element of $\mathbb{Z}[i]$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Suppose that $a, b, c \in \mathbb{Z}$ and $c = \gcd(a, b)$. Show that
+    $\langle a, b \rangle = \langle c \rangle$. (See Example 13.7 for an illustration of
+    this.)
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Find two integers $n$ with $n \le -5$ where 2 is not prime in $\mathbb{Z}[\sqrt{n}]$.
+    (Note by Exercise 10.11 that 2 is irreducible in these rings.)
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
     Describe the elements of the ideal $\langle 3, x \rangle$ in $\mathbb{Z}[x]$.
     Show that $\langle 3, x \rangle$ is not a principal ideal. (See Exercise 12.2.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Notice $f \in \langle 3, x \rangle$ can be written in the form 
@@ -192,54 +245,89 @@ proper principal ideals of $\mathbb{Z}[x]$.
     This is a contradiction, thus $\langle 3, x \rangle$ is not a principal ideal.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{9}
     Show that $\langle 4, x \rangle$ is a maximal ideal in $\mathbb{Z}[x]$.
-\end{tcolorbox} 
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{10}
     Show that $\langle 9, x \rangle$ is an ideal of $\mathbb{Z}[x]$,
         which is neither principal nor maximal.
-\end{tcolorbox} 
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{11}
+    Consider the ring $\mathbb{Z}[\sqrt{2}]$.
+    \begin{enumerate}
+        \item[(a)] Show that
+        \[I = \{a + b\sqrt{2} \in \mathbb{Z}[\sqrt{2}] : a \text{ is even}\}\]
+        is an ideal.
+        \item[(b)] Show that $I$ is principal. \emph{Hint:} Think of `small' elements of $I$.
+        \item[(c)] Show that $I$ is a maximal ideal.
+        \item[(d)] Show that
+        \[J = \{a + b\sqrt{2} \in \mathbb{Z}[\sqrt{2}] : b \text{ is even}\}\]
+        is closed under subtraction but is not an ideal.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
+    Using arguments similar to those used in Section 13.4 for $\mathbb{Z}[\sqrt{-5}]$,
+    show that $\langle 2, 1 + \sqrt{-7} \rangle$ is a maximal ideal in
+    $\mathbb{Z}[\sqrt{-7}]$ that is not principal.
+\end{problem}
+\unsolved
+
+\begin{problem}{13}
+    Consider the ideal $\langle 7 + \sqrt{-5}, 9 \rangle$ in $\mathbb{Z}[\sqrt{-5}]$. Show
+    that this ideal is neither maximal nor principal.
+\end{problem}
+\unsolved
+
+\begin{problem}{14}
     \begin{enumerate}
         \item Why is $x^2 + 1$ irreducible in $\mathbb{Q}[x]$.
         \item By part a we now know that $\langle x^2 + 1 \rangle$ is a maximal ideal 
         in $\mathbb{Q}[x]$. Provide a direct argument for this, similar to the corresponding
         argument for $\langle x \rangle$ in Example 13.8.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 15, breakable]
+\begin{problem}{15}
     Let $n$ be a square-free integer and suppose that $n 1 \pmod{4}$.
     Prove that $\mathbb{Z}[\sqrt{n}]$ is not a UFD.
-\end{tcolorbox} 
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{problem}{16}
     Consider the ideal $\langle x \rangle$ in $\mathbb{Q}[x, y]$; see 
     Exercise 12.12 for more about this ring and this ideal.
     Show that this ideal is not maximal.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Clearly $\langle x \rangle \subset \langle x, y \rangle$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{problem}{17}
     Consider the element $x + y$ in $\mathbb{Q}[x, y]$; see Exercise 12.12
     for more about this ring. Argue that $x + y$ is irreducible, and so 
     $\langle x + y \rangle$ is maximal among all principal ideals in $\mathbb{Q}[x, y]$.
     Show that $\langle x + y \rangle$ is not maximal among all ideals in $\mathbb{Q}[x, y]$.
-\end{tcolorbox} 
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 18, breakable]
+\begin{problem}{18}
     In Exercise c part e, your translation should have been that 
     \[\langle 2x + 1 \rangle,\]
     is maximal among all principal ideals in $\mathbb{Z}[x]$
     Show that this ideal is \emph{not} maximal among all ideals,
     by considering the ideal 
     \[\langle 2x + 1, 3 \rangle.\]
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Clearly $\langle 2x + 1 \rangle \subset \langle 2x + 1, 3 \rangle$

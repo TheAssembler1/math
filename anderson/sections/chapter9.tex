@@ -1,4 +1,57 @@
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}[Warmup]{(a)}
+    Calculate the quotient and remainder for the following, in various rings $F[x]$:
+    \begin{enumerate}
+        \item[(a)] $x^3 + 4x + 1$ by $x + 2$, in $\mathbb{Z}_5[x]$.
+        \item[(b)] $x^3 + 4x + 1$ by $2x + 1$, in $\mathbb{Z}_5[x]$.
+        \item[(c)] $x^3 - (2 + i)x^2 + 5$ by $ix - 1$, in $\mathbb{C}[x]$.
+        \item[(d)] $x^4 - 2x^3 + \frac{1}{3}$ by $\pi x + 1$, in $\mathbb{R}[x]$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Use the Root Theorem to check for roots of $x^4 + 4$ in $\mathbb{Z}_5[x]$. Use your result to completely factor this polynomial.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Why are $x + i$ and $(1 + i)x + (-1 + i)$ associates in $\mathbb{C}[x]$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    List all associates of $2x^2 + 3x + 3$ in $\mathbb{Z}_5[x]$. Is it clearer how to factor this polynomial, if you consider one of its associates?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Why is $x^2 + 2$ irreducible in $\mathbb{Z}_5[x]$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Factor $x^3 - 2$ into irreducibles in $\mathbb{Q}[x]$, $\mathbb{R}[x]$, $\mathbb{C}[x]$. Repeat this problem for $x^2 + \pi$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Extract the square roots of $-3 + \sqrt{3}i$ in $\mathbb{C}$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(h)}
+    Let $F$ be a field. Could the ring $F[x]$ be a field? Why or why not?
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Use the method of completing the square to complete the proof of the quadratic
+    formula for finding roots of polynomials of degree two in $\mathbb{R}[x]$, as begun at
+    the beginning of Section 9.2.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
     (a) Why does every non-zero complex number have exactly 
         two square roots?
 
@@ -7,7 +60,8 @@
 
     (c) Use the quadratic formula to compute the roots of the polynomials 
         $x^2 - (3 + 2i)x + (1 + 3i)$ and $x^2 - (1 + 3i)x + (-2 + 2i)$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution (a):}
 The book states a non-zero complex number $\alpha = |\alpha|(\cos \theta + i \sin \theta) = |\alpha|e^{i \theta}$
@@ -22,31 +76,52 @@ $\frac{-(-(3 + 2i)) \pm \sqrt{(-(3 + 2i))^2 - 4(1 + 3i)}}{2}$.
 The roots of $x^2 - (1 + 3i)x + (-2 + 2i)$ are
 $\frac{-(-(1 + 3i)) \pm \sqrt{(-(1 + 3i))^2 - 4(-2 + 2i)}}{2}$.
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Give examples of two different polynomials in $\mathbb{Z}_5[x]$
     that are identical as functions over $\mathbb{Z}_5$.
     This shows that equality of polynomials in $F[x]$ cannot be 
     thought of as equality of the corresponding polynomial \emph{functions}.
     (See the Quick Exercise in Section 4.1 for $F = \mathbb{Z}_2$ case, and 
     Exercise 4.12 for the $F = \mathbb{Z}_3$.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution:} By Fermat's little Theorem in $\mathbb{Z}_5$
 the polynomials $x^5$ and $x$ are equivalent for all $x$.
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Consider the polynomial $f = x^3 + 3x^2 + 2x \in \mathbb{Z}_6[x]$.
     Show that this polynomial has more than three roots in $\mathbb{Z}_6$.
     Why doesn't this contradict the Root Theorem?
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution:} We can manually check that $x = 0, 1, 2, 3$ are roots.
 The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{5}
+    Find a gcd of $x^3 + 4x^2 + 4x + 9$ and $x^2 + x - 2$ in $\mathbb{Q}[x]$; in
+    $\mathbb{R}[x]$; in $\mathbb{C}[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Find a gcd of $x^3 + x^2 + x$ and $x^2 + x + 1$ in $\mathbb{Z}_3[x]$; in
+    $\mathbb{Z}_5[x]$; in $\mathbb{Z}_{11}[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Write the gcd you found in Exercise 5 as a linear combination of the two polynomials
+    involved.
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
     Show that if $f$ is a polynomial with real coefficients and $\alpha = s + ti$
     is a root of $f$ in $\mathbb{C}$, then so is $\overline{\alpha} = s - ti$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $\alpha, \beta$ be complex numbers.
@@ -63,7 +138,25 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     $f(\overline{\alpha}) = \overline{f(\alpha)} = \overline{0} = 0$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{9}
+    Use Exercise 8 to construct a polynomial in $\mathbb{R}[x]$ with roots
+    $\frac{1}{2}$, $i$, $2 - i$.
+\end{problem}
+\unsolved
+
+\begin{problem}{10}
+    Factor $x^4 + x^3 + 2x^2 + 1$ into irreducibles in $\mathbb{Z}_3[x]$. Be sure to prove
+    that your factors are in fact irreducible.
+\end{problem}
+\unsolved
+
+\begin{problem}{11}
+    Determine all the irreducible elements of $\mathbb{Z}_2[x]$, with degree less than or
+    equal to 4.
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
     In this exercise, we describe the cubic formula for factoring an arbitrary polynomial
     of degree $3$ in $\mathbb{R}[x]$. This version of the formula is called the 
     \emph{Cardano-Tartaglia} formula, after two 16th-century Italian mathematicians 
@@ -87,7 +180,8 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     (d) Let $D = q^2 + \frac{3p^3}{27}$. (This is called the \emph{discriminant} of the conic.)
         Conclude that $y = \sqrt[3]{\frac{-q + \sqrt{D}}{2}} - \sqrt[3]{\frac{q + \sqrt{D}}{2}}$
         is a root for $g = 0$. (This is just $u - v$.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 
 \begin{proof}
@@ -162,11 +256,12 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     is a root of $g(y) = y^3 + py + q = 0$ as required.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{13}
     In Exercise 12, there is an apparent ambiguity arising from the plus or minus when extracting
         the square root of $D$ to obtain values for $u^3$ and $v^3$. However, show that we obtain 
         the same value value for the root $u - v$, regardless of which choice is made.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     We have the equation $v^3 - u^3 = q$, which any choice of roots satisfies.  
@@ -178,7 +273,15 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
         which is independent of our choice of roots.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 15, breakable]
+\begin{problem}{14}
+    Apply the Cardano-Tartaglia formula to find a root of the cubic equation
+    \[x^3 = 6x + 9.\]
+    Then factor $x^3 - 6x - 9$, and use the quadratic formula to obtain the remaining two
+    roots.
+\end{problem}
+\unsolved
+
+\begin{problem}{15}
     Suppose as in Exercise 12 that $g = y^3 + px + q$ is a cubic polynomial
     with real coefficients, and $y = u - v$ is the root given by the 
     Cardano-Tartaglia formula. Suppose that $D > 0$. (Thus $u$ and $v$ are real numbers.)
@@ -186,7 +289,8 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     in Exercise 25 below). Argue that the other two distinct roots of $g = 0$ are the complex 
     conjugates of $u \zeta - v \zeta^2$ and $u \zeta^2 - v \zeta$. \emph{Note: }
     be sure and check both that these are roots and that they are necessarily distinct.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $y_1 = u - v, y_2 =  \zeta - v \zeta^2, y_3 = u \zeta^2 - v \zeta$.
@@ -213,7 +317,12 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     Thus the roots are distinct.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{problem}{16}
+    Apply Exercise 15 to obtain all three of the roots for the cubic $y^3 + 3y + 1$.
+\end{problem}
+\unsolved
+
+\begin{problem}{17}
     An interesting and suprising conclusion one can draw from example 15 is that 
     if the discriminant of $D > 0$, then the cubic polynomial $y^3 + py + q \in \mathbb{R}[x]$
         necessarily has exactly one real root, and a conjugate pair of complex roots. 
@@ -228,7 +337,8 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
               Argue that the values of $g$ at these two roots are both positive (using the assumption that $D > 0$).
               Why does this mean that $g$ has exactly one root?
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     $g'(y) = 3y^2 + p$. Since the deriviative is always $> 0$ the function is always increasing 
@@ -249,18 +359,33 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     Thus the cubic can only cross the $y$-axis once so $g(y)$ as one real root.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 19, breakable]
+\begin{problem}{18}
+    \begin{enumerate}
+        \item[(a)] Find a cubic polynomial whose roots are $1 + \sqrt{3}, 1 - \sqrt{3}, -3$.
+        \emph{Hint:} Use the Root Theorem.
+        \item[(b)] Apply the Cardano-Tartaglia cubic formula derived in the previous
+        exercise to solve the cubic obtained in part a.
+        \item[(c)] The answer you have obtained should be one of the roots you started
+        with, but it does not \emph{appear} to be. Can you explain this?
+        \item[(d)] Obtain the other two roots for this polynomial, by using the same
+        strategy as in Exercise 15. Note that we must use complex arithmetic to obtain
+        these three real numbers!
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{19}
     Exercise 18 is a particular example of what is called the \emph{irreducible}
     case for a real cubic. Show that in the case $D < 0$, we obtain real roots 
     for the polynomial $g = y^3 + px + q$ by an appropriate choice of $u$ and $v$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Choose $v$ to be the complex conjugate of $u$.
 \end{proof}
 
-
-\begin{tcolorbox}[title=Problem 20, breakable]
+\begin{problem}{20}
     In this problem we will explore Ferrari's approach to solving the 
     general quartic equation. Consider the arbitrary quartic
     \[f = x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 \in \mathbb{R}[x].\]
@@ -275,7 +400,8 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
                 equation in $b$. Explain why a (real) solution to this cubic will always lead to a solution to the 
                 quartic equation. How do you then get all four solutions.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x = y - m$. Then plugging in, we have 
@@ -327,8 +453,19 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     Each quadratic has two solutions, giving all four roots of the quartic.
 \end{proof}
 
+\begin{problem}{21}
+    Carry out Ferrari's method for solving quartic equations, for the equation
+    $x^4 = -x^2 - 4x + 3$.
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 23, breakable]
+\begin{problem}{22}
+    Use a calculator and our algorithm to compute (approximations of) the square roots of
+    $5 + 11.6i$ in $\mathbb{C}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{23}
     Suppose that the complex number $\alpha = a + bi$ has been factored as 
     \[\alpha = \sqrt{a^2 + b^2}(\cos \theta + i \sin \theta) = |\alpha| e^{i \theta},\]
     as we did in the text when computing the square roots of $\alpha$.
@@ -339,7 +476,8 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
         \item Show that these are all distinct roots.
         \item Why is this the \emph{complete} list of $n$th roots of $\alpha$.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     First note that 
@@ -363,14 +501,35 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     violating the Fundamental Theorem of Algebra.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 26, breakable]
+\begin{problem}{24}
+    What are the five complex fifth roots of 1? What are the five complex fifth roots of
+    $1 + i$?
+\end{problem}
+\unsolved
+
+\begin{problem}{25}
+    We generalize the previous exercise. Let $p$ be a positive prime integer, and
+    consider the cyclotomic polynomial
+    \[\Phi_p = \frac{x^p - 1}{x - 1} = x^{p - 1} + x^{p - 2} + \cdots + x + 1\]
+    first encountered in Exercise 5.17. Clearly its roots (together with 1) are exactly
+    the $p$ distinct $p$th roots of 1; these are called the $p$th \textbf{roots of unity}.
+    If we set
+    \[\zeta = \cos(2\pi/p) + i\sin(2\pi/p) = e^{\frac{2\pi i}{p}},\]
+    show that the $p$th roots of unity are precisely
+    \[1, \zeta, \zeta^2, \ldots, \zeta^{p - 1}.\]
+    We call $\zeta$ the \textbf{primitive} $p$th root of unity.
+\end{problem}
+\unsolved
+
+\begin{problem}{26}
     A field $F$ is said to be \textbf{algebraically closed} if every polynomial 
     $f \in F[x]$ with $deg(F) \ge 1$ has a root in $F$; we can rephrase this 
     definition roughly by saying that a field is algebraically closed if it 
     satisfies the Fundamental Theorem of Algebra. Thus, $\mathbb{C}$ is 
     algebraically closed, while $\mathbb{R}$ and $\mathbb{Q}$ are not.
     Show that for every prime $p$, the field $\mathbb{Z}_p$ is not algebraically closed.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     From Fermat's little theorem $f(x) = x^p - x$ evaluates to $0$ for all $x \in \mathbb{Z}_p$.
@@ -378,7 +537,7 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     Therefore $\mathbb{Z}_p$ is not algebraically closed.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 27, breakable]
+\begin{problem}{27}
     Show that the field in Exercise 8.12 is not algebraically closed.
     (See the previous exercise for a definition.)
     \begin{enumerate}
@@ -387,7 +546,8 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
         \item $1$ is the multiplicative identity.
         \item $x + x = 0$ for all $x \in F$, and $\alpha^2 = \alpha + 1$.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Consider $f(x) = x^4 - x$. Then 
@@ -406,12 +566,13 @@ The Root Theorem is about fields and $\mathbb{Z}_6$ is not a field.
     Then $g(x) = f(x) + 1 = 1$ for all $x \in F$, thus $F$ is not algebraically closed.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 28, breakable]
+\begin{problem}{28}
     Show that, if $F$ is a field with infinitely many elements, then $f(x) = g(x)$
     for all $x \in F$ implies that $f = g$ as polynomials. (We have already seen 
     that this is not the case if $F$ is a finite field. For example, consider 
     $x^2 + x + 1$ and $1$ in $\mathbb{Z}_2[x]$.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $F$ is a field with infinitely many elements and $f(x) = g(x)$

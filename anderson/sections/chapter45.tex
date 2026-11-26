@@ -1,0 +1,118 @@
+\begin{problem}[Warmup]{(a)}
+    Answer the following true or false; if your answer is false, give a counterexample. Assume that $F, K$ and $L$ are fields.
+    \begin{enumerate}
+        \item[(a)] A splitting field for $f$ over $F$ is an algebraic extension of $F$.
+        \item[(b)] All finite extensions of $\mathbb{Q}$ are simple.
+        \item[(c)] A normal extension of $\mathbb{Q}$ is the splitting field for some $f \in \mathbb{Q}[x]$.
+        \item[(d)] A splitting field for $f$ over $F$ is a normal extension.
+        \item[(e)] If $f \in \mathbb{Q}[x]$ is irreducible, then all of the roots of $f$ in $\mathbb{C}$ are distinct.
+        \item[(f)] Suppose that $f \in F[x]$ is irreducible and has degree bigger than 1. To construct the splitting field for $f$ over $F$, it is always possible to use the field $F[x]/\langle f \rangle$ constructed by Kronecker's Theorem 42.1.
+        \item[(g)] Suppose that $f \in F[x]$ is irreducible and has degree bigger than 1. To construct the splitting field for $f$ over $F$, it is never possible to use the field $F[x]/\langle f \rangle$ constructed by Kronecker's Theorem 42.1.
+        \item[(h)] All splitting fields are finite extensions.
+        \item[(i)] If $F \subseteq L \subseteq K$, and $K$ is the splitting field for $f$ over $F$, then $K$ is the splitting field for $f$ over $L$.
+        \item[(j)] Suppose $K$ is a proper finite extension of $F$. Then $K$ is the splitting field for some polynomial $f$ over $F$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Consider the polynomial $x^3 - 2$. Describe its splitting field over the following fields: \[\mathbb{Q}, \quad \mathbb{R}, \quad \mathbb{Q}(i), \quad \mathbb{C}.\]
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Let $F$ be a field, and suppose that $f \in F[x]$ has degree 1. What is the splitting field of $f$ over $F$?
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    In this problem we check the claims made in Example 45.5.
+    \begin{enumerate}
+        \item[(a)] Show that the polynomial $f$ factors as
+        \[f = (x + \alpha)(x + \alpha^2)(x + \alpha + \alpha^2).\]
+        \item[(b)] Prove that $\mathbb{Z}_2(\alpha) = \mathbb{Z}_2(\alpha^2)$.
+        \item[(c)] Prove that $\mathbb{Z}_2(\alpha) = \mathbb{Z}_2(\alpha + \alpha^2)$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    In this problem you will follow the proof of Theorem 45.5 in the particular case where
+    $\alpha = \sqrt{2}$, $\beta = \sqrt{7}$ and $F = \mathbb{Q}$.
+    \begin{enumerate}
+        \item[(a)] Make a complete list of the elements of $\mathbb{Q}(\sqrt{2}, \sqrt{7})$
+        that are not allowed to be the element $a$. Choose your own value of $a$ (there are
+        many choices) and find an appropriate value for $\mu$.
+        \item[(b)] Determine the polynomial $h \in \mathbb{Q}(\mu)[x]$ and check that
+        $\beta$ is a root.
+        \item[(c)] Compute the gcd of $h$ and $g$ in $\mathbb{Q}(\mu)[x]$ using Euclid's
+        algorithm, and thus verify the claim about this gcd in the proof.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    Suppose that $R$ is a commutative ring, and $f \in R[x]$. Then we can write $f$ as
+    $f = a_nx^n + a_{n - 1}x^{n - 1} + \cdots + a_1x + a_0$, where the coefficients $a_i$
+    are elements of $R$. Define the formal derivative of $f$ as
+    \[f' = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + a_1,\]
+    which is just the formula we expect from calculus. (Note that we explored this notion
+    for $R = \mathbb{Q}$ in Exercise 4.7.)
+    \begin{enumerate}
+        \item[(a)] Suppose that $a \in R$ and $f \in R[x]$. Prove that $(af)' = af'$. (The
+        \emph{constant multiple rule}.)
+        \item[(b)] Suppose that $f, g \in R[x]$. Prove that $(f + g)' = f' + g'$. (The
+        \emph{sum rule}.)
+        \item[(c)] Suppose that $f, g \in R[x]$. Then $(fg)' = f'g + fg'$. (The
+        \emph{product rule}.)
+        \item[(d)] Suppose that $a \in R$ and $n$ is a positive integer. Prove that if
+        $f = {(x - a)}^n$, then $f' = n{(x - a)}^{n - 1}$. (The \emph{power rule}.)
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    Complete the inductive proof for Theorem 45.5: Suppose
+    $K = F(\alpha_1, \ldots, \alpha_n)$, for algebraic elements $\alpha_i$. Show that there
+    is an algebraic element $\mu$ so that $K = F(\mu)$.
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Consider the polynomial $f = x^4 - 4x^2 + 2 \in \mathbb{Q}[x]$.
+    \begin{enumerate}
+        \item[(a)] Argue that $f$ is irreducible over $\mathbb{Q}$.
+        \item[(b)] Factor $f$ completely into linear factors in $\mathbb{C}[x]$.
+        \item[(c)] Describe the splitting field of $f$ over $\mathbb{Q}$ in $\mathbb{C}$.
+        \item[(d)] This splitting field can actually be described in the form
+        $\mathbb{Q}(\alpha)$, where $\alpha$ is one of the roots of $f$. Do so if you
+        haven't done so already, justifying your assertion rigorously.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Consider the polynomial $f = x^4 - 2 \in \mathbb{Q}[x]$.
+    \begin{enumerate}
+        \item[(a)] Argue that $f$ is irreducible over $\mathbb{Q}$.
+        \item[(b)] Factor $f$ completely into linear factors in $\mathbb{C}[x]$.
+        \item[(c)] Describe the splitting field of $f$ over $\mathbb{Q}$ in $\mathbb{C}$.
+        (The easiest such description is of the form $\mathbb{Q}(\alpha, \beta)$, where
+        $\alpha, \beta$ are appropriately chosen elements of $\mathbb{C}$.)
+        \item[(d)] This splitting field \emph{cannot} be described in the form
+        $\mathbb{Q}(\alpha)$, where $\alpha$ is one of the roots of $f$. Prove that this is
+        true.
+        \item[(e)] Why does Theorem 45.5 imply that this splitting field is a simple
+        extension of $\mathbb{Q}$? Give such a description, justifying your assertion
+        rigorously.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Suppose that $F$ is a field, and $K$ is a field extension of $F$ that is
+    \emph{algebraically closed} (see Exercise 9.26 for a definition). Suppose that
+    $f \in F[x]$. Argue that $K$ contains a copy of the splitting field of $f$ over $F$.
+    Describe this splitting field more explicitly.
+\end{problem}
+\unsolved

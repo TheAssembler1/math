@@ -1,12 +1,290 @@
 
-\begin{tcolorbox}[title=Problem 28, breakable]
+\begin{problem}[Warmup]{(a)}
+    Consider the functions $f, g, h$, and $k$ with range and domain $\mathbb{R}$, defined by \[f(x) = x^2, \quad g(x) = x^3, \quad h(x) = e^x, \quad k(x) = x^3 - x.\] Which of these functions is one-to-one? Which of these functions is onto? (\emph{Note:} We are \emph{not} claiming that these functions are ring homomorphisms.)
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Suppose that $f : X \to Y$ is a one-to-one function, and $X$ is a finite set with $n$ elements. What can you say about the number of elements in $Y$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Suppose that $f : X \to Y$ is an onto function, and $X$ is a finite set with $n$ elements. What can you say about the number of elements in $Y$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Give an example of a ring homomorphism $\varphi : R \to S$ satisfying each of the following (or explain why they cannot exist):
+    \begin{enumerate}
+        \item[(a)] $\varphi$ is onto but isn't one-to-one.
+        \item[(b)] $\varphi$ is one-to-one but isn't onto.
+        \item[(c)] $\varphi$ is both one-to-one and onto.
+        \item[(d)] $\varphi$ is neither one-to-one nor onto.
+        \item[(e)] $R$ has unity 1, but $\varphi(1)$ is not unity for $S$.
+        \item[(f)] $R$ has additive identity 0, but $\varphi(0)$ is not the additive identity for $S$.
+        \item[(g)] $a$ is a zero divisor for $R$, but $\varphi(a)$ is not a zero divisor for $S$.
+        \item[(h)] $a$ is a unit for $R$, but $\varphi(a)$ is not a unit for $S$.
+        \item[(i)] $a$ is not a zero divisor for $R$, but $\varphi(a)$ is a zero divisor for $S$.
+        \item[(j)] $a$ is not a unit for $R$, but $\varphi(a)$ is a unit for $S$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    We often write $\mathbb{Z}_4$ as $\{0, 1, 2, 3\}$. Using this notation, define the function $\varphi : \mathbb{Z}_4 \to \mathbb{Z}$ by $\varphi(n) = n$. Is this a ring homomorphism?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    The function $\alpha : \mathbb{Z} \to \mathbb{Z}$ defined by $\alpha(n) = |n|$ is not a ring homomorphism. Why not?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Suppose that $R$ and $S$ are rings, and $\varphi : R \to S$ is an onto ring homomorphism.
+    \begin{enumerate}
+        \item[(a)] If $R$ is a domain, is $S$ a domain?
+        \item[(b)] If $R$ is commutative, is $S$ commutative?
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Define $\varphi : \mathbb{Z} \to m\mathbb{Z}$ by $\varphi(n) = mn$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    Define $\varphi : \mathbb{Q}[x] \to \mathbb{Q}[x]$ by $\varphi(f) = f'$. ($f'$ is the formal derivative of $f$, discussed in Exercise 4.7.)
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    Define $\varphi : M_2(\mathbb{Z}) \to \mathbb{Z}$ by mapping a matrix to its determinant. (The determinant function is discussed in Exercise 8.2.)
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    Let $R$ and $S$ be rings and define $\pi_1 : R \times S \to R$ by $\pi_1(r, s) = r$, the \textbf{projection homomorphism} from $R \times S$ to $R$. Similarly, we can define $\pi_2 : R \times S \to S$. (This generalizes Example 16.3.)
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Let $R$ be a ring, and define $\varphi : R \to R \times R$ by $\varphi(r) = (r, r)$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Let $R$ be a ring with unity and define $\varphi(r) = -r$. \emph{Hint:} Consider Exercises 6.3 and 6.4.
+
+    Case 1: There is at least one element $a \in R$ with $a + a \neq 0$.
+
+    Case 2: For all $r \in R$, $r + r = 0$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Recall from Example 7.9 that $D_2(\mathbb{Z})$ is the ring of 2-by-2 matrices with entries from $\mathbb{Z}$, with all entries off the main diagonal being zero. Define $\varphi : D_2(\mathbb{Z}) \to \mathbb{Z} \times \mathbb{Z}$ by
+    \[\varphi\begin{pmatrix} a & 0 \\ 0 & b \end{pmatrix} = (a, b).\]
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
+    Define $\varphi : \mathbb{Z}[\sqrt{2}] \to \mathbb{Z}$ by $\varphi(a + b\sqrt{2}) = a$. (See Exercise 7.1 for $\mathbb{Z}[\sqrt{2}]$.)
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
+    Define $\varphi : \mathbb{Z}[\sqrt{2}] \to \mathbb{Z}[\sqrt{2}]$ by $\varphi(a + b\sqrt{2}) = a - b\sqrt{2}$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{10}
+    Let $X$ be an arbitrary set; recall the power set ring $P(X)$ of subsets of $X$ (described in Exercise 6.20). Choose some fixed $x \in X$. Then define $\varphi : P(X) \to \mathbb{Z}_2$ by setting
+    \[\varphi(a) = \begin{cases} [1], & x \in a \\ [0], & x \notin a. \end{cases}\]
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{11}
+    Define $\varphi : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$ by $\varphi(a, b) = a + b$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
+    Define $\varphi : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$ by $\varphi(a, b) = ab$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{13}
+    Recall the ring $S$ of all real-valued sequences. (See Exercise 6.19.) Define $\varphi : S \to S$ by
+    \[\varphi(\{s_1, s_2, \ldots\}) = \{s_2, s_3, \ldots\}.\]
+    (That is, $\varphi$ obtains the new sequence merely by dropping the first term of the sequence.)
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{14}
+    Recall the ring $\mathbb{Z}[\alpha]$, where $\alpha = \sqrt[3]{5}$, as described in Exercise 7.3. Define $\varphi : \mathbb{Z}[\alpha] \to \mathbb{Z}_4$ by $\varphi(a + b\alpha + c\alpha^2) = [a + b + c]_4$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{15}
+    Define $\varphi : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}_6$ by $\varphi(a, b) = [a - b]_6$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{16}
+    Define $\varphi : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}_6$ by $\varphi(a, b) = [a + b]_6$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{17}
+    Define $\varphi : \mathbb{Z}_2 \times \mathbb{Z}_3 \to \mathbb{Z}_6$ by $\varphi([a]_2, [b]_3) = [3a + 2b]_6$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{18}
+    Define $\varphi : \mathbb{Z}_2 \times \mathbb{Z}_3 \to \mathbb{Z}_6$ by $\varphi([a]_2, [b]_3) = [3a + 4b]_6$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{19}
+    Define $\varphi : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}_6$ by $\varphi(a, b) = [3a + 4b]_6$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{20}
+    Define $\varphi : \mathbb{Z}_6 \to \mathbb{Z}_4$ by $\varphi([a]_6) = [a]_4$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{21}
+    Define $\varphi : \mathbb{C} \to \mathbb{R}$ by $\varphi(a + bi) = a$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{22}
+    Define $\varphi : C[0, 1] \to \mathbb{R} \times \mathbb{R}$ by $\varphi(f) = (f(0), f(1))$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{23}
+    Define $\varphi : \mathbb{Q}[x] \to \mathbb{Q}$ by letting $\varphi(f)$ be the $x$-coefficient in $f$.
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{24}
+    Define $\varphi : \mathbb{Q}[x] \to M_2(\mathbb{R})$ by
+    \[\varphi(f) = \begin{pmatrix} f(0) & f'(0) \\ 0 & f(0) \end{pmatrix}.\]
+
+    Determine whether $\varphi$ is a ring homomorphism, and whether it is
+    one-to-one or onto. Justify your answers.
+\end{problem}
+\unsolved
+
+\begin{problem}{25}
+    Let $R$ be a commutative ring, and suppose that $\varphi : R \to R$ is a ring
+    homomorphism. Consider
+    \[S = \{r \in R : \varphi(r) = r\}.\]
+    \begin{enumerate}
+        \item[(a)] Show that $S$ is a subring of $R$.
+        \item[(b)] Show that $S$ might not be an ideal.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{26}
+    Suppose that $R$ and $S$ are arbitrary rings, and $\varphi : R \to S$ is an onto ring
+    homomorphism. Prove that $\varphi(Z(R)) \subseteq Z(S)$. (Recall from Exercise 7.12
+    that $Z(R)$ is called the center of the ring $R$.)
+\end{problem}
+\unsolved
+
+\begin{problem}{27}
+    Suppose that $R$ and $S$ are commutative rings, and $\varphi : R \to S$ is a ring
+    homomorphism. Let $N(R)$ and $N(S)$ be the nilradicals of $R$ and $S$, respectively.
+    (See Exercise 7.15.) Prove that $\varphi(N(R)) \subseteq N(S)$.
+\end{problem}
+\unsolved
+
+\begin{problem}{28}
     Let $R$ and $S$ be rings, with $\rho: R \longrightarrow S$ 
     a ring homomorphism. Suppose that $T$ is a subring of $S$.
     Let 
     \[\rho^{-1}(T) = \{r \in R \mid \rho(r) \in T\}.\]
     Prove that $\rho^{-1}(T)$ is a subring of $R$.
     When is $\rho^{-1}(T)$ the whole ring $R$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $r, r' \in \rho^{-1}(T)$.  
@@ -22,12 +300,32 @@
     $\rho^{-1}(T)$ is the whole ring $R$ iff $\rho(R) \subseteq T$.
 \end{proof}
 
+\begin{problem}{29}
+    Suppose that $R$ is a (not necessarily commutative) ring with unity, and $a$ is a
+    unit in $R$. Define the function $\varphi : R \to R$ by $\varphi(r) = ara^{-1}$.
+    Prove that $\varphi$ is a one-to-one, onto ring homomorphism from $R$ to $R$.
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 31, breakable]
+\begin{problem}{30}
+    Consider the ring $S$ of real-valued sequences. (See Exercise 6.19.) Let
+    \[C = \{(x_1, x_2, x_3, \ldots) : \lim_{n \to \infty} x_n \text{ exists}\}.\]
+    This is the set of \textbf{convergent} sequences.
+    \begin{enumerate}
+        \item[(a)] Prove that $C$ is a subring of $S$.
+        \item[(b)] Define $\varphi : C \to \mathbb{R}$ by setting
+        \[\varphi((x_1, x_2, x_3, \ldots)) = \lim_{n \to \infty} x_n.\]
+        Prove that this is a ring homomorphism.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{31}
     In this exercise we extend Theorem 16.2 to ideals.
     Suppose that $R$ and $S$ are commutative rings and $\rho : R \longrightarrow S$
     is an onto ring homomorphism. Let $I$ be an ideal of $R$. Prove that $\rho(I)$ is an ideal of $S$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $y, y' \in \rho(I)$ and $s \in S$.  

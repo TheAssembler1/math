@@ -1,4 +1,31 @@
-\begin{tcolorbox}[title=Warmup d, breakable]
+\begin{problem}[Warmup]{(a)}
+    Give examples of the following:
+    \begin{enumerate}
+        \item[(a)] A non-empty subset of a ring, closed under subtraction, but not multiplication.
+        \item[(b)] A non-empty subset of a ring, closed under multiplication, but not subtraction.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Are the following subsets subrings?
+    \begin{enumerate}
+        \item[(a)] $\mathbb{Z} \subseteq \mathbb{Q}$.
+        \item[(b)] $\mathbb{Q}^* \subseteq \mathbb{Q}$; recall that $\mathbb{Q}^*$ is the set of non-zero rational numbers.
+        \item[(c)] $\mathbb{Q}^+ \subseteq \mathbb{Q}$; recall that $\mathbb{Q}^+$ is the set of strictly positive rational numbers.
+        \item[(d)] The set of irrational numbers, a subset of $\mathbb{R}$.
+        \item[(e)] $\{0, 1, 2, 3\} \subseteq \mathbb{Z}_8$.
+        \item[(f)] The linear polynomials, a subset of $\mathbb{Q}[x]$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Find all the subrings of these rings: $\mathbb{Z}_5$, $\mathbb{Z}_6$, $\mathbb{Z}_7$, $\mathbb{Z}_{12}$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
     Give examples of the following (or explain why they don't exist):
 
     (a) A commutative subring of a non-commutative ring.
@@ -10,7 +37,8 @@
 
     (d) A ring (with more than one element) whose only subrings are itself,
         and the zero subring. \emph{Hint:} Look at an earlier Warm-up Exercise.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution (a):} The trivial ring.
 
@@ -21,27 +49,36 @@ thus they commute.
 
 \textbf{Solution (d):} The only subring of $\mathbb{Z}_5$ is the trivial ring.
 
-\begin{tcolorbox}[title=Warmup e, breakable]
+\begin{problem}[Warmup]{(e)}
     What is the unity of the power set ring $\mathcal{P}(X)$ considered in Exercise 6.20?
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution:} The set $X$.
 
-\begin{tcolorbox}[title=Warmup f, breakable]
+\begin{problem}[Warmup]{(f)}
     What is the unity of the ring $\mathbb{Z} \times \mathbb{Z}$? (See Example 6.9) What 
     about $R \times S$, where $R$ and $S$ are rings with unity? (See Example 6.10.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution:} The unity of $\mathbb{Z} \times \mathbb{Z}$ is $(1, 1)$.
 The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respectively.
 
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}{1}
+    Let $\mathbb{Z}[\sqrt{2}] = \{a + b\sqrt{2} : a, b \in \mathbb{Z}\}$. Show that
+    $\mathbb{Z}[\sqrt{2}]$ is a commutative ring by showing it is a subring of $\mathbb{R}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
     We generalize Exercise $1$: Let $\mathbb{Z}[\sqrt{n}] = 
     \{a + b\sqrt{n} \mid a, b, \in \mathbb{Z}\}$ where 
     $n$ is some fixed integer (positive or negative).
     Show that $\mathbb{Z}[\sqrt{n}]$ is a commutative 
     ring by showing it is a subring of $\mathbb{C}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $a + b\sqrt{n}, c + d\sqrt{n} \in \mathbb{Z}[\sqrt{n}]$.
@@ -52,11 +89,12 @@ The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respec
     It follows from Theorem 7.1 that $\mathbb{Z}[\sqrt{n}]$ is a subring of $\mathbb{C}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Let $\alpha = \sqrt[3]{5}$ 
         and $\mathbb{Z}[\alpha] = \{a + b\alpha + c \alpha^2 \mid a, b, c \in \mathbb{Z}\} \subseteq \mathbb{R}$.
     Prove that $\mathbb{Z}[\alpha]$ is a subring of $\mathbb{R}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $a + b\alpha + c\alpha^2, d + e\alpha + f\alpha^2 \in \mathbb{Z}[\alpha]$.
@@ -70,11 +108,11 @@ The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respec
     It follows from Theorem 7.1 that $\mathbb{Z}[\alpha]$ is a subring of $\mathbb{R}$.
 \end{proof}
 
-
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Show that $m\mathbb{Z}$ is a subring of $n\mathbb{Z}$ if and only if 
         $n$ divides $m$. (See Example 7.7)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     ($\longrightarrow$) Suppose $m\mathbb{Z}$ is a subring of $n\mathbb{Z}$.
@@ -97,14 +135,15 @@ The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respec
     It follows from Theorem 7.1 that $m\mathbb{Z}$ is a subring of $n\mathbb{Z}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}{5}
     (a) Show that $4\mathbb{Z} \cap 6\mathbb{Z} = 12\mathbb{Z}$.
 
     (b) Let $m$ and $n$ be two positive integers. Show that 
         $m\mathbb{Z} \cap n\mathbb{Z} = f\mathbb{Z}$
         where $l$ is the least common multiple of $m$ and $n$.
         (See Exercise 2.11.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x$ be an arbitrary element in $4\mathbb{Z} \cap 6\mathbb{Z}$.
@@ -149,12 +188,13 @@ The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respec
     Thus $x \in m\mathbb{Z} \cap n\mathbb{Z}$ as required.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{6}
     Let $S$ be the set of all polynomials in $\mathbb{Z}[x]$ which have $0$ 
     as constant term (that is, polynomials in the form 
     $a_1 x + a_2 x^2 + \cdots + a_n x^n$.) Show that $S$ is a subring of 
     $\mathbb{Q}[x]$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Clearly $S$ is not empty.
@@ -168,13 +208,14 @@ The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respec
         and by Theorem 7.1, $S$ is a subring of $\mathbb{Q}[x]$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{7}
     Let $f$ be some polynomial with rational coefficients, with 
         $deg(f) > 0$, and let $S$ be the set of all polynomials $g$
         in $\mathbb{Q}[x]$ for which $f$ divides $g$. Show that $S$
         is a subring of $\mathbb{Q}[x]$. How is this exercise related to the 
         previous exercise?
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $\phi, \psi$ be arbitrary elements in $S$.
@@ -196,14 +237,15 @@ The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respec
 
 \textbf{Solution:} The previous problem is a specific case where $f = x$.
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{8}
     (a) Show that the set $\{(a, a) \mid a \in \mathbb{Z}\}$
     is a subring of $\mathbb{Z} \times \mathbb{Z}$.
 
     (b) Now consider the set $\{(a, -a) \mid a \in \mathbb{Z}\}$.
     Show that this set is closd under subtraction, but not closed under 
     multiplication, and so is \emph{not} a subring of $\mathbb{Z} \times \mathbb{Z}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Notice $(1, 1) \in \{(a, a) \mid a \in \mathbb{Z}\} \ne \emptyset$.
@@ -223,9 +265,10 @@ The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respec
     so $\{(a, -a) \mid a \in \mathbb{Z}\}$ is not closed under multiplication.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{9}
     Show that the intersection of any two subrings of a ring is a subring.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be a ring, and let $S_1, S_2$ be two subrings of $R$.
@@ -238,10 +281,11 @@ The unity of $R \times S$ is $(r, s)$ where $r, s$ is the unity of $R, S$ respec
     By Theorem 7.1, $S_1 \cap S_2$ is a subring of $R$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{10}
     Show by example that the union of any two subrings of a ring need \emph{not}
     be a subring. \emph{Hint: } You can certainly find such an example by working in $\mathbb{Z}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution:}
 Consider $2\mathbb{Z}$ and $3\mathbb{Z}$ which are subrings of $\mathbb{Z}$.
@@ -249,11 +293,64 @@ Notice, $2 \in 2\mathbb{Z}$ and $3 \in 3\mathbb{Z}$ thus $2, 3 \in 2\mathbb{Z} \
     but $2 + 3 = 5 \notin 2\mathbb{Z} \cup 3\mathbb{Z}$.
 Thus, $2\mathbb{Z} \cup 3\mathbb{Z}$ is not a subring of $\mathbb{Z}$.
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{problem}{11}
+    Let
+    \[\mathbb{Z}_{(2)} = \left\{q \in \mathbb{Q} : q = \frac{a}{b},\ a, b \in \mathbb{Z},\ b \text{ is odd}\right\}.\]
+    \begin{enumerate}
+        \item[(a)] Why is $\mathbb{Z}_{(2)}$ a proper subset of $\mathbb{Q}$?
+        \item[(b)] Show that $\mathbb{Z}_{(2)}$ is a subring of $\mathbb{Q}$.
+        \item[(c)] Show that
+        \[\left\{q \in \mathbb{Q} : q = \frac{a}{b},\ a, b \in \mathbb{Z},\ a \text{ is odd},\ b \neq 0\right\}\]
+        is \emph{not} a subring of $\mathbb{Q}$.
+        \item[(d)] Show that
+        \[\left\{q \in \mathbb{Q} : q = \frac{a}{2^n},\ a \in \mathbb{Z},\ n = 0, 1, 2, \ldots\right\}\]
+        is a subring of $\mathbb{Q}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
+    Let $R$ be an arbitrary ring, and define
+    \[Z(R) = \{r \in R : rx = xr, \text{ for all } x \in R\};\]
+    this subset is called the \textbf{center} of the ring $R$. Show that $Z(R)$ is a
+    subring. What is $Z(R)$ if $R$ is a commutative ring?
+\end{problem}
+\unsolved
+
+\begin{problem}{13}
+    Find the center of $M_2(\mathbb{Z})$ (see the previous exercise).
+\end{problem}
+\unsolved
+
+\begin{problem}{14}
+    Let $R$ be a ring, and $s$ a particular fixed element of $R$. Let
+    \[Z_s(R) = \{r \in R : rs = sr\}.\]
+    \begin{enumerate}
+        \item[(a)] Prove that $Z_s(R)$ is a subring of $R$.
+        \item[(b)] Recall the definition of $Z(R)$ from Exercise 12. Prove that
+        \[Z(R) = \bigcap \{Z_s(R) : s \in R\}.\]
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{15}
+    \begin{enumerate}
+        \item[(a)] An element $a$ of a ring is \textbf{nilpotent} if $a^n = 0$ for some
+        positive integer $n$. Given a ring $R$, denote by $N(R)$ the set of all nilpotent
+        elements of $R$. (This subring is called the \textbf{nilradical} of the ring.)
+        If $R$ is any commutative ring, show that $N(R)$ is a subring.
+        \item[(b)] Determine $N(\mathbb{Z}_{10})$, the nilradical of $\mathbb{Z}_{10}$.
+        \item[(c)] Determine $N(\mathbb{Z}_8)$, the nilradical of $\mathbb{Z}_8$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{16}
     Suppose that $R$ is a ring with unity, and $R$ has at least two elements.
     Prove that the additive identity of $R$ is not equal to the multiplicative 
         identity.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $1 \in R$ is both the additive and multiplicative identity.
@@ -263,9 +360,10 @@ Thus, $2\mathbb{Z} \cup 3\mathbb{Z}$ is not a subring of $\mathbb{Z}$.
         $x \in R$, $x = 0$, contradicting that $R$ has more than one element.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{problem}{17}
     Show that if a ring has unity, it is unique.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be a ring with unity.
@@ -273,7 +371,7 @@ Thus, $2\mathbb{Z} \cup 3\mathbb{Z}$ is not a subring of $\mathbb{Z}$.
     Then $x \cdot y = x$ and $x \cdot y = y$, thus $x = y$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 18, breakable]
+\begin{problem}{18}
     (a) Let $R$ be a ring, and consider the set $R \times \mathbb{Z}$
         of all ordered pairs with entries from $R$ and $\mathbb{Z}$.
         Equip this set with operations
@@ -291,7 +389,8 @@ Thus, $2\mathbb{Z} \cup 3\mathbb{Z}$ is not a subring of $\mathbb{Z}$.
         book we will make precise the notion of two rings which are ``essentially the same'', by defining 
         the \emph{ring isomorphism}.) This means that any ring without unity can essentially be found as 
         a subring of a ring which has unity.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     (\textbf{Rule 1}) 
@@ -367,3 +466,68 @@ Thus, $2\mathbb{Z} \cup 3\mathbb{Z}$ is not a subring of $\mathbb{Z}$.
     By Theorem 7.1, $R \times \{0\}$ is a subring of $R \times \mathbb{Z}$.  
     The map $r \longrightarrow (r,0)$ preserves addition and multiplication, so $R \times \{0\}$ behaves exactly like $R$.  
 \end{proof}
+
+\begin{problem}{19}
+    Consider the set
+    \[\left\{\begin{pmatrix} a & b \\ 0 & d \end{pmatrix} : a, b, c \in \mathbb{Z} \text{ and } a \text{ is even}\right\}.\]
+    Prove that this set is a subring of $M_2(\mathbb{Z})$. Does it have unity?
+\end{problem}
+\unsolved
+
+\begin{problem}{20}
+    Some students wonder why we require that the addition in a ring be commutative;
+    this exercise shows why. Suppose that $R$ is a set with two operations $+$ and
+    $\circ$, which satisfy the rules defining a ring, except for Rule 1; that is, we do
+    not assume that the addition is commutative. Suppose that $R$ also has a
+    multiplicative identity 1. Then prove that the addition in $R$ must in fact be
+    commutative, and so $R$ under the given operations is a ring.
+\end{problem}
+\unsolved
+
+\begin{problem}{21}
+    Consider the ring $S$ of all real-valued sequences, as discussed in Exercise 6.19.
+    Let $F$ be the set of all sequences $(x_1, x_2, x_3, \ldots)$ where at most finitely
+    many of the entries $x_i$ are non-zero. Prove that $F$ is a subring of $S$. Does $F$
+    have unity?
+\end{problem}
+\unsolved
+
+\begin{problem}{22}
+    Let $F$ be the ring of finitely non-zero real-valued sequences, considered in the
+    previous exercise. Now let $W$ consist of all sequences $(x_1, x_2, x_3, \ldots)$
+    where $0 = x_2 = x_3 = \cdots$. Show that $W$ is a subring that has unity, even
+    though the larger ring $F$ does not.
+\end{problem}
+\unsolved
+
+\begin{problem}{23}
+    Let $R$ be a ring, and let
+    \[S = \{r \in R : r + r = 0\}.\]
+    Prove that $S$ is a subring of $R$.
+\end{problem}
+\unsolved
+
+\begin{problem}{24}
+    Generalize Exercise 23. That is, let $R$ be a ring, and let $n$ be a fixed positive
+    integer. Let
+    \[S = \{r \in R : nr = 0\}.\]
+    Prove that $S$ is a subring of $R$. (Recall that $nr$ means to add $r$ to itself $n$
+    times; the integer $n$ need not belong to $R$.)
+\end{problem}
+\unsolved
+
+\begin{problem}{25}
+    Let $R$ be a commutative ring with unity. An element $e \in R$ is
+    \textbf{idempotent} if $e^2 = e$. Note that the elements 0 and 1 are idempotent.
+    Throughout this problem assume that $e$ is idempotent in $R$.
+    \begin{enumerate}
+        \item[(a)] Find a commutative ring with unity with at least one idempotent
+        element, other than 0 and 1.
+        \item[(b)] Let $f = 1 - e$. Prove that $f$ is idempotent, too.
+        \item[(c)] Let $Re = \{re : r \in R\}$. Prove that $Re$ is a subring of $R$, and
+        that $e$ is unity for this subring.
+        \item[(d)] Prove that $Re \cap Rf = \{0\}$ (where $f$ is the idempotent from part b).
+        \item[(e)] Prove that for all $r \in R$, $r = a + b$, where $a \in Re$ and $b \in Rf$.
+    \end{enumerate}
+\end{problem}
+\unsolved

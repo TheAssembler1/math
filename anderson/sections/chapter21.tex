@@ -1,0 +1,168 @@
+\begin{problem}[Warmup]{(a)}
+    According to the Chinese Remainder Theorem, what direct product of rings is $\mathbb{Z}_{24}$ isomorphic to? What about $\mathbb{Z}_{60}$? $\mathbb{Z}_{11}$? $\mathbb{Z}_9$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Note that $[2]^4 = [0]$ in $\mathbb{Z}_{16}$. Why does this mean that $[2]$ belongs to \emph{all} prime ideals of this ring?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    What's the relationship between $m$ and $n$, if there exists an onto ring homomorphism $\varphi : \mathbb{Z}_m \to \mathbb{Z}_n$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Solve the simultaneous congruences \begin{align*} x &\equiv 1 \pmod{2} \\ x &\equiv 2 \pmod{3}. \end{align*}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Express Sun Zi's problem in modern notation, and solve it.
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Show directly that $\mathbb{Z}_{12}$ is isomorphic to $\mathbb{Z}_3 \times \mathbb{Z}_4$
+    by defining a homomorphism from $\mathbb{Z}_{12}$ onto $\mathbb{Z}_3 \times \mathbb{Z}_4$
+    as $\mu$ was defined in the proof of Theorem 21.2. Write out an explicit
+    element-by-element description of this isomorphism, as we did in Section 21.1 for
+    $\mathbb{Z}_6$.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    Repeat Exercise 1 for the ring $\mathbb{Z}_{30}$. (First of all you must determine the
+    direct product to which it is isomorphic.)
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    Determine the prime ideals of $\mathbb{Z}_{12}$; determine the maximal ideals of
+    $\mathbb{Z}_{12}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    Repeat Exercise 3 for $\mathbb{Z}_{30}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Solve the simultaneous congruences
+    \begin{align*}
+        x &\equiv 1 \pmod{4} \\
+        x &\equiv 5 \pmod{7} \\
+        x &\equiv 3 \pmod{9}.
+    \end{align*}
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Solve the simultaneous congruences
+    \begin{align*}
+        x &\equiv 1 \pmod{2} \\
+        x &\equiv 6 \pmod{7} \\
+        x &\equiv 2 \pmod{27} \\
+        x &\equiv 6 \pmod{11}.
+    \end{align*}
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Find $a, b \in \mathbb{Z}$ so that there is no simultaneous solution to
+    \[x \equiv a \pmod{6} \quad\text{and}\quad x \equiv b \pmod{4}.\]
+    Why does this not contradict the Chinese Remainder Theorem?
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
+    The rings $\mathbb{Z}_9$ and $\mathbb{Z}_3 \times \mathbb{Z}_3$ both have nine elements;
+    indeed, a careless reading of Theorem 21.2 might lead one to suppose that these rings
+    are isomorphic. Show that this is false.
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
+    In Exercise 21.11 you will discover that the converse of Theorem 21.1 is false.
+    However, the following theorem is true: A commutative ring $R$ with unity is
+    isomorphic to a direct product of finitely many integral domains if and only if it
+    has a finite collection of prime ideals $\{P_i\}$ whose intersection is zero, and for
+    each $r \in R$, there exist $r_i \in \bigcap\{P_j : j \neq i\}$ for which
+    $r = \sum r_i$. Prove this.
+\end{problem}
+\unsolved
+
+\begin{problem}{10}
+    In this exercise we consider exactly the condition described in Theorem 21.1. We call
+    a ring $R$ a \textbf{finite subdirect product of domains} if there exist finitely many
+    integral domains $D_1, D_2, \ldots, D_n$ and a one-to-one homomorphism
+    \[\mu : R \to \prod D_i\]
+    such that $\pi_i(\mu(R)) = D_i$, for all $i$, where $\pi_i$ is the projection
+    homomorphism. Prove that $R$ is a finite subdirect product of domains if and only if
+    it has a finite collection of prime ideals whose intersection is zero.
+\end{problem}
+\unsolved
+
+\begin{problem}{11}
+    Consider
+    \[R = \{(n, n + 3m) : n, m \in \mathbb{Z}\} \subseteq \mathbb{Z} \times \mathbb{Z}.\]
+    In this exercise you will show that $R$ is a finite subdirect product of domains but
+    it is not a direct product of domains.
+    \begin{enumerate}
+        \item[(a)] Prove that $R$ is a subring of $\mathbb{Z} \times \mathbb{Z}$. Show that
+        $R$ is not an integral domain.
+        \item[(b)] Show by specific example that $R$ does not include all elements of
+        $\mathbb{Z} \times \mathbb{Z}$. (That is, $R$ is not the entire direct product.)
+        \item[(c)] Consider the kernels $P_1$ and $P_2$ of the projection homomorphisms
+        $\pi_1$ and $\pi_2$ that project onto the first and second coordinates,
+        respectively. Prove that $P_1 = \langle (0, 3) \rangle$ and that
+        $P_2 = \langle (3, 0) \rangle$.
+        \item[(d)] Show from the definition given in Exercise 21.10 that $R$ is a
+        subdirect product of the domains $\mathbb{Z}$.
+        \item[(e)] Suppose that $P$ is any other prime ideal of $R$. Show that $P$
+        necessarily contains either $P_1$ or $P_2$.
+        \item[(f)] Now use the previous result and Exercise 9 to argue that $R$ cannot be a
+        finite direct product of domains.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
+    Show that $\mathbb{Z}_6[x]$ is a finite subdirect product of domains.
+\end{problem}
+\unsolved
+
+\begin{problem}{13}
+    Make a definition for a \emph{finite subdirect product of fields}, on the model of the
+    definition in Exercise 21.10. Then state and prove the theorem analogous to the result
+    proved in Exercise 21.10.
+\end{problem}
+\unsolved
+
+\begin{problem}{14}
+    In this exercise we construct a ring that is a domain (and so is trivially a finite
+    subdirect product of domains) but is not a finite subdirect product of fields; to do
+    this exercise you need to understand Exercises 21.10 and 21.13. Let $p$ be a prime
+    integer, and define
+    \[\mathbb{Z}_{\langle p \rangle} = \left\{q \in \mathbb{Q} : q = \frac{a}{b},\ a, b \in \mathbb{Z},\ p \text{ does not divide } b\right\}.\]
+    \begin{enumerate}
+        \item[(a)] Show that $\mathbb{Z}_{\langle p \rangle}$ is a subring of $\mathbb{Q}$,
+        and so is an integral domain.
+        \item[(b)] Define $\varphi : \mathbb{Z}_{\langle p \rangle} \to \mathbb{Z}_p$ by
+        setting $\varphi(\frac{a}{b}) = [a]_p{[b]}_p^{-1}$. Prove that $\varphi$ is an onto
+        ring homomorphism.
+        \item[(c)] Prove that the kernel of the homomorphism $\varphi$ from part b is
+        $\langle p \rangle$. This means that $\langle p \rangle$ is a maximal ideal of
+        $\mathbb{Z}_{\langle p \rangle}$.
+        \item[(d)] Prove that $\frac{a}{b} \in \mathbb{Z}_{\langle p \rangle}$ is a unit if
+        and only if $\frac{a}{b} \notin \langle p \rangle$.
+        \item[(e)] Use part d to argue that $\langle p \rangle$ contains \emph{every} proper
+        ideal of $\mathbb{Z}_{\langle p \rangle}$, and so this ring has a unique maximal
+        ideal.
+        \item[(f)] Why does part e mean that $\mathbb{Z}_{\langle p \rangle}$ is not a
+        finite subdirect product of fields?
+    \end{enumerate}
+\end{problem}
+\unsolved

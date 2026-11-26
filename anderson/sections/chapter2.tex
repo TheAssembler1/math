@@ -1,7 +1,58 @@
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}[Warmup]{(a)}
+    Find the quotient and remainder, as guaranteed by the Division Theorem 2.1, for 13 and $-120$, $-13$ and 120, and $-13$ and $-120$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    What are the possible remainders when you divide by 3, using the Division Theorem 2.1? Choose one such remainder, and make a list describing all integers that give this remainder, when dividing by 3.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    What are the possible answers to $\gcd(a, p)$, where $p$ is prime, and $a$ is an arbitrary integer?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Let $m$ be a fixed integer. Describe succinctly the integers $a$ where $\gcd(a, m) = m$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Give the prime factorizations of 92, 100, 101, 102, 502, and 1002.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Suppose that we have two line segments. One has length $11/6$ units, and the other has length $29/15$. What length is the longest segment that measures both?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    We proved the GCD identity 2.4 twice. Explain the different approaches of the two proofs to finding the appropriate linear combination. Which is easier to describe in words? Which is computationally more practical?
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    \begin{enumerate}
+        \item[(a)] Find the greatest common divisor of 34 and 21, using Euclid's Algorithm.
+        Then express this gcd as a linear combination of 34 and 21.
+        \item[(b)] Now do the same for 2424 and 772.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    Prove that $\gcd(a, b)$ divides $a - b$. This sometimes provides a short cut in
+    finding gcds. Use this to find $\gcd(1962, 1965)$. Now find $\gcd(1961, 1965)$.
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
     Prove that the set of all linear combinations of $a$ and $b$
     are precisely the multiple of $\gcd(a, b)$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $a, b$ be integers such that $a \not = 0$ or $b \not = 0$.
@@ -22,11 +73,12 @@
     So any linear combination of $a$ and $b$ is a multiple of the $\gcd(a, b)$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Two numbers are said to be relatively prime if their $\gcd$ is $1$.
     Prove $a, b$ relatively prime if and only if every integer can be written
     as a linear combination of $a$ and $b$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     $\rightarrow$ Suppose $a, b \in \mathbb{Z}$ are relatively prime.
@@ -38,10 +90,11 @@
     Then $\gcd(a, b) = 1 = ax + by$ so $a$ and $b$ are relatively prime.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}{5}
     Prove Theorem $2.6$. That is, use induction to prove that if the 
     prime $p$ divides $a_1 a_2 \cdots a_n$, then $p$ divides $a_i$ for some $i$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $p$ is prime.
@@ -53,10 +106,11 @@
     then $p \mid c \cdot a_n$. By definition of being prime $p \mid c$ by the induction hypothesis or $p \mid a_n$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{6}
     Suppose that $a$ and $b$ are positive integers.
     If $a + b$ is prime, prove that $\gcd(a, b) = 1$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     We've already proved $n$ is prime iff $n$ is irreducible.
@@ -67,14 +121,15 @@
     Then $a + b = tx + yx = x(t + y)$ a contradiction since $a + b$ is prime.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{7}
     (a) A natural number greater than $1$ that is not prime 
     is called composite. Show that for any $n$, there is a run 
     of $n$ consecutive composite numbers. Hint: Think Factorial.
     
     (b) Therefore, there is a string of $5$ consecutive composite numbers 
         starting where?
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $T = \{2, 3, \ldots, n + 1\}$ and let $i$ be an element in $T$.
@@ -101,10 +156,16 @@
 
 \[722 = 2 \cdot 361, 723 = 3 \cdot 241, 724 = 2 \cdot 362, 725 = 5 \cdot 145, 726 = 2 \cdot 363\]
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{8}
+    Prove that two consecutive members of the Fibonacci sequence are relatively prime.
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
     Notice that $\gcd(30, 50) = 5\gcd(6, 10) = 5 \cdot 2$. In fact, this is 
     always true; prove that if $a > 0$, then $\gcd(ab, ac) = a \cdot \gcd(b, c)$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $p = \gcd(ab, ac) = abx + acy$. Since $a \mid p$ there exists $r$ such that $p = ar$.
@@ -120,7 +181,7 @@
     It follows that $\gcd(ab, ac) = ar =  a \cdot \gcd(b, c)$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{10}
     Suppose two integers $a$ and $b$ have been factored into primes as follows:
     \[a = p_1^{n_1} p_2^{n_2} \cdots p_r^{n_r}\]
     and 
@@ -130,7 +191,8 @@
     \[\gcd(a, b) = p_1^{s_1} p_2^{s_2} \cdots p_r^{s_r}\]
     where $s_i$ is the smaller of $n_i$ and $m_i$. Show this with $a = 360 = 2^3 \cdot 3^2 \cdot 5$
     and $b = 2^2 3^2 5^2$. Now prove this fact in general.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution:}
 
@@ -183,7 +245,7 @@ The gcd of $360$ and $900$ is $180$.
         $\gcd(a,b) = \prod_{i=1}^r c_i = \prod_{i=1}^r p_i^{s_i}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{problem}{11}
     The \textbf{least common multiple} of natural numbers $a$ and $b$
     is the smallest positive common multiple of $a$ and $b$. That is,
     if $m$ is the least common mulitple of $a$ and $b$, then $a \mid m$
@@ -191,7 +253,8 @@ The gcd of $360$ and $900$ is $180$.
     We will write $lcm(a, b)$ for the least common mulitple of $a$ and $b$.
     Can you find a formula for the lcm of the type given for the gcd in 
     the previous excersize.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution}
 
@@ -204,12 +267,13 @@ integers. It is the case that
 \[lcm(a, b) = p_1^{s_1} p_2^{s_2} \cdots p_r^{s_r}\]
 where $s_i$ is the larger of $n_i$ and $m_i$.
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{12}
     Show that if $\gcd(a, b) = 1$, then $lcm(a, b) = ab$.
 
     In general, show that:
     \[lcm(a, b) = \frac{ab}{\gcd(a, b)}\]
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     We prove the general case first.
@@ -246,10 +310,11 @@ where $s_i$ is the larger of $n_i$ and $m_i$.
     \]
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{13}
     Prove that if $m$ is a common multiple of both $a$ and $b$, then 
     $lcm(a, b) \mid m$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
 Suppose $m$ is a common multiple of both $a$ and $b$.
@@ -269,13 +334,81 @@ n_i+t_i = m_i+s_i \ge \max\{n_i,m_i\}.
 So each $p_i^{\max\{n_i,m_i\}}$ divides the corresponding prime factor of $m$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 18, breakable]
+\begin{problem}{14}
+    Prove that $\sqrt{2}$ is irrational.
+\end{problem}
+\unsolved
+
+\begin{problem}{15}
+    This problem outlines another proof that $\sqrt{2}$ is irrational. We show that
+    Euclid's Algorithm never halts if applied to a diagonal $d$ and side $s$ of a square.
+    The first step of the algorithm yields
+    \[d = 1 \cdot s + r,\]
+    as shown in the picture in the book (square $ABCD$, diagonal $AC$ of length $d$,
+    and $P$ the point on $AC$ at distance $s$ from $A$, so $PC = r$).
+    \begin{enumerate}
+        \item[(a)] Now find the point $E$ by intersecting the side $CD$ with the
+        perpendicular to the diagonal $AC$ at $P$. It is obvious that the length of
+        segment $EC$ is $\sqrt{2}r$. (Why?) Now prove that the length of segment $DE$
+        is $r$, by showing that the triangle $DEP$ is isosceles.
+        Why does this mean that the next step in Euclid's Algorithm yields
+        \[s = 2r + (\sqrt{2} - 1)r?\]
+        \item[(b)] Argue that the next step of the algorithm yields
+        \[r = 2(\sqrt{2} - 1)r + {(\sqrt{2} - 1)}^2 r.\]
+        \emph{Hint:} Consider the square with three vertices $E$, $P$, and $C$, and use
+        part a. Why does this mean that the algorithm never halts?
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{16}
+    State Euclid's version of the Fundamental Theorem of Arithmetic in modern
+    language, and prove it carefully as a Corollary of the Fundamental Theorem.
+\end{problem}
+\unsolved
+
+\begin{problem}{17}
+    \begin{enumerate}
+        \item[(a)] As with many algorithms, one can easily write a recursive version of
+        Euclid's Algorithm. This version is for nonnegative $a$ and $b$. (The symbol
+        $\leftarrow$ is the assignment symbol and $a \bmod b$ is the remainder when
+        dividing $a$ by $b$.)
+\begin{verbatim}
+function gcd(a, b);
+  if b = 0 then gcd <- a else gcd <- gcd(b, a mod b)
+endfunction.
+\end{verbatim}
+        Try this version on 2424 and 772 and a couple of other pairs of your choice.
+        \item[(b)] One can also write a recursive extended gcd algorithm that returns
+        the linear combination guaranteed by the GCD identity. This procedure again
+        assumes that both $a$ and $b$ are non-negative. When the initial call returns,
+        $g$ will be the gcd of $a$ and $b$ and $g = ax + by$.
+\begin{verbatim}
+procedure extgcd(a, b, g, x, y);
+  if b = 0 then
+    g <- a; x <- 1; y <- 0;
+  else
+    extgcd(b, a mod b, g, x, y);
+    temp <- y;
+    y <- x - floor(a/b) y;
+    x <- temp;
+endprocedure.
+\end{verbatim}
+        (Here, $\lfloor x \rfloor$ is the \emph{floor} function. That is,
+        $\lfloor x \rfloor$ = the greatest integer less than or equal to $x$.)
+        Try this procedure on 285 and 255, then 2424 and 772, and a pair of your choice.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{18}
     (a) Show that in Euclid's Algorithm, the remainders are at least halved
     after two steps. That is $r_{i + 2} < 1/2 r_i$. \\
 
     (b) Use part a to find the maximum number of steps required for Euclid's
     algorithm. (Figure this in terms of the maximum of $a$ and $b$).
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Theorem $2.3$ shows that the remainders form a strictly decreasing sequence of integers.
@@ -316,12 +449,13 @@ Since each \(k\) corresponds to two iterations, the maximum number of iterations
 \text{max steps} \le 2k \le 2 \log_2 c
 \]
 
-\begin{tcolorbox}[title=Problem 19, breakable]
+\begin{problem}{19}
     Recall from Excersize $1.13$ the definition of the binomial coefficient 
     $\binom{n}{k}$. Suppose that $p$ is a positive prime integer, and $k$ is 
     an integer with $1 \le k \le p - 1$. Prove that $p$ divides binomial    
     coefficient $\binom{p}{k}$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
 By Exercise $1.13$, we know that $\binom{p}{k} \in \mathbb{Z}$.  

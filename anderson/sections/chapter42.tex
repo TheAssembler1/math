@@ -1,10 +1,69 @@
 \newpage
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{problem}[Warmup]{(a)}
+    In each of the following cases, show that the given element is algebraic over the given base field, by finding an appropriate polynomial with the element as a root.
+    \begin{enumerate}
+        \item[(a)] $\sqrt[3]{2}$ is algebraic over $\mathbb{Q}$.
+        \item[(b)] $\sqrt[3]{2}$ is algebraic over $\mathbb{R}$.
+        \item[(c)] $1 + \sqrt{2}$ is algebraic over $\mathbb{Q}$.
+        \item[(d)] $\sqrt{1 + \sqrt{2}}$ is algebraic over $\mathbb{Q}$.
+        \item[(e)] $1 + 2i$ is algebraic over $\mathbb{Q}$.
+        \item[(f)] $\pi + i$ is algebraic over $\mathbb{R}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    If $F$ is a field, is $F$ an extension field of $F$? If so, does $F$ have any transcendental elements over $F$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    What extension field do we get if we apply Kronecker's Theorem 42.1 to a degree 1 polynomial?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Recall the Fundamental Theorem of Algebra 9.1, which asserts that all non-constant polynomials in $\mathbb{C}[x]$ can be factored completely into linear factors. What does this say about finding elements outside $\mathbb{C}$ that are algebraic over $\mathbb{C}$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Give examples of the following, or else explain why no such example exists:
+    \begin{enumerate}
+        \item[(a)] An element in $\mathbb{C}$ transcendental over $\mathbb{R}$.
+        \item[(b)] An element in $\mathbb{C}$ transcendental over $\mathbb{Q}$.
+        \item[(c)] An element in $\mathbb{R}$, but not in $\mathbb{Q}(\sqrt{2})$, which is algebraic over $\mathbb{Q}(\sqrt{2})$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    For each of the following fields, identify its characteristic, and determine its prime subfield: \[\mathbb{C}, \quad \mathbb{Q}, \quad \mathbb{Q}(\sqrt{2}), \quad \mathbb{Z}_{11}, \quad \mathbb{Q}[x]/\langle x^3 - 2 \rangle, \quad \mathbb{Z}_3[x]/\langle x^2 + x + 2 \rangle.\]
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    ``Every polynomial of degree at least 1 has a root.'' Discuss the truth of this statement.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(h)}
+    Why is $\cos 20^\circ$ algebraic over $\mathbb{Q}$? \emph{Hint:} Find the appropriate result in Chapter 39.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(i)}
+    Give some examples of real numbers that are algebraic over $\mathbb{Q}$, but not constructible.
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
     Let $F$ be a field and $f \in F[x]$ a polynomial of degree at least 1.
     Prove that there exists a field extension $E$ of $F$ in which $f$ can be
     factored into linear factors. Such a field extension is called a
     \textbf{splitting extension for $f$}.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $n = \deg f \geq 1$.
@@ -32,12 +91,13 @@
         factored into linear factors as required.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}{2}
     In the proof of Kronecker's Theorem 42.1, we prove that the function
     $\psi : F \to F[x]/\langle p \rangle$ is a one-to-one ring homomorphism.
     Show that $\psi$ is onto if and only if the irreducible polynomial $p$
     is linear.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $\psi$ is onto. Then $\langle p \rangle + x = \psi(c) = \langle p \rangle + c$
@@ -55,7 +115,7 @@
     Thus $\psi$ is onto.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     If $R$ is a commutative ring with unity, and $R$ is a subring of a field
     $F$, we can speak of the elements in $F$ that are \textbf{algebraic} over
     $R$, meaning simply those elements of the field which are roots of
@@ -66,7 +126,8 @@
         algebraic over $\mathbb{Z}$ is the same as the set of elements of
         $\mathbb{R}$ which are algebraic over $\mathbb{Q}$.
     \end{enumerate}
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Take $c = a/b \in \mathbb{Q}$ where $a, b \in \mathbb{Z}$, $b \ne 0$ and $f = bx - a \in \mathbb{Z}[x]$.
@@ -82,7 +143,7 @@
         $\mathbb{R}$ which are algebraic over $\mathbb{Q}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Suppose that $\alpha \in \mathbb{C}$ is an algebraic number over
     $\mathbb{Q}$, and $r \in \mathbb{Q}$. Prove that $\alpha + r$ and
     $r\alpha$ are also algebraic over $\mathbb{Q}$. (Actually, this exercise
@@ -90,7 +151,8 @@
     $\mathbb{A}$ of complex numbers algebraic over $\mathbb{Q}$ is a field,
     called the \textbf{field of algebraic numbers}. Why is our exercise a
     special case?)
-\end{tcolorbox}
+\end{problem}
+\solved
  
 \begin{proof}
     Since $\alpha \in \mathbb{C}$ is an algebraic number over
@@ -111,15 +173,17 @@
     field it is closed under addition and multiplication, so $\alpha + r, r\alpha \in \mathbb{A}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}{5}
     Prove that $\sin 1^\circ$ is algebraic over $\mathbb{Q}$.
-\end{tcolorbox}
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{6}
     Let $F$ be a field with characteristic $p$. Prove that the function
     $\iota : \mathbb{Z}_p \to F$ discussed in Section 42.3 is a one-to-one
     ring homomorphism.
-\end{tcolorbox}
+\end{problem}
+\unsolved
 
 \begin{proof}
     Let $x, y \in \mathbb{Z}_p$.
@@ -128,7 +192,7 @@
     and 
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{7}
     \begin{enumerate}
         \item[(a)] For a field $F$ with characteristic zero, we defined in
         Section 42.3 a one-to-one ring homomorphism
@@ -140,56 +204,13 @@
         Exercise 6.) Prove that $\iota(\mathbb{Z}_p)$ is the smallest
         subfield of $F$.
     \end{enumerate}
-\end{tcolorbox}
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{8}
     Let $K$ be a field, and consider the set of all subfields of $K$ (this
     set may well have infinitely many elements). Consider the intersection
     of all these subfields. Prove that the result is a field, by checking
     explicitly the field axioms.
-\end{tcolorbox}
-
-\newpage
-\begin{tcolorbox}[title=Problem 8, breakable]
-    Let $F$ be a subfield of the field $E$, and suppose that $\alpha \in E$ is 
-        transcendental over $F$.
-    \begin{enumerate}
-        \item Show that 
-        \[1, \alpha, \alpha^2, \alpha^3, \cdots\]
-        is a linearly independent set of the vector space $F(\alpha)$ (over $F$).
-        \item Why does the previous part mean that the dimension of $F(\alpha)$ over $F$ is infinite.
-        \item Show that the set in the first part is \emph{not} a basis for $F(\alpha)$ over $F$.
-    \end{enumerate}
-\end{tcolorbox}
-
-\begin{proof}
-    Suppose for contradiction that $1, \alpha, \alpha^2, \ldots$ are linearly
-    dependent over $F$. 
-    There exist $n \ge 0$ and $b_0, \ldots, b_n \in F$, not all zero, with
-    \[
-        b_0 + b_1 \alpha + \cdots + b_n \alpha^n = 0.
-    \]
-    Let $f(x) = b_0 + b_1 x + \cdots + b_n x^n \in F[x]$. Since some $b_i \ne 0$,
-    $f$ is a nonzero polynomial, and $f(\alpha) = 0$. Thus
-    $\alpha$ is algebraic over $F$, contradicting that $\alpha$ is transcendental.
-\end{proof}
-
-\begin{proof}
-    If $F(\alpha)$ had finite dimension $n$ over $F$, then every linearly
-    independent subset of $F(\alpha)$ would have at most $n$ elements. But
-    $1, \alpha, \ldots, \alpha^n$ are $n + 1$ linearly independent elements
-    by the first part, a contradiction.
-\end{proof}
-
-\begin{proof}
-    Since $0$ is algebraic over $F$, $\alpha \ne 0$, so $\alpha^{-1} \in F(\alpha)$.
-    Suppose for contradiction that $\alpha^{-1} = b_0 + b_1 \alpha + \cdots + b_n \alpha^n$
-    for some $b_0, \ldots, b_n \in F$. Multiplying by $\alpha$ gives
-    \[
-        b_n \alpha^{n+1} + \cdots + b_0 \alpha - 1 = 0,
-    \]
-    so $\alpha$ is a root of $g(x) = b_n x^{n+1} + \cdots + b_0 x - 1 \in F[x]$.
-    The constant term of $g$ is $-1$, so $g$ is nonzero, and $\alpha$ is algebraic
-    over $F$, a contradiction. Thus $\alpha^{-1}$ is not in the span of
-    $1, \alpha, \alpha^2, \ldots$, so this set is not a basis of $F(\alpha)$.
-\end{proof}
+\end{problem}
+\unsolved

@@ -1,0 +1,153 @@
+\begin{problem}[Warmup]{(a)}
+    Give a root tower whose last field contains the splitting field for $x^4 - 2$ over the rational numbers. (This is Example 47.9.)
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Give a root tower whose last field contains the splitting field for $x^3 - 2$ over the rational numbers. (This is Example 47.7.)
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Give an example of a root tower whose last field is \emph{not} normal over the base field.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Suppose that $\zeta$ is the primitive $p$th root of unity, $F$ is a subfield of the complex numbers, $\zeta \in F$, but $F$ contains no $p$th root of $a \in F$. Let $\alpha$ be a $p$th root of $a$ in $\mathbb{C}$. Give as much information as you can about the field extension $F(\alpha)$ over $F$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Is the sequence of fields given by the Constructible Number Theorem 38.3 a root tower?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Give an example of an irreducible polynomial $f \in \mathbb{Q}[x]$ that can be solved by radicals, none of whose roots are constructible numbers. Give such an example where all the roots are real numbers.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Suppose that $K$ is the splitting field for $f \in \mathbb{Q}[x]$, and $\mathrm{Gal}(K \,|\, \mathbb{Q}) \approx S_7$. What can you say about this situation?
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Consider the polynomial $x^6 - 2x^3 - 1 \in \mathbb{Q}[x]$ from Example 49.2 and 49.5.
+    Compute the Galois group for the splitting field of this polynomial over $\mathbb{Q}$,
+    and show explicitly that this is a solvable group. Draw the containment diagrams for
+    the subgroups of the Galois group, and the corresponding diagram of fields intermediate
+    between the rational field and the splitting field.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    Consider the root tower obtained in Example 49.3 to obtain a field containing the
+    splitting field $K$ for $x^3 + 3x + 1 \in \mathbb{Q}[x]$. Show that each each field
+    extension in the root tower is proper, and so the field $F_3$ is a proper extension of
+    $K$.
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    In this problem and its successor we will describe a method that helps determine the
+    Galois group of the splitting field for a quartic polynomial. Let $F$ be a subfield of
+    the complex numbers, and suppose that $f \in F[x]$ is an irreducible polynomial of
+    degree four. We may as well assume that $f$ is monic, and so
+    \[f = (x - \alpha_1)(x - \alpha_2)(x - \alpha_3)(x - \alpha_4),\]
+    where the $\alpha_i$ are distinct elements of $\mathbb{C}$. Let
+    $K = F(\alpha_1, \alpha_2, \alpha_3, \alpha_4)$ be the splitting field for $f$. We will
+    consider $G = \mathrm{Gal}(K \,|\, F)$ as a subgroup of the group $S_4$ of permutations
+    of these roots, in this order. By Section 48.2 we know that
+    $f = x^4 - a_1x^3 + a_2x^2 - a_3x^1 + a_4$, where the $a_i$ are the symmetric
+    polynomials in the roots $\alpha_i$.
+    \begin{enumerate}
+        \item[(a)] Let
+        \[\beta_1 = \alpha_1\alpha_2 + \alpha_3\alpha_4, \quad
+          \beta_2 = \alpha_1\alpha_3 + \alpha_2\alpha_4, \quad
+          \beta_3 = \alpha_1\alpha_4 + \alpha_2\alpha_3.\]
+        Form the polynomial
+        \[g = (x - \beta_1)(x - \beta_2)(x - \beta_3) = x^3 - b_1x^2 + b_2x - b_3.\]
+        By making use of what we know about symmetric polynomials, prove that
+        \[b_1 = a_2, \quad b_2 = a_1a_3 - 4a_4, \quad b_3 = a_1^2a_4 + a_3^2 - 4a_2a_4.\]
+        Thus, $g \in F[x]$. \emph{Note:} The polynomial $g$ is called the
+        \textbf{resolvent polynomial} for $f$.
+        \item[(b)] Let $E = F(\beta_1, \beta_2, \beta_3)$ be the splitting field for $g$
+        over $F$. Let $H = G \cap \{\iota, (12)(34), (13)(24), (14)(23)\}$. Prove that
+        $E = \mathrm{Fix}(H)$.
+        \item[(c)] Why is $H$ normal in $G$?
+        \item[(d)] Prove that $\mathrm{Gal}(E \,|\, F)$ is isomorphic to $G/H$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    In this exercise we use the same notation and terminology as in the previous exercise.
+    By Exercise 48.8 the Galois group $G$ is necessarily a transitive subgroup of $S_4$.
+    In Exercise 34.13 you compiled a list of all the transitive subgroups of $S_4$. We will
+    in what follows think of $H = \mathrm{Gal}(E \,|\, F)$ as a subgroup of the group of
+    permutations $S_3$ of the roots of $g$. We now look at all possible cases for $G$:
+    \begin{enumerate}
+        \item[(a)] Suppose that $G = S_4$. Then show that $H = S_3$.
+        \item[(b)] Suppose that $G = A_4$. Then show that $H = A_3$.
+        \item[(c)] Suppose that $G = \{\iota, (12)(34), (13)(24), (14)(23)\}$. Then show
+        that $H$ is the trivial group.
+        \item[(d)] Suppose that $G$ is a cyclic group of order 4. Then show that $H$ is a
+        cyclic group of order 2.
+        \item[(e)] Suppose that
+        \[G = \{\iota, (12)(34), (13)(24), (14)(23), (12), (34), (1423), (1324)\},\]
+        the subgroup of $S_4$ of order 8 (isomorphic to $D_4$). Then show that $H$ is a
+        cyclic group of order 2.
+    \end{enumerate}
+    \emph{Note:} Since $H$ is the Galois group of the splitting field of a cubic
+    polynomial, it is presumably easier to compute than is $G$. But the results above say
+    that in most cases knowing $H$ actually determines $G$. We will illustrate this
+    principle in the exercises that follow. The ambiguous case that remains (when $H$ is a
+    cyclic group of order 2) can actually also be resolved by a refinement of the argument
+    given here. For information about that case you can consult Nathan Jacobson's
+    \emph{Basic Algebra I} (W. H. Freeman and Company, 1974), from which these exercises
+    have been adapted.
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    From Example 47.9 we know that the Galois group of the splitting field for $x^4 - 2$
+    is isomorphic to $D_4$. Thus if we form the resolvent polynomial $g$, we know from
+    Exercise 4 that its Galois group is a cyclic group of order two. Compute $g$ and the
+    Galois group explicitly, to check this computation.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Consider the polynomial $f = x^4 + 2x - 2 \in \mathbb{Q}[x]$.
+    \begin{enumerate}
+        \item[(a)] Why is $f$ irreducible over $\mathbb{Q}[x]$?
+        \item[(b)] Show that the resolvent polynomial $g$ obtained as in Exercise 3 is
+        $g = x^3 + 8x + 4$.
+        \item[(c)] Why is $g$ irreducible over $\mathbb{Q}[x]$?
+        \item[(d)] Use Example 47.8 to argue that the Galois group for the splitting field
+        for $g$ over the rational field is $S_3$.
+        \item[(e)] What is the Galois group of the splitting field for $f$ over
+        $\mathbb{Q}$?
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Consider the polynomial $f = x^4 + 2x + 2 \in \mathbb{Q}[x]$.
+    \begin{enumerate}
+        \item[(a)] Why is $f$ irreducible over $\mathbb{Q}[x]$?
+        \item[(b)] Show that the resolvent polynomial $g$ obtained as in Exercise 3 is
+        $g = x^3 - 8x + 4$.
+        \item[(c)] Why is $g$ irreducible over $\mathbb{Q}[x]$?
+        \item[(d)] Use calculus to argue that $g$ has three real roots.
+        \item[(e)] Argue that the Galois group of $g$ over the rational field must contain
+        an element of order 3. What does this mean about the Galois group of the splitting
+        field for $f$?
+        \item[(f)] Conclude from part e that at least one of the real roots of $f$ is not
+        constructible, even though it is of degree 4 over $\mathbb{Q}$. This is the
+        promised example that shows that the converse of Corollary 44.5 is false.
+    \end{enumerate}
+\end{problem}
+\unsolved

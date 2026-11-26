@@ -1,0 +1,156 @@
+% Problem boxes with solved/unsolved tracking.
+%
+% Usage in a chapter file:
+%   \begin{problem}{3}            ...statement...  \end{problem}
+%   \solved     (or \unsolved)
+%   \begin{problem}[Warmup]{(a)}  ...statement...  \end{problem}
+%
+% A problem with no marker counts as unsolved. Status is collected through
+% the .aux file, so the overview and box colors need a second LaTeX run
+% (latexmk does this automatically).
+
+\usepackage{etoolbox}
+\usepackage{pifont}
+\tcbuselibrary{skins}
+
+\definecolor{solvedgreen}{RGB}{40,140,80}
+\definecolor{unsolvedred}{RGB}{195,50,50}
+\definecolor{pendinggray}{RGB}{140,140,140}
+
+\makeatletter
+
+\newcounter{probidx}[section]
+\newcounter{ps@total}
+\newcounter{ps@solved}
+
+% \probentry{chapter}{index}{kind}{label}{status}, read back from the .aux
+\def\ps@chapters{}
+\newcommand\probentry[5]{%
+  \ifstrequal{#5}{solved}
+    {\csgdef{ps@st@#1@#2}{Solved}\csgdef{ps@col@#1@#2}{solvedgreen}}
+    {\csgdef{ps@st@#1@#2}{Unsolved}\csgdef{ps@col@#1@#2}{unsolvedred}}%
+  \ifcsdef{ps@elist@#1}{}{%
+    \csgdef{ps@elist@#1}{}\csgdef{ps@wlist@#1}{}%
+    \newcounter{ps@tot@#1}\newcounter{ps@sol@#1}%
+    \gappto\ps@chapters{\ps@row{#1}}}%
+  \ifstrequal{#3}{Warmup}
+    {\csgappto{ps@wlist@#1}{\ps@cell{#1}{#2}{#4}{#5}}}
+    {\csgappto{ps@elist@#1}{\ps@cell{#1}{#2}{#4}{#5}}}%
+  \stepcounter{ps@total}\stepcounter{ps@tot@#1}%
+  \ifstrequal{#5}{solved}{\stepcounter{ps@solved}\stepcounter{ps@sol@#1}}{}%
+}
+% \chaptitle{chapter}{title}, read back from the .aux
+\newcommand\chaptitle[2]{\csgdef{ps@title@#1}{#2}}
+
+% \bookchapter{Title}{file}: a numbered section whose title is remembered
+% for the overview.
+\newcommand\bookchapter[2]{%
+  \section{#1}%
+  \immediate\write\@auxout{\string\chaptitle{\thesection}{\unexpanded{#1}}}%
+  \input{#2}}
+
+% Writing status entries. The marker comes after the box, so the entry
+% stays pending until \solved/\unsolved, the next problem, or the end.
+\let\ps@pending\relax
+\newcommand\ps@write[1]{%
+  \ifx\ps@pending\relax\else
+    \immediate\write\@auxout{\string\probentry\ps@pending{#1}}%
+    \global\let\ps@pending\relax
+  \fi}
+\newcommand\solved{\ps@write{solved}}
+\newcommand\unsolved{\ps@write{unsolved}}
+\AtEndDocument{\ps@write{unsolved}}
+
+\newcommand\ps@statuscolor[1]{\ifcsdef{ps@col@#1}{\csuse{ps@col@#1}}{pendinggray}}
+\newcommand\ps@statustext[1]{\ifcsdef{ps@st@#1}{\csuse{ps@st@#1}}{}}
+
+\newenvironment{problem}[2][Problem]{%
+  \ps@write{unsolved}%
+  \stepcounter{probidx}%
+  \xdef\ps@pending{{\thesection}{\theprobidx}{#1}{\unexpanded{#2}}}%
+  \edef\ps@key{\thesection @\theprobidx}%
+  \edef\ps@color{\ps@statuscolor{\ps@key}}%
+  \hypertarget{prob@\ps@key}{}%
+  \begin{tcolorbox}[enhanced, breakable,
+      colframe=\ps@color, colbacktitle=\ps@color,
+      fonttitle=\sffamily,
+      title={#1 #2\hfill{\small\ps@statustext{\ps@key}}}]%
+}{\end{tcolorbox}}
+
+% Overview: one table of cells per chapter for warm-ups and one for
+% exercises. A cell is blank until its problem is marked \solved.
+\newlength\ps@cw
+\setlength\ps@cw{1.55em}
+\newcommand\ps@mark{\textcolor{solvedgreen}{\ding{51}}}
+\newcommand\ps@cellbox[3]{% label, mark, background
+  \begingroup\setlength\fboxsep{0pt}\setlength\fboxrule{.4pt}%
+  \fcolorbox{black!35}{#3}{\vbox{%
+    \hbox{\colorbox{black!7}{\hbox to\ps@cw{\hss\vrule height 7.5pt depth 2.5pt width 0pt%
+      \fontsize{6.5}{7}\selectfont\color{black!70}#1\hss}}}%
+    \hrule height .4pt\relax
+    \hbox to\ps@cw{\hss\vrule height 9pt depth 3pt width 0pt\small #2\hss}}}%
+  \endgroup}
+% warm-up labels are stored as "(a)"; show just "a" in the table
+\newcommand\ps@label[1]{\ifstrequal{#1}{}{}{\ps@labelx#1\relax}}
+\def\ps@labelx#1#2\relax{\if(#1\ps@strip#1#2\else#1#2\fi}
+\def\ps@strip(#1){#1}
+\newcommand\ps@cell[4]{% chapter, index, label, status
+  \hyperlink{prob@#1@#2}{\ifstrequal{#4}{solved}
+    {\ps@cellbox{\ps@label{#3}}{\ps@mark}{solvedgreen!10}}
+    {\ps@cellbox{\ps@label{#3}}{}{white}}}%
+  \hskip -.4pt\relax\allowbreak}
+\newcommand\ps@table[2]{% heading, cells
+  \par\noindent
+  \begin{minipage}[c]{5.2em}\raggedright\sffamily\scriptsize\color{black!60}#1\end{minipage}%
+  \begin{minipage}[c]{\dimexpr\linewidth-5.2em\relax}
+    \raggedright\baselineskip=0pt\lineskip=3pt\lineskiplimit=0pt
+    #2\par
+  \end{minipage}\par\vspace{4pt}}
+
+\newlength\ps@barwd
+\newlength\ps@barfill
+\newcommand\ps@bar[3]{% width, solved, total
+  \begingroup
+  \setlength\ps@barwd{#1}%
+  \ifnum#3>0
+    \setlength\ps@barfill{\dimexpr\ps@barwd*#2/#3\relax}%
+  \else
+    \setlength\ps@barfill{0pt}%
+  \fi
+  \textcolor{solvedgreen}{\rule{\ps@barfill}{4pt}}%
+  \textcolor{unsolvedred!45}{\rule{\dimexpr\ps@barwd-\ps@barfill\relax}{4pt}}%
+  \endgroup}
+
+\newcommand\ps@row[1]{%
+  \par\noindent
+  \begin{minipage}{\linewidth}
+  {\sffamily\small\textbf{#1}\quad\ifcsdef{ps@title@#1}{\csuse{ps@title@#1}}{}}%
+  \hfill
+  \ps@bar{6em}{\value{ps@sol@#1}}{\value{ps@tot@#1}}\,%
+  {\sffamily\scriptsize\color{black!60}\makebox[3.2em][r]{\arabic{ps@sol@#1}/\arabic{ps@tot@#1}}}%
+  \par\vspace{3pt}%
+  \ifcsempty{ps@wlist@#1}{}{\ps@table{Warm-ups}{\csuse{ps@wlist@#1}}}%
+  \ifcsempty{ps@elist@#1}{}{\ps@table{Exercises}{\csuse{ps@elist@#1}}}%
+  \vspace{2pt}{\color{black!12}\hrule}
+  \end{minipage}\par\vspace{6pt}}
+
+\newcommand\problemoverview{%
+  \begin{tcolorbox}[enhanced, colback=white, colframe=black!70,
+      fonttitle=\sffamily\large, title={Progress}]
+    \sffamily
+    {\Large \arabic{ps@solved}}\,/\,\arabic{ps@total}\ problems solved
+    \ifnum\value{ps@total}>0
+      \ (\the\numexpr 100*\value{ps@solved}/\value{ps@total}\relax\%)%
+    \fi
+    \par\smallskip
+    \ps@bar{\linewidth}{\value{ps@solved}}{\value{ps@total}}\par\medskip
+    \small
+    \ps@cellbox{1}{\ps@mark}{solvedgreen!10}~solved\qquad
+    \ps@cellbox{1}{}{white}~not solved yet\qquad
+    {\color{black!60}click a cell to jump to that problem}
+  \end{tcolorbox}
+  \medskip
+  \ps@chapters
+}
+
+\makeatother

@@ -1,9 +1,129 @@
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}[Warmup]{(a)}
+    How many elements does the ring $\mathbb{Z}_{16}/\langle 4 \rangle$ have? Which one is its additive identity? Does this ring have unity? Does it have any zero divisors?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Compute \[(\langle 4 \rangle + 3)(\langle 4 \rangle + 2)\] in $\mathbb{Z}_{12}/\langle 4 \rangle$ twice, using different representatives from these two cosets.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    What is the additive inverse of $\langle x - 2 \rangle + (x^2 - 2)$ in $\mathbb{Q}[x]/\langle x - 2 \rangle$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    What is the multiplicative inverse of $\langle x - 2 \rangle + (x^2 - 2)$ in $\mathbb{Q}[x]/\langle x - 2 \rangle$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Let $R$ be a commutative ring and $I$ one of its ideals. What is the nature of the elements belonging to the set $R/I$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    What is the kernel of the natural homomorphism $\nu : R \to R/I$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Is the natural homomorphism always onto? Why or why not?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(h)}
+    Is the natural homomorphism always one-to-one? Why or why not?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(i)}
+    Is every ideal of a commutative ring a kernel of some homomorphism? Why or why not?
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Consider the ideal $\langle x^2 \rangle$ in $\mathbb{Q}[x]$.
+    \begin{enumerate}
+        \item[(a)] Prove that for each $f \in \mathbb{Q}[x]$, there exists
+        $a + bx \in \mathbb{Q}[x]$, so that
+        \[\langle x^2 \rangle + f = \langle x^2 \rangle + (a + bx).\]
+        \item[(b)] Show that $\mathbb{Q}[x]/\langle x^2 \rangle$ is not a domain.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    Consider the ring $\mathbb{Z}/I$, for some ideal $I$. For what ideals $I$ does this
+    ring have infinitely many elements? For what ideals $I$ does this ring have finitely
+    many elements?
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    Consider the ideal $\langle 1 + i \rangle$ in $\mathbb{Z}[i]$.
+    \begin{enumerate}
+        \item[(a)] Make use of the description of this ideal provided in Exercise 13.5 to
+        show that for all $a + bi \in \mathbb{Z}[i]$, there exists $c \in \mathbb{Z}$, such
+        that
+        \[\langle 1 + i \rangle + (a + bi) = \langle 1 + i \rangle + c.\]
+        \item[(b)] Use part a to prove that $\mathbb{Z}[i]/\langle 1 + i \rangle$ has only
+        two elements.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    Consider the ideal
+    \[I = \{f \in C[0, 1] : f(1/4) = 0\}\]
+    in the commutative ring $C[0, 1]$; we considered this ideal in Example 17.5.
+    \begin{enumerate}
+        \item[(a)] Prove that
+        \[I + f = I + g \text{ if and only if } f(1/4) = g(1/4).\]
+        \item[(b)] Prove that $C[0, 1]/I$ is a field.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Consider the ideal $I = \langle (3, 4) \rangle$ of the ring
+    $\mathbb{Z} \times \mathbb{Z}$. Prove that $(\mathbb{Z} \times \mathbb{Z})/I$ is not a
+    domain.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Prove that $J = \{(x, 0) : x \in \mathbb{Z}\}$ is an ideal in
+    $\mathbb{Z} \times \mathbb{Z}$. Prove that $(\mathbb{Z} \times \mathbb{Z})/J$ is a
+    domain (even though $\mathbb{Z} \times \mathbb{Z}$ is \emph{not} a domain).
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Consider the ring $\mathbb{Z}[\alpha]$ described in Exercise 7.3.
+    \begin{enumerate}
+        \item[(a)] Prove that any element
+        \[\langle 1 + \alpha \rangle + (a + b\alpha + c\alpha^2) \in \mathbb{Z}[\alpha]/\langle 1 + \alpha \rangle\]
+        can be written in the form $\langle 1 + \alpha \rangle + m$, where $m$ is an integer.
+        \item[(b)] Show that $1 + \alpha$ divides 6.
+        \item[(c)] Use (a) and (b) to show that
+        \[\mathbb{Z}[\alpha]/\langle 1 + \alpha \rangle = \{\langle 1 + \alpha \rangle + 0,
+        \langle 1 + \alpha \rangle + 1, \langle 1 + \alpha \rangle + 2, \ldots,
+        \langle 1 + \alpha \rangle + 5\}.\]
+        \item[(d)] Use c to show that $\mathbb{Z}[\alpha]/\langle 1 + \alpha \rangle$ is not
+        a domain.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
     The ring $\mathbb{Z}$ is a subring of $\mathbb{Q}$
         but is not an ideal. Therefore, it makes no sense to speak 
         of the ring of cosets $\mathbb{Q}/\mathbb{Z}$.
     Show by explicit example that multiplication makes no sense for $\mathbb{Q}/\mathbb{Z}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Cosets have the form $\mathbb{Z} + q$ for $q \in \mathbb{Q}$. Note that $\mathbb{Z} + \frac{1}{3} = \mathbb{Z} + \frac{4}{3}$ since $\frac{4}{3} - \frac{1}{3} = 1 \in \mathbb{Z}$. However,
@@ -15,14 +135,29 @@
     Since $\frac{4}{9} - \frac{1}{9} = \frac{1}{3} \notin \mathbb{Z}$, these are distinct cosets, so multiplication is not well-defined.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{9}
+    Consider the ring $S$ of real-valued sequences, and $\Sigma$ the ideal of $S$,
+    considered in Exercise 12.8.
+    \begin{enumerate}
+        \item[(a)] Give a nice description of the elements of the coset
+        $\Sigma + (1, 1, 1, \ldots)$.
+        \item[(b)] Show by explicit computation that $S/\Sigma$ is not a domain.
+        \item[(c)] Show that the ring $S/\Sigma$ has infinitely many distinct idempotents.
+        (Recall from Exercise 7.25 that an idempotent is an element $e$ for which
+        $e^2 = e$.)
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{10}
     Let $R$ be a commutative ring; recall from Exercise 7.15 that the nilradical $N(R)$ of $R$ is a subring.
     \begin{enumerate}
         \item Prove that $N(R)$ is an ideal of $R$.
         \item Prove that the ring $R/N(R)$ has no non-zero nilpotent elements.
         \item Check explicitly that part b is true for the ring $R = \mathbb{Z}_8$. To what rings is $\mathbb{Z}_8 / N(\mathbb{Z_8})$ isomorphic?
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     By Exercise 7.15 we know $N(R)$ is a subring of $R$.
@@ -53,3 +188,12 @@
     so $\mathbb{Z}_8/N(\mathbb{Z}_8)$ has exactly two elements and is thus isomorphic to $\mathbb{Z}_2$.
     Since $\mathbb{Z}_2$ has no nonzero nilpotent elements, part (b) is confirmed.
 \end{proof}
+
+\begin{problem}{11}
+    Consider the following alternate definition of addition of the cosets of an ideal
+    $I$ of a commutative ring $R$.
+    \[(I + a) + (I + b) = \{x + y : x \in I + a, y \in I + b\}.\]
+    Prove that this definition is equivalent to the definition of addition on $R/I$ given
+    in the text. (Compare this exercise to Exercise 3.11.)
+\end{problem}
+\unsolved

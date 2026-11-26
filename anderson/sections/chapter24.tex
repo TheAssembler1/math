@@ -1,4 +1,102 @@
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}[Warmup]{(a)}
+    Give examples of the following:
+    \begin{enumerate}
+        \item[(a)] An abelian group with infinitely many elements.
+        \item[(b)] An abelian group with finitely many elements.
+        \item[(c)] A non-abelian group with infinitely many elements.
+        \item[(d)] A non-abelian group with finitely many elements.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Determine the inverses of the following elements, specifying the group operation in each case:
+    \begin{enumerate}
+        \item[(a)] $[3] \in \mathbb{Z}_5$.
+        \item[(b)] $[3] \in \mathbb{Z}_5^*$.
+        \item[(c)] $\begin{pmatrix} 3 & 4 \\ -4 & -5 \end{pmatrix} \in U(M_2(\mathbb{Z}))$.
+        \item[(d)] $\varphi\rho \in D_3$.
+        \item[(e)] $(2, -4) \in \mathbb{Q} \times \mathbb{Q}$.
+        \item[(f)] $(2, -4) \in U(\mathbb{Q} \times \mathbb{Q})$.
+        \item[(g)] $\frac{3}{5} + \frac{4}{5}i \in \mathbb{S}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Give examples of the following (you need to specify both the group in which you are computing, as well as specific elements):
+    \begin{enumerate}
+        \item[(a)] A non-identity element that is its own inverse.
+        \item[(b)] Two elements $a$ and $b$, so that ${(a \circ b)}^{-1} \neq a^{-1} \circ b^{-1}$.
+        \item[(c)] A non-identity element $a$ so that $a \circ a \circ a \circ a = 1$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Let $R$ be a commutative ring with unity. What two groups are associated with $R$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Consider the element \[A = \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}\] in the group $U(M_2(\mathbb{R}))$. Why is it true that $AB = BA$, for all other elements $B$ in this group? Does this mean that this group is abelian?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Consider the following sets, equipped with an operation. Are they groups, or not?
+    \begin{enumerate}
+        \item[(a)] $\mathbb{Z}$, with subtraction.
+        \item[(b)] $\mathbb{Z}$, with multiplication.
+        \item[(c)] $M_2(\mathbb{Z})$, with matrix addition.
+        \item[(d)] $M_2(\mathbb{Z})$, with matrix multiplication.
+        \item[(e)] $\mathbb{R}^*$, with multiplication.
+        \item[(f)] $\mathbb{R}^*$, with division.
+        \item[(g)] $\mathbb{R}^*$, with addition.
+        \item[(h)] $\mathbb{Z} \times \mathbb{Z}$, with the operation $*$, defined by $(a, b) * (c, d) = (a, d)$.
+        \item[(i)] The set of vectors in $\mathbb{R}^3$, with cross product.
+        \item[(j)] The set $\mathbb{R}^+$ of strictly positive real numbers, with multiplication.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    The following table represents a binary operation on the set $\{a, b, c, d\}$. Argue that this set with this operation is not a group. (This fails to be a group for more than one reason.) \[\begin{array}{c|cccc} & a & b & c & d \\ \hline a & a & b & d & c \\ b & b & a & c & d \\ c & c & d & b & a \\ d & d & c & a & b \end{array}\]
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Suppose you have a set of $n$ elements with a binary operation that you think might
+    be a group. You easily check that there is an identity and that every element has an
+    inverse, but you are now faced with showing the operation is associative. So, you
+    check the equation $a \circ (b \circ c) = (a \circ b) \circ c$ for all possible $a$,
+    $b$, and $c$. How many equations must you check? If $n = 5$, how many equations is
+    this? If $n = 10$, how many?
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    Specify the elements of the groups of units of the following commutative rings:
+    \[\mathbb{Z}_{15}, \quad \mathbb{Q}[x], \quad \mathbb{Z}[x], \quad \mathbb{Z} \times \mathbb{Q}.\]
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    Consider the group of quaternions, described in Example 24.15. Determine explicitly
+    which of these eight elements are inverses of one another. Also, show by example that
+    this is not an abelian group.
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    Consider the set $\mathbb{R} \setminus \{-1\}$ of all real numbers except $-1$. Define
+    the operation $*$ by
+    \[a * b = a + b + ab.\]
+    Prove that this is a group.
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
     In this problem we consider permutations of the set $\mathbb{R}$.
 
     (a) Let $S(\mathbb{R})$ denote the set of all real-valued functions 
@@ -10,7 +108,8 @@
     $S(\mathbb{R})$ that are also \textbf{order preserving}: By 
     this we mean that if $x < y$, then $f(x) < f(y)$. Prove that 
     $A(\mathbb{R})$ is a group under functional composition.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
 Let $f, g, h \in S(\mathbb{R})$.
@@ -61,13 +160,22 @@ Notice that $\iota \in S(\mathbb{R})$.
     $f \circ f^{-1} = f^{-1} \circ f = \iota$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{6}
+    Consider the set of matrices of the form
+    \[\begin{pmatrix} 1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 \end{pmatrix},\]
+    where $a, b, c$ are arbitrary real numbers. Show that this set forms a group under
+    matrix multiplication.
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
     Let $n$ be a positive integer and $\mathcal{C}$ be a circle.
     Now for $i = 0, 1, \ldots, n - 1$, let $p_i$ be the rotation of 
     $\mathcal{C}$ counterclockwise through the angle 
     $2 \pi i / n$ radians. Show that this set of rotations is a group 
     under the operation of composition. How many elements are in this group?
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
 Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
@@ -94,18 +202,27 @@ Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
 
 \textbf{Solution:} There are $n$ elements in this group.
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{8}
     Let $G$ be a group with operation $\circ$.
     Suppose that $x \circ x = 1$, for all $x \in G$.
     Prove that $G$ is abelian.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x, y \in G$.
     Then $x \circ y = (x \circ y)^{-1} = y^{-1} \circ x^{-1} = y \circ x$ as required.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{9}
+    Suppose that $G$ is a group with operation $\circ$; suppose that $x, y \in G$. Show
+    that if
+    \[(x \circ y) \circ (x \circ y) = (x \circ x) \circ (y \circ y),\]
+    then $x \circ y = y \circ x$.
+\end{problem}
+\unsolved
+
+\begin{problem}{10}
     Let $R$ be any ring, and suppose that $\phi, \psi \in Aut(R)$.
     Show that the composition of $\phi \psi \in Aut(R)$, by checking 
     that this function has the appropriate domain and range, is one-to-one,
@@ -113,7 +230,8 @@ Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
     verfies that $Aut(R)$ is closed under functional composition; in 
     Example 24.18 we complete the verification that $Aut(R)$ is a group under this 
     operation.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Since $dom(\phi \psi) = dom(\psi) = R$, the domain of $\phi \psi$ is valid.  
@@ -136,10 +254,11 @@ Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
     Thus $\phi \psi$ is closed under addition and multiplication.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{problem}{11}
     Prove that $Aut(\mathbb{Z})$ is a group with only 
     a single element.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Since $\mathbb{Z}$ is a ring, by problem $10$, $\langle Aut(\mathbb{Z}), \circ \rangle$ is a group.
@@ -158,10 +277,11 @@ Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
     Therefore $\psi(x) = x$ for all $x \in \mathbb{Z}$, so $\psi = \iota$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{problem}{12}
     Show that $Aut(\mathbb{Q})$ is a group with only 
     a single element.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof} 
     Since $\mathbb{Q}$ is a ring, by problem $10$, $\langle Aut(\mathbb{Q}), \circ \rangle$ is a group. 
@@ -181,7 +301,7 @@ Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
     Thus $\psi = \iota$, as required. 
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{13}
     In this problem you will sketch the proof that $Aut(\mathbb{R})$ is a group 
     with only a single element. You will use the fact that all 
     positive real numbers have exactly two square roots.
@@ -198,7 +318,8 @@ Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
     (d) You may assume that between any two real numbers is a rational number.
     Use this to prove that any automorphism of $\mathbb{R}$ is fixed on all 
     real numbers, so $Aut(\mathbb{R})$ has only a single element.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
 ($\longrightarrow$) 
@@ -244,13 +365,14 @@ Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
     It follows that $Aut(\mathbb{R})$ contains one element $\iota$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{14}
     Consider the field of complex numbers $\mathbb{C}$, and its group of automorphisms
     $Aut(\mathbb{C})$. Show that this group has only two elements,
     namely the identity automorphism $\iota$, and the 
     complex conjugate map $\phi$ defined by $\phi(a + b) = a - bi$.
     (See Exercise 16.4).
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Clearly $\iota \in Aut(\mathbb{C})$.  
@@ -262,4 +384,15 @@ Let $i, j \in \{x \in \mathbb{Z} \mid 0 \le x \le n-1\}$.
     Thus $Aut(\mathbb{C})$ has exactly two elements: $\iota$ and $\phi$.
 \end{proof}
 
-
+\begin{problem}{15}
+    Let $n$ be a positive integer; consider the set
+    \[G_n = \{1, -1\} \times \mathbb{Z}_n.\]
+    We define an operation on this set by
+    \[(i, [k]) * (j, [m]) = (ij, [m + jk]).\]
+    Prove that this makes $G_n$ a group. \emph{Note:} Do not neglect to show that this
+    operation is associative! In Exercise 28.12 we will provide a more compact notation
+    for this group, and show rigorously that it is `essentially the same' as the dihedral
+    group $D_n$ we introduced in Chapter 22---the group of symmetries of a regular
+    $n$-sided polygon.
+\end{problem}
+\unsolved

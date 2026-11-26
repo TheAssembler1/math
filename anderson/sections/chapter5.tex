@@ -1,8 +1,44 @@
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{problem}[Warmup]{(a)}
+    Why is a linear polynomial in $\mathbb{Q}[x]$ always irreducible?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Why is a polynomial of the form $x^2 + a \in \mathbb{Q}[x]$, where $a > 0$, always irreducible?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Determine a factorization of $x^4 - 5x^2 + 4$ into irreducibles in $\mathbb{Q}[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Give several distinct factorizations of $x^4 - 5x^2 + 4$ into irreducibles in $\mathbb{Q}[x]$. Why don't these distinct factorizations violate the Unique Factorization Theorem 5.4?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    We know that 7 is an irreducible integer, but is 7 an irreducible polynomial?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Pick your favorite polynomial. What are its associates in $\mathbb{Q}[x]$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Factor $2x^3 + 7x^2 - 2x - 1$ completely into irreducibles in $\mathbb{Q}[x]$, using Gauss's Lemma and the Root Theorem. Adjust your factorization (if necessary) so that all factors belong to $\mathbb{Z}[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
     Prove Theorem $5.1$: A polynomial in $\mathbb{Q}[x]$
     of degree greater than zero is either irreducible
     or the product of irreducibles.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $f$ be a polynomial with degree greater than $0$.
@@ -19,10 +55,11 @@
     Therefore, $f$ can also be expressed as a product of irreducibles.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}{2}
     Prove Theorem $5.2$: A polynomial in $\mathbb{Q}[x]$
     is irreducible if and only if it is prime.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $f$ be an arbitrary polynomial in $\mathbb{Q}[x]$.
@@ -53,11 +90,12 @@
         is trivial, as required.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Prove Corollary $5.3$: If an irreducible polynomial
     in $\mathbb{Q}[x]$ divides a product $f_1 f_2 f_3 \ldots f_n$,
     then it divides one of $f_i$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $f$ be an irreducible polynomial in $\mathbb{Q}[x]$.
@@ -78,11 +116,12 @@
     Thus, in either case, $f$ divides one of the $f_i$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Use Gauss's Lemma to determine which of the following 
     are irreducible in $Q[x]$:
     \[4x^3 + x - 2, 3x^3 - 6x^2 + x - 2, x^3 + x^2 + x - 1\]
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     If $f(x) = 4x^3 + x - 2$ can be factored then one of 
@@ -109,9 +148,15 @@
     Since $f$ is irreducible in $\mathbb{Z}[x]$ by Gauss's Lemma $f$ is irreducible in $Q[x]$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{5}
+    Show that $x^4 + 2x^2 + 4$ is irreducible in $\mathbb{Q}[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
     Prove the Rational Root Theorem $5.6$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{theorem}[Ration Root Theorem $5.6$]
     Suppose that $f = a_0 + a_1 x + \cdots + a_n x^n$
@@ -145,10 +190,11 @@
     Thus $p \mid a_0$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{7}
     Use the Rational Root Theorem $5.6$ to factor 
     \[2x^3 - 17x^2 - 10x + 9\]
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution:}
 
@@ -158,10 +204,19 @@ Inspection shows that $9$ and $\frac{1}{2}$ are roots.
 Dividing $2x^3 - 17x^2 - 10x + 9$ by $(x - 9)(x - \frac{1}{2})$ gives us $(2x + 2)$. Thus 
 \[2x^3 - 17x^2 - 10x + 9 = (x - 9)(x - \frac{1}{2})(2x + 2)\]
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{8}
+    Use the Rational Root Theorem 5.6 to argue that
+    \[x^3 + x + 7\]
+    is irreducible over $\mathbb{Q}[x]$. Use elementary calculus to argue that this
+    polynomial does have exactly one \emph{real} root.
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
     Use the Rational Root Theorem $5.6$ (applied to $x^3 - 2$)
     to argue that $\sqrt[3]{2}$ is irrational.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     For contradiction, suppose $\sqrt[3]{2}$ is a rational root 
@@ -199,7 +254,7 @@ Dividing $2x^3 - 17x^2 - 10x + 9$ by $(x - 9)(x - \frac{1}{2})$ gives us $(2x + 
     Thus  $\sqrt[3]{2}$ is irrational.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{10}
     Suppose that $\alpha$ is a real number (which might 
     not be rational), and suppose that it is a root of a 
     polynomial $p \in \mathbb{Q}[x]$; that is,
@@ -207,7 +262,8 @@ Dividing $2x^3 - 17x^2 - 10x + 9$ by $(x - 9)(x - \frac{1}{2})$ gives us $(2x + 
     in $\mathbb{Q}[x]$. Prove that $p$ has a minimal degree in the 
     set 
     \[\mathcal{F} = \{f \in \mathbb{Q}[x] : f(\alpha) = 0 \text{ and } f \ne 0\}\]
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose there exists $g \in \mathbb{Q}[x]$
@@ -240,10 +296,18 @@ Dividing $2x^3 - 17x^2 - 10x + 9$ by $(x - 9)(x - \frac{1}{2})$ gives us $(2x + 
         the degree of $p$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{11}
+    This is a continuation of Exercise 10. Suppose as above that $\alpha$ is a real
+    number, $p \in \mathbb{Q}[x]$ is irreducible, and $p(\alpha) = 0$. Suppose also that
+    $f \in \mathbb{Q}[x]$ with $f(\alpha) = 0$. Prove that $p$ divides $f$.
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
     Construct polynomials of arbitrarily large degree,
         which are irreducible in $\mathbb{Q}[x]$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution}
 \[\mathcal{F} = \{f \mid f = x^n - 2\}\]
@@ -251,14 +315,15 @@ By Eisenstein's Cirterion all $f \in \mathcal{F}$
     are irreducible in $\mathbb{Z}[x]$.
 By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{13}
     (a) Prove that the equation $a^2 = 2$ has no ration solutions;
         that is, prove that $\sqrt{2}$ is irrational. (This part is a 
         repeat of exercise $2.14$.)
 
     (b) Generalize part $a$,k by proving that $a^n = 2$ has no rational 
         solutions, for all positive integers $n \ge 2$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $p = 2$ and apply Eisenstein's Criterion to $a^2 - 2 = 0$.
@@ -270,12 +335,13 @@ By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
     Same logic as before.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{14}
     Let $f \in \mathbb{Z}[x]$ and $n$ an integer.
     Let $g$ be the polynomial defined by $g(x) = f(x + n)$.
     Prove that $f$ is irreducible in $\mathbb{Z}[x]$ if and 
     only if $g$ is irreducible in $\mathbb{Z}[x]$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $y = x - n$, so that $f(x + n) = g(y) = g(x - n)$.
@@ -299,7 +365,7 @@ By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
     Thus $f$ is irreducible in $\mathbb{Z}[x]$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 15, breakable]
+\begin{problem}{15}
     (a) Apply Eisenstein's criterion $5.7$ to check that the 
         following polynomials are irreducible
         \[5x^3 - 6x^2 + 2x - 14 \text{ and } 4x^5 + 5x^3 - 15x + 20\]
@@ -316,7 +382,8 @@ By Gauss's Lemma they are irreducible in $\mathbb{Q}[x]$.
     (d) Show that this technique works in general: Prove that if 
         $f(x) \in \mathbb{Z}[x]$, then $f(x)$ is irreducible if 
         and only if $f(y + m)$ is.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution (a):}
 Consider $2 \nmid 5$. Also $2 \mid -6,  2, -14$.
@@ -367,9 +434,10 @@ Thus $y^4 + 10y^3 + 36y^2 + 56y + 34$ is irreducible in $\mathbb{Z}[y]$.
     Thus $f(y + m)$ is reducible, which is a contradiction.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{problem}{16}
     Prove Theorem $5.7$ (Eisenstein's criterion).
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{theorem}[Eisenstein's Criterion]
     Suppose that $f \in \mathbb{Z}[x]$,
@@ -415,7 +483,7 @@ Thus $y^4 + 10y^3 + 36y^2 + 56y + 34$ is irreducible in $\mathbb{Z}[y]$.
     which is not divisible by $p$, contradicting the assumption that $p$ divides $a_k$ for all $0 \le k < n$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{problem}{17}
     Let $p$ be a positive prime integer. Then the polynomial
     \[\phi_p = \frac{x^p - 1}{x - 1}\]
     is called a \textbf{cyclotomic polynomial}.
@@ -426,7 +494,8 @@ Thus $y^4 + 10y^3 + 36y^2 + 56y + 34$ is irreducible in $\mathbb{Z}[y]$.
     (b) Prove that all cyclotomic polynomials $\phi_p$ are irreducible
         over $\mathbb{Z}[x]$, using Eisenstein's criterion $5.7$ 
         and Exercise $15d$ for $m = 1$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \textbf{Solution (a):}
 \[p = 2, \frac{x^2 - 1}{x - 1} = \frac{(x - 1)(x + 1)}{x - 1} = x + 1\]
@@ -467,5 +536,3 @@ Thus $y^4 + 10y^3 + 36y^2 + 56y + 34$ is irreducible in $\mathbb{Z}[y]$.
     By Problem 15 part d, it follows that all cyclotomic polynomials $\phi_p$ are irreducible
         over $\mathbb{Z}[x]$.
 \end{proof}
-
-

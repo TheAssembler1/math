@@ -1,0 +1,175 @@
+\begin{problem}[Warmup]{(a)}
+    Return to Exercise a in the previous chapter. In each case, determine a basis for the simple extension obtained by adjoining the element to the field in question.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Express the following field elements as a linear combination of the basis elements you determined in Exercise a.
+    \begin{enumerate}
+        \item[(a)] $\dfrac{1}{2 + \sqrt{2}} \in \mathbb{Q}(1 + \sqrt{2})$.
+        \item[(b)] $\dfrac{\sqrt[3]{2}}{1 + 2\sqrt[3]{2}} \in \mathbb{Q}(\sqrt[3]{2})$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Explain why the following statements are true, or else give a counterexample. In each case $F$ is a subfield of the field $E$, and $\alpha \in E \setminus F$:
+    \begin{enumerate}
+        \item[(a)] $F(\alpha)$ is finite dimensional over $F$.
+        \item[(b)] Let $\alpha$ be algebraic over $F$. Then $F(\alpha)$ is finite dimensional over $F$.
+        \item[(c)] Every element of $F(\alpha)$ is algebraic over $F$.
+        \item[(d)] Every element of $F(\alpha)$ is algebraic over $E$.
+        \item[(e)] Suppose that $\alpha$ is algebraic over $F$. Then every element of $F(\alpha)$ is algebraic over $F$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Explain why the minimal polynomial is unique.
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    \begin{enumerate}
+        \item[(a)] Compute the addition and multiplication tables for the field
+        $\mathbb{Z}_2(\alpha)$ described in Example 43.7. Use your table to determine
+        explicitly the multiplicative inverse of each non-zero element of this field. (This
+        exercise is essentially a repeat of Exercise 8.12.)
+        \item[(b)] In Exercise 17.18, you considered the Frobenius isomorphism, defined on
+        any finite field. Compute this homomorphism explicitly in this case.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    Consider the polynomial
+    \[f = 1 + x^2 + x^3 \in \mathbb{Z}_2(\alpha)[x],\]
+    where $\mathbb{Z}_2(\alpha)$ is the field considered in the previous exercise.
+    \begin{enumerate}
+        \item[(a)] Use the Root Theorem to show that this polynomial is irreducible.
+        \item[(b)] By Kronecker's Theorem 42.1 we can construct an extension field of
+        $\mathbb{Z}_2(\alpha)$ so that $f$ has a root $\beta$. How many elements does this
+        field have?
+        \item[(c)] If you're not doing anything this weekend, construct a multiplication
+        table for this field.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    In this problem you will prove that
+    \[f = x^6 - 6x^4 - 4x^3 + 12x^2 - 24x - 4\]
+    is the minimal polynomial for $\alpha = \sqrt{2} + \sqrt[3]{2}$, as stated in
+    Example 43.6. (We will return to this example in Example 44.3.)
+    \begin{enumerate}
+        \item[(a)] Check that $f(\alpha) = 0$.
+        \item[(b)] Show that $f$ is irreducible in $\mathbb{Q}[x]$, by using Eisenstein's
+        Criterion 5.7, after the linear change of variables $x = y + 2$ (see
+        Exercise 5.14).
+        \item[(c)] Show that $f$ can be factored into irreducibles in $\mathbb{R}[x]$ as
+        follows:
+        \begin{align*}
+            &\left(x - \sqrt{2} - \sqrt[3]{2}\right)
+            \left(x^2 - (2\sqrt{2} + \sqrt[3]{2})x + (2 + \sqrt{2}\sqrt[3]{2} + \sqrt[3]{4})\right) \\
+            &\left(x + \sqrt{2} - \sqrt[3]{2}\right)
+            \left(x^2 + (2\sqrt{2} - \sqrt[3]{2})x + (2 - \sqrt{2}\sqrt[3]{2} + \sqrt[3]{4})\right).
+        \end{align*}
+        \item[(d)] How would you factor $f$ into irreducibles in $\mathbb{C}[x]$? (You need
+        not feel obliged to actually carry this out!)
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    Determine the minimal polynomial of $\sqrt{2} + \sqrt{3}$ over the following three
+    fields: $\mathbb{Q}$, $\mathbb{Q}(\sqrt{2})$, $\mathbb{R}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Let $\alpha = \sqrt{2} + \sqrt[3]{2}$, and $f$ be its minimal polynomial, as in
+    Example 43.6, and in Exercise 3. Show explicitly that the following elements of
+    $\mathbb{Q}(\alpha)$ are linear combinations of
+    \[1, \alpha, \alpha^2, \ldots, \alpha^5.\]
+    \begin{enumerate}
+        \item[(a)] $\dfrac{1}{\alpha + 1}$.
+        \item[(b)] $\dfrac{\alpha}{1 + \alpha^2}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Let
+    \[K = \left\{\frac{f(\pi)}{g(\pi)} \in \mathbb{R} : f, g \in \mathbb{Q}[x],\ g \neq 0\right\},\]
+    as given in Example 43.10.
+    \begin{enumerate}
+        \item[(a)] Why do the quotients defined above always make sense? (That is, why are
+        the denominators always non-zero?)
+        \item[(b)] Show that $K$ is a subfield of $\mathbb{R}$.
+        \item[(c)] Argue that $K = \mathbb{Q}(\pi)$.
+        \item[(d)] Are the elements in $K$ uniquely represented, as we've presented them in
+        the definition of $K$?
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Let $F$ be a subfield of the field $E$, and suppose that $\alpha \in E$ is
+    transcendental over $F$. Using Exercise 6 as a model, formulate an explicit description
+    of the members of the simple extension $F(\alpha)$, and prove that your formulation
+    works.
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
+    Let $F$ be a subfield of the field $E$, and suppose that $\alpha \in E$ is 
+        transcendental over $F$.
+    \begin{enumerate}
+        \item Show that 
+        \[1, \alpha, \alpha^2, \alpha^3, \cdots\]
+        is a linearly independent set of the vector space $F(\alpha)$ (over $F$).
+        \item Why does the previous part mean that the dimension of $F(\alpha)$ over $F$ is infinite.
+        \item Show that the set in the first part is \emph{not} a basis for $F(\alpha)$ over $F$.
+    \end{enumerate}
+\end{problem}
+\solved
+
+\begin{proof}
+    Suppose for contradiction that $1, \alpha, \alpha^2, \ldots$ are linearly
+    dependent over $F$. 
+    There exist $n \ge 0$ and $b_0, \ldots, b_n \in F$, not all zero, with
+    \[
+        b_0 + b_1 \alpha + \cdots + b_n \alpha^n = 0.
+    \]
+    Let $f(x) = b_0 + b_1 x + \cdots + b_n x^n \in F[x]$. Since some $b_i \ne 0$,
+    $f$ is a nonzero polynomial, and $f(\alpha) = 0$. Thus
+    $\alpha$ is algebraic over $F$, contradicting that $\alpha$ is transcendental.
+\end{proof}
+
+\begin{proof}
+    If $F(\alpha)$ had finite dimension $n$ over $F$, then every linearly
+    independent subset of $F(\alpha)$ would have at most $n$ elements. But
+    $1, \alpha, \ldots, \alpha^n$ are $n + 1$ linearly independent elements
+    by the first part, a contradiction.
+\end{proof}
+
+\begin{proof}
+    Since $0$ is algebraic over $F$, $\alpha \ne 0$, so $\alpha^{-1} \in F(\alpha)$.
+    Suppose for contradiction that $\alpha^{-1} = b_0 + b_1 \alpha + \cdots + b_n \alpha^n$
+    for some $b_0, \ldots, b_n \in F$. Multiplying by $\alpha$ gives
+    \[
+        b_n \alpha^{n+1} + \cdots + b_0 \alpha - 1 = 0,
+    \]
+    so $\alpha$ is a root of $g(x) = b_n x^{n+1} + \cdots + b_0 x - 1 \in F[x]$.
+    The constant term of $g$ is $-1$, so $g$ is nonzero, and $\alpha$ is algebraic
+    over $F$, a contradiction. Thus $\alpha^{-1}$ is not in the span of
+    $1, \alpha, \alpha^2, \ldots$, so this set is not a basis of $F(\alpha)$.
+\end{proof}
+\begin{problem}{9}
+    In this exercise we perform some additional verifications related to Example 43.9.
+    Show that $\sqrt[3]{2}, \sqrt[3]{2}\zeta \notin \mathbb{Q}(\sqrt[3]{2}\zeta^2)$ and
+    $\sqrt[3]{2}\zeta^2 \notin \mathbb{Q}(\sqrt[3]{2}\zeta)$. Thus, in each case the field
+    isomorphisms between the three simple extensions of Example 43.9 are very simply
+    described. How?
+\end{problem}
+\unsolved

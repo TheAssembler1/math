@@ -1,6 +1,53 @@
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}[Warmup]{(a)}
+    Why aren't $\mathbb{Z}_5$ and $\mathbb{Z}_7$ isomorphic?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Suppose that the field $F$ is isomorphic to a ring $R$. Is $R$ a field?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Suppose that the domain $D$ is isomorphic to a ring $R$. Is $R$ a domain?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Is every commutative ring isomorphic to a ring of cosets?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Suppose that $\varphi : R \to S$ is a ring homomorphism between commutative rings $R$ and $S$. Is $R/\ker(\varphi)$ isomorphic to $S$? Be careful! What \emph{is} true in this situation?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    In what sense are the ideas of `ideal' and `homomorphism' equivalent?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Suppose that the elements of a commutative ring $R$ are matrices, and $R$ is isomorphic to the ring $S$. Are the elements of the ring $S$ necessarily matrices? (If necessary, you should have a look at Exercise 16.7.)
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(h)}
+    Explain why $\varphi : \mathbb{Z}_5 \to \mathbb{Z}_5$, defined by $\varphi([a]_5) = [3a]_5$, is a one-to-one onto function that is not a ring isomorphism.
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Check that the homomorphisms given in Exercises 16.7 and 16.9 are in fact
+    isomorphisms.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
 Show that the rings $\mathbb{Z}_8$, $\mathbb{Z}_4 \times \mathbb{Z}_2$, and $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_2$ are all non-isomorphic, even though each of these rings has the same number of elements.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Looking at the additive orders of elements in each ring,
@@ -20,13 +67,69 @@ Show that the rings $\mathbb{Z}_8$, $\mathbb{Z}_4 \times \mathbb{Z}_2$, and $\ma
 \end{proof}
 
 \newpage
-\begin{tcolorbox}[title=Problem 9, breakable]
+
+\begin{problem}{3}
+    Prove that $\mathbb{Z}[i]/\langle 1 + i \rangle$ is isomorphic to $\mathbb{Z}_2$, by
+    defining a homomorphism from $\mathbb{Z}[i]$ onto $\mathbb{Z}_2$ whose kernel is
+    $\langle 1 + i \rangle$, and using the Fundamental Theorem 19.1. (Compare this to
+    Exercise 18.3.)
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    Let $I = \{f \in C[0, 1] : f(1/4) = 0\}$. Prove that $C[0, 1]/I$ is isomorphic to
+    $\mathbb{R}$ by defining the appropriate homomorphism from $C[0, 1]$ onto $\mathbb{R}$
+    and using the Fundamental Theorem 19.1. (Compare this to Exercise 18.4.)
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Let $I = \langle (3, 4) \rangle \subseteq \mathbb{Z} \times \mathbb{Z}$. Prove that
+    $(\mathbb{Z} \times \mathbb{Z})/I$ is isomorphic to $\mathbb{Z}_{12}$, by using a
+    homomorphism of the form $\varphi(a, b) = [ax + by]_{12}$ (for some fixed $x, y$).
+    (Compare this to Exercise 18.5.)
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Use the Fundamental Theorem to prove that
+    \[(\mathbb{Q}[x] \times \mathbb{Z})/\langle (x, 2) \rangle\]
+    is isomorphic to $\mathbb{Q} \times \mathbb{Z}_2$.
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Let $R$ be the set $\mathbb{Q} \times \mathbb{Q}$. We will equip this set with
+    operations, other than the usual ones for the direct product, as described in
+    Example 6.10. Namely, define the operations
+    \[(a, b) + (c, d) = (a + c, b + d)\]
+    (this is the usual addition), and
+    \[(a, b)(c, d) = (ac, ad + bc).\]
+    \begin{enumerate}
+        \item[(a)] Prove from first principles that $R$ is a ring.
+        \item[(b)] Use the Fundamental Theorem to prove that $R$ is isomorphic to
+        $\mathbb{Q}[x]/\langle x^2 \rangle$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
+    Prove that $\mathbb{Z}_2 \times \mathbb{Z}_3$ is isomorphic to $\mathbb{Z}_6$ by
+    showing that the homomorphism $\varphi([a]_2, [b]_3) = [3a + 4b]_6$ is onto and has
+    zero kernel. (Or, simply that it is onto and $\mathbb{Z}_2 \times \mathbb{Z}_3$ and
+    $\mathbb{Z}_6$ both have 6 elements.) What gets mapped to $[1]_6$? To $[2]_6$?
+    $[3]_6$? $[4]_6$? $[5]_6$?
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
 Let $X$ be a set with $n$ elements; consider the power set ring $P(X)$ of subsets of $X$ (described in Exercise 6.20). Consider also the ring
 \[
 \mathbb{Z}_2 \times \mathbb{Z}_2 \times \cdots \times \mathbb{Z}_2
 \]
 of $n$-tuples whose entries are taken from $\mathbb{Z}_2$. Prove that these two rings are isomorphic.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Label the elements of $X$ as $x_1, \ldots, x_n$. Define $\varphi: P(X) \to \mathbb{Z}_2^n$ by
@@ -44,9 +147,32 @@ of $n$-tuples whose entries are taken from $\mathbb{Z}_2$. Prove that these two 
     Thus $\varphi$ is a ring isomorphism.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{10}
+    Consider the ring $\mathbb{Z}[\alpha]$, described in Exercise 7.3. Prove that
+    \[\mathbb{Z}[\alpha]/\langle 1 + \alpha \rangle\]
+    is isomorphic to the ring $\mathbb{Z}_6$, by defining a homomorphism
+    $\varphi : \mathbb{Z}[\alpha] \to \mathbb{Z}_6$ with the appropriate kernel. (Compare
+    this to Exercise 18.7.)
+\end{problem}
+\unsolved
+
+\begin{problem}{11}
+    Consider the homomorphism $\varphi : C \to \mathbb{R}$ given in Exercise 16.30. What
+    two rings are isomorphic, according to the Fundamental Theorem?
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
+    Use the Fundamental Theorem to prove that $\mathbb{Q}[x]/\langle x^2 \rangle$ and
+    \[\left\{\begin{pmatrix} a & b \\ 0 & a \end{pmatrix} \in M_2(\mathbb{Q}) : a, b \in \mathbb{Q}\right\}\]
+    are isomorphic. (Compare this to Exercise 7 above.)
+\end{problem}
+\unsolved
+
+\begin{problem}{13}
 Prove that the fields $\mathbb{R}$ and $\mathbb{C}$ are \textit{not} isomorphic. 
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose there exists a ring isomorphism  $\varphi : \mathbb{C} \to \mathbb{R}$.
@@ -59,9 +185,10 @@ Prove that the fields $\mathbb{R}$ and $\mathbb{C}$ are \textit{not} isomorphic.
     But with $\varphi(i) \in \mathbb{R}$ this is a contradiction.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{14}
 Prove that the fields $\mathbb{R}$ and $\mathbb{Q}$ are \textit{not} isomorphic. 
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose there exists a ring isomorphism  $\varphi : \mathbb{R} \to \mathbb{Q}$.
@@ -73,9 +200,10 @@ Prove that the fields $\mathbb{R}$ and $\mathbb{Q}$ are \textit{not} isomorphic.
     This contradicts the irrationality of $\sqrt{2}$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 15, breakable]
+\begin{problem}{15}
 Prove that the fields $\mathbb{Q}$ and $\mathbb{C}$ are not isomorphic.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose there exists a ring isomorphism  $\varphi : \mathbb{C} \to \mathbb{Q}$.
@@ -88,15 +216,34 @@ Prove that the fields $\mathbb{Q}$ and $\mathbb{C}$ are not isomorphic.
 \end{proof}
 
 \newpage
-\begin{tcolorbox}[title=Problem 16, breakable]
+
+\begin{problem}{16}
 If you have encountered the ideas of \textit{countably infinite} and \textit{uncountably infinite} sets, another proof of Exercise 14 (and 15) is possible. What is it?
-\end{tcolorbox}
+\end{problem}
+\unsolved
 
 \textbf{Solution: } Have not.
 
-\begin{tcolorbox}[title=Problem 18, breakable]
+\begin{problem}{17}
+    Suppose that rings $R$ and $S$ are isomorphic, via the isomorphism
+    $\varphi : R \to S$.
+    \begin{enumerate}
+        \item[(a)] Show that the rings $R[x]$ and $S[x]$ are isomorphic, by defining a ring
+        isomorphism $\bar{\varphi} : R[x] \to S[x]$ which extends $\varphi$; by this we
+        mean that if $r \in R$, then $\varphi(r) = \bar{\varphi}(r)$.
+        \item[(b)] Suppose now that the rings $R$ and $S$ are fields. Prove that $r \in R$
+        is a root of $f \in R[x]$ if and only if $\varphi(r)$ is a root of
+        $\bar{\varphi}(f)$.
+        \item[(c)] Suppose again that $R$ and $S$ are fields. Prove that $f \in R[x]$ is
+        irreducible if and only if $\bar{\varphi}(f) \in S[x]$ is irreducible.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{18}
 Suppose that the commutative rings $R$ and $S$ are isomorphic, via the isomorphism $\varphi : R \to S$. Let $r \in R$. Use the Fundamental Isomorphism Theorem to prove that the rings $R/\langle r \rangle$ and $S/\langle \varphi(r) \rangle$ are isomorphic.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $\pi : S \to S/\langle \varphi(r) \rangle$ be the quotient map, and consider the
@@ -118,9 +265,10 @@ Suppose that the commutative rings $R$ and $S$ are isomorphic, via the isomorphi
     \]
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 19, breakable]
+\begin{problem}{19}
 Extend Exercise 18. Suppose that the commutative rings $R$ and $S$ are isomorphic via the isomorphism $\varphi : R \to S$. Let $I$ be an ideal of $R$; by Exercise 16.31 we know that $\varphi(I)$ is an ideal of $S$. Prove that the rings $R/I$ and $S/\varphi(I)$ are isomorphic.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $\psi : R \longrightarrow S/\varphi(I)$ be defined by $\psi(r) = (q \circ \varphi)(r)$,
@@ -138,13 +286,23 @@ Extend Exercise 18. Suppose that the commutative rings $R$ and $S$ are isomorphi
 \end{proof}
 
 \newpage
-\begin{tcolorbox}[title=Problem 21, breakable]
+
+\begin{problem}{20}
+    Suppose that the commutative rings $R$ and $S$ are isomorphic via the isomorphism
+    $\varphi : R \to S$. Combine Exercises 17 and 19 to conclude that if $f \in R[x]$,
+    then the rings $R[x]/\langle f \rangle$ and $S[x]/\langle \bar{\varphi}(f) \rangle$
+    are isomorphic.
+\end{problem}
+\unsolved
+
+\begin{problem}{21}
 Suppose that $R$ is a commutative ring, with ideals $A$ and $I$, where $I \subseteq A$.
 \begin{enumerate}[label=(\alph*)]
     \item Prove that $A/I$ is an ideal in the ring $R/I$.
     \item Prove that $(R/I)/(A/I)$ is isomorphic to $R/A$.
 \end{enumerate}
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Clearly $I = I + 0 \in A/I$ so $A/I \ne \emptyset$.
@@ -170,9 +328,17 @@ Suppose that $R$ is a commutative ring, with ideals $A$ and $I$, where $I \subse
     By the first isomorphism theorem $(R/I)/(A/I) \cong R/A$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 23, breakable]
+\begin{problem}{22}
+    Let $R = C[0, 1]$, $I = \{f \in C[0, 1] : f(0) = f(1) = 1\}$ and
+    $A = \{f \in C[0, 1] : f(0) = 1\}$. Check that $R, A, I$ satisfy the hypotheses of
+    Exercise 21. Then exhibit explicitly the isomorphism given by that exercise.
+\end{problem}
+\unsolved
+
+\begin{problem}{23}
 Let $R$ be a commutative ring with ideals $I$ and $J$. Then $I \cap J$ and $I + J$ are also ideals of $R$. (See Exercises 11.12 and 11.14.) Furthermore, $I \cap J$ is an ideal of $I$ and $J$ is an ideal of $I + J$. (See Exercise 11.13.) Prove that the rings $I/(I \cap J)$ and $(I + J)/J$ are isomorphic.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Let $\psi : I \longrightarrow (I + J)/J$ be defined by $\psi(i) = q(i)$,
@@ -186,3 +352,10 @@ Let $R$ be a commutative ring with ideals $I$ and $J$. Then $I \cap J$ and $I + 
     So $\operatorname{ran} \psi = (I + J)/J$. It follows by the First Isomorphism Theorem that
     $I/(I \cap J) \cong (I + J)/J$, as required.
 \end{proof}
+
+\begin{problem}{24}
+    Let $R$ be $\mathbb{Z}$, $I = \langle 12 \rangle$ and $J = \langle 8 \rangle$. Check
+    that $R, I, J$ satisfy the hypotheses of Exercise 23. Then exhibit explicitly the
+    isomorphism given by that exercise.
+\end{problem}
+\unsolved

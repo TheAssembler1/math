@@ -1,9 +1,60 @@
 \newpage
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}[Warmup]{(a)}
+    Give examples of a commutative ring with unity and an ideal satisfying the following (or argue that no such example exists):
+    \begin{enumerate}
+        \item[(a)] the ideal is prime but not maximal.
+        \item[(b)] the ideal is maximal but not prime.
+        \item[(c)] the ideal is prime and the ring has zero divisors.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Explain why $\langle x^2 - 2 \rangle$ is a maximal ideal of $\mathbb{Q}[x]$, but not of $\mathbb{R}[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Explain why $\langle x - 2 \rangle$ is a prime ideal of $\mathbb{Z}[x]$ but is not maximal.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Give the quickest possible proof that a maximal ideal is prime.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    What are the zero divisors of $\mathbb{Z} \times \mathbb{Z}$? What about of $\mathbb{Z}_4 \times \mathbb{Z}$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Let $R$ be a commutative ring with unity. Under what circumstances is $\{0\}$ a prime ideal? A maximal ideal?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Let $R$ be a commutative ring with unity. Why isn't the ideal $R$ maximal or prime?
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Let $R$ be a commutative ring with unity, $I$ an ideal of $R$, and $a \in R$. Define
+    \[\langle I, a \rangle = \{k + ab : k \in I, b \in R\}.\]
+    Prove that $\langle I, a \rangle$ is an ideal. Then show that
+    $I \subseteq \langle I, a \rangle$ and $a \in \langle I, a \rangle$. Furthermore, show
+    that $\langle I, a \rangle$ is the smallest ideal of $R$ that contains both $I$ and
+    $a$. (This result is needed in the proof of Theorem 20.1.)
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
     Prove Theorem 20.3. That is, suppose the $R$ is a commutative ring,
     and $0 \ne a \in R$. Prove that $\langle a \rangle$
     is a prime ideal if and only if $a$ is a prime element.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $\langle a \rangle$ is a prime ideal.
@@ -25,21 +76,92 @@
         so $\langle a \rangle$ is a prime ideal, as required.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{3}
+    Let $p$ be a prime integer in $\mathbb{Z}$. Prove directly that $\langle p \rangle$ is
+    a maximal ideal.
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
     Find all prime ideals of $\mathbb{Z}$. Find all maximal ideals of $\mathbb{Z}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution: } The ideals of the form $\langle p \rangle$
 (all ideals are of this form since $\mathbb{Z}$ is a PID) where $p$ is prime (which corresponds to irreducibility in $\mathbb{Z}$)
 are maximal, and these are all of the maximal ideals.
 The prime ideals are exactly the maximal ideals together with $\langle 0 \rangle$.
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{5}
+    Find all prime ideals of $\mathbb{Z}_{20}$. Find all maximal ideals of
+    $\mathbb{Z}_{20}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Find all prime ideals of $\mathbb{Z} \times \mathbb{Z}$. Find all maximal ideals of
+    $\mathbb{Z} \times \mathbb{Z}$.
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Find all prime ideals of $\mathbb{Z}_2 \times \mathbb{Z}_3$; find all maximal ideals of
+    $\mathbb{Z}_2 \times \mathbb{Z}_3$. Now do the same for $\mathbb{Z}_2 \times \mathbb{Z}_4$.
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
     Find all prime ideals of $\mathbb{Q}$ and $\mathbb{Q} \times \mathbb{Q}$; do likewise for all maximal ideals.
-\end{tcolorbox} 
+\end{problem}
+\unsolved
 
 \newpage
-\begin{tcolorbox}[title=Problem 12, breakable]
+
+\begin{problem}{9}
+    Consider $\mathbb{Q}[x, y]$, the set of all polynomials with coefficients from
+    $\mathbb{Q}$, in the two indeterminates $x$ and $y$. In Exercise 12.12, you considered
+    this ring and showed that it is not a PID.
+    \begin{enumerate}
+        \item[(a)] Consider the function $\psi : \mathbb{Q}[x, y] \to \mathbb{Q}$ defined by
+        $\psi(f) = f(0, 0)$. Why is this a ring homomorphism? Why is the kernel of $\psi$
+        a maximal ideal? Determine explicitly a nice description of the kernel.
+        \item[(b)] Consider the function $\rho : \mathbb{Q}[x, y] \to \mathbb{Q}[x]$ defined
+        by $\rho(f) = f(x, 0)$. Why is this a ring homomorphism? Why is the kernel of
+        $\rho$ a prime ideal? Determine explicitly a nice description of the kernel. Find a
+        larger proper ideal, thus showing concretely that this ideal is not maximal.
+        \item[(c)] Consider the function $\varphi : \mathbb{Q}[x, y] \to \mathbb{Q}[x]$
+        defined by $\varphi(f) = f(x, x)$. Prove that this is a ring homomorphism. Why is
+        the kernel of $\varphi$ prime but not maximal? Determine explicitly a nice
+        description of the kernel. Find a larger proper ideal, thus showing concretely
+        that this ideal is not maximal.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{10}
+    Consider the function $\varphi : \mathbb{Z} \to \mathbb{Z} \times \mathbb{Z}$ defined
+    by $\varphi(n) = (n, n)$. Check that this is a homomorphism. Now,
+    $\ker(\varphi) = \{0\}$. Argue directly from the definition that $\{0\}$ is a prime
+    ideal of $\mathbb{Z}$. Now $\mathbb{Z} \times \mathbb{Z}$ is obviously not a domain;
+    why does this not contradict the theorem in the text characterizing prime ideals?
+\end{problem}
+\unsolved
+
+\begin{problem}{11}
+    Consider the function $\varphi : \mathbb{Q}[x] \to \mathbb{R}$ defined by
+    $\varphi(f) = f(\sqrt{2})$. Check that this is a homomorphism.
+    \begin{enumerate}
+        \item[(a)] Describe the elements of the ring $\varphi(\mathbb{Q}[x])$.
+        \item[(b)] This ring is clearly a domain (because it is a subring of $\mathbb{R}$).
+        Is it a field?
+        \item[(c)] What is the kernel of this homomorphism? Is it prime or maximal?
+        \item[(d)] How could we reach the conclusion for part c, using an argument from
+        Chapter 13?
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
     Consider the function 
     \[\rho : \mathbb{Z}[x] \longrightarrow \mathbb{Z}_3 [x]\]
     defined by 
@@ -48,7 +170,8 @@ The prime ideals are exactly the maximal ideals together with $\langle 0 \rangle
         \item Prove that this is an onto ring homomorphism.
         \item Why is the kernel of $\rho$ a prime ideal? Give an explicit description of its kernel (it is a principal ideal).
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $f = \sum a_i x^i$ and
@@ -77,8 +200,87 @@ The prime ideals are exactly the maximal ideals together with $\langle 0 \rangle
     domain because $\mathbb{Z}_3$ is. Therefore $\ker \rho$ is a prime ideal.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{problem}{13}
+    Consider the ideal $\langle x^2 - 2 \rangle$ in $\mathbb{Q}[x]$, discussed in
+    Example 20.5. Prove that this is a maximal ideal, without using either Chapter 13 or
+    Theorem 20.1.
+\end{problem}
+\unsolved
+
+\begin{problem}{14}
+    Consider the function $\varphi : \mathbb{Z}[x] \to \mathbb{Q}$ defined by
+    $\varphi(f) = f(-1/2)$.
+    \begin{enumerate}
+        \item[(a)] What is the kernel of $\varphi$?
+        \item[(b)] We know that $\mathbb{Q}$ is a field. Does this mean that
+        $\ker(\varphi)$ is a maximal ideal? Be careful!
+        \item[(c)] Give a nice description of the elements $\varphi(\mathbb{Z}[x])$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{15}
+    Consider the homomorphism discussed in Exercise 16.30 and Exercise 19.11. What ideal
+    do we now know is maximal? Prove that this ideal is maximal directly, from the
+    definition.
+\end{problem}
+\unsolved
+
+\begin{problem}{16}
+    Consider the homomorphism discussed in Exercise 16.10 and Exercise 19.9. What ideal
+    do we now know is maximal? Prove that this ideal is maximal directly, from the
+    definition.
+\end{problem}
+\unsolved
+
+\begin{problem}{17}
     Let $R$ be a commutative ring with unity, and $I$ a prime ideal of $R$.
     NOte that $I[x]$ is a subring of $R[x]$. Prove that $I[x]$ is a prime ideal of $R[x]$.
     Now suppose that $I$ is a maximal ideal; show by example that $I[x]$ need not be maximal.
-\end{tcolorbox} 
+\end{problem}
+\unsolved
+
+\begin{problem}{18}
+    Let $R$ and $S$ be commutative rings. Prove that if the direct product $R \times S$ is
+    a domain, then exactly one of $R$ and $S$ is the zero ring.
+\end{problem}
+\unsolved
+
+\begin{problem}{19}
+    It turns out that in a commutative ring with unity, every proper ideal is a subset of
+    a maximal ideal. (The proof of this theorem requires more sophisticated set theory
+    than we wish to enquire into here.) Use this theorem to establish the following:
+    \begin{enumerate}
+        \item[(a)] Prove that every commutative ring with unity has a field as a
+        homomorphic image.
+        \item[(b)] If the commutative ring $R$ with unity has a unique maximal ideal $M$,
+        then $M$ consists of exactly the set of non-units.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{20}
+    Let $P$ be an ideal of a commutative ring with unity. Prove that $P$ is a prime ideal
+    if and only if, whenever $P \supseteq I \cdot J$, where $I$ and $J$ are ideals, then
+    $P \supseteq I$ or $P \supseteq J$. (For the definition of the product of two ideals,
+    see Exercise 11.15.)
+\end{problem}
+\unsolved
+
+\begin{problem}{21}
+    Prove that in a PID, a non-zero proper ideal is prime if and only if it is maximal.
+\end{problem}
+\unsolved
+
+\begin{problem}{22}
+    Prove that in a finite commutative ring with unity, a proper ideal is prime if and
+    only if it is maximal.
+\end{problem}
+\unsolved
+
+\begin{problem}{23}
+    Let $R$ be a commutative ring with unity, for which every element is an idempotent;
+    such a ring is called \textbf{Boolean}. (See Exercise 7.25 for more about
+    idempotents.) Prove that in $R$, a proper ideal is prime if and only if it is maximal.
+\end{problem}
+\unsolved

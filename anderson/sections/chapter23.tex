@@ -1,18 +1,52 @@
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{problem}[Warmup]{(a)}
+    We noted that a symmetry of the cube is determined if we specify the color of the front and right faces, after the motion. Is the symmetry determined when we specify the color of some different pair of faces? Does this work for \emph{any} pair of faces?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Compute the following elements twice in the group of symmetries of the tetrahedron, once using the group table, and once using the representation as permutations: \[\varphi_1\rho_2^2\varphi_2, \quad \varphi_2\varphi_1\varphi_2, \quad \rho_1\rho_3.\]
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Explain the geometric meaning of the block substructure in the group table for the symmetries of the regular tetrahedron.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Compute the following elements twice in the group of symmetries of the cube, once using the group table, and once using the representation as permutations: \[\alpha_3\rho_2\mu_1^2, \quad \rho_2\rho_1, \quad \alpha_1\rho_1^3\alpha_1.\]
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Describe any block substructure that you detect in the group table for the cube.
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
     Find all symmetries of a pyramid as draw below 
     (the base is a square, and the four sides are congruent).
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution:}
 There are $4$ symmetries by rotating the base $3$ times plus the identity.
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{2}
+    Show that $\rho_1$ and $\varphi_1$ \emph{generate} the group of symmetries of the
+    tetrahedron. This means that you can find a formula for each of the other symmetries,
+    in terms only of $\rho_1$ and $\varphi_1$. (By all means, use our group table!)
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
     Consider the \emph{flatlanders}, who live in the plane 
     and consequently cannot conceive of motion in three dimensions.
     Formulate a definition for $\mathbb{R}^2$ for flatlanders,
     and then determine for them the group of symmetries 
     of the equilateral triangle and the square.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution:}
 A symmetry is a one-to-one onto function $\beta : \mathbb{R}^2 \longrightarrow \mathbb{R}^2$
@@ -20,13 +54,52 @@ A symmetry is a one-to-one onto function $\beta : \mathbb{R}^2 \longrightarrow \
 There are $4$ symmetries of the square and $3$ symmetries of the equilateral triangle 
 under this definition of symmetry in $\mathbb{R}^2$.
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{4}
+    In our discussion of the symmetries of the tetrahedron, we excluded the symmetry
+    corresponding to the permutation
+    \[\begin{pmatrix} 1 & 2 & 3 & 4 \\ 1 & 4 & 3 & 2 \end{pmatrix},\]
+    because it could not be accomplished by a rigid motion of space. However, we did
+    observe that it could be accomplished by a reflection through a plane; this is called
+    a \emph{mirror reflection}. Show that \emph{all} of the excluded permutations for the
+    group of symmetries of the tetrahedron are mirror reflections. Specify the plane for
+    each of these twelve permutations.
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Are there any mirror reflections that leave the cube fixed? (See the previous exercise
+    for a discussion of mirror reflections.) Can you determine how many such there are?
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Find all symmetries of the `tent' (a triangular prism, pictured in the book). The ends
+    are equilateral triangles, and the sides are congruent non-square rectangles. Give the
+    group table. Comment on its relationship to the group table for the triangle.
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    (For those comfortable with multiplying $3 \times 3$ matrices.) Consider the
+    tetrahedron in $\mathbb{R}^3$ with vertices at
+    \[(1, 1, -1), (-1, -1, -1), (1, -1, 1), \text{ and } (-1, 1, 1).\]
+    If we label these vertices 1, 2, 3, 4, respectively, then this corresponds to the
+    labeling of the tetrahedron we used in the text. Notice that the matrix
+    \[F_1 = \begin{pmatrix} -1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\]
+    corresponds to the symmetry $\varphi_1$. Find a matrix which corresponds to the
+    symmetry $\rho_1$, and then determine matrices for all the other symmetries, using
+    Exercise 2 above.
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
     Consider a cube with a special down face: This face is 
     different, and consequently, a symmetry must leave it alone; the 
     face might be rotated, but must remain the down face.
     (You might imagine a circular dot in the center of this face.)
     How many symmetries of the unmarked cube are still symmetries 
     of this cube.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution:} The four symmetries that rotate the base.

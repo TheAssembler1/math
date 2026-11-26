@@ -1,19 +1,119 @@
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}[Warmup]{(a)}
+    What is the kernel of $\varphi : \mathbb{Z}_6 \to \mathbb{Z}_2$ given by $\varphi([a]_6) = [a]_2$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Write down the pre-images from the example in part a, and check that they are cosets.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Consider the function $f : \mathbb{R} \to \mathbb{R}$ defined by $f(x) = x^2$. How many real numbers are there for which $f(x) = 0$? How about for $f(x) = 4$? Why does this tell us that $f$ is \emph{not} a homomorphism?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Give examples of ring homomorphisms $\varphi$ satisfying the following (or say why you can't):
+    \begin{enumerate}
+        \item[(a)] $\varphi$ is onto, and its kernel is $\{0\}$.
+        \item[(b)] $\varphi$ is onto, and its kernel is not $\{0\}$.
+        \item[(c)] $\varphi$ is one-to-one, and its kernel is $\{0\}$.
+        \item[(d)] $\varphi$ is one-to-one, and its kernel is not $\{0\}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    If you've read Chapter 11, give an example of a subring that is not the kernel of any ring homomorphism (if you can).
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    If you've read Chapter 11, give an example of a kernel of a ring homomorphism that is not a subring (if you can).
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    Consider the homomorphism given in Exercise 16.5. What is its kernel? What does this
+    mean about the homomorphism?
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
+    Consider the homomorphism given by Exercise 16.7. What is its kernel?
+\end{problem}
+\unsolved
+
+\begin{problem}{3}
+    Consider the homomorphism given by Exercise 16.10. What is its kernel? Can you
+    describe this kernel as a principal ideal $\langle b \rangle$, for some subset
+    $b \in P(X)$?
+\end{problem}
+\unsolved
+
+\begin{problem}{4}
+    What is the kernel of the homomorphism given by Exercise 16.13?
+\end{problem}
+\unsolved
+
+\begin{problem}{5}
+    Consider the homomorphism $\varphi$ given by Exercise 16.14. Prove that
+    $\ker(\varphi) = \langle 3 + \alpha, 4 \rangle$.
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    What is the kernel of the homomorphism given by Exercise 16.17?
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    What is the kernel of the homomorphism given by Exercise 16.22?
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
+    Consider again the ring homomorphism of Example 17.1, namely, the function
+    $\varphi : \mathbb{Q}[x] \to \mathbb{Q}$ defined by $\varphi(f) = f(2)$. Consider the
+    translates of $\langle x - 2 \rangle$ by each of the constant polynomials (one for
+    each rational). Show that each of these gives rise to a different pre-image of
+    $\varphi$.
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
+    (Continuation of Exercise 8.) Now show that all the pre-images of $\varphi$ can be
+    obtained in this manner.
+\end{problem}
+\unsolved
+
+\begin{problem}{10}
     If $F$ is a field and $\rho$ is a ring homomorphism, is $\rho(F)$
     also a field? If yes, prove it? If no, give a counterexample.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Consider the mapping $f : \mathbb{R} \longrightarrow \mathbb{R}$ defined 
     \[f(x) = 0 \text{ for all } x \in \mathbb{R}.\]
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{11}
+    Consider the projection homomorphism $\pi_1 : R \times S \to R$ given in
+    Exercise 16.4. What is the kernel of $\pi_1$? When do two elements of $R \times S$ get
+    mapped to the same element of $R$? The set of pre-images of $\pi_1$ is naturally in
+    one-to-one correspondence with what ring?
+\end{problem}
+\unsolved
+
+\begin{problem}{12}
     If $I$ is an ideal of a commutative ring $R$, then show that two cosets of $I$
     (say $I + a$ and $I + b$) are either equal or disjoint. (That is the 
     set of all translates of $I$ \emph{partition} $R$.) If you've previously 
     encountered the idea of equivalence relation, rephrase this result in terms of that concept.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $I+a \cap I+b \neq \emptyset$. Then there exists $x \in R$ such that
@@ -35,11 +135,33 @@
     Then the equivalence classes under $\sim$ are exactly the cosets of $I$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{problem}{13}
+    Consider the homomorphism given by Exercise 16.24. What is the kernel of this
+    homomorphism? Can you describe this kernel as a principal ideal?
+\end{problem}
+\unsolved
+
+\begin{problem}{14}
+    Let $R$ be a commutative ring with unity, and suppose that $e$ is an idempotent
+    element. (That is, $e^2 = e$.) See Exercise 7.25 for more about idempotents. Define
+    $\varphi : R \to R$ by setting $\varphi(r) = er$. Prove that $\varphi$ is a ring
+    homomorphism. Describe its kernel.
+\end{problem}
+\unsolved
+
+\begin{problem}{15}
+    This is a converse for Exercise 14. Suppose that $R$ is a commutative ring with
+    unity, $a \in R$, and $\varphi(r) = ar$ defines a ring homomorphism. Prove that $a$
+    is idempotent.
+\end{problem}
+\unsolved
+
+\begin{problem}{16}
     Let $R$ be a finite commutative ring, with $n$ elements.
     Suppose that $I$ is an ideal of $R$ with $m$ elements.
     Prove that $m$ divides $n$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Notice $R / I$ divides $R$ into partitions 
@@ -47,3 +169,33 @@
     By Problem 16 these partitions are disjoint and their union is $R$.
     Thus $|I| x = |R|$ for some $x = |R/I|$.
 \end{proof}
+
+\begin{problem}{17}
+    Suppose that $F$ is a finite field with characteristic 2. (See Exercise 8.11 for a
+    definition of characteristic.)
+    \begin{enumerate}
+        \item[(a)] Prove that $\varphi : F \to F$, defined by $\varphi(r) = r^2$ is a ring
+        isomorphism.
+        \item[(b)] One example of a field with characteristic 2 is $\mathbb{Z}_2$.
+        Describe the isomorphism $\varphi$ explicitly in this case.
+        \item[(c)] Another example of a field with characteristic 2 is the field described
+        in Exercise 8.12, which consists of the elements
+        \[\{0, 1, \alpha, 1 + \alpha\}.\]
+        Describe the isomorphism $\varphi$ explicitly in this case.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{18}
+    Generalize Exercise 17. That is, suppose that $F$ is a finite field with
+    characteristic $p$.
+    \begin{enumerate}
+        \item[(a)] Prove that $\varphi : F \to F$ defined by $\varphi(r) = r^p$ is a ring
+        isomorphism. This function is called the \textbf{Frobenius isomorphism}.
+        \item[(b)] Suppose now that the finite field $F$ is the field $\mathbb{Z}_p$.
+        Explain why Fermat's Little Theorem 8.7 implies that in this case the Frobenius
+        isomorphism is actually the identity map. (Note that in Chapter 46 we will
+        encounter many finite fields that are not of the form $\mathbb{Z}_p$.)
+    \end{enumerate}
+\end{problem}
+\unsolved

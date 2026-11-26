@@ -1,9 +1,81 @@
-\begin{tcolorbox}[title=Problem 1, breakable]
+\begin{problem}[Warmup]{(a)}
+    Determine whether the following pairs of elements are associates:
+    \begin{enumerate}
+        \item[(a)] $x$ and $3x$ in $\mathbb{Q}[x]$.
+        \item[(b)] $x$ and $3x$ in $\mathbb{Z}[x]$.
+        \item[(c)] 4 and 2 in $\mathbb{Z}_{10}$.
+        \item[(d)] 4 and 2 in $\mathbb{Z}_8$.
+        \item[(e)] 4 and 2 in $\mathbb{Z}_7$.
+        \item[(f)] $4 + \sqrt{3}$ and $11 + 6\sqrt{3}$ in $\mathbb{Z}[\sqrt{3}]$.
+        \item[(g)] $(2, -1)$ and $(4, 1)$ in $\mathbb{Z} \times \mathbb{Z}$.
+        \item[(h)] $(2, -1)$ and $(4, 1)$ in $\mathbb{Q} \times \mathbb{Z}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Discover which elements of $\mathbb{Z}_{15}$ are associates of which.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    List all associates of $x^2 + 3x + 4$ in $\mathbb{Z}_5[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    What are the units in $\mathbb{Q} \times \mathbb{Q}$? What are the associates in this ring of $(1, 2)$? of $(1, 0)$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Determine four distinct associates of $3 + 2\sqrt{2}$ in $\mathbb{Z}[\sqrt{2}]$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Determine all associates of $5 + i$ in $\mathbb{Z}[i]$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Let $n$ be any square-free integer. Why is $n$ not irreducible in $\mathbb{Z}[\sqrt{n}]$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(h)}
+    Determine four distinct irreducibles in $\mathbb{Z}[\sqrt{2}]$. \emph{Hint:} Look for elements with prime norm.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(i)}
+    Do irreducible elements of $\mathbb{Z}[\sqrt{n}]$ necessarily have prime norm?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(j)}
+    Determine which of the following elements are irreducible:
+    \begin{enumerate}
+        \item[(a)] $9 + \sqrt{10}$ in $\mathbb{Z}[\sqrt{10}]$.
+        \item[(b)] $5 + \sqrt{5}$ in $\mathbb{Z}[\sqrt{5}]$.
+        \item[(c)] $2x^2 + 4$ in $\mathbb{Z}[x]$.
+        \item[(d)] $2x^2 + 4$ in $\mathbb{Q}[x]$.
+        \item[(e)] $x^2 + 4$ in $\mathbb{Z}_7[x]$.
+        \item[(f)] $(1, 3)$ in $\mathbb{Z} \times \mathbb{Z}$.
+        \item[(g)] $(0, 3)$ in $\mathbb{Z} \times \mathbb{Z}$.
+        \item[(h)] $(1, -1)$ in $\mathbb{Z} \times \mathbb{Z}$.
+        \item[(i)] $(1, 3)$ in $\mathbb{Z} \times \mathbb{Q}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
     Find all simultaneous solutions to the Diophantine
     equations $ac - bd = 1$, $ad + bc = 0$ directly,
     by eliminating variables, interpret your solutions 
     as determining all units in the Gaussian integers.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Now, if $c = 0$ then $ad = 0$ implies $a = 0$ or $d = 0$.
@@ -27,12 +99,13 @@
     or $a = 0,\ b = \pm 1,\ c = 0,\ d = \pm 1$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}{2}
     Prove Theorem 10.1. That is, let $n$, be a square-free integer.
     As in the text, define $N(a + b\sqrt{n}) = |a^2 - nb^2|$.
     Prove that $N$ preserves multiplication, that is,
     $N(\alpha \beta) = N(\alpha) N(\beta)$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $\alpha = a + b\sqrt{n}$ and $\beta = c + d\sqrt{n}$.
@@ -70,12 +143,13 @@
     Thus $N(\alpha\beta) = N(\alpha)N(\beta)$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Suppose that $n, m$ are distinct square-free integers.
     Prove that $\mathbb{Z}[\sqrt{n}] \cap \mathbb{Z}[\sqrt{m}] = \mathbb{Z}$.
     This is not true if at least one of the integers $n$ and $m$ is not 
     square-free. Give an example to show this.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 
 \begin{theorem}
@@ -111,11 +185,12 @@
     \]
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Prove that the Diophantine equation $2b^2 = a^2 + 3$ has no 
         integer solutions, proceeding similarly as the problem 
         $a^2 = 2b^2 + 3$ is handled in the text in Example 10.16.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Now $2b^2 = a^2 + 3 \iff a^2 = 2b^2 - 3$, thus $a$ is odd
@@ -128,10 +203,11 @@
      and thus there are no integer solutions.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 5, breakable]
+\begin{problem}{5}
     Find infinitely many distinct units in $\mathbb{Z}[\sqrt{7}]$. 
     Then list infinitely many associates of $\sqrt{7}$ in $\mathbb{Z}[\sqrt{7}]$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $\alpha = 8 + 3\sqrt{7}$ and note that $N(\alpha) = 1$,
@@ -142,10 +218,11 @@
         consider $\alpha^n \sqrt{7}$ where $n \ge 1$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 6, breakable]
+\begin{problem}{6}
     Suppose that $n$ is a square-free integer and $n > 0$.
     Prove that $\mathbb{Z}[\sqrt{-n}]$ has only finitely many units.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Since $-n < 0$, for $\alpha \in \mathbb{Z}[\sqrt{-n}]$ with $\alpha = a + b\sqrt{-n}$, we have
@@ -156,9 +233,10 @@
     Clearly, this is not possible.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 7, breakable]
+\begin{problem}{7}
     Show that there are no irreducible elements in $\mathbb{Z}_6$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     The units in $\mathbb{Z}_6$ are $1$ and $5$.
@@ -171,29 +249,32 @@
     Thus there are no irreducible elements in $\mathbb{Z}_6$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 8, breakable]
+\begin{problem}{8}
     Show that $2$ is irreducible in $\mathbb{Z}_8$, and that 
     every non-unit in $\mathbb{Z}_8$ is irreducible or a product of irreducibles.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     We can view the multiplication table and see $2$ is irreducible in $\mathbb{Z}_8$.
     Similarly we can do the same for non-units and see they are either irreducible or a product of irreducibles.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{9}
     Determine all irreducible elements in $\mathbb{Z} \times \mathbb{Z}$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     $(a, b) \in \mathbb{Z} \times \mathbb{Z}$ where $\pm a$ or $\pm b$ is prime
     and the other element is $\pm 1$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 10, breakable]
+\begin{problem}{10}
     Prove that if $p$ is prime in $\mathbb{Z}$ and $p$ is congruent to $3 \pmod{4}$,
     then $p$ is irreducible in $\mathbb{Z}[i]$.
-\end{tcolorbox}
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $p$ is prime in $\mathbb{Z}$ and $p \equiv 3 \pmod{4}$.
@@ -209,9 +290,10 @@
     which is impossible because a prime $p \equiv 3 \pmod 4$ cannot be written as a sum of two squares.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{problem}{11}
     Prove $2$ is irreducible in $\mathbb{Z}[n]$ for all square-free $n < -2$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $n < -2$ is square free.
@@ -243,19 +325,21 @@
     Thus $2$ is irreducible.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{12}
     Find two distinct square-free integers $n$ (with $n > 1$) for which $2$
         is not irreducible in $\mathbb{Z}[\sqrt{n}]$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution: }
 \[n = 2, 3\]
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{13}
     Suppose that $p$ is a postive prime integer.
     Prove that $\sqrt{p}$ is irreducible in $\mathbb{Z}[\sqrt{p}]$.
     Show by example that this is false if $p$ is not prime; in particular, consider $p = 6$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     For contradiction, suppose $\sqrt{p} = \alpha \beta$ for some $\alpha, \beta \in \mathbb{Z}[\sqrt{p}]$ that are not units.  
@@ -272,10 +356,11 @@
 Note that $\sqrt{2}, \sqrt{3}$ are not units in $\mathbb{Z}[\sqrt{6}]$.
 \[\sqrt{6} = \sqrt{2}\sqrt{3} \in \mathbb{Z}[\sqrt{6}].\]
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{14}
     Show that $11 + 6 \sqrt{-5}$ and $16 + 3 \sqrt{-5}$ are irreducible elements in $\mathbb{Z}[\sqrt{-5}]$,
         with the same norm. Show that these elements are not associates.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $11 + 6 \sqrt{-5} = \alpha \beta$ for some non-units $\alpha, \beta \in \mathbb{Z}[\sqrt{-5}]$.
@@ -289,10 +374,18 @@ Note that $\sqrt{2}, \sqrt{3}$ are not units in $\mathbb{Z}[\sqrt{6}]$.
     Neither are associates because the only units in $\mathbb{Z}[\sqrt{-5}]$ are $\pm 1$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{problem}{15}
+    Suppose that $R$ is a commutative ring with unity, and consider the ring $R[x]$ of
+    polynomials with coefficients from $R$. (See Exercise 6.23.) Let $r$ be an
+    irreducible element of $R$. Prove that $r$ is an irreducible element of $R[x]$.
+\end{problem}
+\unsolved
+
+\begin{problem}{16}
     Suppose that $n$ is a square-free integer.
     Prove that $\sqrt{n}$ is irrational.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $n$ is square-free and $\sqrt{n}$ is rational.

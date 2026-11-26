@@ -1,7 +1,76 @@
-\begin{tcolorbox}[title=Problem 2, breakable]
+\begin{problem}[Warmup]{(a)}
+    Do the two factorizations \[5 = \sqrt{-5} \cdot -\sqrt{-5} = 1 \cdot 5\] provide another example that factorization into irreducibles is not unique in $\mathbb{Z}[\sqrt{-5}]$? Why or why not?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(b)}
+    Do the two factorizations \[6 = 3 \cdot 2 = (-2 + 2\sqrt{2})(3 + 3\sqrt{2})\] provide an example to show that factorization into irreducibles is not unique in $\mathbb{Z}[\sqrt{2}]$? Why or why not?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(c)}
+    Are the following ideals?
+    \begin{enumerate}
+        \item[(a)] $\mathbb{Q}$ in $\mathbb{R}$.
+        \item[(b)] $\{0, 2, 4, 6\}$ in $\mathbb{Z}_8$.
+        \item[(c)] $\mathbb{Z}[x]$ in $\mathbb{Q}[x]$.
+        \item[(d)] $\mathbb{Z}$ in $\mathbb{Z}[i]$.
+        \item[(e)] $\{ni : n \in \mathbb{Z}\}$ in $\mathbb{Z}[i]$.
+        \item[(f)] $\mathbb{Z} \times \{0\}$ in $\mathbb{Z} \times \mathbb{Z}$.
+        \item[(g)] $\{5n + 5m\sqrt{2} : n, m \in \mathbb{Z}\}$ in $\mathbb{Z}[\sqrt{2}]$.
+        \item[(h)] The set of all polynomials with even degree (together with the zero polynomial), in $\mathbb{Q}[x]$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(d)}
+    Are the following equalities true or false?
+    \begin{enumerate}
+        \item[(a)] $\langle x \rangle = \langle 3x \rangle$, in $\mathbb{Z}[x]$.
+        \item[(b)] $\langle x \rangle = \langle 3x \rangle$, in $\mathbb{Q}[x]$.
+        \item[(c)] $\langle 1 + i \rangle = \mathbb{Z}[i]$.
+        \item[(d)] $\langle 2 \rangle = \langle 10 \rangle$, in $\mathbb{Z}_{14}$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(e)}
+    Suppose that $R$ is a commutative ring with unity, and $I$ is an ideal of $R$. If $1 \in I$, what can you say about $I$?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(f)}
+    Give a nice description of the elements of the ideal $\langle \sqrt{7} \rangle$ in the ring $\mathbb{Z}[\sqrt{7}]$.
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(g)}
+    Have we given an example in this chapter of an ideal that is \emph{not} principal?
+\end{problem}
+\unsolved
+
+\begin{problem}[Warmup]{(h)}
+    Give examples of the following (or explain why they don't exist):
+    \begin{enumerate}
+        \item[(a)] A non-zero proper ideal of a finite ring.
+        \item[(b)] A non-zero proper ideal of $\mathbb{C}$.
+        \item[(c)] A non-zero proper ideal of $\mathbb{Z}[i]$.
+        \item[(d)] A non-zero proper ideal of $\mathbb{Z}[x]$.
+    \end{enumerate}
+\end{problem}
+\unsolved
+
+\begin{problem}{1}
+    In Examples 7.1--7.10, determine in each case whether the subrings described there
+    are ideals.
+\end{problem}
+\unsolved
+
+\begin{problem}{2}
     Prove that all ideals in $\mathbb{Q}[x]$ are principal,
         using a similar proof to that for $\mathbb{Z}$ (Theorem 11.6).
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose that $I$ is an ideal of $\mathbb{Q}[x]$.
@@ -19,7 +88,7 @@
     Thus for $\mathbb{Q}[x]$ all ideals are principal.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 3, breakable]
+\begin{problem}{3}
     Consider the set 
     \[I = \{f \in \mathbb{Q}[x] \mid f(i) = 0\}\]
     (Here, $i$ is the usual complex number.)
@@ -29,7 +98,8 @@
               Find a generator for $I$, and prove that it works.
               [Hint: The generator should be an element in $I$ with the smallest degree greater than $0$.]
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $f, g \in I$.  
@@ -49,12 +119,12 @@
     Thus $I = \langle x^2 + 1 \rangle$ is principal with generator $x^2 + 1$.
 \end{proof}
 
-
-\begin{tcolorbox}[title=Problem 4, breakable]
+\begin{problem}{4}
     Consider the set 
     \[I = \{f \in \mathbb{C}[x] \mid f(i) = 0\}\]
     Repeat Exercise 3 for this set.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $f, g \in I$.  
@@ -74,7 +144,35 @@
     Thus $I = \langle x - i \rangle$ is principal with generator $x - i$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 9, breakable]
+\begin{problem}{5}
+    Consider the set
+    \[I = \{f \in \mathbb{Q}[x] : f(3) = 0 \text{ and } f(\sqrt{3}) = 0\}.\]
+    Repeat Exercise 3 for this set. (Exercise 3: (a) Prove that $I$ is an ideal.
+    (b) We know that $I$ is a principal ideal (why?). Find a generator for $I$, and prove
+    that it works.)
+\end{problem}
+\unsolved
+
+\begin{problem}{6}
+    Determine all the principal ideals of $\mathbb{Z}_{12}$, and draw a diagram describing
+    their containment relations. Prove that $\mathbb{Z}_{12}$ has no other ideals.
+\end{problem}
+\unsolved
+
+\begin{problem}{7}
+    Find two factorizations of 8 into irreducibles in $\mathbb{Z}[\sqrt{-7}]$ that are
+    essentially distinct.
+\end{problem}
+\unsolved
+
+\begin{problem}{8}
+    Consider the ring $\mathbb{Z}[\alpha]$, where $\alpha = \sqrt[3]{5}$, as described in
+    Exercise 7.3. Describe the elements of the principal ideals $\langle \alpha \rangle$
+    and $\langle 2 \rangle$.
+\end{problem}
+\unsolved
+
+\begin{problem}{9}
     Consider 
     \[
     I = \left\{
@@ -89,7 +187,8 @@
         \item Show that $I$ is \emph{not} an ideal of $M_2(\mathbb{Z})$ (using the stronger 
                 definition of ideal used for non-commutative rings).
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let 
@@ -137,12 +236,19 @@
     bd & b
 \end{bmatrix} \notin I.\]
 
+\begin{problem}{10}
+    Consider the principal ideal $\langle 3 + \sqrt{5} \rangle$ in $\mathbb{Z}[\sqrt{5}]$.
+    Prove that
+    \[\langle 3 + \sqrt{5} \rangle = \{c + d\sqrt{5} : 4 \mid (c + d)\}.\]
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 11, breakable]
+\begin{problem}{11}
     Suppose $p, q$ are distinct prime integers in $\mathbb{Z}$.
     Prove that 
     \[\langle p \rangle \cap \langle q \rangle = \langle pq \rangle.\]
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $x \in \langle p \rangle \cap \langle q \rangle$.
@@ -154,13 +260,14 @@
     Since $x = p(qk)$ and $x = q(pk)$ we have $x \in \langle p \rangle \cap \langle q \rangle$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 12, breakable]
+\begin{problem}{12}
     Let $R$ be a commutative ring, and suppose that $I$ and $J$ are 
         ideals. Prove that $I \cap J$ is an ideal.
     (Note the many examples of intersections of ideals provided in Exercise 11.
     Also compare this exercise to Exercise 7.9.) Now describe the ideal in Exercise 5 
     as an intersection of two proper ideals.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \textbf{Solution: }
 \[\langle x^2 - 3 \rangle \cap \langle x - 3 \rangle = \langle (x^2 - 3)(x - 3) \rangle\]
@@ -174,10 +281,11 @@
     Thus $I \cap J$ is an ideal.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 13, breakable]
+\begin{problem}{13}
     Suppose that $R$ is a commutative ring, $I$ and $J$ are ideal of $R$,
     and $I \subseteq J$. Prove that $I$ is an ideal of the ring $J$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $i$ be an arbitrary element in $I$ and $j$ an arbitrary element in $J$.
@@ -186,14 +294,15 @@
     Thus $I$ is an ideal of the ring $J$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 14, breakable]
+\begin{problem}{14}
     Let $R$ be a commutative ring, with ideals $I$ and $J$.
     Let 
     \[I + J = \{a + b \mid a \in I, b \in J\}\]
     Prove that $I + J$ is an ideal of $R$.
     For obvious reasons, we call the ideal $I + J$ the \textbf{sum}
     of $I$ and $J$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x, y$ be arbitrary elements in $I + J$.
@@ -206,7 +315,7 @@
     Thus $I + J$ is an ideal of $R$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 15, breakable]
+\begin{problem}{15}
     Suppose that $R$ is a commutative ring with unity, and $I$ and $J$
     are ideals. Define 
     \[I \cdot J = \left\{\sum_{k = 1}^{n} a_k b_k \mid a_k \in I, b_k \in J, n \in \mathbb{N}\right\}.\]
@@ -217,7 +326,8 @@
         \item Prove that if $a, b \in R$, we have that $\langle a \rangle \cdot \langle b \rangle = \langle ab \rangle$.
         \item Show by example in $R = \mathbb{Z}$ that we can have $I \cdot J \subseteq I \cap J$.
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $c \in R$.  
@@ -283,10 +393,11 @@
 Take $I = 2 \mathbb{Z}$ and $J = 3 \mathbb{Z}$ then $I \cdot J = 6 \mathbb{Z}$
     and $I \cap J = 6 \mathbb{Z}$ thus $I \cdot J \subseteq 6 \mathbb{Z}$.
 
-\begin{tcolorbox}[title=Problem 16, breakable]
+\begin{problem}{16}
     Suppose that $I, J, K$ are ideals in $R$, a commutative ring with unity.
     Prove that $I \cdot (J + K) = I \cdot J + I \cdot K$.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x$ be an arbitrary element in $I \cdot (J + K)$ such that 
@@ -307,7 +418,7 @@ Take $I = 2 \mathbb{Z}$ and $J = 3 \mathbb{Z}$ then $I \cdot J = 6 \mathbb{Z}$
     Therefore $x \in I \cdot (J + K)$.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 17, breakable]
+\begin{problem}{17}
     Let $X$ be a set; consider the power set ring $\mathcal{P}(X)$, described in
         Exercise 6.20. Pick a fixed subset $a$ of $X$, and let 
         \[I = \{b \in \mathcal{P}(X) \mid b \subseteq a\}.\]
@@ -315,7 +426,8 @@ Take $I = 2 \mathbb{Z}$ and $J = 3 \mathbb{Z}$ then $I \cdot J = 6 \mathbb{Z}$
         \item Prove that $I$ is an ideal of $\mathcal{P}(X)$.
         \item Prove that $I$ is a principal ideal (find the generator!).
     \end{enumerate}
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x, y$ be arbitrary elements in $I$.
@@ -335,10 +447,10 @@ Take $I = 2 \mathbb{Z}$ and $J = 3 \mathbb{Z}$ then $I \cdot J = 6 \mathbb{Z}$
     Every subset of $a$ can be written as $b \cap a = b$ for some $b \in \mathcal{P}(X)$, so $\langle a \rangle = I$.
 \end{proof}
 
-
-\begin{tcolorbox}[title=Problem 18, breakable]
+\begin{problem}{18}
     Prove that the nilradical of a commutative ring with unity is an ideal. (See Exercise 7.15, where you proved it is a subring.)
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $R$ be a commutative ring with unity.
@@ -357,12 +469,28 @@ Take $I = 2 \mathbb{Z}$ and $J = 3 \mathbb{Z}$ then $I \cdot J = 6 \mathbb{Z}$
     It follows that $\mathcal{N}(P)$ is an ideal.
 \end{proof}
 
-\begin{tcolorbox}[title=Problem 21, breakable]
+\begin{problem}{19}
+    Suppose that $R$ is a commutative ring with unity, and $r \in R$. Let
+    $A(r) = \{s \in R : rs = 0\}$. (This set is called the \textbf{annihilator} of $r$.)
+    Prove that $A(r)$ is an ideal.
+\end{problem}
+\unsolved
+
+\begin{problem}{20}
+    Generalize Exercise 19: Suppose that $R$ is a commutative ring with unity, and $I$ is
+    an ideal. Let
+    \[A(I) = \{s \in R : rs = 0, \text{ for all } r \in I\};\]
+    we call $A(I)$ the \textbf{annihilator} of $I$. Prove that $A(I)$ is an ideal.
+\end{problem}
+\unsolved
+
+\begin{problem}{21}
     Generalize Exercise 19: Suppose that $R$ is a commutative ring with unity, and $I$ is an ideal.
     Let 
     \[A(I) = \{s \in R \mid rs = 0, \text{ for all } r \in I\}.\]
     we call $A(I)$ the \textbf{annihilator} of $I$. Prove that $A(I)$ is an ideal.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Let $x, y \in A(I)$ and $r \in R$ be arbitrary.  
@@ -380,11 +508,20 @@ Take $I = 2 \mathbb{Z}$ and $J = 3 \mathbb{Z}$ then $I \cdot J = 6 \mathbb{Z}$
     Therefore, $A(I)$ is an ideal of $R$.
 \end{proof}
 
+\begin{problem}{22}
+    Suppose that $R$ is a commutative ring with unity, and $e$ is an idempotent. In
+    Exercise 7.25, we defined what this means and also considered the subring $Re$; we
+    now know that this subring is the principal ideal $\langle e \rangle$. Prove that the
+    annihilator $A(e)$ is a principal ideal. (See Exercise 19 for the definition of
+    annihilator.)
+\end{problem}
+\unsolved
 
-\begin{tcolorbox}[title=Problem 23, breakable]
+\begin{problem}{23}
     Generalize Theorem 11.5: Suppose that $R$ is a commutative ring with unity and $r, s \in R$,
     with $r$ not a zero divisor. Prove that $\langle r \rangle = \langle s \rangle$ if and only if $r, s$ are associates.
-\end{tcolorbox} 
+\end{problem}
+\solved
 
 \begin{proof}
     Suppose $\langle r \rangle = \langle s \rangle$.  
