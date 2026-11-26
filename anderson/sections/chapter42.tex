@@ -121,6 +121,13 @@
     ring homomorphism.
 \end{tcolorbox}
 
+\begin{proof}
+    Let $x, y \in \mathbb{Z}_p$.
+    Then 
+    \[\iota([x + y]) = \]
+    and 
+\end{proof}
+
 \begin{tcolorbox}[title=Problem 7, breakable]
     \begin{enumerate}
         \item[(a)] For a field $F$ with characteristic zero, we defined in
@@ -141,3 +148,48 @@
     of all these subfields. Prove that the result is a field, by checking
     explicitly the field axioms.
 \end{tcolorbox}
+
+\newpage
+\begin{tcolorbox}[title=Problem 8, breakable]
+    Let $F$ be a subfield of the field $E$, and suppose that $\alpha \in E$ is 
+        transcendental over $F$.
+    \begin{enumerate}
+        \item Show that 
+        \[1, \alpha, \alpha^2, \alpha^3, \cdots\]
+        is a linearly independent set of the vector space $F(\alpha)$ (over $F$).
+        \item Why does the previous part mean that the dimension of $F(\alpha)$ over $F$ is infinite.
+        \item Show that the set in the first part is \emph{not} a basis for $F(\alpha)$ over $F$.
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose for contradiction that $1, \alpha, \alpha^2, \ldots$ are linearly
+    dependent over $F$. 
+    There exist $n \ge 0$ and $b_0, \ldots, b_n \in F$, not all zero, with
+    \[
+        b_0 + b_1 \alpha + \cdots + b_n \alpha^n = 0.
+    \]
+    Let $f(x) = b_0 + b_1 x + \cdots + b_n x^n \in F[x]$. Since some $b_i \ne 0$,
+    $f$ is a nonzero polynomial, and $f(\alpha) = 0$. Thus
+    $\alpha$ is algebraic over $F$, contradicting that $\alpha$ is transcendental.
+\end{proof}
+
+\begin{proof}
+    If $F(\alpha)$ had finite dimension $n$ over $F$, then every linearly
+    independent subset of $F(\alpha)$ would have at most $n$ elements. But
+    $1, \alpha, \ldots, \alpha^n$ are $n + 1$ linearly independent elements
+    by the first part, a contradiction.
+\end{proof}
+
+\begin{proof}
+    Since $0$ is algebraic over $F$, $\alpha \ne 0$, so $\alpha^{-1} \in F(\alpha)$.
+    Suppose for contradiction that $\alpha^{-1} = b_0 + b_1 \alpha + \cdots + b_n \alpha^n$
+    for some $b_0, \ldots, b_n \in F$. Multiplying by $\alpha$ gives
+    \[
+        b_n \alpha^{n+1} + \cdots + b_0 \alpha - 1 = 0,
+    \]
+    so $\alpha$ is a root of $g(x) = b_n x^{n+1} + \cdots + b_0 x - 1 \in F[x]$.
+    The constant term of $g$ is $-1$, so $g$ is nonzero, and $\alpha$ is algebraic
+    over $F$, a contradiction. Thus $\alpha^{-1}$ is not in the span of
+    $1, \alpha, \alpha^2, \ldots$, so this set is not a basis of $F(\alpha)$.
+\end{proof}
